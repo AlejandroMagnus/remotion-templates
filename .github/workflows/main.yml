@@ -3,6 +3,9 @@ name: Render Video Juridico
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -24,7 +27,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg python3-pip
-          pip install edge-tts --break-system-packages
+          python3 -m pip install edge-tts==7.2.1 --break-system-packages
 
       - name: Crear carpeta de audio
         run: mkdir -p public/generated
@@ -47,19 +50,29 @@ jobs:
 
           AUDIO.parent.mkdir(parents=True, exist_ok=True)
 
+          def srt_time(ms):
+              h = ms // 3600000
+              ms %= 3600000
+              m = ms // 60000
+              ms %= 60000
+              s = ms // 1000
+              milli = ms % 1000
+              return f"{h:02}:{m:02}:{s:02},{milli:03}"
+
           async def main():
               communicate = edge_tts.Communicate(
                   text,
                   "es-BO-MarceloNeural",
-                  rate="-5%"
+                  rate="-5%",
+                  boundary="WordBoundary",
               )
 
               words = []
 
-              with AUDIO.open("wb") as audio:
+              with AUDIO.open("wb") as audio_file:
                   async for chunk in communicate.stream():
                       if chunk["type"] == "audio":
-                          audio.write(chunk["data"])
+                          audio_file.write(chunk["data"])
 
                       elif chunk["type"] == "WordBoundary":
                           start_ms = round(chunk["offset"] / 10000)
@@ -70,6 +83,12 @@ jobs:
                               "startMs": start_ms,
                               "endMs": start_ms + duration_ms
                           })
+
+              if not words:
+                  raise RuntimeError(
+                      "ERROR: edge-tts no genero WordBoundary. "
+                      "Se detiene el workflow para evitar un video falso sin sincronizacion."
+                  )
 
               TIMELINE.write_text(
                   json.dumps(
@@ -83,30 +102,38 @@ jobs:
                   encoding="utf-8"
               )
 
-              def stamp(ms):
-                  h = ms // 3600000
-                  ms %= 3600000
-                  m = ms // 60000
-                  ms %= 60000
-                  s = ms // 1000
-                  milli = ms % 1000
-                  return f"{h:02}:{m:02}:{s:02},{milli:03}"
+              srt_lines = []
 
-              lines = []
-              for i, word in enumerate(words, 1):
-                  lines.append(
+              for i, word in enumerate(words, start=1):
+                  srt_lines.append(
                       f"{i}\n"
-                      f"{stamp(word['startMs'])} --> {stamp(word['endMs'])}\n"
+                      f"{srt_time(word['startMs'])} --> {srt_time(word['endMs'])}\n"
                       f"{word['text']}\n"
                   )
 
-              SRT.write_text("\n".join(lines), encoding="utf-8")
+              SRT.write_text(
+                  "\n".join(srt_lines),
+                  encoding="utf-8"
+              )
 
-              print(f"Palabras sincronizadas: {len(words)}")
-              print(f"Timeline creado: {TIMELINE}")
+              print("====================================")
+              print(f"PALABRAS SINCRONIZADAS: {len(words)}")
+              print(f"AUDIO: {AUDIO}")
+              print(f"TIMELINE: {TIMELINE}")
+              print(f"SRT: {SRT}")
+              print("====================================")
 
           asyncio.run(main())
           PY
+
+      - name: Verificar archivos sincronizados
+        run: |
+          test -s public/generated/video-juridico-001-narration.mp3
+          test -s public/generated/video-juridico-001-timeline.json
+          test -s public/generated/video-juridico-001.srt
+          echo "Audio, timeline y subtitulos OK"
+          ls -lh public/generated/
+
       - name: Validar video
         run: npm run video:validate -- examples/video-juridico-001.video.json
 
@@ -114,11 +141,15 @@ jobs:
         run: npm run video:render -- examples/video-juridico-001.video.json
 
       - name: Renombrar version sincronizada
-        run: mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp4
-      
-      - name: VIDEO-JURIDICO-001-V2-SYNC
+        run: |
+          mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp4
+          test -s out/video-juridico-001-V2-SYNC.mp4
+          ls -lh out/video-juridico-001-V2-SYNC.mp4
+
+      - name: Guardar VIDEO-JURIDICO-001-V2-SYNC
         uses: actions/upload-artifact@v4
         with:
           name: VIDEO-JURIDICO-001-V2-SYNC
           path: out/video-juridico-001-V2-SYNC.mp4
           retention-days: 7
+          if-no-files-found: error
