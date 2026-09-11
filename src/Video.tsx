@@ -15,7 +15,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
-
+import { SemanticVisualOverlay } from "./SemanticVisualOverlay";
 import { sceneDurationMs, type VideoSpec } from "./schema";
 
 const { fontFamily: displayFont } = loadFraunces("normal", {
