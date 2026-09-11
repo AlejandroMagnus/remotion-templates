@@ -113,7 +113,10 @@ jobs:
       - name: Renderizar video
         run: npm run video:render -- examples/video-juridico-001.video.json
 
-      - name: Guardar MP4
+      - name: Renombrar version sincronizada
+        run: mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp
+      
+      - name: VIDEO-JURIDICO-001-V2-SYNC
         uses: actions/upload-artifact@v4
         with:
           name: VIDEO-JURIDICO-001
