@@ -765,5 +765,6 @@ export function TemplateVideo({ spec }: { spec: VideoSpec }) {
       <SemanticVisualOverlay />
       <WordSyncOverlay />
       <AudioBed spec={spec} />
+      </AbsoluteFill>
   );
 }
