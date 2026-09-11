@@ -1,4 +1,4 @@
-name: Render Remotion Video
+name: Render Video Juridico
 
 on:
   workflow_dispatch:
@@ -14,18 +14,39 @@ jobs:
       - name: Configurar Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Instalar dependencias
         run: npm ci
 
+      - name: Instalar voz y FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg python3-pip
+          pip install edge-tts --break-system-packages
+
+      - name: Crear carpeta de audio
+        run: mkdir -p public/generated
+
+      - name: Generar narracion boliviana
+        run: |
+          TEXT=$(node -e "const j=require('./examples/video-juridico-001.video.json'); process.stdout.write(j.audio.narrationText)")
+          edge-tts \
+            --voice es-BO-MarceloNeural \
+            --rate=-5% \
+            --text "$TEXT" \
+            --write-media public/generated/video-juridico-001-narration.mp3
+
+      - name: Validar video
+        run: npm run video:validate -- examples/video-juridico-001.video.json
+
       - name: Renderizar video
-        run: npm run video:render -- examples/proof-walkthrough.video.json
+        run: npm run video:render -- examples/video-juridico-001.video.json
 
       - name: Guardar MP4
         uses: actions/upload-artifact@v4
         with:
-          name: video-renderizado
+          name: VIDEO-JURIDICO-001
           path: out/*.mp4
           retention-days: 7
