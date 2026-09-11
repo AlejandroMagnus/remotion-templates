@@ -26,11 +26,12 @@ jobs:
       - name: Verificar TypeScript
         run: npm run typecheck
 
-      - name: Instalar FFmpeg y edge-tts
+      - name: Instalar FFmpeg y edge-tts actual
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg python3-pip
-          python3 -m pip install "edge-tts==7.2.1" --break-system-packages
+          python3 -m pip install "edge-tts==7.2.8" --break-system-packages
+          python3 -m edge_tts --version
 
       - name: Preparar directorios
         run: |
@@ -44,6 +45,7 @@ jobs:
           python3 <<'PY'
           import asyncio
           import json
+          import time
           from pathlib import Path
           import edge_tts
 
@@ -67,12 +69,17 @@ jobs:
               millis = ms % 1_000
               return f"{hours:02}:{minutes:02}:{seconds:02},{millis:03}"
 
-          async def main():
+          async def synthesize_once():
+              if AUDIO.exists():
+                  AUDIO.unlink()
+
               communicate = edge_tts.Communicate(
                   text,
                   "es-BO-MarceloNeural",
                   rate="-5%",
                   boundary="WordBoundary",
+                  connect_timeout=20,
+                  receive_timeout=90,
               )
 
               words = []
@@ -92,15 +99,47 @@ jobs:
                               "endMs": start_ms + duration_ms,
                           })
 
+              return words
+
+          async def main():
+              words = None
+              last_error = None
+
+              for attempt in range(1, 4):
+                  try:
+                      print(f"Intento TTS {attempt}/3")
+                      words = await synthesize_once()
+                      break
+                  except Exception as error:
+                      last_error = error
+
+                      if AUDIO.exists():
+                          AUDIO.unlink()
+
+                      print(
+                          f"Intento {attempt} fallo: "
+                          f"{type(error).__name__}: {error}"
+                      )
+
+                      if attempt < 3:
+                          await asyncio.sleep(5 * attempt)
+
+              if words is None:
+                  raise RuntimeError(
+                      "TTS fallo despues de 3 intentos. "
+                      f"Ultimo error: {last_error}"
+                  )
+
               if not AUDIO.exists() or AUDIO.stat().st_size == 0:
-                  raise RuntimeError("No se genero el archivo de audio")
+                  raise RuntimeError("No se genero audio valido")
 
               if len(words) < 5:
                   raise RuntimeError(
-                      f"Timeline invalido: solo se generaron {len(words)} palabras"
+                      f"Timeline invalido: solo {len(words)} palabras"
                   )
 
               previous_start = -1
+
               for index, word in enumerate(words):
                   if word["startMs"] < previous_start:
                       raise RuntimeError(
@@ -150,7 +189,7 @@ jobs:
               print("======================================")
               print("SINCRONIZACION GENERADA CORRECTAMENTE")
               print(f"Palabras: {len(words)}")
-              print(f"Duracion timeline: {words[-1]['endMs']} ms")
+              print(f"Duracion: {words[-1]['endMs']} ms")
               print(f"Audio: {AUDIO.stat().st_size} bytes")
               print(f"Timeline: {TIMELINE}")
               print(f"SRT: {SRT}")
@@ -176,7 +215,7 @@ jobs:
           data = json.loads(path.read_text(encoding="utf-8"))
           words = data.get("words", [])
 
-          assert len(words) >= 5, "Timeline sin palabras suficientes"
+          assert len(words) >= 5
           assert data["wordCount"] == len(words)
           assert data["durationMs"] > 0
 
@@ -197,12 +236,11 @@ jobs:
           npm run video:render -- \
             examples/video-juridico-001.video.json
 
-      - name: Verificar MP4 original
+      - name: Verificar MP4
         run: |
           test -s out/video-juridico-001.mp4
-          ls -lh out/video-juridico-001.mp4
 
-      - name: Crear nombre V2 definitivo
+      - name: Crear MP4 V2 definitivo
         run: |
           mv \
             out/video-juridico-001.mp4 \
@@ -210,7 +248,6 @@ jobs:
 
           test -s out/video-juridico-001-V2-SYNC.mp4
 
-          echo "MP4 FINAL:"
           ls -lh out/video-juridico-001-V2-SYNC.mp4
 
       - name: Subir V2 sincronizada
