@@ -1,4 +1,4 @@
-name: Render Video Juridico
+name: Render Video Juridico V2 Sync
 
 on:
   workflow_dispatch:
@@ -12,25 +12,32 @@ jobs:
 
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Configurar Node
-        uses: actions/setup-node@v4
+      - name: Configurar Node 24
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
 
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Instalar voz y FFmpeg
+      - name: Verificar TypeScript
+        run: npm run typecheck
+
+      - name: Instalar FFmpeg y edge-tts
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg python3-pip
-          python3 -m pip install edge-tts==7.2.1 --break-system-packages
+          python3 -m pip install "edge-tts==7.2.1" --break-system-packages
 
-      - name: Crear carpeta de audio
-        run: mkdir -p public/generated
+      - name: Preparar directorios
+        run: |
+          rm -rf public/generated
+          mkdir -p public/generated
+          rm -rf out
+          mkdir -p out
 
       - name: Generar narracion y timeline palabra por palabra
         run: |
@@ -46,18 +53,19 @@ jobs:
           SRT = Path("public/generated/video-juridico-001.srt")
 
           spec = json.loads(SPEC.read_text(encoding="utf-8"))
-          text = spec["audio"]["narrationText"]
+          text = spec["audio"]["narrationText"].strip()
 
-          AUDIO.parent.mkdir(parents=True, exist_ok=True)
+          if not text:
+              raise RuntimeError("narrationText esta vacio")
 
-          def srt_time(ms):
-              h = ms // 3600000
-              ms %= 3600000
-              m = ms // 60000
-              ms %= 60000
-              s = ms // 1000
-              milli = ms % 1000
-              return f"{h:02}:{m:02}:{s:02},{milli:03}"
+          def srt_time(ms: int) -> str:
+              hours = ms // 3_600_000
+              ms %= 3_600_000
+              minutes = ms // 60_000
+              ms %= 60_000
+              seconds = ms // 1_000
+              millis = ms % 1_000
+              return f"{hours:02}:{minutes:02}:{seconds:02},{millis:03}"
 
           async def main():
               communicate = edge_tts.Communicate(
@@ -81,73 +89,132 @@ jobs:
                           words.append({
                               "text": chunk["text"],
                               "startMs": start_ms,
-                              "endMs": start_ms + duration_ms
+                              "endMs": start_ms + duration_ms,
                           })
 
-              if not words:
+              if not AUDIO.exists() or AUDIO.stat().st_size == 0:
+                  raise RuntimeError("No se genero el archivo de audio")
+
+              if len(words) < 5:
                   raise RuntimeError(
-                      "ERROR: edge-tts no genero WordBoundary. "
-                      "Se detiene el workflow para evitar un video falso sin sincronizacion."
+                      f"Timeline invalido: solo se generaron {len(words)} palabras"
                   )
+
+              previous_start = -1
+              for index, word in enumerate(words):
+                  if word["startMs"] < previous_start:
+                      raise RuntimeError(
+                          f"Timeline no monotono en palabra {index}"
+                      )
+
+                  if word["endMs"] < word["startMs"]:
+                      raise RuntimeError(
+                          f"Duracion invalida en palabra {index}"
+                      )
+
+                  previous_start = word["startMs"]
+
+              timeline_data = {
+                  "schemaVersion": "2.0",
+                  "language": "es-BO",
+                  "voice": "es-BO-MarceloNeural",
+                  "wordCount": len(words),
+                  "durationMs": words[-1]["endMs"],
+                  "words": words,
+              }
 
               TIMELINE.write_text(
                   json.dumps(
-                      {
-                          "schemaVersion": "1.0",
-                          "words": words
-                      },
+                      timeline_data,
                       ensure_ascii=False,
-                      indent=2
+                      indent=2,
                   ),
-                  encoding="utf-8"
+                  encoding="utf-8",
               )
 
-              srt_lines = []
+              srt_blocks = []
 
-              for i, word in enumerate(words, start=1):
-                  srt_lines.append(
-                      f"{i}\n"
-                      f"{srt_time(word['startMs'])} --> {srt_time(word['endMs'])}\n"
+              for index, word in enumerate(words, start=1):
+                  srt_blocks.append(
+                      f"{index}\n"
+                      f"{srt_time(word['startMs'])} --> "
+                      f"{srt_time(word['endMs'])}\n"
                       f"{word['text']}\n"
                   )
 
               SRT.write_text(
-                  "\n".join(srt_lines),
-                  encoding="utf-8"
+                  "\n".join(srt_blocks),
+                  encoding="utf-8",
               )
 
-              print("====================================")
-              print(f"PALABRAS SINCRONIZADAS: {len(words)}")
-              print(f"AUDIO: {AUDIO}")
-              print(f"TIMELINE: {TIMELINE}")
+              print("======================================")
+              print("SINCRONIZACION GENERADA CORRECTAMENTE")
+              print(f"Palabras: {len(words)}")
+              print(f"Duracion timeline: {words[-1]['endMs']} ms")
+              print(f"Audio: {AUDIO.stat().st_size} bytes")
+              print(f"Timeline: {TIMELINE}")
               print(f"SRT: {SRT}")
-              print("====================================")
+              print("======================================")
 
           asyncio.run(main())
           PY
 
-      - name: Verificar archivos sincronizados
+      - name: Auditar archivos sincronizados
         run: |
           test -s public/generated/video-juridico-001-narration.mp3
           test -s public/generated/video-juridico-001-timeline.json
           test -s public/generated/video-juridico-001.srt
-          echo "Audio, timeline y subtitulos OK"
-          ls -lh public/generated/
 
-      - name: Validar video
-        run: npm run video:validate -- examples/video-juridico-001.video.json
+          python3 <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Renderizar video
-        run: npm run video:render -- examples/video-juridico-001.video.json
+          path = Path(
+              "public/generated/video-juridico-001-timeline.json"
+          )
 
-      - name: Renombrar version sincronizada
+          data = json.loads(path.read_text(encoding="utf-8"))
+          words = data.get("words", [])
+
+          assert len(words) >= 5, "Timeline sin palabras suficientes"
+          assert data["wordCount"] == len(words)
+          assert data["durationMs"] > 0
+
+          print(
+              f"QA TIMELINE OK: "
+              f"{len(words)} palabras / "
+              f"{data['durationMs']} ms"
+          )
+          PY
+
+      - name: Validar VideoSpec
         run: |
-          mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp4
+          npm run video:validate -- \
+            examples/video-juridico-001.video.json
+
+      - name: Renderizar V2 sincronizada
+        run: |
+          npm run video:render -- \
+            examples/video-juridico-001.video.json
+
+      - name: Verificar MP4 original
+        run: |
+          test -s out/video-juridico-001.mp4
+          ls -lh out/video-juridico-001.mp4
+
+      - name: Crear nombre V2 definitivo
+        run: |
+          mv \
+            out/video-juridico-001.mp4 \
+            out/video-juridico-001-V2-SYNC.mp4
+
           test -s out/video-juridico-001-V2-SYNC.mp4
+
+          echo "MP4 FINAL:"
           ls -lh out/video-juridico-001-V2-SYNC.mp4
 
-      - name: Guardar VIDEO-JURIDICO-001-V2-SYNC
-        uses: actions/upload-artifact@v4
+      - name: Subir V2 sincronizada
+        uses: actions/upload-artifact@v7
         with:
           name: VIDEO-JURIDICO-001-V2-SYNC
           path: out/video-juridico-001-V2-SYNC.mp4
