@@ -29,15 +29,84 @@ jobs:
       - name: Crear carpeta de audio
         run: mkdir -p public/generated
 
-      - name: Generar narracion boliviana
+      - name: Generar narracion y timeline palabra por palabra
         run: |
-          TEXT=$(node -e "const j=require('./examples/video-juridico-001.video.json'); process.stdout.write(j.audio.narrationText)")
-          edge-tts \
-            --voice es-BO-MarceloNeural \
-            --rate=-5% \
-            --text "$TEXT" \
-            --write-media public/generated/video-juridico-001-narration.mp3
+          python3 <<'PY'
+          import asyncio
+          import json
+          from pathlib import Path
+          import edge_tts
 
+          SPEC = Path("examples/video-juridico-001.video.json")
+          AUDIO = Path("public/generated/video-juridico-001-narration.mp3")
+          TIMELINE = Path("public/generated/video-juridico-001-timeline.json")
+          SRT = Path("public/generated/video-juridico-001.srt")
+
+          spec = json.loads(SPEC.read_text(encoding="utf-8"))
+          text = spec["audio"]["narrationText"]
+
+          AUDIO.parent.mkdir(parents=True, exist_ok=True)
+
+          async def main():
+              communicate = edge_tts.Communicate(
+                  text,
+                  "es-BO-MarceloNeural",
+                  rate="-5%"
+              )
+
+              words = []
+
+              with AUDIO.open("wb") as audio:
+                  async for chunk in communicate.stream():
+                      if chunk["type"] == "audio":
+                          audio.write(chunk["data"])
+
+                      elif chunk["type"] == "WordBoundary":
+                          start_ms = round(chunk["offset"] / 10000)
+                          duration_ms = round(chunk["duration"] / 10000)
+
+                          words.append({
+                              "text": chunk["text"],
+                              "startMs": start_ms,
+                              "endMs": start_ms + duration_ms
+                          })
+
+              TIMELINE.write_text(
+                  json.dumps(
+                      {
+                          "schemaVersion": "1.0",
+                          "words": words
+                      },
+                      ensure_ascii=False,
+                      indent=2
+                  ),
+                  encoding="utf-8"
+              )
+
+              def stamp(ms):
+                  h = ms // 3600000
+                  ms %= 3600000
+                  m = ms // 60000
+                  ms %= 60000
+                  s = ms // 1000
+                  milli = ms % 1000
+                  return f"{h:02}:{m:02}:{s:02},{milli:03}"
+
+              lines = []
+              for i, word in enumerate(words, 1):
+                  lines.append(
+                      f"{i}\n"
+                      f"{stamp(word['startMs'])} --> {stamp(word['endMs'])}\n"
+                      f"{word['text']}\n"
+                  )
+
+              SRT.write_text("\n".join(lines), encoding="utf-8")
+
+              print(f"Palabras sincronizadas: {len(words)}")
+              print(f"Timeline creado: {TIMELINE}")
+
+          asyncio.run(main())
+          PY
       - name: Validar video
         run: npm run video:validate -- examples/video-juridico-001.video.json
 
