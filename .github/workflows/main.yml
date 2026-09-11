@@ -114,7 +114,7 @@ jobs:
         run: npm run video:render -- examples/video-juridico-001.video.json
 
       - name: Renombrar version sincronizada
-        run: mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp
+        run: mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp4
       
       - name: VIDEO-JURIDICO-001-V2-SYNC
         uses: actions/upload-artifact@v4
