@@ -117,8 +117,8 @@ jobs:
         run: mv out/video-juridico-001.mp4 out/video-juridico-001-V2-SYNC.mp
       
       - name: VIDEO-JURIDICO-001-V2-SYNC
-        uses: actions/upload-artifact@v4
-        with:
-          name: VIDEO-JURIDICO-001
-          path: out/*.mp4
-          retention-days: 7
+  uses: actions/upload-artifact@v4
+  with:
+    name: VIDEO-JURIDICO-001-V2-SYNC
+    path: out/video-juridico-001-V2-SYNC.mp4
+    retention-days: 7
