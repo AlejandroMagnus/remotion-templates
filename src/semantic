@@ -1,1 +1,35 @@
+export type SemanticRule = {
+  id: string;
+  keywords: string[];
+  visualType: "document" | "keyword" | "evidence" | "process" | "warning" | "cta";
+  concept: string;
+  durationMs: number;
+  priority: number;
+};
 
+export const semanticRules: SemanticRule[] = [
+  {
+    id: "motivacion",
+    keywords: ["motivación", "motivar", "razones"],
+    visualType: "document",
+    concept: "resolución mostrando fundamentos y razones",
+    durationMs: 2800,
+    priority: 10,
+  },
+  {
+    id: "argumentos",
+    keywords: ["argumentos", "prueba", "evidencia"],
+    visualType: "evidence",
+    concept: "argumentos y prueba incorporándose al expediente",
+    durationMs: 2600,
+    priority: 9,
+  },
+  {
+    id: "debido-proceso",
+    keywords: ["debido proceso", "defensa"],
+    visualType: "process",
+    concept: "protección constitucional del debido proceso",
+    durationMs: 2800,
+    priority: 10,
+  },
+];
