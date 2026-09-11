@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0",
+  "id": "video-juridico-001",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "¿Puede una autoridad ignorar tus argumentos?",
+    "description": "Explicación jurídica breve sobre motivación y respuesta a argumentos relevantes.",
+    "tags": ["derecho", "bolivia", "administrativo", "debido-proceso"]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 60
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "¿Presentaste un recurso y la autoridad simplemente rechazó tu petición sin responder tus argumentos principales? Una decisión administrativa no debería limitarse a decir que tu recurso no corresponde. La autoridad debe explicar las razones relevantes de su decisión y permitir comprender por qué acepta o descarta los argumentos planteados. Cuando una resolución omite cuestiones decisivas, puede existir un problema de motivación y debido proceso. Pero atención: no toda respuesta breve es automáticamente ilegal. Hay que revisar el expediente, los argumentos formulados, la prueba y la fundamentación concreta de la resolución. Si una decisión administrativa afecta tus derechos, no dejes vencer los plazos. Un análisis jurídico oportuno puede determinar la estrategia correcta de impugnación.",
+    "narrationSrc": "public/generated/video-juridico-001-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.1,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "¿Ignoraron tus argumentos?",
+        "subtitle": "Una resolución no debería ser una respuesta vacía"
+      },
+      "timing": { "durationMs": 8000 }
+    },
+    {
+      "id": "problema",
+      "kind": "statement",
+      "content": {
+        "title": "La autoridad debe explicar su decisión",
+        "subtitle": "No basta con rechazar: debe existir fundamentación comprensible"
+      },
+      "timing": { "durationMs": 10000 }
+    },
+    {
+      "id": "regla",
+      "kind": "mechanism",
+      "content": {
+        "title": "El análisis jurídico conecta",
+        "before": "Argumentos + prueba",
+        "after": "Razones + decisión"
+      },
+      "timing": { "durationMs": 11000 }
+    },
+    {
+      "id": "riesgo",
+      "kind": "points",
+      "content": {
+        "title": "Señales que debemos revisar",
+        "points": [
+          "Argumentos decisivos omitidos",
+          "Prueba relevante no valorada",
+          "Razones insuficientes o contradictorias"
+        ]
+      },
+      "timing": { "durationMs": 12000 }
+    },
+    {
+      "id": "precision",
+      "kind": "statement",
+      "content": {
+        "title": "No toda respuesta breve es ilegal",
+        "subtitle": "El expediente completo determina si existe realmente un defecto"
+      },
+      "timing": { "durationMs": 10000 }
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "No dejes vencer tus plazos",
+        "line2": "Analiza estratégicamente tu caso"
+      },
+      "timing": { "durationMs": 9000 }
+    }
+  ]
+}
