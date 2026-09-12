@@ -197,7 +197,10 @@ jobs:
 
           asyncio.run(main())
           PY
-
+          
+      - name: Build semantic director decisions
+        run: npx --yes tsx scripts/build-semantic-decisions.ts
+    
       - name: Auditar archivos sincronizados
         run: |
           test -s public/generated/video-juridico-001-narration.mp3
