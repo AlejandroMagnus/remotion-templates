@@ -1,0 +1,530 @@
+[
+  {
+    "name": "blur-reveal",
+    "title": "BlurReveal",
+    "description": "A calm, spring-driven text reveal: blur and opacity fade in together while the text rises by 16px. No overshoot. The reference Onda primitive.",
+    "category": "entrances"
+  },
+  {
+    "name": "fade-in",
+    "title": "FadeIn",
+    "description": "A pure opacity fade for text — no movement, no scale, no blur. The simplest possible reveal.",
+    "category": "entrances"
+  },
+  {
+    "name": "slide-in",
+    "title": "SlideIn",
+    "description": "A direction-parameterized translate-and-fade entrance — text slides into place from up, down, left, or right on the house spring. No overshoot, calm 16px travel.",
+    "category": "entrances"
+  },
+  {
+    "name": "scale-in",
+    "title": "ScaleIn",
+    "description": "A subtle scale-from-slightly-smaller-and-fade entrance. No overshoot, no scale jumps — restrained on purpose.",
+    "category": "entrances"
+  },
+  {
+    "name": "rotate-in",
+    "title": "RotateIn",
+    "description": "A calm, spring-driven text rotation: the text settles from a slight starting angle (default -8 degrees) to 0 while fading in. No overshoot. Restraint applies to angle — the safe zone is [-12, +12] degrees.",
+    "category": "entrances"
+  },
+  {
+    "name": "mask-reveal",
+    "title": "MaskReveal",
+    "description": "Reveals text from behind a retreating mask. The text is rendered fully from frame 0 — only a clip-path inset shrinks, uncovering the text edge-by-edge with a crisp hard edge. Direction names the side the text comes in from.",
+    "category": "entrances"
+  },
+  {
+    "name": "word-stagger",
+    "title": "WordStagger",
+    "description": "Multi-word text where each word fades and rises in sequence — the clearest demonstration of the Onda stagger fingerprint.",
+    "category": "entrances"
+  },
+  {
+    "name": "typewriter",
+    "title": "Typewriter",
+    "description": "Character-by-character text reveal with an optional blinking cursor in the Onda accent. Linear pacing by design — the one intentional exception to the house spring rule, because typing has its own constant rhythm.",
+    "category": "entrances"
+  },
+  {
+    "name": "count-up",
+    "title": "CountUp",
+    "description": "An animated number that counts from `from` to `to` on SPRING_SMOOTH while fading in. Tabular numerals keep digit widths fixed; locale-grouped (en-US) by default. Prefix and suffix support currency, units, and percentages.",
+    "category": "data"
+  },
+  {
+    "name": "draw-on",
+    "title": "DrawOn",
+    "description": "An SVG path that strokes itself in — the substrate for logos, icons, and signature flourishes. Powered by @remotion/paths's evolvePath, driven by SPRING_SMOOTH. No overshoot.",
+    "category": "graphics"
+  },
+  {
+    "name": "grain-overlay",
+    "title": "GrainOverlay",
+    "description": "A subtle film-grain layer overlaid on the canvas — pure SVG fractal noise, no text, no motion. The first atmospheric Onda primitive: texture only, restrained at ~2-4% opacity per the design tokens. Deterministic and self-contained, no external assets.",
+    "category": "atmosphere"
+  },
+  {
+    "name": "stagger-group",
+    "title": "StaggerGroup",
+    "description": "A composition primitive that reveals a list of items in sequence using the canonical Onda stagger (4 frames between siblings). The foundation pattern for animated lists, bullet build-ons, feature reveals, and any sequenced text reveal. Demonstrates the signature stagger fingerprint in its purest form.",
+    "category": "entrances"
+  },
+  {
+    "name": "marquee",
+    "title": "Marquee",
+    "description": "A seamless looping horizontal scroll — logo strips, ticker tape, 'as featured in' rows. Slow and restrained by design; atmospheric context, not a frantic ticker.",
+    "category": "atmosphere"
+  },
+  {
+    "name": "ken-burns",
+    "title": "KenBurns",
+    "description": "Slow zoom-and-pan over a photo — the iconic documentary motion (named after Ken Burns, the filmmaker). Restrained 1.0 → 1.1 scale over 5 seconds by default; intentionally linear for a constant cinematic drift. The first Onda cinematic primitive.",
+    "category": "cinematic"
+  },
+  {
+    "name": "callout",
+    "title": "Callout",
+    "description": "A label-and-arrow annotation pointing at a specific spot on the canvas. The bubble appears first with a calm scale-and-fade; after a small beat the arrow draws on from the bubble to the anchor. For highlighting UI in tutorials, naming parts in explainers, or drawing attention without obscuring content.",
+    "category": "graphics"
+  },
+  {
+    "name": "underline",
+    "title": "Underline",
+    "description": "Text fades in, then an accent-rose underline draws beneath it after a small beat. A two-phase reveal for emphasis — one of the catalog's rare earned-color moments.",
+    "category": "graphics"
+  },
+  {
+    "name": "captions",
+    "title": "Captions",
+    "description": "Sequential word-by-word captions driven by a timed array. The active word lifts in --onda-text with a subtle SPRING_SMOOTH scale pulse; surrounding words sit dim in --onda-dim. The data primitive for kinetic transcripts and AI-generated voiceover.",
+    "category": "data"
+  },
+  {
+    "name": "bar-chart",
+    "title": "BarChart",
+    "description": "Horizontal bars that grow from 0 to their value on SPRING_SMOOTH, staggered. Single-accent palette: the largest bar earns the dusty-rose accent, every other bar sits in --onda-dim. Calm, no overshoot, one focal moment.",
+    "category": "data"
+  },
+  {
+    "name": "lower-third",
+    "title": "LowerThird",
+    "description": "Broadcast-style name + role bar that slides in from the corner with a single accent underline. A restrained scene block composed from SlideIn, FadeIn, and Underline — no chrome, no glow, one earned accent.",
+    "category": "scenes"
+  },
+  {
+    "name": "title-card",
+    "title": "TitleCard",
+    "description": "Hero title-card scene block: a large headline reveals with a calm blur-and-rise, a subtitle cascades word-by-word beneath it, and an optional accent underline arrives last as quiet punctuation. Composes BlurReveal / Underline and WordStagger — no new motion of its own.",
+    "category": "scenes"
+  },
+  {
+    "name": "stat-card",
+    "title": "StatCard",
+    "description": "Flagship Onda data scene — a big counted-up number above a word-staggered label above an accent rule. Composes CountUp, WordStagger, and Underline so the cascade (number → label → rule) reads as one calm motion. The signature 'Onda data look' for hero stats, KPIs, milestones, and announcement frames.",
+    "category": "scenes"
+  },
+  {
+    "name": "quote-card",
+    "title": "Quote Card",
+    "description": "A centered pull-quote scene block with attribution. The quote reveals word-by-word with a slower-than-canonical stagger so the line reads rather than cascades; after a settled beat a small accent-rose rule draws in beneath it, then the author and role fade in together. Built for testimonials, documentary citations, and editorial-feeling section breaks.",
+    "category": "scenes"
+  },
+  {
+    "name": "end-card",
+    "title": "EndCard",
+    "description": "Closing scene block: a hero CTA reveals with an optional accent underline, then a faint, staggered row of social handles or URLs fades in beneath it. Composes BlurReveal, Underline, and StaggerGroup so the motion fingerprint stays consistent with the rest of the catalog.",
+    "category": "scenes"
+  },
+  {
+    "name": "logo-sting",
+    "title": "LogoSting",
+    "description": "Silent, restrained branded reveal: an SVG logo stroke draws in, a title settles beneath it, and a single accent underline lands last. A scene block composed strictly from DrawOn, ScaleIn, and Underline — no particles, no streaks, no flourish.",
+    "category": "scenes"
+  },
+  {
+    "name": "camera-shake",
+    "title": "CameraShake",
+    "description": "Wraps children with a subtle, deterministic camera shake that decays to rest. Driven by Remotion's seeded random() so the same seed always produces the same shake — no Math.random in the render path.",
+    "category": "cinematic"
+  },
+  {
+    "name": "gradient-shift",
+    "title": "GradientShift",
+    "description": "A quiet, drifting two-color linear gradient background. The angle rotates at a constant degrees-per-frame — linear-by-design, no spring. Low-saturation defaults (--onda-surface to --onda-border) keep it atmospheric, never focal.",
+    "category": "atmosphere"
+  },
+  {
+    "name": "word-rotate",
+    "title": "WordRotate",
+    "description": "Cycles through a list of phrases in place. Each phrase rises and fades in on SPRING_SMOOTH, holds, then fades out as the next arrives. One focal element per moment.",
+    "category": "entrances"
+  },
+  {
+    "name": "spotlight",
+    "title": "Spotlight",
+    "description": "A soft radial light reveal that grows from 0 to a target radius on the Onda house spring. Alpha-aware so the spotlight uncovers content beneath. Apple-stage restraint, no overshoot.",
+    "category": "cinematic"
+  },
+  {
+    "name": "highlight",
+    "title": "Highlight",
+    "description": "Text fades in, then an accent-rose highlight bar slides in behind it at full text-height — a marker-style reveal. One of the catalog's rare earned-color moments, reserved for emphasis.",
+    "category": "graphics"
+  },
+  {
+    "name": "pie-reveal",
+    "title": "PieReveal",
+    "description": "A single-arc SVG ring that fills from 0 to a target percent on SPRING_SMOOTH, with the value rendered in the center. One muted accent stroke against a quiet track — the Onda data primitive.",
+    "category": "data"
+  },
+  {
+    "name": "progress-bar",
+    "title": "ProgressBar",
+    "description": "A pill-shaped bar that fills from 0 to `value`% on SPRING_SMOOTH. Solid dusty-rose accent on a neutral track, with an optional tabular `${value}%` label beside it. No overshoot.",
+    "category": "data"
+  },
+  {
+    "name": "timeline",
+    "title": "Timeline",
+    "description": "A horizontal timeline: a thin line strokes itself on, then dots cascade in at each anchor with the canonical Onda stagger, then labels fade in beneath. The final dot earns the dusty-rose accent — one focal moment, the rest neutral.",
+    "category": "data"
+  },
+  {
+    "name": "icon-pop",
+    "title": "IconPop",
+    "description": "A small state icon — check, cross, dot, or star — that pops into place on SPRING_SMOOTH via entryScale (scale 0 → 1 plus opacity fade). Universal state primitive; the accent is earned.",
+    "category": "graphics"
+  },
+  {
+    "name": "fade-out",
+    "title": "FadeOut",
+    "description": "The inverse of FadeIn: a pure opacity exit. Opacity travels from 1 to 0 on HOUSE_EASE, with no transform or blur. Slightly faster than entrances so the moment ends without lingering.",
+    "category": "entrances"
+  },
+  {
+    "name": "slide-out",
+    "title": "SlideOut",
+    "description": "A direction-parameterized translate-and-fade exit — text drifts up, down, left, or right while opacity fades to 0 on the house spring. The mirror of SlideIn. No overshoot, calm 16px travel.",
+    "category": "entrances"
+  },
+  {
+    "name": "parallax",
+    "title": "Parallax",
+    "description": "Slow horizontal or vertical drift over an image — a lighter, no-zoom complement to KenBurns. Intentionally linear for a constant, calm passage. Built for backgrounds and b-roll.",
+    "category": "cinematic"
+  },
+  {
+    "name": "vignette",
+    "title": "Vignette",
+    "description": "A static cinematic vignette: a radial darkening at the canvas edges that frames the center. Atmospheric overlay with no motion — like GrainOverlay, it is set dressing, not a performer. Deterministic, self-contained, pointer-transparent.",
+    "category": "cinematic"
+  },
+  {
+    "name": "chapter-card",
+    "title": "ChapterCard",
+    "description": "Chapter-title scene block with a numbered eyebrow ('01 The setup'). The number fades in first in accent rose, the chapter title rises with a calm blur-reveal, and an optional accent underline punctuates the title. Composes FadeIn, BlurReveal, and Underline.",
+    "category": "scenes"
+  },
+  {
+    "name": "image-reveal",
+    "title": "ImageReveal",
+    "description": "An image that enters with one of Onda's signature motion fingerprints — blur falloff, fade, or subtle scale. Wraps Remotion's `<Img>` with `SPRING_SMOOTH` motion, no overshoot. Fills the canvas by default; pass `placement` to position as a sub-canvas element.",
+    "category": "media"
+  },
+  {
+    "name": "video-clip",
+    "title": "VideoClip",
+    "description": "A video clip with agent-friendly trim (`startAt` / `endAt` accept `\"0:04\"` / `\"30s\"`), Onda's entrance and exit fade fingerprint, and optional looping. Wraps Remotion's `<OffthreadVideo>` for accurate seek and no audio drift. Fills the canvas by default; pass `placement` to position as a sub-canvas element.",
+    "category": "media"
+  },
+  {
+    "name": "audio-clip",
+    "title": "AudioClip",
+    "description": "The workhorse audio primitive — a single file with agent-friendly trim (`startAt` / `endAt` accept `\"0:04\"` / `\"30s\"`), opt-in fade envelope, optional looping, and a dB-or-amplitude volume contract. Wraps Remotion's `<Html5Audio>`. Use for music beds, voiceover, and SFX equally.",
+    "category": "media"
+  },
+  {
+    "name": "audio-visualizer",
+    "title": "AudioVisualizer",
+    "description": "Renders animated bars (frequency-domain) or a waveform (time-domain) for an audio file. Does **not** play audio — pair with a parallel `AudioClip` for playback. Uses `useAudioData` from `@remotion/media-utils` (cached per `src`).",
+    "category": "media"
+  },
+  {
+    "name": "cross-fade",
+    "title": "crossFade",
+    "description": "A calm opacity cross-fade between two scenes — Onda's house easing (cubic-bezier(0.16, 1, 0.3, 1)) and 18-frame duration baked into the recommended timing call. Reads as deliberate, not generic. Wraps Remotion's `fade()` presentation.",
+    "category": "transitions"
+  },
+  {
+    "name": "blur",
+    "title": "blur",
+    "description": "Outgoing scene blurs out as it fades; incoming scene blurs in as it fades up. Extends the BlurReveal entrance fingerprint across a cut. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "clock-wipe",
+    "title": "clockWipe",
+    "description": "A clock-hand wipe — the boundary between scenes rotates around the canvas center like a sweeping clock hand. Requires `width` + `height` (pass from `useVideoConfig()`). Wraps Remotion's `clockWipe()`.",
+    "category": "transitions"
+  },
+  {
+    "name": "depth-push",
+    "title": "depthPush",
+    "description": "Push with parallax depth scale — outgoing scene scales down as it pushes off, incoming scales from slightly larger. The catalog's signature multi-scene move; reads as a camera dolly between scenes. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "dip-to-color",
+    "title": "dipToColor",
+    "description": "The editing-room classic — outgoing scene fades to a solid color, incoming fades up from it. Default color is `--onda-bg` (`#08080A`) for brand consistency; pass `'#000'` for dip-to-black or `'#fff'` for dip-to-white. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "flip",
+    "title": "flip",
+    "description": "A 3D card-flip between two scenes — outgoing rotates away, incoming rotates into view. Onda's directional vocabulary (`left` / `right` / `up` / `down`) with adjustable `perspective`. Wraps Remotion's `flip()`.",
+    "category": "transitions"
+  },
+  {
+    "name": "iris",
+    "title": "iris",
+    "description": "A circular reveal that grows from / collapses toward the canvas center, like a camera shutter opening. Requires `width` + `height` (pass from `useVideoConfig()`). Wraps Remotion's `iris()`.",
+    "category": "transitions"
+  },
+  {
+    "name": "morph",
+    "title": "morph",
+    "description": "Cross-fade plus a subtle synchronized scale (outgoing 1 → 1.04, incoming 0.96 → 1). Small enough to register as polish, not effect. The defining 'premium feel' transition in the Onda catalog. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "push",
+    "title": "push",
+    "description": "A directional push between two scenes — both translate together in the same direction, like a camera pan. Onda-original; different from `slide` (only incoming moves) and `depthPush` (adds parallax scale).",
+    "category": "transitions"
+  },
+  {
+    "name": "slide",
+    "title": "slide",
+    "description": "A directional slide between two scenes — only the incoming scene translates, the outgoing stays in place. Wraps Remotion's `slide()` with Onda's directional vocabulary (`left` / `right` / `up` / `down`). Pair with the recommended Onda timing for the house feel.",
+    "category": "transitions"
+  },
+  {
+    "name": "wipe",
+    "title": "wipe",
+    "description": "A hard-edged wipe between two scenes — incoming scene reveals from one edge to the opposite as a moving boundary. Onda's directional vocabulary (`left` / `right` / `up` / `down`); diagonals deliberately excluded. Wraps Remotion's `wipe()`.",
+    "category": "transitions"
+  },
+  {
+    "name": "zoom",
+    "title": "zoom",
+    "description": "Scale-driven punch transition — incoming scene approaches (`'in'`) or pulls back (`'out'`) from the viewer. The catalog's lone 'accent' register; use sparingly so it stays a punctuation moment. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "shimmer-sweep",
+    "title": "ShimmerSweep",
+    "description": "A single band of light sweeps across text once (or on a loop), drawing the eye without moving the layout. Restrained highlight emphasis built on the house easing.",
+    "category": "graphics"
+  },
+  {
+    "name": "tracking-in",
+    "title": "TrackingIn",
+    "description": "Text begins spread wide and contracts to its resting letter-spacing on the house spring, fading and sharpening from a soft blur as it settles. A cinematic title entrance with no overshoot.",
+    "category": "entrances"
+  },
+  {
+    "name": "text-fade-replace",
+    "title": "TextFadeReplace",
+    "description": "Cycles through a list of phrases, crossfading one into the next in place so the swap never shifts the layout. Calm house-eased crossfade for rotating taglines and value props.",
+    "category": "graphics"
+  },
+  {
+    "name": "code-block",
+    "title": "CodeBlock",
+    "description": "Syntax-highlighted code on the Onda glass surface, revealed line-by-line. Deterministic dependency-free tokenizer (no async at render). Keywords carry the one earned accent; everything else stays neutral. The reference for the interface category.",
+    "category": "interface"
+  },
+  {
+    "name": "terminal",
+    "title": "Terminal",
+    "description": "A terminal session: the command types itself after the prompt with a frame-keyed blinking cursor, then output lines appear staggered. Built on the glass surface. Deterministic — no timers.",
+    "category": "interface"
+  },
+  {
+    "name": "browser-frame",
+    "title": "BrowserFrame",
+    "description": "A browser chrome that wraps arbitrary content — children, an image src, or a neutral placeholder. A container component (the documented exception to self-contained). Scales-and-fades in on the house spring.",
+    "category": "interface"
+  },
+  {
+    "name": "progress-steps",
+    "title": "ProgressSteps",
+    "description": "A horizontal stepper whose fill animates to the current step on the house spring. Completed dots and the connecting track carry the earned accent; the active step gets a soft glow ring; pending steps stay neutral.",
+    "category": "interface"
+  },
+  {
+    "name": "mesh-gradient",
+    "title": "MeshGradient",
+    "description": "A soft mesh-gradient backdrop — colored blobs drifting slowly over the near-black canvas. Sine drift keyed off a seeded phase, so it loops cleanly and renders deterministically. Atmosphere, not subject.",
+    "category": "atmosphere"
+  },
+  {
+    "name": "dynamic-grid",
+    "title": "DynamicGrid",
+    "description": "A technical grid that drifts diagonally — the GridField primitive on a frame-driven translate that loops by one cell, so it's seamless and deterministic. Optional centered accent glow. Full-canvas atmosphere for data / dev scenes.",
+    "category": "atmosphere"
+  },
+  {
+    "name": "spotlight-card",
+    "title": "SpotlightCard",
+    "description": "A glass card with a spotlight that drifts slowly behind the content (Surface + a frame-driven Glow). The card rises in on the house spring while the spotlight keeps moving — alive, not busy.",
+    "category": "graphics"
+  },
+  {
+    "name": "cursor",
+    "title": "Cursor",
+    "description": "An animated pointer that travels between two canvas points on the house spring and emits a single restrained click ripple on arrival. A full-canvas layer for product and dev demos.",
+    "category": "interface"
+  },
+  {
+    "name": "code-diff",
+    "title": "CodeDiff",
+    "description": "A unified code diff on the Onda glass surface, revealed line-by-line. Added/removed lines carry a colored left border + gutter symbol; context lines stay neutral. Deterministic, no async highlighting.",
+    "category": "interface"
+  },
+  {
+    "name": "device-frame",
+    "title": "DeviceFrame",
+    "description": "A phone or laptop bezel that wraps arbitrary content — children, an image src, or empty. A container component; scales-and-fades in on the house spring.",
+    "category": "interface"
+  },
+  {
+    "name": "line-chart",
+    "title": "LineChart",
+    "description": "A line chart whose path draws on left-to-right on the house easing, with an optional soft area fill and per-point dots that pop as the line reaches them. Deterministic via SVG pathLength normalization.",
+    "category": "data"
+  },
+  {
+    "name": "pulsing-indicator",
+    "title": "PulsingIndicator",
+    "description": "A live status dot with a calm expanding-ring pulse and an optional label. The pulse is keyed off frame modulo so it loops seamlessly and renders deterministically — one steady ring, not a strobe.",
+    "category": "interface"
+  },
+  {
+    "name": "matrix-decode",
+    "title": "MatrixDecode",
+    "description": "Each character flickers through random glyphs, then settles to its target left-to-right — a decode reveal. The flicker is deterministic (seeded PRNG keyed by char index + frame), so it renders identically every time.",
+    "category": "entrances"
+  },
+  {
+    "name": "rgb-glitch-text",
+    "title": "RgbGlitchText",
+    "description": "RGB channel-split text — red and cyan copies ride just off the white center, with periodic glitch bursts that kick the split wider. The burst jitter is deterministic (seeded PRNG keyed by frame). High-energy, with a restrained baseline so bursts read as punctuation.",
+    "category": "graphics"
+  },
+  {
+    "name": "slot-machine-roll",
+    "title": "SlotMachineRoll",
+    "description": "Each character spins down a reel of glyphs and lands on its target, settling on the house spring, staggered left-to-right. Filler glyphs are seeded (deterministic). Best on short numeric strings.",
+    "category": "entrances"
+  },
+  {
+    "name": "chromatic-aberration",
+    "title": "chromaticAberration",
+    "description": "The cut tears into red/cyan channels and snaps back — outgoing scene splits wider as it fades, incoming converges from a split. The catalog's most aggressive transition; a punctuation move, not a default. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "grid-pixelate",
+    "title": "gridPixelate",
+    "description": "The scene breaks into a grid of cells that flip in a seeded scatter — outgoing pixelates away to canvas while incoming assembles from it. Deterministic cell order. A retro, high-energy cut. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "glass-wipe",
+    "title": "glassWipe",
+    "description": "The incoming scene wipes in from a direction behind a frosted-glass edge that sharpens as it settles, while the outgoing scene frosts over beneath it. Calmer than a hard wipe, more textured than a cross-fade. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "bento-grid",
+    "title": "BentoGrid",
+    "description": "A data-driven bento layout — a CSS grid of glass Surface cards with varying column/row spans. Each cell rises and fades in on the house spring, staggered left-to-right so the grid assembles as one calm cascade. One earned-accent cell max.",
+    "category": "interface"
+  },
+  {
+    "name": "confetti",
+    "title": "Confetti",
+    "description": "A celebratory confetti burst — pieces launch from an origin, fan outward, arc under gravity, tumble, and fade. Every per-piece value is seeded, so the same seed renders identically every time. Full-canvas layer; energetic but tasteful.",
+    "category": "graphics"
+  },
+  {
+    "name": "bounding-box",
+    "title": "BoundingBox",
+    "description": "A UI annotation bounding box — a rectangle outline that strokes itself on like a selection marquee around a region, with optional corner ticks and an optional label tag pinned to the top-left corner. For highlighting a UI element in docs and tutorial videos; the accent is earned here.",
+    "category": "graphics"
+  },
+  {
+    "name": "button",
+    "title": "Button",
+    "description": "A CTA pill button — accent-filled (primary) or bordered (ghost). It fades and rises in on the house entrance, then plays an optional deterministic click-dip at pressFrame: a quick scale down to 0.94 and back that reads as a press.",
+    "category": "interface"
+  },
+  {
+    "name": "device-pullback",
+    "title": "devicePullback",
+    "description": "The outgoing scene starts as full-bleed UI scaled up, then pulls back to 1x while a minimal device bezel (laptop or phone) draws in around it — so the cut lands on the content framed inside a device mockup. A pull-back-to-reveal-the-product beat for launch and feature reels. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "expand-morph",
+    "title": "expandMorph",
+    "description": "A rounded card starts at a small origin rect — a region of the outgoing scene — and smoothly expands (position, size and corner radius interpolated together) to fill the screen, revealing the incoming scene as it grows. Onda's calm take on a morphing modal / image-expand-to-fullscreen reveal, with no overshoot. Onda-original.",
+    "category": "transitions"
+  },
+  {
+    "name": "input-field",
+    "title": "InputField",
+    "description": "A rounded glass text input on the Onda Surface, with an optional label above and a placeholder. With `typed` on, the value types itself in (via useTextReveal) behind a blinking caret, with an accent focus ring — all frame-driven and deterministic.",
+    "category": "interface"
+  },
+  {
+    "name": "kanban-board",
+    "title": "KanbanBoard",
+    "description": "A data-driven Kanban board — glass Surface columns with a header, status dot, ticket count, and a stack of small glass ticket cards. Cards rise + fade in on the house spring, staggered across the whole board so it assembles as one calm cascade.",
+    "category": "interface"
+  },
+  {
+    "name": "node-graph",
+    "title": "NodeGraph",
+    "description": "A hub-and-spoke constellation: a labeled central hub with satellite nodes that fly in from off-frame, then settle into elliptical orbits at varying radii and speeds. Connection lines hub→satellite periodically light up. All motion is a deterministic, frame-driven, seeded function (§1).",
+    "category": "graphics"
+  },
+  {
+    "name": "pricing-card",
+    "title": "PricingCard",
+    "description": "A single pricing tier on the Onda glass Surface — tier name, a large price, billing period, an accent-checkmark feature list, and a CTA button. Rises in on the house spring; set recommended to lift + scale it and add an accent badge + glow. One card; the consumer arranges three.",
+    "category": "interface"
+  },
+  {
+    "name": "skeleton-card",
+    "title": "SkeletonCard",
+    "description": "A loading-placeholder card — a glass Surface with an optional thumbnail block and a stack of text bars, swept by a frame-driven shimmer band. The 'still generating / not loaded yet' state before content populates. Rises in on the house spring; the shimmer loops so the placeholder feels live.",
+    "category": "interface"
+  },
+  {
+    "name": "split-screen",
+    "title": "SplitScreen",
+    "description": "A two-pane split layout — left and right content panes (any JSX) divided by a thin token line. A container that wraps arbitrary content; the two panes slide in from their outer edges on the house spring.",
+    "category": "interface"
+  },
+  {
+    "name": "type-mask",
+    "title": "typeMask",
+    "description": "A giant word holds, then scales up exponentially until the negative space inside its letters blows past the screen edges — revealing the incoming scene through the type. A kinetic typographic mask. Onda-original.",
+    "category": "transitions"
+  }
+]
