@@ -22,6 +22,18 @@ export type SemanticEvent = {
   priority: number;
 };
 
+/**
+ * Tiempo máximo durante el cual un visual puede
+ * permanecer esperando al siguiente evento semántico.
+ */
+const MAX_EVENT_HOLD_MS = 6000;
+
+/**
+ * Permanencia del último evento cuando ya no existe
+ * otro evento semántico inmediatamente después.
+ */
+const FINAL_EVENT_HOLD_MS = 4500;
+
 const normalize = (value: string) =>
   value
     .toLowerCase()
@@ -41,19 +53,27 @@ const matchesKeywordAt = (
   startIndex: number,
   keyword: string,
 ): boolean => {
-  const keywordTokens = tokenizeKeyword(keyword);
+  const keywordTokens =
+    tokenizeKeyword(keyword);
 
   if (keywordTokens.length === 0) {
     return false;
   }
 
-  if (startIndex + keywordTokens.length > words.length) {
+  if (
+    startIndex +
+      keywordTokens.length >
+    words.length
+  ) {
     return false;
   }
 
-  return keywordTokens.every((token, offset) => {
-    return normalize(words[startIndex + offset].text) === token;
-  });
+  return keywordTokens.every(
+    (token, offset) =>
+      normalize(
+        words[startIndex + offset].text,
+      ) === token,
+  );
 };
 
 const createEvent = (
@@ -62,45 +82,86 @@ const createEvent = (
   words: WordTiming[],
   startIndex: number,
 ): SemanticEvent => {
-  const keywordTokens = tokenizeKeyword(keyword);
+  const keywordTokens =
+    tokenizeKeyword(keyword);
 
-  const firstWord = words[startIndex];
-  const lastWord = words[startIndex + keywordTokens.length - 1];
+  const firstWord =
+    words[startIndex];
 
-  const startMs = firstWord.startMs;
-  const minimumEndMs = lastWord.endMs;
-  const plannedEndMs = startMs + rule.durationMs;
+  const lastWord =
+    words[
+      startIndex +
+        keywordTokens.length -
+        1
+    ];
+
+  const startMs =
+    firstWord.startMs;
+
+  const minimumEndMs =
+    lastWord.endMs;
+
+  const plannedEndMs =
+    startMs +
+    rule.durationMs;
+
+  const endMs =
+    Math.max(
+      minimumEndMs,
+      plannedEndMs,
+    );
 
   return {
     id: `${rule.id}-${startMs}`,
     ruleId: rule.id,
-    visualType: rule.visualType,
-    concept: rule.concept,
-    matchedKeyword: keyword,
+    visualType:
+      rule.visualType,
+    concept:
+      rule.concept,
+    matchedKeyword:
+      keyword,
     startMs,
-    endMs: Math.max(minimumEndMs, plannedEndMs),
-    durationMs: Math.max(
-      minimumEndMs - startMs,
-      rule.durationMs,
-    ),
-    priority: rule.priority,
+    endMs,
+    durationMs:
+      endMs - startMs,
+    priority:
+      rule.priority,
   };
 };
 
 export const buildSemanticEvents = (
   words: WordTiming[],
-  rules: SemanticRule[] = semanticRules,
+  rules: SemanticRule[] =
+    semanticRules,
 ): SemanticEvent[] => {
-  const events: SemanticEvent[] = [];
+  const detected:
+    SemanticEvent[] = [];
 
-  for (let wordIndex = 0; wordIndex < words.length; wordIndex += 1) {
+  /**
+   * 1. Detectar todos los conceptos
+   * sobre el timeline V2-SYNC.
+   */
+  for (
+    let wordIndex = 0;
+    wordIndex < words.length;
+    wordIndex += 1
+  ) {
     for (const rule of rules) {
-      for (const keyword of rule.keywords) {
-        if (!matchesKeywordAt(words, wordIndex, keyword)) {
+      for (
+        const keyword of
+        rule.keywords
+      ) {
+        if (
+          !matchesKeywordAt(
+            words,
+            wordIndex,
+            keyword,
+          )
+        ) {
           continue;
         }
 
-        events.push(
+        detected.push(
           createEvent(
             rule,
             keyword,
@@ -112,23 +173,165 @@ export const buildSemanticEvents = (
     }
   }
 
-  const deduplicated = new Map<string, SemanticEvent>();
+  /**
+   * 2. Eliminar duplicados
+   * de la misma regla en
+   * el mismo instante.
+   */
+  const deduplicated =
+    new Map<
+      string,
+      SemanticEvent
+    >();
 
-  for (const event of events) {
-    const key = `${event.ruleId}-${event.startMs}`;
+  for (
+    const event of detected
+  ) {
+    const key =
+      `${event.ruleId}-${event.startMs}`;
 
-    const existing = deduplicated.get(key);
+    const existing =
+      deduplicated.get(key);
 
-    if (!existing || event.priority > existing.priority) {
-      deduplicated.set(key, event);
+    if (
+      !existing ||
+      event.priority >
+        existing.priority
+    ) {
+      deduplicated.set(
+        key,
+        event,
+      );
     }
   }
 
-  return Array.from(deduplicated.values()).sort((a, b) => {
-    if (a.startMs !== b.startMs) {
-      return a.startMs - b.startMs;
+  /**
+   * 3. Orden temporal.
+   */
+  const ordered =
+    Array.from(
+      deduplicated.values(),
+    ).sort((a, b) => {
+      if (
+        a.startMs !==
+        b.startMs
+      ) {
+        return (
+          a.startMs -
+          b.startMs
+        );
+      }
+
+      return (
+        b.priority -
+        a.priority
+      );
+    });
+
+  /**
+   * 4. Si dos conceptos nacen
+   * exactamente en el mismo
+   * instante, conservar el de
+   * mayor prioridad.
+   */
+  const collapsed:
+    SemanticEvent[] = [];
+
+  for (
+    const event of ordered
+  ) {
+    const previous =
+      collapsed[
+        collapsed.length - 1
+      ];
+
+    if (
+      previous &&
+      previous.startMs ===
+        event.startMs
+    ) {
+      if (
+        event.priority >
+        previous.priority
+      ) {
+        collapsed[
+          collapsed.length - 1
+        ] = event;
+      }
+
+      continue;
     }
 
-    return b.priority - a.priority;
-  });
+    collapsed.push(event);
+  }
+
+  /**
+   * 5. CONTINUIDAD TEMPORAL.
+   *
+   * Cada visual intenta permanecer
+   * hasta el siguiente concepto,
+   * pero nunca más de 6 segundos.
+   *
+   * Esto reduce los espacios negros
+   * sin hacer que un visual permanezca
+   * indefinidamente.
+   */
+  return collapsed.map(
+    (event, index) => {
+      const nextEvent =
+        collapsed[index + 1];
+
+      const maximumEnd =
+        event.startMs +
+        MAX_EVENT_HOLD_MS;
+
+      let endMs =
+        event.endMs;
+
+      if (nextEvent) {
+        const bridgeEnd =
+          Math.min(
+            nextEvent.startMs,
+            maximumEnd,
+          );
+
+        endMs =
+          Math.max(
+            endMs,
+            bridgeEnd,
+          );
+
+        /**
+         * Nunca invadir el evento
+         * semántico siguiente.
+         */
+        endMs =
+          Math.min(
+            endMs,
+            nextEvent.startMs,
+          );
+      } else {
+        endMs =
+          Math.max(
+            endMs,
+            Math.min(
+              event.startMs +
+                FINAL_EVENT_HOLD_MS,
+              maximumEnd,
+            ),
+          );
+      }
+
+      return {
+        ...event,
+        endMs,
+        durationMs:
+          Math.max(
+            0,
+            endMs -
+              event.startMs,
+          ),
+      };
+    },
+  );
 };
