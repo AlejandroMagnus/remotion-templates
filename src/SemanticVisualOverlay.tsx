@@ -1,4 +1,9 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 import {
   AbsoluteFill,
   cancelRender,
@@ -11,68 +16,14 @@ import {
   useVideoConfig,
 } from "remotion";
 
-type WordTiming = {
-  text: string;
-  startMs: number;
-  endMs: number;
-};
+import {
+  buildSemanticEvents,
+  type SemanticEvent,
+  type WordTiming,
+} from "./buildSemanticEvents";
 
 type Timeline = {
   words: WordTiming[];
-};
-
-type SemanticKind =
-  | "recurso"
-  | "motivacion"
-  | "evidencia"
-  | "debido-proceso"
-  | "expediente"
-  | "plazos"
-  | "cta";
-
-type SemanticEvent = {
-  kind: SemanticKind;
-  startMs: number;
-};
-
-const normalize = (value: string) =>
-  value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^\p{L}\p{N}]/gu, "");
-
-const triggers: Record<string, SemanticKind> = {
-  autoridad: "recurso",
-  recurso: "recurso",
-  rechazo: "recurso",
-  rechazado: "recurso",
-  rechazar: "recurso",
-
-  explicar: "motivacion",
-  razones: "motivacion",
-  razon: "motivacion",
-  motivacion: "motivacion",
-  fundamentacion: "motivacion",
-  decision: "motivacion",
-
-  argumentos: "evidencia",
-  argumento: "evidencia",
-  prueba: "evidencia",
-  pruebas: "evidencia",
-
-  debido: "debido-proceso",
-  derechos: "debido-proceso",
-
-  expediente: "expediente",
-
-  plazos: "plazos",
-  plazo: "plazos",
-
-  impugnacion: "cta",
-  estrategia: "cta",
-  estrategico: "cta",
-  estrategica: "cta",
 };
 
 const panelStyle: React.CSSProperties = {
@@ -112,7 +63,12 @@ function RecursoVisual() {
           position: "relative",
         }}
       >
-        <div style={{fontSize: 28, fontWeight: 800}}>
+        <div
+          style={{
+            fontSize: 28,
+            fontWeight: 800,
+          }}
+        >
           RECURSO ADMINISTRATIVO
         </div>
 
@@ -153,7 +109,12 @@ function RecursoVisual() {
 function MotivacionVisual() {
   return (
     <div style={panelStyle}>
-      <div style={{fontSize: 54, fontWeight: 800}}>
+      <div
+        style={{
+          fontSize: 54,
+          fontWeight: 800,
+        }}
+      >
         MOTIVACIÓN
       </div>
 
@@ -175,19 +136,24 @@ function MotivacionVisual() {
           padding: 40,
         }}
       >
-        {[80, 92, 68, 88, 76].map((width, index) => (
-          <div
-            key={index}
-            style={{
-              height: index === 2 ? 28 : 13,
-              width: `${width}%`,
-              borderRadius: 8,
-              marginBottom: 24,
-              background:
-                index === 2 ? "#ec967d" : "#bdc7c0",
-            }}
-          />
-        ))}
+        {[80, 92, 68, 88, 76].map(
+          (width, index) => (
+            <div
+              key={index}
+              style={{
+                height:
+                  index === 2 ? 28 : 13,
+                width: `${width}%`,
+                borderRadius: 8,
+                marginBottom: 24,
+                background:
+                  index === 2
+                    ? "#ec967d"
+                    : "#bdc7c0",
+              }}
+            />
+          ),
+        )}
       </div>
 
       <div
@@ -213,7 +179,12 @@ function EvidenciaVisual() {
 
   return (
     <div style={panelStyle}>
-      <div style={{fontSize: 48, fontWeight: 800}}>
+      <div
+        style={{
+          fontSize: 48,
+          fontWeight: 800,
+        }}
+      >
         ANÁLISIS JURÍDICO
       </div>
 
@@ -225,40 +196,43 @@ function EvidenciaVisual() {
           marginTop: 94,
         }}
       >
-        {nodes.map(([label, color], index) => (
-          <React.Fragment key={label}>
-            <div
-              style={{
-                width: 188,
-                height: 188,
-                borderRadius: "50%",
-                border: `6px solid ${color}`,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-                padding: 18,
-                fontSize: 26,
-                fontWeight: 800,
-                boxSizing: "border-box",
-              }}
-            >
-              {label}
-            </div>
-
-            {index < nodes.length - 1 ? (
+        {nodes.map(
+          ([label, color], index) => (
+            <React.Fragment key={label}>
               <div
                 style={{
-                  color: "#a8cfb8",
-                  fontSize: 52,
+                  width: 188,
+                  height: 188,
+                  borderRadius: "50%",
+                  border: `6px solid ${color}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  padding: 18,
+                  fontSize: 26,
                   fontWeight: 800,
+                  boxSizing: "border-box",
                 }}
               >
-                →
+                {label}
               </div>
-            ) : null}
-          </React.Fragment>
-        ))}
+
+              {index <
+              nodes.length - 1 ? (
+                <div
+                  style={{
+                    color: "#a8cfb8",
+                    fontSize: 52,
+                    fontWeight: 800,
+                  }}
+                >
+                  →
+                </div>
+              ) : null}
+            </React.Fragment>
+          ),
+        )}
       </div>
 
       <div
@@ -266,7 +240,8 @@ function EvidenciaVisual() {
           marginTop: 82,
           padding: 28,
           borderRadius: 24,
-          background: "rgba(168,207,184,0.10)",
+          background:
+            "rgba(168,207,184,0.10)",
           fontSize: 29,
           textAlign: "center",
         }}
@@ -290,8 +265,10 @@ function DebidoProcesoVisual() {
           width: 220,
           height: 250,
           margin: "10px auto 42px",
-          border: "10px solid #a8cfb8",
-          borderRadius: "48% 48% 54% 54%",
+          border:
+            "10px solid #a8cfb8",
+          borderRadius:
+            "48% 48% 54% 54%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -303,7 +280,12 @@ function DebidoProcesoVisual() {
         §
       </div>
 
-      <div style={{fontSize: 52, fontWeight: 800}}>
+      <div
+        style={{
+          fontSize: 52,
+          fontWeight: 800,
+        }}
+      >
         DEBIDO PROCESO
       </div>
 
@@ -315,8 +297,8 @@ function DebidoProcesoVisual() {
           color: "#abb7ae",
         }}
       >
-        Una omisión relevante puede afectar la validez de
-        la decisión.
+        Una omisión relevante puede afectar la validez de la
+        decisión.
       </div>
     </div>
   );
@@ -325,7 +307,12 @@ function DebidoProcesoVisual() {
 function ExpedienteVisual() {
   return (
     <div style={panelStyle}>
-      <div style={{fontSize: 50, fontWeight: 800}}>
+      <div
+        style={{
+          fontSize: 50,
+          fontWeight: 800,
+        }}
+      >
         REVISAR EL EXPEDIENTE
       </div>
 
@@ -347,17 +334,22 @@ function ExpedienteVisual() {
               top: index * 30,
               borderRadius: 26,
               background:
-                index === 2 ? "#f5efe3" : "#cbd6cf",
-              border: "2px solid rgba(24,36,31,0.16)",
+                index === 2
+                  ? "#f5efe3"
+                  : "#cbd6cf",
+              border:
+                "2px solid rgba(24,36,31,0.16)",
               padding: 34,
-              boxSizing: "border-box",
+              boxSizing:
+                "border-box",
             }}
           >
             {index === 2 ? (
               <>
                 <div
                   style={{
-                    color: "#18241f",
+                    color:
+                      "#18241f",
                     fontSize: 28,
                     fontWeight: 800,
                   }}
@@ -365,18 +357,22 @@ function ExpedienteVisual() {
                   EXPEDIENTE
                 </div>
 
-                {[90, 72, 84, 62].map((width, line) => (
-                  <div
-                    key={line}
-                    style={{
-                      width: `${width}%`,
-                      height: 11,
-                      background: "#bbc4be",
-                      marginTop: 22,
-                      borderRadius: 8,
-                    }}
-                  />
-                ))}
+                {[90, 72, 84, 62].map(
+                  (width, line) => (
+                    <div
+                      key={line}
+                      style={{
+                        width:
+                          `${width}%`,
+                        height: 11,
+                        background:
+                          "#bbc4be",
+                        marginTop: 22,
+                        borderRadius: 8,
+                      }}
+                    />
+                  ),
+                )}
               </>
             ) : null}
           </div>
@@ -404,14 +400,20 @@ function PlazosVisual({
 
   return (
     <div style={panelStyle}>
-      <div style={{fontSize: 52, fontWeight: 800}}>
+      <div
+        style={{
+          fontSize: 52,
+          fontWeight: 800,
+        }}
+      >
         LOS PLAZOS CORREN
       </div>
 
       <div
         style={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent:
+            "space-around",
           alignItems: "center",
           marginTop: 72,
         }}
@@ -421,7 +423,8 @@ function PlazosVisual({
             width: 260,
             height: 260,
             borderRadius: "50%",
-            border: "10px solid #ec967d",
+            border:
+              "10px solid #ec967d",
             position: "relative",
           }}
         >
@@ -430,11 +433,14 @@ function PlazosVisual({
               position: "absolute",
               width: 8,
               height: 90,
-              background: "#f5efe3",
+              background:
+                "#f5efe3",
               left: 121,
               top: 40,
-              transformOrigin: "bottom center",
-              transform: `rotate(${rotation}deg)`,
+              transformOrigin:
+                "bottom center",
+              transform:
+                `rotate(${rotation}deg)`,
               borderRadius: 8,
             }}
           />
@@ -444,8 +450,10 @@ function PlazosVisual({
               position: "absolute",
               width: 12,
               height: 12,
-              borderRadius: "50%",
-              background: "#f5efe3",
+              borderRadius:
+                "50%",
+              background:
+                "#f5efe3",
               left: 119,
               top: 124,
             }}
@@ -457,18 +465,22 @@ function PlazosVisual({
             width: 280,
             borderRadius: 30,
             overflow: "hidden",
-            background: "#f5efe3",
+            background:
+              "#f5efe3",
             color: "#18241f",
           }}
         >
           <div
             style={{
-              padding: "18px 20px",
-              background: "#ec967d",
+              padding:
+                "18px 20px",
+              background:
+                "#ec967d",
               color: "#171c1a",
               fontSize: 26,
               fontWeight: 800,
-              textAlign: "center",
+              textAlign:
+                "center",
             }}
           >
             PLAZO
@@ -478,7 +490,8 @@ function PlazosVisual({
             style={{
               fontSize: 100,
               fontWeight: 900,
-              textAlign: "center",
+              textAlign:
+                "center",
               padding: 40,
             }}
           >
@@ -536,11 +549,14 @@ function CtaVisual() {
 
       <div
         style={{
-          display: "inline-block",
+          display:
+            "inline-block",
           marginTop: 60,
-          padding: "22px 38px",
+          padding:
+            "22px 38px",
           borderRadius: 24,
-          background: "#ec967d",
+          background:
+            "#ec967d",
           color: "#171c1a",
           fontSize: 30,
           fontWeight: 900,
@@ -552,16 +568,120 @@ function CtaVisual() {
   );
 }
 
+function SemanticEventVisual({
+  event,
+  eventFrame,
+  fps,
+}: {
+  event: SemanticEvent;
+  eventFrame: number;
+  fps: number;
+}) {
+  if (
+    event.ruleId === "recurso" ||
+    event.ruleId === "ignorar" ||
+    event.ruleId === "vulneracion"
+  ) {
+    return <RecursoVisual />;
+  }
+
+  if (
+    event.ruleId === "motivacion" ||
+    event.ruleId === "decision"
+  ) {
+    return <MotivacionVisual />;
+  }
+
+  if (
+    event.ruleId === "argumentos" ||
+    event.ruleId === "prueba"
+  ) {
+    return <EvidenciaVisual />;
+  }
+
+  if (
+    event.ruleId === "debido-proceso" ||
+    event.ruleId === "defensa"
+  ) {
+    return <DebidoProcesoVisual />;
+  }
+
+  if (
+    event.ruleId === "expediente" ||
+    event.ruleId === "autoridad"
+  ) {
+    return <ExpedienteVisual />;
+  }
+
+  if (event.ruleId === "plazos") {
+    return (
+      <PlazosVisual
+        frame={eventFrame}
+        fps={fps}
+      />
+    );
+  }
+
+  if (
+    event.ruleId ===
+      "accion-final" ||
+    event.visualType === "cta"
+  ) {
+    return <CtaVisual />;
+  }
+
+  if (
+    event.visualType ===
+    "evidence"
+  ) {
+    return <EvidenciaVisual />;
+  }
+
+  if (
+    event.visualType ===
+    "process"
+  ) {
+    return <DebidoProcesoVisual />;
+  }
+
+  if (
+    event.visualType ===
+    "warning"
+  ) {
+    return <RecursoVisual />;
+  }
+
+  if (
+    event.visualType ===
+    "document"
+  ) {
+    return <MotivacionVisual />;
+  }
+
+  return <ExpedienteVisual />;
+}
+
 export function SemanticVisualOverlay() {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+  const frame =
+    useCurrentFrame();
 
-  const [timeline, setTimeline] =
-    useState<Timeline | null>(null);
+  const {fps} =
+    useVideoConfig();
 
-  const [renderHandle] = useState(() =>
-    delayRender("Cargando timeline semantico V3"),
-  );
+  const [
+    timeline,
+    setTimeline,
+  ] =
+    useState<Timeline | null>(
+      null,
+    );
+
+  const [renderHandle] =
+    useState(() =>
+      delayRender(
+        "Cargando timeline semantico V3",
+      ),
+    );
 
   useEffect(() => {
     fetch(
@@ -569,111 +689,161 @@ export function SemanticVisualOverlay() {
         "generated/video-juridico-001-timeline.json",
       ),
     )
-      .then(async (response) => {
-        if (!response.ok) {
-          throw new Error(
-            `Timeline V3 HTTP ${response.status}`,
-          );
-        }
+      .then(
+        async (response) => {
+          if (!response.ok) {
+            throw new Error(
+              `Timeline V3 HTTP ${response.status}`,
+            );
+          }
 
-        return response.json();
-      })
-      .then((data: Timeline) => {
-        if (
-          !Array.isArray(data.words) ||
-          data.words.length === 0
-        ) {
-          throw new Error(
-            "Timeline V3 sin palabras",
-          );
-        }
+          return response.json();
+        },
+      )
+      .then(
+        (data: Timeline) => {
+          if (
+            !Array.isArray(
+              data.words,
+            ) ||
+            data.words.length ===
+              0
+          ) {
+            throw new Error(
+              "Timeline V3 sin palabras",
+            );
+          }
 
-        setTimeline(data);
-        continueRender(renderHandle);
-      })
-      .catch((error: unknown) => {
-        cancelRender(
-          error instanceof Error
-            ? error
-            : new Error(String(error)),
-        );
-      });
+          setTimeline(data);
+
+          continueRender(
+            renderHandle,
+          );
+        },
+      )
+      .catch(
+        (error: unknown) => {
+          cancelRender(
+            error instanceof Error
+              ? error
+              : new Error(
+                  String(error),
+                ),
+          );
+        },
+      );
   }, [renderHandle]);
 
-  const nowMs = (frame / fps) * 1000;
-
-  const activeEvent = useMemo<SemanticEvent | null>(() => {
-    if (!timeline) {
-      return null;
-    }
-
-    let result: SemanticEvent | null = null;
-
-    for (const word of timeline.words) {
-      if (word.startMs > nowMs) {
-        break;
+  const semanticEvents =
+    useMemo(() => {
+      if (!timeline) {
+        return [];
       }
 
-      const trigger =
-        triggers[normalize(word.text)];
+      return buildSemanticEvents(
+        timeline.words,
+      );
+    }, [timeline]);
 
-      if (trigger) {
-        result = {
-          kind: trigger,
-          startMs: word.startMs,
-        };
-      }
-    }
+  const nowMs =
+    (frame / fps) * 1000;
 
-    return result;
-  }, [timeline, nowMs]);
+  const activeEvent =
+    useMemo<
+      SemanticEvent | null
+    >(() => {
+      const candidates =
+        semanticEvents
+          .filter(
+            (event) =>
+              nowMs >=
+                event.startMs &&
+              nowMs <
+                event.endMs,
+          )
+          .sort((a, b) => {
+            if (
+              a.priority !==
+              b.priority
+            ) {
+              return (
+                b.priority -
+                a.priority
+              );
+            }
+
+            return (
+              b.startMs -
+              a.startMs
+            );
+          });
+
+      return (
+        candidates[0] ??
+        null
+      );
+    }, [
+      semanticEvents,
+      nowMs,
+    ]);
 
   if (!activeEvent) {
     return null;
   }
 
-  const eventFrame = Math.max(
-    0,
-    Math.round(
-      ((nowMs - activeEvent.startMs) / 1000) * fps,
-    ),
-  );
+  const eventFrame =
+    Math.max(
+      0,
+      Math.round(
+        ((nowMs -
+          activeEvent.startMs) /
+          1000) *
+          fps,
+      ),
+    );
 
-  const entrance = spring({
-    frame: eventFrame,
-    fps,
-    config: {
-      damping: 18,
-      stiffness: 120,
-      mass: 0.9,
-    },
-  });
+  const entrance =
+    spring({
+      frame: eventFrame,
+      fps,
+      config: {
+        damping: 18,
+        stiffness: 120,
+        mass: 0.9,
+      },
+    });
 
-  const opacity = interpolate(
-    entrance,
-    [0, 1],
-    [0, 1],
-  );
+  const opacity =
+    interpolate(
+      entrance,
+      [0, 1],
+      [0, 1],
+    );
 
-  const translateY = interpolate(
-    entrance,
-    [0, 1],
-    [55, 0],
-  );
+  const translateY =
+    interpolate(
+      entrance,
+      [0, 1],
+      [55, 0],
+    );
 
-  const scale = interpolate(
-    entrance,
-    [0, 1],
-    [0.94, 1],
-  );
+  const scale =
+    interpolate(
+      entrance,
+      [0, 1],
+      [0.94, 1],
+    );
 
   return (
     <AbsoluteFill
       style={{
-        pointerEvents: "none",
+        pointerEvents:
+          "none",
         zIndex: 40,
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems:
+          "center",
+        justifyContent:
+          "center",
         paddingBottom: 280,
       }}
     >
@@ -684,25 +854,14 @@ export function SemanticVisualOverlay() {
             `translateY(${translateY}px) scale(${scale})`,
         }}
       >
-        {activeEvent.kind === "recurso" ? (
-          <RecursoVisual />
-        ) : activeEvent.kind === "motivacion" ? (
-          <MotivacionVisual />
-        ) : activeEvent.kind === "evidencia" ? (
-          <EvidenciaVisual />
-        ) : activeEvent.kind === "debido-proceso" ? (
-          <DebidoProcesoVisual />
-        ) : activeEvent.kind === "expediente" ? (
-          <ExpedienteVisual />
-        ) : activeEvent.kind === "plazos" ? (
-          <PlazosVisual
-            frame={eventFrame}
-            fps={fps}
-          />
-        ) : (
-          <CtaVisual />
-        )}
+        <SemanticEventVisual
+          event={activeEvent}
+          eventFrame={
+            eventFrame
+          }
+          fps={fps}
+        />
       </div>
     </AbsoluteFill>
   );
-  }
+      }
