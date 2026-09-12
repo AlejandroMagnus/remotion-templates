@@ -23,16 +23,26 @@ export type SemanticEvent = {
 };
 
 /**
- * Tiempo máximo durante el cual un visual puede
- * permanecer esperando al siguiente evento semántico.
+ * ============================================================
+ * V3.4 — CONTINUIDAD SEMÁNTICA
+ * ============================================================
  */
+
 const MAX_EVENT_HOLD_MS = 6000;
 
-/**
- * Permanencia del último evento cuando ya no existe
- * otro evento semántico inmediatamente después.
- */
 const FINAL_EVENT_HOLD_MS = 4500;
+
+/**
+ * Solo creamos filler cuando existe
+ * un hueco visual perceptible.
+ */
+const MIN_FILLER_GAP_MS = 800;
+
+/**
+ * Evita dejar un mismo filler demasiado tiempo.
+ * En huecos largos se generan varios fillers.
+ */
+const MAX_FILLER_DURATION_MS = 3500;
 
 const normalize = (value: string) =>
   value
@@ -53,22 +63,20 @@ const matchesKeywordAt = (
   startIndex: number,
   keyword: string,
 ): boolean => {
-  const keywordTokens =
-    tokenizeKeyword(keyword);
+  const tokens = tokenizeKeyword(keyword);
 
-  if (keywordTokens.length === 0) {
+  if (tokens.length === 0) {
     return false;
   }
 
   if (
-    startIndex +
-      keywordTokens.length >
+    startIndex + tokens.length >
     words.length
   ) {
     return false;
   }
 
-  return keywordTokens.every(
+  return tokens.every(
     (token, offset) =>
       normalize(
         words[startIndex + offset].text,
@@ -76,13 +84,13 @@ const matchesKeywordAt = (
   );
 };
 
-const createEvent = (
+const createSemanticEvent = (
   rule: SemanticRule,
   keyword: string,
   words: WordTiming[],
   startIndex: number,
 ): SemanticEvent => {
-  const keywordTokens =
+  const tokens =
     tokenizeKeyword(keyword);
 
   const firstWord =
@@ -91,7 +99,7 @@ const createEvent = (
   const lastWord =
     words[
       startIndex +
-        keywordTokens.length -
+        tokens.length -
         1
     ];
 
@@ -129,24 +137,210 @@ const createEvent = (
   };
 };
 
+const neutralVisualTypes: SemanticVisualType[] = [
+  "document",
+  "evidence",
+  "process",
+];
+
+const toNeutralType = (
+  type?: SemanticVisualType,
+): SemanticVisualType | null => {
+  if (
+    type === "document" ||
+    type === "evidence" ||
+    type === "process"
+  ) {
+    return type;
+  }
+
+  if (type === "keyword") {
+    return "document";
+  }
+
+  return null;
+};
+
+const chooseFillerVisualType = (
+  previous:
+    | SemanticEvent
+    | undefined,
+  next:
+    | SemanticEvent
+    | undefined,
+  fillerIndex: number,
+): SemanticVisualType => {
+  const contextual =
+    toNeutralType(
+      previous?.visualType,
+    ) ??
+    toNeutralType(
+      next?.visualType,
+    );
+
+  if (contextual) {
+    const baseIndex =
+      neutralVisualTypes.indexOf(
+        contextual,
+      );
+
+    return neutralVisualTypes[
+      (baseIndex +
+        fillerIndex) %
+        neutralVisualTypes.length
+    ];
+  }
+
+  return neutralVisualTypes[
+    fillerIndex %
+      neutralVisualTypes.length
+  ];
+};
+
+const fillerConcept = (
+  previous:
+    | SemanticEvent
+    | undefined,
+  next:
+    | SemanticEvent
+    | undefined,
+): string => {
+  if (previous && next) {
+    return `continuidad audiovisual entre ${previous.concept} y ${next.concept}`;
+  }
+
+  if (previous) {
+    return `continuidad audiovisual posterior a ${previous.concept}`;
+  }
+
+  if (next) {
+    return `continuidad audiovisual previa a ${next.concept}`;
+  }
+
+  return "continuidad audiovisual contextual";
+};
+
+const createFillersForGap = (
+  startMs: number,
+  endMs: number,
+  previous:
+    | SemanticEvent
+    | undefined,
+  next:
+    | SemanticEvent
+    | undefined,
+  initialIndex: number,
+): SemanticEvent[] => {
+  const totalGap =
+    endMs - startMs;
+
+  if (
+    totalGap <
+    MIN_FILLER_GAP_MS
+  ) {
+    return [];
+  }
+
+  const fillers:
+    SemanticEvent[] = [];
+
+  let cursor =
+    startMs;
+
+  let fillerIndex =
+    initialIndex;
+
+  while (
+    endMs - cursor >=
+    MIN_FILLER_GAP_MS
+  ) {
+    let sliceEnd =
+      Math.min(
+        cursor +
+          MAX_FILLER_DURATION_MS,
+        endMs,
+      );
+
+    /**
+     * Evita dejar al final
+     * un microhueco inútil.
+     */
+    if (
+      endMs - sliceEnd <
+      MIN_FILLER_GAP_MS
+    ) {
+      sliceEnd =
+        endMs;
+    }
+
+    const visualType =
+      chooseFillerVisualType(
+        previous,
+        next,
+        fillerIndex,
+      );
+
+    fillers.push({
+      id:
+        `semantic-filler-${cursor}-${fillerIndex}`,
+      ruleId:
+        "semantic-filler",
+      visualType,
+      concept:
+        fillerConcept(
+          previous,
+          next,
+        ),
+      matchedKeyword:
+        "__semantic_filler__",
+      startMs:
+        cursor,
+      endMs:
+        sliceEnd,
+      durationMs:
+        sliceEnd -
+        cursor,
+      priority: 1,
+    });
+
+    cursor =
+      sliceEnd;
+
+    fillerIndex += 1;
+  }
+
+  return fillers;
+};
+
 export const buildSemanticEvents = (
   words: WordTiming[],
   rules: SemanticRule[] =
     semanticRules,
 ): SemanticEvent[] => {
+  if (
+    words.length === 0
+  ) {
+    return [];
+  }
+
   const detected:
     SemanticEvent[] = [];
 
   /**
-   * 1. Detectar todos los conceptos
-   * sobre el timeline V2-SYNC.
+   * ============================================================
+   * 1. DETECCIÓN SEMÁNTICA
+   * ============================================================
    */
+
   for (
     let wordIndex = 0;
-    wordIndex < words.length;
+    wordIndex <
+    words.length;
     wordIndex += 1
   ) {
-    for (const rule of rules) {
+    for (
+      const rule of rules
+    ) {
       for (
         const keyword of
         rule.keywords
@@ -162,7 +356,7 @@ export const buildSemanticEvents = (
         }
 
         detected.push(
-          createEvent(
+          createSemanticEvent(
             rule,
             keyword,
             words,
@@ -174,10 +368,11 @@ export const buildSemanticEvents = (
   }
 
   /**
-   * 2. Eliminar duplicados
-   * de la misma regla en
-   * el mismo instante.
+   * ============================================================
+   * 2. DEDUPLICACIÓN
+   * ============================================================
    */
+
   const deduplicated =
     new Map<
       string,
@@ -206,8 +401,11 @@ export const buildSemanticEvents = (
   }
 
   /**
-   * 3. Orden temporal.
+   * ============================================================
+   * 3. ORDEN TEMPORAL
+   * ============================================================
    */
+
   const ordered =
     Array.from(
       deduplicated.values(),
@@ -229,11 +427,11 @@ export const buildSemanticEvents = (
     });
 
   /**
-   * 4. Si dos conceptos nacen
-   * exactamente en el mismo
-   * instante, conservar el de
-   * mayor prioridad.
+   * ============================================================
+   * 4. COLAPSAR EVENTOS SIMULTÁNEOS
+   * ============================================================
    */
+
   const collapsed:
     SemanticEvent[] = [];
 
@@ -265,73 +463,196 @@ export const buildSemanticEvents = (
     collapsed.push(event);
   }
 
+  const timelineStart =
+    words[0].startMs;
+
+  const timelineEnd =
+    words[
+      words.length - 1
+    ].endMs;
+
   /**
-   * 5. CONTINUIDAD TEMPORAL.
-   *
-   * Cada visual intenta permanecer
-   * hasta el siguiente concepto,
-   * pero nunca más de 6 segundos.
-   *
-   * Esto reduce los espacios negros
-   * sin hacer que un visual permanezca
-   * indefinidamente.
+   * ============================================================
+   * 5. PERMANENCIA SEMÁNTICA
+   * ============================================================
    */
-  return collapsed.map(
-    (event, index) => {
-      const nextEvent =
-        collapsed[index + 1];
 
-      const maximumEnd =
-        event.startMs +
-        MAX_EVENT_HOLD_MS;
+  const held =
+    collapsed.map(
+      (event, index) => {
+        const next =
+          collapsed[
+            index + 1
+          ];
 
-      let endMs =
-        event.endMs;
-
-      if (nextEvent) {
-        const bridgeEnd =
+        const maximumEnd =
           Math.min(
-            nextEvent.startMs,
-            maximumEnd,
+            event.startMs +
+              MAX_EVENT_HOLD_MS,
+            timelineEnd,
           );
 
-        endMs =
-          Math.max(
-            endMs,
-            bridgeEnd,
-          );
-
-        /**
-         * Nunca invadir el evento
-         * semántico siguiente.
-         */
-        endMs =
+        let endMs =
           Math.min(
-            endMs,
-            nextEvent.startMs,
+            event.endMs,
+            timelineEnd,
           );
-      } else {
-        endMs =
-          Math.max(
-            endMs,
+
+        if (next) {
+          const bridgeEnd =
             Math.min(
-              event.startMs +
-                FINAL_EVENT_HOLD_MS,
+              next.startMs,
               maximumEnd,
-            ),
-          );
-      }
+            );
 
-      return {
-        ...event,
-        endMs,
-        durationMs:
-          Math.max(
-            0,
-            endMs -
-              event.startMs,
-          ),
-      };
-    },
-  );
+          endMs =
+            Math.max(
+              endMs,
+              bridgeEnd,
+            );
+
+          endMs =
+            Math.min(
+              endMs,
+              next.startMs,
+            );
+        } else {
+          endMs =
+            Math.max(
+              endMs,
+              Math.min(
+                event.startMs +
+                  FINAL_EVENT_HOLD_MS,
+                timelineEnd,
+              ),
+            );
+        }
+
+        return {
+          ...event,
+          endMs,
+          durationMs:
+            Math.max(
+              0,
+              endMs -
+                event.startMs,
+            ),
+        };
+      },
+    );
+
+  /**
+   * ============================================================
+   * 6. SEMANTIC FILLERS
+   * ============================================================
+   *
+   * Detectamos cualquier tramo de narración
+   * que todavía no tenga cobertura visual.
+   *
+   * Ese tramo recibe visuales neutrales
+   * contextualizados.
+   */
+
+  const fillers:
+    SemanticEvent[] = [];
+
+  let cursor =
+    timelineStart;
+
+  let previousSemantic:
+    | SemanticEvent
+    | undefined;
+
+  let fillerCounter =
+    0;
+
+  for (
+    const event of held
+  ) {
+    if (
+      event.startMs >
+      cursor
+    ) {
+      const generated =
+        createFillersForGap(
+          cursor,
+          event.startMs,
+          previousSemantic,
+          event,
+          fillerCounter,
+        );
+
+      fillers.push(
+        ...generated,
+      );
+
+      fillerCounter +=
+        generated.length;
+    }
+
+    cursor =
+      Math.max(
+        cursor,
+        event.endMs,
+      );
+
+    previousSemantic =
+      event;
+  }
+
+  /**
+   * Filler final hasta terminar
+   * la narración.
+   */
+  if (
+    timelineEnd >
+    cursor
+  ) {
+    const generated =
+      createFillersForGap(
+        cursor,
+        timelineEnd,
+        previousSemantic,
+        undefined,
+        fillerCounter,
+      );
+
+    fillers.push(
+      ...generated,
+    );
+  }
+
+  /**
+   * ============================================================
+   * 7. TIMELINE FINAL
+   * ============================================================
+   *
+   * Los eventos verdaderamente semánticos
+   * conservan prioridad alta.
+   *
+   * Los fillers tienen prioridad 1.
+   *
+   * Por tanto, si alguna vez se solapan,
+   * gana siempre el concepto real.
+   */
+
+  return [
+    ...held,
+    ...fillers,
+  ].sort((a, b) => {
+    if (
+      a.startMs !==
+      b.startMs
+    ) {
+      return (
+        a.startMs -
+        b.startMs
+      );
+    }
+
+    return (
+      b.priority -
+      a.priority
+    );
+  });
 };
