@@ -1,203 +1,132 @@
-import {
-  mkdirSync,
-  readFileSync,
-  writeFileSync,
-} from "node:fs";
-
-import {
-  dirname,
-  resolve,
-} from "node:path";
-
-import {
-  buildSemanticEvents,
-  type WordTiming,
-} from "../src/buildSemanticEvents";
-
-import {
-  buildDirectorDecisionSequence,
-} from "../src/semantic/buildDirectorDecisionSequence";
-
 import type {
-  OndaResource,
-} from "../src/semantic/selectSemanticResource";
+  SemanticEvent,
+} from "../buildSemanticEvents";
 
-type Timeline = {
-  words: WordTiming[];
+import {
+  rankSemanticResources,
+  type OndaResource,
+  type RankedSemanticResource,
+} from "./selectSemanticResource";
+
+export type DirectorDecisionStatus =
+  | "ACCEPT"
+  | "REVIEW"
+  | "REJECT";
+
+export type SemanticDecisionManifest = {
+  event: {
+    id: string;
+    ruleId: string;
+    concept: string;
+    visualType: string;
+    startMs: number;
+    endMs: number;
+    durationMs: number;
+  };
+
+  catalog: {
+    totalResources: number;
+    evaluatedResources: number;
+  };
+
+  candidates: RankedSemanticResource[];
+
+  selected: RankedSemanticResource | null;
+
+  decision: {
+    status: DirectorDecisionStatus;
+    score: number;
+    reasons: string[];
+  };
 };
 
-const root = process.cwd();
+const ACCEPT_THRESHOLD = 14;
+const REVIEW_THRESHOLD = 8;
 
-const timelinePath = resolve(
-  root,
-  "public/generated/video-juridico-001-timeline.json",
-);
+export const buildSemanticDecisionManifest = (
+  event: SemanticEvent,
+  catalog: OndaResource[],
+  candidateLimit = 3,
+): SemanticDecisionManifest => {
+  const candidates: RankedSemanticResource[] =
+    rankSemanticResources(
+      event,
+      catalog,
+      candidateLimit,
+    );
 
-const catalogPath = resolve(
-  root,
-  "public/catalogs/onda-catalog.json",
-);
+  const selected: RankedSemanticResource | null =
+    candidates[0] ?? null;
 
-const outputPath = resolve(
-  root,
-  "public/generated/video-juridico-001-semantic-decisions.json",
-);
+  const score: number =
+    selected?.score ?? 0;
 
-const timeline = JSON.parse(
-  readFileSync(
-    timelinePath,
-    "utf8",
-  ),
-) as Timeline;
+  let status: DirectorDecisionStatus =
+    "REJECT";
 
-const catalog = JSON.parse(
-  readFileSync(
-    catalogPath,
-    "utf8",
-  ),
-) as OndaResource[];
+  if (score >= ACCEPT_THRESHOLD) {
+    status = "ACCEPT";
+  } else if (score >= REVIEW_THRESHOLD) {
+    status = "REVIEW";
+  }
 
-if (
-  !Array.isArray(timeline.words) ||
-  timeline.words.length === 0
-) {
-  throw new Error(
-    "Timeline contains no words.",
-  );
-}
+  const reasons: string[] = [];
 
-if (
-  !Array.isArray(catalog) ||
-  catalog.length === 0
-) {
-  throw new Error(
-    "Onda catalog is empty.",
-  );
-}
+  if (!selected) {
+    reasons.push(
+      "No suitable Onda resource was found.",
+    );
+  } else {
+    reasons.push(
+      `Selected ${selected.resource.name}.`,
+    );
 
-const events =
-  buildSemanticEvents(
-    timeline.words,
-  );
+    reasons.push(
+      `Score ${selected.score}.`,
+    );
 
-/**
- * V3.7.1
- * Director secuencial con:
- * - memoria audiovisual;
- * - penalización de repetición;
- * - diversidad;
- * - adecuación temporal;
- * - tratamiento especial de fillers.
- */
-const decisions =
-  buildDirectorDecisionSequence(
-    events,
-    catalog,
-    3,
-  );
+    reasons.push(
+      ...selected.reasons,
+    );
+  }
 
-const summary = {
-  productionCode:
-    "video-juridico-001",
+  if (status === "ACCEPT") {
+    reasons.push(
+      "Resource meets autonomous selection threshold.",
+    );
+  } else if (status === "REVIEW") {
+    reasons.push(
+      "Resource is usable but requires Director or QA review.",
+    );
+  } else {
+    reasons.push(
+      "Catalog result is insufficient: adapt, combine or generate a new resource.",
+    );
+  }
 
-  directorVersion:
-    "V3.7.1-stateful",
+  return {
+    event: {
+      id: event.id,
+      ruleId: event.ruleId,
+      concept: event.concept,
+      visualType: event.visualType,
+      startMs: event.startMs,
+      endMs: event.endMs,
+      durationMs: event.durationMs,
+    },
 
-  catalogResources:
-    catalog.length,
+    catalog: {
+      totalResources: catalog.length,
+      evaluatedResources: catalog.length,
+    },
 
-  semanticEvents:
-    events.length,
+    candidates,
+    selected,
 
-  accept:
-    decisions.filter(
-      (item) =>
-        item.decision.status ===
-        "ACCEPT",
-    ).length,
-
-  review:
-    decisions.filter(
-      (item) =>
-        item.decision.status ===
-        "REVIEW",
-    ).length,
-
-  reject:
-    decisions.filter(
-      (item) =>
-        item.decision.status ===
-        "REJECT",
-    ).length,
+    decision: {
+      status,
+      score,
+      reasons,
+    },
+  };
 };
-
-const manifest = {
-  summary,
-  decisions,
-};
-
-mkdirSync(
-  dirname(outputPath),
-  {
-    recursive: true,
-  },
-);
-
-writeFileSync(
-  outputPath,
-  JSON.stringify(
-    manifest,
-    null,
-    2,
-  ),
-);
-
-console.log(
-  "\n=== DIRECTOR SEMANTIC DECISION RUN V3.7.1 ===",
-);
-
-console.log(summary);
-
-for (
-  const decision of decisions
-) {
-  console.log(
-    [
-      "\nEVENT:",
-      decision.event.ruleId,
-      "|",
-      decision.event.concept,
-
-      "\nDURATION:",
-      `${decision.event.durationMs}ms`,
-
-      "\nDECISION:",
-      decision.decision.status,
-
-      "| SCORE:",
-      decision.decision.score,
-
-      "\nWINNER:",
-      decision.selected
-        ?.resource.name ??
-        "NONE",
-
-      "| CATEGORY:",
-      decision.selected
-        ?.resource.category ??
-        "NONE",
-
-      "\nTOP 3:",
-      decision.candidates
-        .map(
-          (candidate) =>
-            `${candidate.resource.name}(${candidate.score})`,
-        )
-        .join(" | "),
-    ].join(" "),
-  );
-}
-
-console.log(
-  `\nManifest written to:\n${outputPath}`,
-);
