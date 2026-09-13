@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0",
+  "id": "video-juridico-002",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "Cómo comienza una estrategia jurídica sólida",
+    "description": "Una estrategia jurídica sólida no comienza acumulando normas: comienza ordenando correctamente el problema.",
+    "tags": [
+      "derecho",
+      "silec",
+      "estrategia",
+      "prueba",
+      "teoria-del-caso",
+      "bolivia"
+    ]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 60
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "¿Sabes cuál es uno de los errores más costosos al enfrentar un problema jurídico? Empezar buscando normas antes de entender el caso. Primero, identificar los hechos jurídicamente relevantes. Después, separar hechos demostrables de afirmaciones no probadas. Hay que qué prueba existe, cuál falta y cuál puede obtenerse. Solo entonces corresponde examinar jurisprudencia pertinente cuando corresponda. Construir una teoría del caso coherente. Luego, evaluar riesgos, costos y consecuencias. Finalmente, elegir una decisión jurídica ejecutable. La calidad jurídica no depende solamente de conocer más normas, sino de convertir información dispersa en una estrategia coherente, demostrable y ejecutable. Si enfrentas un problema jurídico complejo, comienza por un diagnóstico estratégico antes de decidir cómo actuar.",
+    "narrationSrc": "public/generated/video-juridico-002-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.08,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "¿Dónde comienza una estrategia jurídica sólida?",
+        "subtitle": "No comienza acumulando normas"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    },
+    {
+      "id": "hechos",
+      "kind": "statement",
+      "content": {
+        "title": "Identificar los hechos jurídicamente relevantes.",
+        "subtitle": "Primero debemos entender qué ocurrió realmente"
+      },
+      "timing": {
+        "durationMs": 9000
+      }
+    },
+    {
+      "id": "prueba",
+      "kind": "mechanism",
+      "content": {
+        "title": "Del relato al caso demostrable",
+        "before": "Separar hechos demostrables de afirmaciones…",
+        "after": "Determinar qué prueba existe, cuál falta y c…"
+      },
+      "timing": {
+        "durationMs": 10000
+      }
+    },
+    {
+      "id": "derecho",
+      "kind": "statement",
+      "content": {
+        "title": "El Derecho viene después de comprender el problema",
+        "subtitle": "Identificar las normas aplicables después de comprender el problema."
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    },
+    {
+      "id": "estrategia",
+      "kind": "points",
+      "content": {
+        "title": "La estrategia integra",
+        "points": [
+          "Examinar jurisprudencia pertinente cuando corresponda.",
+          "Construir una teoría del caso coherente.",
+          "Comparar estrategias y anticipar la posición adversa."
+        ]
+      },
+      "timing": {
+        "durationMs": 11000
+      }
+    },
+    {
+      "id": "decision",
+      "kind": "statement",
+      "content": {
+        "title": "No basta con tener razón",
+        "subtitle": "La estrategia debe ser demostrable, ejecutable y consciente de sus riesgos"
+      },
+      "timing": {
+        "durationMs": 7000
+      }
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "Primero diagnostica el problema",
+        "line2": "Después decide cómo actuar"
+      },
+      "timing": {
+        "durationMs": 7000
+      }
+    }
+  ]
+}
