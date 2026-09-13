@@ -17,102 +17,197 @@ export type SemanticRule = {
 
 export const semanticRules: SemanticRule[] = [
   {
-    id: "motivacion",
-    keywords: ["motivación", "motivar", "razones", "fundamentar"],
+    id: "expediente",
+    keywords: [
+      "expediente",
+      "expedientes",
+      "revisar el expediente",
+    ],
     visualType: "document",
     concept:
-      "resolución jurídica mostrando fundamentos, razones y motivación",
-    durationMs: 2800,
+      "expediente jurídico físico o digital claramente identificado como EXPEDIENTE",
+    durationMs: 5000,
+    priority: 12,
+  },
+
+  {
+    id: "plazos",
+    keywords: [
+      "plazo",
+      "plazos",
+      "término",
+      "términos",
+      "vencer el plazo",
+    ],
+    visualType: "warning",
+    concept:
+      "plazo procesal con reloj, calendario y señal temporal claramente visible",
+    durationMs: 5000,
+    priority: 12,
+  },
+
+  {
+    id: "recurso",
+    keywords: [
+      "recurso",
+      "recursos",
+      "impugnación",
+      "impugnar",
+    ],
+    visualType: "document",
+    concept:
+      "recurso jurídico formal claramente identificado como RECURSO",
+    durationMs: 4800,
+    priority: 11,
+  },
+
+  {
+    id: "motivacion",
+    keywords: [
+      "motivación",
+      "motivar",
+      "fundamentación",
+      "fundamentar",
+      "razones",
+    ],
+    visualType: "document",
+    concept:
+      "resolución mostrando fundamentos y razones jurídicas",
+    durationMs: 4800,
     priority: 10,
   },
 
   {
     id: "argumentos",
-    keywords: ["argumentos", "alegaciones", "planteamientos"],
+    keywords: [
+      "argumento",
+      "argumentos",
+      "alegación",
+      "alegaciones",
+      "planteamientos",
+    ],
     visualType: "evidence",
     concept:
-      "argumentos jurídicos ingresando y siendo considerados dentro del expediente",
-    durationMs: 2600,
-    priority: 9,
+      "argumentos jurídicos incorporándose y siendo evaluados",
+    durationMs: 4500,
+    priority: 10,
   },
 
   {
     id: "prueba",
-    keywords: ["prueba", "pruebas", "evidencia", "elementos probatorios"],
+    keywords: [
+      "prueba",
+      "pruebas",
+      "evidencia",
+      "elementos probatorios",
+    ],
     visualType: "evidence",
     concept:
-      "documentos y elementos probatorios relevantes dentro de un expediente",
-    durationMs: 2600,
-    priority: 9,
+      "documentos y elementos probatorios siendo examinados",
+    durationMs: 4500,
+    priority: 10,
   },
 
   {
     id: "debido-proceso",
-    keywords: ["debido proceso", "derecho al debido proceso"],
+    keywords: [
+      "debido proceso",
+      "derecho al debido proceso",
+    ],
     visualType: "process",
     concept:
-      "protección constitucional del debido proceso y garantías procesales",
-    durationMs: 3000,
-    priority: 10,
+      "protección constitucional del debido proceso",
+    durationMs: 5200,
+    priority: 12,
   },
 
   {
     id: "defensa",
-    keywords: ["defensa", "derecho a la defensa"],
+    keywords: [
+      "defensa",
+      "derecho a la defensa",
+    ],
     visualType: "process",
     concept:
-      "persona ejerciendo efectivamente su derecho a la defensa dentro del procedimiento",
-    durationMs: 2800,
-    priority: 10,
+      "ejercicio efectivo del derecho a la defensa",
+    durationMs: 4800,
+    priority: 11,
   },
 
   {
     id: "autoridad",
-    keywords: ["autoridad", "autoridad pública", "autoridad administrativa"],
-    visualType: "document",
+    keywords: [
+      "autoridad",
+      "autoridad pública",
+      "autoridad administrativa",
+    ],
+    visualType: "process",
     concept:
-      "autoridad analizando formalmente un expediente antes de emitir una decisión",
-    durationMs: 2400,
-    priority: 8,
-  },
-
-  {
-    id: "ignorar",
-    keywords: ["ignorar", "ignora", "omitió", "omitir", "omisión"],
-    visualType: "warning",
-    concept:
-      "argumento relevante omitido de una decisión con énfasis visual de advertencia",
-    durationMs: 2400,
-    priority: 10,
-  },
-
-  {
-    id: "decision",
-    keywords: ["decisión", "resolución", "resuelve", "pronunciamiento"],
-    visualType: "document",
-    concept:
-      "resolución jurídica final claramente estructurada y fundamentada",
-    durationMs: 2800,
+      "autoridad revisando profesionalmente un expediente antes de decidir",
+    durationMs: 4500,
     priority: 9,
   },
 
   {
-    id: "vulneracion",
-    keywords: ["vulneración", "vulnerar", "violación", "afectación"],
-    visualType: "warning",
+    id: "decision",
+    keywords: [
+      "decisión",
+      "resolución",
+      "pronunciamiento",
+      "resolver",
+      "resuelve",
+    ],
+    visualType: "document",
     concept:
-      "señal visual de vulneración de una garantía o derecho fundamental",
-    durationMs: 2500,
+      "resolución jurídica final estructurada y fundamentada",
+    durationMs: 4800,
     priority: 10,
   },
 
   {
+    id: "ignorar",
+    keywords: [
+      "ignorar",
+      "ignora",
+      "omitió",
+      "omitir",
+      "omisión",
+    ],
+    visualType: "warning",
+    concept:
+      "argumento jurídicamente relevante omitido de una decisión",
+    durationMs: 4300,
+    priority: 11,
+  },
+
+  {
+    id: "vulneracion",
+    keywords: [
+      "vulneración",
+      "vulnerar",
+      "violación",
+      "afectación",
+    ],
+    visualType: "warning",
+    concept:
+      "vulneración de una garantía o derecho fundamental",
+    durationMs: 4500,
+    priority: 11,
+  },
+
+  {
     id: "accion-final",
-    keywords: ["impugnar", "reclamar", "defender", "exigir"],
+    keywords: [
+      "reclamar",
+      "defender",
+      "exigir",
+      "actuar",
+      "estrategia",
+    ],
     visualType: "cta",
     concept:
-      "acción jurídica clara y estratégica como respuesta frente a la vulneración",
-    durationMs: 2600,
+      "acción jurídica estratégica frente al problema detectado",
+    durationMs: 5000,
     priority: 8,
   },
 ];
