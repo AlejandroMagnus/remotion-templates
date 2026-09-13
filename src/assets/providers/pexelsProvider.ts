@@ -9,6 +9,7 @@ export type PexelsResolvedAsset = {
   width: number;
   height: number;
   durationMs?: number;
+  altText?: string;
 };
 
 const PHOTO_API = "https://api.pexels.com/v1";
@@ -58,6 +59,7 @@ export async function searchPexelsPhotos(
       sourceUrl: photo.url,
       creator: photo.photographer ?? "Pexels",
       creatorUrl: photo.photographer_url,
+      altText: String(photo.alt ?? ""),
       width: Number(photo.width ?? 0),
       height: Number(photo.height ?? 0),
     }))

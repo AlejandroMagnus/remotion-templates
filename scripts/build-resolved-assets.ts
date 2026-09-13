@@ -1,10 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
+
 import {
-  PexelsResolvedAsset,
+  type PexelsResolvedAsset,
   searchPexelsPhotos,
-  searchPexelsVideo,
 } from "../src/assets/providers/pexelsProvider";
+
+import {
+  rankVisualCandidate,
+  semanticQueries,
+  type DirectorScene,
+} from "../src/assets/semanticVisualRanker";
 
 const ROOT = process.cwd();
 
@@ -23,189 +29,59 @@ const manifestPath = path.join(
   "public/generated/video-juridico-001-resolved-assets.json",
 );
 
-const QUERY_SETS: Record<string, string[]> = {
-  autoridad: [
-    "government official reviewing documents office",
-    "public administration professional paperwork",
-    "professional reading legal documents office",
-  ],
+const usedProviderIds =
+  new Set<number>();
 
-  expediente: [
-    "legal case file folder desk",
-    "law office case documents",
-    "court case paperwork close up",
-  ],
+const usedSourceUrls =
+  new Set<string>();
 
-  argumentos: [
-    "lawyer reviewing legal strategy",
-    "attorney writing case notes",
-    "lawyer analyzing documents desk",
-  ],
+const creatorUsage =
+  new Map<string, number>();
 
-  prueba: [
-    "legal evidence documents",
-    "investigation paperwork evidence",
-    "lawyer examining case documents",
-  ],
+const searchCache =
+  new Map<string, PexelsResolvedAsset[]>();
 
-  motivacion: [
-    "lawyer analyzing written decision",
-    "legal reasoning notes office",
-    "judge reviewing documents",
-  ],
+async function cachedSearch(
+  query: string,
+): Promise<PexelsResolvedAsset[]> {
+  const cached =
+    searchCache.get(query);
 
-  recurso: [
-    "lawyer preparing appeal documents",
-    "attorney court filing paperwork",
-    "legal appeal documents desk",
-  ],
-
-  decision: [
-    "legal decision document",
-    "official signing documents",
-    "court ruling paperwork",
-  ],
-
-  "debido-proceso": [
-    "courtroom legal process",
-    "lawyer court hearing",
-    "justice legal procedure",
-  ],
-
-  defensa: [
-    "defense lawyer client meeting",
-    "lawyer preparing defense",
-    "attorney consultation office",
-  ],
-
-  plazos: [
-    "calendar legal deadline",
-    "lawyer checking calendar",
-    "deadline paperwork office",
-  ],
-
-  ignorar: [
-    "unread documents desk",
-    "bureaucracy paperwork office",
-    "legal documents waiting",
-  ],
-
-  vulneracion: [
-    "concerned lawyer documents",
-    "legal rights attorney",
-    "serious lawyer reviewing case",
-  ],
-
-  "accion-final": [
-    "lawyer filing legal action",
-    "attorney submitting documents",
-    "lawyer courthouse documents",
-  ],
-
-  "semantic-filler": [
-    "law office documents close up",
-    "hands organizing paperwork",
-    "professional office legal papers",
-    "law books documents desk",
-    "lawyer hands writing notes",
-  ],
-};
-
-const usedProviderIds = new Set<number>();
-const usedSourceUrls = new Set<string>();
-
-function querySet(scene: any, index: number) {
-  const key =
-    scene.ruleId ??
-    scene.concept ??
-    "semantic-filler";
-
-  const candidates =
-    QUERY_SETS[key] ??
-    QUERY_SETS["semantic-filler"];
-
-  // Rotamos la primera búsqueda para aumentar diversidad.
-  const offset = index % candidates.length;
-
-  return [
-    ...candidates.slice(offset),
-    ...candidates.slice(0, offset),
-  ];
-}
-
-function scoreCandidate(
-  asset: PexelsResolvedAsset,
-): number {
-  const aspect =
-    asset.width / asset.height;
-
-  const verticalDistance =
-    Math.abs(aspect - 9 / 16);
-
-  const resolutionBonus =
-    Math.min(asset.width * asset.height, 8_000_000) /
-    8_000_000;
-
-  return (
-    verticalDistance * 100 -
-    resolutionBonus * 8
-  );
-}
-
-async function resolveUniquePhoto(
-  queries: string[],
-): Promise<{
-  asset: PexelsResolvedAsset;
-  query: string;
-} | null> {
-  for (const query of queries) {
-    const candidates =
-      await searchPexelsPhotos(query, 30);
-
-    const unique = candidates
-      .filter(
-        (asset) =>
-          !usedProviderIds.has(asset.providerId) &&
-          !usedSourceUrls.has(asset.sourceUrl),
-      )
-      .sort(
-        (a, b) =>
-          scoreCandidate(a) -
-          scoreCandidate(b),
-      );
-
-    const best = unique[0];
-
-    if (best) {
-      usedProviderIds.add(best.providerId);
-      usedSourceUrls.add(best.sourceUrl);
-
-      return {
-        asset: best,
-        query,
-      };
-    }
+  if (cached) {
+    return cached;
   }
 
-  return null;
+  const result =
+    await searchPexelsPhotos(
+      query,
+      20,
+    );
+
+  searchCache.set(
+    query,
+    result,
+  );
+
+  return result;
 }
 
 async function download(
   url: string,
   target: string,
 ) {
-  const res = await fetch(url);
+  const response =
+    await fetch(url);
 
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error(
-      `Download failed ${res.status}: ${url}`,
+      `Download failed ${response.status}: ${url}`,
     );
   }
 
   fs.writeFileSync(
     target,
     Buffer.from(
-      await res.arrayBuffer(),
+      await response.arrayBuffer(),
     ),
   );
 }
@@ -217,28 +93,146 @@ async function main() {
     );
   }
 
-  fs.rmSync(outputDir, {
-    recursive: true,
-    force: true,
-  });
-
-  fs.mkdirSync(outputDir, {
-    recursive: true,
-  });
-
-  const source = JSON.parse(
-    fs.readFileSync(planPath, "utf8"),
+  fs.rmSync(
+    outputDir,
+    {
+      recursive: true,
+      force: true,
+    },
   );
 
-  const scenes = source.scenes ?? [];
+  fs.mkdirSync(
+    outputDir,
+    {
+      recursive: true,
+    },
+  );
+
+  const source =
+    JSON.parse(
+      fs.readFileSync(
+        planPath,
+        "utf8",
+      ),
+    );
+
+  const scenes =
+    source.scenes ?? [];
+
   const resolved: any[] = [];
 
   for (
-    let index = 0;
-    index < scenes.length;
-    index++
+    let sceneIndex = 0;
+    sceneIndex < scenes.length;
+    sceneIndex++
   ) {
-    const scene = scenes[index];
+    const scene =
+      scenes[sceneIndex] as DirectorScene & {
+        id: string;
+        startMs: number;
+        endMs: number;
+        durationMs: number;
+        route: string;
+      };
+
+    const queries =
+      semanticQueries(
+        scene,
+        sceneIndex,
+      );
+
+    type RankedCandidate = {
+      asset: PexelsResolvedAsset;
+      query: string;
+      queryIndex: number;
+      searchPosition: number;
+      score: ReturnType<
+        typeof rankVisualCandidate
+      >;
+    };
+
+    const candidateMap =
+      new Map<
+        number,
+        RankedCandidate
+      >();
+
+    for (
+      let queryIndex = 0;
+      queryIndex < queries.length;
+      queryIndex++
+    ) {
+      const query =
+        queries[queryIndex];
+
+      const candidates =
+        await cachedSearch(query);
+
+      candidates.forEach(
+        (
+          asset,
+          searchPosition,
+        ) => {
+          if (
+            usedProviderIds.has(
+              asset.providerId,
+            ) ||
+            usedSourceUrls.has(
+              asset.sourceUrl,
+            )
+          ) {
+            return;
+          }
+
+          const creatorUseCount =
+            creatorUsage.get(
+              asset.creator,
+            ) ?? 0;
+
+          const score =
+            rankVisualCandidate(
+              scene,
+              asset,
+              query,
+              searchPosition,
+              creatorUseCount,
+            );
+
+          const previous =
+            candidateMap.get(
+              asset.providerId,
+            );
+
+          if (
+            !previous ||
+            score.total >
+              previous.score.total
+          ) {
+            candidateMap.set(
+              asset.providerId,
+              {
+                asset,
+                query,
+                queryIndex,
+                searchPosition,
+                score,
+              },
+            );
+          }
+        },
+      );
+    }
+
+    const ranked =
+      [...candidateMap.values()]
+        .sort(
+          (a, b) =>
+            b.score.total -
+            a.score.total,
+        );
+
+    const selected =
+      ranked[0];
 
     const base = {
       id: scene.id,
@@ -247,50 +241,23 @@ async function main() {
       route: scene.route,
       startMs: scene.startMs,
       endMs: scene.endMs,
-      durationMs: scene.durationMs,
+      durationMs:
+        scene.durationMs,
+      narrationContext:
+        scene.narrationContext,
     };
 
-    const queries = querySet(
-      scene,
-      index,
+    console.log(
+      `\n[DIRECTOR ${sceneIndex + 1}/${scenes.length}] ${scene.ruleId}`,
     );
 
     console.log(
-      `[${index + 1}/${scenes.length}] ` +
-      `${scene.ruleId} | buscando asset único`,
+      `Candidates: ${ranked.length}`,
     );
 
-    let selection =
-      await resolveUniquePhoto(queries);
-
-    // Respaldo excepcional: video distinto.
-    if (!selection) {
-      const fallbackQuery =
-        queries[0];
-
-      const video =
-        await searchPexelsVideo(
-          fallbackQuery,
-          scene.durationMs,
-        );
-
-      if (
-        video &&
-        !usedProviderIds.has(video.providerId)
-      ) {
-        usedProviderIds.add(video.providerId);
-        usedSourceUrls.add(video.sourceUrl);
-
-        selection = {
-          asset: video,
-          query: fallbackQuery,
-        };
-      }
-    }
-
-    if (!selection) {
+    if (!selected) {
       console.log(
-        `UNRESOLVED: ${scene.ruleId}`,
+        "UNRESOLVED",
       );
 
       resolved.push({
@@ -301,38 +268,112 @@ async function main() {
       continue;
     }
 
-    const asset = selection.asset;
+    const asset =
+      selected.asset;
 
-    const extension =
-      asset.mediaType === "video"
-        ? "mp4"
-        : "jpg";
+    usedProviderIds.add(
+      asset.providerId,
+    );
+
+    usedSourceUrls.add(
+      asset.sourceUrl,
+    );
+
+    creatorUsage.set(
+      asset.creator,
+      (creatorUsage.get(
+        asset.creator,
+      ) ?? 0) + 1,
+    );
+
+    console.log(
+      `SELECTED: ${asset.providerId} | SCORE ${selected.score.total}`,
+    );
+
+    console.log(
+      `ALT: ${asset.altText ?? ""}`,
+    );
+
+    console.log(
+      `SEMANTIC HITS: ${selected.score.semanticHits.join(", ")}`,
+    );
 
     const filename =
-      `${String(index + 1).padStart(2, "0")}-` +
-      `${scene.ruleId}-${asset.providerId}.${extension}`;
+      `${String(
+        sceneIndex + 1,
+      ).padStart(
+        2,
+        "0",
+      )}-${scene.ruleId}-${asset.providerId}.jpg`;
 
-    const target = path.join(
-      outputDir,
-      filename,
-    );
+    const target =
+      path.join(
+        outputDir,
+        filename,
+      );
 
     await download(
       asset.remoteUrl,
       target,
     );
 
-    console.log(
-      `RESOLVED UNIQUE: ` +
-      `${scene.ruleId} -> ${filename}`,
-    );
-
     resolved.push({
       ...base,
+
       status: "resolved",
-      query: selection.query,
+
+      query:
+        selected.query,
+
+      directorSelection: {
+        candidateCount:
+          ranked.length,
+
+        selectedScore:
+          selected.score.total,
+
+        scoreBreakdown:
+          selected.score,
+
+        selectedAlt:
+          asset.altText ?? "",
+
+        topCandidates:
+          ranked
+            .slice(0, 5)
+            .map(
+              (
+                candidate,
+                rank,
+              ) => ({
+                rank:
+                  rank + 1,
+
+                providerId:
+                  candidate.asset
+                    .providerId,
+
+                score:
+                  candidate.score
+                    .total,
+
+                alt:
+                  candidate.asset
+                    .altText ?? "",
+
+                query:
+                  candidate.query,
+
+                semanticHits:
+                  candidate.score
+                    .semanticHits,
+              }),
+            ),
+      },
+
       asset: {
         ...asset,
+
         localSrc:
           `generated/assets/${filename}`,
       },
@@ -342,7 +383,8 @@ async function main() {
   const resolvedCount =
     resolved.filter(
       (item) =>
-        item.status === "resolved",
+        item.status ===
+        "resolved",
     ).length;
 
   const uniqueCount =
@@ -350,7 +392,8 @@ async function main() {
       resolved
         .filter(
           (item) =>
-            item.status === "resolved",
+            item.status ===
+            "resolved",
         )
         .map(
           (item) =>
@@ -363,7 +406,7 @@ async function main() {
       "video-juridico-001",
 
     version:
-      "V3.9.4-DIVERSITY-MOTION",
+      "V3.9.5-SEMANTIC-RANKING",
 
     generatedAt:
       new Date().toISOString(),
@@ -372,11 +415,11 @@ async function main() {
       scenes.length,
 
     resolvedCount,
-
     uniqueCount,
 
     duplicateAssets:
-      resolvedCount - uniqueCount,
+      resolvedCount -
+      uniqueCount,
 
     assets:
       resolved,
@@ -392,7 +435,7 @@ async function main() {
   );
 
   console.log(
-    "=== V3.9.4 DIVERSITY ===",
+    "\n=== V3.9.5 SEMANTIC VISUAL RANKING ===",
   );
 
   console.log(
@@ -409,26 +452,32 @@ async function main() {
 
   console.log(
     `Duplicates: ${
-      resolvedCount - uniqueCount
+      resolvedCount -
+      uniqueCount
     }`,
   );
 
-  if (resolvedCount === 0) {
+  if (
+    resolvedCount === 0
+  ) {
     throw new Error(
-      "No visual assets resolved",
+      "No semantic visual assets resolved",
     );
   }
 
   if (
-    resolvedCount !== uniqueCount
+    resolvedCount !==
+    uniqueCount
   ) {
     throw new Error(
-      "V3.9.4 detected duplicated assets",
+      "Duplicated assets detected",
     );
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+main().catch(
+  (error) => {
+    console.error(error);
+    process.exit(1);
+  },
+);

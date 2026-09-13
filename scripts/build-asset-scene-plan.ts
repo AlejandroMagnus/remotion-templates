@@ -33,7 +33,25 @@ if (!Array.isArray(timeline.words) || timeline.words.length === 0) {
 }
 
 const events = buildSemanticEvents(timeline.words);
-const plan = buildAssetScenePlan(events);
+const plan = buildAssetScenePlan(events).map((item) => {
+  const contextStartMs = Math.max(0, item.startMs - 1200);
+  const contextEndMs = item.endMs + 1200;
+
+  const narrationContext = timeline.words
+    .filter(
+      (word) =>
+        word.endMs >= contextStartMs &&
+        word.startMs <= contextEndMs,
+    )
+    .map((word) => word.text)
+    .join(" ")
+    .trim();
+
+  return {
+    ...item,
+    narrationContext,
+  };
+});
 
 mkdirSync(dirname(outputPath), {recursive: true});
 
@@ -42,7 +60,7 @@ writeFileSync(
   JSON.stringify(
     {
       productionCode: "video-juridico-001",
-      version: "V3.9",
+      version: "V3.9.5",
       totalScenes: plan.length,
       scenes: plan,
     },
