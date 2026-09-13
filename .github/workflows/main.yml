@@ -203,6 +203,19 @@ jobs:
    
       - name: Build asset scene plan
         run: npx --yes tsx scripts/build-asset-scene-plan.ts
+
+      - name: Resolve real assets
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: npx --yes tsx scripts/build-resolved-assets.ts
+
+      - name: Verify resolved assets
+        run: |
+          test -s public/generated/video-juridico-001-resolved-assets.json
+          test -d public/generated/assets
+          test "$(find public/generated/assets -type f | wc -l)" -gt 0
+          echo "REAL ASSETS VERIFIED"
+          find public/generated/assets -type f -maxdepth 1 -print
       - name: Auditar archivos sincronizados
         run: |
           test -s public/generated/video-juridico-001-narration.mp3

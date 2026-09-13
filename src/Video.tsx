@@ -1,4 +1,5 @@
 import { SemanticExecutionEngine } from "./SemanticExecutionEngine";
+import {ResolvedAssetLayer} from "./ResolvedAssetLayer";
 import {WordSyncOverlay} from "./WordSyncOverlay";
 import {loadFont as loadFraunces} from "@remotion/google-fonts/Fraunces";
 import {loadFont as loadInter} from "@remotion/google-fonts/Inter";
@@ -1305,6 +1306,10 @@ export function TemplateVideo({
 
         <SemanticVisualOverlay />
 
+        <ResolvedAssetLayer />
+
+        <SemanticExecutionEngine />
+
         <WordSyncOverlay />
 
         <AudioBed
@@ -1363,6 +1368,8 @@ export function TemplateVideo({
           );
         },
       )}
+
+      <ResolvedAssetLayer />
 
       <SemanticExecutionEngine />
 
