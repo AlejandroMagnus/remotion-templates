@@ -434,14 +434,15 @@ export function SemanticExecutionEngine() {
       .map(buildFinishingEntry)
       .filter((entry): entry is OndaEntry => entry !== null);
 
+    void atmosphere;
+    void finishing;
+
     return {
       fps,
       width,
       height,
       tracks: [
-        {entries: atmosphere},
         {entries: foreground},
-        {entries: finishing},
       ],
     } as OndaComposition;
   }, [manifest, fps, width, height]);

@@ -150,7 +150,12 @@ export function ResolvedAssetLayer() {
   }, [handle]);
 
   return (
-    <AbsoluteFill>
+    <AbsoluteFill
+      style={{
+        zIndex: 60,
+        pointerEvents: "none",
+      }}
+    >
       {items.map((item) => {
         const from = Math.max(
           0,
