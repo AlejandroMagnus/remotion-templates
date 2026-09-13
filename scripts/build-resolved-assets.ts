@@ -13,10 +13,11 @@ import {
 } from "../src/assets/semanticVisualRanker";
 
 const ROOT = process.cwd();
+const productionCode = process.env.PRODUCTION_CODE ?? "video-juridico-001";
 
 const planPath = path.join(
   ROOT,
-  "public/generated/video-juridico-001-asset-scene-plan.json",
+  `public/generated/${productionCode}-asset-scene-plan.json`,
 );
 
 const outputDir = path.join(
@@ -26,7 +27,7 @@ const outputDir = path.join(
 
 const manifestPath = path.join(
   ROOT,
-  "public/generated/video-juridico-001-resolved-assets.json",
+  `public/generated/${productionCode}-resolved-assets.json`,
 );
 
 const usedProviderIds =
@@ -402,8 +403,7 @@ async function main() {
     ).size;
 
   const manifest = {
-    productionCode:
-      "video-juridico-001",
+    productionCode,
 
     version:
       "V3.9.5-SEMANTIC-RANKING",

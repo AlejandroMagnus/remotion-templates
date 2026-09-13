@@ -208,7 +208,11 @@ function SemanticCinematicPhoto({
   );
 }
 
-export function ResolvedAssetLayer() {
+export function ResolvedAssetLayer({
+  productionCode,
+}: {
+  productionCode: string;
+}) {
   const {fps} =
     useVideoConfig();
 
@@ -225,7 +229,7 @@ export function ResolvedAssetLayer() {
   useEffect(() => {
     fetch(
       staticFile(
-        "generated/video-juridico-001-resolved-assets.json",
+        `generated/${productionCode}-resolved-assets.json`,
       ),
     )
       .then((response) => {
@@ -264,7 +268,7 @@ export function ResolvedAssetLayer() {
       .finally(() =>
         continueRender(handle),
       );
-  }, [handle]);
+  }, [handle, productionCode]);
 
   const overlap =
     Math.max(

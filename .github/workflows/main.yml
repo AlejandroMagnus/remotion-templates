@@ -2,6 +2,12 @@ name: Render Video Juridico V2 Sync
 
 on:
   workflow_dispatch:
+    inputs:
+      production_code:
+        description: "Production code"
+        required: true
+        default: "video-juridico-002"
+        type: string
 
 permissions:
   contents: read
@@ -9,6 +15,9 @@ permissions:
 jobs:
   render:
     runs-on: ubuntu-latest
+
+    env:
+      PRODUCTION_CODE: ${{ inputs.production_code }}
 
     steps:
       - name: Descargar repositorio
@@ -45,14 +54,17 @@ jobs:
           python3 <<'PY'
           import asyncio
           import json
+          import os
           import time
           from pathlib import Path
           import edge_tts
 
-          SPEC = Path("examples/video-juridico-001.video.json")
-          AUDIO = Path("public/generated/video-juridico-001-narration.mp3")
-          TIMELINE = Path("public/generated/video-juridico-001-timeline.json")
-          SRT = Path("public/generated/video-juridico-001.srt")
+          code = os.environ["PRODUCTION_CODE"]
+
+          SPEC = Path(f"examples/{code}.video.json")
+          AUDIO = Path(f"public/generated/{code}-narration.mp3")
+          TIMELINE = Path(f"public/generated/{code}-timeline.json")
+          SRT = Path(f"public/generated/{code}.srt")
 
           spec = json.loads(SPEC.read_text(encoding="utf-8"))
           text = spec["audio"]["narrationText"].strip()
@@ -211,23 +223,26 @@ jobs:
 
       - name: Verify resolved assets
         run: |
-          test -s public/generated/video-juridico-001-resolved-assets.json
+          test -s "public/generated/${PRODUCTION_CODE}-resolved-assets.json"
           test -d public/generated/assets
           test "$(find public/generated/assets -type f | wc -l)" -gt 0
           echo "REAL ASSETS VERIFIED"
           find public/generated/assets -type f -maxdepth 1 -print
       - name: Auditar archivos sincronizados
         run: |
-          test -s public/generated/video-juridico-001-narration.mp3
-          test -s public/generated/video-juridico-001-timeline.json
-          test -s public/generated/video-juridico-001.srt
+          test -s "public/generated/${PRODUCTION_CODE}-narration.mp3"
+          test -s "public/generated/${PRODUCTION_CODE}-timeline.json"
+          test -s "public/generated/${PRODUCTION_CODE}.srt"
 
           python3 <<'PY'
           import json
+          import os
           from pathlib import Path
 
+          code = os.environ["PRODUCTION_CODE"]
+
           path = Path(
-              "public/generated/video-juridico-001-timeline.json"
+              f"public/generated/{code}-timeline.json"
           )
 
           data = json.loads(path.read_text(encoding="utf-8"))
@@ -247,31 +262,26 @@ jobs:
       - name: Validar VideoSpec
         run: |
           npm run video:validate -- \
-            examples/video-juridico-001.video.json
+            examples/${PRODUCTION_CODE}.video.json
 
       - name: Renderizar V2 sincronizada
         run: |
           npm run video:render -- \
-            examples/video-juridico-001.video.json
+            examples/${PRODUCTION_CODE}.video.json
 
-      - name: Verificar MP4
+      - name: Verificar MP4 universal
         run: |
-          test -s out/video-juridico-001.mp4
+          test -s "out/${PRODUCTION_CODE}.mp4"
 
-      - name: Crear MP4 V2 definitivo
-        run: |
-          mv \
-            out/video-juridico-001.mp4 \
-            out/video-juridico-001-V2-SYNC.mp4
+          cp             "out/${PRODUCTION_CODE}.mp4"             "out/${PRODUCTION_CODE}-FINAL.mp4"
 
-          test -s out/video-juridico-001-V2-SYNC.mp4
+          test -s "out/${PRODUCTION_CODE}-FINAL.mp4"
+          ls -lh "out/${PRODUCTION_CODE}-FINAL.mp4"
 
-          ls -lh out/video-juridico-001-V2-SYNC.mp4
-
-      - name: Subir V2 sincronizada
+      - name: Subir MP4 final
         uses: actions/upload-artifact@v7
         with:
-          name: VIDEO-JURIDICO-001-V2-SYNC
-          path: out/video-juridico-001-V2-SYNC.mp4
+          name: ${{ env.PRODUCTION_CODE }}-FINAL
+          path: out/${{ env.PRODUCTION_CODE }}-FINAL.mp4
           retention-days: 7
           if-no-files-found: error

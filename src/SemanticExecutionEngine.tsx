@@ -367,7 +367,11 @@ const buildFinishingEntry = (
   };
 };
 
-export function SemanticExecutionEngine() {
+export function SemanticExecutionEngine({
+  productionCode,
+}: {
+  productionCode: string;
+}) {
   const {fps, width, height} = useVideoConfig();
 
   const [manifest, setManifest] =
@@ -380,7 +384,7 @@ export function SemanticExecutionEngine() {
   useEffect(() => {
     fetch(
       staticFile(
-        "generated/video-juridico-001-semantic-decisions.json",
+        `generated/${productionCode}-semantic-decisions.json`,
       ),
     )
       .then(async (response) => {
@@ -409,7 +413,7 @@ export function SemanticExecutionEngine() {
             : new Error(String(error)),
         );
       });
-  }, [renderHandle]);
+  }, [renderHandle, productionCode]);
 
   const composition = useMemo<OndaComposition | null>(() => {
     if (!manifest) {

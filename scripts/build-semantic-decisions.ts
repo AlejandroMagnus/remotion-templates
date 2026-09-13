@@ -27,10 +27,11 @@ type Timeline = {
 };
 
 const root = process.cwd();
+const productionCode = process.env.PRODUCTION_CODE ?? "video-juridico-001";
 
 const timelinePath = resolve(
   root,
-  "public/generated/video-juridico-001-timeline.json",
+  `public/generated/${productionCode}-timeline.json`,
 );
 
 const catalogPath = resolve(
@@ -40,7 +41,7 @@ const catalogPath = resolve(
 
 const outputPath = resolve(
   root,
-  "public/generated/video-juridico-001-semantic-decisions.json",
+  `public/generated/${productionCode}-semantic-decisions.json`,
 );
 
 const timeline = JSON.parse(
@@ -90,8 +91,7 @@ const decisions =
   );
 
 const summary = {
-  productionCode:
-    "video-juridico-001",
+  productionCode,
 
   catalogResources:
     catalog.length,

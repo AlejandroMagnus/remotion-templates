@@ -1304,7 +1304,7 @@ export function TemplateVideo({
   if (PHOTO_FIRST_MODE) {
     return (
       <AbsoluteFill style={{backgroundColor: "#000"}}>
-        <ResolvedAssetLayer />
+        <ResolvedAssetLayer productionCode={spec.id} />
         <AudioBed spec={spec} />
       </AbsoluteFill>
     );
@@ -1317,11 +1317,11 @@ export function TemplateVideo({
 
         <SemanticVisualOverlay />
 
-        <ResolvedAssetLayer />
+        <ResolvedAssetLayer productionCode={spec.id} />
 
-        <SemanticExecutionEngine />
+        <SemanticExecutionEngine productionCode={spec.id} />
 
-        <WordSyncOverlay />
+        <WordSyncOverlay productionCode={spec.id} />
 
         <AudioBed
           spec={spec}
@@ -1380,11 +1380,11 @@ export function TemplateVideo({
         },
       )}
 
-      <ResolvedAssetLayer />
+      <ResolvedAssetLayer productionCode={spec.id} />
 
-      <SemanticExecutionEngine />
+      <SemanticExecutionEngine productionCode={spec.id} />
 
-      <WordSyncOverlay />
+      <WordSyncOverlay productionCode={spec.id} />
 
       <AudioBed
         spec={spec}

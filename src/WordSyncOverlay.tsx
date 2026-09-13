@@ -70,7 +70,11 @@ const isValidTimeline = (value: unknown): value is Timeline => {
   });
 };
 
-export function WordSyncOverlay() {
+export function WordSyncOverlay({
+  productionCode,
+}: {
+  productionCode: string;
+}) {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
@@ -82,7 +86,7 @@ export function WordSyncOverlay() {
 
   useEffect(() => {
     const url = staticFile(
-      "generated/video-juridico-001-timeline.json",
+      `generated/${productionCode}-timeline.json`,
     );
 
     fetch(url)
@@ -113,7 +117,7 @@ export function WordSyncOverlay() {
 
         cancelRender(safeError);
       });
-  }, [renderHandle]);
+  }, [renderHandle, productionCode]);
 
   if (!timeline) {
     return null;
