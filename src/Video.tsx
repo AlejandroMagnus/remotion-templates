@@ -1,4 +1,4 @@
-import {WordSyncOverlay} from "./WordSyncOverlay";
+import { SemanticExecutionEngine } from "./SemanticExecutionEngine";
 import {loadFont as loadFraunces} from "@remotion/google-fonts/Fraunces";
 import {loadFont as loadInter} from "@remotion/google-fonts/Inter";
 import {fitText} from "@remotion/layout-utils";
@@ -1363,7 +1363,7 @@ export function TemplateVideo({
         },
       )}
 
-      <SemanticVisualOverlay />
+      <SemanticExecutionEngine />
 
       <WordSyncOverlay />
 
