@@ -127,6 +127,10 @@ async function main() {
 
   console.log("=== V3.9.2-A ASSET RESOLVER ===");
   console.log(`Resolved: ${manifest.resolvedCount}`);
+
+  if (manifest.resolvedCount === 0) {
+    throw new Error("V3.9.2-A: no real assets were resolved");
+  }
   console.log(`Manifest: ${manifestPath}`);
 }
 
