@@ -3,4 +3,26 @@
 // Pass `--no-barrel` to opt out; delete this file + .ondajs-installed.json
 // to disable barrel management going forward.
 
-export const ondaRegistry = {} as const;
+import { BlurReveal, blurRevealSchema } from './blur-reveal/BlurReveal';
+import { ChapterCard, chapterCardSchema } from './chapter-card/ChapterCard';
+import { EndCard, endCardSchema } from './end-card/EndCard';
+import { FadeIn, fadeInSchema } from './fade-in/FadeIn';
+import { MaskReveal, maskRevealSchema } from './mask-reveal/MaskReveal';
+import { ProgressSteps, progressStepsSchema } from './progress-steps/ProgressSteps';
+import { QuoteCard, quoteCardSchema } from './quote-card/QuoteCard';
+import { StaggerGroup, staggerGroupSchema } from './stagger-group/StaggerGroup';
+import { Underline, underlineSchema } from './underline/Underline';
+import { WordStagger, wordStaggerSchema } from './word-stagger/WordStagger';
+
+export const ondaRegistry = {
+  BlurReveal: { component: BlurReveal, schema: blurRevealSchema },
+  ChapterCard: { component: ChapterCard, schema: chapterCardSchema },
+  EndCard: { component: EndCard, schema: endCardSchema },
+  FadeIn: { component: FadeIn, schema: fadeInSchema },
+  MaskReveal: { component: MaskReveal, schema: maskRevealSchema },
+  ProgressSteps: { component: ProgressSteps, schema: progressStepsSchema },
+  QuoteCard: { component: QuoteCard, schema: quoteCardSchema },
+  StaggerGroup: { component: StaggerGroup, schema: staggerGroupSchema },
+  Underline: { component: Underline, schema: underlineSchema },
+  WordStagger: { component: WordStagger, schema: wordStaggerSchema },
+} as const;

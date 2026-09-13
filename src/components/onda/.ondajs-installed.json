@@ -1,3 +1,64 @@
 {
-  "components": []
+  "components": [
+    {
+      "slug": "blur-reveal",
+      "componentName": "BlurReveal",
+      "schemaName": "blurRevealSchema",
+      "importPath": "./blur-reveal/BlurReveal"
+    },
+    {
+      "slug": "chapter-card",
+      "componentName": "ChapterCard",
+      "schemaName": "chapterCardSchema",
+      "importPath": "./chapter-card/ChapterCard"
+    },
+    {
+      "slug": "end-card",
+      "componentName": "EndCard",
+      "schemaName": "endCardSchema",
+      "importPath": "./end-card/EndCard"
+    },
+    {
+      "slug": "fade-in",
+      "componentName": "FadeIn",
+      "schemaName": "fadeInSchema",
+      "importPath": "./fade-in/FadeIn"
+    },
+    {
+      "slug": "mask-reveal",
+      "componentName": "MaskReveal",
+      "schemaName": "maskRevealSchema",
+      "importPath": "./mask-reveal/MaskReveal"
+    },
+    {
+      "slug": "progress-steps",
+      "componentName": "ProgressSteps",
+      "schemaName": "progressStepsSchema",
+      "importPath": "./progress-steps/ProgressSteps"
+    },
+    {
+      "slug": "quote-card",
+      "componentName": "QuoteCard",
+      "schemaName": "quoteCardSchema",
+      "importPath": "./quote-card/QuoteCard"
+    },
+    {
+      "slug": "stagger-group",
+      "componentName": "StaggerGroup",
+      "schemaName": "staggerGroupSchema",
+      "importPath": "./stagger-group/StaggerGroup"
+    },
+    {
+      "slug": "underline",
+      "componentName": "Underline",
+      "schemaName": "underlineSchema",
+      "importPath": "./underline/Underline"
+    },
+    {
+      "slug": "word-stagger",
+      "componentName": "WordStagger",
+      "schemaName": "wordStaggerSchema",
+      "importPath": "./word-stagger/WordStagger"
+    }
+  ]
 }
