@@ -7,10 +7,22 @@
       "importPath": "./blur-reveal/BlurReveal"
     },
     {
+      "slug": "callout",
+      "componentName": "Callout",
+      "schemaName": "calloutSchema",
+      "importPath": "./callout/Callout"
+    },
+    {
       "slug": "chapter-card",
       "componentName": "ChapterCard",
       "schemaName": "chapterCardSchema",
       "importPath": "./chapter-card/ChapterCard"
+    },
+    {
+      "slug": "dynamic-grid",
+      "componentName": "DynamicGrid",
+      "schemaName": "dynamicGridSchema",
+      "importPath": "./dynamic-grid/DynamicGrid"
     },
     {
       "slug": "end-card",
@@ -25,10 +37,28 @@
       "importPath": "./fade-in/FadeIn"
     },
     {
+      "slug": "highlight",
+      "componentName": "Highlight",
+      "schemaName": "highlightSchema",
+      "importPath": "./highlight/Highlight"
+    },
+    {
       "slug": "mask-reveal",
       "componentName": "MaskReveal",
       "schemaName": "maskRevealSchema",
       "importPath": "./mask-reveal/MaskReveal"
+    },
+    {
+      "slug": "mesh-gradient",
+      "componentName": "MeshGradient",
+      "schemaName": "meshGradientSchema",
+      "importPath": "./mesh-gradient/MeshGradient"
+    },
+    {
+      "slug": "node-graph",
+      "componentName": "NodeGraph",
+      "schemaName": "nodeGraphSchema",
+      "importPath": "./node-graph/NodeGraph"
     },
     {
       "slug": "progress-steps",
@@ -43,16 +73,46 @@
       "importPath": "./quote-card/QuoteCard"
     },
     {
+      "slug": "spotlight",
+      "componentName": "Spotlight",
+      "schemaName": "spotlightSchema",
+      "importPath": "./spotlight/Spotlight"
+    },
+    {
+      "slug": "spotlight-card",
+      "componentName": "SpotlightCard",
+      "schemaName": "spotlightCardSchema",
+      "importPath": "./spotlight-card/SpotlightCard"
+    },
+    {
       "slug": "stagger-group",
       "componentName": "StaggerGroup",
       "schemaName": "staggerGroupSchema",
       "importPath": "./stagger-group/StaggerGroup"
     },
     {
+      "slug": "timeline",
+      "componentName": "Timeline",
+      "schemaName": "timelineSchema",
+      "importPath": "./timeline/Timeline"
+    },
+    {
+      "slug": "title-card",
+      "componentName": "TitleCard",
+      "schemaName": "titleCardSchema",
+      "importPath": "./title-card/TitleCard"
+    },
+    {
       "slug": "underline",
       "componentName": "Underline",
       "schemaName": "underlineSchema",
       "importPath": "./underline/Underline"
+    },
+    {
+      "slug": "vignette",
+      "componentName": "Vignette",
+      "schemaName": "vignetteSchema",
+      "importPath": "./vignette/Vignette"
     },
     {
       "slug": "word-stagger",

@@ -4,25 +4,45 @@
 // to disable barrel management going forward.
 
 import { BlurReveal, blurRevealSchema } from './blur-reveal/BlurReveal';
+import { Callout, calloutSchema } from './callout/Callout';
 import { ChapterCard, chapterCardSchema } from './chapter-card/ChapterCard';
+import { DynamicGrid, dynamicGridSchema } from './dynamic-grid/DynamicGrid';
 import { EndCard, endCardSchema } from './end-card/EndCard';
 import { FadeIn, fadeInSchema } from './fade-in/FadeIn';
+import { Highlight, highlightSchema } from './highlight/Highlight';
 import { MaskReveal, maskRevealSchema } from './mask-reveal/MaskReveal';
+import { MeshGradient, meshGradientSchema } from './mesh-gradient/MeshGradient';
+import { NodeGraph, nodeGraphSchema } from './node-graph/NodeGraph';
 import { ProgressSteps, progressStepsSchema } from './progress-steps/ProgressSteps';
 import { QuoteCard, quoteCardSchema } from './quote-card/QuoteCard';
+import { Spotlight, spotlightSchema } from './spotlight/Spotlight';
+import { SpotlightCard, spotlightCardSchema } from './spotlight-card/SpotlightCard';
 import { StaggerGroup, staggerGroupSchema } from './stagger-group/StaggerGroup';
+import { Timeline, timelineSchema } from './timeline/Timeline';
+import { TitleCard, titleCardSchema } from './title-card/TitleCard';
 import { Underline, underlineSchema } from './underline/Underline';
+import { Vignette, vignetteSchema } from './vignette/Vignette';
 import { WordStagger, wordStaggerSchema } from './word-stagger/WordStagger';
 
 export const ondaRegistry = {
   BlurReveal: { component: BlurReveal, schema: blurRevealSchema },
+  Callout: { component: Callout, schema: calloutSchema },
   ChapterCard: { component: ChapterCard, schema: chapterCardSchema },
+  DynamicGrid: { component: DynamicGrid, schema: dynamicGridSchema },
   EndCard: { component: EndCard, schema: endCardSchema },
   FadeIn: { component: FadeIn, schema: fadeInSchema },
+  Highlight: { component: Highlight, schema: highlightSchema },
   MaskReveal: { component: MaskReveal, schema: maskRevealSchema },
+  MeshGradient: { component: MeshGradient, schema: meshGradientSchema },
+  NodeGraph: { component: NodeGraph, schema: nodeGraphSchema },
   ProgressSteps: { component: ProgressSteps, schema: progressStepsSchema },
   QuoteCard: { component: QuoteCard, schema: quoteCardSchema },
+  Spotlight: { component: Spotlight, schema: spotlightSchema },
+  SpotlightCard: { component: SpotlightCard, schema: spotlightCardSchema },
   StaggerGroup: { component: StaggerGroup, schema: staggerGroupSchema },
+  Timeline: { component: Timeline, schema: timelineSchema },
+  TitleCard: { component: TitleCard, schema: titleCardSchema },
   Underline: { component: Underline, schema: underlineSchema },
+  Vignette: { component: Vignette, schema: vignetteSchema },
   WordStagger: { component: WordStagger, schema: wordStaggerSchema },
 } as const;
