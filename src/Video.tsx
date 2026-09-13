@@ -1,5 +1,6 @@
 import { SemanticExecutionEngine } from "./SemanticExecutionEngine";
 import {ResolvedAssetLayer} from "./ResolvedAssetLayer";
+import {ProfessionalSignature} from "./ProfessionalSignature";
 import {WordSyncOverlay} from "./WordSyncOverlay";
 import {loadFont as loadFraunces} from "@remotion/google-fonts/Fraunces";
 import {loadFont as loadInter} from "@remotion/google-fonts/Inter";
@@ -1305,6 +1306,7 @@ export function TemplateVideo({
     return (
       <AbsoluteFill style={{backgroundColor: "#000"}}>
         <ResolvedAssetLayer productionCode={spec.id} />
+        <ProfessionalSignature />
         <AudioBed spec={spec} />
       </AbsoluteFill>
     );
