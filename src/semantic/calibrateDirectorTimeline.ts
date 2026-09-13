@@ -3,28 +3,31 @@ import type {
 } from "../buildSemanticEvents";
 
 /**
- * V3.7.3
- * DIRECTOR DE RITMO Y CONTINUIDAD SEMÁNTICA
+ * V3.7.4
+ * DIRECTOR DE DURACIÓN ADAPTATIVA
  *
- * Objetivos:
- * - evitar cambios visuales nerviosos;
- * - agrupar conceptos narrativamente relacionados;
- * - impedir tres imágenes casi simultáneas;
- * - mantener continuidad visual;
- * - reducir huecos negros;
- * - priorizar conceptos visualmente concretos;
- * - separar palabra detectada de verdadera decisión de montaje.
+ * PRINCIPIO:
+ * una keyword detectada NO determina por sí sola
+ * cuánto permanece un visual.
+ *
+ * El Director decide según:
+ * - distancia hasta el próximo concepto;
+ * - importancia narrativa;
+ * - continuidad;
+ * - ritmo;
+ * - agrupación de ráfagas;
+ * - anticipación moderada del próximo visual.
  */
 
-const BURST_WINDOW_MS = 1800;
+const BURST_WINDOW_MS = 1600;
 
-const MIN_VISUAL_HOLD_MS = 3200;
+const BASE_MIN_HOLD_MS = 3000;
 
-const IMPORTANT_VISUAL_HOLD_MS = 4200;
+const BASE_MAX_HOLD_MS = 6200;
 
-const MAX_VISUAL_HOLD_MS = 7000;
+const MAX_NEXT_PREROLL_MS = 450;
 
-const EARLY_START_BRIDGE_MS = 1800;
+const EARLY_START_BRIDGE_MS = 1600;
 
 const literalImportance: Record<
   string,
@@ -34,14 +37,17 @@ const literalImportance: Record<
   plazos: 12,
   recurso: 11,
   "debido-proceso": 11,
+
   prueba: 10,
   argumentos: 10,
   motivacion: 10,
   decision: 10,
+
   defensa: 9,
   autoridad: 8,
   ignorar: 8,
   vulneracion: 8,
+
   "accion-final": 7,
   "semantic-filler": 0,
 };
@@ -75,10 +81,9 @@ const narrativeStage: Record<
 const importanceOf = (
   event: SemanticEvent,
 ) =>
-  event.priority * 10 +
-  (literalImportance[
+  literalImportance[
     event.ruleId
-  ] ?? 0);
+  ] ?? 6;
 
 const stageOf = (
   event: SemanticEvent,
@@ -87,19 +92,74 @@ const stageOf = (
     event.ruleId
   ] ?? 0;
 
+const adaptiveMinimumHold = (
+  event: SemanticEvent,
+) => {
+  const importance =
+    importanceOf(event);
+
+  /**
+   * Importancia alta aumenta solo
+   * moderadamente la permanencia.
+   *
+   * EXPEDIENTE ya no recibe automáticamente
+   * varios segundos extra.
+   */
+  const bonus =
+    Math.max(
+      0,
+      importance - 8,
+    ) * 100;
+
+  return Math.min(
+    3500,
+    BASE_MIN_HOLD_MS +
+      bonus,
+  );
+};
+
+const adaptiveMaximumHold = (
+  event: SemanticEvent,
+) => {
+  const importance =
+    importanceOf(event);
+
+  const bonus =
+    Math.max(
+      0,
+      importance - 8,
+    ) * 125;
+
+  return Math.min(
+    6800,
+    BASE_MAX_HOLD_MS +
+      bonus,
+  );
+};
+
 const chooseDominantEvent = (
   events: SemanticEvent[],
 ): SemanticEvent => {
   return [...events].sort(
     (a, b) => {
-      const scoreDifference =
+      const importanceDifference =
         importanceOf(b) -
         importanceOf(a);
 
       if (
-        scoreDifference !== 0
+        importanceDifference !== 0
       ) {
-        return scoreDifference;
+        return importanceDifference;
+      }
+
+      if (
+        b.priority !==
+        a.priority
+      ) {
+        return (
+          b.priority -
+          a.priority
+        );
       }
 
       return (
@@ -121,12 +181,17 @@ const shouldGroup = (
       currentGroup.length - 1
     ];
 
-  const startDistance =
+  const distance =
     next.startMs -
     last.startMs;
 
+  /**
+   * Ráfaga muy rápida:
+   * no permitir varios cambios
+   * prácticamente consecutivos.
+   */
   if (
-    startDistance <=
+    distance <=
     BURST_WINDOW_MS
   ) {
     return true;
@@ -138,12 +203,16 @@ const shouldGroup = (
   const nextStage =
     stageOf(next);
 
+  /**
+   * Misma etapa narrativa/procedimental:
+   * favorecer continuidad.
+   */
   if (
     currentStage !== 0 &&
     currentStage === nextStage &&
     next.startMs -
-      last.endMs <=
-      BURST_WINDOW_MS
+      last.startMs <=
+      2400
   ) {
     return true;
   }
@@ -167,14 +236,16 @@ const collapseGroup = (
       ),
     );
 
-  const endMs =
-    Math.max(
-      ...group.map(
-        (event) =>
-          event.endMs,
-      ),
-    );
-
+  /**
+   * IMPORTANTE:
+   *
+   * No utilizamos aquí el endMs heredado
+   * de semanticRules.
+   *
+   * Aquella duración era una pista inicial.
+   * Desde V3.7.4 la duración final la decide
+   * el Director.
+   */
   return {
     ...dominant,
 
@@ -183,10 +254,10 @@ const collapseGroup = (
 
     startMs,
 
-    endMs,
+    endMs:
+      startMs,
 
-    durationMs:
-      endMs - startMs,
+    durationMs: 0,
   };
 };
 
@@ -202,8 +273,8 @@ export const calibrateDirectorTimeline = (
   }
 
   /**
-   * Los fillers no deben provocar
-   * nuevos cortes por sí solos.
+   * Los fillers no deben crear
+   * cambios de shot por sí mismos.
    */
   const semanticEvents =
     events.filter(
@@ -227,23 +298,21 @@ export const calibrateDirectorTimeline = (
     );
 
   /**
-   * 1. AGRUPAR RÁFAGAS
-   *
-   * Tres conceptos muy cercanos
-   * ya no producen tres imágenes.
+   * 1. AGRUPACIÓN NARRATIVA
    */
+
   const groups:
     SemanticEvent[][] = [];
 
   for (
     const event of ordered
   ) {
-    const current =
+    const currentGroup =
       groups[
         groups.length - 1
       ];
 
-    if (!current) {
+    if (!currentGroup) {
       groups.push([
         event,
       ]);
@@ -253,11 +322,11 @@ export const calibrateDirectorTimeline = (
 
     if (
       shouldGroup(
-        current,
+        currentGroup,
         event,
       )
     ) {
-      current.push(
+      currentGroup.push(
         event,
       );
     } else {
@@ -267,153 +336,219 @@ export const calibrateDirectorTimeline = (
     }
   }
 
-  let shots =
+  const shots =
     groups.map(
       collapseGroup,
     );
 
-  /**
-   * 2. ARRANQUE VISUAL
-   *
-   * Si el primer concepto aparece
-   * casi al inicio, comenzamos el
-   * visual desde el principio para
-   * evitar fondo vacío.
-   */
-  const first =
-    shots[0];
-
   if (
-    first.startMs -
+    shots.length === 0
+  ) {
+    return [];
+  }
+
+  /**
+   * 2. ARRANQUE
+   *
+   * Evitamos pantalla vacía al inicio
+   * si el primer concepto está próximo.
+   */
+  if (
+    shots[0].startMs -
       timelineStartMs <=
     EARLY_START_BRIDGE_MS
   ) {
-    first.startMs =
+    shots[0].startMs =
       timelineStartMs;
-
-    first.durationMs =
-      first.endMs -
-      first.startMs;
   }
 
   /**
-   * 3. RITMO MÍNIMO
-   *
-   * El Director evita sustituir
-   * un visual antes de que pueda
-   * ser realmente percibido.
+   * 3. CALIBRACIÓN ADAPTATIVA
    */
+
+  const calibrated:
+    SemanticEvent[] = [];
+
   for (
-    let index = 1;
+    let index = 0;
     index < shots.length;
     index += 1
   ) {
-    const previous =
-      shots[index - 1];
-
-    const current =
+    const event =
       shots[index];
 
-    const previousMinimum =
-      literalImportance[
-        previous.ruleId
-      ] >= 10
-        ? IMPORTANT_VISUAL_HOLD_MS
-        : MIN_VISUAL_HOLD_MS;
+    const previous =
+      calibrated[
+        calibrated.length - 1
+      ];
 
-    const earliestChange =
-      previous.startMs +
-      previousMinimum;
+    const next =
+      shots[
+        index + 1
+      ];
 
-    if (
-      current.startMs <
-      earliestChange
-    ) {
-      current.startMs =
-        Math.min(
-          earliestChange,
-          current.endMs,
+    /**
+     * Inicio real:
+     *
+     * puede adelantarse ligeramente
+     * para crear continuidad,
+     * pero nunca muchos segundos antes
+     * de la narración.
+     */
+    let startMs =
+      event.startMs;
+
+    if (previous) {
+      const earliestSemanticStart =
+        Math.max(
+          timelineStartMs,
+          event.startMs -
+            MAX_NEXT_PREROLL_MS,
+        );
+
+      startMs =
+        Math.max(
+          earliestSemanticStart,
+          previous.endMs,
         );
     }
-  }
 
-  /**
-   * Eliminar cualquier evento
-   * que haya quedado sin duración
-   * útil tras la calibración.
-   */
-  shots =
-    shots.filter(
-      (event) =>
-        event.endMs >
-        event.startMs,
-    );
+    const minHold =
+      adaptiveMinimumHold(
+        event,
+      );
 
-  /**
-   * 4. CONTINUIDAD
-   *
-   * Cada visual permanece hasta
-   * el siguiente cambio decidido
-   * por el Director.
-   *
-   * Esto prácticamente elimina
-   * los huecos negros.
-   */
-  return shots.map(
-    (event, index) => {
-      const next =
-        shots[
-          index + 1
-        ];
+    const maxHold =
+      adaptiveMaximumHold(
+        event,
+      );
 
-      let endMs =
-        event.endMs;
+    let endMs: number;
 
-      if (next) {
-        endMs =
-          Math.min(
-            next.startMs,
-            event.startMs +
-              MAX_VISUAL_HOLD_MS,
-          );
+    if (next) {
+      /**
+       * El cambio ideal sucede poco
+       * antes del siguiente concepto.
+       *
+       * Así:
+       * - el visual actual no dura demasiado;
+       * - el siguiente tampoco entra tarde;
+       * - reducimos huecos negros.
+       */
+      const preferredChange =
+        Math.max(
+          startMs +
+            minHold,
+          next.startMs -
+            MAX_NEXT_PREROLL_MS,
+        );
 
-        if (
-          endMs <
-          event.endMs
-        ) {
-          endMs =
-            event.endMs;
-        }
+      endMs =
+        Math.min(
+          preferredChange,
+          startMs +
+            maxHold,
+          timelineEndMs,
+        );
 
-        endMs =
-          Math.min(
-            endMs,
-            next.startMs,
-          );
-      } else {
+      /**
+       * Nunca dejamos un shot sin
+       * tiempo suficiente para percibirse.
+       */
+      if (
+        endMs -
+          startMs <
+        minHold
+      ) {
         endMs =
           Math.min(
             timelineEndMs,
-            Math.max(
-              event.endMs,
-              event.startMs +
-                IMPORTANT_VISUAL_HOLD_MS,
-            ),
+            startMs +
+              minHold,
           );
       }
-
-      return {
-        ...event,
-
-        endMs,
-
-        durationMs:
+    } else {
+      /**
+       * Último shot:
+       * permanece lo necesario,
+       * pero no indefinidamente.
+       */
+      endMs =
+        Math.min(
+          timelineEndMs,
           Math.max(
-            0,
-            endMs -
-              event.startMs,
+            startMs +
+              minHold,
+            Math.min(
+              startMs +
+                maxHold,
+              timelineEndMs,
+            ),
           ),
-      };
-    },
-  );
+        );
+    }
+
+    if (
+      endMs <=
+      startMs
+    ) {
+      continue;
+    }
+
+    calibrated.push({
+      ...event,
+
+      startMs,
+
+      endMs,
+
+      durationMs:
+        endMs -
+        startMs,
+    });
+  }
+
+  /**
+   * 4. CONTINUIDAD FINAL
+   *
+   * Si entre dos shots quedó un pequeño
+   * hueco, prolongamos el anterior.
+   *
+   * No modificamos huecos grandes porque
+   * deben resolverse mediante recursos de
+   * continuidad, no congelando eternamente
+   * una imagen.
+   */
+  for (
+    let index = 0;
+    index <
+    calibrated.length - 1;
+    index += 1
+  ) {
+    const current =
+      calibrated[index];
+
+    const next =
+      calibrated[
+        index + 1
+      ];
+
+    const gap =
+      next.startMs -
+      current.endMs;
+
+    if (
+      gap > 0 &&
+      gap <= 900
+    ) {
+      current.endMs =
+        next.startMs;
+
+      current.durationMs =
+        current.endMs -
+        current.startMs;
+    }
+  }
+
+  return calibrated;
 };
