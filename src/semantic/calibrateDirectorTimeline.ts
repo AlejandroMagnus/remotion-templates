@@ -2,32 +2,26 @@ import type {
   SemanticEvent,
 } from "../buildSemanticEvents";
 
-/**
- * V3.7.4
- * DIRECTOR DE DURACIÓN ADAPTATIVA
- *
- * PRINCIPIO:
- * una keyword detectada NO determina por sí sola
- * cuánto permanece un visual.
- *
- * El Director decide según:
- * - distancia hasta el próximo concepto;
- * - importancia narrativa;
- * - continuidad;
- * - ritmo;
- * - agrupación de ráfagas;
- * - anticipación moderada del próximo visual.
- */
-
 const BURST_WINDOW_MS = 1600;
 
 const BASE_MIN_HOLD_MS = 3000;
-
 const BASE_MAX_HOLD_MS = 6200;
 
 const MAX_NEXT_PREROLL_MS = 450;
-
 const EARLY_START_BRIDGE_MS = 1600;
+
+/**
+ * Política ZERO-BLACK.
+ */
+const SHORT_GAP_MS = 1200;
+const MEDIUM_GAP_MS = 4500;
+
+/**
+ * En huecos muy largos no queremos
+ * cambios rápidos. Cada filler puede
+ * permanecer hasta ~4 segundos.
+ */
+const FILLER_TARGET_MS = 4000;
 
 const literalImportance: Record<
   string,
@@ -95,20 +89,10 @@ const stageOf = (
 const adaptiveMinimumHold = (
   event: SemanticEvent,
 ) => {
-  const importance =
-    importanceOf(event);
-
-  /**
-   * Importancia alta aumenta solo
-   * moderadamente la permanencia.
-   *
-   * EXPEDIENTE ya no recibe automáticamente
-   * varios segundos extra.
-   */
   const bonus =
     Math.max(
       0,
-      importance - 8,
+      importanceOf(event) - 8,
     ) * 100;
 
   return Math.min(
@@ -121,13 +105,10 @@ const adaptiveMinimumHold = (
 const adaptiveMaximumHold = (
   event: SemanticEvent,
 ) => {
-  const importance =
-    importanceOf(event);
-
   const bonus =
     Math.max(
       0,
-      importance - 8,
+      importanceOf(event) - 8,
     ) * 125;
 
   return Math.min(
@@ -181,17 +162,9 @@ const shouldGroup = (
       currentGroup.length - 1
     ];
 
-  const distance =
-    next.startMs -
-    last.startMs;
-
-  /**
-   * Ráfaga muy rápida:
-   * no permitir varios cambios
-   * prácticamente consecutivos.
-   */
   if (
-    distance <=
+    next.startMs -
+      last.startMs <=
     BURST_WINDOW_MS
   ) {
     return true;
@@ -203,10 +176,6 @@ const shouldGroup = (
   const nextStage =
     stageOf(next);
 
-  /**
-   * Misma etapa narrativa/procedimental:
-   * favorecer continuidad.
-   */
   if (
     currentStage !== 0 &&
     currentStage === nextStage &&
@@ -236,16 +205,6 @@ const collapseGroup = (
       ),
     );
 
-  /**
-   * IMPORTANTE:
-   *
-   * No utilizamos aquí el endMs heredado
-   * de semanticRules.
-   *
-   * Aquella duración era una pista inicial.
-   * Desde V3.7.4 la duración final la decide
-   * el Director.
-   */
   return {
     ...dominant,
 
@@ -254,11 +213,160 @@ const collapseGroup = (
 
     startMs,
 
+    /**
+     * La duración final ya NO viene
+     * impuesta por semanticRules.
+     */
     endMs:
       startMs,
 
     durationMs: 0,
   };
+};
+
+const neutralVisualType = (
+  previous?: SemanticEvent,
+  next?: SemanticEvent,
+):
+  | "document"
+  | "evidence"
+  | "process" => {
+  const preferred =
+    previous?.visualType ??
+    next?.visualType;
+
+  if (
+    preferred === "document" ||
+    preferred === "evidence" ||
+    preferred === "process"
+  ) {
+    return preferred;
+  }
+
+  const stage =
+    next
+      ? stageOf(next)
+      : previous
+        ? stageOf(previous)
+        : 0;
+
+  if (stage <= 2) {
+    return "document";
+  }
+
+  if (stage === 3) {
+    return "evidence";
+  }
+
+  return "process";
+};
+
+const createContinuityEvent = (
+  startMs: number,
+  endMs: number,
+  previous:
+    | SemanticEvent
+    | undefined,
+  next:
+    | SemanticEvent
+    | undefined,
+  index: number,
+): SemanticEvent => {
+  const visualType =
+    neutralVisualType(
+      previous,
+      next,
+    );
+
+  return {
+    id:
+      `semantic-filler-${startMs}-${index}`,
+
+    ruleId:
+      "semantic-filler",
+
+    visualType,
+
+    concept:
+      previous && next
+        ? `continuidad narrativa entre ${previous.concept} y ${next.concept}`
+        : previous
+          ? `continuidad posterior a ${previous.concept}`
+          : next
+            ? `continuidad previa a ${next.concept}`
+            : "continuidad audiovisual",
+
+    matchedKeyword:
+      "__continuity__",
+
+    startMs,
+
+    endMs,
+
+    durationMs:
+      endMs -
+      startMs,
+
+    priority: 1,
+  };
+};
+
+const fillLongGap = (
+  startMs: number,
+  endMs: number,
+  previous:
+    | SemanticEvent
+    | undefined,
+  next:
+    | SemanticEvent
+    | undefined,
+): SemanticEvent[] => {
+  const fillers:
+    SemanticEvent[] = [];
+
+  let cursor =
+    startMs;
+
+  let index = 0;
+
+  while (
+    cursor < endMs
+  ) {
+    const remaining =
+      endMs - cursor;
+
+    /**
+     * Evita terminar con un micro-shot.
+     */
+    const slice =
+      remaining <=
+      FILLER_TARGET_MS * 1.5
+        ? remaining
+        : FILLER_TARGET_MS;
+
+    const sliceEnd =
+      Math.min(
+        endMs,
+        cursor + slice,
+      );
+
+    fillers.push(
+      createContinuityEvent(
+        cursor,
+        sliceEnd,
+        previous,
+        next,
+        index,
+      ),
+    );
+
+    cursor =
+      sliceEnd;
+
+    index += 1;
+  }
+
+  return fillers;
 };
 
 export const calibrateDirectorTimeline = (
@@ -272,10 +380,6 @@ export const calibrateDirectorTimeline = (
     return [];
   }
 
-  /**
-   * Los fillers no deben crear
-   * cambios de shot por sí mismos.
-   */
   const semanticEvents =
     events.filter(
       (event) =>
@@ -348,11 +452,9 @@ export const calibrateDirectorTimeline = (
   }
 
   /**
-   * 2. ARRANQUE
-   *
-   * Evitamos pantalla vacía al inicio
-   * si el primer concepto está próximo.
+   * 2. ARRANQUE SIN NEGRO
    */
+
   if (
     shots[0].startMs -
       timelineStartMs <=
@@ -363,7 +465,7 @@ export const calibrateDirectorTimeline = (
   }
 
   /**
-   * 3. CALIBRACIÓN ADAPTATIVA
+   * 3. DURACIÓN ADAPTATIVA
    */
 
   const calibrated:
@@ -387,28 +489,14 @@ export const calibrateDirectorTimeline = (
         index + 1
       ];
 
-    /**
-     * Inicio real:
-     *
-     * puede adelantarse ligeramente
-     * para crear continuidad,
-     * pero nunca muchos segundos antes
-     * de la narración.
-     */
     let startMs =
       event.startMs;
 
     if (previous) {
-      const earliestSemanticStart =
-        Math.max(
-          timelineStartMs,
-          event.startMs -
-            MAX_NEXT_PREROLL_MS,
-        );
-
       startMs =
         Math.max(
-          earliestSemanticStart,
+          event.startMs -
+            MAX_NEXT_PREROLL_MS,
           previous.endMs,
         );
     }
@@ -426,15 +514,6 @@ export const calibrateDirectorTimeline = (
     let endMs: number;
 
     if (next) {
-      /**
-       * El cambio ideal sucede poco
-       * antes del siguiente concepto.
-       *
-       * Así:
-       * - el visual actual no dura demasiado;
-       * - el siguiente tampoco entra tarde;
-       * - reducimos huecos negros.
-       */
       const preferredChange =
         Math.max(
           startMs +
@@ -451,10 +530,6 @@ export const calibrateDirectorTimeline = (
           timelineEndMs,
         );
 
-      /**
-       * Nunca dejamos un shot sin
-       * tiempo suficiente para percibirse.
-       */
       if (
         endMs -
           startMs <
@@ -468,23 +543,11 @@ export const calibrateDirectorTimeline = (
           );
       }
     } else {
-      /**
-       * Último shot:
-       * permanece lo necesario,
-       * pero no indefinidamente.
-       */
       endMs =
         Math.min(
           timelineEndMs,
-          Math.max(
-            startMs +
-              minHold,
-            Math.min(
-              startMs +
-                maxHold,
-              timelineEndMs,
-            ),
-          ),
+          startMs +
+            maxHold,
         );
     }
 
@@ -509,20 +572,15 @@ export const calibrateDirectorTimeline = (
   }
 
   /**
-   * 4. CONTINUIDAD FINAL
-   *
-   * Si entre dos shots quedó un pequeño
-   * hueco, prolongamos el anterior.
-   *
-   * No modificamos huecos grandes porque
-   * deben resolverse mediante recursos de
-   * continuidad, no congelando eternamente
-   * una imagen.
+   * 4. ZERO-BLACK CONTINUITY
    */
+
+  const finalTimeline:
+    SemanticEvent[] = [];
+
   for (
     let index = 0;
-    index <
-    calibrated.length - 1;
+    index < calibrated.length;
     index += 1
   ) {
     const current =
@@ -533,13 +591,29 @@ export const calibrateDirectorTimeline = (
         index + 1
       ];
 
+    finalTimeline.push(
+      current,
+    );
+
+    if (!next) {
+      continue;
+    }
+
     const gap =
       next.startMs -
       current.endMs;
 
+    if (gap <= 0) {
+      continue;
+    }
+
+    /**
+     * HUECO CORTO
+     * → mantener el visual anterior.
+     */
     if (
-      gap > 0 &&
-      gap <= 900
+      gap <=
+      SHORT_GAP_MS
     ) {
       current.endMs =
         next.startMs;
@@ -547,8 +621,84 @@ export const calibrateDirectorTimeline = (
       current.durationMs =
         current.endMs -
         current.startMs;
+
+      continue;
+    }
+
+    /**
+     * HUECO MEDIO
+     * → un solo filler contextual.
+     */
+    if (
+      gap <=
+      MEDIUM_GAP_MS
+    ) {
+      finalTimeline.push(
+        createContinuityEvent(
+          current.endMs,
+          next.startMs,
+          current,
+          next,
+          index,
+        ),
+      );
+
+      continue;
+    }
+
+    /**
+     * HUECO LARGO
+     * → continuidad pausada.
+     */
+    finalTimeline.push(
+      ...fillLongGap(
+        current.endMs,
+        next.startMs,
+        current,
+        next,
+      ),
+    );
+  }
+
+  /**
+   * 5. FINAL DEL VIDEO
+   */
+
+  const last =
+    finalTimeline[
+      finalTimeline.length - 1
+    ];
+
+  if (
+    last &&
+    last.endMs <
+      timelineEndMs
+  ) {
+    const remaining =
+      timelineEndMs -
+      last.endMs;
+
+    if (
+      remaining <=
+      SHORT_GAP_MS
+    ) {
+      last.endMs =
+        timelineEndMs;
+
+      last.durationMs =
+        last.endMs -
+        last.startMs;
+    } else {
+      finalTimeline.push(
+        ...fillLongGap(
+          last.endMs,
+          timelineEndMs,
+          last,
+          undefined,
+        ),
+      );
     }
   }
 
-  return calibrated;
+  return finalTimeline;
 };
