@@ -4,9 +4,16 @@ import {
   type SemanticVisualType,
 } from "./semantic/semanticRules";
 
+import {silecSemanticRules} from "./semantic/silecSemanticRules";
+
 import {
   calibrateDirectorTimeline,
 } from "./semantic/calibrateDirectorTimeline";
+
+const DEFAULT_SEMANTIC_RULES: SemanticRule[] = [
+  ...semanticRules,
+  ...silecSemanticRules,
+];
 
 export type WordTiming = {
   text: string;
@@ -139,7 +146,7 @@ const createSemanticEvent = (
 export const buildSemanticEvents = (
   words: WordTiming[],
   rules: SemanticRule[] =
-    semanticRules,
+    DEFAULT_SEMANTIC_RULES,
 ): SemanticEvent[] => {
   if (
     words.length === 0

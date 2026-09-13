@@ -35,6 +35,20 @@ const chooseRoute = (
   event: SemanticEvent,
 ): VisualRoute => {
   switch (event.ruleId) {
+    case "hechos":
+    case "teoria-caso":
+    case "estrategia-juridica":
+    case "riesgos":
+    case "diagnostico":
+      return "REALISTIC_SCENE";
+
+    case "norma":
+    case "jurisprudencia":
+      return "DOCUMENT_OBJECT";
+
+    case "objetivo":
+      return "ONDA_GRAPHIC";
+
     case "autoridad":
       return "REALISTIC_SCENE";
 

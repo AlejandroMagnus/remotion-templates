@@ -1,3 +1,5 @@
+import {getSilecMotionProfile} from "./silecMotionProfiles";
+
 export type SemanticMotionProfile = {
   intent: string;
 
@@ -226,6 +228,13 @@ export function getSemanticMotionProfile(
   ruleId: string,
   sceneIndex: number,
 ): SemanticMotionProfile {
+  const silecMotion =
+    getSilecMotionProfile(ruleId);
+
+  if (silecMotion) {
+    return silecMotion;
+  }
+
   return (
     MOTIONS[ruleId] ??
     FALLBACKS[sceneIndex % FALLBACKS.length]

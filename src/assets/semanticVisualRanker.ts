@@ -1,4 +1,8 @@
 import type {PexelsResolvedAsset} from "./providers/pexelsProvider";
+import {
+  getSilecContextTerms,
+  getSilecVisualProfile,
+} from "./silecVisualProfiles";
 
 export type DirectorScene = {
   ruleId: string;
@@ -325,6 +329,13 @@ const CONTEXT_BRIDGES: Array<{
 ];
 
 function profileFor(scene: DirectorScene): VisualProfile {
+  const silecProfile =
+    getSilecVisualProfile(scene.ruleId);
+
+  if (silecProfile) {
+    return silecProfile;
+  }
+
   return (
     PROFILES[scene.ruleId] ??
     PROFILES["semantic-filler"]
@@ -351,6 +362,10 @@ function contextTerms(scene: DirectorScene): string[] {
       terms.push(...bridge.english);
     }
   }
+
+  terms.push(
+    ...getSilecContextTerms(context),
+  );
 
   return [...new Set(terms)];
 }

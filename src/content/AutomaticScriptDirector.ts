@@ -130,52 +130,50 @@ function buildNarration(
   packet: QInfinityStrategicContentPacket,
 ) {
   const chain =
-    packet.knowledge.reasoningChain;
+    packet.knowledge.reasoningChain
+      .map(withoutFinalPeriod);
 
-  const steps = [
-    chain[0],
-    chain[1],
-    chain[2],
-    chain[4],
-    chain[5],
-    chain[7],
-    chain[8],
-  ]
-    .filter(Boolean)
-    .map(withoutFinalPeriod);
+  const lower = (value?: string) =>
+    value
+      ? value.charAt(0).toLowerCase() +
+        value.slice(1)
+      : "";
 
   const body = [
-    steps[0]
-      ? `Primero, ${steps[0].toLowerCase()}.`
+    chain[0]
+      ? `Primero hay que ${lower(chain[0])}.`
       : "",
 
-    steps[1]
-      ? `Después, ${steps[1].toLowerCase()}.`
+    chain[1]
+      ? `Después debemos ${lower(chain[1])}.`
       : "",
 
-    steps[2]
-      ? `Hay que ${steps[2]
-          .replace(
-            /^(determinar|identificar|examinar)\s+/i,
-            "",
-          )
-          .toLowerCase()}.`
+    chain[2]
+      ? `Luego corresponde ${lower(chain[2])}.`
       : "",
 
-    steps[3]
-      ? `Solo entonces corresponde ${steps[3].toLowerCase()}.`
+    chain[3]
+      ? `Solo entonces debemos ${lower(chain[3])}.`
       : "",
 
-    steps[4]
-      ? `${steps[4]}.`
+    chain[4]
+      ? `A continuación corresponde ${lower(chain[4])}.`
       : "",
 
-    steps[5]
-      ? `Luego, ${steps[5].toLowerCase()}.`
+    chain[5]
+      ? `Con esa base podemos ${lower(chain[5])}.`
       : "",
 
-    steps[6]
-      ? `Finalmente, ${steps[6].toLowerCase()}.`
+    chain[6]
+      ? `Después debemos ${lower(chain[6])}.`
+      : "",
+
+    chain[7]
+      ? `Antes de decidir debemos ${lower(chain[7])}.`
+      : "",
+
+    chain[8]
+      ? `Finalmente debemos ${lower(chain[8])}.`
       : "",
   ]
     .filter(Boolean)
@@ -184,11 +182,8 @@ function buildNarration(
   return clean(
     [
       packet.audiovisual.hook,
-
       body,
-
       packet.knowledge.conclusion,
-
       packet.audiovisual.cta,
     ].join(" "),
   );
