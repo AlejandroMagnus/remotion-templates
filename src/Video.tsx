@@ -1,4 +1,5 @@
 import { SemanticExecutionEngine } from "./SemanticExecutionEngine";
+import {WordSyncOverlay} from "./WordSyncOverlay";
 import {loadFont as loadFraunces} from "@remotion/google-fonts/Fraunces";
 import {loadFont as loadInter} from "@remotion/google-fonts/Inter";
 import {fitText} from "@remotion/layout-utils";
