@@ -20,19 +20,32 @@ const manifestPath = path.join(
 );
 
 const queries: Record<string, string> = {
-  autoridad: "government official working office legal documents",
+  autoridad: "government official reviewing legal documents office",
   expediente: "legal case file documents desk",
+  argumentos: "lawyer reviewing legal arguments documents",
+  prueba: "legal evidence documents investigation desk",
+  motivacion: "lawyer analyzing legal documents office",
   recurso: "lawyer legal appeal documents office",
-  motivacion: "legal reasoning documents law office",
-  decision: "legal decision document office",
+  decision: "legal decision documents professional office",
+  "debido-proceso": "court justice legal process",
+  defensa: "defense lawyer meeting client office",
+  plazos: "calendar deadline legal documents office",
+  ignorar: "official documents desk bureaucracy",
+  vulneracion: "lawyer concerned legal documents office",
+  "accion-final": "lawyer taking legal action office",
 };
 
 async function download(url: string, target: string) {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`Download failed ${res.status}: ${url}`);
 
-  const buffer = Buffer.from(await res.arrayBuffer());
-  fs.writeFileSync(target, buffer);
+  if (!res.ok) {
+    throw new Error(`Download failed ${res.status}: ${url}`);
+  }
+
+  fs.writeFileSync(
+    target,
+    Buffer.from(await res.arrayBuffer()),
+  );
 }
 
 async function main() {
@@ -40,9 +53,12 @@ async function main() {
     throw new Error(`Missing asset scene plan: ${planPath}`);
   }
 
-  fs.mkdirSync(outputDir, { recursive: true });
+  fs.mkdirSync(outputDir, {recursive: true});
 
-  const source = JSON.parse(fs.readFileSync(planPath, "utf8"));
+  const source = JSON.parse(
+    fs.readFileSync(planPath, "utf8"),
+  );
+
   const resolved: any[] = [];
 
   for (const scene of source.scenes ?? []) {
@@ -56,51 +72,86 @@ async function main() {
       durationMs: scene.durationMs,
     };
 
-    if (
-      scene.route !== "REALISTIC_SCENE" &&
-      scene.route !== "DOCUMENT_OBJECT"
-    ) {
-      resolved.push({ ...base, status: "delegated" });
+    // CONTINUIDAD:
+    // reutiliza el último recurso válido para no dejar negro.
+    if (scene.route === "CONTINUITY") {
+      const previous = [...resolved]
+        .reverse()
+        .find(
+          (item) =>
+            item.status === "resolved" &&
+            item.asset,
+        );
+
+      if (previous?.asset) {
+        resolved.push({
+          ...base,
+          status: "resolved",
+          query: "continuity-reuse",
+          asset: {
+            ...previous.asset,
+            reusedForContinuity: true,
+          },
+        });
+      } else {
+        resolved.push({
+          ...base,
+          status: "unresolved",
+        });
+      }
+
       continue;
     }
 
     const query =
       queries[scene.ruleId] ??
       queries[scene.concept] ??
-      String(scene.concept ?? scene.ruleId).replaceAll("-", " ");
+      String(scene.concept ?? scene.ruleId)
+        .replaceAll("-", " ");
 
-    console.log(`Resolving ${scene.ruleId} | ${scene.route} | ${query}`);
+    console.log(
+      `PHOTO-FIRST: ${scene.ruleId} | ${query}`,
+    );
 
-    let asset = null;
+    // En esta baseline TODO concepto visual busca
+    // fotografía primero.
+    let asset = await searchPexelsPhoto(query);
 
-    if (scene.route === "REALISTIC_SCENE") {
-      asset = await searchPexelsVideo(query, scene.durationMs);
-
-      if (!asset) {
-        asset = await searchPexelsPhoto(query);
-      }
-    } else {
-      asset = await searchPexelsPhoto(query);
-
-      if (!asset) {
-        asset = await searchPexelsVideo(query, scene.durationMs);
-      }
+    // Video únicamente como respaldo.
+    if (!asset) {
+      asset = await searchPexelsVideo(
+        query,
+        scene.durationMs,
+      );
     }
 
     if (!asset) {
       console.log(`UNRESOLVED: ${scene.ruleId}`);
-      resolved.push({ ...base, status: "unresolved", query });
+
+      resolved.push({
+        ...base,
+        status: "unresolved",
+        query,
+      });
+
       continue;
     }
 
-    const extension = asset.mediaType === "video" ? "mp4" : "jpg";
-    const filename = `${scene.id}-${scene.ruleId}.${extension}`;
-    const target = path.join(outputDir, filename);
+    const extension =
+      asset.mediaType === "video" ? "mp4" : "jpg";
+
+    const filename =
+      `${scene.id}-${scene.ruleId}.${extension}`;
+
+    const target = path.join(
+      outputDir,
+      filename,
+    );
 
     await download(asset.remoteUrl, target);
 
     console.log(
-      `RESOLVED: ${scene.ruleId} -> ${asset.mediaType} -> ${filename}`,
+      `RESOLVED: ${scene.ruleId} -> ${filename}`,
     );
 
     resolved.push({
@@ -116,22 +167,27 @@ async function main() {
 
   const manifest = {
     productionCode: "video-juridico-001",
-    version: "V3.9.2-A",
-    provider: "pexels",
+    version: "V3.9.3-PHOTO-FIRST",
     generatedAt: new Date().toISOString(),
-    resolvedCount: resolved.filter((x) => x.status === "resolved").length,
+    resolvedCount: resolved.filter(
+      (x) => x.status === "resolved",
+    ).length,
     assets: resolved,
   };
 
-  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+  fs.writeFileSync(
+    manifestPath,
+    JSON.stringify(manifest, null, 2),
+  );
 
-  console.log("=== V3.9.2-A ASSET RESOLVER ===");
+  console.log("=== V3.9.3 PHOTO-FIRST ===");
   console.log(`Resolved: ${manifest.resolvedCount}`);
 
   if (manifest.resolvedCount === 0) {
-    throw new Error("V3.9.2-A: no real assets were resolved");
+    throw new Error(
+      "V3.9.3: no visual assets resolved",
+    );
   }
-  console.log(`Manifest: ${manifestPath}`);
 }
 
 main().catch((error) => {

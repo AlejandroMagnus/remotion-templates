@@ -40,6 +40,7 @@ import {sceneDurationMs, type VideoSpec} from "./schema";
  * NO modifica V2-SYNC.
  */
 const SEMANTIC_QA_MODE = true;
+const PHOTO_FIRST_MODE = true;
 
 const {fontFamily: displayFont} = loadFraunces("normal", {
   weights: ["500", "600", "700"],
@@ -1298,6 +1299,16 @@ export function TemplateVideo({
 
   const {fps} =
     useVideoConfig();
+
+  // V3.9.3 PHOTO-FIRST ACTIVE
+  if (PHOTO_FIRST_MODE) {
+    return (
+      <AbsoluteFill style={{backgroundColor: "#000"}}>
+        <ResolvedAssetLayer />
+        <AudioBed spec={spec} />
+      </AbsoluteFill>
+    );
+  }
 
   if (SEMANTIC_QA_MODE) {
     return (

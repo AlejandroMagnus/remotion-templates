@@ -6,16 +6,15 @@ import {
   Sequence,
   continueRender,
   delayRender,
-  interpolate,
   staticFile,
   useCurrentFrame,
   useVideoConfig,
+  interpolate,
 } from "remotion";
 
-type ResolvedAsset = {
+type AssetItem = {
   id: string;
   ruleId: string;
-  route: string;
   startMs: number;
   endMs: number;
   durationMs: number;
@@ -23,43 +22,31 @@ type ResolvedAsset = {
   asset?: {
     mediaType: "video" | "image";
     localSrc: string;
-    creator?: string;
-    sourceUrl?: string;
   };
 };
 
 type Manifest = {
-  assets: ResolvedAsset[];
+  assets: AssetItem[];
 };
 
-const labelFor = (ruleId: string) =>
-  ruleId.replaceAll("-", " ").toUpperCase();
-
-function AssetVisual({item}: {item: ResolvedAsset}) {
+function CleanVisual({item}: {item: AssetItem}) {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
   if (!item.asset) return null;
 
-  const duration = Math.max(
+  const frames = Math.max(
     1,
-    Math.round((item.durationMs / 1000) * fps),
+    Math.round(
+      (item.durationMs / 1000) * fps,
+    ),
   );
 
-  const fade = interpolate(
-    frame,
-    [0, Math.min(7, duration / 4), Math.max(duration - 7, duration / 2), duration],
-    [0, 1, 1, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
-
+  // Movimiento cinematográfico muy suave.
   const scale = interpolate(
     frame,
-    [0, duration],
-    item.route === "DOCUMENT_OBJECT" ? [1.03, 1.09] : [1, 1.05],
+    [0, frames],
+    [1.015, 1.075],
     {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
@@ -69,7 +56,12 @@ function AssetVisual({item}: {item: ResolvedAsset}) {
   const src = staticFile(item.asset.localSrc);
 
   return (
-    <AbsoluteFill style={{opacity: fade, overflow: "hidden"}}>
+    <AbsoluteFill
+      style={{
+        backgroundColor: "#000",
+        overflow: "hidden",
+      }}
+    >
       {item.asset.mediaType === "video" ? (
         <OffthreadVideo
           src={src}
@@ -92,59 +84,49 @@ function AssetVisual({item}: {item: ResolvedAsset}) {
           }}
         />
       )}
-
-      <AbsoluteFill
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,.12) 0%, rgba(0,0,0,.04) 50%, rgba(0,0,0,.48) 100%)",
-        }}
-      />
-
-      {item.route === "DOCUMENT_OBJECT" ? (
-        <div
-          style={{
-            position: "absolute",
-            left: "6%",
-            top: "7%",
-            padding: "12px 20px",
-            borderRadius: 14,
-            background: "rgba(10,15,14,.70)",
-            color: "white",
-            fontFamily: "Arial, sans-serif",
-            fontSize: 26,
-            fontWeight: 700,
-            letterSpacing: 1.2,
-          }}
-        >
-          {labelFor(item.ruleId)}
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 }
 
 export function ResolvedAssetLayer() {
   const {fps} = useVideoConfig();
-  const [items, setItems] = useState<ResolvedAsset[]>([]);
+
+  const [items, setItems] =
+    useState<AssetItem[]>([]);
+
   const [handle] = useState(() =>
-    delayRender("Loading resolved audiovisual assets"),
+    delayRender("Loading PHOTO-FIRST assets"),
   );
 
   useEffect(() => {
-    fetch(staticFile("generated/video-juridico-001-resolved-assets.json"))
+    fetch(
+      staticFile(
+        "generated/video-juridico-001-resolved-assets.json",
+      ),
+    )
       .then((response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status}`,
+          );
+        }
+
         return response.json();
       })
       .then((manifest: Manifest) => {
         setItems(
           (manifest.assets ?? []).filter(
-            (item) => item.status === "resolved" && item.asset,
+            (item) =>
+              item.status === "resolved" &&
+              item.asset,
           ),
         );
       })
       .catch((error) => {
-        console.warn("Resolved assets unavailable:", error);
+        console.warn(
+          "PHOTO-FIRST assets unavailable:",
+          error,
+        );
       })
       .finally(() => continueRender(handle));
   }, [handle]);
@@ -152,29 +134,35 @@ export function ResolvedAssetLayer() {
   return (
     <AbsoluteFill
       style={{
-        zIndex: 60,
-        pointerEvents: "none",
+        zIndex: 10,
+        backgroundColor: "#000",
       }}
     >
       {items.map((item) => {
         const from = Math.max(
           0,
-          Math.round((item.startMs / 1000) * fps),
+          Math.round(
+            (item.startMs / 1000) * fps,
+          ),
         );
 
         const durationInFrames = Math.max(
           1,
-          Math.round(((item.endMs - item.startMs) / 1000) * fps),
+          Math.round(
+            ((item.endMs - item.startMs) /
+              1000) *
+              fps,
+          ),
         );
 
         return (
           <Sequence
-            key={item.id}
+            key={`${item.id}-${item.startMs}`}
             from={from}
             durationInFrames={durationInFrames}
             premountFor={fps}
           >
-            <AssetVisual item={item} />
+            <CleanVisual item={item} />
           </Sequence>
         );
       })}
