@@ -75,8 +75,8 @@ export type AutomaticVideoSpec = {
   target: {
     aspect: "9:16";
     fps: 30;
-    durationMode: "fixed";
-    fixedDurationSec: number;
+    durationMode: "auto";
+    fixedDurationSec?: number;
   };
 
   style: {
@@ -231,9 +231,7 @@ export function buildAutomaticVideoSpec(
 
       fps: 30,
 
-      durationMode: "fixed",
-
-      fixedDurationSec: 60,
+      durationMode: "auto",
     },
 
     style: {

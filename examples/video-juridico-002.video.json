@@ -17,8 +17,7 @@
   "target": {
     "aspect": "9:16",
     "fps": 30,
-    "durationMode": "fixed",
-    "fixedDurationSec": 60
+    "durationMode": "auto"
   },
   "style": {
     "theme": "editorial-dark",

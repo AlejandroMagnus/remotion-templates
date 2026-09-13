@@ -210,6 +210,10 @@ jobs:
           asyncio.run(main())
           PY
           
+      - name: Calcular duración adaptativa
+        run: |
+          npx --yes tsx scripts/apply-adaptive-duration.ts
+
       - name: Build semantic director decisions
         run: npx --yes tsx scripts/build-semantic-decisions.ts
    
