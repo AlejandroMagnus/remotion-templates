@@ -12,6 +12,8 @@ import {
   useVideoConfig,
 } from "remotion";
 
+import {getSemanticMotionProfile} from "./motion/semanticMotionDirector";
+
 type AssetItem = {
   id: string;
   ruleId: string;
@@ -30,32 +32,34 @@ type Manifest = {
   assets: AssetItem[];
 };
 
-const hash = (value: string) => {
-  let result = 0;
-
-  for (let i = 0; i < value.length; i++) {
-    result = (result * 31 + value.charCodeAt(i)) >>> 0;
-  }
-
-  return result;
-};
-
-function CinematicPhoto({
+function SemanticCinematicPhoto({
   item,
+  sceneIndex,
   durationInFrames,
 }: {
   item: AssetItem;
+  sceneIndex: number;
   durationInFrames: number;
 }) {
   const frame = useCurrentFrame();
 
-  if (!item.asset) return null;
+  if (!item.asset) {
+    return null;
+  }
 
-  const src = staticFile(item.asset.localSrc);
+  const src = staticFile(
+    item.asset.localSrc,
+  );
 
   const progress = interpolate(
     frame,
-    [0, Math.max(1, durationInFrames - 1)],
+    [
+      0,
+      Math.max(
+        1,
+        durationInFrames - 1,
+      ),
+    ],
     [0, 1],
     {
       extrapolateLeft: "clamp",
@@ -63,89 +67,90 @@ function CinematicPhoto({
     },
   );
 
-  const preset = hash(`${item.id}-${item.ruleId}`) % 6;
-
-  // Curva suave: acelera y desacelera.
+  // Movimiento cadencioso:
+  // aceleración y desaceleración natural.
   const cadence =
-    0.5 - Math.cos(progress * Math.PI) / 2;
+    0.5 -
+    Math.cos(
+      progress * Math.PI,
+    ) /
+      2;
 
-  let foregroundScale = 1.06;
-  let foregroundX = 0;
-  let foregroundY = 0;
-  let rotate = 0;
+  const motion =
+    getSemanticMotionProfile(
+      item.ruleId,
+      sceneIndex,
+    );
 
-  if (preset === 0) {
-    // PUSH-IN
-    foregroundScale = 1.04 + cadence * 0.10;
-    foregroundY = 1.2 - cadence * 2.4;
-  }
+  const scale =
+    motion.startScale +
+    (motion.endScale -
+      motion.startScale) *
+      cadence;
 
-  if (preset === 1) {
-    // PAN IZQUIERDA → DERECHA
-    foregroundScale = 1.13;
-    foregroundX = -3.2 + cadence * 6.4;
-    foregroundY = 0.8 - cadence * 1.6;
-  }
+  const x =
+    motion.startX +
+    (motion.endX -
+      motion.startX) *
+      cadence;
 
-  if (preset === 2) {
-    // PAN DERECHA → IZQUIERDA
-    foregroundScale = 1.13;
-    foregroundX = 3.2 - cadence * 6.4;
-    foregroundY = -0.7 + cadence * 1.4;
-  }
+  const y =
+    motion.startY +
+    (motion.endY -
+      motion.startY) *
+      cadence;
 
-  if (preset === 3) {
-    // ASCENSO DE CÁMARA
-    foregroundScale = 1.11;
-    foregroundY = 3.2 - cadence * 6.4;
-  }
+  const rotate =
+    motion.startRotate +
+    (motion.endRotate -
+      motion.startRotate) *
+      cadence;
 
-  if (preset === 4) {
-    // PULL-OUT
-    foregroundScale = 1.15 - cadence * 0.09;
-    foregroundX = 1.8 - cadence * 3.6;
-  }
+  // Fondo con desplazamiento inverso:
+  // crea sensación de profundidad sin IA externa.
+  const backgroundScale =
+    1.22 +
+    cadence * 0.025;
 
-  if (preset === 5) {
-    // DRIFT DIAGONAL MUY SUTIL
-    foregroundScale = 1.09 + cadence * 0.035;
-    foregroundX = -2 + cadence * 4;
-    foregroundY = 1.8 - cadence * 3.6;
-    rotate = -0.35 + cadence * 0.7;
-  }
+  const backgroundX =
+    x * -0.20;
 
-  // Fondo se mueve más lento que el primer plano:
-  // crea percepción de profundidad.
-  const backgroundScale = 1.22 + cadence * 0.025;
+  const backgroundY =
+    y * -0.16;
 
-  const backgroundX = foregroundX * -0.22;
-  const backgroundY = foregroundY * -0.18;
-
-  const edgeFrames = Math.max(
-    6,
-    Math.min(
-      12,
-      Math.floor(durationInFrames * 0.18),
-    ),
-  );
-
-  const opacity = interpolate(
-    frame,
-    [
-      0,
-      edgeFrames,
-      Math.max(
-        edgeFrames + 1,
-        durationInFrames - edgeFrames,
+  const edgeFrames =
+    Math.max(
+      6,
+      Math.min(
+        12,
+        Math.floor(
+          durationInFrames *
+            0.18,
+        ),
       ),
-      durationInFrames,
-    ],
-    [0, 1, 1, 0],
-    {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    },
-  );
+    );
+
+  const opacity =
+    interpolate(
+      frame,
+      [
+        0,
+        edgeFrames,
+        Math.max(
+          edgeFrames + 1,
+          durationInFrames -
+            edgeFrames,
+        ),
+        durationInFrames,
+      ],
+      [0, 1, 1, 0],
+      {
+        extrapolateLeft:
+          "clamp",
+        extrapolateRight:
+          "clamp",
+      },
+    );
 
   return (
     <AbsoluteFill
@@ -155,7 +160,7 @@ function CinematicPhoto({
         opacity,
       }}
     >
-      {/* CAPA DE PROFUNDIDAD / FONDO */}
+      {/* PROFUNDIDAD AMBIENTAL */}
       <Img
         src={src}
         style={{
@@ -168,11 +173,12 @@ function CinematicPhoto({
             `translate3d(${backgroundX}%, ${backgroundY}%, 0) ` +
             `scale(${backgroundScale})`,
 
-          filter: "blur(18px) brightness(0.64)",
+          filter:
+            "blur(18px) brightness(0.62)",
         }}
       />
 
-      {/* CAPA PRINCIPAL */}
+      {/* IMAGEN NARRATIVA PRINCIPAL */}
       <Img
         src={src}
         style={{
@@ -182,19 +188,20 @@ function CinematicPhoto({
           objectFit: "cover",
 
           transform:
-            `translate3d(${foregroundX}%, ${foregroundY}%, 0) ` +
-            `scale(${foregroundScale}) ` +
+            `translate3d(${x}%, ${y}%, 0) ` +
+            `scale(${scale}) ` +
             `rotate(${rotate}deg)`,
 
-          transformOrigin: "center center",
+          transformOrigin:
+            "center center",
         }}
       />
 
-      {/* PROFUNDIDAD / LUZ SUAVE */}
+      {/* VOLUMEN CINEMATOGRÁFICO */}
       <AbsoluteFill
         style={{
           background:
-            "radial-gradient(circle at 50% 45%, transparent 36%, rgba(0,0,0,0.08) 70%, rgba(0,0,0,0.32) 100%)",
+            "radial-gradient(circle at 50% 44%, transparent 38%, rgba(0,0,0,0.07) 70%, rgba(0,0,0,0.28) 100%)",
         }}
       />
     </AbsoluteFill>
@@ -202,16 +209,18 @@ function CinematicPhoto({
 }
 
 export function ResolvedAssetLayer() {
-  const {fps} = useVideoConfig();
+  const {fps} =
+    useVideoConfig();
 
   const [items, setItems] =
     useState<AssetItem[]>([]);
 
-  const [handle] = useState(() =>
-    delayRender(
-      "Loading V3.10-A cinematic 2.5D assets",
-    ),
-  );
+  const [handle] =
+    useState(() =>
+      delayRender(
+        "Loading V3.10-B Semantic Motion Director",
+      ),
+    );
 
   useEffect(() => {
     fetch(
@@ -228,19 +237,27 @@ export function ResolvedAssetLayer() {
 
         return response.json();
       })
-      .then((manifest: Manifest) => {
-        setItems(
-          (manifest.assets ?? []).filter(
-            (item) =>
-              item.status === "resolved" &&
-              item.asset &&
-              item.asset.mediaType === "image",
-          ),
-        );
-      })
+      .then(
+        (manifest: Manifest) => {
+          setItems(
+            (
+              manifest.assets ??
+              []
+            ).filter(
+              (item) =>
+                item.status ===
+                  "resolved" &&
+                item.asset &&
+                item.asset
+                  .mediaType ===
+                  "image",
+            ),
+          );
+        },
+      )
       .catch((error) => {
         console.warn(
-          "V3.10-A assets unavailable:",
+          "Semantic Motion assets unavailable:",
           error,
         );
       })
@@ -249,10 +266,13 @@ export function ResolvedAssetLayer() {
       );
   }, [handle]);
 
-  const overlap = Math.max(
-    7,
-    Math.round(fps * 0.32),
-  );
+  const overlap =
+    Math.max(
+      7,
+      Math.round(
+        fps * 0.32,
+      ),
+    );
 
   return (
     <AbsoluteFill
@@ -261,54 +281,66 @@ export function ResolvedAssetLayer() {
         backgroundColor: "#000",
       }}
     >
-      {items.map((item, index) => {
-        const baseFrom = Math.max(
-          0,
-          Math.round(
-            (item.startMs / 1000) * fps,
-          ),
-        );
+      {items.map(
+        (item, index) => {
+          const baseFrom =
+            Math.max(
+              0,
+              Math.round(
+                (item.startMs /
+                  1000) *
+                  fps,
+              ),
+            );
 
-        const baseDuration = Math.max(
-          1,
-          Math.round(
-            ((item.endMs - item.startMs) /
-              1000) *
-              fps,
-          ),
-        );
+          const baseDuration =
+            Math.max(
+              1,
+              Math.round(
+                ((item.endMs -
+                  item.startMs) /
+                  1000) *
+                  fps,
+              ),
+            );
 
-        const lead =
-          index === 0 ? 0 : overlap;
+          const lead =
+            index === 0
+              ? 0
+              : overlap;
 
-        const from = Math.max(
-          0,
-          baseFrom - lead,
-        );
+          const from =
+            Math.max(
+              0,
+              baseFrom -
+                lead,
+            );
 
-        const durationInFrames =
-          baseDuration +
-          lead +
-          overlap;
+          const durationInFrames =
+            baseDuration +
+            lead +
+            overlap;
 
-        return (
-          <Sequence
-            key={`${item.id}-${index}`}
-            from={from}
-            durationInFrames={
-              durationInFrames
-            }
-            premountFor={fps}
-          >
-            <CinematicPhoto
-              item={item}
+          return (
+            <Sequence
+              key={`${item.id}-${index}`}
+              from={from}
               durationInFrames={
                 durationInFrames
               }
-            />
-          </Sequence>
-        );
-      })}
+              premountFor={fps}
+            >
+              <SemanticCinematicPhoto
+                item={item}
+                sceneIndex={index}
+                durationInFrames={
+                  durationInFrames
+                }
+              />
+            </Sequence>
+          );
+        },
+      )}
     </AbsoluteFill>
   );
 }
