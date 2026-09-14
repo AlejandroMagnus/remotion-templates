@@ -3,7 +3,10 @@ import {
   getSilecContextTerms,
   getSilecVisualProfile,
 } from "./silecVisualProfiles";
-
+import {
+  getHighTicketContextTerms,
+  getHighTicketVisualProfile,
+} from "./highTicketVisualProfiles";
 export type DirectorScene = {
   ruleId: string;
   concept?: string;
@@ -335,6 +338,12 @@ function profileFor(scene: DirectorScene): VisualProfile {
   if (silecProfile) {
     return silecProfile;
   }
+  const highTicketProfile =
+  getHighTicketVisualProfile(scene.ruleId);
+
+  if (highTicketProfile) {
+  return highTicketProfile;
+}
 
   return (
     PROFILES[scene.ruleId] ??
@@ -366,6 +375,9 @@ function contextTerms(scene: DirectorScene): string[] {
   terms.push(
     ...getSilecContextTerms(context),
   );
+  terms.push(
+  ...getHighTicketContextTerms(context),
+);
 
   return [...new Set(terms)];
 }
