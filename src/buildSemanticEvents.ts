@@ -5,7 +5,7 @@ import {
 } from "./semantic/semanticRules";
 
 import {silecSemanticRules} from "./semantic/silecSemanticRules";
-
+import {highTicketSemanticRules} from "./semantic/highTicketSemanticRules";
 import {
   calibrateDirectorTimeline,
 } from "./semantic/calibrateDirectorTimeline";
@@ -13,6 +13,7 @@ import {
 const DEFAULT_SEMANTIC_RULES: SemanticRule[] = [
   ...semanticRules,
   ...silecSemanticRules,
+  ...highTicketSemanticRules,
 ];
 
 export type WordTiming = {
