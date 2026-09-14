@@ -1,6 +1,7 @@
 import { SemanticExecutionEngine } from "./SemanticExecutionEngine";
 import {ResolvedAssetLayer} from "./ResolvedAssetLayer";
 import {ProfessionalSignature} from "./ProfessionalSignature";
+import {OwnershipMark} from "./OwnershipMark";
 import {WordSyncOverlay} from "./WordSyncOverlay";
 import {loadFont as loadFraunces} from "@remotion/google-fonts/Fraunces";
 import {loadFont as loadInter} from "@remotion/google-fonts/Inter";
@@ -1303,13 +1304,14 @@ export function TemplateVideo({
 
   // V3.9.3 PHOTO-FIRST ACTIVE
   if (PHOTO_FIRST_MODE) {
-    return (
-      <AbsoluteFill style={{backgroundColor: "#000"}}>
-        <ResolvedAssetLayer productionCode={spec.id} />
-        <ProfessionalSignature />
-        <AudioBed spec={spec} />
-      </AbsoluteFill>
-    );
+  return (
+    <AbsoluteFill style={{backgroundColor: "#000"}}>
+      <ResolvedAssetLayer productionCode={spec.id} />
+      <OwnershipMark />
+      <ProfessionalSignature />
+      <AudioBed spec={spec} />
+    </AbsoluteFill>
+  );
   }
 
   if (SEMANTIC_QA_MODE) {
