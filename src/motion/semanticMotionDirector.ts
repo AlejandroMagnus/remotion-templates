@@ -1,3 +1,4 @@
+import {getHighTicketMotionProfile} from "./highTicketMotionProfiles";
 import {getSilecMotionProfile} from "./silecMotionProfiles";
 
 export type SemanticMotionProfile = {
@@ -228,6 +229,17 @@ export function getSemanticMotionProfile(
   ruleId: string,
   sceneIndex: number,
 ): SemanticMotionProfile {
+  // 1. Prioridad máxima:
+  // perfiles diseñados específicamente para
+  // contenido jurídico HIGH TICKET.
+  const highTicketMotion =
+    getHighTicketMotionProfile(ruleId);
+
+  if (highTicketMotion) {
+    return highTicketMotion;
+  }
+
+  // 2. Perfiles jurídicos SILEC.
   const silecMotion =
     getSilecMotionProfile(ruleId);
 
@@ -235,8 +247,13 @@ export function getSemanticMotionProfile(
     return silecMotion;
   }
 
-  return (
-    MOTIONS[ruleId] ??
-    FALLBACKS[sceneIndex % FALLBACKS.length]
-  );
+  // 3. Perfiles semánticos generales ya validados.
+  if (MOTIONS[ruleId]) {
+    return MOTIONS[ruleId];
+  }
+
+  // 4. Fallback seguro para cualquier concepto futuro.
+  return FALLBACKS[
+    sceneIndex % FALLBACKS.length
+  ];
 }
