@@ -62,7 +62,9 @@ const timeline = JSON.parse(
 );
 
 const timelineDurationMs =
-  Number(timeline.durationMs ?? 0);
+  Number(
+    timeline.durationMs ?? 0,
+  );
 
 if (
   !Number.isFinite(
@@ -75,9 +77,14 @@ if (
   );
 }
 
-// Medimos también el MP3 real.
-// Así nunca cortamos la última palabra
-// por una pequeña diferencia del timeline.
+// ==================================================
+// DURACIÓN REAL DE NARRACIÓN
+// ==================================================
+
+// Además del timeline medimos el MP3 real.
+// Así evitamos cortar la última palabra
+// por pequeñas diferencias entre motores.
+
 let audioDurationMs = 0;
 
 try {
@@ -112,30 +119,81 @@ const narrationDurationMs =
     audioDurationMs,
   );
 
-// El cierre se adapta también.
-// Videos cortos: ~1,1 s.
-// Videos largos: hasta ~1,8 s.
+// ==================================================
+// V3.12 — CINEMATIC END CARD ENVELOPE
+// ==================================================
+//
+// Reglas permanentes:
+//
+// entrada:        0.45 s
+// estable:        3.00 s
+// seguridad:      0.50 s
+//
+// Total visual técnico:
+//
+// 3.95 s
+//
+// Añadimos además 0.15 s de respiración
+// cinematográfica después de la narración.
+//
+// Reserva total:
+//
+// 4.10 s
+//
+// Esto evita:
+// - cierre abrupto;
+// - identidad cortada;
+// - CTA ilegible;
+// - última palabra superpuesta;
+// - final demasiado comprimido.
+
+const END_CARD_ENTER_MS =
+  450;
+
+const END_CARD_STABLE_MS =
+  3000;
+
+const END_CARD_SAFETY_MS =
+  500;
+
+const CINEMATIC_BREATH_MS =
+  150;
+
+const END_CARD_VISUAL_MS =
+  END_CARD_ENTER_MS +
+  END_CARD_STABLE_MS +
+  END_CARD_SAFETY_MS;
+
+const endCardReserveMs =
+  END_CARD_VISUAL_MS +
+  CINEMATIC_BREATH_MS;
+
+// Conservamos este nombre también
+// por compatibilidad con posibles
+// consumidores anteriores del envelope.
 const closingHoldMs =
-  Math.min(
-    1800,
-    Math.max(
-      1100,
-      Math.round(
-        narrationDurationMs *
-          0.018,
-      ),
-    ),
-  );
+  endCardReserveMs;
 
 const finalDurationMs =
   narrationDurationMs +
-  closingHoldMs;
+  endCardReserveMs;
+
+// ==================================================
+// ACTUALIZACIÓN DEL VIDEOSPEC
+// ==================================================
 
 spec.target = {
   ...spec.target,
 
-  // El valor final se obtiene
-  // automáticamente del audio real.
+  // La duración final deja de depender
+  // de un número escrito manualmente.
+  //
+  // Se calcula a partir de:
+  //
+  // narración real
+  // +
+  // cierre cinematográfico reservado.
+
   durationMode: "fixed",
 
   fixedDurationSec:
@@ -155,12 +213,15 @@ fs.writeFileSync(
     2,
   ),
 );
+// ==================================================
+// ENVELOPE TÉCNICO DE DURACIÓN
+// ==================================================
 
 const envelope = {
   productionCode,
 
   version:
-    "V3.11-E-ADAPTIVE-DURATION",
+    "V3.12-HIGH-TICKET-END-CARD",
 
   timelineDurationMs,
 
@@ -168,6 +229,28 @@ const envelope = {
 
   narrationDurationMs,
 
+  cinematicBreathMs:
+    CINEMATIC_BREATH_MS,
+
+  endCard: {
+    enterMs:
+      END_CARD_ENTER_MS,
+
+    stableMs:
+      END_CARD_STABLE_MS,
+
+    safetyMs:
+      END_CARD_SAFETY_MS,
+
+    visualDurationMs:
+      END_CARD_VISUAL_MS,
+
+    reserveMs:
+      endCardReserveMs,
+  },
+
+  // Compatibilidad con versiones
+  // anteriores del sistema.
   closingHoldMs,
 
   finalDurationMs,
@@ -180,6 +263,10 @@ const envelope = {
       ).toFixed(3),
     ),
 };
+
+// ==================================================
+// GUARDADO DEL ENVELOPE
+// ==================================================
 
 const outputPath = path.join(
   ROOT,
@@ -195,16 +282,74 @@ fs.writeFileSync(
   ),
 );
 
+// ==================================================
+// VALIDACIONES
+// ==================================================
+
+if (
+  finalDurationMs <=
+  narrationDurationMs
+) {
+  throw new Error(
+    "Final duration must exceed narration duration",
+  );
+}
+
+if (
+  endCardReserveMs <
+  END_CARD_VISUAL_MS
+) {
+  throw new Error(
+    "End Card reserve is insufficient",
+  );
+}
+
+if (
+  END_CARD_STABLE_MS <
+  3000
+) {
+  throw new Error(
+    "End Card stable visibility must be at least 3000 ms",
+  );
+}
+
+if (
+  END_CARD_SAFETY_MS <
+  500
+) {
+  throw new Error(
+    "End Card safety tail must be at least 500 ms",
+  );
+}
+
+// ==================================================
+// INFORME
+// ==================================================
+
 console.log(
   "======================================",
 );
 
 console.log(
-  "V3.11-E ADAPTIVE DURATION",
+  "V3.12 ADAPTIVE DURATION + END CARD",
 );
 
 console.log(
   `Production: ${productionCode}`,
+);
+
+console.log(
+  `Timeline: ${
+    timelineDurationMs /
+    1000
+  } s`,
+);
+
+console.log(
+  `Audio: ${
+    audioDurationMs /
+    1000
+  } s`,
 );
 
 console.log(
@@ -215,8 +360,36 @@ console.log(
 );
 
 console.log(
-  `Closing hold: ${
-    closingHoldMs /
+  `Cinematic breath: ${
+    CINEMATIC_BREATH_MS /
+    1000
+  } s`,
+);
+
+console.log(
+  `End Card entrance: ${
+    END_CARD_ENTER_MS /
+    1000
+  } s`,
+);
+
+console.log(
+  `End Card stable: ${
+    END_CARD_STABLE_MS /
+    1000
+  } s`,
+);
+
+console.log(
+  `End Card safety: ${
+    END_CARD_SAFETY_MS /
+    1000
+  } s`,
+);
+
+console.log(
+  `Total closing reserve: ${
+    endCardReserveMs /
     1000
   } s`,
 );
