@@ -10,6 +10,7 @@ export type AssetScenePlanItem = {
   id: string;
   ruleId: string;
   concept: string;
+
   startMs: number;
   endMs: number;
   durationMs: number;
@@ -35,6 +36,24 @@ const chooseRoute = (
   event: SemanticEvent,
 ): VisualRoute => {
   switch (event.ruleId) {
+    // ========================================
+    // HIGH TICKET
+    // ========================================
+
+    case "controversia-alto-valor":
+    case "arbitraje":
+    case "conflicto-administrativo":
+    case "patrimonio":
+      return "REALISTIC_SCENE";
+
+    case "contratos-high-ticket":
+    case "control-constitucional":
+      return "DOCUMENT_OBJECT";
+
+    // ========================================
+    // SILEC NATIVO
+    // ========================================
+
     case "hechos":
     case "teoria-caso":
     case "estrategia-juridica":
@@ -48,6 +67,10 @@ const chooseRoute = (
 
     case "objetivo":
       return "ONDA_GRAPHIC";
+
+    // ========================================
+    // SEMÁNTICA GENERAL VALIDADA
+    // ========================================
 
     case "autoridad":
       return "REALISTIC_SCENE";
@@ -80,56 +103,216 @@ const visualIntentFor = (
   route: VisualRoute,
 ): string => {
   if (route === "REALISTIC_SCENE") {
-    return `Escena realista y cinematográfica que represente: ${event.concept}`;
+    return (
+      "Escena realista, cinematográfica y profesional " +
+      `que represente directamente: ${event.concept}`
+    );
   }
 
   if (route === "DOCUMENT_OBJECT") {
-    return `Documento u objeto jurídico visualmente reconocible que represente: ${event.concept}`;
+    return (
+      "Documento, expediente, contrato u objeto jurídico " +
+      `visualmente reconocible que represente: ${event.concept}`
+    );
   }
 
   if (route === "CONTINUITY") {
-    return `Continuidad audiovisual coherente entre unidades narrativas, sin pantalla vacía`;
+    return (
+      "Continuidad audiovisual coherente entre unidades " +
+      "narrativas, sin introducir un sujeto irrelevante"
+    );
   }
 
-  return `Motion graphic profesional que explique visualmente: ${event.concept}`;
-};
+  return (
+    "Motion graphic profesional y sobrio que explique " +
+    `visualmente: ${event.concept}`
 
-const promptFor = (
+    const generationPromptFor = (
   event: SemanticEvent,
   route: VisualRoute,
 ): string => {
   const base =
-    "vertical 9:16, cinematic lighting, realistic depth, premium legal visual language, clean composition, safe frame, no stock-photo look, no slideshow";
+    "Premium cinematic legal visual, professional, credible, " +
+    "high-end editorial aesthetic, realistic lighting, " +
+    "strong composition, no cheap stock look, no slideshow, " +
+    "no floating text, no irrelevant legal clichés.";
 
-  switch (route) {
-    case "REALISTIC_SCENE":
-      return `${base}. Professional institutional office. Authority carefully reviewing a legal case file before making a decision. Natural hands, realistic desk, subtle camera movement, documentary realism. Concept: ${event.concept}.`;
+  if (route === "REALISTIC_SCENE") {
+    return (
+      `${base} Create a realistic professional scene representing: ` +
+      `${event.concept}. Emphasize decision-making, seriousness, ` +
+      "economic relevance and strategic legal analysis."
+    );
+  }
 
-    case "DOCUMENT_OBJECT":
-      return `${base}. Create a believable Bolivian legal document/object relevant to: ${event.concept}. Clear physical paper or digital dossier, legible semantic title when useful, elegant close-up, subtle parallax and camera movement.`;
+  if (route === "DOCUMENT_OBJECT") {
+    return (
+      `${base} Focus on a believable legal document, contract, ` +
+      `case file or juridical object representing: ${event.concept}. ` +
+      "Document must feel authentic, important and professionally handled."
+    );
+  }
 
-    case "ONDA_GRAPHIC":
-      return `${base}. Design a restrained premium motion-graphic treatment for: ${event.concept}. Use hierarchy, diagrams, highlights or timeline only when they improve comprehension.`;
+  if (route === "CONTINUITY") {
+    return (
+      `${base} Create visual continuity connected to the previous ` +
+      `narrative idea. Context: ${event.concept}. Preserve visual rhythm ` +
+      "without repeating the previous asset."
+    );
+  }
 
-    case "CONTINUITY":
-      return `${base}. Create calm visual continuity between adjacent legal concepts. Maintain narrative context and visual identity; avoid introducing a new unrelated subject.`;
+  return (
+    `${base} Create a restrained premium information graphic ` +
+    `representing: ${event.concept}. Prioritize clarity, hierarchy ` +
+    "and strategic meaning."
+  );
+};
+
+const motionFor = (
+  event: SemanticEvent,
+  route: VisualRoute,
+): {
+  camera: string;
+  transition: string;
+} => {
+  switch (event.ruleId) {
+    case "controversia-alto-valor":
+      return {
+        camera: "slow-controlled-push-in",
+        transition: "soft-crossfade",
+      };
+
+    case "contratos-high-ticket":
+      return {
+        camera: "document-detail-horizontal-pan",
+        transition: "precision-dissolve",
+      };
+
+    case "arbitraje":
+      return {
+        camera: "strategic-lateral-drift",
+        transition: "controlled-crossfade",
+      };
+
+    case "conflicto-administrativo":
+      return {
+        camera: "measured-right-to-left-pan",
+        transition: "soft-dissolve",
+      };
+
+    case "patrimonio":
+      return {
+        camera: "slow-converging-push",
+        transition: "premium-crossfade",
+      };
+
+    case "control-constitucional":
+      return {
+        camera: "subtle-vertical-rise",
+        transition: "restrained-fade",
+      };
+
+    case "hechos":
+      return {
+        camera: "investigative-horizontal-scan",
+        transition: "soft-crossfade",
+      };
+
+    case "prueba":
+      return {
+        camera: "evidence-detail-examination",
+        transition: "precision-dissolve",
+      };
+
+    case "norma":
+    case "jurisprudencia":
+      return {
+        camera: "slow-document-focus",
+        transition: "soft-dissolve",
+      };
+
+    case "teoria-caso":
+    case "estrategia-juridica":
+      return {
+        camera: "strategic-convergence",
+        transition: "controlled-crossfade",
+      };
+
+    case "riesgos":
+      return {
+        camera: "slow-tension-push",
+        transition: "dark-soft-dissolve",
+      };
+
+    case "decision":
+      return {
+        camera: "decision-convergence",
+        transition: "stable-crossfade",
+      };
+
+    default:
+      if (route === "REALISTIC_SCENE") {
+        return {
+          camera: "slow-cinematic-drift",
+          transition: "soft-crossfade",
+        };
+      }
+
+      if (route === "DOCUMENT_OBJECT") {
+        return {
+          camera: "controlled-detail-pan",
+          transition: "precision-dissolve",
+        };
+      }
+
+      if (route === "CONTINUITY") {
+        return {
+          camera: "minimal-continuity-drift",
+          transition: "long-crossfade",
+        };
+      }
+
+      return {
+        camera: "restrained-motion",
+        transition: "soft-dissolve",
+      };
   }
 };
 
-export const buildAssetScenePlan = (
+export function buildAssetScenePlan(
   events: SemanticEvent[],
-): AssetScenePlanItem[] =>
-  events.map((event) => {
+): AssetScenePlanItem[] {
+  return events.map((event, index) => {
     const route =
       chooseRoute(event);
 
+    const startMs =
+      Math.max(
+        0,
+        Number(event.startMs),
+      );
+
+    const endMs =
+      Math.max(
+        startMs + 1,
+        Number(event.endMs),
+      );
+
     return {
-      id: `asset-plan-${event.id}`,
-      ruleId: event.ruleId,
-      concept: event.concept,
-      startMs: event.startMs,
-      endMs: event.endMs,
-      durationMs: event.durationMs,
+      id:
+        `scene-${String(index + 1).padStart(2, "0")}`,
+
+      ruleId:
+        event.ruleId,
+
+      concept:
+        event.concept,
+
+      startMs,
+      endMs,
+
+      durationMs:
+        endMs - startMs,
 
       route,
 
@@ -140,22 +323,16 @@ export const buildAssetScenePlan = (
         ),
 
       generationPrompt:
-        promptFor(
+        generationPromptFor(
           event,
           route,
         ),
 
-      motion: {
-        camera:
-          route === "REALISTIC_SCENE"
-            ? "slow push-in / subtle handheld realism"
-            : route === "DOCUMENT_OBJECT"
-              ? "slow parallax / controlled close-up"
-              : "controlled graphic motion",
-
-        transition:
-          "semantic continuity; no arbitrary cut",
-      },
+      motion:
+        motionFor(
+          event,
+          route,
+        ),
 
       constraints: {
         vertical: true,
@@ -164,3 +341,6 @@ export const buildAssetScenePlan = (
       },
     };
   });
+}
+  );
+};
