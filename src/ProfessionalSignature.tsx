@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   AbsoluteFill,
   interpolate,
@@ -7,7 +6,11 @@ import {
   useVideoConfig,
 } from "remotion";
 
-export function ProfessionalSignature() {
+const ENTER_SECONDS = 0.45;
+const STABLE_SECONDS = 3;
+const SAFETY_SECONDS = 0.5;
+
+export const ProfessionalSignature: React.FC = () => {
   const frame = useCurrentFrame();
 
   const {
@@ -15,45 +18,67 @@ export function ProfessionalSignature() {
     durationInFrames,
   } = useVideoConfig();
 
-  const signatureFrames =
-    Math.round(fps * 1.8);
+  const enterFrames =
+    Math.round(ENTER_SECONDS * fps);
 
-  const start =
+  const stableFrames =
+    Math.round(STABLE_SECONDS * fps);
+
+  const safetyFrames =
+    Math.round(SAFETY_SECONDS * fps);
+
+  const totalFrames =
+    enterFrames +
+    stableFrames +
+    safetyFrames;
+
+  const startFrame =
     Math.max(
       0,
-      durationInFrames -
-        signatureFrames,
+      durationInFrames - totalFrames,
     );
 
-  if (frame < start) {
-    return null;
-  }
+  const stableStart =
+    startFrame + enterFrames;
 
-  const localFrame =
-    frame - start;
+  const stableEnd =
+    stableStart + stableFrames;
 
-  const fadeInFrames =
-    Math.round(fps * 0.45);
+  const endFrame =
+    durationInFrames;
 
-  const opacity =
+  const opacityIn =
     interpolate(
-      localFrame,
-      [
-        0,
-        fadeInFrames,
-        signatureFrames,
-      ],
-      [0, 1, 1],
+      frame,
+      [startFrame, stableStart],
+      [0, 1],
       {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
       },
     );
 
+  const opacityOut =
+    interpolate(
+      frame,
+      [stableEnd, endFrame],
+      [1, 0],
+      {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      },
+    );
+
+  const opacity =
+    Math.min(
+      opacityIn,
+      opacityOut,
+    );
+
   const translateY =
     interpolate(
-      localFrame,
-      [0, fadeInFrames],
+      frame,
+      [startFrame, stableStart],
       [18, 0],
       {
         extrapolateLeft: "clamp",
@@ -61,66 +86,102 @@ export function ProfessionalSignature() {
       },
     );
 
+  if (frame < startFrame) {
+    return null;
+  }
+
   return (
     <AbsoluteFill
       style={{
-        zIndex: 80,
+        zIndex: 90,
         justifyContent: "center",
         alignItems: "center",
-
-        background:
-          "rgba(0,0,0,0.54)",
-
+        paddingLeft: 96,
+        paddingRight: 96,
         opacity,
+        background:
+          "linear-gradient(180deg, rgba(5,8,12,0.70) 0%, rgba(5,8,12,0.91) 100%)",
       }}
     >
       <div
         style={{
+          width: "100%",
+          maxWidth: 900,
+          textAlign: "center",
           transform:
             `translateY(${translateY}px)`,
-
-          width: "84%",
-
-          textAlign: "center",
-
           fontFamily:
-            "Arial, Helvetica, sans-serif",
-
-          color: "#fff",
+            "Inter, Arial, Helvetica, sans-serif",
+          color: "#ffffff",
         }}
       >
         <div
           style={{
-            fontSize: 48,
+            fontSize: 52,
+            lineHeight: 1.08,
             fontWeight: 700,
-            lineHeight: 1.15,
+            letterSpacing: -1.1,
+            textShadow:
+              "0 3px 18px rgba(0,0,0,0.45)",
           }}
         >
-          Alejandro Riveros, MSc., PhD.
+          Francisco Alejandro
+          <br />
+          Riveros Düllmann
         </div>
 
         <div
           style={{
-            marginTop: 16,
-            fontSize: 30,
+            marginTop: 18,
+            fontSize: 32,
+            lineHeight: 1.15,
             fontWeight: 500,
+            letterSpacing: 0.7,
             opacity: 0.94,
           }}
         >
-          Estrategia Jurídica Integral
+          MSc., PhD.
         </div>
 
         <div
           style={{
-            marginTop: 20,
-            fontSize: 25,
-            fontWeight: 400,
-            opacity: 0.78,
+            width: 110,
+            height: 2,
+            margin:
+              "26px auto 24px auto",
+            background:
+              "rgba(255,255,255,0.48)",
+          }}
+        />
+
+        <div
+          style={{
+            fontSize: 30,
+            lineHeight: 1.28,
+            fontWeight: 500,
+            letterSpacing: 0.15,
+            opacity: 0.96,
           }}
         >
-          Diagnóstico antes de decidir.
+          Estrategia Jurídica Integral
+          <br />
+          Constitucionalizada
+        </div>
+
+        <div
+          style={{
+            marginTop: 34,
+            fontSize: 24,
+            lineHeight: 1.35,
+            fontWeight: 400,
+            letterSpacing: 0.3,
+            opacity: 0.82,
+          }}
+        >
+          Diagnóstico estratégico
+          antes de decidir.
         </div>
       </div>
     </AbsoluteFill>
   );
-}
+};
