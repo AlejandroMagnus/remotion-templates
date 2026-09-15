@@ -127,6 +127,9 @@ const visualIntentFor = (
     "Motion graphic profesional y sobrio que explique " +
     `visualmente: ${event.concept}`
 
+  );
+};
+
     const generationPromptFor = (
   event: SemanticEvent,
   route: VisualRoute,
@@ -342,5 +345,3 @@ export function buildAssetScenePlan(
     };
   });
 }
-  );
-};
