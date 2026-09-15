@@ -232,7 +232,9 @@ def transform_opening(
         .rstrip(".!?")
     )
 
-    return f"¿{core}?", True@dataclass
+    return f"¿{core}?", True
+
+@dataclass
 class SegmentPlan:
     index: int
     original_text: str
@@ -546,7 +548,7 @@ def probe_duration_ms(
         1,
         round(duration * 1000),
       )
-  def srt_time(
+def srt_time(
     ms: int,
 ) -> str:
     hours = ms // 3_600_000
@@ -558,13 +560,7 @@ def probe_duration_ms(
     seconds = ms // 1_000
     millis = ms % 1_000
 
-    return (
-        f"{hours:02}:"
-        f"{minutes:02}:"
-        f"{seconds:02},"
-        f"{millis:03}"
-    )
-
+    return f"{hours:02}:{minutes:02}:{seconds:02},{millis:03}"
 
 def make_silence_wav(
     output_file: Path,
@@ -922,7 +918,7 @@ async def build_prosodic_audio(
         effective_segments,
         final_audio_duration_ms,
           )
-  def write_srt(
+def write_srt(
     segments: list[dict],
 ) -> None:
     blocks: list[str] = []
