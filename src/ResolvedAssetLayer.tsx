@@ -1,7 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-} from "react";
+import React, {useEffect, useState} from "react";
 
 import {
   AbsoluteFill,
@@ -30,10 +27,7 @@ type AssetItem = {
   status: string;
 
   asset?: {
-    mediaType:
-      | "image"
-      | "video";
-
+    mediaType: "image" | "video";
     localSrc: string;
   };
 };
@@ -41,6 +35,17 @@ type AssetItem = {
 type Manifest = {
   assets: AssetItem[];
 };
+
+/**
+ * V3.14 — CINEMATIC RHYTHM GUARD
+ *
+ * No sustituye al Director Maestro.
+ * Protege el montaje frente a duraciones anómalas
+ * provenientes del manifiesto.
+ */
+const MAX_STATIC_SHOT_SECONDS = 7.0;
+const MIN_STATIC_SHOT_SECONDS = 1.8;
+const OVERLAP_SECONDS = 0.28;
 
 function SemanticCinematicPhoto({
   item,
@@ -55,49 +60,27 @@ function SemanticCinematicPhoto({
   isFirst: boolean;
   isLast: boolean;
 }) {
-  const frame =
-    useCurrentFrame();
-
-  const {fps} =
-    useVideoConfig();
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
 
   if (!item.asset) {
     return null;
   }
 
-  const src =
-    staticFile(
-      item.asset.localSrc,
-    );
+  const src = staticFile(item.asset.localSrc);
 
-  const progress =
-    interpolate(
-      frame,
-      [
-        0,
-        Math.max(
-          1,
-          durationInFrames - 1,
-        ),
-      ],
-      [0, 1],
-      {
-        extrapolateLeft:
-          "clamp",
+  const progress = interpolate(
+    frame,
+    [0, Math.max(1, durationInFrames - 1)],
+    [0, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
 
-        extrapolateRight:
-          "clamp",
-      },
-    );
-
-  // Movimiento con aceleración
-  // y desaceleración natural.
   const cadence =
-    0.5 -
-    Math.cos(
-      progress * Math.PI,
-    ) /
-      2;
+    0.5 - Math.cos(progress * Math.PI) / 2;
 
   const motion =
     getSemanticMotionProfile(
@@ -107,179 +90,105 @@ function SemanticCinematicPhoto({
 
   const scale =
     motion.startScale +
-    (
-      motion.endScale -
-      motion.startScale
-    ) *
+    (motion.endScale - motion.startScale) *
       cadence;
 
   const x =
     motion.startX +
-    (
-      motion.endX -
-      motion.startX
-    ) *
+    (motion.endX - motion.startX) *
       cadence;
 
   const y =
     motion.startY +
-    (
-      motion.endY -
-      motion.startY
-    ) *
+    (motion.endY - motion.startY) *
       cadence;
 
   const rotate =
     motion.startRotate +
-    (
-      motion.endRotate -
-      motion.startRotate
-    ) *
+    (motion.endRotate -
+      motion.startRotate) *
       cadence;
 
-  // Fondo con desplazamiento
-  // inverso para profundidad 2.5D.
   const backgroundScale =
-    1.22 +
-    cadence * 0.025;
+    1.22 + cadence * 0.025;
 
-  const backgroundX =
-    x * -0.20;
+  const backgroundX = x * -0.2;
+  const backgroundY = y * -0.16;
 
-  const backgroundY =
-    y * -0.16;
+  const enterFrames = isFirst
+    ? Math.max(1, Math.round(fps * 0.1))
+    : Math.max(5, Math.round(fps * 0.2));
 
-  const enterFrames =
-    isFirst
-      ? Math.max(
-          1,
-          Math.round(
-            fps * 0.10,
-          ),
-        )
-      : Math.max(
-          5,
-          Math.round(
-            fps * 0.22,
-          ),
-        );
+  const exitFrames = isLast
+    ? Math.max(10, Math.round(fps * 0.45))
+    : Math.max(6, Math.round(fps * 0.22));
 
-  const exitFrames =
-    isLast
-      ? Math.max(
-          12,
-          Math.round(
-            fps * 0.70,
-          ),
-        )
-      : Math.max(
-          6,
-          Math.round(
-            fps * 0.25,
-          ),
-        );
+  const opacity = interpolate(
+    frame,
+    [
+      0,
+      enterFrames,
+      Math.max(
+        enterFrames + 1,
+        durationInFrames - exitFrames,
+      ),
+      durationInFrames,
+    ],
+    [isFirst ? 1 : 0, 1, 1, 0],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    },
+  );
 
-  const opacity =
-    interpolate(
-      frame,
-      [
-        0,
-
-        enterFrames,
-
-        Math.max(
-          enterFrames + 1,
-          durationInFrames -
-            exitFrames,
-        ),
-
-        durationInFrames,
-      ],
-      [
-        // La primera visual ya existe
-        // desde el frame 0:
-        // desaparece el hueco negro.
-        isFirst ? 1 : 0,
-
-        1,
-
-        1,
-
-        0,
-      ],
-      {
-        extrapolateLeft:
-          "clamp",
-
-        extrapolateRight:
-          "clamp",
-      },
-    );
+  /**
+   * Microvariación secundaria.
+   * Evita sensación completamente mecánica incluso
+   * dentro de un plano relativamente largo.
+   */
+  const breathing =
+    1 +
+    Math.sin(progress * Math.PI * 2) *
+      0.0025;
 
   return (
     <AbsoluteFill
       style={{
-        backgroundColor:
-          "#000",
-
-        overflow:
-          "hidden",
-
+        backgroundColor: "#000",
+        overflow: "hidden",
         opacity,
       }}
     >
-      {/* PROFUNDIDAD AMBIENTAL */}
       <Img
         src={src}
         style={{
-          position:
-            "absolute",
-
-          width:
-            "100%",
-
-          height:
-            "100%",
-
-          objectFit:
-            "cover",
-
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
           transform:
             `translate3d(${backgroundX}%, ${backgroundY}%, 0) ` +
-            `scale(${backgroundScale})`,
-
+            `scale(${backgroundScale * breathing})`,
           filter:
             "blur(18px) brightness(0.62)",
         }}
       />
 
-      {/* IMAGEN PRINCIPAL */}
       <Img
         src={src}
         style={{
-          position:
-            "absolute",
-
-          width:
-            "100%",
-
-          height:
-            "100%",
-
-          objectFit:
-            "cover",
-
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
           transform:
             `translate3d(${x}%, ${y}%, 0) ` +
-            `scale(${scale}) ` +
+            `scale(${scale * breathing}) ` +
             `rotate(${rotate}deg)`,
-
-          transformOrigin:
-            "center center",
+          transformOrigin: "center center",
         }}
       />
 
-      {/* VOLUMEN */}
       <AbsoluteFill
         style={{
           background:
@@ -297,7 +206,6 @@ export function ResolvedAssetLayer({
 }) {
   const {
     fps,
-
     durationInFrames:
       compositionDurationInFrames,
   } = useVideoConfig();
@@ -305,12 +213,11 @@ export function ResolvedAssetLayer({
   const [items, setItems] =
     useState<AssetItem[]>([]);
 
-  const [handle] =
-    useState(() =>
-      delayRender(
-        "Loading adaptive audiovisual assets",
-      ),
-    );
+  const [handle] = useState(() =>
+    delayRender(
+      "Loading adaptive audiovisual assets",
+    ),
+  );
 
   useEffect(() => {
     fetch(
@@ -318,193 +225,183 @@ export function ResolvedAssetLayer({
         `generated/${productionCode}-resolved-assets.json`,
       ),
     )
-      .then(
-        (response) => {
-          if (!response.ok) {
-            throw new Error(
-              `HTTP ${response.status}`,
-            );
-          }
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status}`,
+          );
+        }
 
-          return response.json();
-        },
-      )
-      .then(
-        (
-          manifest:
-            Manifest,
-        ) => {
-          setItems(
-            (
-              manifest.assets ??
-              []
-            ).filter(
+        return response.json();
+      })
+      .then((manifest: Manifest) => {
+        const resolved =
+          (manifest.assets ?? [])
+            .filter(
               (item) =>
-                item.status ===
-                  "resolved" &&
+                item.status === "resolved" &&
                 item.asset &&
-                item.asset
-                  .mediaType ===
-                  "image",
-            ),
-          );
-        },
-      )
-      .catch(
-        (error) => {
-          console.warn(
-            "Adaptive assets unavailable:",
-            error,
-          );
-        },
-      )
-      .finally(
-        () =>
-          continueRender(
-            handle,
-          ),
-      );
-  }, [
-    handle,
-    productionCode,
-  ]);
+                item.asset.mediaType === "image",
+            )
+            .sort(
+              (a, b) =>
+                a.startMs - b.startMs,
+            );
 
-  const overlap =
-    Math.max(
-      7,
-      Math.round(
-        fps * 0.32,
-      ),
-    );
+        setItems(resolved);
+      })
+      .catch((error) => {
+        console.warn(
+          "Adaptive assets unavailable:",
+          error,
+        );
+      })
+      .finally(() =>
+        continueRender(handle),
+      );
+  }, [handle, productionCode]);
+
+  const overlap = Math.max(
+    6,
+    Math.round(
+      fps * OVERLAP_SECONDS,
+    ),
+  );
+
+  const maxShotFrames = Math.round(
+    fps * MAX_STATIC_SHOT_SECONDS,
+  );
+
+  const minShotFrames = Math.round(
+    fps * MIN_STATIC_SHOT_SECONDS,
+  );
 
   return (
     <AbsoluteFill
       style={{
         zIndex: 10,
-        backgroundColor:
-          "#000",
+        backgroundColor: "#000",
       }}
     >
-      {items.map(
-        (
-          item,
-          index,
-        ) => {
-          const isFirst =
-            index === 0;
+      {items.map((item, index) => {
+        const isFirst = index === 0;
+        const isLast =
+          index === items.length - 1;
 
-          const isLast =
-            index ===
-            items.length - 1;
+        const baseFrom = Math.max(
+          0,
+          Math.round(
+            (item.startMs / 1000) * fps,
+          ),
+        );
 
-          const baseFrom =
-            Math.max(
-              0,
-              Math.round(
-                (
-                  item.startMs /
-                  1000
-                ) *
-                  fps,
-              ),
-            );
-
-          const baseDuration =
-            Math.max(
-              1,
-              Math.round(
-                (
-                  (
-                    item.endMs -
-                    item.startMs
-                  ) /
-                  1000
-                ) *
-                  fps,
-              ),
-            );
-
-          const lead =
-            isFirst
-              ? 0
-              : overlap;
-
-          // PRIMERA IMAGEN:
-          // comienza necesariamente
-          // en el frame cero.
-          const from =
-            isFirst
-              ? 0
-              : Math.max(
-                  0,
-                  baseFrom -
-                    lead,
-                );
-
-          const openingExtension =
-            isFirst
-              ? baseFrom
-              : 0;
-
-          const normalDuration =
-            baseDuration +
-            lead +
-            overlap +
-            openingExtension;
-
-          // ÚLTIMA IMAGEN:
-          // permanece hasta el final
-          // adaptativo del video.
-          const sequenceDuration =
-            isLast
-              ? Math.max(
-                  normalDuration,
-
-                  compositionDurationInFrames -
-                    from,
-                )
-              : normalDuration;
-
-          return (
-            <Sequence
-              key={
-                `${item.id}-` +
-                `${index}`
-              }
-
-              from={from}
-
-              durationInFrames={
-                sequenceDuration
-              }
-
-              premountFor={
-                fps
-              }
-            >
-              <SemanticCinematicPhoto
-                item={item}
-
-                sceneIndex={
-                  index
-                }
-
-                durationInFrames={
-                  sequenceDuration
-                }
-
-                isFirst={
-                  isFirst
-                }
-
-                isLast={
-                  isLast
-                }
-              />
-            </Sequence>
+        const semanticDuration =
+          Math.max(
+            minShotFrames,
+            Math.round(
+              ((item.endMs -
+                item.startMs) /
+                1000) *
+                fps,
+            ),
           );
-        },
-      )}
+
+        /**
+         * El siguiente recurso define el límite natural
+         * del plano actual cuando existe.
+         */
+        const nextBaseFrom =
+          index < items.length - 1
+            ? Math.max(
+                0,
+                Math.round(
+                  (items[index + 1].startMs /
+                    1000) *
+                    fps,
+                ),
+              )
+            : null;
+
+        const from = isFirst
+          ? 0
+          : Math.max(
+              0,
+              baseFrom - overlap,
+            );
+
+        let sequenceDuration =
+          semanticDuration + overlap;
+
+        if (nextBaseFrom !== null) {
+          const untilNext =
+            nextBaseFrom - from + overlap;
+
+          sequenceDuration = Math.min(
+            sequenceDuration,
+            Math.max(
+              minShotFrames,
+              untilNext,
+            ),
+          );
+        }
+
+        /**
+         * Guardia cinematográfica:
+         * ninguna fotografía estática puede monopolizar
+         * accidentalmente decenas de segundos.
+         */
+        sequenceDuration = Math.min(
+          sequenceDuration,
+          maxShotFrames + overlap,
+        );
+
+        /**
+         * La última imagen puede cubrir únicamente
+         * el hueco final razonable.
+         *
+         * No se extiende automáticamente durante
+         * decenas de segundos.
+         */
+        if (isLast) {
+          const remaining =
+            compositionDurationInFrames -
+            from;
+
+          sequenceDuration = Math.min(
+            remaining,
+            Math.max(
+              sequenceDuration,
+              Math.min(
+                remaining,
+                maxShotFrames + overlap,
+              ),
+            ),
+          );
+        }
+
+        return (
+          <Sequence
+            key={`${item.id}-${index}`}
+            from={from}
+            durationInFrames={Math.max(
+              1,
+              sequenceDuration,
+            )}
+            premountFor={fps}
+          >
+            <SemanticCinematicPhoto
+              item={item}
+              sceneIndex={index}
+              durationInFrames={Math.max(
+                1,
+                sequenceDuration,
+              )}
+              isFirst={isFirst}
+              isLast={isLast}
+            />
+          </Sequence>
+        );
+      })}
     </AbsoluteFill>
   );
-}
+          }
