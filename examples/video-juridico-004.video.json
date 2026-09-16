@@ -29,7 +29,7 @@
   "audio": {
     "mode": "narration",
     "narrationText": "El contrato más peligroso no siempre es el que está mal redactado.\n\nPuede estar perfectamente escrito… y aun así dejar expuesta una operación importante.\n\nPorque un contrato estratégico no debe analizar solamente lo que las partes prometen hacer. Debe anticipar qué ocurre cuando una de ellas no cumple.\n\n¿Cómo se demuestra el incumplimiento? ¿Qué obligaciones son realmente exigibles? ¿Quién soporta el riesgo? ¿Qué sucede con el dinero, los activos o las garantías? ¿Y qué mecanismo permite convertir el derecho reconocido en un resultado efectivo?\n\nEn operaciones relevantes, muchos conflictos costosos nacen cuando estas preguntas se hacen después de firmar.\n\nLa verdadera protección contractual comienza antes: identificando escenarios adversos, preservando prueba y diseñando una posición jurídicamente defendible y ejecutable.\n\nPor eso, antes de firmar un contrato importante, la pregunta no debería ser solamente: ¿Está bien redactado?\n\nLa pregunta estratégica es: ¿Qué ocurre si todo sale mal?\n\nAntes de comprometer patrimonio o empresa, diagnostique jurídicamente el riesgo.",
-    "narrationSrc": "public/generated/video-juridico-003-narration.mp3",
+    "narrationSrc": "public/generated/video-juridico-004-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.06,
     "ducking": true
