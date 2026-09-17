@@ -134,6 +134,8 @@ const visualIntentFor = (
   event: SemanticEvent,
   route: VisualRoute,
 ): string => {
+  const jurisdictionContext = "For Bolivian legal, business or institutional content, prefer Bolivia or neutral Latin American context. Visible legal documents and contracts should preferably be in Spanish. If a national flag appears in Bolivian context, it must be the Bolivian flag. Avoid US flags, US Court, Federal Court, American judicial symbols and clearly US legal documents unless the subject specifically requires them. Neutral international imagery remains valid when contextually accurate.";
+
   const base =
     "Premium cinematic legal visual, professional, credible, " +
     "high-end editorial aesthetic, realistic lighting, " +
