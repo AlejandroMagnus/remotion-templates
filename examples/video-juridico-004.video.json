@@ -1,0 +1,117 @@
+"narrationText":{
+  "schemaVersion": "1.0",
+  "id": "video-juridico-004",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "Tener la razón no basta en una controversia de alto valor",
+    "description": "Una posición jurídicamente correcta solo adquiere valor cuando puede demostrarse, defenderse estratégicamente y convertirse en un resultado ejecutable.",
+    "tags": [
+      "estrategia-juridica",
+      "controversias",
+      "contratos",
+      "arbitraje",
+      "patrimonio",
+      "constitucional",
+      "high-ticket"
+    ]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 90
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "Puede tener razón jurídica y aun así perder una controversia de alto valor. Porque una posición jurídicamente correcta no se convierte sola en resultado. Primero hay que reconstruir los hechos que realmente importan. Después, separar lo que puede demostrarse de aquello que solamente se afirma. Entonces corresponde identificar las normas y la jurisprudencia que verdaderamente sostienen la posición. Pero todavía no basta. Una estrategia profesional debe anticipar la respuesta contraria, identificar los puntos críticos, medir riesgos y decidir qué movimiento acerca realmente al resultado buscado. En contratos importantes, arbitrajes, conflictos administrativos o disputas patrimoniales, muchos errores costosos aparecen antes del proceso: cuando se actúa sin diagnóstico suficiente, sin preservar la prueba o sin prever la reacción adversa. Por eso la pregunta profesional no es solamente: ¿Tengo razón? Es: ¿Puedo demostrarla, defenderla y convertirla en una decisión favorable y ejecutable? Y cuando corresponde, esa estrategia debe resistir también el control constitucional. Si una controversia compromete patrimonio, empresa o una decisión importante, actuar primero y analizar después puede ser demasiado costoso. Antes de actuar, diagnostique estratégicamente el riesgo jurídico.",
+    "narrationSrc": "public/generated/video-juridico-004-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.06,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "Tener la razón no basta",
+        "subtitle": "Una controversia de alto valor exige algo más"
+      },
+      "timing": {"durationMs": 8000}
+    },
+    {
+      "id": "hechos-prueba",
+      "kind": "statement",
+      "content": {
+        "title": "Hechos y prueba",
+        "subtitle": "Lo que puede demostrarse vale más que lo que solamente se afirma"
+      },
+      "timing": {"durationMs": 12000}
+    },
+    {
+      "id": "norma-jurisprudencia",
+      "kind": "statement",
+      "content": {
+        "title": "Norma y jurisprudencia",
+        "subtitle": "El Derecho debe sostener una posición construida correctamente"
+      },
+      "timing": {"durationMs": 12000}
+    },
+    {
+      "id": "estrategia",
+      "kind": "points",
+      "content": {
+        "title": "La estrategia profesional exige",
+        "points": [
+          "Anticipar la respuesta contraria",
+          "Identificar puntos críticos",
+          "Medir riesgos y consecuencias"
+        ]
+      },
+      "timing": {"durationMs": 14000}
+    },
+    {
+      "id": "alto-valor",
+      "kind": "statement",
+      "content": {
+        "title": "Contratos, arbitrajes, patrimonio",
+        "subtitle": "Los errores más costosos suelen producirse antes de actuar"
+      },
+      "timing": {"durationMs": 15000}
+    },
+    {
+      "id": "pregunta",
+      "kind": "statement",
+      "content": {
+        "title": "La pregunta correcta",
+        "subtitle": "¿Puedo demostrarlo, defenderlo y convertirlo en un resultado ejecutable?"
+      },
+      "timing": {"durationMs": 12000}
+    },
+    {
+      "id": "constitucional",
+      "kind": "statement",
+      "content": {
+        "title": "Control constitucional",
+        "subtitle": "La estrategia también debe resistir el control superior cuando corresponde"
+      },
+      "timing": {"durationMs": 9000}
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "Antes de actuar",
+        "line2": "Diagnostique estratégicamente el riesgo jurídico"
+      },
+      "timing": {"durationMs": 8000}
+    }
+  ]
+}
