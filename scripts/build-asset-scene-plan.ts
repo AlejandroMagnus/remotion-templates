@@ -1,13 +1,19 @@
 /**
- * V3.14 — BUILD ASSET SCENE PLAN
+ * V3.14.1 — BUILD ASSET SCENE PLAN
  *
- * Puente entre:
- * narración + timeline real
+ * Puente cinematográfico:
+ *
+ * intención + narración + timeline real
  * → MasterAudiovisualDirector
- * → microbeats
- * → Asset Scene Plan existente
+ * → beats semánticos
+ * → normalización de ritmo visual
+ * → microbeats cinematográficos
+ * → Asset Scene Plan
  *
- * Mantiene compatibilidad con la arquitectura anterior.
+ * PRINCIPIO:
+ * El Director decide el ritmo.
+ * El límite temporal es únicamente una red de seguridad
+ * contra planos accidentalmente congelados.
  */
 
 import fs from "fs";
@@ -27,6 +33,25 @@ const productionCode =
   process.argv[2] ||
   process.env.PRODUCTION_CODE ||
   "video-juridico-004";
+
+/* =========================================================
+   CINEMATIC RHYTHM SAFETY
+   ========================================================= */
+
+/**
+ * No es una regla artística rígida.
+ *
+ * El Master Director conserva la decisión narrativa.
+ * Este valor solamente impide que un error de segmentación
+ * produzca un plano visual de 20, 30 o más segundos.
+ */
+const MAX_ORDINARY_VISUAL_HOLD_MS = 6000;
+
+/**
+ * Evita generar microplanos ridículamente breves
+ * cuando una división cae muy cerca del final.
+ */
+const MIN_VISUAL_FRAGMENT_MS = 1800;
 
 /* =========================================================
    PATHS
@@ -85,10 +110,6 @@ const spec = JSON.parse(
   fs.readFileSync(specPath, "utf8")
 );
 
-/**
- * Compatibilidad con las variantes de spec que ya hemos
- * utilizado. El Director no obliga a reconstruir el schema.
- */
 const narration =
   spec?.audio?.narrationText ??
   spec?.narrationText ??
@@ -143,11 +164,6 @@ const numberOr = (
 const normalizeMilliseconds = (
   value: number
 ): number => {
-  /**
-   * Nuestros timelines pueden provenir de distintas
-   * etapas. Valores pequeños suelen estar expresados
-   * en segundos; valores grandes, en milisegundos.
-   */
   if (value > 0 && value < 1000) {
     return Math.round(value * 1000);
   }
@@ -220,6 +236,188 @@ const score = directAudiovisualProduction({
   wordTimeline,
 });
 
+/* =========================================================
+   CINEMATIC RHYTHM NORMALIZER
+   ========================================================= */
+
+/**
+ * Obtiene el texto realmente pronunciado dentro de una
+ * ventana temporal.
+ *
+ * Esto mantiene sincronizados:
+ * LO QUE SE DICE = LO QUE SE VE.
+ */
+const textForWindow = (
+  startMs: number,
+  endMs: number,
+  fallback: string
+): string => {
+  const words = wordTimeline
+    .filter(
+      (word) =>
+        word.endMs > startMs &&
+        word.startMs < endMs
+    )
+    .map((word) => word.word)
+    .filter(Boolean);
+
+  return words.length > 0
+    ? words.join(" ")
+    : fallback;
+};
+
+/**
+ * El Master Director manda.
+ *
+ * Si su beat ya tiene una duración cinematográficamente
+ * razonable, NO se toca.
+ *
+ * Solamente intervenimos cuando un beat excesivamente largo
+ * podría producir una fotografía congelada durante decenas
+ * de segundos.
+ */
+const rhythmicBeats = score.beats.flatMap(
+  (beat) => {
+    const durationMs =
+      Math.max(
+        0,
+        beat.endMs - beat.startMs
+      );
+
+    if (
+      durationMs <=
+      MAX_ORDINARY_VISUAL_HOLD_MS
+    ) {
+      return [
+        {
+          ...beat,
+          durationMs,
+        },
+      ];
+    }
+
+    /**
+     * Dividimos proporcionalmente para evitar un último
+     * fragmento extremadamente corto.
+     *
+     * Ejemplo:
+     * 30 s → 5 fragmentos de aproximadamente 6 s.
+     */
+    let fragmentCount =
+      Math.ceil(
+        durationMs /
+        MAX_ORDINARY_VISUAL_HOLD_MS
+      );
+
+    while (
+      fragmentCount > 1 &&
+      durationMs / fragmentCount <
+        MIN_VISUAL_FRAGMENT_MS
+    ) {
+      fragmentCount -= 1;
+    }
+
+    const fragmentDuration =
+      durationMs / fragmentCount;
+
+    return Array.from(
+      {length: fragmentCount},
+      (_, index) => {
+        const startMs =
+          Math.round(
+            beat.startMs +
+            fragmentDuration * index
+          );
+
+        const endMs =
+          index === fragmentCount - 1
+            ? beat.endMs
+            : Math.round(
+                beat.startMs +
+                fragmentDuration *
+                  (index + 1)
+              );
+
+        return {
+          ...beat,
+
+          /**
+           * ID único = escena realmente independiente.
+           */
+          id:
+            `${beat.id}-rhythm-${index + 1}`,
+
+          text: textForWindow(
+            startMs,
+            endMs,
+            beat.text
+          ),
+
+          startMs,
+          endMs,
+          durationMs:
+            endMs - startMs,
+
+          /**
+           * El resolver downstream recibe una orden
+           * inequívoca de renovación visual.
+           */
+          forceVisualChange: true,
+        };
+      }
+    );
+  }
+);
+
+/* =========================================================
+   RHYTHM QA
+   ========================================================= */
+
+const excessiveBeat =
+  rhythmicBeats.find(
+    (beat) =>
+      beat.endMs - beat.startMs >
+      MAX_ORDINARY_VISUAL_HOLD_MS + 10
+  );
+
+if (excessiveBeat) {
+  throw new Error(
+    `Visual rhythm QA failed: ${excessiveBeat.id} lasts ${
+      excessiveBeat.endMs -
+      excessiveBeat.startMs
+    } ms`
+  );
+}
+
+/* =========================================================
+   SAVE DIRECTOR SCORE
+   ========================================================= */
+
+/**
+ * Guardamos tanto la decisión original del Director como
+ * el timeline visual finalmente normalizado.
+ */
+const directorScore = {
+  ...score,
+
+  rhythmSafety: {
+    maxOrdinaryVisualHoldMs:
+      MAX_ORDINARY_VISUAL_HOLD_MS,
+
+    originalBeatCount:
+      score.beats.length,
+
+    finalBeatCount:
+      rhythmicBeats.length,
+
+    interventionApplied:
+      rhythmicBeats.length !==
+      score.beats.length,
+  },
+
+  beats: rhythmicBeats,
+};
+
 fs.mkdirSync(
   path.dirname(directorOutputPath),
   {recursive: true}
@@ -227,7 +425,11 @@ fs.mkdirSync(
 
 fs.writeFileSync(
   directorOutputPath,
-  JSON.stringify(score, null, 2)
+  JSON.stringify(
+    directorScore,
+    null,
+    2
+  )
 );
 
 /* =========================================================
@@ -239,23 +441,40 @@ console.log(
   "=========================================="
 );
 console.log(
-  "🎬 V3.14 MASTER AUDIOVISUAL DIRECTOR"
+  "🎬 V3.14.1 MASTER AUDIOVISUAL DIRECTOR"
 );
 console.log(
   "=========================================="
 );
+
 console.log(
   `Production: ${productionCode}`
 );
+
 console.log(
-  `Microbeats: ${score.beats.length}`
+  `Director beats: ${score.beats.length}`
 );
+
+console.log(
+  `Visual microbeats: ${rhythmicBeats.length}`
+);
+
 console.log(
   `Duration: ${(score.totalDurationMs / 1000).toFixed(2)} s`
 );
+
 console.log(
   `QA: ${score.qa.passed ? "PASS" : "FAIL"}`
 );
+
+if (
+  rhythmicBeats.length !==
+  score.beats.length
+) {
+  console.log(
+    "🎞️ Rhythm safety: ACTIVE"
+  );
+}
 
 if (score.qa.warnings.length > 0) {
   console.log("");
@@ -287,80 +506,112 @@ if (!score.qa.passed) {
    ========================================================= */
 
 /**
- * Conservamos buildAssetScenePlan como contrato downstream.
+ * Cada beat cinematográfico es una unidad visual
+ * independiente.
  *
- * Cada microbeat del Director se convierte ahora en una
- * unidad semántica independiente.
+ * La duración NO crea por sí sola la narrativa:
+ * intent + visualRole + texto + contexto + timeline
+ * continúan siendo decisiones del Director.
  *
- * Resultado:
- * ya no permitimos que un gran párrafo produzca por accidente
- * un único recurso visual durante decenas de segundos.
+ * El límite de 6 s únicamente evita congelamientos
+ * accidentales.
  */
-const semanticUnits = score.beats.map(
-  (beat, index) => ({
-    id: beat.id,
+const semanticUnits =
+  rhythmicBeats.map(
+    (beat, index) => ({
+      id: beat.id,
 
-    ruleId:
-      `master-${beat.intent.toLowerCase()}-${beat.visualRole.toLowerCase()}`,
+      ruleId:
+        `master-${beat.intent.toLowerCase()}-${beat.visualRole.toLowerCase()}`,
 
-    label: beat.text,
+      label: beat.text,
 
-    text: beat.text,
+      text: beat.text,
 
-    startMs: beat.startMs,
-    endMs: beat.endMs,
+      startMs: beat.startMs,
+      endMs: beat.endMs,
 
-    start: beat.startMs,
-    end: beat.endMs,
+      start: beat.startMs,
+      end: beat.endMs,
 
-    durationMs: beat.durationMs,
+      durationMs:
+        beat.endMs -
+        beat.startMs,
 
-    confidence: beat.emphasis,
+      confidence: beat.emphasis,
 
-    priority: Math.round(
-      beat.emphasis * 100
-    ),
+      priority: Math.round(
+        beat.emphasis * 100
+      ),
 
-    source: "MASTER_AUDIOVISUAL_DIRECTOR",
+      source:
+        "MASTER_AUDIOVISUAL_DIRECTOR",
 
-    metadata: {
-      directorVersion: "V3.14",
+      metadata: {
+        directorVersion:
+          "V3.14.1",
 
-      intent: beat.intent,
-      visualRole: beat.visualRole,
+        intent: beat.intent,
+        visualRole:
+          beat.visualRole,
 
-      searchQueries:
-        beat.searchQueries,
+        searchQueries:
+          beat.searchQueries,
 
-      motion: beat.motion,
-      transition: beat.transition,
+        motion: beat.motion,
+        transition:
+          beat.transition,
 
-      locale: beat.locale,
-      country: beat.country,
+        locale: beat.locale,
+        country: beat.country,
 
-      requireSpanishDocument:
-        beat.requireSpanishDocument,
+        requireSpanishDocument:
+          beat.requireSpanishDocument,
 
-      preferBoliviaContext:
-        beat.preferBoliviaContext,
+        preferBoliviaContext:
+          beat.preferBoliviaContext,
 
-      forceVisualChange:
-        beat.forceVisualChange,
+        /**
+         * Toda unidad proveniente de una fragmentación
+         * temporal exige renovación visual.
+         */
+        forceVisualChange:
+          beat.forceVisualChange,
 
-      sequenceIndex: index,
-    },
-  })
-);
+        sequenceIndex: index,
+      },
+    })
+  );
 
-/**
- * buildAssetScenePlan históricamente recibió eventos
- * semánticos. Mantenemos ese contrato y dejamos al
- * compilador verificar incompatibilidades reales.
- */
+/* =========================================================
+   EXISTING DOWNSTREAM CONTRACT
+   ========================================================= */
+
 const plan =
   buildAssetScenePlan(
     semanticUnits as any
   );
+
+/* =========================================================
+   FINAL PLAN QA
+   ========================================================= */
+
+const excessiveScene =
+  plan.find(
+    (item: any) =>
+      Number(item.endMs) -
+        Number(item.startMs) >
+      MAX_ORDINARY_VISUAL_HOLD_MS + 10
+  );
+
+if (excessiveScene) {
+  throw new Error(
+    `Asset Scene Plan QA failed: scene ${
+      excessiveScene.id ??
+      "unknown"
+    } exceeds visual hold limit.`
+  );
+}
 
 /* =========================================================
    OUTPUT
@@ -375,9 +626,15 @@ console.log("");
 console.log(
   `✅ Audiovisual score: ${directorOutputPath}`
 );
+
 console.log(
   `✅ Asset scene plan: ${planOutputPath}`
 );
+
 console.log(
-  "✅ V3.14 ORCHESTRATION COMPLETED"
+  `✅ Final visual scenes: ${plan.length}`
+);
+
+console.log(
+  "✅ V3.14.1 ORCHESTRATION COMPLETED"
 );
