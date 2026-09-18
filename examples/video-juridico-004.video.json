@@ -1,4 +1,4 @@
-"narrationText":{
+{
   "schemaVersion": "1.0",
   "id": "video-juridico-004",
   "templateFamily": "announcement-brief",
@@ -29,7 +29,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Puede tener razón jurídica y aun así perder una controversia de alto valor. Porque una posición jurídicamente correcta no se convierte sola en resultado. Primero hay que reconstruir los hechos que realmente importan. Después, separar lo que puede demostrarse de aquello que solamente se afirma. Entonces corresponde identificar las normas y la jurisprudencia que verdaderamente sostienen la posición. Pero todavía no basta. Una estrategia profesional debe anticipar la respuesta contraria, identificar los puntos críticos, medir riesgos y decidir qué movimiento acerca realmente al resultado buscado. En contratos importantes, arbitrajes, conflictos administrativos o disputas patrimoniales, muchos errores costosos aparecen antes del proceso: cuando se actúa sin diagnóstico suficiente, sin preservar la prueba o sin prever la reacción adversa. Por eso la pregunta profesional no es solamente: ¿Tengo razón? Es: ¿Puedo demostrarla, defenderla y convertirla en una decisión favorable y ejecutable? Y cuando corresponde, esa estrategia debe resistir también el control constitucional. Si una controversia compromete patrimonio, empresa o una decisión importante, actuar primero y analizar después puede ser demasiado costoso. Antes de actuar, diagnostique estratégicamente el riesgo jurídico.",
+    "narrationText": "El contrato más peligroso no siempre es el que está mal redactado. Puede estar perfectamente escrito y, aun así, dejar expuesta una operación importante. Porque un contrato estratégico no debe analizar solamente lo que las partes prometen hacer. Debe anticipar qué ocurre cuando una de ellas no cumple. ¿Cómo se demuestra el incumplimiento? ¿Qué obligaciones son realmente exigibles? ¿Quién soporta el riesgo? ¿Qué sucede con el dinero, los activos o las garantías? ¿Y qué mecanismo permite convertir el derecho reconocido en un resultado efectivo? En operaciones relevantes, muchos conflictos costosos nacen cuando estas preguntas se hacen después de firmar. La verdadera protección contractual comienza antes: identificando escenarios adversos, preservando prueba y diseñando una posición jurídicamente defendible y ejecutable. Por eso, antes de firmar un contrato importante, la pregunta no debería ser solamente: ¿Está bien redactado? La pregunta estratégica es: ¿Qué ocurre si todo sale mal? Antes de comprometer patrimonio o empresa, diagnostique jurídicamente el riesgo.",
     "narrationSrc": "public/generated/video-juridico-004-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.06,
@@ -44,7 +44,9 @@
         "title": "Tener la razón no basta",
         "subtitle": "Una controversia de alto valor exige algo más"
       },
-      "timing": {"durationMs": 8000}
+      "timing": {
+        "durationMs": 8000
+      }
     },
     {
       "id": "hechos-prueba",
@@ -53,7 +55,9 @@
         "title": "Hechos y prueba",
         "subtitle": "Lo que puede demostrarse vale más que lo que solamente se afirma"
       },
-      "timing": {"durationMs": 12000}
+      "timing": {
+        "durationMs": 12000
+      }
     },
     {
       "id": "norma-jurisprudencia",
@@ -62,7 +66,9 @@
         "title": "Norma y jurisprudencia",
         "subtitle": "El Derecho debe sostener una posición construida correctamente"
       },
-      "timing": {"durationMs": 12000}
+      "timing": {
+        "durationMs": 12000
+      }
     },
     {
       "id": "estrategia",
@@ -75,7 +81,9 @@
           "Medir riesgos y consecuencias"
         ]
       },
-      "timing": {"durationMs": 14000}
+      "timing": {
+        "durationMs": 14000
+      }
     },
     {
       "id": "alto-valor",
@@ -84,7 +92,9 @@
         "title": "Contratos, arbitrajes, patrimonio",
         "subtitle": "Los errores más costosos suelen producirse antes de actuar"
       },
-      "timing": {"durationMs": 15000}
+      "timing": {
+        "durationMs": 15000
+      }
     },
     {
       "id": "pregunta",
@@ -93,7 +103,9 @@
         "title": "La pregunta correcta",
         "subtitle": "¿Puedo demostrarlo, defenderlo y convertirlo en un resultado ejecutable?"
       },
-      "timing": {"durationMs": 12000}
+      "timing": {
+        "durationMs": 12000
+      }
     },
     {
       "id": "constitucional",
@@ -102,7 +114,9 @@
         "title": "Control constitucional",
         "subtitle": "La estrategia también debe resistir el control superior cuando corresponde"
       },
-      "timing": {"durationMs": 9000}
+      "timing": {
+        "durationMs": 9000
+      }
     },
     {
       "id": "cta",
@@ -111,7 +125,9 @@
         "line1": "Antes de actuar",
         "line2": "Diagnostique estratégicamente el riesgo jurídico"
       },
-      "timing": {"durationMs": 8000}
+      "timing": {
+        "durationMs": 8000
+      }
     }
   ]
 }
