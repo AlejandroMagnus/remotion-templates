@@ -34,7 +34,7 @@ if (!Array.isArray(timeline.words) || timeline.words.length === 0) {
 }
 
 const events = buildSemanticEvents(timeline.words);
-const plan = buildAssetScenePlan(events).map((item) => {
+const plan = buildAssetScenePlan(events).flatMap((item) => { const d=item.endMs-item.startMs; const n=Math.max(1,Math.ceil(d/6000)); return Array.from({length:n},(_,i)=>{const startMs=Math.round(item.startMs+d*i/n);const endMs=Math.round(item.startMs+d*(i+1)/n);return {...item,startMs,endMs};}); }).map((item) => {
   const contextStartMs = Math.max(0, item.startMs - 1200);
   const contextEndMs = item.endMs + 1200;
 

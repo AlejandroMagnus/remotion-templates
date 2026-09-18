@@ -22,6 +22,7 @@ const MEDIUM_GAP_MS = 4500;
  * permanecer hasta ~4 segundos.
  */
 const FILLER_TARGET_MS = 4000;
+const MAX_VISUAL_HOLD_MS = 6000;
 
 const literalImportance: Record<
   string,
