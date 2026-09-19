@@ -55,7 +55,6 @@ jobs:
           import asyncio
           import json
           import os
-          import time
           from pathlib import Path
           import edge_tts
 
@@ -209,29 +208,218 @@ jobs:
 
           asyncio.run(main())
           PY
-          
+
       - name: Calcular duración adaptativa
         run: |
           npx --yes tsx scripts/apply-adaptive-duration.ts
 
       - name: Build semantic director decisions
-        run: npx --yes tsx scripts/build-semantic-decisions.ts
-   
+        run: |
+          npx --yes tsx scripts/build-semantic-decisions.ts
+
       - name: Build asset scene plan
-        run: npx --yes tsx scripts/build-asset-scene-plan.ts
+        run: |
+          npx --yes tsx scripts/build-asset-scene-plan.ts
 
       - name: Resolve real assets
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-        run: npx --yes tsx scripts/build-resolved-assets.ts
+        run: |
+          npx --yes tsx scripts/build-resolved-assets.ts
+
+      - name: AUDITORIA MAESTRA DE ORQUESTACION
+        run: |
+          python3 <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          code = os.environ["PRODUCTION_CODE"]
+
+          timeline_path = Path(
+              f"public/generated/{code}-timeline.json"
+          )
+
+          score_path = Path(
+              f"public/generated/{code}-audiovisual-score.json"
+          )
+
+          plan_path = Path(
+              f"public/generated/{code}-asset-scene-plan.json"
+          )
+
+          resolved_path = Path(
+              f"public/generated/{code}-resolved-assets.json"
+          )
+
+          print("")
+          print("==============================================")
+          print("AUDITORIA MAESTRA DE ORQUESTACION AUDIOVISUAL")
+          print("==============================================")
+          print(f"Production: {code}")
+
+          timeline = json.loads(
+              timeline_path.read_text(encoding="utf-8")
+          )
+
+          print("")
+          print(
+              f"NARRACION: "
+              f"{timeline.get('wordCount', 0)} palabras | "
+              f"{timeline.get('durationMs', 0)} ms"
+          )
+
+          if score_path.exists():
+              score = json.loads(
+                  score_path.read_text(encoding="utf-8")
+              )
+
+              beats = score.get("beats", [])
+
+              print("")
+              print(f"MASTER DIRECTOR BEATS: {len(beats)}")
+
+              for i, beat in enumerate(beats[:20], 1):
+                  start = int(beat.get("startMs", 0))
+                  end = int(beat.get("endMs", 0))
+
+                  print(
+                      f"  B{i:02}: "
+                      f"{start:>6} -> {end:>6} "
+                      f"({end-start:>5} ms) | "
+                      f"{beat.get('intent', '')}"
+                  )
+          else:
+              print("")
+              print("MASTER DIRECTOR SCORE: NO EXISTE")
+
+          plan = json.loads(
+              plan_path.read_text(encoding="utf-8")
+          )
+
+          scenes = plan.get("scenes", [])
+
+          print("")
+          print(f"ASSET SCENE PLAN: {len(scenes)} escenas")
+
+          for i, scene in enumerate(scenes[:30], 1):
+              start = int(scene.get("startMs", 0))
+              end = int(scene.get("endMs", 0))
+
+              print(
+                  f"  S{i:02}: "
+                  f"{start:>6} -> {end:>6} "
+                  f"({end-start:>5} ms) | "
+                  f"{scene.get('ruleId', '')}"
+              )
+
+          resolved = json.loads(
+              resolved_path.read_text(encoding="utf-8")
+          )
+
+          assets = resolved.get("assets", [])
+          good = [
+              a for a in assets
+              if a.get("status") == "resolved"
+          ]
+
+          print("")
+          print(
+              f"RESOLVED ASSETS: "
+              f"{len(good)} resueltos / "
+              f"{len(assets)} totales"
+          )
+
+          for i, asset in enumerate(good[:30], 1):
+              start = int(asset.get("startMs", 0))
+              end = int(asset.get("endMs", 0))
+
+              provider_id = (
+                  asset.get("asset", {}).get("providerId", "")
+              )
+
+              print(
+                  f"  A{i:02}: "
+                  f"{start:>6} -> {end:>6} "
+                  f"({end-start:>5} ms) | "
+                  f"provider={provider_id} | "
+                  f"{asset.get('ruleId', '')}"
+              )
+
+          print("")
+          print("------------- DIAGNOSTICO -------------")
+
+          if not scenes:
+              raise RuntimeError(
+                  "FALLO: Asset Scene Plan no contiene escenas."
+              )
+
+          if not good:
+              raise RuntimeError(
+                  "FALLO: No existen assets resueltos."
+              )
+
+          first_30s = [
+              a for a in good
+              if int(a.get("startMs", 0)) < 30000
+          ]
+
+          print(
+              f"Assets distintos iniciados antes de 30 s: "
+              f"{len(first_30s)}"
+          )
+
+          long_scenes = [
+              s for s in scenes
+              if (
+                  int(s.get("endMs", 0))
+                  - int(s.get("startMs", 0))
+              ) > 7000
+          ]
+
+          long_assets = [
+              a for a in good
+              if (
+                  int(a.get("endMs", 0))
+                  - int(a.get("startMs", 0))
+              ) > 7000
+          ]
+
+          print(
+              f"Escenas > 7 s: {len(long_scenes)}"
+          )
+
+          print(
+              f"Assets resueltos > 7 s: {len(long_assets)}"
+          )
+
+          if len(first_30s) <= 1:
+              print(
+                  "ALERTA: el resolver solo entrega una imagen "
+                  "durante aproximadamente los primeros 30 s."
+              )
+          else:
+              print(
+                  "OK: existen multiples assets dentro de "
+                  "los primeros 30 s."
+              )
+
+          print("==============================================")
+          PY
 
       - name: Verify resolved assets
         run: |
           test -s "public/generated/${PRODUCTION_CODE}-resolved-assets.json"
           test -d public/generated/assets
           test "$(find public/generated/assets -type f | wc -l)" -gt 0
+
           echo "REAL ASSETS VERIFIED"
-          find public/generated/assets -type f -maxdepth 1 -print
+
+          find public/generated/assets \
+            -maxdepth 1 \
+            -type f \
+            -print
+
       - name: Auditar archivos sincronizados
         run: |
           test -s "public/generated/${PRODUCTION_CODE}-narration.mp3"
@@ -249,7 +437,10 @@ jobs:
               f"public/generated/{code}-timeline.json"
           )
 
-          data = json.loads(path.read_text(encoding="utf-8"))
+          data = json.loads(
+              path.read_text(encoding="utf-8")
+          )
+
           words = data.get("words", [])
 
           assert len(words) >= 5
@@ -277,10 +468,14 @@ jobs:
         run: |
           test -s "out/${PRODUCTION_CODE}.mp4"
 
-          cp             "out/${PRODUCTION_CODE}.mp4"             "out/${PRODUCTION_CODE}-FINAL.mp4"
+          cp \
+            "out/${PRODUCTION_CODE}.mp4" \
+            "out/${PRODUCTION_CODE}-FINAL.mp4"
 
           test -s "out/${PRODUCTION_CODE}-FINAL.mp4"
-          ls -lh "out/${PRODUCTION_CODE}-FINAL.mp4"
+
+          ls -lh \
+            "out/${PRODUCTION_CODE}-FINAL.mp4"
 
       - name: Subir MP4 final
         uses: actions/upload-artifact@v7
