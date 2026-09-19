@@ -12,8 +12,33 @@ import {
   type DirectorScene,
 } from "../src/assets/semanticVisualRanker";
 
+/* =========================================================
+   CONFIGURATION
+   ========================================================= */
+
 const ROOT = process.cwd();
-const productionCode = process.env.PRODUCTION_CODE ?? "video-juridico-001";
+
+const productionCode =
+  process.env.PRODUCTION_CODE ??
+  "video-juridico-001";
+
+/**
+ * V3.14.2 — RESOLVER RHYTHM SAFETY
+ *
+ * Este NO es el ritmo artístico del Director.
+ *
+ * Es la última barrera de seguridad antes de seleccionar
+ * físicamente los assets.
+ *
+ * Si por cualquier razón una escena upstream llega con
+ * 20, 30 o más segundos, el resolver la subdivide para
+ * obligar a producir varios recursos visuales.
+ */
+const MAX_RESOLVED_STATIC_SCENE_MS = 6000;
+
+/* =========================================================
+   PATHS
+   ========================================================= */
 
 const planPath = path.join(
   ROOT,
@@ -30,6 +55,13 @@ const manifestPath = path.join(
   `public/generated/${productionCode}-resolved-assets.json`,
 );
 
+/* =========================================================
+   DIVERSITY MEMORY
+   ========================================================= */
+
+/**
+ * Impiden reutilizar el mismo recurso durante una producción.
+ */
 const usedProviderIds =
   new Set<number>();
 
@@ -39,12 +71,25 @@ const usedSourceUrls =
 const creatorUsage =
   new Map<string, number>();
 
+/**
+ * Evita repetir llamadas innecesarias a Pexels cuando
+ * diferentes escenas generan la misma consulta.
+ */
 const searchCache =
-  new Map<string, PexelsResolvedAsset[]>();
+  new Map<
+    string,
+    PexelsResolvedAsset[]
+  >();
+
+/* =========================================================
+   SEARCH CACHE
+   ========================================================= */
 
 async function cachedSearch(
   query: string,
-): Promise<PexelsResolvedAsset[]> {
+): Promise<
+  PexelsResolvedAsset[]
+> {
   const cached =
     searchCache.get(query);
 
@@ -65,6 +110,10 @@ async function cachedSearch(
 
   return result;
 }
+
+/* =========================================================
+   DOWNLOAD
+   ========================================================= */
 
 async function download(
   url: string,
@@ -87,12 +136,179 @@ async function download(
   );
 }
 
+/* =========================================================
+   RHYTHM NORMALIZATION
+   ========================================================= */
+
+/**
+ * Divide únicamente escenas anormalmente largas.
+ *
+ * Una escena correcta del Director permanece intacta.
+ *
+ * Una escena de 30 segundos, por ejemplo, se convierte
+ * aproximadamente en cinco escenas de 6 segundos.
+ *
+ * Cada fragmento obtiene ID independiente y posteriormente
+ * vuelve a atravesar:
+ *
+ * búsqueda semántica
+ * → candidatos
+ * → ranking
+ * → diversidad
+ * → selección
+ * → descarga
+ *
+ * Por tanto, no estamos simplemente cortando una misma
+ * fotografía: estamos solicitando nuevos assets.
+ */
+function normalizeVisualRhythm(
+  sourceScenes: any[],
+) {
+  return sourceScenes.flatMap(
+    (scene: any) => {
+      const startMs =
+        Number(scene.startMs) || 0;
+
+      const endMs =
+        Number(scene.endMs) ||
+        startMs;
+
+      const durationMs =
+        Math.max(
+          0,
+          endMs - startMs,
+        );
+
+      /**
+       * Escena normal:
+       * respetamos íntegramente la decisión upstream.
+       */
+      if (
+        durationMs <=
+        MAX_RESOLVED_STATIC_SCENE_MS
+      ) {
+        return [
+          {
+            ...scene,
+
+            startMs,
+            endMs,
+            durationMs,
+          },
+        ];
+      }
+
+      /**
+       * Escena anormalmente larga:
+       * determinamos cuántos planos físicos necesitamos.
+       */
+      const fragmentCount =
+        Math.max(
+          2,
+          Math.ceil(
+            durationMs /
+              MAX_RESOLVED_STATIC_SCENE_MS,
+          ),
+        );
+
+      const fragmentDuration =
+        durationMs /
+        fragmentCount;
+
+      return Array.from(
+        {
+          length:
+            fragmentCount,
+        },
+
+        (_, fragmentIndex) => {
+          const fragmentStartMs =
+            Math.round(
+              startMs +
+                fragmentDuration *
+                  fragmentIndex,
+            );
+
+          const fragmentEndMs =
+            fragmentIndex ===
+            fragmentCount - 1
+              ? endMs
+              : Math.round(
+                  startMs +
+                    fragmentDuration *
+                      (fragmentIndex +
+                        1),
+                );
+
+          return {
+            ...scene,
+
+            /**
+             * ID físicamente independiente.
+             */
+            id:
+              `${scene.id}-visual-${
+                fragmentIndex + 1
+              }`,
+
+            startMs:
+              fragmentStartMs,
+
+            endMs:
+              fragmentEndMs,
+
+            durationMs:
+              fragmentEndMs -
+              fragmentStartMs,
+
+            /**
+             * Conservamos el contexto narrativo.
+             *
+             * Así cada nuevo plano continúa representando
+             * la misma unidad semántica general, pero debe
+             * obtener un asset diferente.
+             */
+            narrationContext:
+              scene.narrationContext,
+
+            rhythmFragment: {
+              sourceSceneId:
+                scene.id,
+
+              fragment:
+                fragmentIndex + 1,
+
+              fragments:
+                fragmentCount,
+
+              forcedVisualChange:
+                true,
+            },
+          };
+        },
+      );
+    },
+  );
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
 async function main() {
+  /* -------------------------------------------------------
+     INPUT GUARD
+     ------------------------------------------------------- */
+
   if (!fs.existsSync(planPath)) {
     throw new Error(
       `Missing asset scene plan: ${planPath}`,
     );
   }
+
+  /* -------------------------------------------------------
+     CLEAN OUTPUT
+     ------------------------------------------------------- */
 
   fs.rmSync(
     outputDir,
@@ -109,6 +325,10 @@ async function main() {
     },
   );
 
+  /* -------------------------------------------------------
+     LOAD SCENE PLAN
+     ------------------------------------------------------- */
+
   const source =
     JSON.parse(
       fs.readFileSync(
@@ -117,24 +337,116 @@ async function main() {
       ),
     );
 
-  const scenes =
-    source.scenes ?? [];
+  const sourceScenes =
+    Array.isArray(
+      source?.scenes,
+    )
+      ? source.scenes
+      : [];
 
-  const resolved: any[] = [];
+  if (
+    sourceScenes.length === 0
+  ) {
+    throw new Error(
+      `Asset scene plan contains no scenes: ${planPath}`,
+    );
+  }
+
+  /* -------------------------------------------------------
+     DIRECTOR RHYTHM SAFETY
+     ------------------------------------------------------- */
+
+  const scenes =
+    normalizeVisualRhythm(
+      sourceScenes,
+    );
+
+  console.log("");
+  console.log(
+    "==========================================",
+  );
+
+  console.log(
+    "🎬 V3.14.2 RESOLVER RHYTHM DIRECTOR",
+  );
+
+  console.log(
+    "==========================================",
+  );
+
+  console.log(
+    `Production: ${productionCode}`,
+  );
+
+  console.log(
+    `Source scenes: ${sourceScenes.length}`,
+  );
+
+  console.log(
+    `Resolver scenes: ${scenes.length}`,
+  );
+
+  console.log(
+    `Maximum static scene: ${MAX_RESOLVED_STATIC_SCENE_MS} ms`,
+  );
+
+  /* -------------------------------------------------------
+     HARD RHYTHM QA
+     ------------------------------------------------------- */
+
+  const invalidScene =
+    scenes.find(
+      (scene: any) =>
+        Number(scene.endMs) -
+          Number(scene.startMs) >
+        MAX_RESOLVED_STATIC_SCENE_MS +
+          10,
+    );
+
+  if (invalidScene) {
+    throw new Error(
+      `Rhythm normalization failed for scene: ${
+        invalidScene.id ??
+        "unknown"
+      }`,
+    );
+  }
+
+  /* -------------------------------------------------------
+     RESOLUTION
+     ------------------------------------------------------- */
+
+  const resolved: any[] =
+    [];
 
   for (
     let sceneIndex = 0;
-    sceneIndex < scenes.length;
+    sceneIndex <
+    scenes.length;
     sceneIndex++
   ) {
     const scene =
-      scenes[sceneIndex] as DirectorScene & {
+      scenes[
+        sceneIndex
+      ] as DirectorScene & {
         id: string;
+
         startMs: number;
         endMs: number;
         durationMs: number;
+
         route: string;
+
+        ruleId: string;
+
+        concept?: string;
+
+        narrationContext?: string;
       };
+
+    /* -----------------------------------------------------
+       SEMANTIC QUERIES
+       ----------------------------------------------------- */
 
     const queries =
       semanticQueries(
@@ -143,10 +455,15 @@ async function main() {
       );
 
     type RankedCandidate = {
-      asset: PexelsResolvedAsset;
+      asset:
+        PexelsResolvedAsset;
+
       query: string;
+
       queryIndex: number;
+
       searchPosition: number;
+
       score: ReturnType<
         typeof rankVisualCandidate
       >;
@@ -158,22 +475,35 @@ async function main() {
         RankedCandidate
       >();
 
+    /* -----------------------------------------------------
+       SEARCH + RANKING
+       ----------------------------------------------------- */
+
     for (
       let queryIndex = 0;
-      queryIndex < queries.length;
+      queryIndex <
+      queries.length;
       queryIndex++
     ) {
       const query =
-        queries[queryIndex];
+        queries[
+          queryIndex
+        ];
 
       const candidates =
-        await cachedSearch(query);
+        await cachedSearch(
+          query,
+        );
 
       candidates.forEach(
         (
           asset,
           searchPosition,
         ) => {
+          /**
+           * Diversidad obligatoria:
+           * no reutilizamos el mismo asset.
+           */
           if (
             usedProviderIds.has(
               asset.providerId,
@@ -225,36 +555,71 @@ async function main() {
     }
 
     const ranked =
-      [...candidateMap.values()]
-        .sort(
-          (a, b) =>
-            b.score.total -
-            a.score.total,
-        );
+      [
+        ...candidateMap.values(),
+      ].sort(
+        (a, b) =>
+          b.score.total -
+          a.score.total,
+      );
 
     const selected =
       ranked[0];
 
+    /* -----------------------------------------------------
+       MANIFEST BASE
+       ----------------------------------------------------- */
+
     const base = {
       id: scene.id,
-      ruleId: scene.ruleId,
-      concept: scene.concept,
-      route: scene.route,
-      startMs: scene.startMs,
-      endMs: scene.endMs,
+
+      ruleId:
+        scene.ruleId,
+
+      concept:
+        scene.concept,
+
+      route:
+        scene.route,
+
+      startMs:
+        scene.startMs,
+
+      endMs:
+        scene.endMs,
+
       durationMs:
         scene.durationMs,
+
       narrationContext:
         scene.narrationContext,
+
+      rhythmFragment:
+        (scene as any)
+          .rhythmFragment,
     };
 
+    console.log("");
+
     console.log(
-      `\n[DIRECTOR ${sceneIndex + 1}/${scenes.length}] ${scene.ruleId}`,
+      `[DIRECTOR ${
+        sceneIndex + 1
+      }/${scenes.length}] ${
+        scene.ruleId
+      }`,
+    );
+
+    console.log(
+      `Timing: ${scene.startMs} → ${scene.endMs} ms`,
     );
 
     console.log(
       `Candidates: ${ranked.length}`,
     );
+
+    /* -----------------------------------------------------
+       UNRESOLVED
+       ----------------------------------------------------- */
 
     if (!selected) {
       console.log(
@@ -263,11 +628,17 @@ async function main() {
 
       resolved.push({
         ...base,
-        status: "unresolved",
+
+        status:
+          "unresolved",
       });
 
       continue;
     }
+
+    /* -----------------------------------------------------
+       SELECT
+       ----------------------------------------------------- */
 
     const asset =
       selected.asset;
@@ -282,6 +653,7 @@ async function main() {
 
     creatorUsage.set(
       asset.creator,
+
       (creatorUsage.get(
         asset.creator,
       ) ?? 0) + 1,
@@ -292,12 +664,29 @@ async function main() {
     );
 
     console.log(
-      `ALT: ${asset.altText ?? ""}`,
+      `ALT: ${
+        asset.altText ?? ""
+      }`,
     );
 
     console.log(
-      `SEMANTIC HITS: ${selected.score.semanticHits.join(", ")}`,
+      `SEMANTIC HITS: ${selected.score.semanticHits.join(
+        ", ",
+      )}`,
     );
+
+    /* -----------------------------------------------------
+       UNIQUE FILE
+       ----------------------------------------------------- */
+
+    const safeRuleId =
+      String(
+        scene.ruleId ??
+          "scene",
+      ).replace(
+        /[^a-zA-Z0-9_-]/g,
+        "-",
+      );
 
     const filename =
       `${String(
@@ -305,7 +694,7 @@ async function main() {
       ).padStart(
         2,
         "0",
-      )}-${scene.ruleId}-${asset.providerId}.jpg`;
+      )}-${safeRuleId}-${asset.providerId}.jpg`;
 
     const target =
       path.join(
@@ -313,15 +702,24 @@ async function main() {
         filename,
       );
 
+    /* -----------------------------------------------------
+       DOWNLOAD
+       ----------------------------------------------------- */
+
     await download(
       asset.remoteUrl,
       target,
     );
 
+    /* -----------------------------------------------------
+       RESOLVED MANIFEST ITEM
+       ----------------------------------------------------- */
+
     resolved.push({
       ...base,
 
-      status: "resolved",
+      status:
+        "resolved",
 
       query:
         selected.query,
@@ -337,11 +735,15 @@ async function main() {
           selected.score,
 
         selectedAlt:
-          asset.altText ?? "",
+          asset.altText ??
+          "",
 
         topCandidates:
           ranked
-            .slice(0, 5)
+            .slice(
+              0,
+              5,
+            )
             .map(
               (
                 candidate,
@@ -351,22 +753,28 @@ async function main() {
                   rank + 1,
 
                 providerId:
-                  candidate.asset
+                  candidate
+                    .asset
                     .providerId,
 
                 score:
-                  candidate.score
+                  candidate
+                    .score
                     .total,
 
                 alt:
-                  candidate.asset
-                    .altText ?? "",
+                  candidate
+                    .asset
+                    .altText ??
+                  "",
 
                 query:
-                  candidate.query,
+                  candidate
+                    .query,
 
                 semanticHits:
-                  candidate.score
+                  candidate
+                    .score
                     .semanticHits,
               }),
             ),
@@ -380,6 +788,10 @@ async function main() {
       },
     });
   }
+
+  /* =======================================================
+     FINAL QA
+     ======================================================= */
 
   const resolvedCount =
     resolved.filter(
@@ -398,28 +810,54 @@ async function main() {
         )
         .map(
           (item) =>
-            item.asset.providerId,
+            item.asset
+              .providerId,
         ),
     ).size;
+
+  const unresolvedCount =
+    resolved.length -
+    resolvedCount;
+
+  const duplicateAssets =
+    resolvedCount -
+    uniqueCount;
+
+  /* -------------------------------------------------------
+     MANIFEST
+     ------------------------------------------------------- */
 
   const manifest = {
     productionCode,
 
     version:
-      "V3.9.5-SEMANTIC-RANKING",
+      "V3.14.2-RESOLVER-RHYTHM-DIRECTOR",
 
     generatedAt:
       new Date().toISOString(),
+
+    sourceScenes:
+      sourceScenes.length,
 
     totalScenes:
       scenes.length,
 
     resolvedCount,
+
+    unresolvedCount,
+
     uniqueCount,
 
-    duplicateAssets:
-      resolvedCount -
-      uniqueCount,
+    duplicateAssets,
+
+    rhythm: {
+      maxResolvedStaticSceneMs:
+        MAX_RESOLVED_STATIC_SCENE_MS,
+
+      subdivisionApplied:
+        scenes.length >
+        sourceScenes.length,
+    },
 
     assets:
       resolved,
@@ -434,12 +872,29 @@ async function main() {
     ),
   );
 
+  /* =======================================================
+     REPORT
+     ======================================================= */
+
+  console.log("");
   console.log(
-    "\n=== V3.9.5 SEMANTIC VISUAL RANKING ===",
+    "==========================================",
   );
 
   console.log(
-    `Scenes: ${scenes.length}`,
+    "✅ V3.14.2 RESOLVED ASSET REPORT",
+  );
+
+  console.log(
+    "==========================================",
+  );
+
+  console.log(
+    `Source scenes: ${sourceScenes.length}`,
+  );
+
+  console.log(
+    `Final scenes: ${scenes.length}`,
   );
 
   console.log(
@@ -447,15 +902,20 @@ async function main() {
   );
 
   console.log(
+    `Unresolved: ${unresolvedCount}`,
+  );
+
+  console.log(
     `Unique: ${uniqueCount}`,
   );
 
   console.log(
-    `Duplicates: ${
-      resolvedCount -
-      uniqueCount
-    }`,
+    `Duplicates: ${duplicateAssets}`,
   );
+
+  /* =======================================================
+     HARD QA
+     ======================================================= */
 
   if (
     resolvedCount === 0
@@ -473,11 +933,33 @@ async function main() {
       "Duplicated assets detected",
     );
   }
+
+  /**
+   * No exigimos 100% de resolución porque una búsqueda
+   * individual puede legítimamente no producir candidato.
+   *
+   * Pero dejamos registrado el dato para QA posterior.
+   */
+  console.log("");
+  console.log(
+    `✅ Manifest: ${manifestPath}`,
+  );
+
+  console.log(
+    "✅ V3.14.2 RESOLVER COMPLETED",
+  );
 }
+
+/* =========================================================
+   EXECUTION
+   ========================================================= */
 
 main().catch(
   (error) => {
-    console.error(error);
+    console.error(
+      error,
+    );
+
     process.exit(1);
   },
 );
