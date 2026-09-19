@@ -15,8 +15,8 @@ import {
 } from "../src/buildSemanticEvents";
 
 import {
-  buildSemanticDecisionManifest,
-} from "../src/semantic/buildSemanticDecisionManifest";
+  buildDirectorDecisionSequence,
+} from "../src/semantic/buildDirectorDecisionSequence";
 
 import type {
   OndaResource,
@@ -27,7 +27,10 @@ type Timeline = {
 };
 
 const root = process.cwd();
-const productionCode = process.env.PRODUCTION_CODE ?? "video-juridico-001";
+
+const productionCode =
+  process.env.PRODUCTION_CODE ??
+  "video-juridico-001";
 
 const timelinePath = resolve(
   root,
@@ -76,22 +79,88 @@ if (
   );
 }
 
+/**
+ * V3.15-A
+ *
+ * 1. La narración se transforma en eventos semánticos
+ *    ya calibrados temporalmente.
+ *
+ * 2. El Director evalúa la secuencia completa.
+ *
+ * 3. Cada decisión conserva memoria de las anteriores
+ *    para reducir repetición y mejorar diversidad.
+ *
+ * 4. El contrato externo permanece:
+ *
+ *    {
+ *      summary,
+ *      decisions
+ *    }
+ *
+ * De este modo SemanticExecutionEngine continúa siendo
+ * compatible sin reconstruir el renderer.
+ */
+
 const events =
   buildSemanticEvents(
     timeline.words,
   );
 
 const decisions =
-  events.map((event) =>
-    buildSemanticDecisionManifest(
-      event,
-      catalog,
-      3,
-    ),
+  buildDirectorDecisionSequence(
+    events,
+    catalog,
+    3,
   );
+
+const accept =
+  decisions.filter(
+    (item) =>
+      item.decision.status ===
+      "ACCEPT",
+  ).length;
+
+const review =
+  decisions.filter(
+    (item) =>
+      item.decision.status ===
+      "REVIEW",
+  ).length;
+
+const reject =
+  decisions.filter(
+    (item) =>
+      item.decision.status ===
+      "REJECT",
+  ).length;
+
+const scores =
+  decisions.map(
+    (item) =>
+      item.decision.score,
+  );
+
+const averageScore =
+  scores.length > 0
+    ? Number(
+        (
+          scores.reduce(
+            (sum, score) =>
+              sum + score,
+            0,
+          ) / scores.length
+        ).toFixed(2),
+      )
+    : 0;
 
 const summary = {
   productionCode,
+
+  directorVersion:
+    "V3.15-A",
+
+  mode:
+    "SEQUENTIAL_DIRECTOR",
 
   catalogResources:
     catalog.length,
@@ -99,26 +168,11 @@ const summary = {
   semanticEvents:
     events.length,
 
-  accept:
-    decisions.filter(
-      (item) =>
-        item.decision.status ===
-        "ACCEPT",
-    ).length,
+  accept,
+  review,
+  reject,
 
-  review:
-    decisions.filter(
-      (item) =>
-        item.decision.status ===
-        "REVIEW",
-    ).length,
-
-  reject:
-    decisions.filter(
-      (item) =>
-        item.decision.status ===
-        "REJECT",
-    ).length,
+  averageScore,
 };
 
 const manifest = {
@@ -143,7 +197,7 @@ writeFileSync(
 );
 
 console.log(
-  "\n=== DIRECTOR SEMANTIC DECISION RUN ===",
+  "\n=== MASTER AUDIOVISUAL DIRECTOR V3.15-A ===",
 );
 
 console.log(summary);
@@ -157,14 +211,26 @@ for (
       decision.event.ruleId,
       "|",
       decision.event.concept,
+
+      "\nTIME:",
+      `${decision.event.startMs}-${decision.event.endMs}ms`,
+
       "\nDECISION:",
       decision.decision.status,
+
       "| SCORE:",
       decision.decision.score,
+
       "\nWINNER:",
       decision.selected
         ?.resource.name ??
         "NONE",
+
+      "\nCATEGORY:",
+      decision.selected
+        ?.resource.category ??
+        "NONE",
+
       "\nTOP 3:",
       decision.candidates
         .map(
@@ -175,6 +241,14 @@ for (
     ].join(" "),
   );
 }
+
+console.log(
+  "\n=== DIRECTOR MEMORY ACTIVE ===",
+);
+
+console.log(
+  "Sequential anti-repetition and category-diversity logic enabled.",
+);
 
 console.log(
   `\nManifest written to:\n${outputPath}`,
