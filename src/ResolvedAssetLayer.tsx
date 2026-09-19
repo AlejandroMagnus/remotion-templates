@@ -16,6 +16,10 @@ import {
   getSemanticMotionProfile,
 } from "./motion/semanticMotionDirector";
 
+/* =========================================================
+   TYPES
+   ========================================================= */
+
 type AssetItem = {
   id: string;
   ruleId: string;
@@ -36,16 +40,24 @@ type Manifest = {
   assets: AssetItem[];
 };
 
+/* =========================================================
+   CINEMATIC RHYTHM
+   ========================================================= */
+
 /**
- * V3.14 — CINEMATIC RHYTHM GUARD
+ * Esto es una RED DE SEGURIDAD, no el Director artístico.
  *
- * No sustituye al Director Maestro.
- * Protege el montaje frente a duraciones anómalas
- * provenientes del manifiesto.
+ * El ritmo verdadero debe venir del MasterAudiovisualDirector.
+ * El renderer únicamente impide que una fotografía defectuosa
+ * permanezca accidentalmente durante decenas de segundos.
  */
-const MAX_STATIC_SHOT_SECONDS = 7.0;
-const MIN_STATIC_SHOT_SECONDS = 1.8;
+const MAX_STATIC_SHOT_SECONDS = 6;
+const MIN_STATIC_SHOT_SECONDS = 1.4;
 const OVERLAP_SECONDS = 0.28;
+
+/* =========================================================
+   CINEMATIC PHOTO
+   ========================================================= */
 
 function SemanticCinematicPhoto({
   item,
@@ -67,11 +79,19 @@ function SemanticCinematicPhoto({
     return null;
   }
 
-  const src = staticFile(item.asset.localSrc);
+  const src = staticFile(
+    item.asset.localSrc,
+  );
 
   const progress = interpolate(
     frame,
-    [0, Math.max(1, durationInFrames - 1)],
+    [
+      0,
+      Math.max(
+        1,
+        durationInFrames - 1,
+      ),
+    ],
     [0, 1],
     {
       extrapolateLeft: "clamp",
@@ -79,8 +99,12 @@ function SemanticCinematicPhoto({
     },
   );
 
+  /**
+   * Curva cinematográfica suave.
+   */
   const cadence =
-    0.5 - Math.cos(progress * Math.PI) / 2;
+    0.5 -
+    Math.cos(progress * Math.PI) / 2;
 
   const motion =
     getSemanticMotionProfile(
@@ -90,17 +114,20 @@ function SemanticCinematicPhoto({
 
   const scale =
     motion.startScale +
-    (motion.endScale - motion.startScale) *
+    (motion.endScale -
+      motion.startScale) *
       cadence;
 
   const x =
     motion.startX +
-    (motion.endX - motion.startX) *
+    (motion.endX -
+      motion.startX) *
       cadence;
 
   const y =
     motion.startY +
-    (motion.endY - motion.startY) *
+    (motion.endY -
+      motion.startY) *
       cadence;
 
   const rotate =
@@ -109,32 +136,58 @@ function SemanticCinematicPhoto({
       motion.startRotate) *
       cadence;
 
+  /**
+   * Fondo 2.5D.
+   */
   const backgroundScale =
     1.22 + cadence * 0.025;
 
-  const backgroundX = x * -0.2;
-  const backgroundY = y * -0.16;
+  const backgroundX =
+    x * -0.2;
+
+  const backgroundY =
+    y * -0.16;
 
   const enterFrames = isFirst
-    ? Math.max(1, Math.round(fps * 0.1))
-    : Math.max(5, Math.round(fps * 0.2));
+    ? Math.max(
+        1,
+        Math.round(fps * 0.1),
+      )
+    : Math.max(
+        5,
+        Math.round(fps * 0.2),
+      );
 
   const exitFrames = isLast
-    ? Math.max(10, Math.round(fps * 0.45))
-    : Math.max(6, Math.round(fps * 0.22));
+    ? Math.max(
+        10,
+        Math.round(fps * 0.45),
+      )
+    : Math.max(
+        6,
+        Math.round(fps * 0.22),
+      );
 
   const opacity = interpolate(
     frame,
     [
       0,
       enterFrames,
+
       Math.max(
         enterFrames + 1,
-        durationInFrames - exitFrames,
+        durationInFrames -
+          exitFrames,
       ),
+
       durationInFrames,
     ],
-    [isFirst ? 1 : 0, 1, 1, 0],
+    [
+      isFirst ? 1 : 0,
+      1,
+      1,
+      0,
+    ],
     {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
@@ -142,13 +195,15 @@ function SemanticCinematicPhoto({
   );
 
   /**
-   * Microvariación secundaria.
-   * Evita sensación completamente mecánica incluso
-   * dentro de un plano relativamente largo.
+   * Micromovimiento orgánico.
    */
   const breathing =
     1 +
-    Math.sin(progress * Math.PI * 2) *
+    Math.sin(
+      progress *
+        Math.PI *
+        2,
+    ) *
       0.0025;
 
   return (
@@ -159,6 +214,7 @@ function SemanticCinematicPhoto({
         opacity,
       }}
     >
+      {/* BACKGROUND DEPTH */}
       <Img
         src={src}
         style={{
@@ -166,14 +222,17 @@ function SemanticCinematicPhoto({
           width: "100%",
           height: "100%",
           objectFit: "cover",
+
           transform:
             `translate3d(${backgroundX}%, ${backgroundY}%, 0) ` +
             `scale(${backgroundScale * breathing})`,
+
           filter:
             "blur(18px) brightness(0.62)",
         }}
       />
 
+      {/* FOREGROUND */}
       <Img
         src={src}
         style={{
@@ -181,14 +240,18 @@ function SemanticCinematicPhoto({
           width: "100%",
           height: "100%",
           objectFit: "cover",
+
           transform:
             `translate3d(${x}%, ${y}%, 0) ` +
             `scale(${scale * breathing}) ` +
             `rotate(${rotate}deg)`,
-          transformOrigin: "center center",
+
+          transformOrigin:
+            "center center",
         }}
       />
 
+      {/* CINEMATIC VIGNETTE */}
       <AbsoluteFill
         style={{
           background:
@@ -198,6 +261,10 @@ function SemanticCinematicPhoto({
     </AbsoluteFill>
   );
 }
+
+/* =========================================================
+   RESOLVED ASSET LAYER
+   ========================================================= */
 
 export function ResolvedAssetLayer({
   productionCode,
@@ -213,11 +280,16 @@ export function ResolvedAssetLayer({
   const [items, setItems] =
     useState<AssetItem[]>([]);
 
-  const [handle] = useState(() =>
-    delayRender(
-      "Loading adaptive audiovisual assets",
-    ),
-  );
+  const [handle] =
+    useState(() =>
+      delayRender(
+        "Loading adaptive audiovisual assets",
+      ),
+    );
+
+  /* =======================================================
+     LOAD MANIFEST
+     ======================================================= */
 
   useEffect(() => {
     fetch(
@@ -234,47 +306,89 @@ export function ResolvedAssetLayer({
 
         return response.json();
       })
-      .then((manifest: Manifest) => {
-        const resolved =
-          (manifest.assets ?? [])
-            .filter(
-              (item) =>
-                item.status === "resolved" &&
-                item.asset &&
-                item.asset.mediaType === "image",
-            )
-            .sort(
-              (a, b) =>
-                a.startMs - b.startMs,
-            );
 
-        setItems(resolved);
-      })
+      .then(
+        (manifest: Manifest) => {
+          const resolved =
+            (manifest.assets ?? [])
+              .filter(
+                (item) =>
+                  item.status ===
+                    "resolved" &&
+                  item.asset &&
+                  item.asset
+                    .mediaType ===
+                    "image",
+              )
+              .sort(
+                (a, b) =>
+                  a.startMs -
+                  b.startMs,
+              );
+
+          /**
+           * Diagnóstico visible en Actions/Remotion.
+           *
+           * Si el Director genera 15 escenas pero solamente
+           * llegan 3 assets, ahora podremos demostrarlo.
+           */
+          console.log(
+            `[ResolvedAssetLayer] ${productionCode}: ${resolved.length} resolved visual assets`,
+          );
+
+          setItems(resolved);
+        },
+      )
+
       .catch((error) => {
         console.warn(
           "Adaptive assets unavailable:",
           error,
         );
       })
-      .finally(() =>
-        continueRender(handle),
-      );
-  }, [handle, productionCode]);
 
-  const overlap = Math.max(
-    6,
-    Math.round(
-      fps * OVERLAP_SECONDS,
-    ),
-  );
+      .finally(() => {
+        continueRender(handle);
+      });
+  }, [
+    handle,
+    productionCode,
+  ]);
 
-  const maxShotFrames = Math.round(
-    fps * MAX_STATIC_SHOT_SECONDS,
-  );
+  /* =======================================================
+     TIMING CONSTANTS
+     ======================================================= */
 
-  const minShotFrames = Math.round(
-    fps * MIN_STATIC_SHOT_SECONDS,
-  );
+  const overlap =
+    Math.max(
+      6,
+      Math.round(
+        fps *
+          OVERLAP_SECONDS,
+      ),
+    );
+
+  const maxShotFrames =
+    Math.max(
+      1,
+      Math.round(
+        fps *
+          MAX_STATIC_SHOT_SECONDS,
+      ),
+    );
+
+  const minShotFrames =
+    Math.max(
+      1,
+      Math.round(
+        fps *
+          MIN_STATIC_SHOT_SECONDS,
+      ),
+    );
+
+  /* =======================================================
+     RENDER
+     ======================================================= */
 
   return (
     <AbsoluteFill
@@ -283,125 +397,168 @@ export function ResolvedAssetLayer({
         backgroundColor: "#000",
       }}
     >
-      {items.map((item, index) => {
-        const isFirst = index === 0;
-        const isLast =
-          index === items.length - 1;
+      {items.map(
+        (item, index) => {
+          const isFirst =
+            index === 0;
 
-        const baseFrom = Math.max(
-          0,
-          Math.round(
-            (item.startMs / 1000) * fps,
-          ),
-        );
+          const isLast =
+            index ===
+            items.length - 1;
 
-        const semanticDuration =
-          Math.max(
-            minShotFrames,
-            Math.round(
-              ((item.endMs -
-                item.startMs) /
-                1000) *
-                fps,
-            ),
-          );
+          /* -----------------------------------------------
+             START
+             ----------------------------------------------- */
 
-        /**
-         * El siguiente recurso define el límite natural
-         * del plano actual cuando existe.
-         */
-        const nextBaseFrom =
-          index < items.length - 1
-            ? Math.max(
-                0,
-                Math.round(
-                  (items[index + 1].startMs /
-                    1000) *
-                    fps,
-                ),
-              )
-            : null;
-
-        const from = isFirst
-          ? 0
-          : Math.max(
+          const nominalFrom =
+            Math.max(
               0,
-              baseFrom - overlap,
+              Math.round(
+                (item.startMs /
+                  1000) *
+                  fps,
+              ),
             );
 
-        let sequenceDuration =
-          semanticDuration + overlap;
+          const from =
+            isFirst
+              ? 0
+              : Math.max(
+                  0,
+                  nominalFrom -
+                    overlap,
+                );
 
-        if (nextBaseFrom !== null) {
-          const untilNext =
-            nextBaseFrom - from + overlap;
+          /* -----------------------------------------------
+             NEXT VISUAL
+             ----------------------------------------------- */
 
-          sequenceDuration = Math.min(
-            sequenceDuration,
+          const nextItem =
+            index <
+            items.length - 1
+              ? items[
+                  index + 1
+                ]
+              : null;
+
+          const nextFrom =
+            nextItem
+              ? Math.max(
+                  0,
+                  Math.round(
+                    (nextItem.startMs /
+                      1000) *
+                      fps,
+                  ),
+                )
+              : null;
+
+          /* -----------------------------------------------
+             SEMANTIC DURATION
+             ----------------------------------------------- */
+
+          const semanticFrames =
             Math.max(
               minShotFrames,
-              untilNext,
-            ),
-          );
-        }
 
-        /**
-         * Guardia cinematográfica:
-         * ninguna fotografía estática puede monopolizar
-         * accidentalmente decenas de segundos.
-         */
-        sequenceDuration = Math.min(
-          sequenceDuration,
-          maxShotFrames + overlap,
-        );
+              Math.round(
+                (Math.max(
+                  0,
+                  item.endMs -
+                    item.startMs,
+                ) /
+                  1000) *
+                  fps,
+              ),
+            );
 
-        /**
-         * La última imagen puede cubrir únicamente
-         * el hueco final razonable.
-         *
-         * No se extiende automáticamente durante
-         * decenas de segundos.
-         */
-        if (isLast) {
-          const remaining =
+          /**
+           * Duración deseada por semántica,
+           * siempre limitada por la red de seguridad.
+           */
+          let durationInFrames =
+            Math.min(
+              semanticFrames +
+                overlap,
+              maxShotFrames +
+                overlap,
+            );
+
+          /* -----------------------------------------------
+             NATURAL CUT
+             ----------------------------------------------- */
+
+          if (
+            nextFrom !== null
+          ) {
+            /**
+             * Nunca atravesamos el comienzo del siguiente
+             * recurso más allá del crossfade permitido.
+             */
+            const framesUntilNext =
+              nextFrom -
+              from +
+              overlap;
+
+            durationInFrames =
+              Math.min(
+                durationInFrames,
+                Math.max(
+                  minShotFrames,
+                  framesUntilNext,
+                ),
+              );
+          }
+
+          /* -----------------------------------------------
+             COMPOSITION BOUNDARY
+             ----------------------------------------------- */
+
+          const availableFrames =
             compositionDurationInFrames -
             from;
 
-          sequenceDuration = Math.min(
-            remaining,
+          durationInFrames =
             Math.max(
-              sequenceDuration,
-              Math.min(
-                remaining,
-                maxShotFrames + overlap,
-              ),
-            ),
-          );
-        }
-
-        return (
-          <Sequence
-            key={`${item.id}-${index}`}
-            from={from}
-            durationInFrames={Math.max(
               1,
-              sequenceDuration,
-            )}
-            premountFor={fps}
-          >
-            <SemanticCinematicPhoto
-              item={item}
-              sceneIndex={index}
-              durationInFrames={Math.max(
-                1,
-                sequenceDuration,
-              )}
-              isFirst={isFirst}
-              isLast={isLast}
-            />
-          </Sequence>
-        );
-      })}
+              Math.min(
+                durationInFrames,
+                availableFrames,
+              ),
+            );
+
+          /* -----------------------------------------------
+             RENDER SHOT
+             ----------------------------------------------- */
+
+          return (
+            <Sequence
+              key={`${item.id}-${index}`}
+              from={from}
+              durationInFrames={
+                durationInFrames
+              }
+              premountFor={fps}
+            >
+              <SemanticCinematicPhoto
+                item={item}
+                sceneIndex={
+                  index
+                }
+                durationInFrames={
+                  durationInFrames
+                }
+                isFirst={
+                  isFirst
+                }
+                isLast={
+                  isLast
+                }
+              />
+            </Sequence>
+          );
+        },
+      )}
     </AbsoluteFill>
   );
-          }
+}
