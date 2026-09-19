@@ -1,12 +1,15 @@
 import type {PexelsResolvedAsset} from "./providers/pexelsProvider";
+
 import {
   getSilecContextTerms,
   getSilecVisualProfile,
 } from "./silecVisualProfiles";
+
 import {
   getHighTicketContextTerms,
   getHighTicketVisualProfile,
 } from "./highTicketVisualProfiles";
+
 export type DirectorScene = {
   ruleId: string;
   concept?: string;
@@ -24,9 +27,12 @@ type VisualProfile = {
 const PROFILES: Record<string, VisualProfile> = {
   autoridad: {
     queries: [
-      "government official reviewing legal documents office",
-      "public administration professional reading documents",
-      "official reviewing case file desk",
+      "latin american public official reviewing documents office",
+      "south american government professional documents",
+      "public administration professional reviewing case file",
+      "latin american professional government office",
+      "official reviewing documents neutral office",
+      "professional public administration meeting documents",
     ],
     positive: [
       "official",
@@ -37,6 +43,8 @@ const PROFILES: Record<string, VisualProfile> = {
       "desk",
       "review",
       "paper",
+      "latin",
+      "south america",
     ],
     negative: [
       "police",
@@ -48,9 +56,12 @@ const PROFILES: Record<string, VisualProfile> = {
 
   expediente: {
     queries: [
-      "legal case file folder documents desk",
-      "law office case file paperwork",
-      "court dossier documents close up",
+      "legal case file documents desk latin america",
+      "professional case folder paperwork office",
+      "legal dossier documents close up",
+      "organized case files professional desk",
+      "law office documents folders close up",
+      "professional paperwork case file neutral office",
     ],
     positive: [
       "file",
@@ -71,9 +82,12 @@ const PROFILES: Record<string, VisualProfile> = {
 
   argumentos: {
     queries: [
-      "lawyer analyzing legal arguments documents",
-      "attorney reviewing case strategy notes",
-      "lawyer writing legal notes desk",
+      "latin american lawyer analyzing documents office",
+      "attorney reviewing case strategy notes neutral office",
+      "lawyer writing strategy notes documents desk",
+      "professional legal analysis meeting documents",
+      "lawyer examining case documents close up",
+      "legal strategy professional working at desk",
     ],
     positive: [
       "lawyer",
@@ -89,9 +103,12 @@ const PROFILES: Record<string, VisualProfile> = {
 
   prueba: {
     queries: [
-      "lawyer reviewing legal evidence documents",
-      "case evidence paperwork investigation",
-      "attorney examining evidence file",
+      "lawyer reviewing case evidence documents",
+      "professional examining evidence file close up",
+      "case evidence paperwork investigation desk",
+      "legal evidence documents professional office",
+      "hands examining documents evidence",
+      "lawyer analyzing records and evidence",
     ],
     positive: [
       "evidence",
@@ -107,12 +124,14 @@ const PROFILES: Record<string, VisualProfile> = {
 
   motivacion: {
     queries: [
-      "judge reviewing written legal decision",
-      "lawyer analyzing legal reasoning documents",
-      "legal decision review office",
+      "legal professional reviewing written decision documents",
+      "lawyer analyzing legal reasoning papers",
+      "professional reviewing formal decision document",
+      "legal analysis documents desk close up",
+      "serious professional reading official documents",
+      "lawyer studying written resolution office",
     ],
     positive: [
-      "judge",
       "lawyer",
       "decision",
       "document",
@@ -125,15 +144,17 @@ const PROFILES: Record<string, VisualProfile> = {
 
   recurso: {
     queries: [
-      "lawyer preparing legal appeal documents",
-      "attorney filing court appeal paperwork",
-      "legal appeal documents office",
+      "latin american lawyer preparing appeal documents",
+      "attorney preparing filing paperwork office",
+      "professional submitting legal documents",
+      "lawyer organizing appeal case documents",
+      "legal filing paperwork close up",
+      "professional preparing formal petition documents",
     ],
     positive: [
       "lawyer",
       "attorney",
       "appeal",
-      "court",
       "filing",
       "document",
       "paper",
@@ -142,43 +163,49 @@ const PROFILES: Record<string, VisualProfile> = {
 
   decision: {
     queries: [
-      "official signing legal decision document",
-      "judge reviewing court ruling",
-      "legal decision paperwork desk",
+      "professional signing formal decision document",
+      "legal professional reviewing written resolution",
+      "official paperwork signature desk",
+      "serious professional reading decision documents",
+      "formal document approval professional office",
+      "legal decision documents close up",
     ],
     positive: [
       "decision",
-      "judge",
       "official",
       "signing",
       "document",
-      "court",
       "paper",
+      "review",
     ],
   },
 
   "debido-proceso": {
     queries: [
-      "court hearing lawyer justice process",
-      "lawyer courtroom legal hearing",
-      "judge courtroom justice",
+      "latin american legal hearing professional",
+      "lawyer formal hearing neutral courtroom",
+      "justice hearing professional latin america",
+      "legal professionals formal meeting",
+      "lawyer presenting case professional setting",
+      "justice process professional discussion",
     ],
     positive: [
-      "court",
-      "courtroom",
       "lawyer",
-      "judge",
       "justice",
       "hearing",
       "legal",
+      "professional",
     ],
   },
 
   defensa: {
     queries: [
-      "defense lawyer client consultation office",
-      "attorney preparing legal defense documents",
-      "lawyer client meeting legal office",
+      "latin american lawyer client consultation office",
+      "attorney preparing defense documents neutral office",
+      "lawyer client meeting professional office",
+      "legal consultation documents meeting",
+      "professional lawyer advising client",
+      "lawyer preparing case strategy with client",
     ],
     positive: [
       "lawyer",
@@ -193,9 +220,12 @@ const PROFILES: Record<string, VisualProfile> = {
 
   plazos: {
     queries: [
-      "legal deadline calendar documents desk",
-      "lawyer checking calendar deadline",
+      "deadline calendar documents professional desk",
+      "professional checking calendar documents",
       "calendar paperwork office deadline",
+      "business calendar documents close up",
+      "professional schedule paperwork desk",
+      "date planning documents office",
     ],
     positive: [
       "calendar",
@@ -210,9 +240,12 @@ const PROFILES: Record<string, VisualProfile> = {
 
   ignorar: {
     queries: [
-      "unanswered legal documents desk",
-      "ignored paperwork office desk",
-      "documents waiting bureaucracy office",
+      "unanswered documents professional desk",
+      "paperwork waiting office desk",
+      "documents waiting administration office",
+      "unattended case documents desk",
+      "pending paperwork professional office",
+      "stack of documents waiting review",
     ],
     positive: [
       "document",
@@ -226,9 +259,12 @@ const PROFILES: Record<string, VisualProfile> = {
 
   vulneracion: {
     queries: [
-      "concerned lawyer reviewing legal rights documents",
-      "attorney legal rights case office",
+      "concerned latin american lawyer reviewing documents",
+      "attorney analyzing rights case office",
       "serious lawyer examining case documents",
+      "professional legal rights consultation",
+      "lawyer reviewing difficult case documents",
+      "legal professional concerned document analysis",
     ],
     positive: [
       "lawyer",
@@ -243,16 +279,18 @@ const PROFILES: Record<string, VisualProfile> = {
 
   "accion-final": {
     queries: [
-      "lawyer filing legal action documents",
-      "attorney submitting court documents",
-      "lawyer courthouse paperwork",
+      "latin american lawyer submitting legal documents",
+      "attorney filing formal documents",
+      "lawyer delivering case paperwork",
+      "professional submitting documents office",
+      "legal filing documents close up",
+      "lawyer completing formal paperwork",
     ],
     positive: [
       "lawyer",
       "attorney",
       "filing",
       "submit",
-      "court",
       "document",
       "paper",
     ],
@@ -260,9 +298,16 @@ const PROFILES: Record<string, VisualProfile> = {
 
   "semantic-filler": {
     queries: [
-      "lawyer hands legal documents desk",
-      "law office paperwork close up",
+      "professional hands reviewing documents desk",
+      "legal office paperwork close up",
       "professional organizing documents desk",
+      "hands taking notes beside documents",
+      "professional meeting documents table",
+      "business documents desk cinematic",
+      "professional reading paperwork close up",
+      "organized folders documents office",
+      "serious professional working at desk",
+      "document analysis professional workspace",
     ],
     positive: [
       "document",
@@ -271,6 +316,7 @@ const PROFILES: Record<string, VisualProfile> = {
       "office",
       "writing",
       "hands",
+      "professional",
       "lawyer",
     ],
   },
@@ -281,7 +327,7 @@ const normalize = (value: string) =>
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9áéíóúñ ]/gi, " ")
+    .replace(/[^a-z0-9 ]/gi, " ")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -291,59 +337,164 @@ const CONTEXT_BRIDGES: Array<{
 }> = [
   {
     spanish: ["autoridad", "funcionario"],
-    english: ["official", "government", "professional"],
+    english: [
+      "official",
+      "government",
+      "professional",
+    ],
   },
   {
     spanish: ["expediente"],
-    english: ["file", "folder", "case", "document"],
+    english: [
+      "file",
+      "folder",
+      "case",
+      "document",
+    ],
   },
   {
     spanish: ["argumento", "argumentos"],
-    english: ["lawyer", "strategy", "notes", "document"],
+    english: [
+      "lawyer",
+      "strategy",
+      "notes",
+      "document",
+    ],
   },
   {
     spanish: ["prueba", "evidencia"],
-    english: ["evidence", "document", "investigation"],
+    english: [
+      "evidence",
+      "document",
+      "investigation",
+    ],
   },
   {
-    spanish: ["motivacion", "fundamentacion"],
-    english: ["decision", "review", "judge", "document"],
+    spanish: [
+      "motivacion",
+      "fundamentacion",
+    ],
+    english: [
+      "decision",
+      "review",
+      "document",
+    ],
   },
   {
-    spanish: ["recurso", "impugnar"],
-    english: ["appeal", "filing", "court", "lawyer"],
+    spanish: [
+      "recurso",
+      "impugnar",
+    ],
+    english: [
+      "appeal",
+      "filing",
+      "lawyer",
+    ],
   },
   {
-    spanish: ["plazo", "dias"],
-    english: ["calendar", "deadline", "date", "schedule"],
+    spanish: [
+      "plazo",
+      "dias",
+    ],
+    english: [
+      "calendar",
+      "deadline",
+      "date",
+      "schedule",
+    ],
   },
   {
     spanish: ["defensa"],
-    english: ["lawyer", "attorney", "client"],
+    english: [
+      "lawyer",
+      "attorney",
+      "client",
+    ],
   },
   {
     spanish: ["debido proceso"],
-    english: ["court", "justice", "hearing", "lawyer"],
+    english: [
+      "justice",
+      "hearing",
+      "lawyer",
+    ],
   },
   {
-    spanish: ["decision", "resolucion"],
-    english: ["decision", "judge", "document", "signing"],
+    spanish: [
+      "decision",
+      "resolucion",
+    ],
+    english: [
+      "decision",
+      "document",
+      "signing",
+    ],
   },
 ];
 
-function profileFor(scene: DirectorScene): VisualProfile {
+const FOREIGN_CONTEXT_TERMS = [
+  "united states",
+  "usa",
+  "u s flag",
+  "american flag",
+  "american court",
+  "federal court",
+  "supreme court of the united states",
+  "washington dc",
+  "white house",
+  "capitol",
+  "stars and stripes",
+  "us congress",
+  "american government",
+];
+
+const ENGLISH_VISIBLE_TEXT_TERMS = [
+  "english text",
+  "english document",
+  "english contract",
+  "english paperwork",
+  "english sign",
+  "english signage",
+  "english language",
+  "english words",
+];
+
+const BOLIVIA_POSITIVE_TERMS = [
+  "bolivia",
+  "bolivian",
+  "la paz",
+  "cochabamba",
+  "santa cruz bolivia",
+  "sucre bolivia",
+];
+
+const LATIN_CONTEXT_TERMS = [
+  "latin america",
+  "latin american",
+  "south america",
+  "south american",
+];
+
+function profileFor(
+  scene: DirectorScene,
+): VisualProfile {
   const silecProfile =
-    getSilecVisualProfile(scene.ruleId);
+    getSilecVisualProfile(
+      scene.ruleId,
+    );
 
   if (silecProfile) {
     return silecProfile;
   }
+
   const highTicketProfile =
-  getHighTicketVisualProfile(scene.ruleId);
+    getHighTicketVisualProfile(
+      scene.ruleId,
+    );
 
   if (highTicketProfile) {
-  return highTicketProfile;
-}
+    return highTicketProfile;
+  }
 
   return (
     PROFILES[scene.ruleId] ??
@@ -351,7 +502,9 @@ function profileFor(scene: DirectorScene): VisualProfile {
   );
 }
 
-function contextTerms(scene: DirectorScene): string[] {
+function contextTerms(
+  scene: DirectorScene,
+): string[] {
   const context = normalize(
     [
       scene.narrationContext ?? "",
@@ -362,51 +515,154 @@ function contextTerms(scene: DirectorScene): string[] {
 
   const terms: string[] = [];
 
-  for (const bridge of CONTEXT_BRIDGES) {
+  for (
+    const bridge of
+    CONTEXT_BRIDGES
+  ) {
     if (
-      bridge.spanish.some((term) =>
-        context.includes(normalize(term)),
+      bridge.spanish.some(
+        (term) =>
+          context.includes(
+            normalize(term),
+          ),
       )
     ) {
-      terms.push(...bridge.english);
+      terms.push(
+        ...bridge.english,
+      );
     }
   }
 
   terms.push(
-    ...getSilecContextTerms(context),
+    ...getSilecContextTerms(
+      context,
+    ),
   );
-  terms.push(
-  ...getHighTicketContextTerms(context),
-);
 
-  return [...new Set(terms)];
+  terms.push(
+    ...getHighTicketContextTerms(
+      context,
+    ),
+  );
+
+  return [
+    ...new Set(terms),
+  ];
+}
+
+function expandQueries(
+  profile: VisualProfile,
+  sceneIndex: number,
+): string[] {
+  const base =
+    profile.queries;
+
+  if (base.length === 0) {
+    return [];
+  }
+
+  const offset =
+    sceneIndex %
+    base.length;
+
+  const rotated = [
+    ...base.slice(offset),
+    ...base.slice(0, offset),
+  ];
+
+  const variants: string[] = [];
+
+  for (
+    let index = 0;
+    index < rotated.length;
+    index++
+  ) {
+    const query =
+      rotated[index];
+
+    variants.push(query);
+
+    /*
+     * Variaciones contextuales.
+     *
+     * No obligamos a que cada recurso
+     * sea explícitamente boliviano.
+     * Ampliamos el universo hacia
+     * Latinoamérica y escenas neutrales.
+     */
+
+    if (
+      index < 3 &&
+      !normalize(query).includes(
+        "latin america",
+      )
+    ) {
+      variants.push(
+        `${query} latin america`,
+      );
+    }
+
+    if (
+      index < 2 &&
+      !normalize(query).includes(
+        "south america",
+      )
+    ) {
+      variants.push(
+        `${query} south america`,
+      );
+    }
+
+    if (
+      index === 0 &&
+      !normalize(query).includes(
+        "bolivia",
+      )
+    ) {
+      variants.push(
+        `${query} bolivia`,
+      );
+    }
+  }
+
+  return [
+    ...new Set(variants),
+  ];
 }
 
 export function semanticQueries(
   scene: DirectorScene,
   sceneIndex: number,
 ): string[] {
-  const profile = profileFor(scene);
+  const profile =
+    profileFor(scene);
 
-  const offset =
-    sceneIndex % profile.queries.length;
-
-  return [
-    ...profile.queries.slice(offset),
-    ...profile.queries.slice(0, offset),
-  ];
+  return expandQueries(
+    profile,
+    sceneIndex,
+  );
 }
 
 export type DirectorScore = {
   total: number;
+
   semantic: number;
   queryMatch: number;
   searchRank: number;
   composition: number;
   quality: number;
+
+  localizationBonus: number;
+
   diversityPenalty: number;
   negativePenalty: number;
+  foreignContextPenalty: number;
+  englishTextPenalty: number;
+  genericPenalty: number;
+
   semanticHits: string[];
+  localizationHits: string[];
+  rejectionReasons: string[];
 };
 
 export function rankVisualCandidate(
@@ -416,24 +672,47 @@ export function rankVisualCandidate(
   searchPosition: number,
   creatorUseCount: number,
 ): DirectorScore {
-  const profile = profileFor(scene);
+  const profile =
+    profileFor(scene);
 
   const desired = [
     ...profile.positive,
     ...contextTerms(scene),
   ];
 
-  const haystack = normalize(
-    [
+  /*
+   * IMPORTANTE:
+   *
+   * Para las penalizaciones culturales
+   * usamos principalmente metadata del
+   * asset. No castigamos una fotografía
+   * simplemente porque la consulta
+   * interna del buscador esté en inglés.
+   */
+
+  const assetMetadata =
+    normalize(
       asset.altText ?? "",
-      query,
-    ].join(" "),
-  );
+    );
+
+  const queryMetadata =
+    normalize(query);
+
+  const semanticHaystack =
+    normalize(
+      [
+        asset.altText ?? "",
+        query,
+      ].join(" "),
+    );
 
   const semanticHits = [
     ...new Set(
-      desired.filter((term) =>
-        haystack.includes(normalize(term)),
+      desired.filter(
+        (term) =>
+          semanticHaystack.includes(
+            normalize(term),
+          ),
       ),
     ),
   ];
@@ -444,104 +723,271 @@ export function rankVisualCandidate(
       semanticHits.length * 7,
     );
 
-  const queryWords = normalize(query)
-    .split(" ")
-    .filter(
-      (word) =>
-        word.length >= 4 &&
-        ![
-          "with",
-          "office",
-          "legal",
-          "professional",
-        ].includes(word),
-    );
+  const queryWords =
+    queryMetadata
+      .split(" ")
+      .filter(
+        (word) =>
+          word.length >= 4 &&
+          ![
+            "with",
+            "office",
+            "legal",
+            "professional",
+            "latin",
+            "america",
+            "south",
+            "bolivia",
+          ].includes(word),
+      );
 
   const queryHits =
-    queryWords.filter((word) =>
-      haystack.includes(word),
+    queryWords.filter(
+      (word) =>
+        semanticHaystack.includes(
+          word,
+        ),
     ).length;
 
   const queryMatch =
-    Math.min(18, queryHits * 3);
+    Math.min(
+      18,
+      queryHits * 3,
+    );
 
   const searchRank =
     Math.max(
       0,
-      12 - searchPosition * 0.6,
+      12 -
+        searchPosition * 0.6,
     );
 
   const ratio =
-    asset.width / asset.height;
+    asset.width /
+    asset.height;
 
-  // Favor actual 9:16 output without rejecting
-  // assets useful for future responsive crops.
   const ratioDistance =
-    Math.abs(ratio - 9 / 16);
+    Math.abs(
+      ratio - 9 / 16,
+    );
 
   const composition =
     Math.max(
       0,
-      10 - ratioDistance * 8,
+      10 -
+        ratioDistance * 8,
     );
 
   const pixels =
-    asset.width * asset.height;
+    asset.width *
+    asset.height;
 
   const quality =
     Math.min(
       10,
-      (pixels / 4_000_000) * 10,
+      (
+        pixels /
+        4_000_000
+      ) * 10,
     );
 
   const diversityPenalty =
     Math.min(
-      12,
-      creatorUseCount * 5,
+      16,
+      creatorUseCount * 6,
+    );
+
+  const negativeHits =
+    (
+      profile.negative ?? []
+    ).filter(
+      (term) =>
+        assetMetadata.includes(
+          normalize(term),
+        ),
     );
 
   const negativePenalty =
-    (profile.negative ?? []).filter(
+    negativeHits.length * 8;
+
+  const foreignHits =
+    FOREIGN_CONTEXT_TERMS.filter(
       (term) =>
-        haystack.includes(
+        assetMetadata.includes(
           normalize(term),
         ),
-    ).length * 8;
+    );
 
-  // Una fotografía genérica sin ninguna
-  // coincidencia semántica recibe castigo fuerte.
+  /*
+   * Contexto extranjero contradictorio:
+   * castigo deliberadamente alto.
+   */
+
+  const foreignContextPenalty =
+    foreignHits.length > 0
+      ? Math.min(
+          80,
+          40 +
+            (
+              foreignHits.length -
+              1
+            ) *
+              12,
+        )
+      : 0;
+
+  const englishTextHits =
+    ENGLISH_VISIBLE_TEXT_TERMS.filter(
+      (term) =>
+        assetMetadata.includes(
+          normalize(term),
+        ),
+    );
+
+  const englishTextPenalty =
+    englishTextHits.length > 0
+      ? Math.min(
+          70,
+          35 +
+            (
+              englishTextHits.length -
+              1
+            ) *
+              10,
+        )
+      : 0;
+
+  const boliviaHits =
+    BOLIVIA_POSITIVE_TERMS.filter(
+      (term) =>
+        assetMetadata.includes(
+          normalize(term),
+        ),
+    );
+
+  const latinHits =
+    LATIN_CONTEXT_TERMS.filter(
+      (term) =>
+        assetMetadata.includes(
+          normalize(term),
+        ),
+    );
+
+  const localizationHits = [
+    ...new Set([
+      ...boliviaHits,
+      ...latinHits,
+    ]),
+  ];
+
+  /*
+   * Bolivia recibe mayor preferencia.
+   * Latinoamérica recibe una preferencia
+   * moderada.
+   *
+   * Los recursos neutrales siguen siendo
+   * perfectamente utilizables.
+   */
+
+  const localizationBonus =
+    Math.min(
+      18,
+      boliviaHits.length * 10 +
+        latinHits.length * 4,
+    );
+
   const genericPenalty =
     semanticHits.length === 0
       ? 22
       : 0;
+
+  const rejectionReasons: string[] =
+    [];
+
+  if (
+    foreignHits.length > 0
+  ) {
+    rejectionReasons.push(
+      `foreign-context:${foreignHits.join(
+        ",",
+      )}`,
+    );
+  }
+
+  if (
+    englishTextHits.length > 0
+  ) {
+    rejectionReasons.push(
+      `english-visible-text:${englishTextHits.join(
+        ",",
+      )}`,
+    );
+  }
+
+  if (
+    negativeHits.length > 0
+  ) {
+    rejectionReasons.push(
+      `negative-profile:${negativeHits.join(
+        ",",
+      )}`,
+    );
+  }
 
   const total =
     semantic +
     queryMatch +
     searchRank +
     composition +
-    quality -
+    quality +
+    localizationBonus -
     diversityPenalty -
     negativePenalty -
+    foreignContextPenalty -
+    englishTextPenalty -
     genericPenalty;
 
   return {
     total:
-      Math.round(total * 10) / 10,
+      Math.round(
+        total * 10,
+      ) / 10,
 
     semantic,
+
     queryMatch,
+
     searchRank:
-      Math.round(searchRank * 10) / 10,
+      Math.round(
+        searchRank * 10,
+      ) / 10,
 
     composition:
-      Math.round(composition * 10) / 10,
+      Math.round(
+        composition * 10,
+      ) / 10,
 
     quality:
-      Math.round(quality * 10) / 10,
+      Math.round(
+        quality * 10,
+      ) / 10,
+
+    localizationBonus,
 
     diversityPenalty,
+
     negativePenalty,
+
+    foreignContextPenalty,
+
+    englishTextPenalty,
+
+    genericPenalty,
+
     semanticHits,
+
+    localizationHits,
+
+    rejectionReasons,
   };
-}
+      }
