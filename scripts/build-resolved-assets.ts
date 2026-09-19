@@ -13,7 +13,10 @@ import {
 } from "../src/assets/semanticVisualRanker";
 
 const ROOT = process.cwd();
-const productionCode = process.env.PRODUCTION_CODE ?? "video-juridico-001";
+
+const productionCode =
+  process.env.PRODUCTION_CODE ??
+  "video-juridico-001";
 
 const planPath = path.join(
   ROOT,
@@ -30,21 +33,135 @@ const manifestPath = path.join(
   `public/generated/${productionCode}-resolved-assets.json`,
 );
 
+/**
+ * V3.15-B2
+ * Memoria visual persistente entre producciones.
+ *
+ * IMPORTANTE:
+ * Este archivo vive fuera de public/generated,
+ * porque generated se limpia al comenzar cada render.
+ */
+const visualMemoryPath = path.join(
+  ROOT,
+  "data/visual-memory.json",
+);
+
+type VisualMemoryAsset = {
+  provider: "pexels";
+  providerId: number;
+  sourceUrl: string;
+  creator: string;
+  lastProductionCode: string;
+  lastUsedAt: string;
+  useCount: number;
+};
+
+type VisualMemory = {
+  version: string;
+  assets: VisualMemoryAsset[];
+};
+
+const EMPTY_MEMORY: VisualMemory = {
+  version: "V3.15-B2",
+  assets: [],
+};
+
+function loadVisualMemory(): VisualMemory {
+  if (
+    !fs.existsSync(
+      visualMemoryPath,
+    )
+  ) {
+    return {
+      ...EMPTY_MEMORY,
+      assets: [],
+    };
+  }
+
+  try {
+    const parsed =
+      JSON.parse(
+        fs.readFileSync(
+          visualMemoryPath,
+          "utf8",
+        ),
+      ) as Partial<VisualMemory>;
+
+    return {
+      version:
+        parsed.version ??
+        "V3.15-B2",
+
+      assets:
+        Array.isArray(
+          parsed.assets,
+        )
+          ? parsed.assets
+          : [],
+    };
+  } catch (error) {
+    console.warn(
+      "Visual memory could not be parsed. Starting with empty memory.",
+      error,
+    );
+
+    return {
+      ...EMPTY_MEMORY,
+      assets: [],
+    };
+  }
+}
+
+function saveVisualMemory(
+  memory: VisualMemory,
+) {
+  fs.mkdirSync(
+    path.dirname(
+      visualMemoryPath,
+    ),
+    {
+      recursive: true,
+    },
+  );
+
+  fs.writeFileSync(
+    visualMemoryPath,
+    JSON.stringify(
+      memory,
+      null,
+      2,
+    ),
+  );
+}
+
+/**
+ * Duplicación dentro del mismo video:
+ * prohibición absoluta.
+ */
 const usedProviderIds =
   new Set<number>();
 
 const usedSourceUrls =
   new Set<string>();
 
+/**
+ * Diversidad de autores dentro
+ * del mismo video.
+ */
 const creatorUsage =
   new Map<string, number>();
 
 const searchCache =
-  new Map<string, PexelsResolvedAsset[]>();
+  new Map<
+    string,
+    PexelsResolvedAsset[]
+  >();
 
 async function cachedSearch(
   query: string,
-): Promise<PexelsResolvedAsset[]> {
+): Promise<
+  PexelsResolvedAsset[]
+> {
   const cached =
     searchCache.get(query);
 
@@ -52,10 +169,14 @@ async function cachedSearch(
     return cached;
   }
 
+  /*
+   * V3.15-B:
+   * ampliamos el universo por consulta.
+   */
   const result =
     await searchPexelsPhotos(
       query,
-      20,
+      30,
     );
 
   searchCache.set(
@@ -87,12 +208,141 @@ async function download(
   );
 }
 
+/**
+ * Penalización histórica.
+ *
+ * No prohibimos eternamente una buena
+ * fotografía, pero hacemos muy difícil
+ * reutilizarla mientras existan
+ * alternativas adecuadas.
+ */
+function historicalPenalty(
+  asset: PexelsResolvedAsset,
+  memory: VisualMemory,
+): {
+  penalty: number;
+  previousUseCount: number;
+  previousProduction:
+    string | null;
+} {
+  const previous =
+    memory.assets.find(
+      (item) =>
+        item.providerId ===
+          asset.providerId ||
+        item.sourceUrl ===
+          asset.sourceUrl,
+    );
+
+  if (!previous) {
+    return {
+      penalty: 0,
+      previousUseCount: 0,
+      previousProduction:
+        null,
+    };
+  }
+
+  /*
+   * 32 puntos por haber aparecido antes,
+   * más 12 por cada reutilización
+   * histórica adicional.
+   */
+  const penalty =
+    Math.min(
+      80,
+      32 +
+        Math.max(
+          0,
+          previous.useCount - 1,
+        ) *
+          12,
+    );
+
+  return {
+    penalty,
+    previousUseCount:
+      previous.useCount,
+    previousProduction:
+      previous.lastProductionCode,
+  };
+}
+
+function registerHistoricalUse(
+  memory: VisualMemory,
+  asset: PexelsResolvedAsset,
+) {
+  const now =
+    new Date().toISOString();
+
+  const existing =
+    memory.assets.find(
+      (item) =>
+        item.providerId ===
+          asset.providerId ||
+        item.sourceUrl ===
+          asset.sourceUrl,
+    );
+
+  if (existing) {
+    existing.useCount += 1;
+
+    existing.lastProductionCode =
+      productionCode;
+
+    existing.lastUsedAt =
+      now;
+
+    existing.creator =
+      asset.creator;
+
+    existing.sourceUrl =
+      asset.sourceUrl;
+
+    return;
+  }
+
+  memory.assets.push({
+    provider: "pexels",
+
+    providerId:
+      asset.providerId,
+
+    sourceUrl:
+      asset.sourceUrl,
+
+    creator:
+      asset.creator,
+
+    lastProductionCode:
+      productionCode,
+
+    lastUsedAt:
+      now,
+
+    useCount: 1,
+  });
+}
+
 async function main() {
-  if (!fs.existsSync(planPath)) {
+  if (
+    !fs.existsSync(planPath)
+  ) {
     throw new Error(
       `Missing asset scene plan: ${planPath}`,
     );
   }
+
+  const visualMemory =
+    loadVisualMemory();
+
+  console.log(
+    "\n=== VISUAL MEMORY V3.15-B2 ===",
+  );
+
+  console.log(
+    `Historical assets loaded: ${visualMemory.assets.length}`,
+  );
 
   fs.rmSync(
     outputDir,
@@ -124,11 +374,14 @@ async function main() {
 
   for (
     let sceneIndex = 0;
-    sceneIndex < scenes.length;
+    sceneIndex <
+    scenes.length;
     sceneIndex++
   ) {
     const scene =
-      scenes[sceneIndex] as DirectorScene & {
+      scenes[
+        sceneIndex
+      ] as DirectorScene & {
         id: string;
         startMs: number;
         endMs: number;
@@ -143,13 +396,30 @@ async function main() {
       );
 
     type RankedCandidate = {
-      asset: PexelsResolvedAsset;
+      asset:
+        PexelsResolvedAsset;
+
       query: string;
+
       queryIndex: number;
+
       searchPosition: number;
+
       score: ReturnType<
         typeof rankVisualCandidate
       >;
+
+      historicalPenalty:
+        number;
+
+      historicalUseCount:
+        number;
+
+      previousProduction:
+        string | null;
+
+      finalScore:
+        number;
     };
 
     const candidateMap =
@@ -160,20 +430,29 @@ async function main() {
 
     for (
       let queryIndex = 0;
-      queryIndex < queries.length;
+      queryIndex <
+      queries.length;
       queryIndex++
     ) {
       const query =
-        queries[queryIndex];
+        queries[
+          queryIndex
+        ];
 
       const candidates =
-        await cachedSearch(query);
+        await cachedSearch(
+          query,
+        );
 
       candidates.forEach(
         (
           asset,
           searchPosition,
         ) => {
+          /*
+           * Repetición dentro del mismo
+           * video: nunca.
+           */
           if (
             usedProviderIds.has(
               asset.providerId,
@@ -199,6 +478,16 @@ async function main() {
               creatorUseCount,
             );
 
+          const history =
+            historicalPenalty(
+              asset,
+              visualMemory,
+            );
+
+          const finalScore =
+            score.total -
+            history.penalty;
+
           const previous =
             candidateMap.get(
               asset.providerId,
@@ -206,8 +495,8 @@ async function main() {
 
           if (
             !previous ||
-            score.total >
-              previous.score.total
+            finalScore >
+              previous.finalScore
           ) {
             candidateMap.set(
               asset.providerId,
@@ -217,6 +506,17 @@ async function main() {
                 queryIndex,
                 searchPosition,
                 score,
+
+                historicalPenalty:
+                  history.penalty,
+
+                historicalUseCount:
+                  history.previousUseCount,
+
+                previousProduction:
+                  history.previousProduction,
+
+                finalScore,
               },
             );
           }
@@ -225,31 +525,49 @@ async function main() {
     }
 
     const ranked =
-      [...candidateMap.values()]
-        .sort(
-          (a, b) =>
-            b.score.total -
-            a.score.total,
-        );
+      [
+        ...candidateMap.values(),
+      ].sort(
+        (a, b) =>
+          b.finalScore -
+          a.finalScore,
+      );
 
     const selected =
       ranked[0];
 
     const base = {
-      id: scene.id,
-      ruleId: scene.ruleId,
-      concept: scene.concept,
-      route: scene.route,
-      startMs: scene.startMs,
-      endMs: scene.endMs,
+      id:
+        scene.id,
+
+      ruleId:
+        scene.ruleId,
+
+      concept:
+        scene.concept,
+
+      route:
+        scene.route,
+
+      startMs:
+        scene.startMs,
+
+      endMs:
+        scene.endMs,
+
       durationMs:
         scene.durationMs,
+
       narrationContext:
         scene.narrationContext,
     };
 
     console.log(
       `\n[DIRECTOR ${sceneIndex + 1}/${scenes.length}] ${scene.ruleId}`,
+    );
+
+    console.log(
+      `Queries: ${queries.length}`,
     );
 
     console.log(
@@ -263,7 +581,8 @@ async function main() {
 
       resolved.push({
         ...base,
-        status: "unresolved",
+        status:
+          "unresolved",
       });
 
       continue;
@@ -282,13 +601,15 @@ async function main() {
 
     creatorUsage.set(
       asset.creator,
-      (creatorUsage.get(
-        asset.creator,
-      ) ?? 0) + 1,
+      (
+        creatorUsage.get(
+          asset.creator,
+        ) ?? 0
+      ) + 1,
     );
 
     console.log(
-      `SELECTED: ${asset.providerId} | SCORE ${selected.score.total}`,
+      `SELECTED: ${asset.providerId} | BASE ${selected.score.total} | HISTORY -${selected.historicalPenalty} | FINAL ${selected.finalScore}`,
     );
 
     console.log(
@@ -296,8 +617,26 @@ async function main() {
     );
 
     console.log(
-      `SEMANTIC HITS: ${selected.score.semanticHits.join(", ")}`,
+      `SEMANTIC HITS: ${selected.score.semanticHits.join(
+        ", ",
+      )}`,
     );
+
+    console.log(
+      `LOCALIZATION: ${selected.score.localizationHits.join(
+        ", ",
+      )}`,
+    );
+
+    if (
+      selected
+        .historicalPenalty >
+      0
+    ) {
+      console.log(
+        `PREVIOUSLY USED: ${selected.previousProduction ?? "UNKNOWN"} | USE COUNT ${selected.historicalUseCount}`,
+      );
+    }
 
     const filename =
       `${String(
@@ -318,10 +657,16 @@ async function main() {
       target,
     );
 
+    registerHistoricalUse(
+      visualMemory,
+      asset,
+    );
+
     resolved.push({
       ...base,
 
-      status: "resolved",
+      status:
+        "resolved",
 
       query:
         selected.query,
@@ -330,8 +675,20 @@ async function main() {
         candidateCount:
           ranked.length,
 
-        selectedScore:
+        baseScore:
           selected.score.total,
+
+        historicalPenalty:
+          selected.historicalPenalty,
+
+        finalScore:
+          selected.finalScore,
+
+        previousUseCount:
+          selected.historicalUseCount,
+
+        previousProduction:
+          selected.previousProduction,
 
         scoreBreakdown:
           selected.score,
@@ -351,23 +708,41 @@ async function main() {
                   rank + 1,
 
                 providerId:
-                  candidate.asset
+                  candidate
+                    .asset
                     .providerId,
 
-                score:
-                  candidate.score
+                baseScore:
+                  candidate
+                    .score
                     .total,
 
+                historicalPenalty:
+                  candidate
+                    .historicalPenalty,
+
+                finalScore:
+                  candidate
+                    .finalScore,
+
                 alt:
-                  candidate.asset
-                    .altText ?? "",
+                  candidate
+                    .asset
+                    .altText ??
+                  "",
 
                 query:
                   candidate.query,
 
                 semanticHits:
-                  candidate.score
+                  candidate
+                    .score
                     .semanticHits,
+
+                localizationHits:
+                  candidate
+                    .score
+                    .localizationHits,
               }),
             ),
       },
@@ -398,7 +773,8 @@ async function main() {
         )
         .map(
           (item) =>
-            item.asset.providerId,
+            item.asset
+              .providerId,
         ),
     ).size;
 
@@ -406,7 +782,7 @@ async function main() {
     productionCode,
 
     version:
-      "V3.9.5-SEMANTIC-RANKING",
+      "V3.15-B2-VISUAL-MEMORY",
 
     generatedAt:
       new Date().toISOString(),
@@ -415,11 +791,21 @@ async function main() {
       scenes.length,
 
     resolvedCount,
+
     uniqueCount,
 
     duplicateAssets:
       resolvedCount -
       uniqueCount,
+
+    historicalMemory: {
+      loadedAssets:
+        visualMemory.assets
+          .length,
+
+      memoryPath:
+        "data/visual-memory.json",
+    },
 
     assets:
       resolved,
@@ -434,8 +820,17 @@ async function main() {
     ),
   );
 
+  /*
+   * Guardamos la memoria después de
+   * completar satisfactoriamente la
+   * resolución de assets.
+   */
+  saveVisualMemory(
+    visualMemory,
+  );
+
   console.log(
-    "\n=== V3.9.5 SEMANTIC VISUAL RANKING ===",
+    "\n=== V3.15-B2 VISUAL MEMORY DIRECTOR ===",
   );
 
   console.log(
@@ -455,6 +850,10 @@ async function main() {
       resolvedCount -
       uniqueCount
     }`,
+  );
+
+  console.log(
+    `Historical memory assets: ${visualMemory.assets.length}`,
   );
 
   if (
@@ -477,7 +876,10 @@ async function main() {
 
 main().catch(
   (error) => {
-    console.error(error);
+    console.error(
+      error,
+    );
+
     process.exit(1);
   },
 );
