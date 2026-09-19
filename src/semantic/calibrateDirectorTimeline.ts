@@ -17,12 +17,15 @@ const SHORT_GAP_MS = 1200;
 const MEDIUM_GAP_MS = 4500;
 
 /**
- * En huecos muy largos no queremos
- * cambios rápidos. Cada filler puede
- * permanecer hasta ~4 segundos.
+ * Los huecos largos se dividen en unidades
+ * visuales de aproximadamente 4 segundos.
+ *
+ * Esto se aplica:
+ * - antes del primer evento;
+ * - entre eventos;
+ * - después del último evento.
  */
 const FILLER_TARGET_MS = 4000;
-const MAX_VISUAL_HOLD_MS = 6000;
 
 const literalImportance: Record<
   string,
@@ -214,10 +217,6 @@ const collapseGroup = (
 
     startMs,
 
-    /**
-     * La duración final ya NO viene
-     * impuesta por semanticRules.
-     */
     endMs:
       startMs,
 
@@ -453,7 +452,15 @@ export const calibrateDirectorTimeline = (
   }
 
   /**
-   * 2. ARRANQUE SIN NEGRO
+   * 2. ARRANQUE TEMPORAL
+   *
+   * Si el primer evento aparece muy cerca
+   * del comienzo, se extiende hasta el inicio.
+   *
+   * Si aparece mucho más tarde, NO se estira
+   * una sola imagen durante todo ese intervalo.
+   * Ese hueco inicial será cubierto después
+   * mediante fillers cinematográficos.
    */
 
   if (
@@ -572,12 +579,64 @@ export const calibrateDirectorTimeline = (
     });
   }
 
+  if (
+    calibrated.length === 0
+  ) {
+    return [];
+  }
+
   /**
    * 4. ZERO-BLACK CONTINUITY
+   *
+   * Garantía:
+   * timelineStartMs -> timelineEndMs
+   * debe quedar cubierto.
    */
 
   const finalTimeline:
     SemanticEvent[] = [];
+
+  /**
+   * 4A. HUECO INICIAL
+   *
+   * Esta era la pieza que faltaba.
+   */
+  const first =
+    calibrated[0];
+
+  if (
+    first.startMs >
+    timelineStartMs
+  ) {
+    const initialGap =
+      first.startMs -
+      timelineStartMs;
+
+    if (
+      initialGap <=
+      SHORT_GAP_MS
+    ) {
+      first.startMs =
+        timelineStartMs;
+
+      first.durationMs =
+        first.endMs -
+        first.startMs;
+    } else {
+      finalTimeline.push(
+        ...fillLongGap(
+          timelineStartMs,
+          first.startMs,
+          undefined,
+          first,
+        ),
+      );
+    }
+  }
+
+  /**
+   * 4B. EVENTOS Y HUECOS INTERMEDIOS
+   */
 
   for (
     let index = 0;
@@ -608,10 +667,6 @@ export const calibrateDirectorTimeline = (
       continue;
     }
 
-    /**
-     * HUECO CORTO
-     * → mantener el visual anterior.
-     */
     if (
       gap <=
       SHORT_GAP_MS
@@ -626,10 +681,6 @@ export const calibrateDirectorTimeline = (
       continue;
     }
 
-    /**
-     * HUECO MEDIO
-     * → un solo filler contextual.
-     */
     if (
       gap <=
       MEDIUM_GAP_MS
@@ -647,10 +698,6 @@ export const calibrateDirectorTimeline = (
       continue;
     }
 
-    /**
-     * HUECO LARGO
-     * → continuidad pausada.
-     */
     finalTimeline.push(
       ...fillLongGap(
         current.endMs,
