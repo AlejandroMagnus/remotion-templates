@@ -224,6 +224,8 @@ jobs:
       - name: Resolve real assets
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           npx --yes tsx scripts/build-resolved-assets.ts
 
