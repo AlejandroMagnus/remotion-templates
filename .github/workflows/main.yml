@@ -49,165 +49,9 @@ jobs:
           rm -rf out
           mkdir -p out
 
-      - name: Generar narracion y timeline palabra por palabra
+      - name: Generar narración prosódica y timeline palabra por palabra
         run: |
-          python3 <<'PY'
-          import asyncio
-          import json
-          import os
-          from pathlib import Path
-          import edge_tts
-
-          code = os.environ["PRODUCTION_CODE"]
-
-          SPEC = Path(f"examples/{code}.video.json")
-          AUDIO = Path(f"public/generated/{code}-narration.mp3")
-          TIMELINE = Path(f"public/generated/{code}-timeline.json")
-          SRT = Path(f"public/generated/{code}.srt")
-
-          spec = json.loads(SPEC.read_text(encoding="utf-8"))
-          text = spec["audio"]["narrationText"].strip()
-
-          if not text:
-              raise RuntimeError("narrationText esta vacio")
-
-          def srt_time(ms: int) -> str:
-              hours = ms // 3_600_000
-              ms %= 3_600_000
-              minutes = ms // 60_000
-              ms %= 60_000
-              seconds = ms // 1_000
-              millis = ms % 1_000
-              return f"{hours:02}:{minutes:02}:{seconds:02},{millis:03}"
-
-          async def synthesize_once():
-              if AUDIO.exists():
-                  AUDIO.unlink()
-
-              communicate = edge_tts.Communicate(
-                  text,
-                  "es-BO-MarceloNeural",
-                  rate="-5%",
-                  boundary="WordBoundary",
-                  connect_timeout=20,
-                  receive_timeout=90,
-              )
-
-              words = []
-
-              with AUDIO.open("wb") as audio_file:
-                  async for chunk in communicate.stream():
-                      if chunk["type"] == "audio":
-                          audio_file.write(chunk["data"])
-
-                      elif chunk["type"] == "WordBoundary":
-                          start_ms = round(chunk["offset"] / 10000)
-                          duration_ms = round(chunk["duration"] / 10000)
-
-                          words.append({
-                              "text": chunk["text"],
-                              "startMs": start_ms,
-                              "endMs": start_ms + duration_ms,
-                          })
-
-              return words
-
-          async def main():
-              words = None
-              last_error = None
-
-              for attempt in range(1, 4):
-                  try:
-                      print(f"Intento TTS {attempt}/3")
-                      words = await synthesize_once()
-                      break
-                  except Exception as error:
-                      last_error = error
-
-                      if AUDIO.exists():
-                          AUDIO.unlink()
-
-                      print(
-                          f"Intento {attempt} fallo: "
-                          f"{type(error).__name__}: {error}"
-                      )
-
-                      if attempt < 3:
-                          await asyncio.sleep(5 * attempt)
-
-              if words is None:
-                  raise RuntimeError(
-                      "TTS fallo despues de 3 intentos. "
-                      f"Ultimo error: {last_error}"
-                  )
-
-              if not AUDIO.exists() or AUDIO.stat().st_size == 0:
-                  raise RuntimeError("No se genero audio valido")
-
-              if len(words) < 5:
-                  raise RuntimeError(
-                      f"Timeline invalido: solo {len(words)} palabras"
-                  )
-
-              previous_start = -1
-
-              for index, word in enumerate(words):
-                  if word["startMs"] < previous_start:
-                      raise RuntimeError(
-                          f"Timeline no monotono en palabra {index}"
-                      )
-
-                  if word["endMs"] < word["startMs"]:
-                      raise RuntimeError(
-                          f"Duracion invalida en palabra {index}"
-                      )
-
-                  previous_start = word["startMs"]
-
-              timeline_data = {
-                  "schemaVersion": "2.0",
-                  "language": "es-BO",
-                  "voice": "es-BO-MarceloNeural",
-                  "wordCount": len(words),
-                  "durationMs": words[-1]["endMs"],
-                  "words": words,
-              }
-
-              TIMELINE.write_text(
-                  json.dumps(
-                      timeline_data,
-                      ensure_ascii=False,
-                      indent=2,
-                  ),
-                  encoding="utf-8",
-              )
-
-              srt_blocks = []
-
-              for index, word in enumerate(words, start=1):
-                  srt_blocks.append(
-                      f"{index}\n"
-                      f"{srt_time(word['startMs'])} --> "
-                      f"{srt_time(word['endMs'])}\n"
-                      f"{word['text']}\n"
-                  )
-
-              SRT.write_text(
-                  "\n".join(srt_blocks),
-                  encoding="utf-8",
-              )
-
-              print("======================================")
-              print("SINCRONIZACION GENERADA CORRECTAMENTE")
-              print(f"Palabras: {len(words)}")
-              print(f"Duracion: {words[-1]['endMs']} ms")
-              print(f"Audio: {AUDIO.stat().st_size} bytes")
-              print(f"Timeline: {TIMELINE}")
-              print(f"SRT: {SRT}")
-              print("======================================")
-
-          asyncio.run(main())
-          PY
+          python3 scripts/generate-prosodic-narration.py
 
       - name: Calcular duración adaptativa
         run: |
@@ -320,9 +164,11 @@ jobs:
           )
 
           assets = resolved.get("assets", [])
+
           good = [
-              a for a in assets
-              if a.get("status") == "resolved"
+              asset
+              for asset in assets
+              if asset.get("status") == "resolved"
           ]
 
           print("")
@@ -337,7 +183,10 @@ jobs:
               end = int(asset.get("endMs", 0))
 
               provider_id = (
-                  asset.get("asset", {}).get("providerId", "")
+                  asset.get("asset", {}).get(
+                      "providerId",
+                      "",
+                  )
               )
 
               print(
@@ -362,8 +211,9 @@ jobs:
               )
 
           first_30s = [
-              a for a in good
-              if int(a.get("startMs", 0)) < 30000
+              asset
+              for asset in good
+              if int(asset.get("startMs", 0)) < 30000
           ]
 
           print(
@@ -372,18 +222,20 @@ jobs:
           )
 
           long_scenes = [
-              s for s in scenes
+              scene
+              for scene in scenes
               if (
-                  int(s.get("endMs", 0))
-                  - int(s.get("startMs", 0))
+                  int(scene.get("endMs", 0))
+                  - int(scene.get("startMs", 0))
               ) > 7000
           ]
 
           long_assets = [
-              a for a in good
+              asset
+              for asset in good
               if (
-                  int(a.get("endMs", 0))
-                  - int(a.get("startMs", 0))
+                  int(asset.get("endMs", 0))
+                  - int(asset.get("startMs", 0))
               ) > 7000
           ]
 
@@ -427,6 +279,7 @@ jobs:
           test -s "public/generated/${PRODUCTION_CODE}-narration.mp3"
           test -s "public/generated/${PRODUCTION_CODE}-timeline.json"
           test -s "public/generated/${PRODUCTION_CODE}.srt"
+          test -s "public/generated/${PRODUCTION_CODE}-prosody-plan.json"
 
           python3 <<'PY'
           import json
@@ -435,12 +288,20 @@ jobs:
 
           code = os.environ["PRODUCTION_CODE"]
 
-          path = Path(
+          timeline_path = Path(
               f"public/generated/{code}-timeline.json"
           )
 
+          prosody_path = Path(
+              f"public/generated/{code}-prosody-plan.json"
+          )
+
           data = json.loads(
-              path.read_text(encoding="utf-8")
+              timeline_path.read_text(encoding="utf-8")
+          )
+
+          prosody = json.loads(
+              prosody_path.read_text(encoding="utf-8")
           )
 
           words = data.get("words", [])
@@ -449,10 +310,34 @@ jobs:
           assert data["wordCount"] == len(words)
           assert data["durationMs"] > 0
 
+          assert (
+              data.get("version")
+              == "V3.15-C-PROSODY-DIRECTOR"
+          )
+
+          assert (
+              prosody.get("version")
+              == "V3.15-C-PROSODY-DIRECTOR"
+          )
+
+          assert (
+              len(prosody.get("segments", []))
+              > 0
+          )
+
           print(
               f"QA TIMELINE OK: "
               f"{len(words)} palabras / "
               f"{data['durationMs']} ms"
+          )
+
+          print(
+              "QA PROSODIA OK: "
+              f"{len(prosody.get('segments', []))} segmentos"
+          )
+
+          print(
+              "DIRECTOR V3.15-C CONFIRMADO"
           )
           PY
 
