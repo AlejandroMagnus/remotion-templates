@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0",
+  "id": "video-juridico-006",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "Una mala decisión jurídica puede ser perfectamente legal",
+    "description": "Cumplir formalmente la ley no garantiza que una decisión proteja adecuadamente una empresa, una operación o un patrimonio. La estrategia jurídica exige evaluar consecuencias, prueba, ejecución y riesgo.",
+    "tags": [
+      "estrategia-juridica",
+      "riesgo-juridico",
+      "empresa",
+      "patrimonio",
+      "toma-de-decisiones",
+      "prevencion",
+      "high-ticket"
+    ]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 90
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "Una mala decisión jurídica puede ser perfectamente legal. Y precisamente por eso puede resultar peligrosa. Cumplir la norma es indispensable. Pero en una operación importante, la pregunta no termina ahí. ¿Qué consecuencias producirá esta decisión? ¿Qué ocurrirá si la contraparte incumple? ¿Podremos demostrar nuestra posición? ¿Y podremos convertir un derecho reconocido en un resultado efectivo? Una decisión puede ser jurídicamente válida y, aun así, dejar expuestos dinero, activos, reputación o capacidad de negociación. Porque la estrategia jurídica no consiste solamente en preguntar qué permite la ley. También exige determinar qué conviene hacer, qué riesgo estamos aceptando y cómo defenderemos mañana la decisión que tomemos hoy. En asuntos de alto valor, cada alternativa debería analizarse antes de ejecutarse: hechos, prueba, obligaciones, escenarios adversos, respuesta de la contraparte, costos y posibilidades reales de ejecución. La mejor decisión no es simplemente la que puede adoptarse. Es aquella cuya consecuencia ha sido comprendida, cuyo riesgo ha sido medido y cuya posición puede defenderse. Antes de comprometer patrimonio, empresa o una operación importante, no pregunte solamente: ¿Es legal? Pregunte también: ¿Es estratégicamente defendible? Diagnostique el riesgo antes de decidir.",
+    "narrationSrc": "public/generated/video-juridico-006-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.06,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "Puede ser legal y ser una mala decisión",
+        "subtitle": "Legalidad y estrategia no son exactamente lo mismo"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    },
+    {
+      "id": "legalidad",
+      "kind": "statement",
+      "content": {
+        "title": "Cumplir la norma es indispensable",
+        "subtitle": "Pero una decisión importante exige analizar también sus consecuencias"
+      },
+      "timing": {
+        "durationMs": 11000
+      }
+    },
+    {
+      "id": "preguntas",
+      "kind": "points",
+      "content": {
+        "title": "Antes de decidir",
+        "points": [
+          "¿Qué ocurre si la contraparte incumple?",
+          "¿Podremos demostrar nuestra posición?",
+          "¿El resultado será realmente ejecutable?"
+        ]
+      },
+      "timing": {
+        "durationMs": 14000
+      }
+    },
+    {
+      "id": "exposicion",
+      "kind": "statement",
+      "content": {
+        "title": "Una decisión válida también puede exponer",
+        "subtitle": "Dinero, activos, reputación y capacidad de negociación"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "estrategia",
+      "kind": "statement",
+      "content": {
+        "title": "La estrategia mira más allá de la norma",
+        "subtitle": "Analiza riesgo, consecuencias y capacidad futura de defensa"
+      },
+      "timing": {
+        "durationMs": 13000
+      }
+    },
+    {
+      "id": "alto-valor",
+      "kind": "points",
+      "content": {
+        "title": "En decisiones de alto valor",
+        "points": [
+          "Hechos y prueba",
+          "Escenarios adversos",
+          "Costos y ejecución"
+        ]
+      },
+      "timing": {
+        "durationMs": 13000
+      }
+    },
+    {
+      "id": "pregunta-final",
+      "kind": "statement",
+      "content": {
+        "title": "No pregunte solamente: ¿Es legal?",
+        "subtitle": "Pregunte también: ¿Es estratégicamente defendible?"
+      },
+      "timing": {
+        "durationMs": 11000
+      }
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "Antes de decidir",
+        "line2": "Diagnostique estratégicamente el riesgo jurídico"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    }
+  ]
+      }
