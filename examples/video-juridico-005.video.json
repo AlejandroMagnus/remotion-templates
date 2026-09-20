@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0",
+  "id": "video-juridico-005",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "El problema jurídico más caro suele comenzar mucho antes del juicio",
+    "description": "Los conflictos empresariales de alto valor suelen construirse antes de llegar a tribunales. Detectar el riesgo, preservar la prueba y preparar una posición defendible puede cambiar el resultado.",
+    "tags": [
+      "estrategia-juridica",
+      "prevencion-de-conflictos",
+      "empresa",
+      "prueba",
+      "litigios",
+      "patrimonio",
+      "high-ticket"
+    ]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 90
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "El problema jurídico más caro suele comenzar mucho antes del juicio. Una empresa puede creer que todavía no existe un conflicto porque nadie ha presentado una demanda. Pero el verdadero riesgo puede estar formándose silenciosamente. Una obligación que no se documentó correctamente. Una comunicación enviada sin medir sus consecuencias. Una modificación contractual que quedó ambigua. Una prueba que existía y no fue preservada. O una decisión empresarial tomada sin anticipar cómo tendría que defenderse después. Cuando finalmente aparece la controversia, muchas veces el problema ya no consiste solamente en tener razón. Consiste en demostrar los hechos, reconstruir lo ocurrido y sostener jurídicamente una posición que debió prepararse meses antes. Por eso, en asuntos de alto valor, la estrategia jurídica no debería comenzar cuando llega la demanda. Debe comenzar cuando aparecen las primeras señales de riesgo. Identificar escenarios adversos. Preservar documentos y comunicaciones. Determinar obligaciones y responsabilidades. Anticipar la posición contraria. Y construir, desde ese momento, una posición jurídicamente defendible y ejecutable. Porque prevenir estratégicamente un conflicto puede ser mucho menos costoso que intentar corregirlo cuando el daño ya está hecho. Antes de que un problema empresarial se convierta en litigio, diagnostique jurídicamente el riesgo.",
+    "narrationSrc": "public/generated/video-juridico-005-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.06,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "El conflicto comienza antes del juicio",
+        "subtitle": "El riesgo puede estar formándose cuando todavía nadie ha demandado"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    },
+    {
+      "id": "riesgo-silencioso",
+      "kind": "statement",
+      "content": {
+        "title": "El riesgo se construye",
+        "subtitle": "Decisiones, documentos y comunicaciones pueden definir una controversia futura"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "prueba",
+      "kind": "statement",
+      "content": {
+        "title": "La prueba puede desaparecer",
+        "subtitle": "Lo que hoy puede documentarse mañana puede ser difícil de reconstruir"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "anticipacion",
+      "kind": "points",
+      "content": {
+        "title": "Antes del litigio",
+        "points": [
+          "Detecte señales de riesgo",
+          "Preserve documentos y comunicaciones",
+          "Anticipe la posición contraria"
+        ]
+      },
+      "timing": {
+        "durationMs": 14000
+      }
+    },
+    {
+      "id": "posicion-juridica",
+      "kind": "statement",
+      "content": {
+        "title": "Construya la posición antes",
+        "subtitle": "Hechos, prueba y obligaciones deben sostener una estrategia jurídicamente defendible"
+      },
+      "timing": {
+        "durationMs": 15000
+      }
+    },
+    {
+      "id": "costo",
+      "kind": "statement",
+      "content": {
+        "title": "Prevenir cuesta menos que corregir",
+        "subtitle": "En controversias de alto valor, reaccionar tarde puede multiplicar el riesgo"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "pregunta",
+      "kind": "statement",
+      "content": {
+        "title": "La pregunta estratégica",
+        "subtitle": "Si este problema termina en litigio, ¿estamos preparados para demostrar y defender nuestra posición?"
+      },
+      "timing": {
+        "durationMs": 9000
+      }
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "Antes de que el conflicto escale",
+        "line2": "Diagnostique jurídicamente el riesgo"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    }
+  ]
+      }
