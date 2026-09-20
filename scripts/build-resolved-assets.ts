@@ -17,15 +17,52 @@ const ROOT = process.cwd();
 const productionCode =
   process.env.PRODUCTION_CODE ?? "video-juridico-001";
 
-const SUPABASE_URL = process.env.SUPABASE_URL?.replace(/\/+$/, "");
-const SUPABASE_SECRET_KEY = process.env.SUPABASE_SECRET_KEY;
+/*
+ * V3.15-B3.1
+ *
+ * SUPABASE_URL puede recibirse en cualquiera de estas formas:
+ *
+ * https://xxxxx.supabase.co
+ * https://xxxxx.supabase.co/
+ * https://xxxxx.supabase.co/rest/v1
+ * https://xxxxx.supabase.co/rest/v1/
+ *
+ * normalizeSupabaseRestUrl() garantiza que internamente
+ * siempre tengamos exactamente UNA ruta /rest/v1.
+ */
+function normalizeSupabaseRestUrl(
+  rawUrl: string | undefined,
+): string | null {
+  if (!rawUrl) {
+    return null;
+  }
+
+  let url = rawUrl.trim().replace(/\/+$/, "");
+
+  if (url.endsWith("/rest/v1")) {
+    return url;
+  }
+
+  return `${url}/rest/v1`;
+}
+
+const SUPABASE_REST_URL =
+  normalizeSupabaseRestUrl(
+    process.env.SUPABASE_URL,
+  );
+
+const SUPABASE_SECRET_KEY =
+  process.env.SUPABASE_SECRET_KEY;
 
 const planPath = path.join(
   ROOT,
   `public/generated/${productionCode}-asset-scene-plan.json`,
 );
 
-const outputDir = path.join(ROOT, "public/generated/assets");
+const outputDir = path.join(
+  ROOT,
+  "public/generated/assets",
+);
 
 const manifestPath = path.join(
   ROOT,
@@ -63,15 +100,24 @@ type SupabaseMemoryRow = {
 };
 
 const EMPTY_MEMORY: VisualMemory = {
-  version: "V3.15-B3-SUPABASE",
+  version: "V3.15-B3.1-SUPABASE",
   assets: [],
 };
 
-const usedProviderIds = new Set<number>();
-const usedSourceUrls = new Set<string>();
-const creatorUsage = new Map<string, number>();
+const usedProviderIds =
+  new Set<number>();
 
-const searchCache = new Map<string, PexelsResolvedAsset[]>();
+const usedSourceUrls =
+  new Set<string>();
+
+const creatorUsage =
+  new Map<string, number>();
+
+const searchCache =
+  new Map<
+    string,
+    PexelsResolvedAsset[]
+  >();
 
 function loadLocalMemory(): VisualMemory {
   if (!fs.existsSync(visualMemoryPath)) {
@@ -83,12 +129,21 @@ function loadLocalMemory(): VisualMemory {
 
   try {
     const parsed = JSON.parse(
-      fs.readFileSync(visualMemoryPath, "utf8"),
+      fs.readFileSync(
+        visualMemoryPath,
+        "utf8",
+      ),
     ) as Partial<VisualMemory>;
 
     return {
-      version: parsed.version ?? EMPTY_MEMORY.version,
-      assets: Array.isArray(parsed.assets) ? parsed.assets : [],
+      version:
+        parsed.version ??
+        EMPTY_MEMORY.version,
+
+      assets:
+        Array.isArray(parsed.assets)
+          ? parsed.assets
+          : [],
     };
   } catch (error) {
     console.warn(
@@ -103,55 +158,86 @@ function loadLocalMemory(): VisualMemory {
   }
 }
 
-function saveLocalMemory(memory: VisualMemory) {
-  fs.mkdirSync(path.dirname(visualMemoryPath), {
-    recursive: true,
-  });
+function saveLocalMemory(
+  memory: VisualMemory,
+) {
+  fs.mkdirSync(
+    path.dirname(visualMemoryPath),
+    {
+      recursive: true,
+    },
+  );
 
   fs.writeFileSync(
     visualMemoryPath,
-    JSON.stringify(memory, null, 2),
+    JSON.stringify(
+      memory,
+      null,
+      2,
+    ),
   );
 }
 
 function supabaseConfigured(): boolean {
-  return Boolean(SUPABASE_URL && SUPABASE_SECRET_KEY);
+  return Boolean(
+    SUPABASE_REST_URL &&
+      SUPABASE_SECRET_KEY,
+  );
 }
 
 async function supabaseRequest<T>(
   pathname: string,
   init: RequestInit = {},
 ): Promise<T> {
-  if (!SUPABASE_URL || !SUPABASE_SECRET_KEY) {
-    throw new Error("Supabase credentials are not configured.");
+  if (
+    !SUPABASE_REST_URL ||
+    !SUPABASE_SECRET_KEY
+  ) {
+    throw new Error(
+      "Supabase credentials are not configured.",
+    );
   }
 
+  const cleanPath =
+    pathname.replace(/^\/+/, "");
+
   const response = await fetch(
-    `${SUPABASE_URL}/rest/v1/${pathname}`,
+    `${SUPABASE_REST_URL}/${cleanPath}`,
     {
       ...init,
+
       headers: {
-        apikey: SUPABASE_SECRET_KEY,
-        Authorization: `Bearer ${SUPABASE_SECRET_KEY}`,
-        "Content-Type": "application/json",
+        apikey:
+          SUPABASE_SECRET_KEY,
+
+        Authorization:
+          `Bearer ${SUPABASE_SECRET_KEY}`,
+
+        "Content-Type":
+          "application/json",
+
         ...(init.headers ?? {}),
       },
     },
   );
 
   if (!response.ok) {
-    const body = await response.text();
+    const body =
+      await response.text();
 
     throw new Error(
       `Supabase ${response.status}: ${body}`,
     );
   }
 
-  if (response.status === 204) {
+  if (
+    response.status === 204
+  ) {
     return undefined as T;
   }
 
-  const text = await response.text();
+  const text =
+    await response.text();
 
   if (!text) {
     return undefined as T;
@@ -160,7 +246,8 @@ async function supabaseRequest<T>(
   return JSON.parse(text) as T;
 }
 
-async function loadSupabaseMemory(): Promise<VisualMemory | null> {
+async function loadSupabaseMemory():
+  Promise<VisualMemory | null> {
   if (!supabaseConfigured()) {
     console.warn(
       "SUPABASE_URL / SUPABASE_SECRET_KEY unavailable. Using local fallback.",
@@ -170,22 +257,41 @@ async function loadSupabaseMemory(): Promise<VisualMemory | null> {
   }
 
   try {
-    const rows = await supabaseRequest<SupabaseMemoryRow[]>(
-      "audiovisual_visual_memory" +
-        "?select=provider,provider_asset_id,source_url,creator,production_code,last_used_at,use_count",
-    );
+    const rows =
+      await supabaseRequest<
+        SupabaseMemoryRow[]
+      >(
+        "audiovisual_visual_memory" +
+          "?select=provider,provider_asset_id,source_url,creator,production_code,last_used_at,use_count",
+      );
 
     return {
-      version: "V3.15-B3-SUPABASE",
-      assets: rows.map((row) => ({
-        provider: row.provider,
-        providerId: row.provider_asset_id,
-        sourceUrl: row.source_url ?? "",
-        creator: row.creator ?? "",
-        lastProductionCode: row.production_code,
-        lastUsedAt: row.last_used_at,
-        useCount: row.use_count,
-      })),
+      version:
+        "V3.15-B3.1-SUPABASE",
+
+      assets:
+        rows.map((row) => ({
+          provider:
+            row.provider,
+
+          providerId:
+            row.provider_asset_id,
+
+          sourceUrl:
+            row.source_url ?? "",
+
+          creator:
+            row.creator ?? "",
+
+          lastProductionCode:
+            row.production_code,
+
+          lastUsedAt:
+            row.last_used_at,
+
+          useCount:
+            row.use_count,
+        })),
     };
   } catch (error) {
     console.warn(
@@ -205,16 +311,24 @@ function mergeMemories(
     return fallback;
   }
 
-  const merged = new Map<string, VisualMemoryAsset>();
+  const merged =
+    new Map<
+      string,
+      VisualMemoryAsset
+    >();
 
-  for (const item of fallback.assets) {
+  for (
+    const item of fallback.assets
+  ) {
     merged.set(
       `${item.provider}:${item.providerId}`,
       item,
     );
   }
 
-  for (const item of primary.assets) {
+  for (
+    const item of primary.assets
+  ) {
     merged.set(
       `${item.provider}:${item.providerId}`,
       item,
@@ -222,29 +336,44 @@ function mergeMemories(
   }
 
   return {
-    version: "V3.15-B3-SUPABASE",
-    assets: [...merged.values()],
+    version:
+      "V3.15-B3.1-SUPABASE",
+
+    assets:
+      [...merged.values()],
   };
 }
 
 async function cachedSearch(
   query: string,
 ): Promise<PexelsResolvedAsset[]> {
-  const cached = searchCache.get(query);
+  const cached =
+    searchCache.get(query);
 
   if (cached) {
     return cached;
   }
 
-  const result = await searchPexelsPhotos(query, 30);
+  const result =
+    await searchPexelsPhotos(
+      query,
+      30,
+    );
 
-  searchCache.set(query, result);
+  searchCache.set(
+    query,
+    result,
+  );
 
   return result;
 }
 
-async function download(url: string, target: string) {
-  const response = await fetch(url);
+async function download(
+  url: string,
+  target: string,
+) {
+  const response =
+    await fetch(url);
 
   if (!response.ok) {
     throw new Error(
@@ -254,20 +383,35 @@ async function download(url: string, target: string) {
 
   fs.writeFileSync(
     target,
-    Buffer.from(await response.arrayBuffer()),
+    Buffer.from(
+      await response.arrayBuffer(),
+    ),
   );
 }
 
 function findHistoricalAsset(
   asset: PexelsResolvedAsset,
   memory: VisualMemory,
-): VisualMemoryAsset | undefined {
+):
+  | VisualMemoryAsset
+  | undefined {
   return memory.assets.find(
     (item) =>
-      (item.provider === "pexels" &&
-        item.providerId === String(asset.providerId)) ||
-      (Boolean(item.sourceUrl) &&
-        item.sourceUrl === asset.sourceUrl),
+      (
+        item.provider ===
+          "pexels" &&
+        item.providerId ===
+          String(
+            asset.providerId,
+          )
+      ) ||
+      (
+        Boolean(
+          item.sourceUrl,
+        ) &&
+        item.sourceUrl ===
+          asset.sourceUrl
+      ),
   );
 }
 
@@ -277,27 +421,43 @@ function historicalPenalty(
 ): {
   penalty: number;
   previousUseCount: number;
-  previousProduction: string | null;
+  previousProduction:
+    string | null;
 } {
-  const previous = findHistoricalAsset(asset, memory);
+  const previous =
+    findHistoricalAsset(
+      asset,
+      memory,
+    );
 
   if (!previous) {
     return {
       penalty: 0,
       previousUseCount: 0,
-      previousProduction: null,
+      previousProduction:
+        null,
     };
   }
 
-  const penalty = Math.min(
-    80,
-    32 + Math.max(0, previous.useCount - 1) * 12,
-  );
+  const penalty =
+    Math.min(
+      80,
+      32 +
+        Math.max(
+          0,
+          previous.useCount - 1,
+        ) *
+          12,
+    );
 
   return {
     penalty,
-    previousUseCount: previous.useCount,
-    previousProduction: previous.lastProductionCode,
+
+    previousUseCount:
+      previous.useCount,
+
+    previousProduction:
+      previous.lastProductionCode,
   };
 }
 
@@ -305,26 +465,53 @@ function registerLocalHistoricalUse(
   memory: VisualMemory,
   asset: PexelsResolvedAsset,
 ) {
-  const now = new Date().toISOString();
+  const now =
+    new Date().toISOString();
 
-  const existing = findHistoricalAsset(asset, memory);
+  const existing =
+    findHistoricalAsset(
+      asset,
+      memory,
+    );
 
   if (existing) {
     existing.useCount += 1;
-    existing.lastProductionCode = productionCode;
-    existing.lastUsedAt = now;
-    existing.creator = asset.creator;
-    existing.sourceUrl = asset.sourceUrl;
+
+    existing.lastProductionCode =
+      productionCode;
+
+    existing.lastUsedAt =
+      now;
+
+    existing.creator =
+      asset.creator;
+
+    existing.sourceUrl =
+      asset.sourceUrl;
+
     return;
   }
 
   memory.assets.push({
     provider: "pexels",
-    providerId: String(asset.providerId),
-    sourceUrl: asset.sourceUrl,
-    creator: asset.creator,
-    lastProductionCode: productionCode,
-    lastUsedAt: now,
+
+    providerId:
+      String(
+        asset.providerId,
+      ),
+
+    sourceUrl:
+      asset.sourceUrl,
+
+    creator:
+      asset.creator,
+
+    lastProductionCode:
+      productionCode,
+
+    lastUsedAt:
+      now,
+
     useCount: 1,
   });
 }
@@ -336,37 +523,64 @@ async function registerSupabaseHistoricalUse(
     return;
   }
 
-  const providerId = String(asset.providerId);
+  const providerId =
+    String(
+      asset.providerId,
+    );
 
   const query =
     "audiovisual_visual_memory" +
-    `?provider=eq.pexels` +
-    `&provider_asset_id=eq.${encodeURIComponent(providerId)}` +
+    "?provider=eq.pexels" +
+    `&provider_asset_id=eq.${encodeURIComponent(
+      providerId,
+    )}` +
     "&select=use_count";
 
-  const existing = await supabaseRequest<
-    Array<{ use_count: number }>
-  >(query);
+  const existing =
+    await supabaseRequest<
+      Array<{
+        use_count: number;
+      }>
+    >(query);
 
-  const now = new Date().toISOString();
+  const now =
+    new Date().toISOString();
 
-  if (existing.length > 0) {
+  if (
+    existing.length > 0
+  ) {
     await supabaseRequest<void>(
       "audiovisual_visual_memory" +
-        `?provider=eq.pexels` +
-        `&provider_asset_id=eq.${encodeURIComponent(providerId)}`,
+        "?provider=eq.pexels" +
+        `&provider_asset_id=eq.${encodeURIComponent(
+          providerId,
+        )}`,
       {
         method: "PATCH",
+
         headers: {
-          Prefer: "return=minimal",
+          Prefer:
+            "return=minimal",
         },
-        body: JSON.stringify({
-          source_url: asset.sourceUrl,
-          creator: asset.creator,
-          production_code: productionCode,
-          last_used_at: now,
-          use_count: existing[0].use_count + 1,
-        }),
+
+        body:
+          JSON.stringify({
+            source_url:
+              asset.sourceUrl,
+
+            creator:
+              asset.creator,
+
+            production_code:
+              productionCode,
+
+            last_used_at:
+              now,
+
+            use_count:
+              existing[0]
+                .use_count + 1,
+          }),
       },
     );
 
@@ -377,74 +591,119 @@ async function registerSupabaseHistoricalUse(
     "audiovisual_visual_memory",
     {
       method: "POST",
+
       headers: {
-        Prefer: "return=minimal",
+        Prefer:
+          "return=minimal",
       },
-      body: JSON.stringify({
-        provider: "pexels",
-        provider_asset_id: providerId,
-        source_url: asset.sourceUrl,
-        creator: asset.creator,
-        production_code: productionCode,
-        first_used_at: now,
-        last_used_at: now,
-        use_count: 1,
-        metadata: {},
-      }),
+
+      body:
+        JSON.stringify({
+          provider:
+            "pexels",
+
+          provider_asset_id:
+            providerId,
+
+          source_url:
+            asset.sourceUrl,
+
+          creator:
+            asset.creator,
+
+          production_code:
+            productionCode,
+
+          first_used_at:
+            now,
+
+          last_used_at:
+            now,
+
+          use_count: 1,
+
+          metadata: {},
+        }),
     },
   );
 }
 
 async function main() {
-  if (!fs.existsSync(planPath)) {
+  if (
+    !fs.existsSync(planPath)
+  ) {
     throw new Error(
       `Missing asset scene plan: ${planPath}`,
     );
   }
 
-  const localMemory = loadLocalMemory();
-  const remoteMemory = await loadSupabaseMemory();
+  const localMemory =
+    loadLocalMemory();
 
-  const visualMemory = mergeMemories(
-    remoteMemory,
-    localMemory,
+  const remoteMemory =
+    await loadSupabaseMemory();
+
+  const visualMemory =
+    mergeMemories(
+      remoteMemory,
+      localMemory,
+    );
+
+  console.log(
+    "\n=== VISUAL MEMORY V3.15-B3.1 / SUPABASE ===",
   );
 
   console.log(
-    "\n=== VISUAL MEMORY V3.15-B3 / SUPABASE ===",
-  );
-
-  console.log(
-    `Supabase configured: ${supabaseConfigured() ? "YES" : "NO"}`,
+    `Supabase configured: ${
+      supabaseConfigured()
+        ? "YES"
+        : "NO"
+    }`,
   );
 
   console.log(
     `Historical assets loaded: ${visualMemory.assets.length}`,
   );
 
-  fs.rmSync(outputDir, {
-    recursive: true,
-    force: true,
-  });
-
-  fs.mkdirSync(outputDir, {
-    recursive: true,
-  });
-
-  const source = JSON.parse(
-    fs.readFileSync(planPath, "utf8"),
+  fs.rmSync(
+    outputDir,
+    {
+      recursive: true,
+      force: true,
+    },
   );
 
-  const scenes = source.scenes ?? [];
-  const resolved: any[] = [];
+  fs.mkdirSync(
+    outputDir,
+    {
+      recursive: true,
+    },
+  );
+
+  const source =
+    JSON.parse(
+      fs.readFileSync(
+        planPath,
+        "utf8",
+      ),
+    );
+
+  const scenes =
+    source.scenes ?? [];
+
+  const resolved: any[] =
+    [];
 
   for (
     let sceneIndex = 0;
-    sceneIndex < scenes.length;
+    sceneIndex <
+    scenes.length;
     sceneIndex++
   ) {
     const scene =
-      scenes[sceneIndex] as DirectorScene & {
+      scenes[
+        sceneIndex
+      ] as DirectorScene & {
         id: string;
         startMs: number;
         endMs: number;
@@ -452,167 +711,279 @@ async function main() {
         route: string;
       };
 
-    const queries = semanticQueries(
-      scene,
-      sceneIndex,
-    );
+    const queries =
+      semanticQueries(
+        scene,
+        sceneIndex,
+      );
 
     type RankedCandidate = {
-      asset: PexelsResolvedAsset;
+      asset:
+        PexelsResolvedAsset;
+
       query: string;
-      score: ReturnType<typeof rankVisualCandidate>;
-      historicalPenalty: number;
-      historicalUseCount: number;
-      previousProduction: string | null;
-      finalScore: number;
+
+      score:
+        ReturnType<
+          typeof rankVisualCandidate
+        >;
+
+      historicalPenalty:
+        number;
+
+      historicalUseCount:
+        number;
+
+      previousProduction:
+        string | null;
+
+      finalScore:
+        number;
     };
 
-    const candidateMap = new Map<
-      number,
-      RankedCandidate
-    >();
+    const candidateMap =
+      new Map<
+        number,
+        RankedCandidate
+      >();
 
     for (
       let queryIndex = 0;
-      queryIndex < queries.length;
+      queryIndex <
+      queries.length;
       queryIndex++
     ) {
-      const query = queries[queryIndex];
-      const candidates = await cachedSearch(query);
+      const query =
+        queries[
+          queryIndex
+        ];
 
-      candidates.forEach((asset, searchPosition) => {
-        if (
-          usedProviderIds.has(asset.providerId) ||
-          usedSourceUrls.has(asset.sourceUrl)
-        ) {
-          return;
-        }
-
-        const creatorUseCount =
-          creatorUsage.get(asset.creator) ?? 0;
-
-        const score = rankVisualCandidate(
-          scene,
-          asset,
+      const candidates =
+        await cachedSearch(
           query,
-          searchPosition,
-          creatorUseCount,
         );
 
-        const history = historicalPenalty(
+      candidates.forEach(
+        (
           asset,
-          visualMemory,
-        );
+          searchPosition,
+        ) => {
+          if (
+            usedProviderIds.has(
+              asset.providerId,
+            ) ||
+            usedSourceUrls.has(
+              asset.sourceUrl,
+            )
+          ) {
+            return;
+          }
 
-        const finalScore =
-          score.total - history.penalty;
+          const creatorUseCount =
+            creatorUsage.get(
+              asset.creator,
+            ) ?? 0;
 
-        const previous = candidateMap.get(
-          asset.providerId,
-        );
+          const score =
+            rankVisualCandidate(
+              scene,
+              asset,
+              query,
+              searchPosition,
+              creatorUseCount,
+            );
 
-        if (
-          !previous ||
-          finalScore > previous.finalScore
-        ) {
-          candidateMap.set(asset.providerId, {
-            asset,
-            query,
-            score,
-            historicalPenalty: history.penalty,
-            historicalUseCount:
-              history.previousUseCount,
-            previousProduction:
-              history.previousProduction,
-            finalScore,
-          });
-        }
-      });
+          const history =
+            historicalPenalty(
+              asset,
+              visualMemory,
+            );
+
+          const finalScore =
+            score.total -
+            history.penalty;
+
+          const previous =
+            candidateMap.get(
+              asset.providerId,
+            );
+
+          if (
+            !previous ||
+            finalScore >
+              previous.finalScore
+          ) {
+            candidateMap.set(
+              asset.providerId,
+              {
+                asset,
+                query,
+                score,
+
+                historicalPenalty:
+                  history.penalty,
+
+                historicalUseCount:
+                  history.previousUseCount,
+
+                previousProduction:
+                  history.previousProduction,
+
+                finalScore,
+              },
+            );
+          }
+        },
+      );
     }
 
-    const ranked = [
-      ...candidateMap.values(),
-    ].sort(
-      (a, b) =>
-        b.finalScore - a.finalScore,
-    );
+    const ranked =
+      [
+        ...candidateMap.values(),
+      ].sort(
+        (a, b) =>
+          b.finalScore -
+          a.finalScore,
+      );
 
-    const selected = ranked[0];
+    const selected =
+      ranked[0];
 
     const base = {
-      id: scene.id,
-      ruleId: scene.ruleId,
-      concept: scene.concept,
-      route: scene.route,
-      startMs: scene.startMs,
-      endMs: scene.endMs,
-      durationMs: scene.durationMs,
-      narrationContext: scene.narrationContext,
+      id:
+        scene.id,
+
+      ruleId:
+        scene.ruleId,
+
+      concept:
+        scene.concept,
+
+      route:
+        scene.route,
+
+      startMs:
+        scene.startMs,
+
+      endMs:
+        scene.endMs,
+
+      durationMs:
+        scene.durationMs,
+
+      narrationContext:
+        scene.narrationContext,
     };
 
     console.log(
-      `\n[DIRECTOR ${sceneIndex + 1}/${scenes.length}] ${scene.ruleId}`,
+      `\n[DIRECTOR ${
+        sceneIndex + 1
+      }/${scenes.length}] ${
+        scene.ruleId
+      }`,
     );
 
-    console.log(`Queries: ${queries.length}`);
-    console.log(`Candidates: ${ranked.length}`);
+    console.log(
+      `Queries: ${queries.length}`,
+    );
+
+    console.log(
+      `Candidates: ${ranked.length}`,
+    );
 
     if (!selected) {
-      console.log("UNRESOLVED");
+      console.log(
+        "UNRESOLVED",
+      );
 
       resolved.push({
         ...base,
-        status: "unresolved",
+        status:
+          "unresolved",
       });
 
       continue;
     }
 
-    const asset = selected.asset;
+    const asset =
+      selected.asset;
 
-    usedProviderIds.add(asset.providerId);
-    usedSourceUrls.add(asset.sourceUrl);
+    usedProviderIds.add(
+      asset.providerId,
+    );
+
+    usedSourceUrls.add(
+      asset.sourceUrl,
+    );
 
     creatorUsage.set(
       asset.creator,
-      (creatorUsage.get(asset.creator) ?? 0) + 1,
+      (
+        creatorUsage.get(
+          asset.creator,
+        ) ?? 0
+      ) + 1,
     );
 
     console.log(
-      `SELECTED: ${asset.providerId} | ` +
-        `BASE ${selected.score.total} | ` +
-        `HISTORY -${selected.historicalPenalty} | ` +
-        `FINAL ${selected.finalScore}`,
+      `SELECTED: ${
+        asset.providerId
+      } | BASE ${
+        selected.score.total
+      } | HISTORY -${
+        selected.historicalPenalty
+      } | FINAL ${
+        selected.finalScore
+      }`,
     );
 
     console.log(
-      `ALT: ${asset.altText ?? ""}`,
+      `ALT: ${
+        asset.altText ?? ""
+      }`,
     );
 
     console.log(
-      `SEMANTIC HITS: ${selected.score.semanticHits.join(", ")}`,
+      `SEMANTIC HITS: ${selected.score.semanticHits.join(
+        ", ",
+      )}`,
     );
 
     console.log(
-      `LOCALIZATION: ${selected.score.localizationHits.join(", ")}`,
+      `LOCALIZATION: ${selected.score.localizationHits.join(
+        ", ",
+      )}`,
     );
 
-    if (selected.historicalPenalty > 0) {
+    if (
+      selected
+        .historicalPenalty >
+      0
+    ) {
       console.log(
-        `PREVIOUSLY USED: ` +
-          `${selected.previousProduction ?? "UNKNOWN"} | ` +
-          `USE COUNT ${selected.historicalUseCount}`,
+        `PREVIOUSLY USED: ${
+          selected.previousProduction ??
+          "UNKNOWN"
+        } | USE COUNT ${
+          selected.historicalUseCount
+        }`,
       );
     }
 
     const filename =
-      `${String(sceneIndex + 1).padStart(2, "0")}` +
+      `${String(
+        sceneIndex + 1,
+      ).padStart(
+        2,
+        "0",
+      )}` +
       `-${scene.ruleId}-${asset.providerId}.jpg`;
 
-    const target = path.join(
-      outputDir,
-      filename,
-    );
+    const target =
+      path.join(
+        outputDir,
+        filename,
+      );
 
     await download(
       asset.remoteUrl,
@@ -627,94 +998,152 @@ async function main() {
     resolved.push({
       ...base,
 
-      status: "resolved",
+      status:
+        "resolved",
 
-      query: selected.query,
+      query:
+        selected.query,
 
       directorSelection: {
-        candidateCount: ranked.length,
-        baseScore: selected.score.total,
+        candidateCount:
+          ranked.length,
+
+        baseScore:
+          selected.score.total,
+
         historicalPenalty:
           selected.historicalPenalty,
-        finalScore: selected.finalScore,
+
+        finalScore:
+          selected.finalScore,
+
         previousUseCount:
           selected.historicalUseCount,
+
         previousProduction:
           selected.previousProduction,
-        scoreBreakdown: selected.score,
-        selectedAlt: asset.altText ?? "",
 
-        topCandidates: ranked
-          .slice(0, 5)
-          .map((candidate, rank) => ({
-            rank: rank + 1,
-            providerId:
-              candidate.asset.providerId,
-            baseScore:
-              candidate.score.total,
-            historicalPenalty:
-              candidate.historicalPenalty,
-            finalScore:
-              candidate.finalScore,
-            alt:
-              candidate.asset.altText ?? "",
-            query: candidate.query,
-            semanticHits:
-              candidate.score.semanticHits,
-            localizationHits:
-              candidate.score.localizationHits,
-          })),
+        scoreBreakdown:
+          selected.score,
+
+        selectedAlt:
+          asset.altText ?? "",
+
+        topCandidates:
+          ranked
+            .slice(0, 5)
+            .map(
+              (
+                candidate,
+                rank,
+              ) => ({
+                rank:
+                  rank + 1,
+
+                providerId:
+                  candidate
+                    .asset
+                    .providerId,
+
+                baseScore:
+                  candidate
+                    .score
+                    .total,
+
+                historicalPenalty:
+                  candidate
+                    .historicalPenalty,
+
+                finalScore:
+                  candidate
+                    .finalScore,
+
+                alt:
+                  candidate
+                    .asset
+                    .altText ??
+                  "",
+
+                query:
+                  candidate.query,
+
+                semanticHits:
+                  candidate
+                    .score
+                    .semanticHits,
+
+                localizationHits:
+                  candidate
+                    .score
+                    .localizationHits,
+              }),
+            ),
       },
 
       asset: {
         ...asset,
+
         localSrc:
           `generated/assets/${filename}`,
       },
     });
   }
 
-  const resolvedAssets = resolved.filter(
-    (item) => item.status === "resolved",
-  );
+  const resolvedAssets =
+    resolved.filter(
+      (item) =>
+        item.status ===
+        "resolved",
+    );
 
-  const resolvedCount = resolvedAssets.length;
+  const resolvedCount =
+    resolvedAssets.length;
 
-  const uniqueCount = new Set(
-    resolvedAssets.map(
-      (item) => item.asset.providerId,
-    ),
-  ).size;
+  const uniqueCount =
+    new Set(
+      resolvedAssets.map(
+        (item) =>
+          item.asset
+            .providerId,
+      ),
+    ).size;
 
   const manifest = {
     productionCode,
 
     version:
-      "V3.15-B3-SUPABASE-VISUAL-MEMORY",
+      "V3.15-B3.1-SUPABASE-VISUAL-MEMORY",
 
     generatedAt:
       new Date().toISOString(),
 
-    totalScenes: scenes.length,
+    totalScenes:
+      scenes.length,
+
     resolvedCount,
+
     uniqueCount,
 
     duplicateAssets:
-      resolvedCount - uniqueCount,
+      resolvedCount -
+      uniqueCount,
 
     historicalMemory: {
-      backend: remoteMemory
-        ? "SUPABASE+LOCAL"
-        : "LOCAL-FALLBACK",
+      backend:
+        remoteMemory
+          ? "SUPABASE+LOCAL"
+          : "LOCAL-FALLBACK",
 
       loadedAssets:
-        visualMemory.assets.length,
+        visualMemory.assets
+          .length,
 
       table:
         "audiovisual_visual_memory",
     },
 
-    assets: resolved,
+    assets:
+      resolved,
   };
 
   fs.writeFileSync(
@@ -730,29 +1159,38 @@ async function main() {
     visualMemory,
   );
 
-  if (resolvedCount === 0) {
+  if (
+    resolvedCount === 0
+  ) {
     throw new Error(
       "No semantic visual assets resolved",
     );
   }
 
-  if (resolvedCount !== uniqueCount) {
+  if (
+    resolvedCount !==
+    uniqueCount
+  ) {
     throw new Error(
       "Duplicated assets detected",
     );
   }
 
   /*
-   * Solo después de resolver y validar
-   * completamente los assets de esta
-   * producción actualizamos Supabase.
+   * Persistimos solo después de resolver
+   * y validar completamente los assets.
    */
-  if (supabaseConfigured()) {
+  if (
+    supabaseConfigured()
+  ) {
     console.log(
       "\nPersisting visual memory to Supabase...",
     );
 
-    for (const item of resolvedAssets) {
+    for (
+      const item of
+        resolvedAssets
+    ) {
       await registerSupabaseHistoricalUse(
         item.asset as PexelsResolvedAsset,
       );
@@ -762,17 +1200,29 @@ async function main() {
       `Supabase memory updated: ${resolvedCount} assets`,
     );
   }
-
-  console.log(
-    "\n=== V3.15-B3 VISUAL MEMORY DIRECTOR ===",
+    console.log(
+    "\n=== V3.15-B3.1 VISUAL MEMORY DIRECTOR ===",
   );
 
-  console.log(`Scenes: ${scenes.length}`);
-  console.log(`Resolved: ${resolvedCount}`);
-  console.log(`Unique: ${uniqueCount}`);
   console.log(
-    `Duplicates: ${resolvedCount - uniqueCount}`,
+    `Scenes: ${scenes.length}`,
   );
+
+  console.log(
+    `Resolved: ${resolvedCount}`,
+  );
+
+  console.log(
+    `Unique: ${uniqueCount}`,
+  );
+
+  console.log(
+    `Duplicates: ${
+      resolvedCount -
+      uniqueCount
+    }`,
+  );
+
   console.log(
     `Memory backend: ${
       remoteMemory
@@ -782,7 +1232,12 @@ async function main() {
   );
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+main().catch(
+  (error) => {
+    console.error(
+      error,
+    );
+
+    process.exit(1);
+  },
+);
