@@ -6,6 +6,7 @@ import React, {
 import {
   AbsoluteFill,
   Img,
+  OffthreadVideo,
   Sequence,
   continueRender,
   delayRender,
@@ -19,6 +20,10 @@ import {
   getSemanticMotionProfile,
 } from "./motion/semanticMotionDirector";
 
+type MediaType =
+  | "image"
+  | "video";
+
 type AssetItem = {
   id: string;
   ruleId: string;
@@ -30,10 +35,7 @@ type AssetItem = {
   status: string;
 
   asset?: {
-    mediaType:
-      | "image"
-      | "video";
-
+    mediaType: MediaType;
     localSrc: string;
   };
 };
@@ -42,15 +44,19 @@ type Manifest = {
   assets: AssetItem[];
 };
 
-function SemanticCinematicPhoto({
-  item,
-  sceneIndex,
+type CinematicAssetProps = {
+  item: AssetItem;
+  sceneIndex: number;
+  durationInFrames: number;
+  isFirst: boolean;
+  isLast: boolean;
+};
+
+function useCinematicOpacity({
   durationInFrames,
   isFirst,
   isLast,
 }: {
-  item: AssetItem;
-  sceneIndex: number;
   durationInFrames: number;
   isFirst: boolean;
   isLast: boolean;
@@ -60,6 +66,77 @@ function SemanticCinematicPhoto({
 
   const {fps} =
     useVideoConfig();
+
+  const enterFrames =
+    isFirst
+      ? Math.max(
+          1,
+          Math.round(
+            fps * 0.10,
+          ),
+        )
+      : Math.max(
+          5,
+          Math.round(
+            fps * 0.22,
+          ),
+        );
+
+  const exitFrames =
+    isLast
+      ? Math.max(
+          12,
+          Math.round(
+            fps * 0.70,
+          ),
+        )
+      : Math.max(
+          6,
+          Math.round(
+            fps * 0.25,
+          ),
+        );
+
+  return interpolate(
+    frame,
+    [
+      0,
+
+      enterFrames,
+
+      Math.max(
+        enterFrames + 1,
+        durationInFrames -
+          exitFrames,
+      ),
+
+      durationInFrames,
+    ],
+    [
+      isFirst ? 1 : 0,
+      1,
+      1,
+      0,
+    ],
+    {
+      extrapolateLeft:
+        "clamp",
+
+      extrapolateRight:
+        "clamp",
+    },
+  );
+}
+
+function SemanticCinematicPhoto({
+  item,
+  sceneIndex,
+  durationInFrames,
+  isFirst,
+  isLast,
+}: CinematicAssetProps) {
+  const frame =
+    useCurrentFrame();
 
   if (!item.asset) {
     return null;
@@ -90,8 +167,6 @@ function SemanticCinematicPhoto({
       },
     );
 
-  // Movimiento con aceleración
-  // y desaceleración natural.
   const cadence =
     0.5 -
     Math.cos(
@@ -137,8 +212,6 @@ function SemanticCinematicPhoto({
     ) *
       cadence;
 
-  // Fondo con desplazamiento
-  // inverso para profundidad 2.5D.
   const backgroundScale =
     1.22 +
     cadence * 0.025;
@@ -149,72 +222,12 @@ function SemanticCinematicPhoto({
   const backgroundY =
     y * -0.16;
 
-  const enterFrames =
-    isFirst
-      ? Math.max(
-          1,
-          Math.round(
-            fps * 0.10,
-          ),
-        )
-      : Math.max(
-          5,
-          Math.round(
-            fps * 0.22,
-          ),
-        );
-
-  const exitFrames =
-    isLast
-      ? Math.max(
-          12,
-          Math.round(
-            fps * 0.70,
-          ),
-        )
-      : Math.max(
-          6,
-          Math.round(
-            fps * 0.25,
-          ),
-        );
-
   const opacity =
-    interpolate(
-      frame,
-      [
-        0,
-
-        enterFrames,
-
-        Math.max(
-          enterFrames + 1,
-          durationInFrames -
-            exitFrames,
-        ),
-
-        durationInFrames,
-      ],
-      [
-        // La primera visual ya existe
-        // desde el frame 0:
-        // desaparece el hueco negro.
-        isFirst ? 1 : 0,
-
-        1,
-
-        1,
-
-        0,
-      ],
-      {
-        extrapolateLeft:
-          "clamp",
-
-        extrapolateRight:
-          "clamp",
-      },
-    );
+    useCinematicOpacity({
+      durationInFrames,
+      isFirst,
+      isLast,
+    });
 
   return (
     <AbsoluteFill
@@ -228,7 +241,6 @@ function SemanticCinematicPhoto({
         opacity,
       }}
     >
-      {/* PROFUNDIDAD AMBIENTAL */}
       <Img
         src={src}
         style={{
@@ -253,7 +265,6 @@ function SemanticCinematicPhoto({
         }}
       />
 
-      {/* IMAGEN PRINCIPAL */}
       <Img
         src={src}
         style={{
@@ -279,7 +290,6 @@ function SemanticCinematicPhoto({
         }}
       />
 
-      {/* VOLUMEN */}
       <AbsoluteFill
         style={{
           background:
@@ -288,6 +298,208 @@ function SemanticCinematicPhoto({
       />
     </AbsoluteFill>
   );
+}
+
+function SemanticCinematicVideo({
+  item,
+  sceneIndex,
+  durationInFrames,
+  isFirst,
+  isLast,
+}: CinematicAssetProps) {
+  const frame =
+    useCurrentFrame();
+
+  if (!item.asset) {
+    return null;
+  }
+
+  const src =
+    staticFile(
+      item.asset.localSrc,
+    );
+
+  const progress =
+    interpolate(
+      frame,
+      [
+        0,
+        Math.max(
+          1,
+          durationInFrames - 1,
+        ),
+      ],
+      [0, 1],
+      {
+        extrapolateLeft:
+          "clamp",
+
+        extrapolateRight:
+          "clamp",
+      },
+    );
+
+  const cadence =
+    0.5 -
+    Math.cos(
+      progress * Math.PI,
+    ) /
+      2;
+
+  const motion =
+    getSemanticMotionProfile(
+      item.ruleId,
+      sceneIndex,
+    );
+
+  /*
+   * El video ya contiene movimiento real.
+   * Aplicamos solamente una deriva de cámara
+   * muy contenida para evitar sobreanimación.
+   */
+  const videoScale =
+    1.035 +
+    (
+      motion.endScale -
+      motion.startScale
+    ) *
+      cadence *
+      0.18;
+
+  const videoX =
+    (
+      motion.startX +
+      (
+        motion.endX -
+        motion.startX
+      ) *
+        cadence
+    ) *
+    0.12;
+
+  const videoY =
+    (
+      motion.startY +
+      (
+        motion.endY -
+        motion.startY
+      ) *
+        cadence
+    ) *
+    0.10;
+
+  const opacity =
+    useCinematicOpacity({
+      durationInFrames,
+      isFirst,
+      isLast,
+    });
+
+  return (
+    <AbsoluteFill
+      style={{
+        backgroundColor:
+          "#000",
+
+        overflow:
+          "hidden",
+
+        opacity,
+      }}
+    >
+      {/*
+       * Fondo ambiental del mismo clip.
+       * Permite trabajar con fuentes que
+       * no coincidan exactamente con 9:16.
+       */}
+      <OffthreadVideo
+        src={src}
+        muted
+        style={{
+          position:
+            "absolute",
+
+          width:
+            "100%",
+
+          height:
+            "100%",
+
+          objectFit:
+            "cover",
+
+          transform:
+            "scale(1.18)",
+
+          filter:
+            "blur(22px) brightness(0.50)",
+        }}
+      />
+
+      {/*
+       * Plano principal.
+       * El audio del clip permanece silenciado:
+       * la narración y el sound design
+       * gobiernan la producción.
+       */}
+      <OffthreadVideo
+        src={src}
+        muted
+        style={{
+          position:
+            "absolute",
+
+          width:
+            "100%",
+
+          height:
+            "100%",
+
+          objectFit:
+            "cover",
+
+          transform:
+            `translate3d(${videoX}%, ${videoY}%, 0) ` +
+            `scale(${videoScale})`,
+
+          transformOrigin:
+            "center center",
+        }}
+      />
+
+      <AbsoluteFill
+        style={{
+          background:
+            "radial-gradient(circle at 50% 44%, transparent 40%, rgba(0,0,0,0.06) 72%, rgba(0,0,0,0.25) 100%)",
+        }}
+      />
+    </AbsoluteFill>
+  );
+}
+
+function SemanticCinematicAsset(
+  props: CinematicAssetProps,
+) {
+  const mediaType =
+    props.item.asset?.mediaType;
+
+  if (mediaType === "video") {
+    return (
+      <SemanticCinematicVideo
+        {...props}
+      />
+    );
+  }
+
+  if (mediaType === "image") {
+    return (
+      <SemanticCinematicPhoto
+        {...props}
+      />
+    );
+  }
+
+  return null;
 }
 
 export function ResolvedAssetLayer({
@@ -342,10 +554,17 @@ export function ResolvedAssetLayer({
               (item) =>
                 item.status ===
                   "resolved" &&
-                item.asset &&
-                item.asset
-                  .mediaType ===
-                  "image",
+                Boolean(
+                  item.asset,
+                ) &&
+                (
+                  item.asset
+                    ?.mediaType ===
+                    "image" ||
+                  item.asset
+                    ?.mediaType ===
+                    "video"
+                ),
             ),
           );
         },
@@ -429,9 +648,6 @@ export function ResolvedAssetLayer({
               ? 0
               : overlap;
 
-          // PRIMERA IMAGEN:
-          // comienza necesariamente
-          // en el frame cero.
           const from =
             isFirst
               ? 0
@@ -452,9 +668,6 @@ export function ResolvedAssetLayer({
             overlap +
             openingExtension;
 
-          // ÚLTIMA IMAGEN:
-          // permanece hasta el final
-          // adaptativo del video.
           const sequenceDuration =
             isLast
               ? Math.max(
@@ -482,7 +695,7 @@ export function ResolvedAssetLayer({
                 fps
               }
             >
-              <SemanticCinematicPhoto
+              <SemanticCinematicAsset
                 item={item}
 
                 sceneIndex={
@@ -507,4 +720,4 @@ export function ResolvedAssetLayer({
       )}
     </AbsoluteFill>
   );
-}
+          }
