@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import asyncio
 import json
 import os
@@ -13,6 +14,7 @@ from pathlib import Path
 
 import edge_tts
 
+
 ROOT = Path.cwd()
 
 PRODUCTION_CODE = os.environ.get("PRODUCTION_CODE") or (
@@ -20,35 +22,30 @@ PRODUCTION_CODE = os.environ.get("PRODUCTION_CODE") or (
 )
 
 if not PRODUCTION_CODE:
-    raise RuntimeError(
-        "PRODUCTION_CODE is required"
-    )
+    raise RuntimeError("PRODUCTION_CODE is required")
 
-SPEC = ROOT / (
-    f"examples/{PRODUCTION_CODE}.video.json"
-)
+
+SPEC = ROOT / f"examples/{PRODUCTION_CODE}.video.json"
 
 AUDIO = ROOT / (
-    f"public/generated/"
-    f"{PRODUCTION_CODE}-narration.mp3"
+    f"public/generated/{PRODUCTION_CODE}-narration.mp3"
 )
 
 TIMELINE = ROOT / (
-    f"public/generated/"
-    f"{PRODUCTION_CODE}-timeline.json"
+    f"public/generated/{PRODUCTION_CODE}-timeline.json"
 )
 
 SRT = ROOT / (
-    f"public/generated/"
-    f"{PRODUCTION_CODE}.srt"
+    f"public/generated/{PRODUCTION_CODE}.srt"
 )
 
 PROSODY_PLAN = ROOT / (
-    f"public/generated/"
-    f"{PRODUCTION_CODE}-prosody-plan.json"
+    f"public/generated/{PRODUCTION_CODE}-prosody-plan.json"
 )
 
+
 VOICE = "es-BO-MarceloNeural"
+LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
 
 
@@ -69,7 +66,6 @@ PROFILES = {
         pre_pause_ms=350,
         post_pause_ms=650,
     ),
-
     "question": ProsodyProfile(
         role="question",
         rate="-10%",
@@ -77,7 +73,6 @@ PROFILES = {
         pre_pause_ms=0,
         post_pause_ms=450,
     ),
-
     "warning": ProsodyProfile(
         role="warning",
         rate="-8%",
@@ -85,7 +80,6 @@ PROFILES = {
         pre_pause_ms=0,
         post_pause_ms=320,
     ),
-
     "authority": ProsodyProfile(
         role="authority",
         rate="-6%",
@@ -93,7 +87,6 @@ PROFILES = {
         pre_pause_ms=0,
         post_pause_ms=240,
     ),
-
     "cta": ProsodyProfile(
         role="cta",
         rate="-10%",
@@ -101,7 +94,6 @@ PROFILES = {
         pre_pause_ms=0,
         post_pause_ms=350,
     ),
-
     "explanation": ProsodyProfile(
         role="explanation",
         rate="-5%",
@@ -112,9 +104,7 @@ PROFILES = {
 }
 
 
-def normalize(
-    value: str,
-) -> str:
+def normalize(value: str) -> str:
     value = unicodedata.normalize(
         "NFD",
         value.lower(),
@@ -133,9 +123,7 @@ def normalize(
     ).strip()
 
 
-def split_sentences(
-    text: str,
-) -> list[str]:
+def split_sentences(text: str) -> list[str]:
     clean = re.sub(
         r"\s+",
         " ",
@@ -146,8 +134,7 @@ def split_sentences(
         return []
 
     parts = re.split(
-        r"(?<=[.!?])\s+"
-        r"(?=[¿¡A-ZÁÉÍÓÚÑ0-9])",
+        r"(?<=[.!?])\s+(?=[¿¡A-ZÁÉÍÓÚÑ0-9])",
         clean,
     )
 
@@ -166,9 +153,7 @@ def should_question_opening(
         return True
 
     value = normalize(sentence)
-    tag_text = normalize(
-        " ".join(tags)
-    )
+    tag_text = normalize(" ".join(tags))
 
     interrogative_starts = (
         "puede ",
@@ -199,9 +184,7 @@ def should_question_opening(
     )
 
     return (
-        value.startswith(
-            interrogative_starts
-        )
+        value.startswith(interrogative_starts)
         and any(
             marker in value
             for marker in tension_markers
@@ -226,13 +209,10 @@ def transform_opening(
     if sentence.startswith("¿"):
         return sentence, True
 
-    core = (
-        sentence
-        .rstrip()
-        .rstrip(".!?")
-    )
+    core = sentence.rstrip().rstrip(".!?")
 
     return f"¿{core}?", True
+
 
 @dataclass
 class SegmentPlan:
@@ -274,6 +254,7 @@ def classify_role(
 
     cta_markers = (
         "antes de actuar",
+        "antes de que",
         "diagnostique",
         "consulte",
         "evalúe",
@@ -305,6 +286,8 @@ def classify_role(
         "sin prever",
         "demasiado costoso",
         "compromete patrimonio",
+        "daño",
+        "conflicto",
     )
 
     if any(
@@ -323,6 +306,8 @@ def classify_role(
         "debe resistir",
         "decision favorable",
         "resultado ejecutable",
+        "juridicamente defendible",
+        "jurídicamente defendible",
     )
 
     if any(
@@ -338,9 +323,7 @@ def build_segment_plan(
     narration: str,
     tags: list[str],
 ) -> list[SegmentPlan]:
-    sentences = split_sentences(
-        narration
-    )
+    sentences = split_sentences(narration)
 
     if not sentences:
         raise RuntimeError(
@@ -348,12 +331,9 @@ def build_segment_plan(
         )
 
     result: list[SegmentPlan] = []
-
     total = len(sentences)
 
-    for index, sentence in enumerate(
-        sentences
-    ):
+    for index, sentence in enumerate(sentences):
         spoken_text = sentence
         opening_is_question = False
 
@@ -384,12 +364,8 @@ def build_segment_plan(
                 role=profile.role,
                 rate=profile.rate,
                 pitch=profile.pitch,
-                pre_pause_ms=(
-                    profile.pre_pause_ms
-                ),
-                post_pause_ms=(
-                    profile.post_pause_ms
-                ),
+                pre_pause_ms=profile.pre_pause_ms,
+                post_pause_ms=profile.post_pause_ms,
             )
         )
 
@@ -416,38 +392,25 @@ async def synthesize_segment_once(
 
     words: list[dict] = []
 
-    with output_file.open(
-        "wb"
-    ) as audio_file:
+    with output_file.open("wb") as audio_file:
         async for chunk in communicate.stream():
             if chunk["type"] == "audio":
-                audio_file.write(
-                    chunk["data"]
-                )
+                audio_file.write(chunk["data"])
 
-            elif (
-                chunk["type"]
-                == "WordBoundary"
-            ):
+            elif chunk["type"] == "WordBoundary":
                 start_ms = round(
-                    chunk["offset"]
-                    / 10000
+                    chunk["offset"] / 10000
                 )
 
                 duration_ms = round(
-                    chunk["duration"]
-                    / 10000
+                    chunk["duration"] / 10000
                 )
 
                 words.append(
                     {
-                        "text":
-                            chunk["text"],
-                        "startMs":
-                            start_ms,
-                        "endMs":
-                            start_ms
-                            + duration_ms,
+                        "text": chunk["text"],
+                        "startMs": start_ms,
+                        "endMs": start_ms + duration_ms,
                     }
                 )
 
@@ -456,8 +419,8 @@ async def synthesize_segment_once(
         or output_file.stat().st_size == 0
     ):
         raise RuntimeError(
-            "No se generó audio "
-            f"para segmento: {text}"
+            "No se generó audio para segmento: "
+            f"{text}"
         )
 
     if not words:
@@ -473,27 +436,21 @@ async def synthesize_segment(
     segment: SegmentPlan,
     output_file: Path,
 ) -> list[dict]:
-    profile = PROFILES[
-        segment.role
-    ]
-
+    profile = PROFILES[segment.role]
     last_error = None
 
     for attempt in range(1, 4):
         try:
             print(
-                f"Segmento "
-                f"{segment.index + 1} | "
+                f"Segmento {segment.index + 1} | "
                 f"{segment.role} | "
                 f"intento {attempt}/3"
             )
 
-            return await (
-                synthesize_segment_once(
-                    segment.spoken_text,
-                    profile,
-                    output_file,
-                )
+            return await synthesize_segment_once(
+                segment.spoken_text,
+                profile,
+                output_file,
             )
 
         except Exception as error:
@@ -514,9 +471,8 @@ async def synthesize_segment(
                 )
 
     raise RuntimeError(
-        "TTS falló después de "
-        "3 intentos para segmento "
-        f"{segment.index + 1}. "
+        "TTS falló después de 3 intentos "
+        f"para segmento {segment.index + 1}. "
         f"Último error: {last_error}"
     )
 
@@ -532,11 +488,7 @@ def probe_duration_ms(
             "-show_entries",
             "format=duration",
             "-of",
-            (
-                "default="
-                "noprint_wrappers=1:"
-                "nokey=1"
-            ),
+            "default=noprint_wrappers=1:nokey=1",
             str(audio_file),
         ],
         text=True,
@@ -547,10 +499,10 @@ def probe_duration_ms(
     return max(
         1,
         round(duration * 1000),
-      )
-def srt_time(
-    ms: int,
-) -> str:
+    )
+
+
+def srt_time(ms: int) -> str:
     hours = ms // 3_600_000
     ms %= 3_600_000
 
@@ -560,7 +512,13 @@ def srt_time(
     seconds = ms // 1_000
     millis = ms % 1_000
 
-    return f"{hours:02}:{minutes:02}:{seconds:02},{millis:03}"
+    return (
+        f"{hours:02}:"
+        f"{minutes:02}:"
+        f"{seconds:02},"
+        f"{millis:03}"
+    )
+
 
 def make_silence_wav(
     output_file: Path,
@@ -581,9 +539,7 @@ def make_silence_wav(
     ) as wav_file:
         wav_file.setnchannels(1)
         wav_file.setsampwidth(2)
-        wav_file.setframerate(
-            SAMPLE_RATE
-        )
+        wav_file.setframerate(SAMPLE_RATE)
 
         wav_file.writeframes(
             b"\x00\x00" * frames
@@ -620,8 +576,7 @@ def concat_wav_files(
 ) -> None:
     if not wav_files:
         raise RuntimeError(
-            "No hay archivos WAV "
-            "para concatenar"
+            "No hay archivos WAV para concatenar"
         )
 
     command = [
@@ -641,8 +596,7 @@ def concat_wav_files(
 
     inputs = "".join(
         f"[{index}:a]"
-        for index
-        in range(len(wav_files))
+        for index in range(len(wav_files))
     )
 
     filter_complex = (
@@ -690,9 +644,7 @@ async def build_prosodic_audio(
         prefix="prosody-"
     ) as temp_dir:
         temp = Path(temp_dir)
-
         wav_parts: list[Path] = []
-
         cursor_ms = 0
 
         for segment in plan:
@@ -704,17 +656,9 @@ async def build_prosodic_audio(
                 segment.index + 1
             )
 
-            # --------------------------
-            # PAUSA PREVIA
-            # --------------------------
-
-            if (
-                segment.pre_pause_ms
-                > 0
-            ):
+            if segment.pre_pause_ms > 0:
                 pre_file = temp / (
-                    f"{segment_number:03}"
-                    "-pre.wav"
+                    f"{segment_number:03}-pre.wav"
                 )
 
                 make_silence_wav(
@@ -722,37 +666,25 @@ async def build_prosodic_audio(
                     segment.pre_pause_ms,
                 )
 
-                wav_parts.append(
-                    pre_file
-                )
+                wav_parts.append(pre_file)
 
                 cursor_ms += (
                     segment.pre_pause_ms
                 )
 
-            speech_start_ms = (
-                cursor_ms
-            )
-
-            # --------------------------
-            # VOZ DEL SEGMENTO
-            # --------------------------
+            speech_start_ms = cursor_ms
 
             mp3_file = temp / (
-                f"{segment_number:03}"
-                "-speech.mp3"
+                f"{segment_number:03}-speech.mp3"
             )
 
             wav_file = temp / (
-                f"{segment_number:03}"
-                "-speech.wav"
+                f"{segment_number:03}-speech.wav"
             )
 
-            local_words = await (
-                synthesize_segment(
-                    segment,
-                    mp3_file,
-                )
+            local_words = await synthesize_segment(
+                segment,
+                mp3_file,
             )
 
             convert_mp3_to_wav(
@@ -760,65 +692,37 @@ async def build_prosodic_audio(
                 wav_file,
             )
 
-            wav_parts.append(
+            wav_parts.append(wav_file)
+
+            speech_duration_ms = probe_duration_ms(
                 wav_file
             )
 
-            speech_duration_ms = (
-                probe_duration_ms(
-                    wav_file
-                )
-            )
-
-            # El timeline global se
-            # reconstruye desplazando
-            # cada WordBoundary según
-            # las pausas anteriores.
             for word in local_words:
                 global_words.append(
                     {
-                        "text":
-                            word["text"],
-
-                        "startMs":
+                        "text": word["text"],
+                        "startMs": (
                             speech_start_ms
-                            + word[
-                                "startMs"
-                            ],
-
-                        "endMs":
+                            + word["startMs"]
+                        ),
+                        "endMs": (
                             speech_start_ms
-                            + word[
-                                "endMs"
-                            ],
-
+                            + word["endMs"]
+                        ),
                         "segmentIndex":
                             segment.index,
-
                         "prosodyRole":
                             segment.role,
                     }
                 )
 
-            cursor_ms += (
-                speech_duration_ms
-            )
+            cursor_ms += speech_duration_ms
+            speech_end_ms = cursor_ms
 
-            speech_end_ms = (
-                cursor_ms
-            )
-
-            # --------------------------
-            # PAUSA POSTERIOR
-            # --------------------------
-
-            if (
-                segment.post_pause_ms
-                > 0
-            ):
+            if segment.post_pause_ms > 0:
                 post_file = temp / (
-                    f"{segment_number:03}"
-                    "-post.wav"
+                    f"{segment_number:03}-post.wav"
                 )
 
                 make_silence_wav(
@@ -826,9 +730,7 @@ async def build_prosodic_audio(
                     segment.post_pause_ms,
                 )
 
-                wav_parts.append(
-                    post_file
-                )
+                wav_parts.append(post_file)
 
                 cursor_ms += (
                     segment.post_pause_ms
@@ -837,27 +739,18 @@ async def build_prosodic_audio(
             effective_segments.append(
                 {
                     **asdict(segment),
-
                     "speechStartMs":
                         speech_start_ms,
-
                     "speechEndMs":
                         speech_end_ms,
-
                     "effectiveEndMs":
                         cursor_ms,
-
                     "speechDurationMs":
                         speech_duration_ms,
-
                     "profile":
                         asdict(profile),
                 }
             )
-
-        # --------------------------
-        # AUDIO FINAL
-        # --------------------------
 
         concat_wav_files(
             wav_parts,
@@ -869,60 +762,48 @@ async def build_prosodic_audio(
         or AUDIO.stat().st_size == 0
     ):
         raise RuntimeError(
-            "No se generó narración "
-            "prosódica final"
+            "No se generó narración prosódica final"
         )
 
     if len(global_words) < 5:
         raise RuntimeError(
-            "Timeline prosódico "
-            "insuficiente"
+            "Timeline prosódico insuficiente"
         )
 
-    # Validación monotónica
     previous_start = -1
 
     for index, word in enumerate(
         global_words
     ):
-        if (
-            word["startMs"]
-            < previous_start
-        ):
+        if word["startMs"] < previous_start:
             raise RuntimeError(
                 "Timeline no monotónico "
                 f"en palabra {index}"
             )
 
-        if (
-            word["endMs"]
-            < word["startMs"]
-        ):
+        if word["endMs"] < word["startMs"]:
             raise RuntimeError(
                 "Duración inválida "
                 f"en palabra {index}"
             )
 
-        previous_start = (
-            word["startMs"]
-        )
+        previous_start = word["startMs"]
 
-    final_audio_duration_ms = (
-        probe_duration_ms(
-            AUDIO
-        )
+    final_audio_duration_ms = probe_duration_ms(
+        AUDIO
     )
 
     return (
         global_words,
         effective_segments,
         final_audio_duration_ms,
-          )
+    )
+
+
 def write_srt(
     segments: list[dict],
 ) -> None:
     blocks: list[str] = []
-
     counter = 1
 
     for segment in segments:
@@ -961,8 +842,7 @@ def write_srt(
         counter += 1
 
     SRT.write_text(
-        "\n\n".join(blocks)
-        + "\n",
+        "\n\n".join(blocks) + "\n",
         encoding="utf-8",
     )
 
@@ -1021,9 +901,7 @@ def read_tags(
         raw_tags,
         str,
     ):
-        return [
-            raw_tags
-        ]
+        return [raw_tags]
 
     if isinstance(
         raw_tags,
@@ -1043,17 +921,26 @@ def write_timeline(
     duration_ms: int,
 ) -> None:
     payload = {
+        "schemaVersion":
+            "2.0",
+
         "productionCode":
             PRODUCTION_CODE,
 
         "version":
-            "V3.13-PROSODY-DIRECTOR",
+            "V3.15-C-PROSODY-DIRECTOR",
 
         "engine":
             "edge-tts-segmented-prosody",
 
+        "language":
+            LANGUAGE,
+
         "voice":
             VOICE,
+
+        "wordCount":
+            len(words),
 
         "durationMs":
             duration_ms,
@@ -1094,7 +981,7 @@ def write_prosody_plan(
             PRODUCTION_CODE,
 
         "version":
-            "V3.13-PROSODY-DIRECTOR",
+            "V3.15-C-PROSODY-DIRECTOR",
 
         "directorDecision": {
             "openingTransformed":
@@ -1107,7 +994,8 @@ def write_prosody_plan(
                     else None
                 ),
 
-            "segmentCount":
+            "segmentCount"
+                "segmentCount":
                 len(plan),
 
             "durationMs":
@@ -1143,7 +1031,7 @@ async def main() -> None:
     )
 
     print(
-        "V3.13 — PROSODY & OPENING DIRECTOR"
+        "V3.15-C — INTEGRATED PROSODY DIRECTOR"
     )
 
     print(
@@ -1152,13 +1040,8 @@ async def main() -> None:
 
     spec = load_video_spec()
 
-    narration = read_narration(
-        spec
-    )
-
-    tags = read_tags(
-        spec
-    )
+    narration = read_narration(spec)
+    tags = read_tags(spec)
 
     plan = build_segment_plan(
         narration,
@@ -1166,34 +1049,18 @@ async def main() -> None:
     )
 
     print(
-        f"Segmentos detectados: "
-        f"{len(plan)}"
+        f"Segmentos detectados: {len(plan)}"
     )
 
     if plan:
-        print(
-            "Apertura original:"
-        )
+        print("Apertura original:")
+        print(plan[0].original_text)
 
-        print(
-            plan[0].original_text
-        )
+        print("Apertura dirigida:")
+        print(plan[0].spoken_text)
 
-        print(
-            "Apertura dirigida:"
-        )
-
-        print(
-            plan[0].spoken_text
-        )
-
-        print(
-            "Rol de apertura:"
-        )
-
-        print(
-            plan[0].role
-        )
+        print("Rol de apertura:")
+        print(plan[0].role)
 
     (
         words,
@@ -1225,30 +1092,20 @@ async def main() -> None:
     )
 
     print(
-        f"Palabras sincronizadas: "
-        f"{len(words)}"
+        f"Palabras sincronizadas: {len(words)}"
     )
 
     print(
-        f"Duración final de voz: "
+        "Duración final de voz: "
         f"{duration_ms / 1000:.3f} s"
     )
 
-    print(
-        f"Audio: {AUDIO}"
-    )
+    print(f"Audio: {AUDIO}")
+    print(f"Timeline: {TIMELINE}")
+    print(f"SRT: {SRT}")
 
     print(
-        f"Timeline: {TIMELINE}"
-    )
-
-    print(
-        f"SRT: {SRT}"
-    )
-
-    print(
-        f"Prosody plan: "
-        f"{PROSODY_PLAN}"
+        f"Prosody plan: {PROSODY_PLAN}"
     )
 
     print(
@@ -1263,5 +1120,4 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(
         main()
-      )
-  
+        )
