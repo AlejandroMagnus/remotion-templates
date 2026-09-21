@@ -4,6 +4,7 @@ import path from "node:path";
 import {
   type PexelsResolvedAsset,
   searchPexelsPhotos,
+  searchPexelsVideo,
 } from "../src/assets/providers/pexelsProvider";
 
 import {
@@ -15,21 +16,28 @@ import {
 const ROOT = process.cwd();
 
 const productionCode =
-  process.env.PRODUCTION_CODE ?? "video-juridico-001";
+  process.env.PRODUCTION_CODE ??
+  "video-juridico-001";
 
 /*
- * V3.15-B3.1
+ * V3.15-D
+ * MULTIMODAL VISUAL DIRECTOR
  *
- * SUPABASE_URL puede recibirse en cualquiera de estas formas:
+ * Conserva:
+ * - ranking semántico fotográfico
+ * - localización
+ * - diversidad
+ * - memoria histórica
+ * - Supabase
+ * - fallback local
  *
- * https://xxxxx.supabase.co
- * https://xxxxx.supabase.co/
- * https://xxxxx.supabase.co/rest/v1
- * https://xxxxx.supabase.co/rest/v1/
- *
- * normalizeSupabaseRestUrl() garantiza que internamente
- * siempre tengamos exactamente UNA ruta /rest/v1.
+ * Añade:
+ * - decisión IMAGE / VIDEO
+ * - búsqueda de video Pexels
+ * - fallback automático VIDEO -> IMAGE
+ * - manifest multimodal
  */
+
 function normalizeSupabaseRestUrl(
   rawUrl: string | undefined,
 ): string | null {
@@ -37,9 +45,16 @@ function normalizeSupabaseRestUrl(
     return null;
   }
 
-  let url = rawUrl.trim().replace(/\/+$/, "");
+  const url =
+    rawUrl
+      .trim()
+      .replace(/\/+$/, "");
 
-  if (url.endsWith("/rest/v1")) {
+  if (
+    url.endsWith(
+      "/rest/v1",
+    )
+  ) {
     return url;
   }
 
@@ -54,25 +69,29 @@ const SUPABASE_REST_URL =
 const SUPABASE_SECRET_KEY =
   process.env.SUPABASE_SECRET_KEY;
 
-const planPath = path.join(
-  ROOT,
-  `public/generated/${productionCode}-asset-scene-plan.json`,
-);
+const planPath =
+  path.join(
+    ROOT,
+    `public/generated/${productionCode}-asset-scene-plan.json`,
+  );
 
-const outputDir = path.join(
-  ROOT,
-  "public/generated/assets",
-);
+const outputDir =
+  path.join(
+    ROOT,
+    "public/generated/assets",
+  );
 
-const manifestPath = path.join(
-  ROOT,
-  `public/generated/${productionCode}-resolved-assets.json`,
-);
+const manifestPath =
+  path.join(
+    ROOT,
+    `public/generated/${productionCode}-resolved-assets.json`,
+  );
 
-const visualMemoryPath = path.join(
-  ROOT,
-  "data/visual-memory.json",
-);
+const visualMemoryPath =
+  path.join(
+    ROOT,
+    "data/visual-memory.json",
+  );
 
 type VisualMemoryAsset = {
   provider: string;
@@ -99,28 +118,107 @@ type SupabaseMemoryRow = {
   use_count: number;
 };
 
-const EMPTY_MEMORY: VisualMemory = {
-  version: "V3.15-B3.1-SUPABASE",
-  assets: [],
+type DirectorMediaDecision = {
+  preferredMediaType:
+    | "image"
+    | "video";
+
+  reason: string;
+
+  motionScore: number;
+  stillScore: number;
 };
 
-const usedProviderIds =
-  new Set<number>();
+type SceneWithTiming =
+  DirectorScene & {
+    id: string;
+    startMs: number;
+    endMs: number;
+    durationMs: number;
+    route: string;
+    ruleId: string;
+    concept?: string;
+    narrationContext?: string;
+  };
+
+type RankedCandidate = {
+  asset:
+    PexelsResolvedAsset;
+
+  query: string;
+
+  score:
+    ReturnType<
+      typeof rankVisualCandidate
+    >;
+
+  historicalPenalty:
+    number;
+
+  historicalUseCount:
+    number;
+
+  previousProduction:
+    string | null;
+
+  finalScore:
+    number;
+};
+
+const EMPTY_MEMORY:
+  VisualMemory = {
+    version:
+      "V3.15-D-MULTIMODAL",
+    assets: [],
+  };
+
+const usedProviderKeys =
+  new Set<string>();
 
 const usedSourceUrls =
   new Set<string>();
 
 const creatorUsage =
-  new Map<string, number>();
+  new Map<
+    string,
+    number
+  >();
 
-const searchCache =
+const photoSearchCache =
   new Map<
     string,
     PexelsResolvedAsset[]
   >();
 
-function loadLocalMemory(): VisualMemory {
-  if (!fs.existsSync(visualMemoryPath)) {
+const videoSearchCache =
+  new Map<
+    string,
+    PexelsResolvedAsset | null
+  >();
+
+function providerKey(
+  asset: PexelsResolvedAsset,
+): string {
+  /*
+   * Una foto y un video de Pexels
+   * pueden compartir espacio numérico
+   * de IDs. El mediaType forma parte
+   * de la clave de ejecución.
+   */
+  return [
+    asset.provider,
+    asset.mediaType,
+    asset.providerId,
+  ].join(":");
+}
+
+function loadLocalMemory():
+  VisualMemory {
+  if (
+    !fs.existsSync(
+      visualMemoryPath,
+    )
+  ) {
     return {
       ...EMPTY_MEMORY,
       assets: [],
@@ -128,12 +226,13 @@ function loadLocalMemory(): VisualMemory {
   }
 
   try {
-    const parsed = JSON.parse(
-      fs.readFileSync(
-        visualMemoryPath,
-        "utf8",
-      ),
-    ) as Partial<VisualMemory>;
+    const parsed =
+      JSON.parse(
+        fs.readFileSync(
+          visualMemoryPath,
+          "utf8",
+        ),
+      ) as Partial<VisualMemory>;
 
     return {
       version:
@@ -141,7 +240,9 @@ function loadLocalMemory(): VisualMemory {
         EMPTY_MEMORY.version,
 
       assets:
-        Array.isArray(parsed.assets)
+        Array.isArray(
+          parsed.assets,
+        )
           ? parsed.assets
           : [],
     };
@@ -162,7 +263,9 @@ function saveLocalMemory(
   memory: VisualMemory,
 ) {
   fs.mkdirSync(
-    path.dirname(visualMemoryPath),
+    path.dirname(
+      visualMemoryPath,
+    ),
     {
       recursive: true,
     },
@@ -178,7 +281,8 @@ function saveLocalMemory(
   );
 }
 
-function supabaseConfigured(): boolean {
+function supabaseConfigured():
+  boolean {
   return Boolean(
     SUPABASE_REST_URL &&
       SUPABASE_SECRET_KEY,
@@ -199,27 +303,31 @@ async function supabaseRequest<T>(
   }
 
   const cleanPath =
-    pathname.replace(/^\/+/, "");
+    pathname.replace(
+      /^\/+/,
+      "",
+    );
 
-  const response = await fetch(
-    `${SUPABASE_REST_URL}/${cleanPath}`,
-    {
-      ...init,
+  const response =
+    await fetch(
+      `${SUPABASE_REST_URL}/${cleanPath}`,
+      {
+        ...init,
 
-      headers: {
-        apikey:
-          SUPABASE_SECRET_KEY,
+        headers: {
+          apikey:
+            SUPABASE_SECRET_KEY,
 
-        Authorization:
-          `Bearer ${SUPABASE_SECRET_KEY}`,
+          Authorization:
+            `Bearer ${SUPABASE_SECRET_KEY}`,
 
-        "Content-Type":
-          "application/json",
+          "Content-Type":
+            "application/json",
 
-        ...(init.headers ?? {}),
+          ...(init.headers ?? {}),
+        },
       },
-    },
-  );
+    );
 
   if (!response.ok) {
     const body =
@@ -243,12 +351,16 @@ async function supabaseRequest<T>(
     return undefined as T;
   }
 
-  return JSON.parse(text) as T;
+  return JSON.parse(
+    text,
+  ) as T;
 }
 
 async function loadSupabaseMemory():
   Promise<VisualMemory | null> {
-  if (!supabaseConfigured()) {
+  if (
+    !supabaseConfigured()
+  ) {
     console.warn(
       "SUPABASE_URL / SUPABASE_SECRET_KEY unavailable. Using local fallback.",
     );
@@ -267,31 +379,35 @@ async function loadSupabaseMemory():
 
     return {
       version:
-        "V3.15-B3.1-SUPABASE",
+        "V3.15-D-MULTIMODAL",
 
       assets:
-        rows.map((row) => ({
-          provider:
-            row.provider,
+        rows.map(
+          (row) => ({
+            provider:
+              row.provider,
 
-          providerId:
-            row.provider_asset_id,
+            providerId:
+              row.provider_asset_id,
 
-          sourceUrl:
-            row.source_url ?? "",
+            sourceUrl:
+              row.source_url ??
+              "",
 
-          creator:
-            row.creator ?? "",
+            creator:
+              row.creator ??
+              "",
 
-          lastProductionCode:
-            row.production_code,
+            lastProductionCode:
+              row.production_code,
 
-          lastUsedAt:
-            row.last_used_at,
+            lastUsedAt:
+              row.last_used_at,
 
-          useCount:
-            row.use_count,
-        })),
+            useCount:
+              row.use_count,
+          }),
+        ),
     };
   } catch (error) {
     console.warn(
@@ -304,8 +420,10 @@ async function loadSupabaseMemory():
 }
 
 function mergeMemories(
-  primary: VisualMemory | null,
-  fallback: VisualMemory,
+  primary:
+    VisualMemory | null,
+  fallback:
+    VisualMemory,
 ): VisualMemory {
   if (!primary) {
     return fallback;
@@ -318,7 +436,8 @@ function mergeMemories(
     >();
 
   for (
-    const item of fallback.assets
+    const item
+    of fallback.assets
   ) {
     merged.set(
       `${item.provider}:${item.providerId}`,
@@ -327,7 +446,8 @@ function mergeMemories(
   }
 
   for (
-    const item of primary.assets
+    const item
+    of primary.assets
   ) {
     merged.set(
       `${item.provider}:${item.providerId}`,
@@ -337,18 +457,22 @@ function mergeMemories(
 
   return {
     version:
-      "V3.15-B3.1-SUPABASE",
+      "V3.15-D-MULTIMODAL",
 
     assets:
       [...merged.values()],
   };
 }
 
-async function cachedSearch(
+async function cachedPhotoSearch(
   query: string,
-): Promise<PexelsResolvedAsset[]> {
+): Promise<
+  PexelsResolvedAsset[]
+> {
   const cached =
-    searchCache.get(query);
+    photoSearchCache.get(
+      query,
+    );
 
   if (cached) {
     return cached;
@@ -360,8 +484,49 @@ async function cachedSearch(
       30,
     );
 
-  searchCache.set(
+  photoSearchCache.set(
     query,
+    result,
+  );
+
+  return result;
+}
+
+async function cachedVideoSearch(
+  query: string,
+  requiredDurationMs: number,
+): Promise<
+  PexelsResolvedAsset | null
+> {
+  /*
+   * La duración forma parte
+   * de la clave porque una escena
+   * más larga puede invalidar un
+   * clip que sí servía para otra.
+   */
+  const cacheKey =
+    `${query}::${requiredDurationMs}`;
+
+  if (
+    videoSearchCache.has(
+      cacheKey,
+    )
+  ) {
+    return (
+      videoSearchCache.get(
+        cacheKey,
+      ) ?? null
+    );
+  }
+
+  const result =
+    await searchPexelsVideo(
+      query,
+      requiredDurationMs,
+    );
+
+  videoSearchCache.set(
+    cacheKey,
     result,
   );
 
@@ -390,8 +555,10 @@ async function download(
 }
 
 function findHistoricalAsset(
-  asset: PexelsResolvedAsset,
-  memory: VisualMemory,
+  asset:
+    PexelsResolvedAsset,
+  memory:
+    VisualMemory,
 ):
   | VisualMemoryAsset
   | undefined {
@@ -416,8 +583,10 @@ function findHistoricalAsset(
 }
 
 function historicalPenalty(
-  asset: PexelsResolvedAsset,
-  memory: VisualMemory,
+  asset:
+    PexelsResolvedAsset,
+  memory:
+    VisualMemory,
 ): {
   penalty: number;
   previousUseCount: number;
@@ -462,8 +631,10 @@ function historicalPenalty(
 }
 
 function registerLocalHistoricalUse(
-  memory: VisualMemory,
-  asset: PexelsResolvedAsset,
+  memory:
+    VisualMemory,
+  asset:
+    PexelsResolvedAsset,
 ) {
   const now =
     new Date().toISOString();
@@ -493,7 +664,8 @@ function registerLocalHistoricalUse(
   }
 
   memory.assets.push({
-    provider: "pexels",
+    provider:
+      "pexels",
 
     providerId:
       String(
@@ -512,14 +684,18 @@ function registerLocalHistoricalUse(
     lastUsedAt:
       now,
 
-    useCount: 1,
+    useCount:
+      1,
   });
 }
 
 async function registerSupabaseHistoricalUse(
-  asset: PexelsResolvedAsset,
+  asset:
+    PexelsResolvedAsset,
 ) {
-  if (!supabaseConfigured()) {
+  if (
+    !supabaseConfigured()
+  ) {
     return;
   }
 
@@ -556,7 +732,8 @@ async function registerSupabaseHistoricalUse(
           providerId,
         )}`,
       {
-        method: "PATCH",
+        method:
+          "PATCH",
 
         headers: {
           Prefer:
@@ -579,7 +756,13 @@ async function registerSupabaseHistoricalUse(
 
             use_count:
               existing[0]
-                .use_count + 1,
+                .use_count +
+              1,
+
+            metadata: {
+              mediaType:
+                asset.mediaType,
+            },
           }),
       },
     );
@@ -590,7 +773,8 @@ async function registerSupabaseHistoricalUse(
   await supabaseRequest<void>(
     "audiovisual_visual_memory",
     {
-      method: "POST",
+      method:
+        "POST",
 
       headers: {
         Prefer:
@@ -620,17 +804,244 @@ async function registerSupabaseHistoricalUse(
           last_used_at:
             now,
 
-          use_count: 1,
+          use_count:
+            1,
 
-          metadata: {},
+          metadata: {
+            mediaType:
+              asset.mediaType,
+          },
         }),
     },
   );
 }
 
+function decideMediaType(
+  scene:
+    SceneWithTiming,
+): DirectorMediaDecision {
+  const semanticText =
+    [
+      scene.ruleId,
+      scene.concept ?? "",
+      scene.narrationContext ??
+        "",
+    ]
+      .join(" ")
+      .toLowerCase();
+
+  /*
+   * Señales donde movimiento humano,
+   * empresarial o contextual suele
+   * comunicar mejor que una imagen fija.
+   */
+  const motionSignals = [
+    "decision",
+    "decisión",
+    "decidir",
+    "negotiation",
+    "negociación",
+    "negociar",
+    "meeting",
+    "reunion",
+    "reunión",
+    "business",
+    "empresa",
+    "empresarial",
+    "operation",
+    "operación",
+    "conflict",
+    "conflicto",
+    "discussion",
+    "discusión",
+    "action",
+    "acción",
+    "execution",
+    "ejecución",
+    "counterparty",
+    "contraparte",
+    "risk",
+    "riesgo",
+    "patrimonio",
+    "assets",
+    "activos",
+    "communication",
+    "comunicación",
+    "conversation",
+    "conversación",
+  ];
+
+  /*
+   * Señales donde un plano fijo,
+   * documento o composición 2.5D
+   * suele resultar más preciso.
+   */
+  const stillSignals = [
+    "document",
+    "documento",
+    "contract",
+    "contrato",
+    "evidence",
+    "prueba",
+    "legal text",
+    "texto legal",
+    "norma",
+    "law",
+    "ley",
+    "signature",
+    "firma",
+    "authority",
+    "autoridad",
+    "jurisprudencia",
+    "expediente",
+    "cta",
+    "closing",
+    "cierre",
+  ];
+
+  const motionScore =
+    motionSignals.filter(
+      (signal) =>
+        semanticText.includes(
+          signal,
+        ),
+    ).length;
+
+  const stillScore =
+    stillSignals.filter(
+      (signal) =>
+        semanticText.includes(
+          signal,
+        ),
+    ).length;
+
+  if (
+    scene.durationMs >=
+      2500 &&
+    motionScore >
+      stillScore
+  ) {
+    return {
+      preferredMediaType:
+        "video",
+
+      reason:
+        `semantic-motion advantage: ${motionScore} vs ${stillScore}`,
+
+      motionScore,
+      stillScore,
+    };
+  }
+
+  return {
+    preferredMediaType:
+      "image",
+
+    reason:
+      `semantic-still/default: ${motionScore} vs ${stillScore}`,
+
+    motionScore,
+    stillScore,
+  };
+}
+
+async function findVideoCandidate(
+  scene:
+    SceneWithTiming,
+  queries:
+    string[],
+  memory:
+    VisualMemory,
+): Promise<{
+  asset:
+    PexelsResolvedAsset;
+  query:
+    string;
+  historicalPenalty:
+    number;
+  historicalUseCount:
+    number;
+  previousProduction:
+    string | null;
+} | null> {
+  for (
+    const query
+    of queries
+  ) {
+    try {
+      const candidate =
+        await cachedVideoSearch(
+          query,
+          scene.durationMs,
+        );
+
+      if (!candidate) {
+        continue;
+      }
+
+      if (
+        usedProviderKeys.has(
+          providerKey(
+            candidate,
+          ),
+        ) ||
+        usedSourceUrls.has(
+          candidate.sourceUrl,
+        )
+      ) {
+        continue;
+      }
+
+      const history =
+        historicalPenalty(
+          candidate,
+          memory,
+        );
+
+      /*
+       * En V3.15-D evitamos
+       * preferentemente clips
+       * históricamente muy usados.
+       * Si la penalización es alta,
+       * probamos la siguiente query.
+       */
+      if (
+        history.penalty >= 56
+      ) {
+        continue;
+      }
+
+      return {
+        asset:
+          candidate,
+
+        query,
+
+        historicalPenalty:
+          history.penalty,
+
+        historicalUseCount:
+          history.previousUseCount,
+
+        previousProduction:
+          history.previousProduction,
+      };
+    } catch (error) {
+      console.warn(
+        `VIDEO SEARCH FAILED: ${query}`,
+        error,
+      );
+    }
+  }
+
+  return null;
+}
+
 async function main() {
   if (
-    !fs.existsSync(planPath)
+    !fs.existsSync(
+      planPath,
+    )
   ) {
     throw new Error(
       `Missing asset scene plan: ${planPath}`,
@@ -650,7 +1061,7 @@ async function main() {
     );
 
   console.log(
-    "\n=== VISUAL MEMORY V3.15-B3.1 / SUPABASE ===",
+    "\n=== VISUAL MEMORY V3.15-D / MULTIMODAL ===",
   );
 
   console.log(
@@ -689,27 +1100,22 @@ async function main() {
     );
 
   const scenes =
-    source.scenes ?? [];
-
-  const resolved: any[] =
+    source.scenes ??
     [];
+
+  const resolved:
+    any[] = [];
 
   for (
     let sceneIndex = 0;
     sceneIndex <
-    scenes.length;
+      scenes.length;
     sceneIndex++
   ) {
     const scene =
       scenes[
         sceneIndex
-      ] as DirectorScene & {
-        id: string;
-        startMs: number;
-        endMs: number;
-        durationMs: number;
-        route: string;
-      };
+      ] as SceneWithTiming;
 
     const queries =
       semanticQueries(
@@ -717,30 +1123,37 @@ async function main() {
         sceneIndex,
       );
 
-    type RankedCandidate = {
-      asset:
-        PexelsResolvedAsset;
+    const mediaDecision =
+      decideMediaType(
+        scene,
+      );
 
-      query: string;
+    console.log(
+      `\n[DIRECTOR ${
+        sceneIndex + 1
+      }/${scenes.length}] ${
+        scene.ruleId
+      }`,
+    );
 
-      score:
-        ReturnType<
-          typeof rankVisualCandidate
-        >;
+    console.log(
+      `MEDIA DIRECTOR: ${mediaDecision.preferredMediaType.toUpperCase()}`,
+    );
 
-      historicalPenalty:
-        number;
+    console.log(
+      `MEDIA REASON: ${mediaDecision.reason}`,
+    );
 
-      historicalUseCount:
-        number;
+    console.log(
+      `Queries: ${queries.length}`,
+    );
 
-      previousProduction:
-        string | null;
-
-      finalScore:
-        number;
-    };
-
+    /*
+     * El ranking fotográfico se conserva
+     * completo aunque la preferencia sea
+     * video. Así siempre existe un fallback
+     * visual de alta calidad.
+     */
     const candidateMap =
       new Map<
         number,
@@ -750,7 +1163,7 @@ async function main() {
     for (
       let queryIndex = 0;
       queryIndex <
-      queries.length;
+        queries.length;
       queryIndex++
     ) {
       const query =
@@ -759,7 +1172,7 @@ async function main() {
         ];
 
       const candidates =
-        await cachedSearch(
+        await cachedPhotoSearch(
           query,
         );
 
@@ -769,8 +1182,10 @@ async function main() {
           searchPosition,
         ) => {
           if (
-            usedProviderIds.has(
-              asset.providerId,
+            usedProviderKeys.has(
+              providerKey(
+                asset,
+              ),
             ) ||
             usedSourceUrls.has(
               asset.sourceUrl,
@@ -827,7 +1242,7 @@ async function main() {
                   history.previousUseCount,
 
                 previousProduction:
-                  history.previousProduction,
+                                    history.previousProduction,
 
                 finalScore,
               },
@@ -837,7 +1252,7 @@ async function main() {
       );
     }
 
-    const ranked =
+    const rankedPhotos =
       [
         ...candidateMap.values(),
       ].sort(
@@ -846,8 +1261,33 @@ async function main() {
           a.finalScore,
       );
 
-    const selected =
-      ranked[0];
+    const selectedPhoto =
+      rankedPhotos[0] ??
+      null;
+
+    console.log(
+      `Photo candidates: ${rankedPhotos.length}`,
+    );
+
+    let selectedVideo:
+      Awaited<
+        ReturnType<
+          typeof findVideoCandidate
+        >
+      > = null;
+
+    if (
+      mediaDecision
+        .preferredMediaType ===
+      "video"
+    ) {
+      selectedVideo =
+        await findVideoCandidate(
+          scene,
+          queries,
+          visualMemory,
+        );
+    }
 
     const base = {
       id:
@@ -875,41 +1315,74 @@ async function main() {
         scene.narrationContext,
     };
 
-    console.log(
-      `\n[DIRECTOR ${
-        sceneIndex + 1
-      }/${scenes.length}] ${
-        scene.ruleId
-      }`,
-    );
-
-    console.log(
-      `Queries: ${queries.length}`,
-    );
-
-    console.log(
-      `Candidates: ${ranked.length}`,
-    );
-
-    if (!selected) {
+    if (
+      !selectedVideo &&
+      !selectedPhoto
+    ) {
       console.log(
         "UNRESOLVED",
       );
 
       resolved.push({
         ...base,
+
         status:
           "unresolved",
+
+        mediaDecision: {
+          ...mediaDecision,
+
+          resolvedAs:
+            null,
+
+          fallbackToImage:
+            false,
+        },
       });
 
       continue;
     }
 
-    const asset =
-      selected.asset;
+    const usingVideo =
+      Boolean(
+        selectedVideo,
+      );
 
-    usedProviderIds.add(
-      asset.providerId,
+    const asset =
+      selectedVideo
+        ? selectedVideo.asset
+        : selectedPhoto!.asset;
+
+    const selectedQuery =
+      selectedVideo
+        ? selectedVideo.query
+        : selectedPhoto!.query;
+
+    const selectedHistoryPenalty =
+      selectedVideo
+        ? selectedVideo
+            .historicalPenalty
+        : selectedPhoto!
+            .historicalPenalty;
+
+    const selectedHistoryUseCount =
+      selectedVideo
+        ? selectedVideo
+            .historicalUseCount
+        : selectedPhoto!
+            .historicalUseCount;
+
+    const selectedPreviousProduction =
+      selectedVideo
+        ? selectedVideo
+            .previousProduction
+        : selectedPhoto!
+            .previousProduction;
+
+    usedProviderKeys.add(
+      providerKey(
+        asset,
+      ),
     );
 
     usedSourceUrls.add(
@@ -926,49 +1399,74 @@ async function main() {
     );
 
     console.log(
-      `SELECTED: ${
-        asset.providerId
-      } | BASE ${
-        selected.score.total
-      } | HISTORY -${
-        selected.historicalPenalty
-      } | FINAL ${
-        selected.finalScore
-      }`,
+      `RESOLVED AS: ${asset.mediaType.toUpperCase()}`,
     );
 
     console.log(
-      `ALT: ${
-        asset.altText ?? ""
-      }`,
+      `SELECTED: ${asset.providerId}`,
     );
 
     console.log(
-      `SEMANTIC HITS: ${selected.score.semanticHits.join(
-        ", ",
-      )}`,
+      `QUERY: ${selectedQuery}`,
     );
 
-    console.log(
-      `LOCALIZATION: ${selected.score.localizationHits.join(
-        ", ",
-      )}`,
-    );
+    if (usingVideo) {
+      console.log(
+        `VIDEO DURATION: ${asset.durationMs ?? 0} ms`,
+      );
+
+      console.log(
+        `HISTORY PENALTY: -${selectedHistoryPenalty}`,
+      );
+    } else {
+      console.log(
+        `BASE SCORE: ${selectedPhoto!.score.total}`,
+      );
+
+      console.log(
+        `HISTORY: -${selectedPhoto!.historicalPenalty}`,
+      );
+
+      console.log(
+        `FINAL: ${selectedPhoto!.finalScore}`,
+      );
+
+      console.log(
+        `ALT: ${asset.altText ?? ""}`,
+      );
+
+      console.log(
+        `SEMANTIC HITS: ${selectedPhoto!.score.semanticHits.join(
+          ", ",
+        )}`,
+      );
+
+      console.log(
+        `LOCALIZATION: ${selectedPhoto!.score.localizationHits.join(
+          ", ",
+        )}`,
+      );
+    }
 
     if (
-      selected
-        .historicalPenalty >
+      selectedHistoryPenalty >
       0
     ) {
       console.log(
         `PREVIOUSLY USED: ${
-          selected.previousProduction ??
+          selectedPreviousProduction ??
           "UNKNOWN"
         } | USE COUNT ${
-          selected.historicalUseCount
+          selectedHistoryUseCount
         }`,
       );
     }
+
+    const extension =
+      asset.mediaType ===
+      "video"
+        ? "mp4"
+        : "jpg";
 
     const filename =
       `${String(
@@ -977,7 +1475,7 @@ async function main() {
         2,
         "0",
       )}` +
-      `-${scene.ruleId}-${asset.providerId}.jpg`;
+      `-${scene.ruleId}-${asset.providerId}.${extension}`;
 
     const target =
       path.join(
@@ -995,6 +1493,138 @@ async function main() {
       asset,
     );
 
+    const photoDirectorSelection =
+      selectedPhoto
+        ? {
+            candidateCount:
+              rankedPhotos.length,
+
+            baseScore:
+              selectedPhoto
+                .score
+                .total,
+
+            historicalPenalty:
+              selectedPhoto
+                .historicalPenalty,
+
+            finalScore:
+              selectedPhoto
+                .finalScore,
+
+            previousUseCount:
+              selectedPhoto
+                .historicalUseCount,
+
+            previousProduction:
+              selectedPhoto
+                .previousProduction,
+
+            scoreBreakdown:
+              selectedPhoto
+                .score,
+
+            selectedAlt:
+              selectedPhoto
+                .asset
+                .altText ??
+              "",
+
+            topCandidates:
+              rankedPhotos
+                .slice(
+                  0,
+                  5,
+                )
+                .map(
+                  (
+                    candidate,
+                    rank,
+                  ) => ({
+                    rank:
+                      rank + 1,
+
+                    providerId:
+                      candidate
+                        .asset
+                        .providerId,
+
+                    mediaType:
+                      candidate
+                        .asset
+                        .mediaType,
+
+                    baseScore:
+                      candidate
+                        .score
+                        .total,
+
+                    historicalPenalty:
+                      candidate
+                        .historicalPenalty,
+
+                    finalScore:
+                      candidate
+                        .finalScore,
+
+                    alt:
+                      candidate
+                        .asset
+                        .altText ??
+                      "",
+
+                    query:
+                      candidate.query,
+
+                    semanticHits:
+                      candidate
+                        .score
+                        .semanticHits,
+
+                    localizationHits:
+                      candidate
+                        .score
+                        .localizationHits,
+                  }),
+                ),
+          }
+        : null;
+
+    const videoDirectorSelection =
+      selectedVideo
+        ? {
+            providerId:
+              selectedVideo
+                .asset
+                .providerId,
+
+            mediaType:
+              "video",
+
+            query:
+              selectedVideo
+                .query,
+
+            durationMs:
+              selectedVideo
+                .asset
+                .durationMs ??
+              0,
+
+            historicalPenalty:
+              selectedVideo
+                .historicalPenalty,
+
+            previousUseCount:
+              selectedVideo
+                .historicalUseCount,
+
+            previousProduction:
+              selectedVideo
+                .previousProduction,
+          }
+        : null;
+
     resolved.push({
       ...base,
 
@@ -1002,82 +1632,58 @@ async function main() {
         "resolved",
 
       query:
-        selected.query,
+        selectedQuery,
+
+      mediaDecision: {
+        preferred:
+          mediaDecision
+            .preferredMediaType,
+
+        resolvedAs:
+          asset.mediaType,
+
+        reason:
+          mediaDecision.reason,
+
+        motionScore:
+          mediaDecision.motionScore,
+
+        stillScore:
+          mediaDecision.stillScore,
+
+        fallbackToImage:
+          mediaDecision
+            .preferredMediaType ===
+            "video" &&
+          asset.mediaType ===
+            "image",
+      },
 
       directorSelection: {
-        candidateCount:
-          ranked.length,
+        mode:
+          usingVideo
+            ? "STOCK-VIDEO"
+            : "PHOTO-2.5D",
 
-        baseScore:
-          selected.score.total,
+        selectedMediaType:
+          asset.mediaType,
+
+        selectedQuery,
 
         historicalPenalty:
-          selected.historicalPenalty,
-
-        finalScore:
-          selected.finalScore,
+          selectedHistoryPenalty,
 
         previousUseCount:
-          selected.historicalUseCount,
+          selectedHistoryUseCount,
 
         previousProduction:
-          selected.previousProduction,
+          selectedPreviousProduction,
 
-        scoreBreakdown:
-          selected.score,
+        photo:
+          photoDirectorSelection,
 
-        selectedAlt:
-          asset.altText ?? "",
-
-        topCandidates:
-          ranked
-            .slice(0, 5)
-            .map(
-              (
-                candidate,
-                rank,
-              ) => ({
-                rank:
-                  rank + 1,
-
-                providerId:
-                  candidate
-                    .asset
-                    .providerId,
-
-                baseScore:
-                  candidate
-                    .score
-                    .total,
-
-                historicalPenalty:
-                  candidate
-                    .historicalPenalty,
-
-                finalScore:
-                  candidate
-                    .finalScore,
-
-                alt:
-                  candidate
-                    .asset
-                    .altText ??
-                  "",
-
-                query:
-                  candidate.query,
-
-                semanticHits:
-                  candidate
-                    .score
-                    .semanticHits,
-
-                localizationHits:
-                  candidate
-                    .score
-                    .localizationHits,
-              }),
-            ),
+        video:
+          videoDirectorSelection,
       },
 
       asset: {
@@ -1103,16 +1709,54 @@ async function main() {
     new Set(
       resolvedAssets.map(
         (item) =>
-          item.asset
-            .providerId,
+          [
+            item.asset
+              .provider,
+            item.asset
+              .mediaType,
+            item.asset
+              .providerId,
+          ].join(":"),
       ),
     ).size;
+
+  const imageCount =
+    resolvedAssets.filter(
+      (item) =>
+        item.asset
+          .mediaType ===
+        "image",
+    ).length;
+
+  const videoCount =
+    resolvedAssets.filter(
+      (item) =>
+        item.asset
+          .mediaType ===
+        "video",
+    ).length;
+
+  const requestedVideoCount =
+    resolvedAssets.filter(
+      (item) =>
+        item.mediaDecision
+          ?.preferred ===
+        "video",
+    ).length;
+
+  const videoFallbackCount =
+    resolvedAssets.filter(
+      (item) =>
+        item.mediaDecision
+          ?.fallbackToImage ===
+        true,
+    ).length;
 
   const manifest = {
     productionCode,
 
     version:
-      "V3.15-B3.1-SUPABASE-VISUAL-MEMORY",
+      "V3.15-D-MULTIMODAL-VISUAL-DIRECTOR",
 
     generatedAt:
       new Date().toISOString(),
@@ -1128,6 +1772,20 @@ async function main() {
       resolvedCount -
       uniqueCount,
 
+    mediaSummary: {
+      images:
+        imageCount,
+
+      videos:
+        videoCount,
+
+      videoPreferred:
+        requestedVideoCount,
+
+      videoFallbacks:
+        videoFallbackCount,
+    },
+
     historicalMemory: {
       backend:
         remoteMemory
@@ -1135,7 +1793,8 @@ async function main() {
           : "LOCAL-FALLBACK",
 
       loadedAssets:
-        visualMemory.assets
+        visualMemory
+          .assets
           .length,
 
       table:
@@ -1177,8 +1836,9 @@ async function main() {
   }
 
   /*
-   * Persistimos solo después de resolver
-   * y validar completamente los assets.
+   * La memoria remota se actualiza
+   * únicamente cuando toda la resolución
+   * multimodal terminó correctamente.
    */
   if (
     supabaseConfigured()
@@ -1188,11 +1848,12 @@ async function main() {
     );
 
     for (
-      const item of
-        resolvedAssets
+      const item
+      of resolvedAssets
     ) {
       await registerSupabaseHistoricalUse(
-        item.asset as PexelsResolvedAsset,
+        item.asset as
+          PexelsResolvedAsset,
       );
     }
 
@@ -1200,8 +1861,9 @@ async function main() {
       `Supabase memory updated: ${resolvedCount} assets`,
     );
   }
-    console.log(
-    "\n=== V3.15-B3.1 VISUAL MEMORY DIRECTOR ===",
+
+  console.log(
+    "\n=== V3.15-D MULTIMODAL VISUAL DIRECTOR ===",
   );
 
   console.log(
@@ -1217,6 +1879,22 @@ async function main() {
   );
 
   console.log(
+    `Images 2.5D: ${imageCount}`,
+  );
+
+  console.log(
+    `Stock videos: ${videoCount}`,
+  );
+
+  console.log(
+    `Video preferred: ${requestedVideoCount}`,
+  );
+
+  console.log(
+    `Video -> image fallbacks: ${videoFallbackCount}`,
+  );
+
+  console.log(
     `Duplicates: ${
       resolvedCount -
       uniqueCount
@@ -1229,6 +1907,10 @@ async function main() {
         ? "SUPABASE + LOCAL FALLBACK"
         : "LOCAL FALLBACK"
     }`,
+  );
+
+  console.log(
+    "==============================================",
   );
 }
 
