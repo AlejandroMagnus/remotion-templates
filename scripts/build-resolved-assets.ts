@@ -537,22 +537,91 @@ async function download(
   url: string,
   target: string,
 ) {
-  const response =
-    await fetch(url);
+  const maxAttempts = 4;
 
-  if (!response.ok) {
-    throw new Error(
-      `Download failed ${response.status}: ${url}`,
-    );
+  let lastError:
+    unknown = null;
+
+  for (
+    let attempt = 1;
+    attempt <= maxAttempts;
+    attempt++
+  ) {
+    try {
+      const response =
+        await fetch(
+          url,
+          {
+            signal:
+              AbortSignal.timeout(
+                60000,
+              ),
+          },
+        );
+
+      if (!response.ok) {
+        throw new Error(
+          `HTTP ${response.status}`,
+        );
+      }
+
+      const buffer =
+        Buffer.from(
+          await response.arrayBuffer(),
+        );
+
+      if (
+        buffer.length === 0
+      ) {
+        throw new Error(
+          "Empty asset response",
+        );
+      }
+
+      fs.writeFileSync(
+        target,
+        buffer,
+      );
+
+      if (
+        attempt > 1
+      ) {
+        console.log(
+          `DOWNLOAD RECOVERED ON ATTEMPT ${attempt}`,
+        );
+      }
+
+      return;
+    } catch (error) {
+      lastError =
+        error;
+
+      console.warn(
+        `DOWNLOAD ATTEMPT ${attempt}/${maxAttempts} FAILED: ${url}`,
+        error,
+      );
+
+      if (
+        attempt <
+        maxAttempts
+      ) {
+        await new Promise(
+          (resolve) =>
+            setTimeout(
+              resolve,
+              attempt * 2500,
+            ),
+        );
+      }
+    }
   }
 
-  fs.writeFileSync(
-    target,
-    Buffer.from(
-      await response.arrayBuffer(),
-    ),
+  throw new Error(
+    `Download failed after ${maxAttempts} attempts: ${url}. ` +
+      `Last error: ${String(lastError)}`,
   );
 }
+
 
 function findHistoricalAsset(
   asset:
