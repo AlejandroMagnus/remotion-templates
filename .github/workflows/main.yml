@@ -6,7 +6,7 @@ on:
       production_code:
         description: "Production code"
         required: true
-        default: "video-juridico-002"
+        default: "video-juridico-007"
         type: string
 
 permissions:
@@ -48,6 +48,28 @@ jobs:
           mkdir -p public/generated
           rm -rf out
           mkdir -p out
+
+      # ============================================================
+      # V3.16 — SILEC / PhD 12 → Q∞ → MEMORIA EDITORIAL
+      # ============================================================
+
+      - name: Construir paquete estratégico SILEC → Q∞
+        run: |
+          npx --yes tsx scripts/build-strategic-content-packet.ts \
+            "${PRODUCTION_CODE}"
+
+      - name: Precheck de Memoria Editorial
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/editorial-memory.ts \
+            precheck \
+            "${PRODUCTION_CODE}"
+
+      # ============================================================
+      # PIPELINE AUDIOVISUAL VALIDADO
+      # ============================================================
 
       - name: Generar narración prosódica y timeline palabra por palabra
         run: |
@@ -363,6 +385,17 @@ jobs:
 
           ls -lh \
             "out/${PRODUCTION_CODE}-FINAL.mp4"
+
+      # Solo se registra como contenido producido
+      # después de existir un MP4 final válido.
+      - name: Registrar Memoria Editorial
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/editorial-memory.ts \
+            register \
+            "${PRODUCTION_CODE}"
 
       - name: Subir MP4 final
         uses: actions/upload-artifact@v7
