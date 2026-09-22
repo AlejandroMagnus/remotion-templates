@@ -56,7 +56,7 @@ export const OwnershipMark: React.FC = () => {
     interpolate(
       frame,
       [0, Math.max(1, fps)],
-      [0, 0.105],
+      [0, 0.16],
       {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
