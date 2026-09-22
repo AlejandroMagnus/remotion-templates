@@ -7,64 +7,132 @@
     "description": "La estrategia probatoria comienza antes del litigio: identificar, preservar y organizar evidencia puede determinar la capacidad futura de demostrar y defender una posición jurídica.",
     "tags": [
       "prueba",
-      "estrategia probatoria",
-      "prevencion juridica",
+      "estrategia-probatoria",
+      "prevencion-juridica",
       "litigio",
       "empresa",
       "patrimonio",
-      "estrategia juridica",
+      "estrategia-juridica",
       "high-ticket"
     ]
   },
   "target": {
-    "aspectRatio": "9:16",
+    "aspect": "9:16",
     "fps": 30,
-    "durationSeconds": 90
+    "durationMode": "fixed",
+    "fixedDurationSec": 90
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
   },
   "audio": {
-    "narrationText": "La prueba más importante de un conflicto puede desaparecer antes de que exista una demanda.\n\nCuando surge una controversia de alto valor, muchas personas descubren demasiado tarde que el problema no era solamente jurídico. Era probatorio.\n\nUn correo que no fue preservado. Una conversación que nunca se documentó. Una modificación contractual ambigua. Una decisión empresarial sin respaldo suficiente. O una evidencia que existía, pero que ya no puede reconstruirse con precisión.\n\nPorque tener un derecho no significa automáticamente poder demostrar los hechos que permiten hacerlo valer.\n\nLa estrategia probatoria comienza mucho antes del juicio. Exige identificar qué deberá demostrarse, preservar documentos y comunicaciones, reconstruir cronologías y determinar qué evidencia podría sostener o debilitar cada posición.\n\nPero existe una pregunta todavía más importante: ¿qué intentará demostrar la contraparte?\n\nAnticipar esa respuesta permite detectar vacíos, contradicciones y riesgos cuando todavía existe tiempo para actuar legítimamente.\n\nEn controversias empresariales y patrimoniales de alto valor, una posición jurídicamente sólida también necesita una arquitectura probatoria capaz de resistir contradicción, negociación y litigio.\n\nLa prueba estratégica no comienza cuando llega la demanda. Comienza cuando aparece el riesgo.\n\nAntes de que una controversia comprometa patrimonio, empresa o una operación importante, diagnostique jurídicamente la prueba y el riesgo.",
-    "narrationSrc": "public/generated/video-juridico-007-narration.mp3"
+    "mode": "narration",
+    "narrationText": "La prueba más importante de un conflicto puede desaparecer antes de que exista una demanda. Cuando surge una controversia de alto valor, muchas personas descubren demasiado tarde que el problema no era solamente jurídico. Era probatorio. Un correo que no fue preservado. Una conversación que nunca se documentó. Una modificación contractual ambigua. Una decisión empresarial sin respaldo suficiente. O una evidencia que existía, pero que ya no puede reconstruirse con precisión. Porque tener un derecho no significa automáticamente poder demostrar los hechos que permiten hacerlo valer. La estrategia probatoria comienza mucho antes del juicio. Exige identificar qué deberá demostrarse, preservar documentos y comunicaciones, reconstruir cronologías y determinar qué evidencia podría sostener o debilitar cada posición. Pero existe una pregunta todavía más importante: ¿qué intentará demostrar la contraparte? Anticipar esa respuesta permite detectar vacíos, contradicciones y riesgos cuando todavía existe tiempo para actuar legítimamente. En controversias empresariales y patrimoniales de alto valor, una posición jurídicamente sólida también necesita una arquitectura probatoria capaz de resistir contradicción, negociación y litigio. La prueba estratégica no comienza cuando llega la demanda. Comienza cuando aparece el riesgo. Antes de que una controversia comprometa patrimonio, empresa o una operación importante, diagnostique jurídicamente la prueba y el riesgo.",
+    "narrationSrc": "public/generated/video-juridico-007-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.06,
+    "ducking": true
   },
+  "assets": {},
   "scenes": [
     {
       "id": "hook",
-      "title": "La prueba puede desaparecer",
-      "durationSeconds": 8
+      "kind": "hero",
+      "content": {
+        "title": "La prueba puede desaparecer",
+        "subtitle": "Incluso antes de que exista una demanda"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
     },
     {
       "id": "problema-probatorio",
-      "title": "El problema también es probatorio",
-      "durationSeconds": 12
+      "kind": "statement",
+      "content": {
+        "title": "El problema no siempre es solamente jurídico",
+        "subtitle": "Puede ser la imposibilidad de demostrar lo ocurrido"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
     },
     {
       "id": "evidencia",
-      "title": "La evidencia puede perderse",
-      "durationSeconds": 13
+      "kind": "points",
+      "content": {
+        "title": "La evidencia puede perderse",
+        "points": [
+          "Correos y comunicaciones",
+          "Decisiones y antecedentes",
+          "Documentos y modificaciones contractuales"
+        ]
+      },
+      "timing": {
+        "durationMs": 13000
+      }
     },
     {
       "id": "preservacion",
-      "title": "Preservar antes del conflicto",
-      "durationSeconds": 13
+      "kind": "statement",
+      "content": {
+        "title": "La estrategia probatoria comienza antes del juicio",
+        "subtitle": "Identificar, preservar y organizar evidencia antes de necesitarla"
+      },
+      "timing": {
+        "durationMs": 13000
+      }
     },
     {
       "id": "contraparte",
-      "title": "Anticipar a la contraparte",
-      "durationSeconds": 12
+      "kind": "statement",
+      "content": {
+        "title": "¿Qué intentará demostrar la contraparte?",
+        "subtitle": "Anticipar su posición permite descubrir vacíos y contradicciones"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
     },
     {
       "id": "arquitectura-probatoria",
-      "title": "Arquitectura probatoria",
-      "durationSeconds": 14
+      "kind": "points",
+      "content": {
+        "title": "Construir una arquitectura probatoria",
+        "points": [
+          "Reconstruir la cronología",
+          "Relacionar hechos y documentos",
+          "Preparar una posición capaz de resistir contradicción"
+        ]
+      },
+      "timing": {
+        "durationMs": 14000
+      }
     },
     {
       "id": "alto-valor",
-      "title": "Controversias de alto valor",
-      "durationSeconds": 11
+      "kind": "statement",
+      "content": {
+        "title": "Un derecho necesita poder demostrarse",
+        "subtitle": "Especialmente cuando están en riesgo patrimonio, empresa u operaciones de alto valor"
+      },
+      "timing": {
+        "durationMs": 11000
+      }
     },
     {
       "id": "cta",
-      "title": "Diagnosticar antes de necesitar defenderse",
-      "durationSeconds": 7
+      "kind": "cta",
+      "content": {
+        "line1": "La prueba estratégica comienza cuando aparece el riesgo",
+        "line2": "Diagnostique jurídicamente la prueba antes del conflicto"
+      },
+      "timing": {
+        "durationMs": 7000
+      }
     }
   ]
 }
