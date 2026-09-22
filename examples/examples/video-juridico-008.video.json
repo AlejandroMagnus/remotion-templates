@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0",
+  "id": "video-juridico-008",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "El peor momento para descubrir un riesgo jurídico es después de firmar",
+    "description": "La estrategia jurídica preventiva analiza riesgos, prueba, garantías, incumplimiento y mecanismos de salida antes de asumir obligaciones de alto valor.",
+    "tags": [
+      "prevencion-juridica",
+      "riesgo-contractual",
+      "contratos",
+      "negociacion",
+      "garantias",
+      "proteccion-patrimonial",
+      "empresa",
+      "estrategia-juridica",
+      "high-ticket"
+    ]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 90
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "El peor momento para descubrir un riesgo jurídico es después de firmar. En una operación importante, muchas personas concentran su atención en cerrar el acuerdo. Precio, plazos, obligaciones y firmas. Pero una operación jurídicamente segura exige una pregunta diferente: ¿qué ocurre si algo sale mal? Antes de firmar todavía existe capacidad para negociar condiciones, exigir garantías, distribuir riesgos, preservar prueba y establecer mecanismos de salida. Después de asumir las obligaciones, corregir una estructura deficiente puede depender de la voluntad de la contraparte, de una renegociación costosa o incluso de un litigio. Y una cláusula formalmente válida no necesariamente protege el patrimonio ni garantiza el resultado económico esperado. La estrategia preventiva analiza también el escenario de incumplimiento. ¿Qué deberá demostrarse? ¿Qué documentos existirán? ¿Qué garantía podrá ejecutarse? ¿Qué exposición patrimonial queda abierta? ¿Cómo puede terminarse la relación si el negocio deja de funcionar? Pensar estas preguntas antes de firmar permite transformar el contrato de un simple documento en una arquitectura de protección. En operaciones empresariales, patrimoniales o contractuales de alto valor, el análisis jurídico no debería comenzar cuando aparece el conflicto. Debería comenzar cuando todavía existen alternativas. La mejor estrategia jurídica no comienza cuando aparece el problema. Comienza antes de firmar.",
+    "narrationSrc": "public/generated/video-juridico-008-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.06,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "El riesgo jurídico puede comenzar con una firma",
+        "subtitle": "Descubrirlo después puede ser demasiado costoso"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    },
+    {
+      "id": "antes-de-firmar",
+      "kind": "statement",
+      "content": {
+        "title": "Antes de firmar todavía existen alternativas",
+        "subtitle": "Negociar, exigir garantías y distribuir riesgos"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "riesgos",
+      "kind": "points",
+      "content": {
+        "title": "No analice solamente las obligaciones",
+        "points": [
+          "Qué ocurre ante un incumplimiento",
+          "Qué prueba permitirá demostrarlo",
+          "Qué patrimonio queda expuesto"
+        ]
+      },
+      "timing": {
+        "durationMs": 13000
+      }
+    },
+    {
+      "id": "despues-de-firmar",
+      "kind": "statement",
+      "content": {
+        "title": "Después de firmar cambia el escenario",
+        "subtitle": "Corregir puede exigir renegociación, consentimiento o litigio"
+      },
+      "timing": {
+        "durationMs": 13000
+      }
+    },
+    {
+      "id": "preguntas",
+      "kind": "statement",
+      "content": {
+        "title": "¿Qué ocurre si el negocio deja de funcionar?",
+        "subtitle": "La estrategia debe anticipar el conflicto posible"
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "arquitectura",
+      "kind": "points",
+      "content": {
+        "title": "Construya una arquitectura de protección",
+        "points": [
+          "Garantías ejecutables",
+          "Prueba y documentación",
+          "Mecanismos de salida"
+        ]
+      },
+      "timing": {
+        "durationMs": 14000
+      }
+    },
+    {
+      "id": "alto-valor",
+      "kind": "statement",
+      "content": {
+        "title": "El análisis jurídico debe comenzar antes del conflicto",
+        "subtitle": "Especialmente cuando están en juego patrimonio, empresa u operaciones de alto valor"
+      },
+      "timing": {
+        "durationMs": 11000
+      }
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "La mejor estrategia jurídica comienza antes de firmar",
+        "line2": "Diagnostique el riesgo mientras todavía existen alternativas"
+      },
+      "timing": {
+        "durationMs": 7000
+      }
+    }
+  ]
+}
