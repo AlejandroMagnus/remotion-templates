@@ -49,6 +49,17 @@ jobs:
           rm -rf out
           mkdir -p out
 
+      - name: Construir paquete estratégico SILEC Q∞
+        run: |
+          npx --yes tsx scripts/build-strategic-content-packet.ts
+
+      - name: Control de Memoria Editorial
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/editorial-memory.ts precheck "${PRODUCTION_CODE}"
+
       - name: Generar narracion y timeline palabra por palabra
         run: |
           python3 <<'PY'
@@ -406,8 +417,7 @@ jobs:
 
           print("==============================================")
           PY
-
-      - name: Verify resolved assets
+                - name: Verify resolved assets
         run: |
           test -s "public/generated/${PRODUCTION_CODE}-resolved-assets.json"
           test -d public/generated/assets
@@ -476,6 +486,13 @@ jobs:
 
           ls -lh \
             "out/${PRODUCTION_CODE}-FINAL.mp4"
+
+      - name: Registrar producción en Memoria Editorial
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/editorial-memory.ts register "${PRODUCTION_CODE}"
 
       - name: Subir MP4 final
         uses: actions/upload-artifact@v7
