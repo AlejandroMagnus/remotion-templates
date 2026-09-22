@@ -11,21 +11,31 @@
     "El análisis preventivo debe estudiar qué ocurrirá si la contraparte incumple y qué prueba permitirá demostrarlo.",
     "La estrategia jurídica debe anticipar el conflicto posible antes de que el conflicto exista."
   ],
-  "keyConcepts": [
-    "prevención jurídica",
-    "riesgo contractual",
-    "negociación",
-    "garantías",
-    "prueba",
-    "incumplimiento",
-    "protección patrimonial",
-    "estrategia jurídica"
+  "conclusion": "La protección jurídica de alto nivel comienza antes de la firma, cuando todavía existe capacidad real para negociar, prevenir, distribuir y reducir riesgos.",
+  "targetAudience": [
+    "empresarios",
+    "directores y ejecutivos",
+    "inversionistas",
+    "propietarios de empresas",
+    "personas que realizan operaciones patrimoniales de alto valor",
+    "abogados y asesores jurídicos"
   ],
-  "strategicAngle": "Presentar al abogado estratégico como arquitecto preventivo de decisiones y riesgos, no únicamente como profesional que interviene cuando el conflicto ya existe.",
-  "audience": "Empresarios, ejecutivos, inversionistas, profesionales y personas que celebran contratos u operaciones de relevancia económica.",
-  "objective": "authority",
-  "jurisdiction": "Bolivia",
-  "language": "es",
+  "capabilityDemonstrated": [
+    "diagnóstico jurídico preventivo",
+    "análisis estratégico de contratos",
+    "identificación anticipada de riesgos",
+    "protección patrimonial",
+    "arquitectura jurídica de operaciones complejas"
+  ],
+  "commercialObjective": "Demostrar capacidad para diagnosticar anticipadamente riesgos jurídicos y estructurar operaciones empresariales, contractuales y patrimoniales de alto valor antes de que el conflicto se materialice.",
+  "offerPath": [
+    "contenido de autoridad",
+    "identificación del riesgo por el potencial cliente",
+    "consulta estratégica",
+    "diagnóstico jurídico integral",
+    "servicio jurídico premium"
+  ],
+  "hook": "El peor momento para descubrir un riesgo jurídico es después de firmar.",
   "closingIdea": "La mejor estrategia jurídica no comienza cuando aparece el problema. Comienza antes de firmar.",
-  "signature": "Francisco Alejandro Riveros Düllmann — MSc., PhD. — Estrategia Jurídica Integral Constitucionalizada"
+  "cta": "Antes de comprometer patrimonio, empresa o una operación importante, diagnostique jurídicamente el riesgo mientras todavía existen alternativas."
 }
