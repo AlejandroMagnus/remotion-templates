@@ -2,11 +2,30 @@
   "productionCode": "video-juridico-008",
   "topic": "Diagnóstico jurídico preventivo antes de firmar operaciones de alto valor",
   "centralThesis": "El momento más eficaz para gestionar un riesgo jurídico es antes de asumir obligaciones, porque después de la firma disminuyen las alternativas disponibles y aumenta el costo jurídico, económico y estratégico de corregir una decisión.",
-  "problem": "Empresas, inversionistas y particulares suelen concentrarse en cerrar una operación y revisar principalmente la redacción formal del documento, sin analizar suficientemente escenarios de incumplimiento, prueba, garantías, exposición patrimonial, mecanismos de salida y capacidad real de ejecución.",
+  "problem": "Empresas, inversionistas y particulares pueden concentrarse en cerrar una operación sin analizar suficientemente los escenarios de incumplimiento, la prueba disponible, las garantías, la exposición patrimonial, los mecanismos de salida y la capacidad real de ejecución.",
   "reasoningChain": [
-    "La firma transforma una negociación en un conjunto de obligaciones jurídicamente relevantes.",
-    "Antes de asumir esas obligaciones existe mayor capacidad para negociar condiciones, garantías, mecanismos de salida y distribución de riesgos.",
-    "Después de la firma, corregir una estructura jurídica deficiente puede depender del consentimiento de la contraparte, de una renegociación costosa o de un conflicto.",
-    "Una cláusula formalmente válida no necesariamente protege adecuadamente el patrimonio, la empresa o el resultado económico esperado.",
-    "El diagnóstico preventivo debe analizar no solamente qué promete cada parte, sino qué sucede ante incumplimiento, controversia o deterioro de la relación.",
-    "La decisión estratégica consiste en identificar anticipadamente los riesgos relevantes y estructurar mecanismos jurídicos capaces de reducir
+    "La firma transforma una negociación en obligaciones jurídicamente relevantes.",
+    "Antes de firmar existe mayor capacidad para negociar condiciones, garantías, mecanismos de salida y distribución de riesgos.",
+    "Después de la firma, corregir una estructura jurídica deficiente puede requerir consentimiento de la contraparte, renegociación o litigio.",
+    "Una cláusula formalmente válida no necesariamente protege adecuadamente el patrimonio o el resultado económico esperado.",
+    "El análisis preventivo debe estudiar qué ocurrirá si la contraparte incumple y qué prueba permitirá demostrarlo.",
+    "La estrategia jurídica debe anticipar el conflicto posible antes de que el conflicto exista."
+  ],
+  "keyConcepts": [
+    "prevención jurídica",
+    "riesgo contractual",
+    "negociación",
+    "garantías",
+    "prueba",
+    "incumplimiento",
+    "protección patrimonial",
+    "estrategia jurídica"
+  ],
+  "strategicAngle": "Presentar al abogado estratégico como arquitecto preventivo de decisiones y riesgos, no únicamente como profesional que interviene cuando el conflicto ya existe.",
+  "audience": "Empresarios, ejecutivos, inversionistas, profesionales y personas que celebran contratos u operaciones de relevancia económica.",
+  "objective": "authority",
+  "jurisdiction": "Bolivia",
+  "language": "es",
+  "closingIdea": "La mejor estrategia jurídica no comienza cuando aparece el problema. Comienza antes de firmar.",
+  "signature": "Francisco Alejandro Riveros Düllmann — MSc., PhD. — Estrategia Jurídica Integral Constitucionalizada"
+}
