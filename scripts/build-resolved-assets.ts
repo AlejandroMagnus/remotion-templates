@@ -20,8 +20,8 @@ const productionCode =
   "video-juridico-001";
 
 /*
- * V3.15-D
- * MULTIMODAL VISUAL DIRECTOR
+ * V3.18-F.2
+ * CREATIVE MULTIMODAL EXECUTION DIRECTOR
  *
  * Conserva:
  * - ranking semántico fotográfico
@@ -30,12 +30,19 @@ const productionCode =
  * - memoria histórica
  * - Supabase
  * - fallback local
+ * - búsqueda multimodal Pexels
+ * - resiliencia de descarga
  *
  * Añade:
- * - decisión IMAGE / VIDEO
- * - búsqueda de video Pexels
- * - fallback automático VIDEO -> IMAGE
- * - manifest multimodal
+ * - obediencia a mediaIntent V3.18-F.1
+ * - Creative Director > heurística legacy
+ * - graphic intent con fallback explícito
+ * - threeD intent con fallback explícito
+ *
+ * IMPORTANTE:
+ * graphic y threeD todavía son intenciones.
+ * Este archivo NO finge que existan ejecutores
+ * gráficos o 3D que aún no están conectados.
  */
 
 function normalizeSupabaseRestUrl(
@@ -127,7 +134,23 @@ type DirectorMediaDecision = {
 
   motionScore: number;
   stillScore: number;
+
+  creativeIntent:
+    | CreativeMediaIntent
+    | null;
+
+  executionFallback:
+    | "none"
+    | "graphic-to-image"
+    | "threeD-to-video"
+    | "legacy";
 };
+
+type CreativeMediaIntent =
+  | "photo"
+  | "video"
+  | "graphic"
+  | "threeD-intent";
 
 type SceneWithTiming =
   DirectorScene & {
@@ -139,6 +162,26 @@ type SceneWithTiming =
     ruleId: string;
     concept?: string;
     narrationContext?: string;
+
+    mediaIntent?:
+      CreativeMediaIntent;
+
+    mediaMix?: {
+      photo?: number;
+      video?: number;
+      graphic?: number;
+      threeD?: number;
+    };
+
+    creativeDirection?: {
+      genre?: string | null;
+      narrativeArchitecture?: string | null;
+      rhythm?: string | null;
+      visualLanguage?: string | null;
+      cameraProfile?: string | null;
+      transitionProfile?: string | null;
+      graphicDensity?: string | null;
+    };
   };
 
 type RankedCandidate = {
@@ -168,7 +211,7 @@ type RankedCandidate = {
 const EMPTY_MEMORY:
   VisualMemory = {
     version:
-      "V3.15-D-MULTIMODAL",
+      "V3.18-F.2-CREATIVE-MULTIMODAL",
     assets: [],
   };
 
@@ -199,12 +242,6 @@ const videoSearchCache =
 function providerKey(
   asset: PexelsResolvedAsset,
 ): string {
-  /*
-   * Una foto y un video de Pexels
-   * pueden compartir espacio numérico
-   * de IDs. El mediaType forma parte
-   * de la clave de ejecución.
-   */
   return [
     asset.provider,
     asset.mediaType,
@@ -379,7 +416,7 @@ async function loadSupabaseMemory():
 
     return {
       version:
-        "V3.15-D-MULTIMODAL",
+        "V3.18-F.2-CREATIVE-MULTIMODAL",
 
       assets:
         rows.map(
@@ -457,7 +494,7 @@ function mergeMemories(
 
   return {
     version:
-      "V3.15-D-MULTIMODAL",
+      "V3.18-F.2-CREATIVE-MULTIMODAL",
 
     assets:
       [...merged.values()],
@@ -498,12 +535,6 @@ async function cachedVideoSearch(
 ): Promise<
   PexelsResolvedAsset | null
 > {
-  /*
-   * La duración forma parte
-   * de la clave porque una escena
-   * más larga puede invalidar un
-   * clip que sí servía para otra.
-   */
   const cacheKey =
     `${query}::${requiredDurationMs}`;
 
@@ -620,9 +651,7 @@ async function download(
     `Download failed after ${maxAttempts} attempts: ${url}. ` +
       `Last error: ${String(lastError)}`,
   );
-}
-
-
+  }
 function findHistoricalAsset(
   asset:
     PexelsResolvedAsset,
@@ -885,10 +914,135 @@ async function registerSupabaseHistoricalUse(
   );
 }
 
+/*
+ * ============================================================
+ * V3.18-F.2
+ * CREATIVE MEDIA DECISION
+ * ============================================================
+ *
+ * El Director Creativo tiene prioridad.
+ *
+ * La heurística V3.15-D permanece únicamente
+ * como compatibilidad para planes antiguos.
+ */
+
 function decideMediaType(
   scene:
     SceneWithTiming,
 ): DirectorMediaDecision {
+  if (
+    scene.mediaIntent ===
+    "video"
+  ) {
+    return {
+      preferredMediaType:
+        "video",
+
+      reason:
+        "V3.18-F.2 creative-director mediaIntent=video",
+
+      motionScore:
+        100,
+
+      stillScore:
+        0,
+
+      creativeIntent:
+        "video",
+
+      executionFallback:
+        "none",
+    };
+  }
+
+  if (
+    scene.mediaIntent ===
+    "photo"
+  ) {
+    return {
+      preferredMediaType:
+        "image",
+
+      reason:
+        "V3.18-F.2 creative-director mediaIntent=photo",
+
+      motionScore:
+        0,
+
+      stillScore:
+        100,
+
+      creativeIntent:
+        "photo",
+
+      executionFallback:
+        "none",
+    };
+  }
+
+  /*
+   * No existe todavía un ejecutor gráfico
+   * independiente en este resolvedor.
+   * Conservamos la orden del Director y
+   * usamos imagen como fallback explícito.
+   */
+  if (
+    scene.mediaIntent ===
+    "graphic"
+  ) {
+    return {
+      preferredMediaType:
+        "image",
+
+      reason:
+        "V3.18-F.2 graphic-intent -> image fallback until graphic executor",
+
+      motionScore:
+        20,
+
+      stillScore:
+        100,
+
+      creativeIntent:
+        "graphic",
+
+      executionFallback:
+        "graphic-to-image",
+    };
+  }
+
+  /*
+   * Tampoco afirmamos capacidad 3D todavía.
+   * La intención se conserva y se ejecuta
+   * provisionalmente como video, con imagen
+   * como fallback posterior si Pexels no
+   * devuelve un clip válido.
+   */
+  if (
+    scene.mediaIntent ===
+    "threeD-intent"
+  ) {
+    return {
+      preferredMediaType:
+        "video",
+
+      reason:
+        "V3.18-F.2 threeD-intent -> video fallback until 3D executor",
+
+      motionScore:
+        100,
+
+      stillScore:
+        10,
+
+      creativeIntent:
+        "threeD-intent",
+
+      executionFallback:
+        "threeD-to-video",
+    };
+  }
+
   const semanticText =
     [
       scene.ruleId,
@@ -899,11 +1053,6 @@ function decideMediaType(
       .join(" ")
       .toLowerCase();
 
-  /*
-   * Señales donde movimiento humano,
-   * empresarial o contextual suele
-   * comunicar mejor que una imagen fija.
-   */
   const motionSignals = [
     "decision",
     "decisión",
@@ -940,11 +1089,6 @@ function decideMediaType(
     "conversación",
   ];
 
-  /*
-   * Señales donde un plano fijo,
-   * documento o composición 2.5D
-   * suele resultar más preciso.
-   */
   const stillSignals = [
     "document",
     "documento",
@@ -995,10 +1139,16 @@ function decideMediaType(
         "video",
 
       reason:
-        `semantic-motion advantage: ${motionScore} vs ${stillScore}`,
+        `legacy semantic-motion advantage: ${motionScore} vs ${stillScore}`,
 
       motionScore,
       stillScore,
+
+      creativeIntent:
+        null,
+
+      executionFallback:
+        "legacy",
     };
   }
 
@@ -1007,10 +1157,16 @@ function decideMediaType(
       "image",
 
     reason:
-      `semantic-still/default: ${motionScore} vs ${stillScore}`,
+      `legacy semantic-still/default: ${motionScore} vs ${stillScore}`,
 
     motionScore,
     stillScore,
+
+    creativeIntent:
+      null,
+
+    executionFallback:
+      "legacy",
   };
 }
 
@@ -1067,13 +1223,6 @@ async function findVideoCandidate(
           memory,
         );
 
-      /*
-       * En V3.15-D evitamos
-       * preferentemente clips
-       * históricamente muy usados.
-       * Si la penalización es alta,
-       * probamos la siguiente query.
-       */
       if (
         history.penalty >= 56
       ) {
@@ -1104,8 +1253,7 @@ async function findVideoCandidate(
   }
 
   return null;
-}
-
+    }
 async function main() {
   if (
     !fs.existsSync(
@@ -1130,7 +1278,7 @@ async function main() {
     );
 
   console.log(
-    "\n=== VISUAL MEMORY V3.15-D / MULTIMODAL ===",
+    "\n=== VISUAL MEMORY V3.18-F.2 / CREATIVE MULTIMODAL ===",
   );
 
   console.log(
@@ -1206,6 +1354,14 @@ async function main() {
     );
 
     console.log(
+      `CREATIVE INTENT: ${
+        mediaDecision
+          .creativeIntent ??
+        "LEGACY"
+      }`,
+    );
+
+    console.log(
       `MEDIA DIRECTOR: ${mediaDecision.preferredMediaType.toUpperCase()}`,
     );
 
@@ -1214,14 +1370,25 @@ async function main() {
     );
 
     console.log(
+      `EXECUTION FALLBACK: ${mediaDecision.executionFallback}`,
+    );
+
+    console.log(
+      `VISUAL LANGUAGE: ${
+        scene.creativeDirection
+          ?.visualLanguage ??
+        "legacy/default"
+      }`,
+    );
+
+    console.log(
       `Queries: ${queries.length}`,
     );
 
     /*
-     * El ranking fotográfico se conserva
-     * completo aunque la preferencia sea
-     * video. Así siempre existe un fallback
-     * visual de alta calidad.
+     * Conservamos siempre un ranking fotográfico.
+     * Incluso cuando el Director pide video,
+     * este ranking constituye el fallback seguro.
      */
     const candidateMap =
       new Map<
@@ -1311,7 +1478,7 @@ async function main() {
                   history.previousUseCount,
 
                 previousProduction:
-                                    history.previousProduction,
+                  history.previousProduction,
 
                 finalScore,
               },
@@ -1382,6 +1549,18 @@ async function main() {
 
       narrationContext:
         scene.narrationContext,
+
+      mediaIntent:
+        scene.mediaIntent ??
+        null,
+
+      mediaMix:
+        scene.mediaMix ??
+        null,
+
+      creativeDirection:
+        scene.creativeDirection ??
+        null,
     };
 
     if (
@@ -1693,8 +1872,7 @@ async function main() {
                 .previousProduction,
           }
         : null;
-
-    resolved.push({
+        resolved.push({
       ...base,
 
       status:
@@ -1707,6 +1885,14 @@ async function main() {
         preferred:
           mediaDecision
             .preferredMediaType,
+
+        creativeIntent:
+          mediaDecision
+            .creativeIntent,
+
+        executionFallback:
+          mediaDecision
+            .executionFallback,
 
         resolvedAs:
           asset.mediaType,
@@ -1729,10 +1915,35 @@ async function main() {
       },
 
       directorSelection: {
+        version:
+          "V3.18-F.2",
+
         mode:
           usingVideo
             ? "STOCK-VIDEO"
             : "PHOTO-2.5D",
+
+        creativeIntent:
+          mediaDecision
+            .creativeIntent,
+
+        visualLanguage:
+          scene
+            .creativeDirection
+            ?.visualLanguage ??
+          null,
+
+        cameraProfile:
+          scene
+            .creativeDirection
+            ?.cameraProfile ??
+          null,
+
+        transitionProfile:
+          scene
+            .creativeDirection
+            ?.transitionProfile ??
+          null,
 
         selectedMediaType:
           asset.mediaType,
@@ -1821,11 +2032,47 @@ async function main() {
         true,
     ).length;
 
+  const creativePhotoIntentCount =
+    resolved.filter(
+      (item) =>
+        item.mediaIntent ===
+        "photo",
+    ).length;
+
+  const creativeVideoIntentCount =
+    resolved.filter(
+      (item) =>
+        item.mediaIntent ===
+        "video",
+    ).length;
+
+  const creativeGraphicIntentCount =
+    resolved.filter(
+      (item) =>
+        item.mediaIntent ===
+        "graphic",
+    ).length;
+
+  const creativeThreeDIntentCount =
+    resolved.filter(
+      (item) =>
+        item.mediaIntent ===
+        "threeD-intent",
+    ).length;
+
+  const legacyDecisionCount =
+    resolved.filter(
+      (item) =>
+        item.mediaDecision
+          ?.creativeIntent ==
+        null,
+    ).length;
+
   const manifest = {
     productionCode,
 
     version:
-      "V3.15-D-MULTIMODAL-VISUAL-DIRECTOR",
+      "V3.18-F.2-CREATIVE-MULTIMODAL-EXECUTION",
 
     generatedAt:
       new Date().toISOString(),
@@ -1840,6 +2087,37 @@ async function main() {
     duplicateAssets:
       resolvedCount -
       uniqueCount,
+
+    creativeExecution: {
+      directorPriority:
+        true,
+
+      legacyFallbackEnabled:
+        true,
+
+      graphicExecutorConnected:
+        false,
+
+      threeDExecutorConnected:
+        false,
+
+      requestedIntents: {
+        photo:
+          creativePhotoIntentCount,
+
+        video:
+          creativeVideoIntentCount,
+
+        graphic:
+          creativeGraphicIntentCount,
+
+        threeD:
+          creativeThreeDIntentCount,
+
+        legacy:
+          legacyDecisionCount,
+      },
+    },
 
     mediaSummary: {
       images:
@@ -1905,9 +2183,9 @@ async function main() {
   }
 
   /*
-   * La memoria remota se actualiza
-   * únicamente cuando toda la resolución
-   * multimodal terminó correctamente.
+   * Persistimos memoria remota solamente
+   * después de completar correctamente
+   * toda la resolución multimodal.
    */
   if (
     supabaseConfigured()
@@ -1932,7 +2210,7 @@ async function main() {
   }
 
   console.log(
-    "\n=== V3.15-D MULTIMODAL VISUAL DIRECTOR ===",
+    "\n=== V3.18-F.2 CREATIVE MULTIMODAL EXECUTION ===",
   );
 
   console.log(
@@ -1964,6 +2242,26 @@ async function main() {
   );
 
   console.log(
+    `Creative PHOTO intents: ${creativePhotoIntentCount}`,
+  );
+
+  console.log(
+    `Creative VIDEO intents: ${creativeVideoIntentCount}`,
+  );
+
+  console.log(
+    `Creative GRAPHIC intents: ${creativeGraphicIntentCount}`,
+  );
+
+  console.log(
+    `Creative 3D intents: ${creativeThreeDIntentCount}`,
+  );
+
+  console.log(
+    `Legacy decisions: ${legacyDecisionCount}`,
+  );
+
+  console.log(
     `Duplicates: ${
       resolvedCount -
       uniqueCount
@@ -1979,7 +2277,7 @@ async function main() {
   );
 
   console.log(
-    "==============================================",
+    "===================================================",
   );
 }
 
