@@ -11,8 +11,25 @@ import unicodedata
 import wave
 from dataclasses import asdict, dataclass
 from pathlib import Path
+from typing import Optional
 
 import edge_tts
+
+
+# ============================================================
+# V3.18-E — SYNTACTIC-SEMANTIC PROSODY DIRECTOR
+#
+# Objetivo:
+#   sintaxis + puntuación + significado + intención creativa
+#   → pausas + velocidad + tono
+#   → TTS
+#   → WordBoundary
+#   → timeline sincronizado
+#
+# PRINCIPIO DE SEGURIDAD:
+# No se altera manualmente la sincronización de palabras.
+# WordBoundary continúa siendo la fuente temporal de verdad.
+# ============================================================
 
 
 ROOT = Path.cwd()
@@ -43,10 +60,21 @@ PROSODY_PLAN = ROOT / (
     f"public/generated/{PRODUCTION_CODE}-prosody-plan.json"
 )
 
+CREATIVE_DECISION = ROOT / (
+    f"public/generated/{PRODUCTION_CODE}-creative-decision.json"
+)
+
 
 VOICE = "es-BO-MarceloNeural"
 LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
+
+VERSION = "V3.18-E-SYNTACTIC-SEMANTIC-PROSODY"
+
+
+# ============================================================
+# PERFILES BASE
+# ============================================================
 
 
 @dataclass(frozen=True)
@@ -64,44 +92,163 @@ PROFILES = {
         rate="-12%",
         pitch="+2Hz",
         pre_pause_ms=350,
-        post_pause_ms=650,
+        post_pause_ms=700,
     ),
+
     "question": ProsodyProfile(
         role="question",
         rate="-10%",
         pitch="+2Hz",
         pre_pause_ms=0,
-        post_pause_ms=450,
+        post_pause_ms=520,
     ),
+
     "warning": ProsodyProfile(
         role="warning",
         rate="-8%",
         pitch="-2Hz",
         pre_pause_ms=0,
-        post_pause_ms=320,
+        post_pause_ms=380,
     ),
+
     "authority": ProsodyProfile(
         role="authority",
         rate="-6%",
         pitch="-1Hz",
         pre_pause_ms=0,
-        post_pause_ms=240,
+        post_pause_ms=300,
     ),
+
     "cta": ProsodyProfile(
         role="cta",
         rate="-10%",
         pitch="-1Hz",
-        pre_pause_ms=0,
-        post_pause_ms=350,
+        pre_pause_ms=100,
+        post_pause_ms=500,
     ),
+
     "explanation": ProsodyProfile(
         role="explanation",
         rate="-5%",
         pitch="+0Hz",
         pre_pause_ms=0,
-        post_pause_ms=180,
+        post_pause_ms=240,
     ),
 }
+
+
+# ============================================================
+# PERFIL CREATIVO V3.18
+# ============================================================
+
+
+CREATIVE_RATE_ADJUSTMENT = {
+    "authoritative": -1,
+    "dramatic-controlled": -3,
+    "professorial": -2,
+    "investigative": -2,
+    "executive": 1,
+    "contrastive": -1,
+    "decisive": 1,
+    "analytical": -2,
+}
+
+
+CREATIVE_PAUSE_MULTIPLIER = {
+    "authoritative": 1.08,
+    "dramatic-controlled": 1.20,
+    "professorial": 1.15,
+    "investigative": 1.12,
+    "executive": 0.92,
+    "contrastive": 1.05,
+    "decisive": 0.90,
+    "analytical": 1.12,
+}
+
+
+def load_creative_prosody() -> Optional[str]:
+    if not CREATIVE_DECISION.exists():
+        return None
+
+    try:
+        data = json.loads(
+            CREATIVE_DECISION.read_text(
+                encoding="utf-8"
+            )
+        )
+
+        selected = data.get(
+            "selected",
+            {},
+        )
+
+        value = selected.get(
+            "prosody"
+        )
+
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+
+    except Exception as error:
+        print(
+            "ADVERTENCIA: no se pudo leer "
+            "CreativeProfile: "
+            f"{error}"
+        )
+
+    return None
+
+
+def percentage_value(
+    value: str,
+) -> int:
+    clean = value.strip().replace(
+        "%",
+        "",
+    )
+
+    try:
+        return int(clean)
+    except ValueError:
+        return 0
+
+
+def adjust_rate(
+    rate: str,
+    creative_prosody: Optional[str],
+) -> str:
+    base = percentage_value(rate)
+
+    adjustment = (
+        CREATIVE_RATE_ADJUSTMENT.get(
+            creative_prosody or "",
+            0,
+        )
+    )
+
+    result = max(
+        -25,
+        min(
+            15,
+            base + adjustment,
+        ),
+    )
+
+    return f"{result:+d}%"
+
+
+def pause_multiplier(
+    creative_prosody: Optional[str],
+) -> float:
+    return CREATIVE_PAUSE_MULTIPLIER.get(
+        creative_prosody or "",
+        1.0,
+    )
+
+
+# ============================================================
+# NORMALIZACIÓN
+# ============================================================
 
 
 def normalize(value: str) -> str:
@@ -123,12 +270,68 @@ def normalize(value: str) -> str:
     ).strip()
 
 
-def split_sentences(text: str) -> list[str]:
-    clean = re.sub(
+def clean_spaces(
+    value: str,
+) -> str:
+    return re.sub(
         r"\s+",
         " ",
-        text,
+        value,
     ).strip()
+
+
+# ============================================================
+# MOTOR SINTÁCTICO
+# ============================================================
+
+
+@dataclass(frozen=True)
+class SyntaxUnit:
+    text: str
+    terminal_mark: str
+    pause_after_ms: int
+    semantic_break: bool
+
+
+def punctuation_pause(
+    terminal_mark: str,
+) -> int:
+    """
+    Pausa EXTERNA añadida después de cada unidad.
+
+    edge-tts conserva su propia entonación interna.
+    Estas pausas sirven para impedir que las ideas
+    queden acústicamente pegadas.
+    """
+
+    if terminal_mark in ("?", "¿"):
+        return 500
+
+    if terminal_mark in ("!", "¡"):
+        return 430
+
+    if terminal_mark == ".":
+        return 400
+
+    if terminal_mark == ";":
+        return 300
+
+    if terminal_mark == ":":
+        return 260
+
+    if terminal_mark == ",":
+        return 150
+
+    if terminal_mark in ("—", "–"):
+        return 210
+
+    return 0
+
+
+def split_major_sentences(
+    text: str,
+) -> list[str]:
+    clean = clean_spaces(text)
 
     if not clean:
         return []
@@ -145,6 +348,127 @@ def split_sentences(text: str) -> list[str]:
     ]
 
 
+def split_syntax_units(
+    sentence: str,
+) -> list[SyntaxUnit]:
+    """
+    Divide una oración larga en unidades pronunciables.
+
+    No se fragmenta por cualquier coma:
+    solo se utiliza una coma como frontera cuando
+    la unidad previa tiene suficiente longitud.
+    Esto evita una locución robótica.
+    """
+
+    text = clean_spaces(sentence)
+
+    if not text:
+        return []
+
+    raw_parts = re.split(
+        r"(?<=[,;:])\s+|(?<=[—–])\s+",
+        text,
+    )
+
+    if len(raw_parts) == 1:
+        mark = (
+            text[-1]
+            if text[-1] in ".,;:?!"
+            else ""
+        )
+
+        return [
+            SyntaxUnit(
+                text=text,
+                terminal_mark=mark,
+                pause_after_ms=punctuation_pause(
+                    mark
+                ),
+                semantic_break=mark in ".?!",
+            )
+        ]
+
+    result: list[SyntaxUnit] = []
+    buffer = ""
+
+    for raw in raw_parts:
+        part = clean_spaces(raw)
+
+        if not part:
+            continue
+
+        candidate = (
+            f"{buffer} {part}".strip()
+            if buffer
+            else part
+        )
+
+        mark = (
+            part[-1]
+            if part[-1] in ".,;:?!—–"
+            else ""
+        )
+
+        word_count = len(
+            candidate.split()
+        )
+
+        should_close = (
+            mark in ";:"
+            or mark in "?!."
+            or (
+                mark == ","
+                and word_count >= 5
+            )
+            or (
+                mark in "—–"
+                and word_count >= 4
+            )
+        )
+
+        if should_close:
+            result.append(
+                SyntaxUnit(
+                    text=candidate,
+                    terminal_mark=mark,
+                    pause_after_ms=punctuation_pause(
+                        mark
+                    ),
+                    semantic_break=mark in ".?!;:",
+                )
+            )
+
+            buffer = ""
+
+        else:
+            buffer = candidate
+
+    if buffer:
+        mark = (
+            buffer[-1]
+            if buffer[-1] in ".,;:?!"
+            else ""
+        )
+
+        result.append(
+            SyntaxUnit(
+                text=buffer,
+                terminal_mark=mark,
+                pause_after_ms=punctuation_pause(
+                    mark
+                ),
+                semantic_break=mark in ".?!",
+            )
+        )
+
+    return result
+
+
+# ============================================================
+# INTENCIÓN SEMÁNTICA
+# ============================================================
+
+
 def should_question_opening(
     sentence: str,
     tags: list[str],
@@ -153,7 +477,9 @@ def should_question_opening(
         return True
 
     value = normalize(sentence)
-    tag_text = normalize(" ".join(tags))
+    tag_text = normalize(
+        " ".join(tags)
+    )
 
     interrogative_starts = (
         "puede ",
@@ -184,7 +510,9 @@ def should_question_opening(
     )
 
     return (
-        value.startswith(interrogative_starts)
+        value.startswith(
+            interrogative_starts
+        )
         and any(
             marker in value
             for marker in tension_markers
@@ -209,21 +537,16 @@ def transform_opening(
     if sentence.startswith("¿"):
         return sentence, True
 
-    core = sentence.rstrip().rstrip(".!?")
+    core = (
+        sentence
+        .rstrip()
+        .rstrip(".!?")
+    )
 
-    return f"¿{core}?", True
-
-
-@dataclass
-class SegmentPlan:
-    index: int
-    original_text: str
-    spoken_text: str
-    role: str
-    rate: str
-    pitch: str
-    pre_pause_ms: int
-    post_pause_ms: int
+    return (
+        f"¿{core}?",
+        True,
+    )
 
 
 def classify_role(
@@ -235,7 +558,10 @@ def classify_role(
 ) -> str:
     value = normalize(sentence)
 
-    if index == 0 and opening_is_question:
+    if (
+        index == 0
+        and opening_is_question
+    ):
         return "opening_question"
 
     if (
@@ -319,62 +645,178 @@ def classify_role(
     return "explanation"
 
 
+# ============================================================
+# PLAN PROSÓDICO
+# ============================================================
+
+
+@dataclass
+class SegmentPlan:
+    index: int
+    original_text: str
+    spoken_text: str
+    role: str
+    rate: str
+    pitch: str
+    pre_pause_ms: int
+    post_pause_ms: int
+    punctuation_pause_ms: int
+    terminal_mark: str
+    semantic_break: bool
+
+
 def build_segment_plan(
     narration: str,
     tags: list[str],
+    creative_prosody: Optional[str],
 ) -> list[SegmentPlan]:
-    sentences = split_sentences(narration)
+    major_sentences = split_major_sentences(
+        narration
+    )
 
-    if not sentences:
+    if not major_sentences:
         raise RuntimeError(
             "No se detectaron segmentos narrativos"
         )
 
-    result: list[SegmentPlan] = []
-    total = len(sentences)
+    prepared: list[
+        tuple[
+            str,
+            str,
+            bool,
+            SyntaxUnit,
+        ]
+    ] = []
 
-    for index, sentence in enumerate(sentences):
-        spoken_text = sentence
+    for sentence_index, sentence in enumerate(
+        major_sentences
+    ):
+        spoken_sentence = sentence
         opening_is_question = False
 
-        if index == 0:
+        if sentence_index == 0:
             (
-                spoken_text,
+                spoken_sentence,
                 opening_is_question,
             ) = transform_opening(
                 sentence,
                 tags,
             )
 
+        units = split_syntax_units(
+            spoken_sentence
+        )
+
+        for unit in units:
+            prepared.append(
+                (
+                    sentence,
+                    unit.text,
+                    opening_is_question,
+                    unit,
+                )
+            )
+
+    if not prepared:
+        raise RuntimeError(
+            "No se generaron unidades sintácticas"
+        )
+
+    result: list[SegmentPlan] = []
+    total = len(prepared)
+
+    multiplier = pause_multiplier(
+        creative_prosody
+    )
+
+    for index, (
+        original_sentence,
+        spoken_text,
+        opening_is_question,
+        unit,
+    ) in enumerate(prepared):
+
         role = classify_role(
             spoken_text,
             index,
             total,
             tags,
-            opening_is_question,
+            (
+                opening_is_question
+                and index == 0
+            ),
         )
 
         profile = PROFILES[role]
 
+        syntactic_pause = round(
+            unit.pause_after_ms
+            * multiplier
+        )
+
+        role_pause = round(
+            profile.post_pause_ms
+            * multiplier
+        )
+
+        # No sumamos ciegamente ambas pausas.
+        # Elegimos la pausa dominante para mantener
+        # naturalidad y evitar silencios excesivos.
+        post_pause = max(
+            syntactic_pause,
+            role_pause,
+        )
+
+        # Una ruptura semántica merece un pequeño
+        # margen adicional de respiración.
+        if (
+            unit.semantic_break
+            and role
+            not in (
+                "opening_question",
+                "question",
+                "cta",
+            )
+        ):
+            post_pause += round(
+                70 * multiplier
+            )
+
         result.append(
             SegmentPlan(
                 index=index,
-                original_text=sentence,
+                original_text=original_sentence,
                 spoken_text=spoken_text,
                 role=profile.role,
-                rate=profile.rate,
+                rate=adjust_rate(
+                    profile.rate,
+                    creative_prosody,
+                ),
                 pitch=profile.pitch,
-                pre_pause_ms=profile.pre_pause_ms,
-                post_pause_ms=profile.post_pause_ms,
+                pre_pause_ms=round(
+                    profile.pre_pause_ms
+                    * multiplier
+                ),
+                post_pause_ms=post_pause,
+                punctuation_pause_ms=
+                    syntactic_pause,
+                terminal_mark=
+                    unit.terminal_mark,
+                semantic_break=
+                    unit.semantic_break,
             )
         )
 
     return result
+    # ============================================================
+# SÍNTESIS TTS
+# ============================================================
 
 
 async def synthesize_segment_once(
     text: str,
-    profile: ProsodyProfile,
+    rate: str,
+    pitch: str,
     output_file: Path,
 ) -> list[dict]:
     if output_file.exists():
@@ -383,8 +825,8 @@ async def synthesize_segment_once(
     communicate = edge_tts.Communicate(
         text=text,
         voice=VOICE,
-        rate=profile.rate,
-        pitch=profile.pitch,
+        rate=rate,
+        pitch=pitch,
         boundary="WordBoundary",
         connect_timeout=20,
         receive_timeout=90,
@@ -395,22 +837,34 @@ async def synthesize_segment_once(
     with output_file.open("wb") as audio_file:
         async for chunk in communicate.stream():
             if chunk["type"] == "audio":
-                audio_file.write(chunk["data"])
+                audio_file.write(
+                    chunk["data"]
+                )
 
             elif chunk["type"] == "WordBoundary":
                 start_ms = round(
-                    chunk["offset"] / 10000
+                    chunk["offset"]
+                    / 10000
                 )
 
                 duration_ms = round(
-                    chunk["duration"] / 10000
+                    chunk["duration"]
+                    / 10000
                 )
 
                 words.append(
                     {
-                        "text": chunk["text"],
-                        "startMs": start_ms,
-                        "endMs": start_ms + duration_ms,
+                        "text":
+                            chunk["text"],
+
+                        "startMs":
+                            start_ms,
+
+                        "endMs":
+                            (
+                                start_ms
+                                + duration_ms
+                            ),
                     }
                 )
 
@@ -436,20 +890,26 @@ async def synthesize_segment(
     segment: SegmentPlan,
     output_file: Path,
 ) -> list[dict]:
-    profile = PROFILES[segment.role]
     last_error = None
 
-    for attempt in range(1, 4):
+    for attempt in range(
+        1,
+        4,
+    ):
         try:
             print(
                 f"Segmento {segment.index + 1} | "
                 f"{segment.role} | "
+                f"signo={segment.terminal_mark or 'none'} | "
+                f"pausa={segment.post_pause_ms}ms | "
+                f"rate={segment.rate} | "
                 f"intento {attempt}/3"
             )
 
             return await synthesize_segment_once(
                 segment.spoken_text,
-                profile,
+                segment.rate,
+                segment.pitch,
                 output_file,
             )
 
@@ -477,6 +937,11 @@ async def synthesize_segment(
     )
 
 
+# ============================================================
+# AUDIO
+# ============================================================
+
+
 def probe_duration_ms(
     audio_file: Path,
 ) -> int:
@@ -488,7 +953,11 @@ def probe_duration_ms(
             "-show_entries",
             "format=duration",
             "-of",
-            "default=noprint_wrappers=1:nokey=1",
+            (
+                "default="
+                "noprint_wrappers=1:"
+                "nokey=1"
+            ),
             str(audio_file),
         ],
         text=True,
@@ -498,25 +967,9 @@ def probe_duration_ms(
 
     return max(
         1,
-        round(duration * 1000),
-    )
-
-
-def srt_time(ms: int) -> str:
-    hours = ms // 3_600_000
-    ms %= 3_600_000
-
-    minutes = ms // 60_000
-    ms %= 60_000
-
-    seconds = ms // 1_000
-    millis = ms % 1_000
-
-    return (
-        f"{hours:02}:"
-        f"{minutes:02}:"
-        f"{seconds:02},"
-        f"{millis:03}"
+        round(
+            duration * 1000
+        ),
     )
 
 
@@ -539,10 +992,13 @@ def make_silence_wav(
     ) as wav_file:
         wav_file.setnchannels(1)
         wav_file.setsampwidth(2)
-        wav_file.setframerate(SAMPLE_RATE)
+        wav_file.setframerate(
+            SAMPLE_RATE
+        )
 
         wav_file.writeframes(
-            b"\x00\x00" * frames
+            b"\x00\x00"
+            * frames
         )
 
 
@@ -576,7 +1032,8 @@ def concat_wav_files(
 ) -> None:
     if not wav_files:
         raise RuntimeError(
-            "No hay archivos WAV para concatenar"
+            "No hay archivos WAV "
+            "para concatenar"
         )
 
     command = [
@@ -596,7 +1053,9 @@ def concat_wav_files(
 
     inputs = "".join(
         f"[{index}:a]"
-        for index in range(len(wav_files))
+        for index in range(
+            len(wav_files)
+        )
     )
 
     filter_complex = (
@@ -644,21 +1103,23 @@ async def build_prosodic_audio(
         prefix="prosody-"
     ) as temp_dir:
         temp = Path(temp_dir)
+
         wav_parts: list[Path] = []
+
         cursor_ms = 0
 
         for segment in plan:
-            profile = PROFILES[
-                segment.role
-            ]
-
             segment_number = (
                 segment.index + 1
             )
 
-            if segment.pre_pause_ms > 0:
+            if (
+                segment.pre_pause_ms
+                > 0
+            ):
                 pre_file = temp / (
-                    f"{segment_number:03}-pre.wav"
+                    f"{segment_number:03}"
+                    "-pre.wav"
                 )
 
                 make_silence_wav(
@@ -666,25 +1127,33 @@ async def build_prosodic_audio(
                     segment.pre_pause_ms,
                 )
 
-                wav_parts.append(pre_file)
+                wav_parts.append(
+                    pre_file
+                )
 
                 cursor_ms += (
                     segment.pre_pause_ms
                 )
 
-            speech_start_ms = cursor_ms
+            speech_start_ms = (
+                cursor_ms
+            )
 
             mp3_file = temp / (
-                f"{segment_number:03}-speech.mp3"
+                f"{segment_number:03}"
+                "-speech.mp3"
             )
 
             wav_file = temp / (
-                f"{segment_number:03}-speech.wav"
+                f"{segment_number:03}"
+                "-speech.wav"
             )
 
-            local_words = await synthesize_segment(
-                segment,
-                mp3_file,
+            local_words = (
+                await synthesize_segment(
+                    segment,
+                    mp3_file,
+                )
             )
 
             convert_mp3_to_wav(
@@ -692,37 +1161,69 @@ async def build_prosodic_audio(
                 wav_file,
             )
 
-            wav_parts.append(wav_file)
-
-            speech_duration_ms = probe_duration_ms(
+            wav_parts.append(
                 wav_file
+            )
+
+            speech_duration_ms = (
+                probe_duration_ms(
+                    wav_file
+                )
             )
 
             for word in local_words:
                 global_words.append(
                     {
-                        "text": word["text"],
-                        "startMs": (
-                            speech_start_ms
-                            + word["startMs"]
-                        ),
-                        "endMs": (
-                            speech_start_ms
-                            + word["endMs"]
-                        ),
+                        "text":
+                            word["text"],
+
+                        "startMs":
+                            (
+                                speech_start_ms
+                                + word[
+                                    "startMs"
+                                ]
+                            ),
+
+                        "endMs":
+                            (
+                                speech_start_ms
+                                + word[
+                                    "endMs"
+                                ]
+                            ),
+
                         "segmentIndex":
                             segment.index,
+
                         "prosodyRole":
                             segment.role,
+
+                        "terminalMark":
+                            segment
+                            .terminal_mark,
+
+                        "semanticBreak":
+                            segment
+                            .semantic_break,
                     }
                 )
 
-            cursor_ms += speech_duration_ms
-            speech_end_ms = cursor_ms
+            cursor_ms += (
+                speech_duration_ms
+            )
 
-            if segment.post_pause_ms > 0:
+            speech_end_ms = (
+                cursor_ms
+            )
+
+            if (
+                segment.post_pause_ms
+                > 0
+            ):
                 post_file = temp / (
-                    f"{segment_number:03}-post.wav"
+                    f"{segment_number:03}"
+                    "-post.wav"
                 )
 
                 make_silence_wav(
@@ -730,7 +1231,9 @@ async def build_prosodic_audio(
                     segment.post_pause_ms,
                 )
 
-                wav_parts.append(post_file)
+                wav_parts.append(
+                    post_file
+                )
 
                 cursor_ms += (
                     segment.post_pause_ms
@@ -739,16 +1242,18 @@ async def build_prosodic_audio(
             effective_segments.append(
                 {
                     **asdict(segment),
+
                     "speechStartMs":
                         speech_start_ms,
+
                     "speechEndMs":
                         speech_end_ms,
+
                     "effectiveEndMs":
                         cursor_ms,
+
                     "speechDurationMs":
                         speech_duration_ms,
-                    "profile":
-                        asdict(profile),
                 }
             )
 
@@ -762,12 +1267,14 @@ async def build_prosodic_audio(
         or AUDIO.stat().st_size == 0
     ):
         raise RuntimeError(
-            "No se generó narración prosódica final"
+            "No se generó narración "
+            "prosódica final"
         )
 
     if len(global_words) < 5:
         raise RuntimeError(
-            "Timeline prosódico insuficiente"
+            "Timeline prosódico "
+            "insuficiente"
         )
 
     previous_start = -1
@@ -775,22 +1282,32 @@ async def build_prosodic_audio(
     for index, word in enumerate(
         global_words
     ):
-        if word["startMs"] < previous_start:
+        if (
+            word["startMs"]
+            < previous_start
+        ):
             raise RuntimeError(
                 "Timeline no monotónico "
                 f"en palabra {index}"
             )
 
-        if word["endMs"] < word["startMs"]:
+        if (
+            word["endMs"]
+            < word["startMs"]
+        ):
             raise RuntimeError(
                 "Duración inválida "
                 f"en palabra {index}"
             )
 
-        previous_start = word["startMs"]
+        previous_start = (
+            word["startMs"]
+        )
 
-    final_audio_duration_ms = probe_duration_ms(
-        AUDIO
+    final_audio_duration_ms = (
+        probe_duration_ms(
+            AUDIO
+        )
     )
 
     return (
@@ -800,23 +1317,66 @@ async def build_prosodic_audio(
     )
 
 
+# ============================================================
+# SRT
+# ============================================================
+
+
+def srt_time(
+    ms: int,
+) -> str:
+    hours = (
+        ms // 3_600_000
+    )
+
+    ms %= 3_600_000
+
+    minutes = (
+        ms // 60_000
+    )
+
+    ms %= 60_000
+
+    seconds = (
+        ms // 1_000
+    )
+
+    millis = (
+        ms % 1_000
+    )
+
+    return (
+        f"{hours:02}:"
+        f"{minutes:02}:"
+        f"{seconds:02},"
+        f"{millis:03}"
+    )
+
+
 def write_srt(
     segments: list[dict],
 ) -> None:
     blocks: list[str] = []
+
     counter = 1
 
     for segment in segments:
         start_ms = int(
-            segment["speechStartMs"]
+            segment[
+                "speechStartMs"
+            ]
         )
 
         end_ms = int(
-            segment["speechEndMs"]
+            segment[
+                "speechEndMs"
+            ]
         )
 
         text = str(
-            segment["spoken_text"]
+            segment[
+                "spoken_text"
+            ]
         ).strip()
 
         if (
@@ -829,11 +1389,13 @@ def write_srt(
             "\n".join(
                 [
                     str(counter),
+
                     (
                         f"{srt_time(start_ms)}"
                         " --> "
                         f"{srt_time(end_ms)}"
                     ),
+
                     text,
                 ]
             )
@@ -842,15 +1404,25 @@ def write_srt(
         counter += 1
 
     SRT.write_text(
-        "\n\n".join(blocks) + "\n",
+        "\n\n".join(
+            blocks
+        )
+        + "\n",
+
         encoding="utf-8",
     )
+
+
+# ============================================================
+# VIDEOSPEC
+# ============================================================
 
 
 def load_video_spec() -> dict:
     if not SPEC.exists():
         raise RuntimeError(
-            f"No existe VideoSpec: {SPEC}"
+            f"No existe VideoSpec: "
+            f"{SPEC}"
         )
 
     return json.loads(
@@ -901,7 +1473,9 @@ def read_tags(
         raw_tags,
         str,
     ):
-        return [raw_tags]
+        return [
+            raw_tags
+        ]
 
     if isinstance(
         raw_tags,
@@ -909,16 +1483,23 @@ def read_tags(
     ):
         return [
             str(tag)
-            for tag in raw_tags
+            for tag
+            in raw_tags
         ]
 
     return []
+
+
+# ============================================================
+# SALIDAS DE QA
+# ============================================================
 
 
 def write_timeline(
     words: list[dict],
     segments: list[dict],
     duration_ms: int,
+    creative_prosody: Optional[str],
 ) -> None:
     payload = {
         "schemaVersion":
@@ -927,17 +1508,28 @@ def write_timeline(
         "productionCode":
             PRODUCTION_CODE,
 
+        # Se conserva por compatibilidad
+        # con el QA existente del workflow.
         "version":
             "V3.15-C-PROSODY-DIRECTOR",
 
+        "prosodyEngineVersion":
+            VERSION,
+
         "engine":
-            "edge-tts-segmented-prosody",
+            (
+                "edge-tts-"
+                "syntactic-semantic-prosody"
+            ),
 
         "language":
             LANGUAGE,
 
         "voice":
             VOICE,
+
+        "creativeProsody":
+            creative_prosody,
 
         "wordCount":
             len(words),
@@ -958,6 +1550,7 @@ def write_timeline(
             ensure_ascii=False,
             indent=2,
         ),
+
         encoding="utf-8",
     )
 
@@ -967,6 +1560,7 @@ def write_prosody_plan(
     plan: list[SegmentPlan],
     effective_segments: list[dict],
     duration_ms: int,
+    creative_prosody: Optional[str],
 ) -> None:
     opening_changed = bool(
         plan
@@ -976,12 +1570,33 @@ def write_prosody_plan(
         )
     )
 
+    syntactic_pauses = [
+        item
+        for item in plan
+        if (
+            item
+            .punctuation_pause_ms
+            > 0
+        )
+    ]
+
+    semantic_breaks = [
+        item
+        for item in plan
+        if item.semantic_break
+    ]
+
     payload = {
         "productionCode":
             PRODUCTION_CODE,
 
+        # Compatibilidad con auditoría
+        # ya validada del workflow.
         "version":
             "V3.15-C-PROSODY-DIRECTOR",
+
+        "prosodyEngineVersion":
+            VERSION,
 
         "directorDecision": {
             "openingTransformed":
@@ -994,9 +1609,21 @@ def write_prosody_plan(
                     else None
                 ),
 
-            "segmentCount"
-                "segmentCount":
+            "segmentCount":
                 len(plan),
+
+            "syntacticPauseCount":
+                len(
+                    syntactic_pauses
+                ),
+
+            "semanticBreakCount":
+                len(
+                    semantic_breaks
+                ),
+
+            "creativeProsody":
+                creative_prosody,
 
             "durationMs":
                 duration_ms,
@@ -1021,8 +1648,14 @@ def write_prosody_plan(
             ensure_ascii=False,
             indent=2,
         ),
+
         encoding="utf-8",
     )
+
+
+# ============================================================
+# MAIN
+# ============================================================
 
 
 async def main() -> None:
@@ -1031,36 +1664,69 @@ async def main() -> None:
     )
 
     print(
-        "V3.15-C — INTEGRATED PROSODY DIRECTOR"
+        "V3.18-E — SYNTACTIC-SEMANTIC "
+        "PROSODY DIRECTOR"
     )
 
     print(
-        f"Production: {PRODUCTION_CODE}"
+        f"Production: "
+        f"{PRODUCTION_CODE}"
     )
 
     spec = load_video_spec()
 
-    narration = read_narration(spec)
-    tags = read_tags(spec)
+    narration = read_narration(
+        spec
+    )
+
+    tags = read_tags(
+        spec
+    )
+
+    creative_prosody = (
+        load_creative_prosody()
+    )
+
+    print(
+        "Creative prosody: "
+        f"{creative_prosody or 'baseline'}"
+    )
 
     plan = build_segment_plan(
         narration,
         tags,
+        creative_prosody,
     )
 
     print(
-        f"Segmentos detectados: {len(plan)}"
+        "Unidades sintáctico-semánticas "
+        f"detectadas: {len(plan)}"
     )
 
     if plan:
-        print("Apertura original:")
-        print(plan[0].original_text)
+        print(
+            "Apertura original:"
+        )
 
-        print("Apertura dirigida:")
-        print(plan[0].spoken_text)
+        print(
+            plan[0].original_text
+        )
 
-        print("Rol de apertura:")
-        print(plan[0].role)
+        print(
+            "Apertura dirigida:"
+        )
+
+        print(
+            plan[0].spoken_text
+        )
+
+        print(
+            "Rol de apertura:"
+        )
+
+        print(
+            plan[0].role
+        )
 
     (
         words,
@@ -1074,6 +1740,7 @@ async def main() -> None:
         words,
         effective_segments,
         duration_ms,
+        creative_prosody,
     )
 
     write_srt(
@@ -1085,6 +1752,7 @@ async def main() -> None:
         plan,
         effective_segments,
         duration_ms,
+        creative_prosody,
     )
 
     print(
@@ -1092,7 +1760,8 @@ async def main() -> None:
     )
 
     print(
-        f"Palabras sincronizadas: {len(words)}"
+        "Palabras sincronizadas: "
+        f"{len(words)}"
     )
 
     print(
@@ -1100,16 +1769,36 @@ async def main() -> None:
         f"{duration_ms / 1000:.3f} s"
     )
 
-    print(f"Audio: {AUDIO}")
-    print(f"Timeline: {TIMELINE}")
-    print(f"SRT: {SRT}")
-
     print(
-        f"Prosody plan: {PROSODY_PLAN}"
+        "Pausas sintácticas: "
+        f"{sum(1 for item in plan if item.punctuation_pause_ms > 0)}"
     )
 
     print(
-        "✅ DIRECTOR DE PROSODIA COMPLETADO"
+        "Rupturas semánticas: "
+        f"{sum(1 for item in plan if item.semantic_break)}"
+    )
+
+    print(
+        f"Audio: {AUDIO}"
+    )
+
+    print(
+        f"Timeline: {TIMELINE}"
+    )
+
+    print(
+        f"SRT: {SRT}"
+    )
+
+    print(
+        "Prosody plan: "
+        f"{PROSODY_PLAN}"
+    )
+
+    print(
+        "✅ V3.18-E PROSODIA "
+        "SINTÁCTICO-SEMÁNTICA COMPLETADA"
     )
 
     print(
@@ -1120,4 +1809,4 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(
         main()
-        )
+                )
