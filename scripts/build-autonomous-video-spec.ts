@@ -5,18 +5,32 @@ import type {
   SilecKnowledgeInput,
 } from "../src/content/SilecContentAdapter";
 
+import type {
+  CreativeDecision,
+  CreativeProfile,
+  NarrativeArchitecture,
+} from "../src/strategy/CreativeDiversityDirector";
+
 /**
- * V3.17-C2 — AUTONOMOUS VIDEO SPEC BUILDER
+ * V3.18-D — CREATIVE AUTONOMOUS VIDEO SPEC BUILDER
  *
- * Entrada:
+ * Entradas:
  * content/<production-code>.silec.json
+ * public/generated/<production-code>-creative-decision.json
  *
  * Salida:
  * examples/<production-code>.video.json
  *
- * CONTRATO:
- * Compatible con el VideoSpec validado
- * de video-juridico-008.
+ * RESPONSABILIDAD:
+ * SILEC / Q∞ decide QUÉ decir.
+ * V3.18 decide CÓMO contarlo.
+ *
+ * Este builder materializa esa decisión en:
+ * - arquitectura narrativa;
+ * - orden y tipo de escenas;
+ * - duración objetivo;
+ * - tratamiento creativo;
+ * - estructura del CTA.
  *
  * No genera audio.
  * No selecciona assets.
@@ -57,6 +71,13 @@ type VideoScene = {
   };
 };
 
+type CreativeDecisionFile =
+  CreativeDecision & {
+    version?: string;
+    generatedAt?: string;
+    intent?: unknown;
+  };
+
 function getProductionCode(): string {
   const value =
     process.argv[2]?.trim() ||
@@ -68,7 +89,7 @@ function getProductionCode(): string {
         "Production code no definido.",
         "",
         "Uso:",
-        "npx tsx scripts/build-autonomous-video-spec.ts video-juridico-009",
+        "npx tsx scripts/build-autonomous-video-spec.ts video-juridico-010",
       ].join("\n"),
     );
   }
@@ -140,92 +161,6 @@ function sentence(
   return `${clean}.`;
 }
 
-function slugify(
-  value: string,
-): string {
-  return value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(
-      /[\u0300-\u036f]/g,
-      "",
-    )
-    .replace(
-      /[^a-z0-9]+/g,
-      "-",
-    )
-    .replace(
-      /^-+|-+$/g,
-      "",
-    )
-    .slice(0, 48);
-}
-
-function unique(
-  values: string[],
-): string[] {
-  return [
-    ...new Set(
-      values
-        .map(
-          (value) =>
-            value.trim(),
-        )
-        .filter(Boolean),
-    ),
-  ];
-}
-
-function buildNarration(
-  input: SilecKnowledgeInput,
-): string {
-  const parts: string[] = [];
-
-  parts.push(
-    sentence(input.hook),
-  );
-
-  parts.push(
-    sentence(input.problem),
-  );
-
-  for (
-    const reasoning of
-    input.reasoningChain
-  ) {
-    parts.push(
-      sentence(reasoning),
-    );
-  }
-
-  parts.push(
-    sentence(input.conclusion),
-  );
-
-  if (
-    cleanText(
-      input.closingIdea,
-    ) !==
-    cleanText(
-      input.conclusion,
-    )
-  ) {
-    parts.push(
-      sentence(
-        input.closingIdea,
-      ),
-    );
-  }
-
-  parts.push(
-    sentence(input.cta),
-  );
-
-  return parts
-    .filter(Boolean)
-    .join(" ");
-}
-
 function compact(
   value: string,
   maxLength = 115,
@@ -254,6 +189,84 @@ function compact(
   return `${shortened}…`;
 }
 
+function slugify(
+  value: string,
+): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      "",
+    )
+    .replace(
+      /[^a-z0-9]+/g,
+      "-",
+    )
+    .replace(
+      /^-+|-+$/g,
+      "",
+    )
+    .slice(
+      0,
+      48,
+    );
+}
+
+function unique(
+  values: string[],
+): string[] {
+  return [
+    ...new Set(
+      values
+        .map(
+          (value) =>
+            value.trim(),
+        )
+        .filter(Boolean),
+    ),
+  ];
+}
+
+function normalizePoints(
+  values: string[],
+): string[] {
+  return values
+    .map(cleanText)
+    .filter(Boolean);
+}
+
+function makeHero(
+  id: string,
+  title: string,
+  subtitle: string,
+  durationMs: number,
+): VideoScene {
+  return {
+    id,
+    kind:
+      "hero",
+
+    content: {
+      title:
+        compact(
+          title,
+          100,
+        ),
+
+      subtitle:
+        compact(
+          subtitle,
+          150,
+        ),
+    },
+
+    timing: {
+      durationMs,
+    },
+  };
+}
+
 function makeStatement(
   id: string,
   title: string,
@@ -264,18 +277,21 @@ function makeStatement(
     id,
     kind:
       "statement",
+
     content: {
       title:
         compact(
           title,
           100,
         ),
+
       subtitle:
         compact(
           subtitle,
           150,
         ),
     },
+
     timing: {
       durationMs,
     },
@@ -289,7 +305,9 @@ function makePoints(
   durationMs: number,
 ): VideoScene {
   const cleanPoints =
-    points
+    normalizePoints(
+      points,
+    )
       .map(
         (point) =>
           compact(
@@ -297,179 +315,97 @@ function makePoints(
             100,
           ),
       )
-      .filter(Boolean)
-      .slice(0, 3);
+      .slice(
+        0,
+        3,
+      );
 
   return {
     id,
     kind:
       "points",
+
     content: {
       title:
         compact(
           title,
           100,
         ),
+
       points:
         cleanPoints.length > 0
           ? cleanPoints
           : [
               "Diagnóstico",
               "Estrategia",
-              "Ejecución",
+              "Decisión",
             ],
     },
+
     timing: {
       durationMs,
     },
   };
 }
 
-function buildScenes(
-  input: SilecKnowledgeInput,
-): VideoScene[] {
-  const reasoning =
-    input.reasoningChain
-      .map(cleanText)
-      .filter(Boolean);
+function makeMechanism(
+  id: string,
+  title: string,
+  points: string[],
+  durationMs: number,
+): VideoScene {
+  const scene =
+    makePoints(
+      id,
+      title,
+      points,
+      durationMs,
+    );
 
-  const scenes:
-    VideoScene[] = [];
-
-  /*
-   * 1 — HOOK
-   */
-  scenes.push({
-    id:
-      "hook",
-
+  return {
+    ...scene,
     kind:
-      "hero",
+      "mechanism",
+  };
+}
+
+function makeVideoWindow(
+  id: string,
+  title: string,
+  subtitle: string,
+  durationMs: number,
+): VideoScene {
+  return {
+    id,
+    kind:
+      "video-window",
 
     content: {
       title:
         compact(
-          input.hook,
+          title,
           100,
         ),
 
       subtitle:
         compact(
-          input.centralThesis,
+          subtitle,
           150,
         ),
     },
 
     timing: {
-      durationMs:
-        8000,
+      durationMs,
     },
-  });
+  };
+}
 
-  /*
-   * 2 — PROBLEMA
-   */
-  scenes.push(
-    makeStatement(
-      "problema",
-      "El problema no comienza cuando llega el litigio",
-      input.problem,
-      11000,
-    ),
-  );
-
-  /*
-   * 3 — PRIMER BLOQUE DE RAZONAMIENTO
-   */
-  scenes.push(
-    makePoints(
-      "diagnostico",
-      "El diagnóstico estratégico debe anticiparse",
-      reasoning.slice(
-        0,
-        3,
-      ),
-      13000,
-    ),
-  );
-
-  /*
-   * 4 — CONSECUENCIA / CAMBIO DE ESCENARIO
-   */
-  if (reasoning[3]) {
-    scenes.push(
-      makeStatement(
-        "consecuencia",
-        compact(
-          reasoning[3],
-          100,
-        ),
-        reasoning[4] ??
-          input.centralThesis,
-        12000,
-      ),
-    );
-  }
-
-  /*
-   * 5 — SEGUNDO BLOQUE
-   */
-  const secondBlock =
-    reasoning.slice(
-      4,
-      7,
-    );
-
-  if (
-    secondBlock.length >
-    0
-  ) {
-    scenes.push(
-      makePoints(
-        "estrategia",
-        "La estrategia debe responder antes del conflicto",
-        secondBlock,
-        13000,
-      ),
-    );
-  }
-
-  /*
-   * 6 — TESIS
-   */
-  scenes.push(
-    makeStatement(
-      "tesis",
-      input.centralThesis,
-      input.conclusion,
-      12000,
-    ),
-  );
-
-  /*
-   * 7 — CAPACIDAD DEMOSTRADA
-   */
-  scenes.push(
-    makePoints(
-      "capacidad",
-      "Una estrategia jurídica de alto nivel integra",
-      input
-        .capabilityDemonstrated
-        .slice(
-          0,
-          3,
-        ),
-      12000,
-    ),
-  );
-
-  /*
-   * 8 — CIERRE / CTA
-   *
-   * Exactamente el tipo y estructura
-   * que ya acepta el schema validado.
-   */
-  scenes.push({
+function makeCta(
+  line1: string,
+  line2: string,
+  durationMs: number,
+): VideoScene {
+  return {
     id:
       "cta",
 
@@ -479,28 +415,868 @@ function buildScenes(
     content: {
       line1:
         compact(
-          input.closingIdea,
+          line1,
           115,
         ),
 
       line2:
         compact(
-          input.cta,
+          line2,
           150,
         ),
     },
 
     timing: {
-      durationMs:
-        7000,
+      durationMs,
     },
-  });
+  };
+}
 
-  return scenes;
+function buildNarration(
+  input: SilecKnowledgeInput,
+  architecture:
+    NarrativeArchitecture,
+): string {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  let parts:
+    string[];
+
+  switch (
+    architecture
+  ) {
+    case "case-tension-resolution":
+      parts = [
+        input.hook,
+        input.problem,
+        ...reasoning,
+        input.centralThesis,
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "question-demonstration-conclusion":
+      parts = [
+        input.hook,
+        input.centralThesis,
+        ...reasoning,
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "chronological-reconstruction":
+      parts = [
+        input.hook,
+        input.problem,
+        ...reasoning,
+        input.conclusion,
+        input.centralThesis,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "before-after":
+      parts = [
+        input.hook,
+        input.problem,
+        reasoning[0] ?? "",
+        reasoning[1] ?? "",
+        input.centralThesis,
+        ...reasoning.slice(
+          2,
+        ),
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "context-evidence-meaning":
+      parts = [
+        input.hook,
+        input.problem,
+        ...reasoning,
+        input.centralThesis,
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "decision-consequence":
+      parts = [
+        input.hook,
+        input.problem,
+        reasoning[0] ?? "",
+        reasoning[1] ?? "",
+        ...reasoning.slice(
+          2,
+        ),
+        input.centralThesis,
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "system-map":
+      parts = [
+        input.hook,
+        input.centralThesis,
+        input.problem,
+        ...reasoning,
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+
+    case "problem-analysis-solution":
+    default:
+      parts = [
+        input.hook,
+        input.problem,
+        ...reasoning,
+        input.centralThesis,
+        input.conclusion,
+        input.closingIdea,
+        input.cta,
+      ];
+      break;
+  }
+
+  return parts
+    .map(sentence)
+    .filter(Boolean)
+    .filter(
+      (
+        value,
+        index,
+        array,
+      ) =>
+        index === 0 ||
+        cleanText(value) !==
+          cleanText(
+            array[
+              index - 1
+            ],
+          ),
+    )
+    .join(" ");
+}
+
+function allocateDurations(
+  scenes: VideoScene[],
+  targetSeconds: number,
+): VideoScene[] {
+  if (
+    scenes.length === 0
+  ) {
+    return scenes;
+  }
+
+  const targetMs =
+    Math.round(
+      targetSeconds *
+        1000,
+    );
+
+  const minimumCtaMs =
+    7000;
+
+  const nonCta =
+    scenes.filter(
+      (scene) =>
+        scene.id !==
+        "cta",
+    );
+
+  const cta =
+    scenes.find(
+      (scene) =>
+        scene.id ===
+        "cta",
+    );
+
+  const remainingMs =
+    Math.max(
+      nonCta.length *
+        5000,
+      targetMs -
+        (cta
+          ? minimumCtaMs
+          : 0),
+    );
+
+  const currentWeight =
+    nonCta.reduce(
+      (
+        sum,
+        scene,
+      ) =>
+        sum +
+        scene.timing
+          .durationMs,
+      0,
+    );
+
+  const resized =
+    scenes.map(
+      (
+        scene,
+      ): VideoScene => {
+        if (
+          scene.id ===
+          "cta"
+        ) {
+          return {
+            ...scene,
+
+            timing: {
+              durationMs:
+                minimumCtaMs,
+            },
+          };
+        }
+
+        const ratio =
+          currentWeight > 0
+            ? scene
+                .timing
+                .durationMs /
+              currentWeight
+            : 1 /
+              Math.max(
+                nonCta.length,
+                1,
+              );
+
+        return {
+          ...scene,
+
+          timing: {
+            durationMs:
+              Math.max(
+                5000,
+                Math.round(
+                  remainingMs *
+                    ratio,
+                ),
+              ),
+          },
+        };
+      },
+    );
+
+  return resized;
+}
+
+function buildProblemAnalysisSolution(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeHero(
+      "hook",
+      input.hook,
+      input.centralThesis,
+      8000,
+    ),
+
+    makeStatement(
+      "problema",
+      "El problema estratégico",
+      input.problem,
+      10000,
+    ),
+
+    makePoints(
+      "analisis",
+      "Lo que debe analizarse",
+      reasoning.slice(
+        0,
+        3,
+      ),
+      12000,
+    ),
+
+    makePoints(
+      "estrategia",
+      "La respuesta estratégica",
+      reasoning.slice(
+        3,
+        6,
+      ),
+      12000,
+    ),
+
+    makeStatement(
+      "solucion",
+      input.centralThesis,
+      input.conclusion,
+      11000,
+    ),
+
+    makePoints(
+      "capacidad",
+      "La arquitectura jurídica integra",
+      input.capabilityDemonstrated,
+      10000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildCaseTensionResolution(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeVideoWindow(
+      "situacion",
+      input.hook,
+      input.problem,
+      9000,
+    ),
+
+    makeStatement(
+      "tension",
+      "El punto de tensión",
+      reasoning[0] ??
+        input.problem,
+      9000,
+    ),
+
+    makeVideoWindow(
+      "escalada",
+      "La situación cambia",
+      reasoning[1] ??
+        input.centralThesis,
+      9000,
+    ),
+
+    makePoints(
+      "decisiones",
+      "Las decisiones críticas",
+      reasoning.slice(
+        2,
+        5,
+      ),
+      11000,
+    ),
+
+    makeStatement(
+      "resolucion",
+      input.centralThesis,
+      input.conclusion,
+      11000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildQuestionDemonstrationConclusion(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeHero(
+      "pregunta",
+      input.hook,
+      input.centralThesis,
+      8000,
+    ),
+
+    makeStatement(
+      "principio",
+      "Primero, el criterio",
+      input.problem,
+      9000,
+    ),
+
+    makeMechanism(
+      "demostracion-1",
+      "Cómo funciona",
+      reasoning.slice(
+        0,
+        3,
+      ),
+      12000,
+    ),
+
+    makeMechanism(
+      "demostracion-2",
+      "Cómo se aplica",
+      reasoning.slice(
+        3,
+        6,
+      ),
+      12000,
+    ),
+
+    makeStatement(
+      "conclusion",
+      "La conclusión estratégica",
+      input.conclusion,
+      10000,
+    ),
+
+    makePoints(
+      "capacidad",
+      "Qué exige un análisis de alto nivel",
+      input.capabilityDemonstrated,
+      10000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildChronologicalReconstruction(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeHero(
+      "apertura",
+      input.hook,
+      input.problem,
+      8000,
+    ),
+
+    makeVideoWindow(
+      "momento-1",
+      "Primera decisión",
+      reasoning[0] ??
+        input.problem,
+      9000,
+    ),
+
+    makeVideoWindow(
+      "momento-2",
+      "Lo que ocurrió después",
+      reasoning[1] ??
+        input.centralThesis,
+      9000,
+    ),
+
+    makeVideoWindow(
+      "momento-3",
+      "El punto de inflexión",
+      reasoning[2] ??
+        input.conclusion,
+      9000,
+    ),
+
+    makePoints(
+      "reconstruccion",
+      "La reconstrucción revela",
+      reasoning.slice(
+        3,
+        6,
+      ),
+      11000,
+    ),
+
+    makeStatement(
+      "lectura",
+      input.centralThesis,
+      input.conclusion,
+      10000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildBeforeAfter(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeHero(
+      "contraste",
+      input.hook,
+      input.centralThesis,
+      7000,
+    ),
+
+    makeStatement(
+      "antes",
+      "Escenario A",
+      reasoning[0] ??
+        input.problem,
+      9000,
+    ),
+
+    makeStatement(
+      "despues",
+      "Escenario B",
+      reasoning[1] ??
+        input.conclusion,
+      9000,
+    ),
+
+    makePoints(
+      "diferencia",
+      "La diferencia estratégica",
+      reasoning.slice(
+        2,
+        5,
+      ),
+      11000,
+    ),
+
+    makeStatement(
+      "regla",
+      "La regla que cambia el resultado",
+      input.centralThesis,
+      10000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildContextEvidenceMeaning(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeVideoWindow(
+      "contexto",
+      input.hook,
+      input.problem,
+      10000,
+    ),
+
+    makeStatement(
+      "hecho",
+      "El hecho relevante",
+      reasoning[0] ??
+        input.problem,
+      10000,
+    ),
+
+    makePoints(
+      "evidencia",
+      "La evidencia que importa",
+      reasoning.slice(
+        1,
+        4,
+      ),
+      13000,
+    ),
+
+    makeStatement(
+      "significado",
+      "Qué significa jurídicamente",
+      input.centralThesis,
+      11000,
+    ),
+
+    makePoints(
+      "lectura",
+      "La lectura estratégica",
+      reasoning.slice(
+        4,
+        7,
+      ),
+      11000,
+    ),
+
+    makeStatement(
+      "conclusion",
+      "La conclusión",
+      input.conclusion,
+      10000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildDecisionConsequence(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeHero(
+      "decision",
+      input.hook,
+      "Hay una decisión que cambia el escenario.",
+      8000,
+    ),
+
+    makeStatement(
+      "opcion-a",
+      "Primera alternativa",
+      reasoning[0] ??
+        input.problem,
+      9000,
+    ),
+
+    makeStatement(
+      "opcion-b",
+      "Segunda alternativa",
+      reasoning[1] ??
+        input.centralThesis,
+      9000,
+    ),
+
+    makePoints(
+      "consecuencias",
+      "Las consecuencias",
+      reasoning.slice(
+        2,
+        5,
+      ),
+      11000,
+    ),
+
+    makeStatement(
+      "criterio",
+      "El criterio estratégico",
+      input.centralThesis,
+      10000,
+    ),
+
+    makeStatement(
+      "resultado",
+      "La decisión debe mirar el resultado",
+      input.conclusion,
+      9000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildSystemMap(
+  input:
+    SilecKnowledgeInput,
+): VideoScene[] {
+  const reasoning =
+    normalizePoints(
+      input.reasoningChain,
+    );
+
+  return [
+    makeHero(
+      "mapa",
+      input.hook,
+      input.centralThesis,
+      8000,
+    ),
+
+    makeMechanism(
+      "nucleo",
+      "El núcleo del problema",
+      [
+        input.problem,
+      ],
+      9000,
+    ),
+
+    makeMechanism(
+      "capa-1",
+      "Primera capa",
+      reasoning.slice(
+        0,
+        3,
+      ),
+      11000,
+    ),
+
+    makeMechanism(
+      "capa-2",
+      "Segunda capa",
+      reasoning.slice(
+        3,
+        6,
+      ),
+      11000,
+    ),
+
+    makePoints(
+      "capacidades",
+      "Capacidades que deben integrarse",
+      input.capabilityDemonstrated,
+      11000,
+    ),
+
+    makeStatement(
+      "resultado",
+      "El sistema conduce a una decisión",
+      input.conclusion,
+      10000,
+    ),
+
+    makeCta(
+      input.closingIdea,
+      input.cta,
+      7000,
+    ),
+  ];
+}
+
+function buildScenes(
+  input:
+    SilecKnowledgeInput,
+  profile:
+    CreativeProfile,
+): VideoScene[] {
+  let scenes:
+    VideoScene[];
+
+  switch (
+    profile
+      .narrativeArchitecture
+  ) {
+    case "case-tension-resolution":
+      scenes =
+        buildCaseTensionResolution(
+          input,
+        );
+      break;
+
+    case "question-demonstration-conclusion":
+      scenes =
+        buildQuestionDemonstrationConclusion(
+          input,
+        );
+      break;
+
+    case "chronological-reconstruction":
+      scenes =
+        buildChronologicalReconstruction(
+          input,
+        );
+      break;
+
+    case "before-after":
+      scenes =
+        buildBeforeAfter(
+          input,
+        );
+      break;
+
+    case "context-evidence-meaning":
+      scenes =
+        buildContextEvidenceMeaning(
+          input,
+        );
+      break;
+
+    case "decision-consequence":
+      scenes =
+        buildDecisionConsequence(
+          input,
+        );
+      break;
+
+    case "system-map":
+      scenes =
+        buildSystemMap(
+          input,
+        );
+      break;
+
+    case "problem-analysis-solution":
+    default:
+      scenes =
+        buildProblemAnalysisSolution(
+          input,
+        );
+      break;
+  }
+
+  return allocateDurations(
+    scenes,
+    profile
+      .targetDurationSeconds
+      .preferred,
+  );
 }
 
 function buildTags(
-  input: SilecKnowledgeInput,
+  input:
+    SilecKnowledgeInput,
+  profile:
+    CreativeProfile,
 ): string[] {
   const capabilityTags =
     input
@@ -508,27 +1284,36 @@ function buildTags(
       .map(slugify)
       .filter(Boolean);
 
-  const topicTag =
+  return unique([
     slugify(
       input.topic,
-    );
+    ),
 
-  return unique([
-    topicTag,
+    slugify(
+      profile.genre,
+    ),
+
+    slugify(
+      profile
+        .narrativeArchitecture,
+    ),
+
     ...capabilityTags,
+
     "estrategia-juridica",
-    "prevencion-juridica",
     "bolivia",
     "high-ticket",
   ]).slice(
-    0,
+     0,
     12,
   );
 }
 
 function validateInput(
-  input: SilecKnowledgeInput,
-  productionCode: string,
+  input:
+    SilecKnowledgeInput,
+  productionCode:
+    string,
 ): void {
   if (
     input.productionCode !==
@@ -539,18 +1324,19 @@ function validateInput(
     );
   }
 
-  const requiredStrings: Array<
-    keyof SilecKnowledgeInput
-  > = [
-    "topic",
-    "centralThesis",
-    "problem",
-    "conclusion",
-    "commercialObjective",
-    "hook",
-    "closingIdea",
-    "cta",
-  ];
+  const requiredStrings:
+    Array<
+      keyof SilecKnowledgeInput
+    > = [
+      "topic",
+      "centralThesis",
+      "problem",
+      "conclusion",
+      "commercialObjective",
+      "hook",
+      "closingIdea",
+      "cta",
+    ];
 
   for (
     const field of
@@ -574,8 +1360,8 @@ function validateInput(
     !Array.isArray(
       input.reasoningChain,
     ) ||
-    input.reasoningChain.length <
-      2
+    input.reasoningChain
+      .length < 2
   ) {
     throw new Error(
       "reasoningChain insuficiente.",
@@ -584,7 +1370,8 @@ function validateInput(
 
   if (
     !Array.isArray(
-      input.capabilityDemonstrated,
+      input
+        .capabilityDemonstrated,
     ) ||
     input
       .capabilityDemonstrated
@@ -596,6 +1383,65 @@ function validateInput(
   }
 }
 
+function validateCreativeDecision(
+  decision:
+    CreativeDecisionFile,
+  productionCode:
+    string,
+): CreativeProfile {
+  if (
+    decision.productionCode !==
+    productionCode
+  ) {
+    throw new Error(
+      "La decisión creativa no corresponde al production code solicitado.",
+    );
+  }
+
+  const profile =
+    decision.selected;
+
+  if (
+    !profile ||
+    profile.version !==
+      "V3.18-A"
+  ) {
+    throw new Error(
+      "CreativeProfile V3.18-A ausente o inválido.",
+    );
+  }
+
+  if (
+    !profile.genre ||
+    !profile
+      .narrativeArchitecture ||
+    !profile.rhythm ||
+    !profile.visualLanguage ||
+    !profile.cameraProfile ||
+    !profile.transitionProfile ||
+    !profile.prosody ||
+    !profile.ctaStrategy
+  ) {
+    throw new Error(
+      "CreativeProfile incompleto.",
+    );
+  }
+
+  if (
+    !profile
+      .targetDurationSeconds ||
+    profile
+      .targetDurationSeconds
+      .preferred <= 0
+  ) {
+    throw new Error(
+      "Duración creativa inválida.",
+    );
+  }
+
+  return profile;
+}
+
 function main(): void {
   const productionCode =
     getProductionCode();
@@ -605,6 +1451,14 @@ function main(): void {
       process.cwd(),
       "content",
       `${productionCode}.silec.json`,
+    );
+
+  const creativePath =
+    path.join(
+      process.cwd(),
+      "public",
+      "generated",
+      `${productionCode}-creative-decision.json`,
     );
 
   const outputPath =
@@ -621,34 +1475,43 @@ function main(): void {
       silecPath,
     );
 
+  const creativeDecision =
+    readJson<
+      CreativeDecisionFile
+    >(
+      creativePath,
+    );
+
   validateInput(
     input,
     productionCode,
   );
 
+  const profile =
+    validateCreativeDecision(
+      creativeDecision,
+      productionCode,
+    );
+
   const narration =
     buildNarration(
       input,
+      profile
+        .narrativeArchitecture,
     );
 
   const scenes =
     buildScenes(
       input,
+      profile,
     );
 
   const tags =
     buildTags(
       input,
+      profile,
     );
 
-  /*
-   * IMPORTANTE:
-   *
-   * Esta estructura replica el
-   * contrato real validado del 008.
-   *
-   * No añadimos campos especulativos.
-   */
   const videoSpec = {
     schemaVersion:
       "1.0",
@@ -684,7 +1547,9 @@ function main(): void {
         "fixed",
 
       fixedDurationSec:
-        90,
+        profile
+          .targetDurationSeconds
+          .preferred,
     },
 
     style: {
@@ -737,7 +1602,7 @@ function main(): void {
   );
 
   console.log(
-    "V3.17-C2 — AUTONOMOUS VIDEO SPEC BUILDER",
+    "V3.18-D — CREATIVE AUTONOMOUS VIDEO SPEC",
   );
 
   console.log(
@@ -753,6 +1618,42 @@ function main(): void {
   );
 
   console.log(
+    `Genre: ${profile.genre}`,
+  );
+
+  console.log(
+    `Narrative architecture: ${profile.narrativeArchitecture}`,
+  );
+
+  console.log(
+    `Rhythm: ${profile.rhythm}`,
+  );
+
+  console.log(
+    `Visual language: ${profile.visualLanguage}`,
+  );
+
+  console.log(
+    `Camera: ${profile.cameraProfile}`,
+  );
+
+  console.log(
+    `Transitions: ${profile.transitionProfile}`,
+  );
+
+  console.log(
+    `Prosody: ${profile.prosody}`,
+  );
+
+  console.log(
+    `CTA strategy: ${profile.ctaStrategy}`,
+  );
+
+  console.log(
+    `Target duration: ${profile.targetDurationSeconds.preferred}s`,
+  );
+
+  console.log(
     `Scenes: ${scenes.length}`,
   );
 
@@ -761,7 +1662,11 @@ function main(): void {
   );
 
   console.log(
-    `Tags: ${tags.length}`,
+    "Media mix: " +
+    `${profile.mediaMix.photo}% photo / ` +
+    `${profile.mediaMix.video}% video / ` +
+    `${profile.mediaMix.graphic}% graphic / ` +
+    `${profile.mediaMix.threeD}% 3D`,
   );
 
   console.log(
@@ -773,7 +1678,7 @@ function main(): void {
   );
 
   console.log(
-    "✅ VideoSpec compatible con contrato validado.",
+    "✅ V3.18-D VideoSpec creativo construido.",
   );
 }
 
