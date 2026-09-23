@@ -2732,3 +2732,206 @@ def write_prosody_plan(
 
 
 async def main() -> None: 
+    print(
+        "======================================"
+    )
+
+    print(
+        "V3.18-E.2 — ADAPTIVE HUMAN "
+        "VOCAL PERFORMANCE DIRECTOR"
+    )
+
+    print(
+        f"Production: {PRODUCTION_CODE}"
+    )
+
+    spec = load_video_spec()
+
+    narration = read_narration(
+        spec
+    )
+
+    tags = read_tags(
+        spec
+    )
+
+    direction = (
+        load_creative_direction()
+    )
+
+    print(
+        "Creative prosody: "
+        f"{direction.prosody or 'baseline'}"
+    )
+
+    print(
+        "Creative rhythm: "
+        f"{direction.rhythm or 'baseline'}"
+    )
+
+    print(
+        "Narrative architecture: "
+        f"{direction.narrative_architecture or 'baseline'}"
+    )
+
+    print(
+        "Vocal direction: "
+        f"{direction.vocal.mode}"
+    )
+
+    print(
+        "Target WPM: "
+        f"{direction.vocal.target_wpm.min}"
+        "-"
+        f"{direction.vocal.target_wpm.max}"
+        " | preferred="
+        f"{direction.vocal.target_wpm.preferred}"
+    )
+
+    plan = build_segment_plan(
+        narration,
+        tags,
+        direction,
+    )
+
+    print(
+        "Unidades interpretativas: "
+        f"{len(plan)}"
+    )
+
+    if plan:
+        print("Apertura original:")
+        print(plan[0].original_text)
+
+        print("Apertura dirigida:")
+        print(plan[0].spoken_text)
+
+        print(
+            "Momento vocal inicial: "
+            f"{plan[0].vocal_moment}"
+        )
+
+    (
+        words,
+        effective_segments,
+        duration_ms,
+    ) = await build_prosodic_audio(
+        plan
+    )
+
+    metrics = build_rhythm_metrics(
+        plan,
+        effective_segments,
+        duration_ms,
+        direction,
+    )
+
+    vocal_qa = build_vocal_qa(
+        plan,
+        metrics,
+    )
+
+    write_timeline(
+        words,
+        effective_segments,
+        duration_ms,
+        direction,
+        metrics,
+        vocal_qa,
+    )
+
+    write_srt(
+        effective_segments
+    )
+
+    write_prosody_plan(
+        narration,
+        plan,
+        effective_segments,
+        duration_ms,
+        direction,
+        metrics,
+        vocal_qa,
+    )
+
+    print(
+        "--------------------------------------"
+    )
+
+    print(
+        "Palabras sincronizadas: "
+        f"{len(words)}"
+    )
+
+    print(
+        "Duración final: "
+        f"{duration_ms / 1000:.3f} s"
+    )
+
+    print(
+        "Speech WPM: "
+        f"{metrics['speechWpm']}"
+    )
+
+    print(
+        "Effective WPM: "
+        f"{metrics['effectiveWpm']}"
+    )
+
+    print(
+        "Estado de ritmo: "
+        f"{metrics['rhythmStatus']}"
+    )
+
+    print(
+        "Pause ratio: "
+        f"{metrics['pauseRatio']}"
+    )
+
+    print(
+        "QA vocal: "
+        + (
+            "PASS"
+            if vocal_qa["passed"]
+            else "REVIEW"
+        )
+    )
+
+    if vocal_qa["issues"]:
+        print(
+            "QA issues: "
+            + ", ".join(
+                vocal_qa["issues"]
+            )
+        )
+
+    print(
+        f"Audio: {AUDIO}"
+    )
+
+    print(
+        f"Timeline: {TIMELINE}"
+    )
+
+    print(
+        f"SRT: {SRT}"
+    )
+
+    print(
+        f"Prosody plan: {PROSODY_PLAN}"
+    )
+
+    print(
+        "✅ V3.18-E.2 ADAPTIVE HUMAN "
+        "VOCAL PERFORMANCE COMPLETADO"
+    )
+
+    print(
+        "======================================"
+    )
+
+
+if __name__ == "__main__":
+    asyncio.run(
+        main()
+        )
