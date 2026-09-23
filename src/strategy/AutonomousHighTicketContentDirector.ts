@@ -9,25 +9,32 @@ import {
 } from "./EditorialMemory";
 
 /**
- * V3.17-A
- * AUTONOMOUS HIGH-TICKET CONTENT DIRECTOR
+ * V3.17-B
+ * AUTONOMOUS PORTFOLIO DIVERSITY DIRECTOR
  *
- * Responsabilidad:
- * - recibir una intención estratégica;
- * - evaluar oportunidades de contenido;
- * - priorizar autoridad y potencial high ticket;
- * - consultar Memoria Editorial;
- * - evitar duplicaciones;
- * - permitir temas relacionados desde nuevos ángulos;
- * - seleccionar autónomamente la mejor oportunidad;
- * - producir un SilecKnowledgeInput compatible
- *   con el pipeline V3.16 existente.
+ * Objetivo:
+ * - preservar el valor high ticket;
+ * - impedir rotación excesiva alrededor del mismo tema;
+ * - aumentar diversidad temática y estratégica;
+ * - penalizar proximidad con producciones recientes;
+ * - favorecer rotación entre dominios jurídicos;
+ * - mantener intacta la autoridad del usuario en modo directed;
+ * - producir SilecKnowledgeInput compatible con el pipeline existente.
  *
- * NO modifica EditorialMemory.
- * NO modifica SilecContentAdapter.
- * NO dirige cinematografía.
- * NO genera assets.
- * NO renderiza.
+ * Principio rector:
+ *
+ * AUTONOMOUS:
+ * valor estratégico + novedad + diversidad + distancia reciente.
+ *
+ * DIRECTED:
+ * intención expresa del usuario + seguridad editorial.
+ *
+ * Este módulo:
+ * - NO modifica EditorialMemory;
+ * - NO modifica SilecContentAdapter;
+ * - NO dirige cinematografía;
+ * - NO genera assets;
+ * - NO renderiza.
  */
 
 export type AutonomousDirectorMode =
@@ -36,83 +43,57 @@ export type AutonomousDirectorMode =
 
 export type HighTicketContentIntent = {
   productionCode: string;
-
   mode?: AutonomousDirectorMode;
-
   objective?: string;
-
   requestedTopic?: string | null;
-
   requestedAngle?: string | null;
 };
 
 export type HighTicketOpportunity = {
   id: string;
-
   domain: string;
-
   topic: string;
-
   centralThesis: string;
-
   problem: string;
-
   reasoningChain: string[];
-
   conclusion: string;
-
   targetAudience: string[];
-
   capabilityDemonstrated: string[];
-
   commercialObjective: string;
-
   offerPath: string[];
-
   hook: string;
-
   closingIdea: string;
-
   cta: string;
-
   strategicValue: number;
-
   authorityValue: number;
-
   commercialPotential: number;
-
   urgencyValue: number;
-
   reusability: number;
-
   scalability: number;
 };
 
 export type HighTicketOpportunityScore = {
   opportunityId: string;
-
   topic: string;
-
   approved: boolean;
-
   totalScore: number;
-
   strategicScore: number;
-
   editorialNoveltyScore: number;
 
-  editorialDecision: EditorialDecision;
+  recentDiversityScore: number;
+  domainDiversityScore: number;
+  repetitionPenalty: number;
+  directedFitScore: number;
 
+  editorialDecision: EditorialDecision;
   reasons: string[];
 };
 
 export type AutonomousContentSelection = {
-  version: "V3.17-A";
+  version: "V3.17-B";
 
   productionCode: string;
-
   mode: AutonomousDirectorMode;
-
   objective: string;
 
   selectedOpportunity:
@@ -149,23 +130,19 @@ const DEFAULT_OFFER_PATH = [
 ];
 
 /**
- * Cartera inicial de oportunidades.
+ * Cartera V3.17-B.
  *
- * Esta cartera NO pretende sustituir SILEC.
- * Define problemas y ángulos comerciales
- * susceptibles de convertirse posteriormente
- * en conocimiento jurídico estructurado.
+ * Se amplía deliberadamente la variedad de problemas.
+ * No sustituye SILEC ni PhD 12.
  *
- * En futuras versiones podrá alimentarse
- * dinámicamente desde SILEC / PhD 12,
- * investigación validada y oportunidades
- * detectadas por Q∞.
+ * Constituye una cartera estratégica de oportunidades
+ * audiovisuales que posteriormente puede ser sustituida
+ * o alimentada dinámicamente por conocimiento validado.
  */
 export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
   HighTicketOpportunity[] = [
     {
       id: "contract-risk-before-signing",
-
       domain: "derecho-empresarial",
 
       topic:
@@ -224,7 +201,6 @@ export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
 
     {
       id: "evidence-before-conflict",
-
       domain: "estrategia-probatoria",
 
       topic:
@@ -283,7 +259,6 @@ export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
 
     {
       id: "administrative-decision-defense",
-
       domain: "derecho-administrativo",
 
       topic:
@@ -293,7 +268,7 @@ export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
         "La defensa administrativa eficaz comienza identificando desde el primer momento hechos, prueba, motivación, procedimiento y efectos concretos de la decisión impugnable.",
 
       problem:
-        "Una empresa o persona afectada por una decisión administrativa puede reaccionar únicamente contra la conclusión de la autoridad sin identificar oportunamente defectos de motivación, valoración probatoria, procedimiento o competencia.",
+        "Una empresa o persona afectada por una decisión administrativa puede reaccionar únicamente contra la conclusión de la autoridad sin identificar oportunamente defectos relevantes del acto o del procedimiento.",
 
       reasoningChain: [
         "Una decisión administrativa produce consecuencias jurídicas concretas que deben identificarse con precisión.",
@@ -348,7 +323,6 @@ export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
 
     {
       id: "corporate-conflict-early-warning",
-
       domain: "derecho-corporativo",
 
       topic:
@@ -413,7 +387,6 @@ export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
 
     {
       id: "contract-default-strategy",
-
       domain: "derecho-contractual",
 
       topic:
@@ -469,8 +442,322 @@ export const HIGH_TICKET_OPPORTUNITY_PORTFOLIO:
       reusability: 96,
       scalability: 97,
     },
-  ];
 
+    {
+      id: "due-diligence-hidden-liabilities",
+      domain: "due-diligence",
+
+      topic:
+        "Los pasivos jurídicos que una operación empresarial puede ocultar antes de una adquisición o inversión",
+
+      centralThesis:
+        "El valor aparente de una empresa u operación puede cambiar radicalmente cuando se identifican obligaciones, litigios, contingencias, restricciones y riesgos jurídicos que no son visibles en una revisión superficial.",
+
+      problem:
+        "Una inversión puede evaluarse principalmente por sus cifras económicas sin integrar suficientemente contingencias jurídicas capaces de alterar precio, garantías o conveniencia de la operación.",
+
+      reasoningChain: [
+        "El precio de una operación depende también del riesgo asumido.",
+        "Las contingencias jurídicas pueden no reflejarse completamente en la información financiera.",
+        "Contratos, procesos, permisos y obligaciones pueden modificar el valor económico real.",
+        "La debida diligencia permite transformar hallazgos jurídicos en decisiones de negociación.",
+        "Detectar un riesgo antes del cierre permite renegociar, garantizar, condicionar o abandonar la operación.",
+      ],
+
+      conclusion:
+        "La debida diligencia jurídica no consiste solo en revisar documentos: consiste en determinar qué riesgo está comprando realmente el inversionista.",
+
+      targetAudience: [
+        "inversionistas",
+        "empresarios",
+        "compradores de empresas",
+        "socios estratégicos",
+        "directores",
+      ],
+
+      capabilityDemonstrated: [
+        "due diligence jurídica",
+        "análisis de contingencias",
+        "estructuración de inversiones",
+        "diagnóstico empresarial",
+        "gestión estratégica de riesgo",
+      ],
+
+      commercialObjective:
+        "Demostrar capacidad para evaluar jurídicamente adquisiciones, inversiones y operaciones empresariales complejas.",
+
+      offerPath:
+        DEFAULT_OFFER_PATH,
+
+      hook:
+        "Una empresa puede valer mucho menos de lo que parece cuando se descubre qué obligaciones vienen incluidas con la compra.",
+
+      closingIdea:
+        "Antes de comprar una empresa, hay que saber también qué riesgos se están comprando.",
+
+      cta:
+        "Antes de cerrar una adquisición o inversión relevante, someta la operación a diagnóstico jurídico integral.",
+
+      strategicValue: 97,
+      authorityValue: 97,
+      commercialPotential: 98,
+      urgencyValue: 88,
+      reusability: 94,
+      scalability: 96,
+    },
+
+    {
+      id: "arbitration-before-litigation",
+      domain: "arbitraje-y-controversias",
+
+      topic:
+        "Cuándo una controversia empresarial exige diseñar la estrategia antes de elegir entre negociación, arbitraje o litigio",
+
+      centralThesis:
+        "La elección del mecanismo de resolución debe ser consecuencia del diagnóstico de la controversia y no una reacción automática al conflicto.",
+
+      problem:
+        "Una empresa puede comprometer tiempo, prueba y recursos en una vía sin comparar previamente jurisdicción, cláusulas aplicables, objetivos económicos, ejecutabilidad y alternativas de negociación.",
+
+      reasoningChain: [
+        "No todas las controversias persiguen el mismo resultado.",
+        "La cláusula de solución de controversias condiciona las alternativas disponibles.",
+        "La prueba, el tiempo y la ejecutabilidad modifican el valor de cada vía.",
+        "La negociación puede ser estratégica sin significar renuncia a una posición jurídica.",
+        "La selección del mecanismo debe responder al resultado perseguido.",
+      ],
+
+      conclusion:
+        "La primera decisión estratégica de una controversia no es cómo pelearla, sino dónde, cuándo y para qué conviene hacerlo.",
+
+      targetAudience: [
+        "empresas",
+        "inversionistas",
+        "directores",
+        "contratistas",
+        "abogados corporativos",
+      ],
+
+      capabilityDemonstrated: [
+        "estrategia de controversias",
+        "arbitraje",
+        "negociación estratégica",
+        "arquitectura de caso",
+        "evaluación de alternativas",
+      ],
+
+      commercialObjective:
+        "Demostrar capacidad para diseñar rutas de resolución de controversias empresariales complejas.",
+
+      offerPath:
+        DEFAULT_OFFER_PATH,
+
+      hook:
+        "El error puede comenzar antes del juicio: elegir mal dónde resolver el conflicto.",
+
+      closingIdea:
+        "Una controversia de alto valor exige diseñar la ruta antes de iniciar la batalla.",
+
+      cta:
+        "Antes de comprometer una controversia relevante en una sola vía, compare estratégicamente las alternativas.",
+
+      strategicValue: 97,
+      authorityValue: 98,
+      commercialPotential: 96,
+      urgencyValue: 92,
+      reusability: 94,
+      scalability: 95,
+    },
+
+    {
+      id: "asset-recovery-executability",
+      domain: "recuperacion-patrimonial",
+
+      topic:
+        "Por qué una victoria jurídica puede no convertirse en recuperación patrimonial",
+
+      centralThesis:
+        "La utilidad económica de una estrategia jurídica depende no solo de obtener una decisión favorable, sino también de que el resultado pueda ejecutarse materialmente.",
+
+      problem:
+        "Un acreedor puede concentrarse en demostrar su derecho sin analizar oportunamente solvencia, patrimonio, garantías y posibilidades reales de ejecución.",
+
+      reasoningChain: [
+        "Una pretensión jurídicamente sólida no garantiza recuperación económica.",
+        "La estructura patrimonial de la contraparte condiciona la utilidad de la estrategia.",
+        "Las garantías pueden modificar sustancialmente la posición de recuperación.",
+        "El tiempo puede deteriorar posibilidades de ejecución.",
+        "La estrategia debe integrar desde el inicio derecho, prueba y resultado económico.",
+      ],
+
+      conclusion:
+        "La estrategia jurídica de recuperación debe diseñarse pensando desde el primer día en el resultado ejecutable.",
+
+      targetAudience: [
+        "acreedores",
+        "empresas",
+        "inversionistas",
+        "entidades con cuentas por cobrar",
+        "abogados",
+      ],
+
+      capabilityDemonstrated: [
+        "recuperación patrimonial",
+        "estrategia ejecutiva",
+        "análisis de garantías",
+        "diagnóstico probatorio",
+        "diseño de resultados ejecutables",
+      ],
+
+      commercialObjective:
+        "Demostrar capacidad para integrar litigio, garantías y recuperación económica en asuntos de alto valor.",
+
+      offerPath:
+        DEFAULT_OFFER_PATH,
+
+      hook:
+        "Tener razón y cobrar son dos problemas jurídicos diferentes.",
+
+      closingIdea:
+        "Una estrategia de recuperación vale por su capacidad de convertirse en resultado.",
+
+      cta:
+        "Antes de iniciar una recuperación de alto valor, diagnostique también la ejecutabilidad del resultado.",
+
+      strategicValue: 98,
+      authorityValue: 96,
+      commercialPotential: 99,
+      urgencyValue: 96,
+      reusability: 95,
+      scalability: 95,
+    },
+
+    {
+      id: "regulatory-risk-business",
+      domain: "regulacion-empresarial",
+
+      topic:
+        "El riesgo regulatorio que puede cambiar una decisión empresarial antes de invertir",
+
+      centralThesis:
+        "Una inversión puede ser económicamente atractiva y, al mismo tiempo, jurídicamente vulnerable si depende de autorizaciones, regulación, obligaciones administrativas o condiciones institucionales no diagnosticadas.",
+
+      problem:
+        "Una decisión empresarial puede analizar mercado y rentabilidad sin incorporar con suficiente profundidad permisos, restricciones, competencias regulatorias y exposición administrativa.",
+
+      reasoningChain: [
+        "La viabilidad económica no sustituye la viabilidad jurídica.",
+        "Las actividades reguladas dependen de competencias y autorizaciones específicas.",
+        "Una restricción administrativa puede afectar tiempo, costo y continuidad.",
+        "El riesgo regulatorio debe incorporarse antes de comprometer capital.",
+        "La estrategia jurídica puede modificar estructura, condiciones o secuencia de inversión.",
+      ],
+
+      conclusion:
+        "Una inversión de alto valor debe superar simultáneamente el análisis económico y el diagnóstico regulatorio.",
+
+      targetAudience: [
+        "inversionistas",
+        "empresas reguladas",
+        "directores",
+        "desarrolladores de proyectos",
+        "contratistas",
+      ],
+
+      capabilityDemonstrated: [
+        "derecho regulatorio",
+        "diagnóstico administrativo",
+        "estructuración de inversiones",
+        "gestión de riesgo",
+        "estrategia empresarial",
+      ],
+
+      commercialObjective:
+        "Demostrar capacidad para integrar regulación y estrategia en decisiones empresariales de alto impacto.",
+
+      offerPath:
+        DEFAULT_OFFER_PATH,
+
+      hook:
+        "Una inversión rentable sobre el papel puede fracasar por una restricción jurídica descubierta demasiado tarde.",
+
+      closingIdea:
+        "Antes de invertir capital, hay que saber si el proyecto puede sostenerse jurídicamente.",
+
+      cta:
+        "Antes de comprometer una inversión relevante, diagnostique también su arquitectura regulatoria.",
+
+      strategicValue: 97,
+      authorityValue: 98,
+      commercialPotential: 97,
+      urgencyValue: 90,
+      reusability: 94,
+      scalability: 97,
+    },
+
+    {
+      id: "shareholder-control-information",
+      domain: "gobierno-corporativo",
+
+      topic:
+        "Cuando el verdadero conflicto societario comienza con el control de la información",
+
+      centralThesis:
+        "En determinadas disputas societarias, el deterioro de la posición de un socio puede comenzar antes de una confrontación abierta, mediante restricciones de información, decisiones y control corporativo.",
+
+      problem:
+        "Un socio puede reaccionar cuando ya perdió capacidad práctica de conocer o influir sobre decisiones relevantes de la empresa.",
+
+      reasoningChain: [
+        "La información permite comprender qué está ocurriendo dentro de la sociedad.",
+        "Cambios en acceso documental pueden revelar deterioro de relaciones internas.",
+        "Las decisiones corporativas deben reconstruirse cronológicamente.",
+        "La documentación temprana permite distinguir percepción de hechos verificables.",
+        "La estrategia debe proteger información, posición y alternativas antes de la escalada.",
+      ],
+
+      conclusion:
+        "En conflictos societarios complejos, proteger la posición comienza comprendiendo y documentando cómo se ejerce el control.",
+
+      targetAudience: [
+        "socios",
+        "accionistas",
+        "empresas familiares",
+        "inversionistas",
+        "directores",
+      ],
+
+      capabilityDemonstrated: [
+        "gobierno corporativo",
+        "conflicto societario",
+        "estrategia documental",
+        "protección de socios",
+        "diagnóstico empresarial",
+      ],
+
+      commercialObjective:
+        "Demostrar capacidad para diagnosticar conflictos de control e información dentro de estructuras societarias.",
+
+      offerPath:
+        DEFAULT_OFFER_PATH,
+
+      hook:
+        "A veces un socio comienza a perder poder mucho antes de saber que existe un conflicto.",
+
+      closingIdea:
+        "La información puede ser la primera línea de defensa de una posición societaria.",
+
+      cta:
+        "Cuando cambia el acceso a información o decisiones relevantes, diagnostique el riesgo antes de que la disputa escale.",
+
+      strategicValue: 95,
+      authorityValue: 96,
+      commercialPotential: 96,
+      urgencyValue: 91,
+      reusability: 92,
+      scalability: 93,
+    },
+  ];
 function clamp100(
   value: number,
 ): number {
@@ -531,8 +818,11 @@ function similarity(
   first: string,
   second: string,
 ): number {
-  const a = tokenize(first);
-  const b = tokenize(second);
+  const a =
+    tokenize(first);
+
+  const b =
+    tokenize(second);
 
   if (
     a.size === 0 ||
@@ -553,30 +843,331 @@ function similarity(
       ...b,
     ]).size;
 
-  if (union === 0) {
+  if (
+    union === 0
+  ) {
     return 0;
   }
 
-  return intersection / union;
+  return (
+    intersection /
+    union
+  );
+}
+
+/**
+ * EditorialMemoryItem puede evolucionar.
+ *
+ * Para no acoplar este Director a campos
+ * internos adicionales de EditorialMemory,
+ * convertimos cada registro reciente en
+ * representación textual segura.
+ */
+function memoryItemText(
+  item: EditorialMemoryItem,
+): string {
+  try {
+    return JSON.stringify(
+      item,
+    );
+  } catch {
+    return String(item);
+  }
+}
+
+function opportunitySemanticText(
+  opportunity:
+    HighTicketOpportunity,
+): string {
+  return [
+    opportunity.domain,
+    opportunity.topic,
+    opportunity.centralThesis,
+    opportunity.problem,
+    opportunity.conclusion,
+    opportunity.hook,
+    opportunity.closingIdea,
+    ...opportunity.reasoningChain,
+    ...opportunity.capabilityDemonstrated,
+  ].join(" ");
+}
+
+/**
+ * Analiza únicamente la memoria más reciente.
+ *
+ * La finalidad no es impedir volver para
+ * siempre a un dominio valioso, sino evitar
+ * secuencias perceptivamente repetitivas.
+ */
+function recentMemory(
+  memory:
+    EditorialMemoryItem[],
+  limit = 6,
+): EditorialMemoryItem[] {
+  if (
+    memory.length <= limit
+  ) {
+    return memory;
+  }
+
+  return memory.slice(
+    memory.length - limit,
+  );
+}
+
+function calculateRecentDiversity(
+  opportunity:
+    HighTicketOpportunity,
+  memory:
+    EditorialMemoryItem[],
+): {
+  score: number;
+  maxSimilarity: number;
+  averageSimilarity: number;
+} {
+  const recent =
+    recentMemory(
+      memory,
+      6,
+    );
+
+  if (
+    recent.length === 0
+  ) {
+    return {
+      score: 100,
+      maxSimilarity: 0,
+      averageSimilarity: 0,
+    };
+  }
+
+  const candidateText =
+    opportunitySemanticText(
+      opportunity,
+    );
+
+  const similarities =
+    recent.map(
+      (item) =>
+        similarity(
+          candidateText,
+          memoryItemText(
+            item,
+          ),
+        ),
+    );
+
+  const maxSimilarity =
+    Math.max(
+      ...similarities,
+    );
+
+  const averageSimilarity =
+    similarities.reduce(
+      (sum, value) =>
+        sum + value,
+      0,
+    ) /
+    similarities.length;
+
+  /*
+   * El máximo reciente pesa más que
+   * el promedio: evita producir hoy
+   * una pieza demasiado próxima a la
+   * inmediatamente anterior aunque
+   * el historial completo sea diverso.
+   */
+  const similarityPressure =
+    maxSimilarity * 0.7 +
+    averageSimilarity * 0.3;
+
+  return {
+    score:
+      round(
+        clamp100(
+          (
+            1 -
+            similarityPressure
+          ) * 100,
+        ),
+      ),
+
+    maxSimilarity:
+      round(
+        maxSimilarity * 100,
+      ),
+
+    averageSimilarity:
+      round(
+        averageSimilarity *
+          100,
+      ),
+  };
+}
+
+/**
+ * Detecta si el dominio conceptual del
+ * candidato aparece repetidamente en
+ * las producciones recientes.
+ *
+ * No depende de que EditorialMemory
+ * exponga explícitamente "domain".
+ */
+function calculateDomainDiversity(
+  opportunity:
+    HighTicketOpportunity,
+  memory:
+    EditorialMemoryItem[],
+): {
+  score: number;
+  recentDomainHits: number;
+} {
+  const recent =
+    recentMemory(
+      memory,
+      5,
+    );
+
+  if (
+    recent.length === 0
+  ) {
+    return {
+      score: 100,
+      recentDomainHits: 0,
+    };
+  }
+
+  const domainTokens =
+    tokenize(
+      opportunity.domain,
+    );
+
+  let hits = 0;
+
+  for (
+    const item
+    of recent
+  ) {
+    const memoryTokens =
+      tokenize(
+        memoryItemText(
+          item,
+        ),
+      );
+
+    const overlap =
+      [...domainTokens].some(
+        (token) =>
+          memoryTokens.has(
+            token,
+          ),
+      );
+
+    if (overlap) {
+      hits += 1;
+    }
+  }
+
+  const score =
+    hits === 0
+      ? 100
+      : hits === 1
+        ? 78
+        : hits === 2
+          ? 52
+          : hits === 3
+            ? 28
+            : 10;
+
+  return {
+    score,
+    recentDomainHits:
+      hits,
+  };
+}
+
+function calculateRepetitionPenalty(
+  editorialNoveltyScore:
+    number,
+  recentDiversityScore:
+    number,
+  domainHits:
+    number,
+): number {
+  let penalty = 0;
+
+  if (
+    editorialNoveltyScore <
+    35
+  ) {
+    penalty += 35;
+  } else if (
+    editorialNoveltyScore <
+    45
+  ) {
+    penalty += 22;
+  } else if (
+    editorialNoveltyScore <
+    55
+  ) {
+    penalty += 10;
+  }
+
+  if (
+    recentDiversityScore <
+    45
+  ) {
+    penalty += 30;
+  } else if (
+    recentDiversityScore <
+    58
+  ) {
+    penalty += 18;
+  } else if (
+    recentDiversityScore <
+    70
+  ) {
+    penalty += 8;
+  }
+
+  if (
+    domainHits >= 3
+  ) {
+    penalty += 18;
+  } else if (
+    domainHits === 2
+  ) {
+    penalty += 10;
+  } else if (
+    domainHits === 1
+  ) {
+    penalty += 3;
+  }
+
+  return clamp100(
+    penalty,
+  );
 }
 
 function buildTemporaryPacket(
   productionCode: string,
   opportunity:
     HighTicketOpportunity,
+  objective:
+    string = DEFAULT_OBJECTIVE,
 ) {
   return {
     productionCode,
 
     version:
-      "V3.17-A-AUTONOMOUS-HIGH-TICKET-DIRECTOR",
+      "V3.17-B-AUTONOMOUS-PORTFOLIO-DIVERSITY-DIRECTOR",
 
     source: {
       ecosystem:
         "ECOSISTEMA SILEC",
 
       module:
-        "Q∞ — Autonomous High-Ticket Content Director",
+        "Q∞ — Autonomous Portfolio Diversity Director",
 
       domain:
         opportunity.domain,
@@ -590,7 +1181,7 @@ function buildTemporaryPacket(
 
     strategicObjective: {
       primaryGoal:
-        DEFAULT_OBJECTIVE,
+        objective,
 
       targetAudience:
         opportunity.targetAudience,
@@ -673,9 +1264,86 @@ function buildTemporaryPacket(
         opportunity.scalability,
 
       rationale:
-        "Oportunidad seleccionada por potencial estratégico, autoridad, captación high ticket, novedad editorial y capacidad de reutilización.",
+        "Oportunidad seleccionada mediante valor estratégico, autoridad, potencial high ticket, novedad editorial, diversidad temática y distancia respecto de producciones recientes.",
     },
   };
+}
+
+function calculateDirectedFit(
+  intent:
+    HighTicketContentIntent,
+  opportunity:
+    HighTicketOpportunity,
+): number {
+  const requestedTopic =
+    intent.requestedTopic
+      ?.trim() ??
+    "";
+
+  const requestedAngle =
+    intent.requestedAngle
+      ?.trim() ??
+    "";
+
+  if (
+    !requestedTopic &&
+    !requestedAngle
+  ) {
+    return 0;
+  }
+
+  let topicFit = 0;
+  let angleFit = 0;
+
+  if (requestedTopic) {
+    topicFit =
+      similarity(
+        requestedTopic,
+        [
+          opportunity.topic,
+          opportunity.domain,
+          opportunity.problem,
+          opportunity.centralThesis,
+        ].join(" "),
+      );
+  }
+
+  if (requestedAngle) {
+    angleFit =
+      similarity(
+        requestedAngle,
+        [
+          opportunity.centralThesis,
+          opportunity.problem,
+          opportunity.conclusion,
+          opportunity.hook,
+          opportunity.closingIdea,
+        ].join(" "),
+      );
+  }
+
+  if (
+    requestedTopic &&
+    requestedAngle
+  ) {
+    return round(
+      clamp100(
+        (
+          topicFit * 0.65 +
+          angleFit * 0.35
+        ) * 100,
+      ),
+    );
+  }
+
+  return round(
+    clamp100(
+      Math.max(
+        topicFit,
+        angleFit,
+      ) * 100,
+    ),
+  );
 }
 
 function scoreOpportunity(
@@ -686,11 +1354,16 @@ function scoreOpportunity(
     EditorialMemoryItem[],
   intent:
     HighTicketContentIntent,
+  mode:
+    AutonomousDirectorMode,
+  objective:
+    string,
 ): HighTicketOpportunityScore {
   const packet =
     buildTemporaryPacket(
       productionCode,
       opportunity,
+      objective,
     );
 
   const editorialDecision =
@@ -719,67 +1392,150 @@ function scoreOpportunity(
   const editorialNoveltyScore =
     round(
       editorialDecision
-        .noveltyScore * 100,
+        .noveltyScore *
+        100,
     );
 
-  let directedBonus = 0;
+  const recent =
+    calculateRecentDiversity(
+      opportunity,
+      memory,
+    );
+
+  const domain =
+    calculateDomainDiversity(
+      opportunity,
+      memory,
+    );
+
+  const repetitionPenalty =
+    calculateRepetitionPenalty(
+      editorialNoveltyScore,
+      recent.score,
+      domain.recentDomainHits,
+    );
+
+  const directedFitScore =
+    calculateDirectedFit(
+      intent,
+      opportunity,
+    );
+
+  let totalScore: number;
 
   if (
-    intent.requestedTopic?.trim()
+    mode ===
+    "directed"
   ) {
-    directedBonus +=
-      similarity(
-        intent.requestedTopic,
-        opportunity.topic,
-      ) * 20;
-  }
-
-  if (
-    intent.requestedAngle?.trim()
-  ) {
-    directedBonus +=
-      similarity(
-                intent.requestedAngle,
-        [
-          opportunity.centralThesis,
-          opportunity.problem,
-          opportunity.conclusion,
-        ].join(" "),
-      ) * 10;
-  }
-
-  const totalScore =
-    round(
-      clamp100(
-        strategicScore * 0.7 +
+    /*
+     * DIRECTED:
+     * la intención del usuario domina.
+     *
+     * La memoria sigue aportando contexto,
+     * pero no debe convertir diversidad
+     * automática en desobediencia.
+     */
+    totalScore =
+      round(
+        clamp100(
+          strategicScore * 0.2 +
           editorialNoveltyScore *
-            0.3 +
-          directedBonus,
-      ),
-    );
+            0.1 +
+          directedFitScore *
+            0.7,
+        ),
+      );
+  } else {
+    /*
+     * AUTONOMOUS:
+     *
+     * La novedad deja de ser un pequeño
+     * complemento del 30%.
+     *
+     * La diversidad y la recencia forman
+     * parte real de la decisión.
+     */
+    totalScore =
+      round(
+        clamp100(
+          strategicScore * 0.38 +
+          editorialNoveltyScore *
+            0.27 +
+          recent.score *
+            0.22 +
+          domain.score *
+            0.13 -
+          repetitionPenalty,
+        ),
+      );
+  }
+
+  /*
+   * Regla de aprobación V3.17-B.
+   *
+   * En autonomous exigimos:
+   * - aprobación de EditorialMemory;
+   * - novedad mínima;
+   * - distancia mínima reciente.
+   *
+   * En directed respetamos la aprobación
+   * editorial existente, pero no imponemos
+   * rotación temática contra la voluntad
+   * expresa del usuario.
+   */
+  const autonomousApproved =
+    editorialDecision.approved &&
+    editorialNoveltyScore >= 45 &&
+    recent.score >= 55;
+
+  const directedApproved =
+    editorialDecision.approved;
+
+  const approved =
+    mode ===
+    "directed"
+      ? directedApproved
+      : autonomousApproved;
 
   const reasons = [
+    `mode=${mode}`,
     `strategic=${strategicScore}`,
     `novelty=${editorialNoveltyScore}`,
+    `recent-diversity=${recent.score}`,
+    `recent-max-similarity=${recent.maxSimilarity}`,
+    `domain-diversity=${domain.score}`,
+    `recent-domain-hits=${domain.recentDomainHits}`,
+    `repetition-penalty=${repetitionPenalty}`,
+    `directed-fit=${directedFitScore}`,
     `commercial=${opportunity.commercialPotential}`,
     `authority=${opportunity.authorityValue}`,
   ];
-
-  if (
-    directedBonus > 0
-  ) {
-    reasons.push(
-      `directed-bonus=${round(
-        directedBonus,
-      )}`,
-    );
-  }
 
   if (
     !editorialDecision.approved
   ) {
     reasons.push(
       `editorial=${editorialDecision.recommendation}`,
+    );
+  }
+
+  if (
+    mode ===
+      "autonomous" &&
+    editorialNoveltyScore < 45
+  ) {
+    reasons.push(
+      "rejected-low-editorial-novelty",
+    );
+  }
+
+  if (
+    mode ===
+      "autonomous" &&
+    recent.score < 55
+  ) {
+    reasons.push(
+      "rejected-low-recent-diversity",
     );
   }
 
@@ -790,14 +1546,23 @@ function scoreOpportunity(
     topic:
       opportunity.topic,
 
-    approved:
-      editorialDecision.approved,
+    approved,
 
     totalScore,
 
     strategicScore,
 
     editorialNoveltyScore,
+
+    recentDiversityScore:
+      recent.score,
+
+    domainDiversityScore:
+      domain.score,
+
+    repetitionPenalty,
+
+    directedFitScore,
 
     editorialDecision,
 
@@ -901,6 +1666,8 @@ export function selectAutonomousHighTicketContent(
             opportunity,
             memory,
             intent,
+            mode,
+            objective,
           ),
       )
       .sort(
@@ -916,13 +1683,14 @@ export function selectAutonomousHighTicketContent(
     );
 
   if (
-    approvedScores.length === 0
+    approvedScores.length ===
+    0
   ) {
     throw new Error(
       [
-        "No existe una oportunidad editorial aprobada.",
-        "Todas las alternativas presentan similitud excesiva con la Memoria Editorial.",
-        "Debe ampliarse la cartera o generar nuevos ángulos estratégicos.",
+        "No existe una oportunidad editorial suficientemente diversa y aprobada.",
+        "V3.17-B evitó producir otra variación excesivamente próxima al contenido reciente.",
+        "Debe ampliarse la cartera estratégica o incorporarse una nueva oportunidad desde Q∞ / SILEC.",
       ].join(" "),
     );
   }
@@ -938,14 +1706,17 @@ export function selectAutonomousHighTicketContent(
           .opportunityId,
     );
 
-  if (!selectedOpportunity) {
+  if (
+    !selectedOpportunity
+  ) {
     throw new Error(
       "No fue posible resolver la oportunidad seleccionada.",
     );
   }
 
   return {
-    version: "V3.17-A",
+    version:
+      "V3.17-B",
 
     productionCode,
 
