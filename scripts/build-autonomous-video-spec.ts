@@ -6,7 +6,7 @@ import type {
 } from "../src/content/SilecContentAdapter";
 
 /**
- * V3.17-C — AUTONOMOUS VIDEO SPEC BUILDER
+ * V3.17-C2 — AUTONOMOUS VIDEO SPEC BUILDER
  *
  * Entrada:
  * content/<production-code>.silec.json
@@ -14,12 +14,9 @@ import type {
  * Salida:
  * examples/<production-code>.video.json
  *
- * Responsabilidad:
- * conocimiento estratégico
- * → arquitectura narrativa
- * → narración
- * → escenas
- * → VideoSpec
+ * CONTRATO:
+ * Compatible con el VideoSpec validado
+ * de video-juridico-008.
  *
  * No genera audio.
  * No selecciona assets.
@@ -27,16 +24,40 @@ import type {
  * No modifica Supabase.
  */
 
-type Scene = {
+type SceneKind =
+  | "hero"
+  | "statement"
+  | "mechanism"
+  | "points"
+  | "equation"
+  | "video-window"
+  | "cta"
+  | "custom";
+
+type SceneContent =
+  | {
+      title: string;
+      subtitle: string;
+    }
+  | {
+      title: string;
+      points: string[];
+    }
+  | {
+      line1: string;
+      line2: string;
+    };
+
+type VideoScene = {
   id: string;
-  title: string;
-  narration: string;
-  visualIntent: string;
-  keywords: string[];
+  kind: SceneKind;
+  content: SceneContent;
+  timing: {
+    durationMs: number;
+  };
 };
 
-function getProductionCode():
-  string {
+function getProductionCode(): string {
   const value =
     process.argv[2]?.trim() ||
     process.env.PRODUCTION_CODE?.trim();
@@ -94,25 +115,50 @@ function writeJson(
   );
 }
 
-function cleanSentence(
+function cleanText(
+  value: string,
+): string {
+  return value
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function sentence(
   value: string,
 ): string {
   const clean =
-    value
-      .replace(/\s+/g, " ")
-      .trim();
+    cleanText(value);
 
   if (!clean) {
     return "";
   }
 
-  if (
-    /[.!?]$/.test(clean)
-  ) {
+  if (/[.!?]$/.test(clean)) {
     return clean;
   }
 
   return `${clean}.`;
+}
+
+function slugify(
+  value: string,
+): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      "",
+    )
+    .replace(
+      /[^a-z0-9]+/g,
+      "-",
+    )
+    .replace(
+      /^-+|-+$/g,
+      "",
+    )
+    .slice(0, 48);
 }
 
 function unique(
@@ -130,97 +176,17 @@ function unique(
   ];
 }
 
-function keywordsFromText(
-  text: string,
-): string[] {
-  const stopWords =
-    new Set([
-      "para",
-      "como",
-      "porque",
-      "desde",
-      "hasta",
-      "entre",
-      "sobre",
-      "cuando",
-      "donde",
-      "antes",
-      "despues",
-      "después",
-      "puede",
-      "debe",
-      "deben",
-      "esta",
-      "este",
-      "estos",
-      "estas",
-      "una",
-      "uno",
-      "unos",
-      "unas",
-      "del",
-      "las",
-      "los",
-      "con",
-      "sin",
-      "por",
-      "que",
-      "sus",
-      "más",
-      "mas",
-      "juridico",
-      "jurídico",
-      "juridica",
-      "jurídica",
-    ]);
-
-  const normalized =
-    text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(
-        /[\u0300-\u036f]/g,
-        "",
-      )
-      .replace(
-        /[^a-z0-9ñ\s-]/g,
-        " ",
-      );
-
-  return unique(
-    normalized
-      .split(/\s+/)
-      .filter(
-        (word) =>
-          word.length >= 5 &&
-          !stopWords.has(word),
-      ),
-  ).slice(0, 8);
-}
-
 function buildNarration(
   input: SilecKnowledgeInput,
 ): string {
   const parts: string[] = [];
 
   parts.push(
-    cleanSentence(
-      input.hook,
-    ),
+    sentence(input.hook),
   );
 
-  /*
-   * No repetimos mecánicamente
-   * todos los campos.
-   *
-   * Construimos una progresión:
-   * tensión → explicación →
-   * razonamiento → conclusión → CTA.
-   */
   parts.push(
-    cleanSentence(
-      input.problem,
-    ),
+    sentence(input.problem),
   );
 
   for (
@@ -228,42 +194,31 @@ function buildNarration(
     input.reasoningChain
   ) {
     parts.push(
-      cleanSentence(
-        reasoning,
-      ),
+      sentence(reasoning),
     );
   }
 
   parts.push(
-    cleanSentence(
-      input.conclusion,
-    ),
+    sentence(input.conclusion),
   );
 
-  /*
-   * closingIdea funciona como
-   * cierre intelectual.
-   */
   if (
-    input.closingIdea.trim() !==
-    input.conclusion.trim()
+    cleanText(
+      input.closingIdea,
+    ) !==
+    cleanText(
+      input.conclusion,
+    )
   ) {
     parts.push(
-      cleanSentence(
+      sentence(
         input.closingIdea,
       ),
     );
   }
 
-  /*
-   * CTA separado para que
-   * V3.15-C pueda reconocerlo
-   * como unidad prosódica.
-   */
   parts.push(
-    cleanSentence(
-      input.cta,
-    ),
+    sentence(input.cta),
   );
 
   return parts
@@ -271,164 +226,275 @@ function buildNarration(
     .join(" ");
 }
 
-function sceneId(
-  index: number,
-  label: string,
+function compact(
+  value: string,
+  maxLength = 115,
 ): string {
-  const slug =
-    label
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(
-        /[\u0300-\u036f]/g,
-        "",
-      )
-      .replace(
-        /[^a-z0-9]+/g,
-        "-",
-      )
-      .replace(
-        /^-+|-+$/g,
-        "",
-      )
-      .slice(0, 40);
+  const clean =
+    cleanText(value);
 
-  return [
-    String(
-      index + 1,
-    ).padStart(
-      2,
-      "0",
-    ),
-    slug || "scene",
-  ].join("-");
+  if (
+    clean.length <=
+    maxLength
+  ) {
+    return clean;
+  }
+
+  const shortened =
+    clean
+      .slice(
+        0,
+        maxLength - 1,
+      )
+      .replace(
+        /\s+\S*$/,
+        "",
+      );
+
+  return `${shortened}…`;
 }
 
-function makeScene(
-  index: number,
+function makeStatement(
+  id: string,
   title: string,
-  narration: string,
-  visualIntent: string,
-): Scene {
+  subtitle: string,
+  durationMs: number,
+): VideoScene {
   return {
-    id:
-      sceneId(
-        index,
-        title,
-      ),
-
-    title,
-
-    narration:
-      cleanSentence(
-        narration,
-      ),
-
-    visualIntent,
-
-    keywords:
-      keywordsFromText(
-        [
+    id,
+    kind:
+      "statement",
+    content: {
+      title:
+        compact(
           title,
-          narration,
-          visualIntent,
-        ].join(" "),
-      ),
+          100,
+        ),
+      subtitle:
+        compact(
+          subtitle,
+          150,
+        ),
+    },
+    timing: {
+      durationMs,
+    },
+  };
+}
+
+function makePoints(
+  id: string,
+  title: string,
+  points: string[],
+  durationMs: number,
+): VideoScene {
+  const cleanPoints =
+    points
+      .map(
+        (point) =>
+          compact(
+            point,
+            100,
+          ),
+      )
+      .filter(Boolean)
+      .slice(0, 3);
+
+  return {
+    id,
+    kind:
+      "points",
+    content: {
+      title:
+        compact(
+          title,
+          100,
+        ),
+      points:
+        cleanPoints.length > 0
+          ? cleanPoints
+          : [
+              "Diagnóstico",
+              "Estrategia",
+              "Ejecución",
+            ],
+    },
+    timing: {
+      durationMs,
+    },
   };
 }
 
 function buildScenes(
   input: SilecKnowledgeInput,
-): Scene[] {
-  const scenes: Scene[] = [];
+): VideoScene[] {
+  const reasoning =
+    input.reasoningChain
+      .map(cleanText)
+      .filter(Boolean);
 
-  scenes.push(
-    makeScene(
-      scenes.length,
-      "Hook",
-      input.hook,
-      [
-        "Apertura cinematográfica de alta tensión estratégica.",
-        "Representar visualmente el problema concreto.",
-        "Evitar símbolos jurídicos genéricos si existe una imagen más precisa.",
-      ].join(" "),
-    ),
-  );
+  const scenes:
+    VideoScene[] = [];
 
-  scenes.push(
-    makeScene(
-      scenes.length,
-      "Problema",
-      input.problem,
-      [
-        "Mostrar el riesgo o conflicto central en contexto empresarial,",
-        "patrimonial o profesional de alto valor.",
-      ].join(" "),
-    ),
-  );
+  /*
+   * 1 — HOOK
+   */
+  scenes.push({
+    id:
+      "hook",
 
-  input.reasoningChain.forEach(
-    (
-      reasoning,
-      index,
-    ) => {
-      scenes.push(
-        makeScene(
-          scenes.length,
-          `Razonamiento ${index + 1}`,
-          reasoning,
-          [
-            "Representar esta idea mediante una situación visual concreta,",
-            "documentos, decisiones, negociación, empresa, patrimonio,",
-            "evidencia o interacción profesional según corresponda.",
-          ].join(" "),
+    kind:
+      "hero",
+
+    content: {
+      title:
+        compact(
+          input.hook,
+          100,
         ),
-      );
-    },
-  );
 
+      subtitle:
+        compact(
+          input.centralThesis,
+          150,
+        ),
+    },
+
+    timing: {
+      durationMs:
+        8000,
+    },
+  });
+
+  /*
+   * 2 — PROBLEMA
+   */
   scenes.push(
-    makeScene(
-      scenes.length,
-      "Conclusión estratégica",
-      input.conclusion,
-      [
-        "Síntesis visual de autoridad.",
-        "Mostrar control, anticipación, decisión o protección",
-        "sin caer en clichés jurídicos innecesarios.",
-      ].join(" "),
+    makeStatement(
+      "problema",
+      "El problema no comienza cuando llega el litigio",
+      input.problem,
+      11000,
     ),
   );
 
-  if (
-    input.closingIdea.trim() !==
-    input.conclusion.trim()
-  ) {
+  /*
+   * 3 — PRIMER BLOQUE DE RAZONAMIENTO
+   */
+  scenes.push(
+    makePoints(
+      "diagnostico",
+      "El diagnóstico estratégico debe anticiparse",
+      reasoning.slice(
+        0,
+        3,
+      ),
+      13000,
+    ),
+  );
+
+  /*
+   * 4 — CONSECUENCIA / CAMBIO DE ESCENARIO
+   */
+  if (reasoning[3]) {
     scenes.push(
-      makeScene(
-        scenes.length,
-        "Cierre intelectual",
-        input.closingIdea,
-        [
-          "Imagen final conceptualmente poderosa,",
-          "sobria y coherente con la tesis central.",
-        ].join(" "),
+      makeStatement(
+        "consecuencia",
+        compact(
+          reasoning[3],
+          100,
+        ),
+        reasoning[4] ??
+          input.centralThesis,
+        12000,
       ),
     );
   }
 
+  /*
+   * 5 — SEGUNDO BLOQUE
+   */
+  const secondBlock =
+    reasoning.slice(
+      4,
+      7,
+    );
+
+  if (
+    secondBlock.length >
+    0
+  ) {
+    scenes.push(
+      makePoints(
+        "estrategia",
+        "La estrategia debe responder antes del conflicto",
+        secondBlock,
+        13000,
+      ),
+    );
+  }
+
+  /*
+   * 6 — TESIS
+   */
   scenes.push(
-    makeScene(
-      scenes.length,
-      "CTA",
-      input.cta,
-      [
-        "Cierre profesional premium.",
-        "Transmitir diagnóstico, prevención, estrategia",
-        "y capacidad profesional de alto nivel.",
-      ].join(" "),
+    makeStatement(
+      "tesis",
+      input.centralThesis,
+      input.conclusion,
+      12000,
     ),
   );
+
+  /*
+   * 7 — CAPACIDAD DEMOSTRADA
+   */
+  scenes.push(
+    makePoints(
+      "capacidad",
+      "Una estrategia jurídica de alto nivel integra",
+      input
+        .capabilityDemonstrated
+        .slice(
+          0,
+          3,
+        ),
+      12000,
+    ),
+  );
+
+  /*
+   * 8 — CIERRE / CTA
+   *
+   * Exactamente el tipo y estructura
+   * que ya acepta el schema validado.
+   */
+  scenes.push({
+    id:
+      "cta",
+
+    kind:
+      "cta",
+
+    content: {
+      line1:
+        compact(
+          input.closingIdea,
+          115,
+        ),
+
+      line2:
+        compact(
+          input.cta,
+          150,
+        ),
+    },
+
+    timing: {
+      durationMs:
+        7000,
+    },
+  });
 
   return scenes;
 }
@@ -436,19 +502,28 @@ function buildScenes(
 function buildTags(
   input: SilecKnowledgeInput,
 ): string[] {
-  return unique([
-    "jurídico",
-    "estrategia",
-    "high-ticket",
-    "Bolivia",
-    "es-BO",
-    "autoridad profesional",
-    "prevención jurídica",
-    ...input.capabilityDemonstrated,
-    ...keywordsFromText(
+  const capabilityTags =
+    input
+      .capabilityDemonstrated
+      .map(slugify)
+      .filter(Boolean);
+
+  const topicTag =
+    slugify(
       input.topic,
-    ),
-  ]);
+    );
+
+  return unique([
+    topicTag,
+    ...capabilityTags,
+    "estrategia-juridica",
+    "prevencion-juridica",
+    "bolivia",
+    "high-ticket",
+  ]).slice(
+    0,
+    12,
+  );
 }
 
 function validateInput(
@@ -499,10 +574,24 @@ function validateInput(
     !Array.isArray(
       input.reasoningChain,
     ) ||
-    input.reasoningChain.length < 2
+    input.reasoningChain.length <
+      2
   ) {
     throw new Error(
       "reasoningChain insuficiente.",
+    );
+  }
+
+  if (
+    !Array.isArray(
+      input.capabilityDemonstrated,
+    ) ||
+    input
+      .capabilityDemonstrated
+      .length === 0
+  ) {
+    throw new Error(
+      "capabilityDemonstrated insuficiente.",
     );
   }
 }
@@ -553,23 +642,12 @@ function main(): void {
     );
 
   /*
-   * Conservamos el contrato
-   * fundamental de los VideoSpec
-   * actualmente utilizados:
+   * IMPORTANTE:
    *
-   * schemaVersion
-   * id
-   * templateFamily
-   * meta
-   * visual
-   * audio
-   * scenes
+   * Esta estructura replica el
+   * contrato real validado del 008.
    *
-   * fixedDurationSec sigue siendo
-   * un valor inicial.
-   * apply-adaptive-duration.ts
-   * conserva el control real
-   * posterior de duración.
+   * No añadimos campos especulativos.
    */
   const videoSpec = {
     schemaVersion:
@@ -583,119 +661,69 @@ function main(): void {
 
     meta: {
       title:
-        input.hook,
+        cleanText(
+          input.hook,
+        ),
 
-      topic:
-        input.topic,
-
-      centralThesis:
-        input.centralThesis,
-
-      objective:
-        input.commercialObjective,
-
-      targetAudience:
-        input.targetAudience,
-
-      capabilityDemonstrated:
-        input.capabilityDemonstrated,
+      description:
+        cleanText(
+          input.centralThesis,
+        ),
 
       tags,
-
-      language:
-        "es-BO",
-
-      market:
-        "Bolivia",
-
-      generatedBy:
-        "V3.17-C-AUTONOMOUS-VIDEO-SPEC",
     },
 
-    durationMode:
-      "adaptive",
-
-    fixedDurationSec:
-      90,
-
-    visual: {
-      style:
-        "editorial-dark",
-
-      format:
-        "vertical",
-
-      aspectRatio:
+    target: {
+      aspect:
         "9:16",
 
-      safeFrame:
-        true,
+      fps:
+        30,
 
-      semanticVisuals:
-        true,
+      durationMode:
+        "fixed",
 
-      multimodal:
-        true,
+      fixedDurationSec:
+        90,
+    },
 
-      localization: {
-        country:
-          "Bolivia",
+    style: {
+      theme:
+        "editorial-dark",
 
-        language:
-          "es",
+      variant:
+        "default",
 
-        foreignFlags:
-          "only-if-contextually-justified",
+      safeAreaProfile:
+        "metaSafe",
 
-        visibleTextPreference:
-          "Spanish",
-      },
+      showSceneLabels:
+        false,
     },
 
     audio: {
+      mode:
+        "narration",
+
       narrationText:
         narration,
 
-      language:
-        "es-BO",
+      narrationSrc:
+        `public/generated/${productionCode}-narration.mp3`,
 
-      voice:
-        "es-BO-MarceloNeural",
+      narrationVolume:
+        1,
 
-      prosodyDirector:
-        "V3.15-C",
+      musicVolume:
+        0.06,
+
+      ducking:
+        true,
     },
 
-    scenes:
-      scenes.map(
-        (
-          scene,
-          index,
-        ) => ({
-          id:
-            scene.id,
+    assets: {},
 
-          order:
-            index + 1,
-
-          title:
-            scene.title,
-
-          narration:
-            scene.narration,
-
-          visualIntent:
-            scene.visualIntent,
-
-          keywords:
-            scene.keywords,
-
-          transition:
-            index === 0
-              ? "fade"
-              : "cinematic-crossfade",
-        }),
-      ),
+    scenes,
   };
 
   writeJson(
@@ -709,7 +737,7 @@ function main(): void {
   );
 
   console.log(
-    "V3.17-C — AUTONOMOUS VIDEO SPEC BUILDER",
+    "V3.17-C2 — AUTONOMOUS VIDEO SPEC BUILDER",
   );
 
   console.log(
@@ -745,7 +773,7 @@ function main(): void {
   );
 
   console.log(
-    "✅ Autonomous VideoSpec generated.",
+    "✅ VideoSpec compatible con contrato validado.",
   );
 }
 
