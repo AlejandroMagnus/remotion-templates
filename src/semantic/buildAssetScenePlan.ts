@@ -1248,3 +1248,7 @@ for (const item of plan) {
 console.log(
   `\nPlan written to:\n${outputPath}`,
 );
+      };
+    },
+  );
+}
