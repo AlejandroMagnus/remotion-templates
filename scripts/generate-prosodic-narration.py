@@ -17,18 +17,22 @@ import edge_tts
 
 
 # ============================================================
-# V3.18-E — SYNTACTIC-SEMANTIC PROSODY DIRECTOR
+# V3.18-E.1 — NATURAL SYNTACTIC-SEMANTIC PROSODY DIRECTOR
 #
 # Objetivo:
 #   sintaxis + puntuación + significado + intención creativa
-#   → pausas + velocidad + tono
+#   → pausas naturales + velocidad + tono
 #   → TTS
 #   → WordBoundary
 #   → timeline sincronizado
 #
 # PRINCIPIO DE SEGURIDAD:
-# No se altera manualmente la sincronización de palabras.
 # WordBoundary continúa siendo la fuente temporal de verdad.
+# No se reconstruye manualmente la sincronización.
+#
+# CALIBRACIÓN E.1:
+# Edge TTS ya interpreta parte de la puntuación.
+# Las pausas externas solo refuerzan sutilmente la respiración.
 # ============================================================
 
 
@@ -69,7 +73,7 @@ VOICE = "es-BO-MarceloNeural"
 LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
 
-VERSION = "V3.18-E-SYNTACTIC-SEMANTIC-PROSODY"
+VERSION = "V3.18-E.1-NATURAL-SYNTACTIC-SEMANTIC-PROSODY"
 
 
 # ============================================================
@@ -91,8 +95,8 @@ PROFILES = {
         role="opening_question",
         rate="-12%",
         pitch="+2Hz",
-        pre_pause_ms=350,
-        post_pause_ms=700,
+        pre_pause_ms=300,
+        post_pause_ms=480,
     ),
 
     "question": ProsodyProfile(
@@ -100,7 +104,7 @@ PROFILES = {
         rate="-10%",
         pitch="+2Hz",
         pre_pause_ms=0,
-        post_pause_ms=520,
+        post_pause_ms=340,
     ),
 
     "warning": ProsodyProfile(
@@ -108,7 +112,7 @@ PROFILES = {
         rate="-8%",
         pitch="-2Hz",
         pre_pause_ms=0,
-        post_pause_ms=380,
+        post_pause_ms=280,
     ),
 
     "authority": ProsodyProfile(
@@ -116,15 +120,15 @@ PROFILES = {
         rate="-6%",
         pitch="-1Hz",
         pre_pause_ms=0,
-        post_pause_ms=300,
+        post_pause_ms=240,
     ),
 
     "cta": ProsodyProfile(
         role="cta",
         rate="-10%",
         pitch="-1Hz",
-        pre_pause_ms=100,
-        post_pause_ms=500,
+        pre_pause_ms=80,
+        post_pause_ms=350,
     ),
 
     "explanation": ProsodyProfile(
@@ -132,7 +136,7 @@ PROFILES = {
         rate="-5%",
         pitch="+0Hz",
         pre_pause_ms=0,
-        post_pause_ms=240,
+        post_pause_ms=190,
     ),
 }
 
@@ -155,14 +159,14 @@ CREATIVE_RATE_ADJUSTMENT = {
 
 
 CREATIVE_PAUSE_MULTIPLIER = {
-    "authoritative": 1.08,
-    "dramatic-controlled": 1.20,
-    "professorial": 1.15,
-    "investigative": 1.12,
-    "executive": 0.92,
-    "contrastive": 1.05,
-    "decisive": 0.90,
-    "analytical": 1.12,
+    "authoritative": 1.04,
+    "dramatic-controlled": 1.10,
+    "professorial": 1.08,
+    "investigative": 1.06,
+    "executive": 0.90,
+    "contrastive": 1.02,
+    "decisive": 0.88,
+    "analytical": 1.06,
 }
 
 
@@ -219,11 +223,9 @@ def adjust_rate(
 ) -> str:
     base = percentage_value(rate)
 
-    adjustment = (
-        CREATIVE_RATE_ADJUSTMENT.get(
-            creative_prosody or "",
-            0,
-        )
+    adjustment = CREATIVE_RATE_ADJUSTMENT.get(
+        creative_prosody or "",
+        0,
     )
 
     result = max(
@@ -281,7 +283,7 @@ def clean_spaces(
 
 
 # ============================================================
-# MOTOR SINTÁCTICO
+# MOTOR SINTÁCTICO NATURAL
 # ============================================================
 
 
@@ -297,33 +299,33 @@ def punctuation_pause(
     terminal_mark: str,
 ) -> int:
     """
-    Pausa EXTERNA añadida después de cada unidad.
+    V3.18-E.1 — Natural Speech Calibration.
 
-    edge-tts conserva su propia entonación interna.
-    Estas pausas sirven para impedir que las ideas
-    queden acústicamente pegadas.
+    Edge TTS ya interpreta parte de la puntuación.
+    Estas pausas externas solo refuerzan de forma
+    sutil la respiración sintáctica.
     """
 
     if terminal_mark in ("?", "¿"):
-        return 500
+        return 320
 
     if terminal_mark in ("!", "¡"):
-        return 430
+        return 280
 
     if terminal_mark == ".":
-        return 400
+        return 250
 
     if terminal_mark == ";":
-        return 300
+        return 175
 
     if terminal_mark == ":":
-        return 260
+        return 155
 
     if terminal_mark == ",":
-        return 150
+        return 80
 
     if terminal_mark in ("—", "–"):
-        return 210
+        return 130
 
     return 0
 
@@ -352,12 +354,12 @@ def split_syntax_units(
     sentence: str,
 ) -> list[SyntaxUnit]:
     """
-    Divide una oración larga en unidades pronunciables.
+    Divide una oración en unidades pronunciables sin
+    fragmentarla excesivamente.
 
-    No se fragmenta por cualquier coma:
-    solo se utiliza una coma como frontera cuando
-    la unidad previa tiene suficiente longitud.
-    Esto evita una locución robótica.
+    Las comas solo producen frontera externa cuando la
+    unidad tiene longitud suficiente. Edge TTS conserva
+    la interpretación natural de la puntuación restante.
     """
 
     text = clean_spaces(sentence)
@@ -418,11 +420,11 @@ def split_syntax_units(
             or mark in "?!."
             or (
                 mark == ","
-                and word_count >= 5
+                and word_count >= 7
             )
             or (
                 mark in "—–"
-                and word_count >= 4
+                and word_count >= 5
             )
         )
 
@@ -477,6 +479,7 @@ def should_question_opening(
         return True
 
     value = normalize(sentence)
+
     tag_text = normalize(
         " ".join(tags)
     )
@@ -747,7 +750,9 @@ def build_segment_plan(
             ),
         )
 
-        profile = PROFILES[role]
+        profile = PROFILES[
+            role
+        ]
 
         syntactic_pause = round(
             unit.pause_after_ms
@@ -759,16 +764,14 @@ def build_segment_plan(
             * multiplier
         )
 
-        # No sumamos ciegamente ambas pausas.
-        # Elegimos la pausa dominante para mantener
-        # naturalidad y evitar silencios excesivos.
+        # La pausa dominante evita sumar silencios
+        # de puntuación + rol de forma artificial.
         post_pause = max(
             syntactic_pause,
             role_pause,
         )
 
-        # Una ruptura semántica merece un pequeño
-        # margen adicional de respiración.
+        # Respiración conceptual mínima.
         if (
             unit.semantic_break
             and role
@@ -779,7 +782,7 @@ def build_segment_plan(
             )
         ):
             post_pause += round(
-                70 * multiplier
+                30 * multiplier
             )
 
         result.append(
@@ -798,12 +801,9 @@ def build_segment_plan(
                     * multiplier
                 ),
                 post_pause_ms=post_pause,
-                punctuation_pause_ms=
-                    syntactic_pause,
-                terminal_mark=
-                    unit.terminal_mark,
-                semantic_break=
-                    unit.semantic_break,
+                punctuation_pause_ms=syntactic_pause,
+                terminal_mark=unit.terminal_mark,
+                semantic_break=unit.semantic_break,
             )
         )
 
@@ -843,28 +843,21 @@ async def synthesize_segment_once(
 
             elif chunk["type"] == "WordBoundary":
                 start_ms = round(
-                    chunk["offset"]
-                    / 10000
+                    chunk["offset"] / 10000
                 )
 
                 duration_ms = round(
-                    chunk["duration"]
-                    / 10000
+                    chunk["duration"] / 10000
                 )
 
                 words.append(
                     {
-                        "text":
-                            chunk["text"],
-
-                        "startMs":
-                            start_ms,
-
-                        "endMs":
-                            (
-                                start_ms
-                                + duration_ms
-                            ),
+                        "text": chunk["text"],
+                        "startMs": start_ms,
+                        "endMs": (
+                            start_ms
+                            + duration_ms
+                        ),
                     }
                 )
 
@@ -892,10 +885,7 @@ async def synthesize_segment(
 ) -> list[dict]:
     last_error = None
 
-    for attempt in range(
-        1,
-        4,
-    ):
+    for attempt in range(1, 4):
         try:
             print(
                 f"Segmento {segment.index + 1} | "
@@ -953,11 +943,7 @@ def probe_duration_ms(
             "-show_entries",
             "format=duration",
             "-of",
-            (
-                "default="
-                "noprint_wrappers=1:"
-                "nokey=1"
-            ),
+            "default=noprint_wrappers=1:nokey=1",
             str(audio_file),
         ],
         text=True,
@@ -967,9 +953,7 @@ def probe_duration_ms(
 
     return max(
         1,
-        round(
-            duration * 1000
-        ),
+        round(duration * 1000),
     )
 
 
@@ -997,8 +981,7 @@ def make_silence_wav(
         )
 
         wav_file.writeframes(
-            b"\x00\x00"
-            * frames
+            b"\x00\x00" * frames
         )
 
 
@@ -1032,8 +1015,7 @@ def concat_wav_files(
 ) -> None:
     if not wav_files:
         raise RuntimeError(
-            "No hay archivos WAV "
-            "para concatenar"
+            "No hay archivos WAV para concatenar"
         )
 
     command = [
@@ -1105,7 +1087,6 @@ async def build_prosodic_audio(
         temp = Path(temp_dir)
 
         wav_parts: list[Path] = []
-
         cursor_ms = 0
 
         for segment in plan:
@@ -1113,13 +1094,9 @@ async def build_prosodic_audio(
                 segment.index + 1
             )
 
-            if (
-                segment.pre_pause_ms
-                > 0
-            ):
+            if segment.pre_pause_ms > 0:
                 pre_file = temp / (
-                    f"{segment_number:03}"
-                    "-pre.wav"
+                    f"{segment_number:03}-pre.wav"
                 )
 
                 make_silence_wav(
@@ -1135,18 +1112,14 @@ async def build_prosodic_audio(
                     segment.pre_pause_ms
                 )
 
-            speech_start_ms = (
-                cursor_ms
-            )
+            speech_start_ms = cursor_ms
 
             mp3_file = temp / (
-                f"{segment_number:03}"
-                "-speech.mp3"
+                f"{segment_number:03}-speech.mp3"
             )
 
             wav_file = temp / (
-                f"{segment_number:03}"
-                "-speech.wav"
+                f"{segment_number:03}-speech.wav"
             )
 
             local_words = (
@@ -1180,17 +1153,13 @@ async def build_prosodic_audio(
                         "startMs":
                             (
                                 speech_start_ms
-                                + word[
-                                    "startMs"
-                                ]
+                                + word["startMs"]
                             ),
 
                         "endMs":
                             (
                                 speech_start_ms
-                                + word[
-                                    "endMs"
-                                ]
+                                + word["endMs"]
                             ),
 
                         "segmentIndex":
@@ -1200,12 +1169,10 @@ async def build_prosodic_audio(
                             segment.role,
 
                         "terminalMark":
-                            segment
-                            .terminal_mark,
+                            segment.terminal_mark,
 
                         "semanticBreak":
-                            segment
-                            .semantic_break,
+                            segment.semantic_break,
                     }
                 )
 
@@ -1213,17 +1180,11 @@ async def build_prosodic_audio(
                 speech_duration_ms
             )
 
-            speech_end_ms = (
-                cursor_ms
-            )
+            speech_end_ms = cursor_ms
 
-            if (
-                segment.post_pause_ms
-                > 0
-            ):
+            if segment.post_pause_ms > 0:
                 post_file = temp / (
-                    f"{segment_number:03}"
-                    "-post.wav"
+                    f"{segment_number:03}-post.wav"
                 )
 
                 make_silence_wav(
@@ -1273,8 +1234,7 @@ async def build_prosodic_audio(
 
     if len(global_words) < 5:
         raise RuntimeError(
-            "Timeline prosódico "
-            "insuficiente"
+            "Timeline prosódico insuficiente"
         )
 
     previous_start = -1
@@ -1325,25 +1285,14 @@ async def build_prosodic_audio(
 def srt_time(
     ms: int,
 ) -> str:
-    hours = (
-        ms // 3_600_000
-    )
-
+    hours = ms // 3_600_000
     ms %= 3_600_000
 
-    minutes = (
-        ms // 60_000
-    )
-
+    minutes = ms // 60_000
     ms %= 60_000
 
-    seconds = (
-        ms // 1_000
-    )
-
-    millis = (
-        ms % 1_000
-    )
+    seconds = ms // 1_000
+    millis = ms % 1_000
 
     return (
         f"{hours:02}:"
@@ -1357,26 +1306,19 @@ def write_srt(
     segments: list[dict],
 ) -> None:
     blocks: list[str] = []
-
     counter = 1
 
     for segment in segments:
         start_ms = int(
-            segment[
-                "speechStartMs"
-            ]
+            segment["speechStartMs"]
         )
 
         end_ms = int(
-            segment[
-                "speechEndMs"
-            ]
+            segment["speechEndMs"]
         )
 
         text = str(
-            segment[
-                "spoken_text"
-            ]
+            segment["spoken_text"]
         ).strip()
 
         if (
@@ -1389,13 +1331,11 @@ def write_srt(
             "\n".join(
                 [
                     str(counter),
-
                     (
                         f"{srt_time(start_ms)}"
                         " --> "
                         f"{srt_time(end_ms)}"
                     ),
-
                     text,
                 ]
             )
@@ -1404,11 +1344,7 @@ def write_srt(
         counter += 1
 
     SRT.write_text(
-        "\n\n".join(
-            blocks
-        )
-        + "\n",
-
+        "\n\n".join(blocks) + "\n",
         encoding="utf-8",
     )
 
@@ -1421,8 +1357,7 @@ def write_srt(
 def load_video_spec() -> dict:
     if not SPEC.exists():
         raise RuntimeError(
-            f"No existe VideoSpec: "
-            f"{SPEC}"
+            f"No existe VideoSpec: {SPEC}"
         )
 
     return json.loads(
@@ -1483,15 +1418,14 @@ def read_tags(
     ):
         return [
             str(tag)
-            for tag
-            in raw_tags
+            for tag in raw_tags
         ]
 
     return []
 
 
 # ============================================================
-# SALIDAS DE QA
+# TIMELINE Y QA
 # ============================================================
 
 
@@ -1508,8 +1442,7 @@ def write_timeline(
         "productionCode":
             PRODUCTION_CODE,
 
-        # Se conserva por compatibilidad
-        # con el QA existente del workflow.
+        # Contrato conservado para el QA existente.
         "version":
             "V3.15-C-PROSODY-DIRECTOR",
 
@@ -1518,7 +1451,7 @@ def write_timeline(
 
         "engine":
             (
-                "edge-tts-"
+                "edge-tts-natural-"
                 "syntactic-semantic-prosody"
             ),
 
@@ -1550,7 +1483,6 @@ def write_timeline(
             ensure_ascii=False,
             indent=2,
         ),
-
         encoding="utf-8",
     )
 
@@ -1570,28 +1502,24 @@ def write_prosody_plan(
         )
     )
 
-    syntactic_pauses = [
-        item
+    syntactic_pause_count = sum(
+        1
         for item in plan
-        if (
-            item
-            .punctuation_pause_ms
-            > 0
-        )
-    ]
+        if item.punctuation_pause_ms > 0
+    )
 
-    semantic_breaks = [
-        item
+    semantic_break_count = sum(
+        1
         for item in plan
         if item.semantic_break
-    ]
+    )
 
     payload = {
         "productionCode":
             PRODUCTION_CODE,
 
-        # Compatibilidad con auditoría
-        # ya validada del workflow.
+        # Se conserva para compatibilidad
+        # con la auditoría ya validada.
         "version":
             "V3.15-C-PROSODY-DIRECTOR",
 
@@ -1613,14 +1541,10 @@ def write_prosody_plan(
                 len(plan),
 
             "syntacticPauseCount":
-                len(
-                    syntactic_pauses
-                ),
+                syntactic_pause_count,
 
             "semanticBreakCount":
-                len(
-                    semantic_breaks
-                ),
+                semantic_break_count,
 
             "creativeProsody":
                 creative_prosody,
@@ -1648,7 +1572,6 @@ def write_prosody_plan(
             ensure_ascii=False,
             indent=2,
         ),
-
         encoding="utf-8",
     )
 
@@ -1664,13 +1587,12 @@ async def main() -> None:
     )
 
     print(
-        "V3.18-E — SYNTACTIC-SEMANTIC "
-        "PROSODY DIRECTOR"
+        "V3.18-E.1 — NATURAL "
+        "SYNTACTIC-SEMANTIC PROSODY"
     )
 
     print(
-        f"Production: "
-        f"{PRODUCTION_CODE}"
+        f"Production: {PRODUCTION_CODE}"
     )
 
     spec = load_video_spec()
@@ -1792,13 +1714,12 @@ async def main() -> None:
     )
 
     print(
-        "Prosody plan: "
-        f"{PROSODY_PLAN}"
+        f"Prosody plan: {PROSODY_PLAN}"
     )
 
     print(
-        "✅ V3.18-E PROSODIA "
-        "SINTÁCTICO-SEMÁNTICA COMPLETADA"
+        "✅ V3.18-E.1 NATURAL SPEECH "
+        "CALIBRATION COMPLETADA"
     )
 
     print(
@@ -1809,4 +1730,4 @@ async def main() -> None:
 if __name__ == "__main__":
     asyncio.run(
         main()
-                )
+)
