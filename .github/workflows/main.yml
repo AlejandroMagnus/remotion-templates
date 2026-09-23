@@ -6,7 +6,29 @@ on:
       production_code:
         description: "Production code"
         required: true
-        default: "video-juridico-007"
+        default: "video-juridico-009"
+        type: string
+
+      content_mode:
+        description: "Content generation mode"
+        required: true
+        default: "autonomous"
+        type: choice
+        options:
+          - autonomous
+          - directed
+          - existing
+
+      requested_topic:
+        description: "Optional topic for directed mode"
+        required: false
+        default: ""
+        type: string
+
+      requested_angle:
+        description: "Optional angle for directed mode"
+        required: false
+        default: ""
         type: string
 
 permissions:
@@ -18,6 +40,9 @@ jobs:
 
     env:
       PRODUCTION_CODE: ${{ inputs.production_code }}
+      CONTENT_MODE: ${{ inputs.content_mode }}
+      REQUESTED_TOPIC: ${{ inputs.requested_topic }}
+      REQUESTED_ANGLE: ${{ inputs.requested_angle }}
 
     steps:
       - name: Descargar repositorio
@@ -48,6 +73,70 @@ jobs:
           mkdir -p public/generated
           rm -rf out
           mkdir -p out
+
+      # ============================================================
+      # V3.17 — DIRECTOR AUTÓNOMO DE CONTENIDO HIGH-TICKET
+      #
+      # autonomous:
+      #   Memoria Editorial
+      #   → ranking Q∞
+      #   → selección del tema
+      #   → SILEC input
+      #   → VideoSpec
+      #
+      # directed:
+      #   tema/ángulo solicitado
+      #   → Memoria Editorial
+      #   → selección estratégica
+      #   → SILEC input
+      #   → VideoSpec
+      #
+      # existing:
+      #   utiliza los archivos ya existentes
+      #   sin regenerarlos.
+      # ============================================================
+
+      - name: V3.17-B — Seleccionar contenido autónomo high-ticket
+        if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          if [ "${CONTENT_MODE}" = "directed" ]; then
+            if [ -z "${REQUESTED_TOPIC}" ]; then
+              echo "ERROR: directed mode requiere requested_topic."
+              exit 1
+            fi
+
+            npx --yes tsx scripts/autonomous-content-director.ts \
+              "${PRODUCTION_CODE}" \
+              "${REQUESTED_TOPIC}" \
+              "${REQUESTED_ANGLE}"
+          else
+            npx --yes tsx scripts/autonomous-content-director.ts \
+              "${PRODUCTION_CODE}"
+          fi
+
+      - name: V3.17-C — Construir VideoSpec autónomo
+        if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
+        run: |
+          npx --yes tsx scripts/build-autonomous-video-spec.ts \
+            "${PRODUCTION_CODE}"
+
+      - name: Verificar entrada de producción
+        run: |
+          test -s "content/${PRODUCTION_CODE}.silec.json"
+          test -s "examples/${PRODUCTION_CODE}.video.json"
+
+          echo ""
+          echo "=============================================="
+          echo "ENTRADA DE PRODUCCION CONFIRMADA"
+          echo "=============================================="
+          echo "Production: ${PRODUCTION_CODE}"
+          echo "Mode: ${CONTENT_MODE}"
+          echo "SILEC: content/${PRODUCTION_CODE}.silec.json"
+          echo "VideoSpec: examples/${PRODUCTION_CODE}.video.json"
+          echo "=============================================="
 
       # ============================================================
       # V3.16 — SILEC / PhD 12 → Q∞ → MEMORIA EDITORIAL
