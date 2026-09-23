@@ -1,12 +1,10 @@
 import type {SemanticEvent} from "../buildSemanticEvents";
 
-
 export type VisualRoute =
   | "REALISTIC_SCENE"
   | "DOCUMENT_OBJECT"
   | "ONDA_GRAPHIC"
   | "CONTINUITY";
-
 
 export type VisualLanguage =
   | "cinematic-realism"
@@ -18,7 +16,6 @@ export type VisualLanguage =
   | "procedural-immersion"
   | "strategic-diagram";
 
-
 export type CameraProfile =
   | "controlled-cinematic"
   | "progressive-tension"
@@ -28,7 +25,6 @@ export type CameraProfile =
   | "contrast-motion"
   | "immersive-decision"
   | "diagrammatic";
-
 
 export type TransitionProfile =
   | "soft"
@@ -40,13 +36,11 @@ export type TransitionProfile =
   | "minimal"
   | "mixed";
 
-
 export type GraphicDensity =
   | "minimal"
   | "low"
   | "medium"
   | "high";
-
 
 export type MediaMix = {
   photo: number;
@@ -55,27 +49,22 @@ export type MediaMix = {
   threeD: number;
 };
 
-
 export type CreativeVisualDirection = {
   genre?: string;
   narrativeArchitecture?: string;
   rhythm?: string;
-
   visualLanguage?: VisualLanguage;
   camera?: CameraProfile;
   transitions?: TransitionProfile;
   graphicDensity?: GraphicDensity;
-
   mediaMix?: Partial<MediaMix>;
 };
-
 
 export type AssetMediaIntent =
   | "photo"
   | "video"
   | "graphic"
   | "threeD-intent";
-
 
 export type AssetScenePlanItem = {
   id: string;
@@ -87,7 +76,6 @@ export type AssetScenePlanItem = {
   durationMs: number;
 
   route: VisualRoute;
-
   mediaIntent: AssetMediaIntent;
 
   visualIntent: string;
@@ -119,14 +107,12 @@ export type AssetScenePlanItem = {
   };
 };
 
-
 const DEFAULT_MEDIA_MIX: MediaMix = {
   photo: 25,
   video: 50,
   graphic: 25,
   threeD: 0,
 };
-
 
 const normalizeMediaMix = (
   input?: Partial<MediaMix>,
@@ -136,17 +122,14 @@ const normalizeMediaMix = (
       0,
       Number(input?.photo ?? DEFAULT_MEDIA_MIX.photo),
     ),
-
     video: Math.max(
       0,
       Number(input?.video ?? DEFAULT_MEDIA_MIX.video),
     ),
-
     graphic: Math.max(
       0,
       Number(input?.graphic ?? DEFAULT_MEDIA_MIX.graphic),
     ),
-
     threeD: Math.max(
       0,
       Number(input?.threeD ?? DEFAULT_MEDIA_MIX.threeD),
@@ -160,7 +143,7 @@ const normalizeMediaMix = (
     raw.threeD;
 
   if (total <= 0) {
-    return DEFAULT_MEDIA_MIX;
+    return {...DEFAULT_MEDIA_MIX};
   }
 
   return {
@@ -171,7 +154,6 @@ const normalizeMediaMix = (
   };
 };
 
-
 const chooseBaseRoute = (
   event: SemanticEvent,
 ): VisualRoute => {
@@ -180,35 +162,25 @@ const chooseBaseRoute = (
     case "arbitraje":
     case "conflicto-administrativo":
     case "patrimonio":
-      return "REALISTIC_SCENE";
-
-    case "contratos-high-ticket":
-    case "control-constitucional":
-      return "DOCUMENT_OBJECT";
-
     case "hechos":
     case "teoria-caso":
     case "estrategia-juridica":
     case "riesgos":
     case "diagnostico":
-      return "REALISTIC_SCENE";
-
-    case "norma":
-    case "jurisprudencia":
-      return "DOCUMENT_OBJECT";
-
-    case "objetivo":
-      return "ONDA_GRAPHIC";
-
     case "autoridad":
       return "REALISTIC_SCENE";
 
+    case "contratos-high-ticket":
+    case "control-constitucional":
+    case "norma":
+    case "jurisprudencia":
     case "expediente":
     case "recurso":
     case "motivacion":
     case "decision":
       return "DOCUMENT_OBJECT";
 
+    case "objetivo":
     case "argumentos":
     case "prueba":
     case "debido-proceso":
@@ -226,15 +198,12 @@ const chooseBaseRoute = (
   }
 };
 
-
 const chooseCreativeRoute = (
   event: SemanticEvent,
   direction: CreativeVisualDirection,
 ): VisualRoute => {
   const base = chooseBaseRoute(event);
-
-  const language =
-    direction.visualLanguage;
+  const language = direction.visualLanguage;
 
   if (
     language === "graphic-explanation" ||
@@ -251,31 +220,29 @@ const chooseCreativeRoute = (
   }
 
   if (
-    language === "documentary-evidence"
-  ) {
-    if (
+    language === "documentary-evidence" &&
+    (
       event.ruleId === "prueba" ||
       event.ruleId === "hechos" ||
       event.ruleId === "expediente" ||
       event.ruleId === "norma" ||
       event.ruleId === "jurisprudencia" ||
       event.ruleId === "motivacion"
-    ) {
-      return "DOCUMENT_OBJECT";
-    }
+    )
+  ) {
+    return "DOCUMENT_OBJECT";
   }
 
   if (
-    language === "cinematic-realism" ||
-    language === "procedural-immersion" ||
-    language === "executive-business"
+    (
+      language === "cinematic-realism" ||
+      language === "procedural-immersion" ||
+      language === "executive-business"
+    ) &&
+    base === "ONDA_GRAPHIC" &&
+    event.ruleId !== "objetivo"
   ) {
-    if (
-      base === "ONDA_GRAPHIC" &&
-      event.ruleId !== "objetivo"
-    ) {
-      return "REALISTIC_SCENE";
-    }
+    return "REALISTIC_SCENE";
   }
 
   if (
@@ -287,7 +254,6 @@ const chooseCreativeRoute = (
 
   return base;
 };
-
 
 const mediaIntentFor = (
   event: SemanticEvent,
@@ -307,17 +273,13 @@ const mediaIntentFor = (
   }
 
   if (route === "CONTINUITY") {
-    return (
-      mix.video >= mix.photo
-        ? "video"
-        : "photo"
-    );
+    return mix.video >= mix.photo
+      ? "video"
+      : "photo";
   }
 
-  /*
-   * threeD se registra como intención creativa.
-   * No implica que exista todavía un ejecutor 3D.
-   */
+  // El 3D es todavía intención creativa,
+  // no una afirmación de capacidad de ejecución.
   if (
     mix.threeD >= 25 &&
     sceneIndex % 5 === 4
@@ -325,43 +287,39 @@ const mediaIntentFor = (
     return "threeD-intent";
   }
 
-  const photoWeight = mix.photo;
-  const videoWeight = mix.video;
-
   if (
-    videoWeight <= 0 &&
-    photoWeight > 0
+    mix.video <= 0 &&
+    mix.photo > 0
   ) {
     return "photo";
   }
 
   if (
-    photoWeight <= 0 &&
-    videoWeight > 0
+    mix.photo <= 0 &&
+    mix.video > 0
   ) {
     return "video";
   }
 
   const cycle =
-    photoWeight + videoWeight;
+    mix.photo +
+    mix.video;
 
   if (cycle <= 0) {
     return "video";
   }
 
   const position =
-    (
-      (sceneIndex * 37) %
-      Math.max(1, Math.round(cycle))
+    (sceneIndex * 37) %
+    Math.max(
+      1,
+      Math.round(cycle),
     );
 
-  return (
-    position < videoWeight
-      ? "video"
-      : "photo"
-  );
+  return position < mix.video
+    ? "video"
+    : "photo";
 };
-
 
 const languageDescription = (
   language?: VisualLanguage,
@@ -406,7 +364,7 @@ const languageDescription = (
     case "procedural-immersion":
       return (
         "immersive procedural realism, consequential decisions, " +
-        "process tension and first-person strategic proximity"
+        "process tension and strategic proximity"
       );
 
     case "strategic-diagram":
@@ -416,12 +374,9 @@ const languageDescription = (
       );
 
     default:
-      return (
-        "premium cinematic legal editorial aesthetic"
-      );
+      return "premium cinematic legal editorial aesthetic";
   }
 };
-
 
 const visualIntentFor = (
   event: SemanticEvent,
@@ -429,9 +384,10 @@ const visualIntentFor = (
   direction: CreativeVisualDirection,
   mediaIntent: AssetMediaIntent,
 ): string => {
-  const language = languageDescription(
-    direction.visualLanguage,
-  );
+  const language =
+    languageDescription(
+      direction.visualLanguage,
+    );
 
   if (route === "REALISTIC_SCENE") {
     return (
@@ -443,7 +399,7 @@ const visualIntentFor = (
 
   if (route === "DOCUMENT_OBJECT") {
     return (
-      `Documento, expediente, contrato, evidencia u objeto jurídico ` +
+      "Documento, expediente, contrato, evidencia u objeto jurídico " +
       `visualmente reconocible dentro de ${language}, ` +
       `representando: ${event.concept}. ` +
       `Medio preferente: ${mediaIntent}.`
@@ -453,8 +409,8 @@ const visualIntentFor = (
   if (route === "CONTINUITY") {
     return (
       `Continuidad audiovisual coherente con ${language}, ` +
-      "preservando sujeto, atmósfera y progresión narrativa " +
-      `sin repetir mecánicamente el activo anterior.`
+      "preservando atmósfera y progresión narrativa " +
+      "sin repetir mecánicamente el activo anterior."
     );
   }
 
@@ -463,17 +419,16 @@ const visualIntentFor = (
     `explicando visualmente: ${event.concept}.`
   );
 };
-
-
 const generationPromptFor = (
   event: SemanticEvent,
   route: VisualRoute,
   direction: CreativeVisualDirection,
   mediaIntent: AssetMediaIntent,
 ): string => {
-  const language = languageDescription(
-    direction.visualLanguage,
-  );
+  const language =
+    languageDescription(
+      direction.visualLanguage,
+    );
 
   const base =
     "Premium professional visual, credible, high-end composition, " +
@@ -507,7 +462,7 @@ const generationPromptFor = (
       base +
       creative +
       "Focus on a believable legal or business document, contract, " +
-      `case file, evidence object or juridical material representing: ` +
+      "case file, evidence object or juridical material representing: " +
       `${event.concept}. It must feel authentic and professionally handled.`
     );
   }
@@ -526,11 +481,10 @@ const generationPromptFor = (
     base +
     creative +
     "Create restrained premium information design representing: " +
-    `${event.concept}. Prioritize comprehension, hierarchy, relationships ` +
-    "and strategic meaning."
+    `${event.concept}. Prioritize comprehension, hierarchy, ` +
+    "relationships and strategic meaning."
   );
 };
-
 
 const baseMotionFor = (
   event: SemanticEvent,
@@ -643,7 +597,6 @@ const baseMotionFor = (
   }
 };
 
-
 const cameraFromProfile = (
   profile: CameraProfile | undefined,
   fallback: string,
@@ -677,7 +630,6 @@ const cameraFromProfile = (
       return fallback;
   }
 };
-
 
 const transitionFromProfile = (
   profile: TransitionProfile | undefined,
@@ -713,7 +665,6 @@ const transitionFromProfile = (
   }
 };
 
-
 const motionFor = (
   event: SemanticEvent,
   route: VisualRoute,
@@ -722,10 +673,11 @@ const motionFor = (
   camera: string;
   transition: string;
 } => {
-  const base = baseMotionFor(
-    event,
-    route,
-  );
+  const base =
+    baseMotionFor(
+      event,
+      route,
+    );
 
   return {
     camera: cameraFromProfile(
@@ -740,41 +692,42 @@ const motionFor = (
   };
 };
 
-
 export function buildAssetScenePlan(
   events: SemanticEvent[],
   direction: CreativeVisualDirection = {},
 ): AssetScenePlanItem[] {
-  const mediaMix = normalizeMediaMix(
-    direction.mediaMix,
-  );
+  const mediaMix =
+    normalizeMediaMix(
+      direction.mediaMix,
+    );
 
   return events.map(
-    (
-      event,
-      index,
-    ) => {
-      const route = chooseCreativeRoute(
-        event,
-        direction,
-      );
+    (event, index) => {
+      const route =
+        chooseCreativeRoute(
+          event,
+          direction,
+        );
 
-      const mediaIntent = mediaIntentFor(
-        event,
-        route,
-        mediaMix,
-        index,
-      );
+      const mediaIntent =
+        mediaIntentFor(
+          event,
+          route,
+          mediaMix,
+          index,
+        );
 
-      const startMs = Math.max(
-        0,
-        Number(event.startMs),
-      );
+      const startMs =
+        Math.max(
+          0,
+          Number(event.startMs),
+        );
 
-      const endMs = Math.max(
-        startMs + 1,
-        Number(event.endMs),
-      );
+      const endMs =
+        Math.max(
+          startMs + 1,
+          Number(event.endMs),
+        );
 
       return {
         id:
@@ -788,12 +741,10 @@ export function buildAssetScenePlan(
 
         startMs,
         endMs,
-
         durationMs:
           endMs - startMs,
 
         route,
-
         mediaIntent,
 
         visualIntent:
@@ -858,397 +809,4 @@ export function buildAssetScenePlan(
       };
     },
   );
-    }
-import {
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  writeFileSync,
-} from "node:fs";
-
-import {
-  dirname,
-  resolve,
-} from "node:path";
-
-import {
-  buildSemanticEvents,
-  type WordTiming,
-} from "../src/buildSemanticEvents";
-
-import {
-  buildAssetScenePlan,
-  type CreativeVisualDirection,
-} from "../src/semantic/buildAssetScenePlan";
-
-
-type Timeline = {
-  words: WordTiming[];
-};
-
-
-type CreativeDecisionFile = {
-  selected?: {
-    genre?: string;
-    narrativeArchitecture?: string;
-    rhythm?: string;
-    visualLanguage?: CreativeVisualDirection["visualLanguage"];
-    camera?: CreativeVisualDirection["camera"];
-    transitions?: CreativeVisualDirection["transitions"];
-    graphicDensity?: CreativeVisualDirection["graphicDensity"];
-    mediaMix?: CreativeVisualDirection["mediaMix"];
-  };
-};
-
-
-const root = process.cwd();
-
-const productionCode =
-  process.env.PRODUCTION_CODE ??
-  "video-juridico-001";
-
-
-const timelinePath = resolve(
-  root,
-  `public/generated/${productionCode}-timeline.json`,
-);
-
-
-const creativeDecisionPath = resolve(
-  root,
-  `public/generated/${productionCode}-creative-decision.json`,
-);
-
-
-const outputPath = resolve(
-  root,
-  `public/generated/${productionCode}-asset-scene-plan.json`,
-);
-
-
-const timeline = JSON.parse(
-  readFileSync(
-    timelinePath,
-    "utf8",
-  ),
-) as Timeline;
-
-
-if (
-  !Array.isArray(timeline.words) ||
-  timeline.words.length === 0
-) {
-  throw new Error(
-    "Timeline contains no words.",
-  );
-}
-
-
-/*
- * ============================================================
- * V3.18-F
- * CREATIVE VISUAL DIRECTION
- * ============================================================
- *
- * El plan visual puede funcionar incluso si no existe todavía
- * creative-decision.json.
- *
- * Eso conserva compatibilidad con producciones anteriores.
- */
-
-let creativeDirection: CreativeVisualDirection = {};
-
-
-if (existsSync(creativeDecisionPath)) {
-  const creativeDecision = JSON.parse(
-    readFileSync(
-      creativeDecisionPath,
-      "utf8",
-    ),
-  ) as CreativeDecisionFile;
-
-  const selected =
-    creativeDecision.selected;
-
-  if (selected) {
-    creativeDirection = {
-      genre:
-        selected.genre,
-
-      narrativeArchitecture:
-        selected.narrativeArchitecture,
-
-      rhythm:
-        selected.rhythm,
-
-      visualLanguage:
-        selected.visualLanguage,
-
-      camera:
-        selected.camera,
-
-      transitions:
-        selected.transitions,
-
-      graphicDensity:
-        selected.graphicDensity,
-
-      mediaMix:
-        selected.mediaMix,
-    };
   }
-}
-
-
-const events =
-  buildSemanticEvents(
-    timeline.words,
-  );
-
-
-/*
- * ============================================================
- * DIRECTOR VISUAL V3.18-F.1
- * ============================================================
- */
-
-const basePlan =
-  buildAssetScenePlan(
-    events,
-    creativeDirection,
-  );
-
-
-/*
- * ============================================================
- * VISUAL RHYTHM
- * ============================================================
- *
- * Conservamos la lógica validada:
- * una unidad semántica excesivamente larga se divide para evitar
- * mantener un mismo activo visual durante demasiado tiempo.
- */
-
-const dividedPlan =
-  basePlan.flatMap(
-    (
-      item,
-      baseIndex,
-    ) => {
-      const duration =
-        item.endMs -
-        item.startMs;
-
-      const numberOfSegments =
-        Math.max(
-          1,
-          Math.ceil(
-            duration / 6000,
-          ),
-        );
-
-      return Array.from(
-        {
-          length:
-            numberOfSegments,
-        },
-        (
-          _,
-          segmentIndex,
-        ) => {
-          const startMs =
-            Math.round(
-              item.startMs +
-                (
-                  duration *
-                  segmentIndex
-                ) /
-                  numberOfSegments,
-            );
-
-          const endMs =
-            Math.round(
-              item.startMs +
-                (
-                  duration *
-                  (
-                    segmentIndex +
-                    1
-                  )
-                ) /
-                  numberOfSegments,
-            );
-
-          return {
-            ...item,
-
-            id:
-              `scene-${String(
-                baseIndex + 1,
-              ).padStart(
-                2,
-                "0",
-              )}-${String(
-                segmentIndex + 1,
-              ).padStart(
-                2,
-                "0",
-              )}`,
-
-            startMs,
-            endMs,
-
-            durationMs:
-              endMs -
-              startMs,
-          };
-        },
-      );
-    },
-  );
-
-
-/*
- * ============================================================
- * NARRATION CONTEXT
- * ============================================================
- *
- * Añadimos contexto verbal alrededor de cada escena para que
- * los resolutores visuales posteriores puedan buscar/rankear
- * activos con mayor precisión semántica.
- */
-
-const plan =
-  dividedPlan.map(
-    (item) => {
-      const contextStartMs =
-        Math.max(
-          0,
-          item.startMs -
-            1200,
-        );
-
-      const contextEndMs =
-        item.endMs +
-        1200;
-
-      const narrationContext =
-        timeline.words
-          .filter(
-            (word) =>
-              word.endMs >=
-                contextStartMs &&
-              word.startMs <=
-                contextEndMs,
-          )
-          .map(
-            (word) =>
-              word.text,
-          )
-          .join(" ")
-          .trim();
-
-      return {
-        ...item,
-        narrationContext,
-      };
-    },
-  );
-
-
-mkdirSync(
-  dirname(
-    outputPath,
-  ),
-  {
-    recursive: true,
-  },
-);
-
-
-writeFileSync(
-  outputPath,
-  JSON.stringify(
-    {
-      productionCode,
-
-      version:
-        "V3.18-F.1-CREATIVE-VISUAL-PLANNING",
-
-      creativeDirection,
-
-      totalScenes:
-        plan.length,
-
-      scenes:
-        plan,
-    },
-    null,
-    2,
-  ),
-);
-
-
-console.log(
-  "\n=== CREATIVE VISUAL PLANNING DIRECTOR V3.18-F.1 ===",
-);
-
-console.log(
-  `Production: ${productionCode}`,
-);
-
-console.log(
-  `Scenes: ${plan.length}`,
-);
-
-console.log(
-  `Genre: ${
-    creativeDirection.genre ??
-    "legacy/default"
-  }`,
-);
-
-console.log(
-  `Visual language: ${
-    creativeDirection.visualLanguage ??
-    "legacy/default"
-  }`,
-);
-
-console.log(
-  `Camera profile: ${
-    creativeDirection.camera ??
-    "legacy/default"
-  }`,
-);
-
-console.log(
-  `Transition profile: ${
-    creativeDirection.transitions ??
-    "legacy/default"
-  }`,
-);
-
-
-for (const item of plan) {
-  console.log(
-    [
-      item.id,
-      item.ruleId,
-      item.route,
-      item.mediaIntent,
-      `${item.startMs}-${item.endMs}ms`,
-    ].join(
-      " | ",
-    ),
-  );
-}
-
-
-console.log(
-  `\nPlan written to:\n${outputPath}`,
-);
-      };
-    },
-  );
-}
