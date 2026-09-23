@@ -1716,7 +1716,8 @@ async def synthesize_segment(
         "TTS falló después de 3 intentos "
         f"para segmento {segment.index + 1}. "
         f"Último error: {last_error}"
-
+    )
+        
         # ============================================================
 # AUDIO
 # ============================================================
