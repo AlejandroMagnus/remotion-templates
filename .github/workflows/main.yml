@@ -77,23 +77,22 @@ jobs:
       # ============================================================
       # V3.17 — DIRECTOR AUTÓNOMO DE CONTENIDO HIGH-TICKET
       #
+      # Decide QUÉ contenido producir.
+      #
       # autonomous:
       #   Memoria Editorial
       #   → ranking Q∞
       #   → selección del tema
       #   → SILEC input
-      #   → VideoSpec
       #
       # directed:
       #   tema/ángulo solicitado
       #   → Memoria Editorial
       #   → selección estratégica
       #   → SILEC input
-      #   → VideoSpec
       #
       # existing:
-      #   utiliza los archivos ya existentes
-      #   sin regenerarlos.
+      #   utiliza el SILEC input y VideoSpec existentes.
       # ============================================================
 
       - name: V3.17-B — Seleccionar contenido autónomo high-ticket
@@ -117,25 +116,17 @@ jobs:
               "${PRODUCTION_CODE}"
           fi
 
-      - name: V3.17-C — Construir VideoSpec autónomo
-        if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
-        run: |
-          npx --yes tsx scripts/build-autonomous-video-spec.ts \
-            "${PRODUCTION_CODE}"
-
-      - name: Verificar entrada de producción
+      - name: Verificar SILEC input
         run: |
           test -s "content/${PRODUCTION_CODE}.silec.json"
-          test -s "examples/${PRODUCTION_CODE}.video.json"
 
           echo ""
           echo "=============================================="
-          echo "ENTRADA DE PRODUCCION CONFIRMADA"
+          echo "SILEC INPUT CONFIRMADO"
           echo "=============================================="
           echo "Production: ${PRODUCTION_CODE}"
           echo "Mode: ${CONTENT_MODE}"
           echo "SILEC: content/${PRODUCTION_CODE}.silec.json"
-          echo "VideoSpec: examples/${PRODUCTION_CODE}.video.json"
           echo "=============================================="
 
       # ============================================================
@@ -155,6 +146,72 @@ jobs:
           npx --yes tsx scripts/editorial-memory.ts \
             precheck \
             "${PRODUCTION_CODE}"
+
+      # ============================================================
+      # V3.18 — DIRECTOR CREATIVO-ESTRATÉGICO AUTÓNOMO Q∞
+      #
+      # Decide CÓMO debe sentirse el contenido:
+      #
+      # Memoria Creativa persistente
+      # → adecuación semántica
+      # → diversidad
+      # → género
+      # → arquitectura narrativa
+      # → ritmo
+      # → lenguaje visual
+      # → cámara
+      # → transiciones
+      # → prosodia
+      # → CTA
+      # → media mix
+      # → duración objetivo
+      # ============================================================
+
+      - name: V3.18-B — Leer Memoria Creativa
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/creative-memory.ts \
+            read \
+            "${PRODUCTION_CODE}"
+
+      - name: V3.18-C — Seleccionar perfil creativo
+        run: |
+          npx --yes tsx scripts/build-creative-decision.ts \
+            "${PRODUCTION_CODE}"
+
+          test -s \
+            "public/generated/${PRODUCTION_CODE}-creative-decision.json"
+
+      # El VideoSpec autónomo se construye AHORA:
+      # después de que V3.18 haya decidido CÓMO contar el contenido.
+      #
+      # En modo existing conservamos el VideoSpec ya existente.
+      - name: V3.18-D — Construir VideoSpec creativo autónomo
+        if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
+        run: |
+          npx --yes tsx scripts/build-autonomous-video-spec.ts \
+            "${PRODUCTION_CODE}"
+
+      - name: Verificar entrada audiovisual
+        run: |
+          test -s "content/${PRODUCTION_CODE}.silec.json"
+          test -s "examples/${PRODUCTION_CODE}.video.json"
+          test -s "public/generated/${PRODUCTION_CODE}-creative-memory.json"
+          test -s "public/generated/${PRODUCTION_CODE}-creative-decision.json"
+
+          echo ""
+          echo "=============================================="
+          echo "ENTRADA AUDIOVISUAL V3.18 CONFIRMADA"
+          echo "=============================================="
+          echo "Production: ${PRODUCTION_CODE}"
+          echo "Mode: ${CONTENT_MODE}"
+          echo "SILEC: content/${PRODUCTION_CODE}.silec.json"
+          echo "VideoSpec: examples/${PRODUCTION_CODE}.video.json"
+          echo "Creative Memory: public/generated/${PRODUCTION_CODE}-creative-memory.json"
+          echo "Creative Decision: public/generated/${PRODUCTION_CODE}-creative-decision.json"
+          echo "=============================================="
 
       # ============================================================
       # PIPELINE AUDIOVISUAL VALIDADO
@@ -475,14 +532,27 @@ jobs:
           ls -lh \
             "out/${PRODUCTION_CODE}-FINAL.mp4"
 
-      # Solo se registra como contenido producido
-      # después de existir un MP4 final válido.
+      # ============================================================
+      # REGISTRO POST-RENDER
+      #
+      # Solo se escribe memoria después de existir un MP4 válido.
+      # ============================================================
+
       - name: Registrar Memoria Editorial
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           npx --yes tsx scripts/editorial-memory.ts \
+            register \
+            "${PRODUCTION_CODE}"
+
+      - name: V3.18-B — Registrar Memoria Creativa
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/creative-memory.ts \
             register \
             "${PRODUCTION_CODE}"
 
