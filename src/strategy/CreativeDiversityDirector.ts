@@ -1,5 +1,6 @@
 /**
- * V3.18-A — CREATIVE DIVERSITY DIRECTOR
+ * V3.18-E.2 — CREATIVE DIVERSITY DIRECTOR
+ * + ADAPTIVE HUMAN VOCAL PERFORMANCE DIRECTION
  *
  * Decide CÓMO debe sentirse una producción.
  *
@@ -7,8 +8,16 @@
  * No selecciona assets.
  * No renderiza.
  *
- * Su misión es evitar que contenidos diferentes
- * terminen convertidos en el mismo video.
+ * Ahora dirige también la intención interpretativa
+ * general de la voz para que el motor prosódico pueda
+ * decidir dinámicamente:
+ *
+ * significado + sintaxis + intención + ritmo creativo
+ * → velocidad + respiración + pausa + énfasis + cadencia.
+ *
+ * IMPORTANTE:
+ * `prosody` se conserva por compatibilidad con V3.18.
+ * `vocalDirection` añade la nueva dirección adaptativa.
  */
 
 export type CreativeGenre =
@@ -95,6 +104,100 @@ export type CtaStrategy =
   | "decision"
   | "reflection";
 
+/**
+ * Intenciones locales que el motor vocal podrá asignar
+ * posteriormente a cada frase/unidad semántica.
+ */
+export type VocalMoment =
+  | "opening"
+  | "question"
+  | "explanation"
+  | "evidence"
+  | "warning"
+  | "contrast"
+  | "revelation"
+  | "authority"
+  | "reflection"
+  | "decision"
+  | "cta"
+  | "closing";
+
+/**
+ * Dirección vocal de alto nivel.
+ *
+ * No fija cada pausa.
+ * Define un espacio de interpretación humana dentro
+ * del cual el Director Vocal podrá actuar.
+ */
+export type AdaptiveVocalDirection = {
+  mode: "adaptive-human-performance";
+
+  /**
+   * Banda objetivo global.
+   * No obliga a hablar siempre a esa velocidad.
+   */
+  targetWpm: {
+    min: number;
+    preferred: number;
+    max: number;
+  };
+
+  /**
+   * Variación permitida dentro de una misma producción.
+   */
+  tempoVariation: {
+    minRatePercent: number;
+    maxRatePercent: number;
+  };
+
+  /**
+   * Respiración: rango, no valor rígido.
+   */
+  breathing: {
+    microPauseMs: {
+      min: number;
+      max: number;
+    };
+
+    phrasePauseMs: {
+      min: number;
+      max: number;
+    };
+
+    conceptualPauseMs: {
+      min: number;
+      max: number;
+    };
+
+    /**
+     * Evita insertar respiraciones artificiales
+     * en cada signo de puntuación.
+     */
+    preserveSentenceFlow: boolean;
+  };
+
+  /**
+   * Intensidad expresiva 0–100.
+   */
+  expression: {
+    emphasis: number;
+    pitchVariation: number;
+    dynamicRange: number;
+  };
+
+  /**
+   * El ritmo debe poder reaccionar a estos momentos.
+   */
+  momentPriority: VocalMoment[];
+
+  /**
+   * Principios interpretativos para QA y dirección.
+   */
+  principles: string[];
+
+  avoid: string[];
+};
+
 export type MediaMix = {
   photo: number;
   video: number;
@@ -103,6 +206,10 @@ export type MediaMix = {
 };
 
 export type CreativeProfile = {
+  /**
+   * Conservamos literal V3.18-A para no romper
+   * validadores/memoria ya desplegados.
+   */
   version: "V3.18-A";
 
   genre: CreativeGenre;
@@ -125,8 +232,17 @@ export type CreativeProfile = {
   graphicDensity:
     GraphicDensity;
 
+  /**
+   * Perfil global legado/compatible.
+   */
   prosody:
     ProsodyProfile;
+
+  /**
+   * Nueva dirección interpretativa V3.18-E.2.
+   */
+  vocalDirection:
+    AdaptiveVocalDirection;
 
   ctaStrategy:
     CtaStrategy;
@@ -259,6 +375,84 @@ const containsAny = (
       ),
   );
 
+/**
+ * Construye una dirección vocal adaptativa reutilizable.
+ *
+ * Los valores son bandas operativas del Director,
+ * no temporizadores rígidos.
+ */
+const vocalDirection = (
+  preferredWpm: number,
+  minWpm: number,
+  maxWpm: number,
+  minRatePercent: number,
+  maxRatePercent: number,
+  emphasis: number,
+  pitchVariation: number,
+  dynamicRange: number,
+  momentPriority: VocalMoment[],
+  principles: string[],
+): AdaptiveVocalDirection => ({
+  mode:
+    "adaptive-human-performance",
+
+  targetWpm: {
+    min:
+      minWpm,
+
+    preferred:
+      preferredWpm,
+
+    max:
+      maxWpm,
+  },
+
+  tempoVariation: {
+    minRatePercent,
+    maxRatePercent,
+  },
+
+  breathing: {
+    microPauseMs: {
+      min: 35,
+      max: 110,
+    },
+
+    phrasePauseMs: {
+      min: 130,
+      max: 290,
+    },
+
+    conceptualPauseMs: {
+      min: 240,
+      max: 520,
+    },
+
+    preserveSentenceFlow:
+      true,
+  },
+
+  expression: {
+    emphasis,
+    pitchVariation,
+    dynamicRange,
+  },
+
+  momentPriority,
+
+  principles,
+
+  avoid: [
+    "ritmo metronómico",
+    "pausa idéntica para signos iguales",
+    "respiración artificial en cada coma",
+    "velocidad constante durante toda la pieza",
+    "énfasis indiscriminado",
+    "silencios que rompan innecesariamente una oración",
+  ],
+});
+
+
 const PROFILES:
   CreativeProfile[] = [
     {
@@ -288,6 +482,31 @@ const PROFILES:
 
       prosody:
         "authoritative",
+
+      vocalDirection:
+        vocalDirection(
+          150,
+          132,
+          166,
+          -7,
+          6,
+          66,
+          38,
+          58,
+          [
+            "opening",
+            "authority",
+            "warning",
+            "revelation",
+            "cta",
+          ],
+          [
+            "Autoridad sin lentitud artificial.",
+            "Explicación fluida entre ideas críticas.",
+            "Desacelerar únicamente cuando el significado lo justifique.",
+            "La pausa debe comunicar jerarquía, no interrumpir el pensamiento.",
+          ],
+        ),
 
       ctaStrategy:
         "diagnostic",
@@ -348,6 +567,32 @@ const PROFILES:
       prosody:
         "dramatic-controlled",
 
+      vocalDirection:
+        vocalDirection(
+          148,
+          124,
+          168,
+          -11,
+          8,
+          76,
+          52,
+          74,
+          [
+            "opening",
+            "warning",
+            "decision",
+            "revelation",
+            "reflection",
+            "closing",
+          ],
+          [
+            "Construir tensión mediante variación, no mediante lentitud permanente.",
+            "Acelerar la reconstrucción cuando la comprensión lo permita.",
+            "Reservar silencio perceptible para decisiones y revelaciones.",
+            "Mantener continuidad melódica dentro de cada oración.",
+          ],
+        ),
+
       ctaStrategy:
         "reflection",
 
@@ -407,6 +652,31 @@ const PROFILES:
       prosody:
         "professorial",
 
+      vocalDirection:
+        vocalDirection(
+          145,
+          128,
+          158,
+          -8,
+          4,
+          62,
+          36,
+          54,
+          [
+            "question",
+            "explanation",
+            "evidence",
+            "authority",
+            "closing",
+          ],
+          [
+            "Priorizar comprensión sobre velocidad.",
+            "Acelerar aquello que el espectador ya puede anticipar.",
+            "Dar espacio respiratorio a conceptos nuevos.",
+            "No convertir claridad pedagógica en monotonía.",
+          ],
+        ),
+
       ctaStrategy:
         "authority",
 
@@ -437,8 +707,7 @@ const PROFILES:
         "densidad verbal excesiva",
       ],
     },
-
-    {
+      {
       version:
         "V3.18-A",
 
@@ -465,6 +734,31 @@ const PROFILES:
 
       prosody:
         "executive",
+
+      vocalDirection:
+        vocalDirection(
+          158,
+          142,
+          172,
+          -4,
+          9,
+          58,
+          30,
+          52,
+          [
+            "opening",
+            "evidence",
+            "explanation",
+            "decision",
+            "cta",
+          ],
+          [
+            "Mantener fluidez ejecutiva y precisión.",
+            "Evitar solemnidad innecesaria en hechos y cronologías.",
+            "Desacelerar ante cifras, decisiones o consecuencias relevantes.",
+            "Usar respiraciones conceptuales para separar etapas, no frases arbitrarias.",
+          ],
+        ),
 
       ctaStrategy:
         "consultative",
@@ -525,6 +819,31 @@ const PROFILES:
       prosody:
         "contrastive",
 
+      vocalDirection:
+        vocalDirection(
+          154,
+          136,
+          170,
+          -6,
+          8,
+          70,
+          44,
+          68,
+          [
+            "contrast",
+            "warning",
+            "revelation",
+            "decision",
+            "closing",
+          ],
+          [
+            "Diferenciar escenarios mediante cadencia y énfasis.",
+            "No sobreactuar el contraste.",
+            "Permitir mayor velocidad en la preparación y menor velocidad en la diferencia decisiva.",
+            "La pausa debe reforzar el cambio de escenario o significado.",
+          ],
+        ),
+
       ctaStrategy:
         "preventive",
 
@@ -583,6 +902,32 @@ const PROFILES:
 
       prosody:
         "investigative",
+
+      vocalDirection:
+        vocalDirection(
+          146,
+          128,
+          160,
+          -8,
+          5,
+          64,
+          40,
+          60,
+          [
+            "opening",
+            "evidence",
+            "question",
+            "revelation",
+            "reflection",
+            "closing",
+          ],
+          [
+            "Dar sensación de investigación sin lentitud permanente.",
+            "Permitir que hechos y evidencia respiren.",
+            "Mantener continuidad narrativa entre evidencia y significado.",
+            "Reservar las pausas más profundas para revelaciones o conclusiones.",
+          ],
+        ),
 
       ctaStrategy:
         "authority",
@@ -643,6 +988,32 @@ const PROFILES:
       prosody:
         "decisive",
 
+      vocalDirection:
+        vocalDirection(
+          158,
+          140,
+          174,
+          -5,
+          10,
+          74,
+          42,
+          72,
+          [
+            "opening",
+            "decision",
+            "contrast",
+            "warning",
+            "revelation",
+            "cta",
+          ],
+          [
+            "Avanzar con energía hacia la decisión.",
+            "No confundir firmeza con velocidad constante.",
+            "Reducir temporalmente el ritmo antes de una consecuencia crítica.",
+            "Recuperar fluidez después del momento decisivo.",
+          ],
+        ),
+
       ctaStrategy:
         "decision",
 
@@ -701,6 +1072,32 @@ const PROFILES:
 
       prosody:
         "analytical",
+
+      vocalDirection:
+        vocalDirection(
+          148,
+          130,
+          162,
+          -7,
+          5,
+          60,
+          34,
+          56,
+          [
+            "opening",
+            "explanation",
+            "evidence",
+            "contrast",
+            "authority",
+            "closing",
+          ],
+          [
+            "Sincronizar la explicación con la construcción conceptual.",
+            "Dar tiempo adicional a relaciones nuevas o complejas.",
+            "Mantener fluidez cuando se recorren elementos ya establecidos.",
+            "Evitar que la precisión analítica produzca una voz mecánica.",
+          ],
+        ),
 
       ctaStrategy:
         "diagnostic",
@@ -764,6 +1161,7 @@ const semanticFit = (
     reason: string,
   ) => {
     score += amount;
+
     reasons.push(
       `${reason}:${amount >= 0 ? "+" : ""}${amount}`,
     );
@@ -978,7 +1376,6 @@ const semanticFit = (
     reasons,
   };
 };
-
 const diversityFit = (
   profile: CreativeProfile,
   memory: CreativeMemoryItem[],
@@ -1238,7 +1635,7 @@ export const selectCreativeProfile = (
     ranking,
 
     memorySize:
-            memory.length,
+      memory.length,
 
     rationale: [
       `Creative genre: ${selected.profile.genre}.`,
@@ -1246,6 +1643,8 @@ export const selectCreativeProfile = (
       `Semantic score: ${selected.semanticScore}/100.`,
       `Diversity score: ${selected.diversityScore}/100.`,
       `Final score: ${selected.finalScore}/100.`,
+      `Adaptive vocal mode: ${selected.profile.vocalDirection.mode}.`,
+      `Target vocal tempo: ${selected.profile.vocalDirection.targetWpm.min}-${selected.profile.vocalDirection.targetWpm.max} WPM; preferred ${selected.profile.vocalDirection.targetWpm.preferred}.`,
       ...selected.reasons,
     ],
   };
