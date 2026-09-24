@@ -76,23 +76,6 @@ jobs:
 
       # ============================================================
       # V3.17 — DIRECTOR AUTÓNOMO DE CONTENIDO HIGH-TICKET
-      #
-      # Decide QUÉ contenido producir.
-      #
-      # autonomous:
-      #   Memoria Editorial
-      #   → ranking Q∞
-      #   → selección del tema
-      #   → SILEC input
-      #
-      # directed:
-      #   tema/ángulo solicitado
-      #   → Memoria Editorial
-      #   → selección estratégica
-      #   → SILEC input
-      #
-      # existing:
-      #   utiliza el SILEC input y VideoSpec existentes.
       # ============================================================
 
       - name: V3.17-B — Seleccionar contenido autónomo high-ticket
@@ -149,22 +132,6 @@ jobs:
 
       # ============================================================
       # V3.18 — DIRECTOR CREATIVO-ESTRATÉGICO AUTÓNOMO Q∞
-      #
-      # Decide CÓMO debe sentirse el contenido:
-      #
-      # Memoria Creativa persistente
-      # → adecuación semántica
-      # → diversidad
-      # → género
-      # → arquitectura narrativa
-      # → ritmo
-      # → lenguaje visual
-      # → cámara
-      # → transiciones
-      # → prosodia
-      # → CTA
-      # → media mix
-      # → duración objetivo
       # ============================================================
 
       - name: V3.18-B — Leer Memoria Creativa
@@ -184,10 +151,6 @@ jobs:
           test -s \
             "public/generated/${PRODUCTION_CODE}-creative-decision.json"
 
-      # El VideoSpec autónomo se construye AHORA:
-      # después de que V3.18 haya decidido CÓMO contar el contenido.
-      #
-      # En modo existing conservamos el VideoSpec ya existente.
       - name: V3.18-D — Construir VideoSpec creativo autónomo
         if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
         run: |
@@ -212,6 +175,74 @@ jobs:
           echo "Creative Memory: public/generated/${PRODUCTION_CODE}-creative-memory.json"
           echo "Creative Decision: public/generated/${PRODUCTION_CODE}-creative-decision.json"
           echo "=============================================="
+
+      # ============================================================
+      # V3.19-E.3 — HUMAN VOICE PERFORMANCE DIRECTOR
+      #
+      # VideoSpec + Creative Decision
+      # → comprensión semántica y sintáctica
+      # → partitura vocal
+      # → E.2 / TTS
+      # → WordBoundary
+      # → timeline sincronizado
+      #
+      # E.3 NO modifica WordBoundary.
+      # E.3 NO modifica la sincronización.
+      # ============================================================
+
+      - name: V3.19-E.3 — Construir partitura vocal semántica
+        run: |
+          python3 scripts/human_voice_performance_director.py
+
+          test -s \
+            "public/generated/${PRODUCTION_CODE}-vocal-score.json"
+
+          python3 <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          code = os.environ["PRODUCTION_CODE"]
+
+          path = Path(
+              f"public/generated/{code}-vocal-score.json"
+          )
+
+          data = json.loads(
+              path.read_text(encoding="utf-8")
+          )
+
+          assert (
+              data.get("version")
+              == "V3.19-E.3-HUMAN-VOICE-PERFORMANCE-DIRECTOR"
+          )
+
+          units = data.get("units", [])
+
+          assert len(units) > 0
+
+          qa = data.get("qa", {})
+
+          print("")
+          print("==============================================")
+          print("E.3 HUMAN VOICE PERFORMANCE DIRECTOR")
+          print("==============================================")
+          print(f"Production: {code}")
+          print(f"Vocal units: {len(units)}")
+          print(
+              f"Global intention: "
+              f"{data.get('global_intention', '')}"
+          )
+          print(
+              f"Narrative arc: "
+              f"{data.get('narrative_arc', '')}"
+          )
+          print(
+              f"QA passed: "
+              f"{qa.get('passed')}"
+          )
+          print("==============================================")
+          PY
 
       # ============================================================
       # PIPELINE AUDIOVISUAL VALIDADO
@@ -534,8 +565,6 @@ jobs:
 
       # ============================================================
       # REGISTRO POST-RENDER
-      #
-      # Solo se escribe memoria después de existir un MP4 válido.
       # ============================================================
 
       - name: Registrar Memoria Editorial
