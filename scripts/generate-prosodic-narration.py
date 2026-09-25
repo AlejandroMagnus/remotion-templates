@@ -82,7 +82,7 @@ VOICE = "es-BO-MarceloNeural"
 LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
 
-VERSION = "V3.18-E.2-ADAPTIVE-HUMAN-VOCAL-PERFORMANCE"
+VERSION = "V3.19-E.4-CONTINUOUS-HUMAN-SPEECH"
 
 
 # ============================================================
@@ -1857,214 +1857,151 @@ def concat_wav_files(
     )
 
 
+def continuous_thought_groups(plan: list[SegmentPlan]) -> list[list[SegmentPlan]]:
+    """One TTS request per complete sentence; internal clause joins stay voiced."""
+    groups: list[list[SegmentPlan]] = []
+    for segment in plan:
+        if not groups or groups[-1][-1].sentence_index != segment.sentence_index:
+            groups.append([segment])
+        else:
+            groups[-1].append(segment)
+    return groups
+
+
+def boundary_token_count(text: str) -> int:
+    return count_spoken_words(text)
+
+
 async def build_prosodic_audio(
     plan: list[SegmentPlan],
-) -> tuple[
-    list[dict],
-    list[dict],
-    int,
-]:
+) -> tuple[list[dict], list[dict], int]:
     global_words: list[dict] = []
     effective_segments: list[dict] = []
+    AUDIO.parent.mkdir(parents=True, exist_ok=True)
 
-    AUDIO.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    with tempfile.TemporaryDirectory(
-        prefix="prosody-e2-"
-    ) as temp_dir:
+    with tempfile.TemporaryDirectory(prefix="prosody-e4-") as temp_dir:
         temp = Path(temp_dir)
-
         wav_parts: list[Path] = []
-
         cursor_ms = 0
 
-        for segment in plan:
-            number = segment.index + 1
-
-            if segment.pre_pause_ms > 0:
-                pre_file = temp / (
-                    f"{number:03}-pre.wav"
-                )
-
-                make_silence_wav(
-                    pre_file,
-                    segment.pre_pause_ms,
-                )
-
-                wav_parts.append(
-                    pre_file
-                )
-
-                cursor_ms += (
-                    segment.pre_pause_ms
-                )
+        for group_number, group in enumerate(continuous_thought_groups(plan), 1):
+            first, last = group[0], group[-1]
+            # Only an actual thought boundary creates digital silence.
+            pre_pause = first.pre_pause_ms
+            if pre_pause > 0:
+                pre_file = temp / f"{group_number:03}-pre.wav"
+                make_silence_wav(pre_file, pre_pause)
+                wav_parts.append(pre_file)
+                cursor_ms += pre_pause
 
             speech_start_ms = cursor_ms
-
-            mp3_file = temp / (
-                f"{number:03}-speech.mp3"
+            mp3_file = temp / f"{group_number:03}-speech.mp3"
+            wav_file = temp / f"{group_number:03}-speech.wav"
+            thought_text = clean_spaces(" ".join(s.spoken_text for s in group))
+            # A single rate/pitch envelope lets the TTS preserve melodic continuity.
+            # The existing interpretation plan remains available in segment metadata.
+            local_words = await synthesize_segment_once_with_retries(
+                thought_text, first.rate, first.pitch, mp3_file,
+                group_number,
             )
+            convert_mp3_to_wav(mp3_file, wav_file)
+            speech_duration_ms = probe_duration_ms(wav_file)
+            wav_parts.append(wav_file)
 
-            wav_file = temp / (
-                f"{number:03}-speech.wav"
-            )
-
-            local_words = (
-                await synthesize_segment(
-                    segment,
-                    mp3_file,
+            expected = sum(s.word_count for s in group)
+            observed = sum(boundary_token_count(w["text"]) for w in local_words)
+            if observed != expected:
+                raise RuntimeError(
+                    f"WordBoundary mismatch in thought {group_number}: "
+                    f"expected {expected} tokens, observed {observed}; "
+                    "timeline and SRT were not written"
                 )
-            )
 
-            convert_mp3_to_wav(
-                mp3_file,
-                wav_file,
-            )
-
-            wav_parts.append(
-                wav_file
-            )
-
-            speech_duration_ms = (
-                probe_duration_ms(
-                    wav_file
-                )
-            )
-
-            for word in local_words:
-                global_words.append(
-                    {
-                        "text":
-                            word["text"],
-
-                        "startMs":
-                            (
-                                speech_start_ms
-                                + word["startMs"]
-                            ),
-
-                        "endMs":
-                            (
-                                speech_start_ms
-                                + word["endMs"]
-                            ),
-
-                        "segmentIndex":
-                            segment.index,
-
-                        "prosodyRole":
-                            segment.role,
-
-                        "vocalMoment":
-                            segment.vocal_moment,
-
-                        "terminalMark":
-                            segment.terminal_mark,
-
-                        "semanticBreak":
-                            segment.semantic_break,
+            position = 0
+            for segment in group:
+                segment_words: list[dict] = []
+                token_total = 0
+                while token_total < segment.word_count:
+                    word = local_words[position]
+                    position += 1
+                    token_total += boundary_token_count(word["text"])
+                    if token_total > segment.word_count:
+                        raise RuntimeError(
+                            f"WordBoundary crosses clause {segment.index}; "
+                            "cannot preserve exact subtitle timing"
+                        )
+                    entry = {
+                        "text": word["text"],
+                        "startMs": speech_start_ms + word["startMs"],
+                        "endMs": speech_start_ms + word["endMs"],
+                        "segmentIndex": segment.index,
+                        "prosodyRole": segment.role,
+                        "vocalMoment": segment.vocal_moment,
+                        "terminalMark": segment.terminal_mark,
+                        "semanticBreak": segment.semantic_break,
                     }
-                )
+                    segment_words.append(entry)
+                    global_words.append(entry)
 
-            cursor_ms += (
-                speech_duration_ms
-            )
-
-            speech_end_ms = cursor_ms
-
-            if segment.post_pause_ms > 0:
-                post_file = temp / (
-                    f"{number:03}-post.wav"
-                )
-
-                make_silence_wav(
-                    post_file,
-                    segment.post_pause_ms,
-                )
-
-                wav_parts.append(
-                    post_file
-                )
-
-                cursor_ms += (
-                    segment.post_pause_ms
-                )
-
-            effective_segments.append(
-                {
+                segment_start = segment_words[0]["startMs"]
+                segment_end = segment_words[-1]["endMs"]
+                effective_segments.append({
                     **asdict(segment),
+                    "speechStartMs": segment_start,
+                    "speechEndMs": segment_end,
+                    "effectiveEndMs": segment_end,
+                    "speechDurationMs": segment_end - segment_start,
+                })
 
-                    "speechStartMs":
-                        speech_start_ms,
-
-                    "speechEndMs":
-                        speech_end_ms,
-
-                    "effectiveEndMs":
-                        cursor_ms,
-
-                    "speechDurationMs":
-                        speech_duration_ms,
-                }
+            # Natural in-stream pauses belong to speech, not inserted silence.
+            group_span = speech_duration_ms
+            segment_span = sum(
+                item["speechDurationMs"] for item in effective_segments[-len(group):]
             )
+            effective_segments[-1]["speechDurationMs"] += max(0, group_span - segment_span)
+            cursor_ms += speech_duration_ms
+            post_pause = last.post_pause_ms
+            if post_pause > 0:
+                post_file = temp / f"{group_number:03}-post.wav"
+                make_silence_wav(post_file, post_pause)
+                wav_parts.append(post_file)
+                cursor_ms += post_pause
+            effective_segments[-1]["effectiveEndMs"] = cursor_ms
 
-        concat_wav_files(
-            wav_parts,
-            AUDIO,
-        )
+        concat_wav_files(wav_parts, AUDIO)
 
-    if (
-        not AUDIO.exists()
-        or AUDIO.stat().st_size == 0
-    ):
-        raise RuntimeError(
-            "No se generó narración "
-            "prosódica final"
-        )
-
+    if not AUDIO.exists() or AUDIO.stat().st_size == 0:
+        raise RuntimeError("No se generó narración prosódica final")
     if len(global_words) < 5:
-        raise RuntimeError(
-            "Timeline prosódico insuficiente"
-        )
-
+        raise RuntimeError("Timeline prosódico insuficiente")
     previous_start = -1
+    for index, word in enumerate(global_words):
+        if word["startMs"] < previous_start or word["endMs"] < word["startMs"]:
+            raise RuntimeError(f"Timeline inválido en palabra {index}")
+        previous_start = word["startMs"]
+    duration_ms = probe_duration_ms(AUDIO)
+    if global_words[-1]["endMs"] > duration_ms + 30:
+        raise RuntimeError("WordBoundary excede la duración de audio")
+    return global_words, effective_segments, duration_ms
 
-    for index, word in enumerate(
-        global_words
-    ):
-        if (
-            word["startMs"]
-            < previous_start
-        ):
-            raise RuntimeError(
-                "Timeline no monotónico "
-                f"en palabra {index}"
-            )
 
-        if (
-            word["endMs"]
-            < word["startMs"]
-        ):
-            raise RuntimeError(
-                "Duración inválida "
-                f"en palabra {index}"
-            )
-
-        previous_start = (
-            word["startMs"]
-        )
-
-    duration_ms = probe_duration_ms(
-        AUDIO
-    )
-
-    return (
-        global_words,
-        effective_segments,
-        duration_ms,
+async def synthesize_segment_once_with_retries(
+    text: str, rate: str, pitch: str, output_file: Path, group_number: int,
+) -> list[dict]:
+    last_error = None
+    for attempt in range(1, 4):
+        try:
+            print(f"Pensamiento {group_number} | intento {attempt}/3")
+            return await synthesize_segment_once(text, rate, pitch, output_file)
+        except Exception as error:
+            last_error = error
+            if output_file.exists():
+                output_file.unlink()
+            if attempt < 3:
+                await asyncio.sleep(3 * attempt)
+    raise RuntimeError(
+        f"TTS falló después de 3 intentos para pensamiento "
+        f"{group_number}: {last_error}"
     )
 
 
