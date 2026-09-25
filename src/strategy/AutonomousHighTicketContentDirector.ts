@@ -37,6 +37,59 @@ import {
  * - NO renderiza.
  */
 
+/**
+ * Q∞ 07 — Política editorial integrada al Director vigente.
+ * Ventana móvil objetivo: FI 9, DT 6, HT 5.
+ * Q∞ 01 puede cambiar la prioridad mediante una oportunidad expresa.
+ * La clasificación histórica solo cuenta registros identificables;
+ * nunca se inventan categorías para completar la ventana.
+ */
+export type EditorialCategory = "FI" | "DT" | "HT";
+
+const EDITORIAL_TARGETS: Record<EditorialCategory, number> = {
+  FI: 9,
+  DT: 6,
+  HT: 5,
+};
+
+const OPPORTUNITY_CATEGORY: Record<string, EditorialCategory> = {
+  "contract-risk-before-signing": "HT",
+  "evidence-before-conflict": "FI",
+  "administrative-decision-defense": "DT",
+  "corporate-conflict-early-warning": "HT",
+  "contract-default-strategy": "HT",
+  "due-diligence-hidden-liabilities": "HT",
+  "arbitration-before-litigation": "DT",
+  "asset-recovery-executability": "FI",
+  "regulatory-risk-business": "DT",
+  "shareholder-control-information": "FI",
+};
+
+function categoryOf(opportunity: HighTicketOpportunity): EditorialCategory {
+  return OPPORTUNITY_CATEGORY[opportunity.id] ?? "HT";
+}
+
+function editorialCounts(memory: EditorialMemoryItem[]) {
+  const counts: Record<EditorialCategory, number> = { FI: 0, DT: 0, HT: 0 };
+  let unclassified = 0;
+
+  for (const item of memory.slice(-20)) {
+    const text = JSON.stringify(item).toLowerCase();
+    const matchingId = Object.keys(OPPORTUNITY_CATEGORY).find(
+      (id) => text.includes(id.toLowerCase()),
+    );
+    const explicit = text.match(/(?:editorialcategory|categoriaeditorial)[^a-z]*(fi|dt|ht)/i);
+    const category = matchingId
+      ? OPPORTUNITY_CATEGORY[matchingId]
+      : explicit?.[1]?.toUpperCase() as EditorialCategory | undefined;
+
+    if (category && category in counts) counts[category]++;
+    else unclassified++;
+  }
+
+  return { counts, unclassified, target: EDITORIAL_TARGETS };
+}
+
 export type AutonomousDirectorMode =
   | "autonomous"
   | "directed";
@@ -47,6 +100,11 @@ export type HighTicketContentIntent = {
   objective?: string;
   requestedTopic?: string | null;
   requestedAngle?: string | null;
+  /** Prioridad expresa de Q∞ 01; se evalúa con las reglas editoriales existentes. */
+  qInfinityPriorityId?: string | null;
+  /** Oportunidades vetadas expresamente por Q∞ 01. */
+  qInfinityVetoIds?: string[];
+
 };
 
 export type HighTicketOpportunity = {
@@ -98,6 +156,19 @@ export type AutonomousContentSelection = {
 
   selectedOpportunity:
     HighTicketOpportunity;
+  editorialBrief?: {
+    mainCategory: EditorialCategory;
+    secondaryCategory: EditorialCategory | null;
+    intention: string;
+    whyNow: string;
+    desiredPerception: string;
+    commercialOpportunity: string;
+    topic: string;
+    hook: string;
+    portfolio: ReturnType<typeof editorialCounts>;
+    qInfinityPriorityApplied: boolean;
+  };
+
 
   score:
     HighTicketOpportunityScore;
@@ -1676,11 +1747,34 @@ export function selectAutonomousHighTicketContent(
           a.totalScore,
       );
 
+  const portfolio = editorialCounts(memory);
+  const vetoIds = new Set(intent.qInfinityVetoIds ?? []);
+  const priorityId = intent.qInfinityPriorityId?.trim();
+  const hasKnownHistory =
+    Object.values(portfolio.counts).some((count) => count > 0);
+
   const approvedScores =
-    scores.filter(
-      (score) =>
-        score.approved,
-    );
+    scores
+      .filter((score) => score.approved && !vetoIds.has(score.opportunityId))
+      .sort((a, b) => {
+        if (priorityId) {
+          if (a.opportunityId === priorityId) return -1;
+          if (b.opportunityId === priorityId) return 1;
+        }
+        if (mode === "autonomous" && hasKnownHistory) {
+          const deficitA =
+            EDITORIAL_TARGETS[OPPORTUNITY_CATEGORY[a.opportunityId] ?? "HT"] -
+            portfolio.counts[OPPORTUNITY_CATEGORY[a.opportunityId] ?? "HT"];
+          const deficitB =
+            EDITORIAL_TARGETS[OPPORTUNITY_CATEGORY[b.opportunityId] ?? "HT"] -
+            portfolio.counts[OPPORTUNITY_CATEGORY[b.opportunityId] ?? "HT"];
+          // Bonificación moderada: conserva el valor estratégico del ranking.
+          const balancedA = a.totalScore + Math.max(0, deficitA) * 1.5;
+          const balancedB = b.totalScore + Math.max(0, deficitB) * 1.5;
+          return balancedB - balancedA;
+        }
+        return b.totalScore - a.totalScore;
+      });
 
   if (
     approvedScores.length ===
@@ -1725,6 +1819,22 @@ export function selectAutonomousHighTicketContent(
     objective,
 
     selectedOpportunity,
+
+    editorialBrief: {
+      mainCategory: categoryOf(selectedOpportunity),
+      secondaryCategory: null,
+      intention: objective,
+      whyNow: priorityId === selectedOpportunity.id
+        ? "Prioridad expresa de Q∞ 01."
+        : "Seleccionado por valor estratégico, novedad y equilibrio editorial verificable.",
+      desiredPerception:
+        "Criterio jurídico propio, dominio transversal y capacidad estratégica.",
+      commercialOpportunity: selectedOpportunity.commercialObjective,
+      topic: selectedOpportunity.topic,
+      hook: selectedOpportunity.hook,
+      portfolio,
+      qInfinityPriorityApplied: priorityId === selectedOpportunity.id,
+    },
 
     score:
       selectedScore,
