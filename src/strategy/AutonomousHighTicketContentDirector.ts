@@ -1780,6 +1780,17 @@ export function selectAutonomousHighTicketContent(
     approvedScores.length ===
     0
   ) {
+    console.error("DIAGNOSTICO EDITORIAL Q∞");
+    for (const candidate of scores.slice(0, 5)) {
+      console.error(JSON.stringify({
+        id: candidate.opportunityId,
+        total: candidate.totalScore,
+        novelty: candidate.editorialNoveltyScore,
+        recent: candidate.recentDiversityScore,
+        approved: candidate.approved,
+        reasons: candidate.reasons,
+      }));
+    }
     throw new Error(
       [
         "No existe una oportunidad editorial suficientemente diversa y aprobada.",
