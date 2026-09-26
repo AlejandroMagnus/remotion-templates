@@ -1306,7 +1306,7 @@ export function TemplateVideo({
   if (PHOTO_FIRST_MODE) {
   return (
     <AbsoluteFill style={{backgroundColor: "#000"}}>
-      <ResolvedAssetLayer productionCode={spec.id} />
+      <ResolvedAssetLayer productionCode={spec.id} threeD={spec.threeD} />
       <OwnershipMark />
       <ProfessionalSignature />
       <AudioBed spec={spec} />
@@ -1321,7 +1321,7 @@ export function TemplateVideo({
 
         <SemanticVisualOverlay />
 
-        <ResolvedAssetLayer productionCode={spec.id} />
+        <ResolvedAssetLayer productionCode={spec.id} threeD={spec.threeD} />
 
         <SemanticExecutionEngine productionCode={spec.id} />
 
@@ -1384,7 +1384,7 @@ export function TemplateVideo({
         },
       )}
 
-      <ResolvedAssetLayer productionCode={spec.id} />
+      <ResolvedAssetLayer productionCode={spec.id} threeD={spec.threeD} />
 
       <SemanticExecutionEngine productionCode={spec.id} />
 

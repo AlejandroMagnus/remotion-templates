@@ -21,22 +21,29 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "test:editorial": "vitest run tests/editorial-*.test.ts",
-    "editorial:catalog": "tsx scripts/editorial-catalog.ts"
+    "editorial:catalog": "tsx scripts/editorial-catalog.ts",
+    "test:3d": "vitest run tests/native-three-d*.test.ts",
+    "video:3d:preview": "node --import tsx scripts/three-d-pilot.ts preview",
+    "video:3d:render": "node --import tsx scripts/three-d-pilot.ts render"
   },
   "dependencies": {
+    "@react-three/fiber": "9.8.1",
     "@remotion/cli": "4.0.502",
     "@remotion/google-fonts": "4.0.502",
     "@remotion/layout-utils": "4.0.502",
     "@remotion/media": "4.0.502",
     "@remotion/paths": "^4.0.502",
+    "@remotion/three": "4.0.502",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "remotion": "4.0.502",
+    "three": "0.186.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
+    "@types/three": "0.186.0",
     "prettier": "^3.6.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.0",

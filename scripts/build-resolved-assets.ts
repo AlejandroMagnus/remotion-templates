@@ -1,5 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
+import {VideoSpecSchema} from "../src/schema";
+import {assertThreeDPlanMatches, matchThreeDScene} from "../src/threeD/schema";
+import {resolveNativeScene} from "../src/threeD/resolver";
 
 import {
   type PexelsResolvedAsset,
@@ -37,12 +40,12 @@ const productionCode =
  * - obediencia a mediaIntent V3.18-F.1
  * - Creative Director > heurística legacy
  * - graphic intent con fallback explícito
- * - threeD intent con fallback explícito
+ * - ejecutor 3D nativo para el plan validado del VideoSpec
  *
  * IMPORTANTE:
- * graphic y threeD todavía son intenciones.
- * Este archivo NO finge que existan ejecutores
- * gráficos o 3D que aún no están conectados.
+ * graphic conserva su fallback explícito. Los intents 3D no compatibles
+ * conservan su fallback explícito; los planes evidence-dossier se ejecutan
+ * como geometría nativa y se auditan como threeD.
  */
 
 function normalizeSupabaseRestUrl(
@@ -1320,6 +1323,12 @@ async function main() {
     source.scenes ??
     [];
 
+  const specPath = path.join(ROOT, `examples/${productionCode}.video.json`);
+  const rawSpec = fs.existsSync(specPath) ? JSON.parse(fs.readFileSync(specPath, "utf8")) : null;
+  const nativePlan = rawSpec?.threeD ? VideoSpecSchema.parse(rawSpec).threeD : undefined;
+  if (nativePlan && rawSpec.id !== productionCode) throw new Error("3D VideoSpec production code mismatch.");
+  assertThreeDPlanMatches(nativePlan, scenes);
+
   const resolved:
     any[] = [];
 
@@ -1333,6 +1342,15 @@ async function main() {
       scenes[
         sceneIndex
       ] as SceneWithTiming;
+
+    const native = matchThreeDScene(nativePlan, scene);
+    if (native) {
+      const asset = resolveNativeScene(scene, native, productionCode, sceneIndex);
+      fs.writeFileSync(path.join(ROOT, "public", asset.asset.localSrc), JSON.stringify(native, null, 2));
+      resolved.push(asset);
+      console.log(`NATIVE 3D: ${scene.id} | ${scene.startMs}-${scene.endMs}ms | no stock fallback`);
+      continue;
+    }
 
     const queries =
       semanticQueries(
@@ -2099,7 +2117,9 @@ async function main() {
         false,
 
       threeDExecutorConnected:
-        false,
+        true,
+
+      nativeThreeDSceneCount: resolvedAssets.filter((item) => item.asset.mediaType === "threeD").length,
 
       requestedIntents: {
         photo:
@@ -2120,6 +2140,7 @@ async function main() {
     },
 
     mediaSummary: {
+      threeD: resolvedAssets.filter((item) => item.asset.mediaType === "threeD").length,
       images:
         imageCount,
 
@@ -2198,6 +2219,7 @@ async function main() {
       const item
       of resolvedAssets
     ) {
+      if (item.asset.mediaType === "threeD") continue;
       await registerSupabaseHistoricalUse(
         item.asset as
           PexelsResolvedAsset,

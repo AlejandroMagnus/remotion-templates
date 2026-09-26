@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0",
+  "id": "native-3d-pilot",
+  "templateFamily": "proof-walkthrough",
+  "meta": {
+    "title": "Piloto visual de expediente y conexiones probatorias",
+    "description": "Prueba técnica silenciosa. Esquema ilustrativo sin afirmaciones jurídicas.",
+    "tags": ["3d", "technical-pilot"]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 8
+  },
+  "audio": { "mode": "silent" },
+  "scenes": [
+    {
+      "id": "evidence-pilot",
+      "kind": "mechanism",
+      "content": { "title": "Examinar la prueba" },
+      "timing": { "durationMs": 8000 }
+    }
+  ],
+  "threeD": {
+    "version": "1.0",
+    "scenes": [
+      {
+        "kind": "evidence-dossier",
+        "assetSceneId": "evidence-pilot",
+        "startMs": 0,
+        "endMs": 8000,
+        "title": "Examinar la prueba",
+        "labels": ["Documentos", "Cronología", "Hechos"],
+        "cueMs": 800
+      }
+    ]
+  }
+}

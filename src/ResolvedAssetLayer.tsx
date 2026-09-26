@@ -8,6 +8,7 @@ import {
   Img,
   OffthreadVideo,
   Sequence,
+  cancelRender,
   continueRender,
   delayRender,
   interpolate,
@@ -19,10 +20,14 @@ import {
 import {
   getSemanticMotionProfile,
 } from "./motion/semanticMotionDirector";
+import {EvidenceDossier} from "./threeD/EvidenceDossier";
+import {type EvidenceScene, type ThreeDPlan} from "./threeD/schema";
+import {assertNativeManifest} from "./threeD/resolver";
 
 type MediaType =
   | "image"
-  | "video";
+  | "video"
+  | "threeD";
 
 type AssetItem = {
   id: string;
@@ -37,6 +42,7 @@ type AssetItem = {
   asset?: {
     mediaType: MediaType;
     localSrc: string;
+    threeD?: EvidenceScene;
   };
 };
 
@@ -50,6 +56,7 @@ type CinematicAssetProps = {
   durationInFrames: number;
   isFirst: boolean;
   isLast: boolean;
+  frameOffset?: number;
 };
 
 function useCinematicOpacity({
@@ -477,11 +484,21 @@ function SemanticCinematicVideo({
   );
 }
 
+function NativeCinematicAsset(props: CinematicAssetProps) {
+  const opacity = useCinematicOpacity(props);
+  if (!props.item.asset?.threeD) throw new Error("Native 3D asset has no validated scene.");
+  return <AbsoluteFill style={{opacity}}>
+    <EvidenceDossier scene={props.item.asset.threeD} frameOffset={props.frameOffset}/>
+  </AbsoluteFill>;
+}
+
 function SemanticCinematicAsset(
   props: CinematicAssetProps,
 ) {
   const mediaType =
     props.item.asset?.mediaType;
+
+  if (mediaType === "threeD") return <NativeCinematicAsset {...props}/>;
 
   if (mediaType === "video") {
     return (
@@ -504,8 +521,10 @@ function SemanticCinematicAsset(
 
 export function ResolvedAssetLayer({
   productionCode,
+  threeD,
 }: {
   productionCode: string;
+  threeD?: ThreeDPlan;
 }) {
   const {
     fps,
@@ -546,6 +565,7 @@ export function ResolvedAssetLayer({
           manifest:
             Manifest,
         ) => {
+          assertNativeManifest(threeD, manifest.assets ?? []);
           setItems(
             (
               manifest.assets ??
@@ -563,7 +583,8 @@ export function ResolvedAssetLayer({
                     "image" ||
                   item.asset
                     ?.mediaType ===
-                    "video"
+                    "video" ||
+                  item.asset?.mediaType === "threeD"
                 ),
             ),
           );
@@ -571,6 +592,11 @@ export function ResolvedAssetLayer({
       )
       .catch(
         (error) => {
+          // Native 3D must never disappear silently or degrade to unrelated stock.
+          if (threeD?.scenes.length || String(error).includes("3D")) {
+            cancelRender(error);
+            return;
+          }
           console.warn(
             "Adaptive assets unavailable:",
             error,
@@ -586,6 +612,7 @@ export function ResolvedAssetLayer({
   }, [
     handle,
     productionCode,
+    threeD,
   ]);
 
   const overlap =
@@ -697,6 +724,7 @@ export function ResolvedAssetLayer({
             >
               <SemanticCinematicAsset
                 item={item}
+                frameOffset={baseFrom - from}
 
                 sceneIndex={
                   index

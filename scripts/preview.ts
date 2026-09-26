@@ -38,8 +38,18 @@ if (process.argv.includes("--studio")) {
       String(midpoint),
       "--props",
       propsPath,
+      ...(spec.threeD?.scenes.length ? ["--gl=angle"] : []),
     ]);
     cursor += frames;
+  }
+  for (const [index, scene] of (spec.threeD?.scenes ?? []).entries()) {
+    const midpoint = Math.floor(((scene.startMs + scene.endMs) / 2000) * spec.target.fps);
+    runRemotion([
+      "still", "src/index.ts",
+      `InstavarTemplate${spec.target.aspect === "9:16" ? "Vertical" : spec.target.aspect === "4:5" ? "Portrait" : "Square"}`,
+      path.join(directory, `3d-${index + 1}.png`),
+      "--frame", String(midpoint), "--props", propsPath, "--gl=angle",
+    ]);
   }
   console.log(`Previewed every scene: ${directory}`);
 }

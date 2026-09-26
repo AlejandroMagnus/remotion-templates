@@ -1,4 +1,5 @@
 import { z } from "zod";
+import {ThreeDPlanSchema} from "./threeD/schema";
 
 export const templateIds = [
   "qa-ad",
@@ -140,6 +141,15 @@ export const VideoSpecSchema = z.object({
     })
     .default({}),
   scenes: z.array(scene).min(1),
+  threeD: ThreeDPlanSchema.optional(),
+}).superRefine((spec, context) => {
+  const totalMs = spec.target.durationMode === "fixed" && spec.target.fixedDurationSec
+    ? spec.target.fixedDurationSec * 1000
+    : spec.scenes.reduce((sum, item) => sum +
+      (spec.audio.narrationTiming?.segments.find((segment) => segment.sceneId === item.id)?.durationMs ?? item.timing?.durationMs ?? 3000), 0);
+  for (const [index, item] of (spec.threeD?.scenes ?? []).entries()) {
+    if (item.endMs > totalMs) context.addIssue({code: "custom", path: ["threeD", "scenes", index, "endMs"], message: "3D scene exceeds composition duration."});
+  }
 });
 
 export type VideoSpec = z.infer<typeof VideoSpecSchema>;

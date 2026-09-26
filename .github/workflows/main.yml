@@ -46,6 +46,12 @@ on:
         required: false
         type: string
 
+      enable_3d:
+        description: "Activar 3D nativo en escenas compatibles de expediente y prueba"
+        required: false
+        default: false
+        type: boolean
+
 permissions:
   contents: read
 
@@ -61,6 +67,7 @@ jobs:
     env:
       PRODUCTION_CODE: ${{ inputs.production_code }}
       CONTENT_MODE: ${{ inputs.content_mode }}
+      ENABLE_3D: ${{ inputs.enable_3d }}
       REQUESTED_TOPIC: ${{ inputs.requested_topic }}
       REQUESTED_ANGLE: ${{ inputs.requested_angle }}
       QINFINITY_PRIORITY_ID: ${{ inputs.q_infinity_priority_id }}
@@ -87,6 +94,9 @@ jobs:
         run: |
           npm run editorial:catalog -- check
           npm run test:editorial
+
+      - name: Verificar contratos y regresiones 3D
+        run: npm run test:3d
 
       - name: Validar código de producción
         run: |
@@ -298,6 +308,9 @@ jobs:
       - name: Build asset scene plan
         run: |
           npx --yes tsx scripts/build-asset-scene-plan.ts
+
+      - name: Planificar escenas 3D sobre la narración sincronizada
+        run: node --import tsx scripts/build-three-d-plan.ts
 
       - name: Resolve real assets
         env:
@@ -637,5 +650,7 @@ jobs:
             public/generated/*-autonomous-director.json
             public/generated/*-editorial-memory.json
             public/generated/*-strategic-content.json
+            public/generated/*-three-d-plan.json
+            public/generated/*-resolved-assets.json
           retention-days: 30
           if-no-files-found: ignore
