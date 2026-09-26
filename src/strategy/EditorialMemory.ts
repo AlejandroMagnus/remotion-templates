@@ -1,6 +1,7 @@
 import type {
   QInfinityStrategicContentPacket,
 } from "./QInfinityStrategicContentPacket";
+import { legalReviewIssue, type EditorialMetadata } from "./EditorialCatalog";
 
 /**
  * V3.16-A — EDITORIAL MEMORY
@@ -20,6 +21,7 @@ import type {
  */
 
 export type EditorialMemoryItem = {
+  editorial?: EditorialMetadata;
   id?: number;
 
   contentCode: string;
@@ -49,6 +51,7 @@ export type EditorialNoveltyLevel =
   | "duplicate";
 
 export type EditorialComparison = {
+  duplicate?: boolean;
   contentCode: string;
 
   score: number;
@@ -101,6 +104,16 @@ const normalize = (
       " ",
     )
     .trim();
+
+export function isProducedMemoryItem(item: EditorialMemoryItem): boolean {
+  return ["rendered", "published", "completed", "succeeded", "produced"].includes(item.status?.trim().toLowerCase() ?? "");
+}
+
+/** Unknown legacy status remains relevant to duplicate detection, but not to quotas. */
+export function comparableEditorialMemory(memory: EditorialMemoryItem[]): EditorialMemoryItem[] {
+  const unproduced = new Set(["planned", "draft", "failed", "cancelled", "canceled", "rejected", "queued", "rendering"]);
+  return memory.filter((item) => !unproduced.has(item.status?.trim().toLowerCase() ?? ""));
+}
 
 const STOP_WORDS =
   new Set([
@@ -252,6 +265,7 @@ export function compareWithEditorialMemory(
   memory:
     EditorialMemoryItem[],
 ): EditorialDecision {
+  memory = comparableEditorialMemory(memory).filter((item) => item.contentCode !== packet.productionCode);
   if (memory.length === 0) {
     return {
       approved: true,
@@ -311,19 +325,29 @@ export function compareWithEditorialMemory(
               item.concepts,
             );
 
+          const sameOpportunity = Boolean(packet.editorial?.opportunityId &&
+            packet.editorial.opportunityId === item.editorial?.opportunityId);
+          const sameThesis = Boolean(normalize(packet.knowledge.centralThesis) &&
+            normalize(packet.knowledge.centralThesis) === normalize(item.thesis ?? ""));
+          const duplicate = sameOpportunity || sameThesis || thesisScore >= 0.82;
+
           /*
            * La tesis tiene el mayor peso.
            * Compartir un área jurídica no
            * significa automáticamente que
            * dos contenidos sean duplicados.
            */
-          const score =
+          const score = duplicate ? 1 :
             topicScore * 0.25 +
             thesisScore * 0.5 +
             conceptsScore * 0.25;
 
           const reasons:
             string[] = [];
+
+          if (sameOpportunity) reasons.push("already-produced-opportunity");
+          if (sameThesis) reasons.push("identical-thesis");
+          if (thesisScore >= 0.82) reasons.push("near-identical-thesis");
 
           if (topicScore >= 0.5) {
             reasons.push(
@@ -346,6 +370,7 @@ export function compareWithEditorialMemory(
           }
 
           return {
+            duplicate,
             contentCode:
               item.contentCode,
 
@@ -434,8 +459,20 @@ export function compareWithEditorialMemory(
   if (
     highestSimilarity >= 0.38
   ) {
+    const angle = packet.editorial?.newAngle;
+    const reviewIssue = legalReviewIssue({
+      ...packet.knowledge,
+      ...packet.strategicObjective,
+      ...packet.audiovisual,
+      editorial: packet.editorial,
+    });
+    const related = comparisons.filter((item) => item.score >= 0.38);
+    const demonstratedNewAngle = Boolean(
+      angle?.contribution.trim() && !reviewIssue &&
+      related.every((item) => angle?.comparedWith.includes(item.contentCode) && item.thesisSimilarity < 0.5),
+    );
     return {
-      approved: true,
+      approved: demonstratedNewAngle,
       noveltyLevel:
         "related-new-angle",
       noveltyScore,
@@ -444,10 +481,12 @@ export function compareWithEditorialMemory(
         closest.contentCode,
       comparisons,
       reasons: [
-        `The topic is related to ${closest.contentCode}, but the similarity remains compatible with a differentiated angle.`,
+        demonstratedNewAngle
+          ? `Reviewed new contribution distinguishes this piece from ${closest.contentCode}.`
+          : `Related to ${closest.contentCode}. A reviewed, materially distinct thesis and an explicit comparison are required.`,
       ],
       recommendation:
-        "produce-new-angle",
+        demonstratedNewAngle ? "produce-new-angle" : "reformulate",
     };
   }
 
@@ -474,6 +513,7 @@ export function buildEditorialMemoryRecord(
   "id"
 > {
   return {
+    editorial: packet.editorial,
     contentCode:
       packet.productionCode,
 

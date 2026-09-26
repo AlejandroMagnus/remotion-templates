@@ -31,8 +31,28 @@ on:
         default: ""
         type: string
 
+      q_infinity_priority_id:
+        description: "ID de ficha priorizada por Q∞ 01 (opcional)"
+        required: false
+        type: string
+
+      q_infinity_reason:
+        description: "Motivo de la prioridad o veto Q∞ 01"
+        required: false
+        type: string
+
+      q_infinity_veto_ids:
+        description: "IDs vetados por Q∞ 01, separados por coma"
+        required: false
+        type: string
+
 permissions:
   contents: read
+
+# La lectura y el registro del canal 3 comparten una única secuencia de producción.
+concurrency:
+  group: editorial-channel-3
+  cancel-in-progress: false
 
 jobs:
   render:
@@ -43,6 +63,9 @@ jobs:
       CONTENT_MODE: ${{ inputs.content_mode }}
       REQUESTED_TOPIC: ${{ inputs.requested_topic }}
       REQUESTED_ANGLE: ${{ inputs.requested_angle }}
+      QINFINITY_PRIORITY_ID: ${{ inputs.q_infinity_priority_id }}
+      QINFINITY_REASON: ${{ inputs.q_infinity_reason }}
+      QINFINITY_VETO_IDS: ${{ inputs.q_infinity_veto_ids }}
 
     steps:
       - name: Descargar repositorio
@@ -59,6 +82,18 @@ jobs:
 
       - name: Verificar TypeScript
         run: npm run typecheck
+
+      - name: Verificar catálogo y regresiones editoriales
+        run: |
+          npm run editorial:catalog -- check
+          npm run test:editorial
+
+      - name: Validar código de producción
+        run: |
+          if [[ ! "$PRODUCTION_CODE" =~ ^[a-zA-Z0-9][a-zA-Z0-9_-]*$ ]]; then
+            echo "Código de producción inválido."
+            exit 1
+          fi
 
       - name: Instalar FFmpeg y edge-tts actual
         run: |
@@ -78,15 +113,15 @@ jobs:
       # V3.17 — DIRECTOR AUTÓNOMO DE CONTENIDO HIGH-TICKET
       # ============================================================
 
-      - name: V3.17-B — Seleccionar contenido autónomo high-ticket
+      - name: V3.17-C — Seleccionar contenido y mostrar ficha editorial
         if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           if [ "${CONTENT_MODE}" = "directed" ]; then
-            if [ -z "${REQUESTED_TOPIC}" ]; then
-              echo "ERROR: directed mode requiere requested_topic."
+            if [ -z "${REQUESTED_TOPIC}" ] && [ -z "${REQUESTED_ANGLE}" ]; then
+              echo "ERROR: directed mode requiere requested_topic o requested_angle."
               exit 1
             fi
 
@@ -592,3 +627,15 @@ jobs:
           path: out/${{ env.PRODUCTION_CODE }}-FINAL.mp4
           retention-days: 7
           if-no-files-found: error
+
+      - name: Conservar ficha y diagnóstico editorial
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: editorial-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            public/generated/*-autonomous-director.json
+            public/generated/*-editorial-memory.json
+            public/generated/*-strategic-content.json
+          retention-days: 30
+          if-no-files-found: ignore

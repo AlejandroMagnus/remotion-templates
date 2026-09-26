@@ -1,4 +1,7 @@
+import type { EditorialMetadata } from "./EditorialCatalog";
+
 export type QInfinityStrategicContentPacket = {
+  editorial?: EditorialMetadata;
   productionCode: string;
   version: string;
 

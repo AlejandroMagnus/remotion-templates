@@ -19,7 +19,9 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:editorial": "vitest run tests/editorial-*.test.ts",
+    "editorial:catalog": "tsx scripts/editorial-catalog.ts"
   },
   "dependencies": {
     "@remotion/cli": "4.0.502",

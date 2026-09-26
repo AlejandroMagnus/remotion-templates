@@ -1,4 +1,6 @@
 import fs from "node:fs";
+import { encodeEditorialMemory, loadEditorialMemoryRows, normalizeSupabaseRestUrl, type SupabaseContentItem } from "../src/strategy/EditorialMemoryStore";
+import { legalReviewIssue } from "../src/strategy/EditorialCatalog";
 import path from "node:path";
 
 import {
@@ -14,14 +16,6 @@ import type {
 type Mode =
   | "precheck"
   | "register";
-
-type SupabaseContentItem = {
-  id?: number;
-  content_code: string;
-  topic: string | null;
-  objective: string | null;
-  status: string | null;
-};
 
 const mode =
   process.argv[2] as
@@ -63,16 +57,6 @@ if (!supabaseKey) {
   throw new Error(
     "SUPABASE_SECRET_KEY no definido.",
   );
-}
-
-function normalizeSupabaseRestUrl(
-  value: string,
-): string {
-  return value
-    .trim()
-    .replace(/\/+$/, "")
-    .replace(/\/rest\/v1$/i, "")
-    .concat("/rest/v1");
 }
 
 const restUrl =
@@ -154,70 +138,8 @@ async function request(
   return response;
 }
 
-async function loadMemory():
-  Promise<EditorialMemoryItem[]> {
-  const url =
-    `${restUrl}/content_items` +
-    "?select=id,content_code,topic,objective,status" +
-    "&order=id.asc";
-
-  const response =
-    await request(url);
-
-  const rows =
-    await response.json() as
-      SupabaseContentItem[];
-
-  return rows
-    .filter(
-      (row) =>
-        Boolean(
-          row.content_code,
-        ),
-    )
-    .map(
-      (
-        row,
-      ): EditorialMemoryItem => ({
-        id: row.id,
-
-        contentCode:
-          row.content_code,
-
-        topic:
-          row.topic ?? "",
-
-        title:
-          row.topic,
-
-        thesis:
-          row.objective,
-
-        subthesis: null,
-
-        narrationText: null,
-
-        concepts: [
-          row.topic ?? "",
-          row.objective ?? "",
-        ].filter(Boolean),
-
-        semanticFingerprint:
-          null,
-
-        sourceSystem:
-          null,
-
-        sourceReference:
-          null,
-
-        status:
-          row.status,
-
-        publishedAt:
-          null,
-      }),
-    );
+async function loadMemory(): Promise<EditorialMemoryItem[]> {
+  return loadEditorialMemoryRows(restUrl, request);
 }
 
 async function findExisting():
@@ -233,7 +155,7 @@ async function findExisting():
     `${restUrl}/content_items` +
     "?select=id,content_code,topic,objective,status" +
     `&content_code=eq.${encoded}` +
-    "&limit=1";
+    "&channel_id=eq.3&limit=1";
 
   const response =
     await request(url);
@@ -281,8 +203,11 @@ async function precheck():
     );
   }
 
-  const memory =
-    await loadMemory();
+  if (packet.editorial?.legalReview) {
+    const issue = legalReviewIssue({ ...packet.knowledge, ...packet.strategicObjective, ...packet.audiovisual, editorial: packet.editorial });
+    if (issue) throw new Error(`REVISIÓN JURÍDICA: ${issue}`);
+  }
+  const memory = await loadMemory();
 
   const decision =
     compareWithEditorialMemory(
@@ -312,7 +237,7 @@ async function precheck():
     JSON.stringify(
       {
         version:
-          "V3.16-B-EDITORIAL-MEMORY",
+          "V3.17-C-EDITORIAL-MEMORY",
 
         productionCode,
 
@@ -418,34 +343,10 @@ async function register():
   const topic =
     memoryRecord.topic;
 
-  /*
-   * content_items actualmente dispone
-   * de topic + objective como memoria
-   * editorial persistente.
-   *
-   * Guardamos en objective una síntesis
-   * suficientemente rica para futuras
-   * comparaciones sin alterar el esquema
-   * actual de Supabase.
-   */
-  const objectiveParts = [
-    memoryRecord.thesis,
-    memoryRecord.subthesis,
-    narration
-      ? narration.slice(
-          0,
-          700,
-        )
-      : null,
-  ].filter(Boolean);
-
-  const objective =
-    objectiveParts
-      .join(" | ")
-      .slice(
-        0,
-        1800,
-      );
+  const objective = encodeEditorialMemory({
+    ...memoryRecord,
+    narrationText: narration,
+  });
 
   const payload = {
     topic,

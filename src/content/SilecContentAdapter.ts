@@ -1,8 +1,10 @@
 import type {
   QInfinityStrategicContentPacket,
 } from "../strategy/QInfinityStrategicContentPacket";
+import { EditorialMetadataSchema, legalReviewIssue, type EditorialMetadata } from "../strategy/EditorialCatalog";
 
 export type SilecKnowledgeInput = {
+  editorial?: EditorialMetadata;
   productionCode: string;
 
   topic: string;
@@ -27,7 +29,15 @@ export type SilecKnowledgeInput = {
 export function buildSilecStrategicPacket(
   input: SilecKnowledgeInput,
 ): QInfinityStrategicContentPacket {
+  if (input.editorial) {
+    input = { ...input, editorial: EditorialMetadataSchema.parse(input.editorial) };
+    if (input.editorial?.legalReview) {
+      const issue = legalReviewIssue(input);
+      if (issue) throw new Error(`REVISIÓN JURÍDICA: ${issue}`);
+    }
+  }
   return {
+    editorial: input.editorial,
     productionCode: input.productionCode,
 
     version:
@@ -42,7 +52,7 @@ export function buildSilecStrategicPacket(
       // Antes de publicar afirmaciones normativas,
       // jurisprudenciales o sobre casos concretos,
       // deben verificarse sus fuentes.
-      legalVerificationRequired: true,
+      legalVerificationRequired: legalReviewIssue(input) !== null,
     },
 
     strategicObjective: {

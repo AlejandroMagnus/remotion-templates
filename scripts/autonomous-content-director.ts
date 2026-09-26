@@ -1,473 +1,159 @@
 import fs from "node:fs";
 import path from "node:path";
-
 import {
+  EditorialSelectionError,
+  HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
   selectAutonomousHighTicketContent,
   type HighTicketContentIntent,
 } from "../src/strategy/AutonomousHighTicketContentDirector";
+import { mergeEditorialOpportunities } from "../src/strategy/EditorialCatalog";
+import {
+  loadEditorialMemoryRows,
+  normalizeSupabaseRestUrl,
+} from "../src/strategy/EditorialMemoryStore";
+import { loadEditorialCatalog, writeJson } from "./lib/editorial-catalog";
 
-import type {
-  EditorialMemoryItem,
-} from "../src/strategy/EditorialMemory";
+const productionCode =
+  process.argv[2]?.trim() || process.env.PRODUCTION_CODE?.trim() || "";
+if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(productionCode)) {
+  throw new Error(
+    "Use un production code con letras, números, guiones o guiones bajos.",
+  );
+}
+const decisionPath = path.resolve(
+  "public/generated",
+  `${productionCode}-autonomous-director.json`,
+);
+let catalogAudit: unknown = null;
 
-/**
- * V3.17-B — AUTONOMOUS CONTENT DIRECTOR EXECUTOR
- *
- * Flujo:
- * Supabase Editorial Memory
- * → V3.17-A High-Ticket Director
- * → ranking estratégico
- * → selección autónoma
- * → SilecKnowledgeInput
- * → content/<production-code>.silec.json
- *
- * NO modifica la memoria.
- * NO registra contenido.
- * NO genera VideoSpec.
- * NO renderiza.
- */
-
-type SupabaseContentItem = {
-  id?: number;
-  content_code: string;
-  topic: string | null;
-  objective: string | null;
-  status: string | null;
-};
-
-function getProductionCode(): string {
-  const value =
-    process.argv[2]?.trim() ||
-    process.env.PRODUCTION_CODE?.trim();
-
-  if (!value) {
-    throw new Error(
-      [
-        "Production code no definido.",
-        "",
-        "Uso:",
-        "npx tsx scripts/autonomous-content-director.ts video-juridico-009",
-      ].join("\n"),
-    );
-  }
-
-  return value;
+function summary(text: string) {
+  if (process.env.GITHUB_STEP_SUMMARY)
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, text + "\n");
 }
 
-function optionalArgument(
-  index: number,
-): string | null {
-  const value =
-    process.argv[index]?.trim();
-
-  return value || null;
-}
-
-function normalizeSupabaseRestUrl(
-  value: string,
-): string {
-  return value
-    .trim()
-    .replace(/\/+$/, "")
-    .replace(/\/rest\/v1$/i, "")
-    .concat("/rest/v1");
-}
-
-function ensureEnvironment(): {
-  restUrl: string;
-  key: string;
-} {
-  const supabaseUrl =
-    process.env.SUPABASE_URL;
-
-  const key =
-    process.env.SUPABASE_SECRET_KEY;
-
-  if (!supabaseUrl) {
-    throw new Error(
-      "SUPABASE_URL no definido.",
-    );
-  }
-
-  if (!key) {
-    throw new Error(
-      "SUPABASE_SECRET_KEY no definido.",
-    );
-  }
-
-  return {
-    restUrl:
-      normalizeSupabaseRestUrl(
-        supabaseUrl,
-      ),
-    key,
-  };
-}
-
-async function request(
-  url: string,
-  key: string,
-): Promise<Response> {
-  const response =
-    await fetch(
-      url,
-      {
-        headers: {
-          apikey: key,
-          Authorization:
-            `Bearer ${key}`,
-          "Content-Type":
-            "application/json",
-        },
-      },
-    );
-
-  if (!response.ok) {
-    const body =
-      await response.text();
-
-    throw new Error(
-      `Supabase ${response.status}: ${body}`,
-    );
-  }
-
-  return response;
-}
-
-async function loadEditorialMemory(
-  restUrl: string,
-  key: string,
-): Promise<EditorialMemoryItem[]> {
-  const url =
-    `${restUrl}/content_items` +
-    "?select=id,content_code,topic,objective,status" +
-    "&order=id.asc";
-
-  const response =
-    await request(
-      url,
-      key,
-    );
-
-  const rows =
-    await response.json() as
-      SupabaseContentItem[];
-
-  return rows
-    .filter(
-      (row) =>
-        Boolean(
-          row.content_code,
-        ),
-    )
-    .map(
-      (
-        row,
-      ): EditorialMemoryItem => ({
-        id:
-          row.id,
-
-        contentCode:
-          row.content_code,
-
-        topic:
-          row.topic ?? "",
-
-        title:
-          row.topic,
-
-        thesis:
-          row.objective,
-
-        subthesis:
-          null,
-
-        narrationText:
-          null,
-
-        concepts: [
-          row.topic ?? "",
-          row.objective ?? "",
-        ].filter(Boolean),
-
-        semanticFingerprint:
-          null,
-
-        sourceSystem:
-          null,
-
-        sourceReference:
-          null,
-
-        status:
-          row.status,
-
-        publishedAt:
-          null,
-      }),
-    );
-}
-
-function writeJson(
-  filePath: string,
-  value: unknown,
-): void {
-  fs.mkdirSync(
-    path.dirname(
-      filePath,
+async function main() {
+  const catalog = loadEditorialCatalog();
+  catalogAudit = {
+    version: catalog.catalog.version,
+    available: catalog.available.map((item) => item.id),
+    excluded: catalog.excluded,
+    legacyVerificationRequired: HIGH_TICKET_OPPORTUNITY_PORTFOLIO.map(
+      (item) => item.id,
     ),
-    {
-      recursive: true,
+  };
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SECRET_KEY;
+  if (!url || !key)
+    throw new Error("Faltan SUPABASE_URL o SUPABASE_SECRET_KEY.");
+  const memory = await loadEditorialMemoryRows(
+    normalizeSupabaseRestUrl(url),
+    async (requestUrl) => {
+      const response = await fetch(requestUrl, {
+        headers: { apikey: key, Authorization: `Bearer ${key}` },
+      });
+      if (!response.ok)
+        throw new Error(
+          `No se pudo leer la memoria editorial: HTTP ${response.status}`,
+        );
+      return response;
     },
   );
-
-  fs.writeFileSync(
-    filePath,
-    JSON.stringify(
-      value,
-      null,
-      2,
-    ),
-    "utf8",
-  );
-}
-
-async function main():
-  Promise<void> {
-  const productionCode =
-    getProductionCode();
-
-  /*
-   * Argumentos opcionales:
-   *
-   * argv[3] = tema solicitado
-   * argv[4] = ángulo solicitado
-   *
-   * Sin ellos, funciona
-   * autónomamente.
-   */
   const requestedTopic =
-    optionalArgument(3);
-
+    process.argv[3]?.trim() || process.env.REQUESTED_TOPIC?.trim() || null;
   const requestedAngle =
-    optionalArgument(4);
-
-  const {
-    restUrl,
-    key,
-  } =
-    ensureEnvironment();
-
-  const memory =
-    await loadEditorialMemory(
-      restUrl,
-      key,
-    );
-
-  const intent:
-    HighTicketContentIntent = {
-      productionCode,
-
-      mode:
-        requestedTopic
+    process.argv[4]?.trim() || process.env.REQUESTED_ANGLE?.trim() || null;
+  const mode = process.env.CONTENT_MODE;
+  if (mode && !["autonomous", "directed"].includes(mode))
+    throw new Error("Modo de selección inválido.");
+  const intent: HighTicketContentIntent = {
+    productionCode,
+    mode:
+      mode === "autonomous" || mode === "directed"
+        ? mode
+        : requestedTopic || requestedAngle
           ? "directed"
           : "autonomous",
-
-      objective:
-        "Captar clientes jurídicos high ticket demostrando capacidad de diagnóstico, prevención, estrategia y resolución de problemas jurídicos de alto valor.",
-
-      requestedTopic,
-
-      requestedAngle,
-    };
-
-  const selection =
-    selectAutonomousHighTicketContent(
-      intent,
-      memory,
-    );
-
-  const silecPath =
-    path.join(
-      process.cwd(),
-      "content",
-      `${productionCode}.silec.json`,
-    );
-
-  const decisionPath =
-    path.join(
-      process.cwd(),
-      "public",
-      "generated",
-      `${productionCode}-autonomous-director.json`,
-    );
-
-  /*
-   * El SilecKnowledgeInput generado
-   * utiliza exactamente el contrato
-   * que V3.16-C ya consume.
-   */
+    requestedTopic,
+    requestedAngle,
+    qInfinityPriorityId: process.env.QINFINITY_PRIORITY_ID?.trim(),
+    qInfinityReason: process.env.QINFINITY_REASON?.trim(),
+    qInfinityVetoIds: (process.env.QINFINITY_VETO_IDS || "")
+      .split(",")
+      .map((id) => id.trim())
+      .filter(Boolean),
+  };
+  const selection = selectAutonomousHighTicketContent(
+    intent,
+    memory,
+    mergeEditorialOpportunities(
+      HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
+      catalog.available,
+    ),
+  );
+  writeJson(decisionPath, {
+    status: "selected",
+    ...selection,
+    memorySize: memory.length,
+    catalog: catalogAudit,
+  });
   writeJson(
-    silecPath,
+    path.resolve("content", `${productionCode}.silec.json`),
     selection.silecInput,
   );
 
-  /*
-   * Conservamos también la decisión
-   * completa para auditoría Q∞.
-   */
-  writeJson(
-    decisionPath,
-    {
-      version:
-        selection.version,
-
-      productionCode:
-        selection.productionCode,
-
-      mode:
-        selection.mode,
-
-      objective:
-        selection.objective,
-
-      memorySize:
-        memory.length,
-
-      selectedOpportunity: {
-        id:
-          selection
-            .selectedOpportunity
-            .id,
-
-        domain:
-          selection
-            .selectedOpportunity
-            .domain,
-
-        topic:
-          selection
-            .selectedOpportunity
-            .topic,
-      },
-
-      score:
-        selection.score,
-
-      alternatives:
-        selection.alternatives,
-    },
-  );
-
-  console.log("");
+  console.log("V3.17-C — DIRECTOR EDITORIAL Q∞");
   console.log(
-    "==============================================",
+    `Production: ${productionCode} | Mode: ${selection.mode} | Memory: ${memory.length}`,
   );
-
   console.log(
-    "V3.17-B — AUTONOMOUS HIGH-TICKET DIRECTOR",
+    "FICHA EDITORIAL PREVIA\n" +
+      JSON.stringify(selection.editorialBrief, null, 2),
   );
-
+  console.log(`Opportunity: ${selection.selectedOpportunity.id}`);
   console.log(
-    "==============================================",
+    `Legal review: ${selection.silecInput.editorial?.legalReview?.status ?? "legacy-verification-required"}`,
   );
-
-  console.log(
-    `Production: ${productionCode}`,
+  console.table(
+    selection.alternatives.map((item) => ({
+      id: item.opportunityId,
+      score: item.totalScore,
+      portfolio: item.portfolioBonus,
+      selection: item.selectionScore,
+      approved: item.approved,
+      recommendation: item.editorialDecision.recommendation,
+    })),
   );
-
-  console.log(
-    `Mode: ${selection.mode}`,
-  );
-
-  console.log(
-    `Editorial memory: ${memory.length} items`,
-  );
-
-  console.log("");
-  console.log(
-    "SELECCION AUTONOMA",
-  );
-
-  console.log(
-    `Opportunity: ${selection.selectedOpportunity.id}`,
-  );
-
-  console.log(
-    `Domain: ${selection.selectedOpportunity.domain}`,
-  );
-
-  console.log(
-    `Topic: ${selection.selectedOpportunity.topic}`,
-  );
-
-  console.log(
-    `Total score: ${selection.score.totalScore}/100`,
-  );
-
-  console.log(
-    `Strategic score: ${selection.score.strategicScore}/100`,
-  );
-
-  console.log(
-    `Novelty score: ${selection.score.editorialNoveltyScore}/100`,
-  );
-
-  console.log(
-    `Editorial recommendation: ${selection.score.editorialDecision.recommendation}`,
-  );
-
-  console.log("");
-  console.log(
-    "RANKING",
-  );
-
-  selection.alternatives
-    .slice(
-      0,
-      10,
-    )
-    .forEach(
-      (
-        candidate,
-        index,
-      ) => {
-        console.log(
-          `${index + 1}. ` +
-          `${candidate.opportunityId} | ` +
-          `${candidate.totalScore}/100 | ` +
-          `approved=${candidate.approved} | ` +
-          `${candidate.editorialDecision.recommendation}`,
-        );
-      },
-    );
-
-  console.log("");
-  console.log(
-    `SILEC input: ${silecPath}`,
-  );
-
-  console.log(
-    `Decision audit: ${decisionPath}`,
-  );
-
-  console.log(
-    "==============================================",
-  );
-
-  console.log(
-    "✅ Autonomous content decision generated.",
+  console.log(`Decision audit: ${decisionPath}`);
+  summary(
+    `### Ficha editorial: ${productionCode}\n\n\`\`\`json\n${JSON.stringify(selection.editorialBrief, null, 2)}\n\`\`\`\n\nRevisión jurídica: ${selection.silecInput.editorial?.legalReview?.status ?? "pendiente en ficha heredada"}.`,
   );
 }
 
-main().catch(
-  (error) => {
-    console.error("");
-    console.error(
-      "AUTONOMOUS CONTENT DIRECTOR ERROR",
-    );
-    console.error(error);
-
-    process.exit(1);
-  },
-);
+main().catch((error: unknown) => {
+  const message = error instanceof Error ? error.message : String(error);
+  const code =
+    error instanceof EditorialSelectionError
+      ? error.code
+      : "EDITORIAL_INPUT_ERROR";
+  const candidates =
+    error instanceof EditorialSelectionError ? error.candidates : [];
+  writeJson(decisionPath, {
+    status: "blocked",
+    productionCode,
+    code,
+    message,
+    candidates,
+    catalog: catalogAudit,
+  });
+  console.error(`${code}: ${message}`);
+  console.table(
+    candidates.map((item) => ({
+      id: item.opportunityId,
+      reasons: item.reasons.join("; "),
+    })),
+  );
+  summary(
+    `### Selección detenida: ${productionCode}\n\n${code}: ${message}\n\nRevise el artefacto de diagnóstico editorial.`,
+  );
+  process.exitCode = 1;
+});

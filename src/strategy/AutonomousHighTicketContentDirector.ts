@@ -4,12 +4,23 @@ import type {
 
 import {
   compareWithEditorialMemory,
+  comparableEditorialMemory,
+  isProducedMemoryItem,
   type EditorialDecision,
   type EditorialMemoryItem,
 } from "./EditorialMemory";
+import {
+  EDITORIAL_TARGETS,
+  legalReviewIssue,
+  reviewedContentHash,
+  type EditorialCategory,
+  type EditorialMetadata,
+  type EditorialScoresSchema,
+} from "./EditorialCatalog";
+import type { z } from "zod";
 
 /**
- * V3.17-B
+ * V3.17-C
  * AUTONOMOUS PORTFOLIO DIVERSITY DIRECTOR
  *
  * Objetivo:
@@ -44,13 +55,7 @@ import {
  * La clasificación histórica solo cuenta registros identificables;
  * nunca se inventan categorías para completar la ventana.
  */
-export type EditorialCategory = "FI" | "DT" | "HT";
-
-const EDITORIAL_TARGETS: Record<EditorialCategory, number> = {
-  FI: 9,
-  DT: 6,
-  HT: 5,
-};
+export type { EditorialCategory } from "./EditorialCatalog";
 
 const OPPORTUNITY_CATEGORY: Record<string, EditorialCategory> = {
   "contract-risk-before-signing": "HT",
@@ -66,28 +71,35 @@ const OPPORTUNITY_CATEGORY: Record<string, EditorialCategory> = {
 };
 
 function categoryOf(opportunity: HighTicketOpportunity): EditorialCategory {
-  return OPPORTUNITY_CATEGORY[opportunity.id] ?? "HT";
+  return opportunity.editorial?.category ?? OPPORTUNITY_CATEGORY[opportunity.id] ?? "HT";
 }
 
-function editorialCounts(memory: EditorialMemoryItem[]) {
+function editorialCounts(memory: EditorialMemoryItem[], opportunities: HighTicketOpportunity[]) {
   const counts: Record<EditorialCategory, number> = { FI: 0, DT: 0, HT: 0 };
   let unclassified = 0;
-
-  for (const item of memory.slice(-20)) {
-    const text = JSON.stringify(item).toLowerCase();
-    const matchingId = Object.keys(OPPORTUNITY_CATEGORY).find(
-      (id) => text.includes(id.toLowerCase()),
-    );
-    const explicit = text.match(/(?:editorialcategory|categoriaeditorial)[^a-z]*(fi|dt|ht)/i);
-    const category = matchingId
-      ? OPPORTUNITY_CATEGORY[matchingId]
-      : explicit?.[1]?.toUpperCase() as EditorialCategory | undefined;
-
+  const window = memory.filter(isProducedMemoryItem).slice(-20);
+  const categories = window.map((item) => {
+    const match = opportunities.find((opportunity) => normalize(opportunity.topic) === normalize(item.topic));
+    return item.editorial?.category ?? (match ? categoryOf(match) : undefined);
+  });
+  for (const category of categories) {
     if (category && category in counts) counts[category]++;
     else unclassified++;
   }
+  const nextCounts = { ...counts };
+  // Before adding the next video the oldest leaves a full rolling window.
+  if (window.length === 20 && categories[0]) nextCounts[categories[0]]--;
+  return { counts, nextCounts, unclassified, windowSize: window.length, target: EDITORIAL_TARGETS };
+}
 
-  return { counts, unclassified, target: EDITORIAL_TARGETS };
+function metadataOf(opportunity: HighTicketOpportunity): EditorialMetadata {
+  return {
+    category: categoryOf(opportunity),
+    domains: [opportunity.domain],
+    intellectualContribution: opportunity.centralThesis,
+    ...opportunity.editorial,
+    opportunityId: opportunity.id,
+  };
 }
 
 export type AutonomousDirectorMode =
@@ -102,12 +114,15 @@ export type HighTicketContentIntent = {
   requestedAngle?: string | null;
   /** Prioridad expresa de Q∞ 01; se evalúa con las reglas editoriales existentes. */
   qInfinityPriorityId?: string | null;
+  qInfinityReason?: string | null;
   /** Oportunidades vetadas expresamente por Q∞ 01. */
   qInfinityVetoIds?: string[];
 
 };
 
 export type HighTicketOpportunity = {
+  editorial?: EditorialMetadata;
+  editorialScores?: z.infer<typeof EditorialScoresSchema>;
   id: string;
   domain: string;
   topic: string;
@@ -135,6 +150,8 @@ export type HighTicketOpportunityScore = {
   topic: string;
   approved: boolean;
   totalScore: number;
+  selectionScore?: number;
+  portfolioBonus?: number;
   strategicScore: number;
   editorialNoveltyScore: number;
 
@@ -148,7 +165,7 @@ export type HighTicketOpportunityScore = {
 };
 
 export type AutonomousContentSelection = {
-  version: "V3.17-B";
+  version: "V3.17-C";
 
   productionCode: string;
   mode: AutonomousDirectorMode;
@@ -156,7 +173,7 @@ export type AutonomousContentSelection = {
 
   selectedOpportunity:
     HighTicketOpportunity;
-  editorialBrief?: {
+  editorialBrief: {
     mainCategory: EditorialCategory;
     secondaryCategory: EditorialCategory | null;
     intention: string;
@@ -181,7 +198,7 @@ export type AutonomousContentSelection = {
 };
 
 const DEFAULT_OBJECTIVE =
-  "Captar clientes jurídicos high ticket demostrando capacidad de diagnóstico, prevención, estrategia y resolución de problemas jurídicos de alto valor.";
+  "Construir autoridad jurídica mediante pensamiento propio, dominio transversal y capacidad estratégica; equilibrar FI 45 %, DT 30 % y HT 25 %, bajo la prioridad de Q∞ 01.";
 
 const DEFAULT_TARGET_AUDIENCE = [
   "empresarios",
@@ -927,23 +944,12 @@ function similarity(
 }
 
 /**
- * EditorialMemoryItem puede evolucionar.
- *
- * Para no acoplar este Director a campos
- * internos adicionales de EditorialMemory,
- * convertimos cada registro reciente en
- * representación textual segura.
+ * Solo texto editorial: los IDs, nombres de campos y fechas no aportan similitud temática.
  */
 function memoryItemText(
   item: EditorialMemoryItem,
 ): string {
-  try {
-    return JSON.stringify(
-      item,
-    );
-  } catch {
-    return String(item);
-  }
+  return [item.topic, item.title, item.thesis, item.subthesis, ...item.concepts].filter(Boolean).join(" ");
 }
 
 function opportunitySemanticText(
@@ -1108,35 +1114,15 @@ function calculateDomainDiversity(
     };
   }
 
-  const domainTokens =
-    tokenize(
-      opportunity.domain,
-    );
-
+  const domains = opportunity.editorial?.domains ?? [opportunity.domain];
+  const generic = new Set(["derecho", "juridico", "juridica", "estrategia", "estrategico", "estrategica"]);
+  const domainTokens = new Set([...tokenize(domains.join(" "))].filter((token) => !generic.has(token)));
   let hits = 0;
-
-  for (
-    const item
-    of recent
-  ) {
-    const memoryTokens =
-      tokenize(
-        memoryItemText(
-          item,
-        ),
-      );
-
-    const overlap =
-      [...domainTokens].some(
-        (token) =>
-          memoryTokens.has(
-            token,
-          ),
-      );
-
-    if (overlap) {
-      hits += 1;
-    }
+  for (const item of recent) {
+    const overlap = item.editorial?.domains.length
+      ? item.editorial.domains.some((domain) => domains.some((candidate) => normalize(domain) === normalize(candidate)))
+      : [...domainTokens].some((token) => tokenize(memoryItemText(item)).has(token));
+    if (overlap) hits++;
   }
 
   const score =
@@ -1230,8 +1216,10 @@ function buildTemporaryPacket(
   return {
     productionCode,
 
+    editorial: metadataOf(opportunity),
+
     version:
-      "V3.17-B-AUTONOMOUS-PORTFOLIO-DIVERSITY-DIRECTOR",
+      "V3.17-C-AUTONOMOUS-PORTFOLIO-DIVERSITY-DIRECTOR",
 
     source: {
       ecosystem:
@@ -1341,80 +1329,23 @@ function buildTemporaryPacket(
 }
 
 function calculateDirectedFit(
-  intent:
-    HighTicketContentIntent,
-  opportunity:
-    HighTicketOpportunity,
+  intent: HighTicketContentIntent,
+  opportunity: HighTicketOpportunity,
 ): number {
-  const requestedTopic =
-    intent.requestedTopic
-      ?.trim() ??
-    "";
-
-  const requestedAngle =
-    intent.requestedAngle
-      ?.trim() ??
-    "";
-
-  if (
-    !requestedTopic &&
-    !requestedAngle
-  ) {
-    return 0;
-  }
-
-  let topicFit = 0;
-  let angleFit = 0;
-
-  if (requestedTopic) {
-    topicFit =
-      similarity(
-        requestedTopic,
-        [
-          opportunity.topic,
-          opportunity.domain,
-          opportunity.problem,
-          opportunity.centralThesis,
-        ].join(" "),
-      );
-  }
-
-  if (requestedAngle) {
-    angleFit =
-      similarity(
-        requestedAngle,
-        [
-          opportunity.centralThesis,
-          opportunity.problem,
-          opportunity.conclusion,
-          opportunity.hook,
-          opportunity.closingIdea,
-        ].join(" "),
-      );
-  }
-
-  if (
-    requestedTopic &&
-    requestedAngle
-  ) {
-    return round(
-      clamp100(
-        (
-          topicFit * 0.65 +
-          angleFit * 0.35
-        ) * 100,
-      ),
-    );
-  }
-
-  return round(
-    clamp100(
-      Math.max(
-        topicFit,
-        angleFit,
-      ) * 100,
-    ),
-  );
+  const topic = intent.requestedTopic?.trim() ?? "";
+  const angle = intent.requestedAngle?.trim() ?? "";
+  const stop = new Set(["los", "las", "del", "con", "para", "que", "una", "por", "como"]);
+  const coverage = (query: string, target: string) => {
+    const requested = [...tokenize(query)].filter((token) => !stop.has(token));
+    const available = tokenize(target);
+    return requested.length ? requested.filter((token) => available.has(token)).length / requested.length : 0;
+  };
+  const body = opportunitySemanticText(opportunity);
+  const fits: number[] = [];
+  if (topic) fits.push(normalize(topic) === normalize(opportunity.id) ? 1 : coverage(topic, body));
+  if (angle) fits.push(coverage(angle, body));
+  // A requested angle must be present in the reviewed candidate, not just in its title.
+  return fits.length ? round(Math.min(...fits) * 100) : 0;
 }
 
 function scoreOpportunity(
@@ -1445,7 +1376,15 @@ function scoreOpportunity(
 
   const strategicScore =
     round(
-      opportunity.strategicValue *
+      opportunity.editorialScores ? (
+        opportunity.editorialScores.intellectualAuthority * 0.20 +
+        opportunity.editorialScores.legalBreadth * 0.15 +
+        opportunity.editorialScores.commercialPotential * 0.15 +
+        opportunity.editorialScores.retention * 0.15 +
+        opportunity.editorialScores.seo * 0.10 +
+        opportunity.editorialScores.differentiation * 0.15 +
+        opportunity.editorialScores.timeliness * 0.10
+      ) : opportunity.strategicValue *
         0.22 +
         opportunity.authorityValue *
           0.18 +
@@ -1542,11 +1481,11 @@ function scoreOpportunity(
   }
 
   /*
-   * Regla de aprobación V3.17-B.
+   * Regla de aprobación V3.17-C.
    *
    * En autonomous exigimos:
    * - aprobación de EditorialMemory;
-   * - novedad mínima;
+   * - control de duplicados y ángulo revisado en EditorialMemory;
    * - distancia mínima reciente.
    *
    * En directed respetamos la aprobación
@@ -1554,12 +1493,17 @@ function scoreOpportunity(
    * rotación temática contra la voluntad
    * expresa del usuario.
    */
-  const autonomousApproved =
+  const legacy = HIGH_TICKET_OPPORTUNITY_PORTFOLIO.some((item) =>
+    item.id === opportunity.id &&
+    reviewedContentHash({ ...item, editorial: undefined }) === reviewedContentHash({ ...opportunity, editorial: undefined }),
+  );
+  const reviewIssue = !legacy || opportunity.editorial?.legalReview ? legalReviewIssue(opportunity) : null;
+  const autonomousApproved = !reviewIssue &&
     editorialDecision.approved &&
     recent.score >= 55;
 
-  const directedApproved =
-    editorialDecision.approved;
+  const directedApproved = !reviewIssue &&
+    editorialDecision.approved && directedFitScore >= 50;
 
   const approved =
     mode ===
@@ -1568,6 +1512,7 @@ function scoreOpportunity(
       : autonomousApproved;
 
   const reasons = [
+    `legal-review=${reviewIssue ?? (legacy && !opportunity.editorial?.legalReview ? "legacy-verification-required" : "approved")}`,
     `mode=${mode}`,
     `strategic=${strategicScore}`,
     `novelty=${editorialNoveltyScore}`,
@@ -1589,15 +1534,7 @@ function scoreOpportunity(
     );
   }
 
-  if (
-    mode ===
-      "autonomous" &&
-    editorialNoveltyScore < 45
-  ) {
-    reasons.push(
-      "rejected-low-editorial-novelty",
-    );
-  }
+  if (mode === "directed" && directedFitScore < 50) reasons.push("rejected-directed-intent-not-matched");
 
   if (
     mode ===
@@ -1647,6 +1584,7 @@ function opportunityToSilecInput(
 ): SilecKnowledgeInput {
   return {
     productionCode,
+    editorial: metadataOf(opportunity),
 
     topic:
       opportunity.topic,
@@ -1688,174 +1626,100 @@ function opportunityToSilecInput(
   };
 }
 
-export function selectAutonomousHighTicketContent(
-  intent:
-    HighTicketContentIntent,
-  memory:
-    EditorialMemoryItem[],
-  opportunities:
-    HighTicketOpportunity[] =
-      HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
-): AutonomousContentSelection {
-  const productionCode =
-    intent.productionCode.trim();
-
-  if (!productionCode) {
-    throw new Error(
-      "productionCode es obligatorio.",
-    );
-  }
-
-  if (
-    opportunities.length === 0
+export class EditorialSelectionError extends Error {
+  constructor(
+    public readonly code: string,
+    message: string,
+    public readonly candidates: HighTicketOpportunityScore[] = [],
   ) {
-    throw new Error(
-      "No existen oportunidades editoriales para evaluar.",
-    );
+    super(message);
+    this.name = "EditorialSelectionError";
   }
+}
 
-  const mode:
-    AutonomousDirectorMode =
-      intent.mode ??
-      (
-        intent.requestedTopic
-          ? "directed"
-          : "autonomous"
-      );
-
-  const objective =
-    intent.objective?.trim() ||
-    DEFAULT_OBJECTIVE;
-
-  const scores =
-    opportunities
-      .map(
-        (opportunity) =>
-          scoreOpportunity(
-            productionCode,
-            opportunity,
-            memory,
-            intent,
-            mode,
-            objective,
-          ),
-      )
-      .sort(
-        (a, b) =>
-          b.totalScore -
-          a.totalScore,
-      );
-
-  const portfolio = editorialCounts(memory);
+export function selectAutonomousHighTicketContent(
+  intent: HighTicketContentIntent,
+  memory: EditorialMemoryItem[],
+  opportunities: HighTicketOpportunity[] = HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
+): AutonomousContentSelection {
+  const productionCode = intent.productionCode.trim();
+  if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(productionCode)) {
+    throw new Error("productionCode debe contener solo letras, números, guiones y guiones bajos.");
+  }
+  memory = comparableEditorialMemory(memory);
+  const vetoReason = intent.qInfinityReason?.trim();
+  if (memory.some((item) => item.contentCode === productionCode)) {
+    throw new EditorialSelectionError("PRODUCTION_ALREADY_EXISTS",
+      `${productionCode} ya figura en memoria. Use su input existente para volver a renderizarlo.`);
+  }
+  if (!opportunities.length) {
+    throw new EditorialSelectionError("CATALOG_EMPTY", "Incorpore fichas revisadas al catálogo editorial.");
+  }
+  if (new Set(opportunities.map((item) => item.id)).size !== opportunities.length) {
+    throw new Error("Existen IDs de oportunidad duplicados.");
+  }
+  const mode = intent.mode ?? (intent.requestedTopic || intent.requestedAngle ? "directed" : "autonomous");
+  const objective = intent.objective?.trim() || DEFAULT_OBJECTIVE;
+  const portfolio = editorialCounts(memory, opportunities);
   const vetoIds = new Set(intent.qInfinityVetoIds ?? []);
   const priorityId = intent.qInfinityPriorityId?.trim();
-  const hasKnownHistory =
-    Object.values(portfolio.counts).some((count) => count > 0);
-
-  const approvedScores =
-    scores
-      .filter((score) => score.approved && !vetoIds.has(score.opportunityId))
-      .sort((a, b) => {
-        if (priorityId) {
-          if (a.opportunityId === priorityId) return -1;
-          if (b.opportunityId === priorityId) return 1;
-        }
-        if (mode === "autonomous" && hasKnownHistory) {
-          const deficitA =
-            EDITORIAL_TARGETS[OPPORTUNITY_CATEGORY[a.opportunityId] ?? "HT"] -
-            portfolio.counts[OPPORTUNITY_CATEGORY[a.opportunityId] ?? "HT"];
-          const deficitB =
-            EDITORIAL_TARGETS[OPPORTUNITY_CATEGORY[b.opportunityId] ?? "HT"] -
-            portfolio.counts[OPPORTUNITY_CATEGORY[b.opportunityId] ?? "HT"];
-          // Bonificación moderada: conserva el valor estratégico del ranking.
-          const balancedA = a.totalScore + Math.max(0, deficitA) * 1.5;
-          const balancedB = b.totalScore + Math.max(0, deficitB) * 1.5;
-          return balancedB - balancedA;
-        }
-        return b.totalScore - a.totalScore;
-      });
-
-  if (
-    approvedScores.length ===
-    0
-  ) {
-    console.error("DIAGNOSTICO EDITORIAL Q∞");
-    for (const candidate of scores.slice(0, 5)) {
-      console.error(JSON.stringify({
-        id: candidate.opportunityId,
-        total: candidate.totalScore,
-        novelty: candidate.editorialNoveltyScore,
-        recent: candidate.recentDiversityScore,
-        approved: candidate.approved,
-        reasons: candidate.reasons,
-      }));
+  const byId = new Map(opportunities.map((item) => [item.id, item]));
+  if ((priorityId || vetoIds.size) && !intent.qInfinityReason?.trim()) {
+    throw new EditorialSelectionError("PRIORITY_REASON_REQUIRED", "Registre el motivo de la prioridad o veto de Q∞ 01.");
+  }
+  if (priorityId && !byId.has(priorityId)) {
+    throw new EditorialSelectionError("PRIORITY_UNAVAILABLE", "La prioridad Q∞ no existe entre las fichas disponibles y revisadas.");
+  }
+  const scores = opportunities.map((opportunity) => {
+    const score = scoreOpportunity(productionCode, opportunity, memory, intent, mode, objective);
+    const category = categoryOf(opportunity);
+    // Balance observed history. Unknown historical categories remain explicit in the brief.
+    const observedSize = Object.values(portfolio.nextCounts).reduce((sum, count) => sum + count, 0);
+    const target = EDITORIAL_TARGETS[category] / 20 * Math.min(20, observedSize + 1);
+    const deficit = target - portfolio.nextCounts[category];
+    const bonus = mode === "autonomous" ? round(Math.max(0, deficit) * 3) : 0;
+    score.portfolioBonus = bonus;
+    score.selectionScore = round(score.totalScore + bonus);
+    score.reasons.push(`portfolio-priority=${bonus}`, `portfolio-category=${category}`);
+    if (vetoIds.has(opportunity.id)) {
+      score.approved = false;
+      score.reasons.push(`q-infinity-veto=${vetoReason}`);
     }
-    throw new Error(
-      [
-        "No existe una oportunidad editorial suficientemente diversa y aprobada.",
-        "V3.17-B evitó producir otra variación excesivamente próxima al contenido reciente.",
-        "Debe ampliarse la cartera estratégica o incorporarse una nueva oportunidad desde Q∞ / SILEC.",
-      ].join(" "),
-    );
+    return score;
+  }).sort((a, b) => (b.portfolioBonus ?? 0) - (a.portfolioBonus ?? 0) || b.totalScore - a.totalScore || a.opportunityId.localeCompare(b.opportunityId));
+
+  const priorityScore = priorityId ? scores.find((item) => item.opportunityId === priorityId) : undefined;
+  if (priorityScore && !priorityScore.approved) {
+    throw new EditorialSelectionError("PRIORITY_BLOCKED",
+      "La prioridad Q∞ está vetada, repetida o requiere revisión. No se sustituye silenciosamente.", scores);
   }
-
-  const selectedScore =
-    approvedScores[0];
-
-  const selectedOpportunity =
-    opportunities.find(
-      (opportunity) =>
-        opportunity.id ===
-        selectedScore
-          .opportunityId,
-    );
-
-  if (
-    !selectedOpportunity
-  ) {
-    throw new Error(
-      "No fue posible resolver la oportunidad seleccionada.",
-    );
+  const selectedScore = priorityScore ?? scores.find((score) => score.approved);
+  if (!selectedScore) {
+    throw new EditorialSelectionError("CATALOG_NEEDS_REVIEWED_CONTENT",
+      "La cartera no tiene una pieza distinta y aprobada disponible. Incorpore una nueva ficha revisada o un ángulo sustancial documentado; cambiar el número de video no cambia su contenido.", scores);
   }
-
+  const selectedOpportunity = byId.get(selectedScore.opportunityId)!;
   return {
-    version:
-      "V3.17-B",
-
+    version: "V3.17-C",
     productionCode,
-
     mode,
-
     objective,
-
     selectedOpportunity,
-
     editorialBrief: {
       mainCategory: categoryOf(selectedOpportunity),
-      secondaryCategory: null,
+      secondaryCategory: selectedOpportunity.editorial?.secondaryCategory ?? null,
       intention: objective,
-      whyNow: priorityId === selectedOpportunity.id
-        ? "Prioridad expresa de Q∞ 01."
-        : "Seleccionado por valor estratégico, novedad y equilibrio editorial verificable.",
-      desiredPerception:
-        "Criterio jurídico propio, dominio transversal y capacidad estratégica.",
+      whyNow: priorityId ? `Prioridad Q∞ 01: ${intent.qInfinityReason}` :
+        `Valor estratégico y novedad; ventana de ${portfolio.windowSize} videos, ${portfolio.unclassified} sin clasificación verificable.`,
+      desiredPerception: selectedOpportunity.editorial?.intellectualContribution ?? selectedOpportunity.centralThesis,
       commercialOpportunity: selectedOpportunity.commercialObjective,
       topic: selectedOpportunity.topic,
       hook: selectedOpportunity.hook,
       portfolio,
-      qInfinityPriorityApplied: priorityId === selectedOpportunity.id,
+      qInfinityPriorityApplied: Boolean(priorityId),
     },
-
-    score:
-      selectedScore,
-
-    alternatives:
-      scores,
-
-    silecInput:
-      opportunityToSilecInput(
-        productionCode,
-        selectedOpportunity,
-      ),
+    score: selectedScore,
+    alternatives: scores,
+    silecInput: opportunityToSilecInput(productionCode, selectedOpportunity),
   };
-    }
+}
