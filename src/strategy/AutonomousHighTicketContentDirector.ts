@@ -1556,7 +1556,6 @@ function scoreOpportunity(
    */
   const autonomousApproved =
     editorialDecision.approved &&
-    editorialNoveltyScore >= 45 &&
     recent.score >= 55;
 
   const directedApproved =
