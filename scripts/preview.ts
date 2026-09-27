@@ -38,7 +38,7 @@ if (process.argv.includes("--studio")) {
       String(midpoint),
       "--props",
       propsPath,
-      ...(spec.threeD?.scenes.length ? ["--gl=angle"] : []),
+      ...(spec.threeD?.scenes.length ? ["--gl=swangle"] : []),
     ]);
     cursor += frames;
   }
@@ -48,7 +48,7 @@ if (process.argv.includes("--studio")) {
       "still", "src/index.ts",
       `InstavarTemplate${spec.target.aspect === "9:16" ? "Vertical" : spec.target.aspect === "4:5" ? "Portrait" : "Square"}`,
       path.join(directory, `3d-${index + 1}.png`),
-      "--frame", String(midpoint), "--props", propsPath, "--gl=angle",
+      "--frame", String(midpoint), "--props", propsPath, "--gl=swangle",
     ]);
   }
   console.log(`Previewed every scene: ${directory}`);

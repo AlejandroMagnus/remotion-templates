@@ -40,7 +40,7 @@ writeFileSync(
 );
 if (mode !== "prepare") {
   const propsPath = await writeProps(spec);
-  const common = ["--props", propsPath, "--gl=angle"];
+  const common = ["--props", propsPath, "--gl=swangle"];
   if (mode === "preview") {
     const outputDir = path.resolve("out/previews", spec.id);
     mkdirSync(outputDir, { recursive: true });

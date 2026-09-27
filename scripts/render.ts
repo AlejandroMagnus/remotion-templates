@@ -21,7 +21,7 @@ runRemotion([
   output,
   "--props",
   propsPath,
-  ...(spec.threeD?.scenes.length ? ["--gl=angle", "--concurrency=1"] : []),
+  ...(spec.threeD?.scenes.length ? ["--gl=swangle", "--concurrency=1"] : []),
 ]);
 const qa = inspectRenderedMedia(output, spec);
 console.log(qa.summary);
