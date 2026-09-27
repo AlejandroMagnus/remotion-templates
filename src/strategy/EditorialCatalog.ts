@@ -21,6 +21,7 @@ export const EditorialMetadataSchema = z
       .optional(),
     domains: texts,
     intellectualContribution: text,
+    productionGate: z.enum(["reviewed-only", "draft-render-ok"]).optional(),
     newAngle: z
       .object({
         comparedWith: texts,

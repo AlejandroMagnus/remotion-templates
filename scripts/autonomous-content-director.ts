@@ -7,6 +7,7 @@ import {
   type HighTicketContentIntent,
 } from "../src/strategy/AutonomousHighTicketContentDirector";
 import { mergeEditorialOpportunities } from "../src/strategy/EditorialCatalog";
+import { buildEditorialAutoRefill } from "../src/strategy/EditorialAutoRefill";
 import {
   loadEditorialMemoryRows,
   normalizeSupabaseRestUrl,
@@ -33,6 +34,7 @@ function summary(text: string) {
 
 async function main() {
   const catalog = loadEditorialCatalog();
+  const autoRefill = buildEditorialAutoRefill();
   catalogAudit = {
     version: catalog.catalog.version,
     available: catalog.available.map((item) => item.id),
@@ -40,6 +42,7 @@ async function main() {
     legacyVerificationRequired: HIGH_TICKET_OPPORTUNITY_PORTFOLIO.map(
       (item) => item.id,
     ),
+    autoRefillCandidates: autoRefill.length,
   };
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SECRET_KEY;
@@ -86,8 +89,11 @@ async function main() {
     intent,
     memory,
     mergeEditorialOpportunities(
-      HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
-      catalog.available,
+      mergeEditorialOpportunities(
+        HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
+        catalog.available,
+      ),
+      autoRefill,
     ),
   );
   writeJson(decisionPath, {
@@ -101,7 +107,7 @@ async function main() {
     selection.silecInput,
   );
 
-  console.log("V3.17-C — DIRECTOR EDITORIAL Q∞");
+  console.log("V3.17-D — DIRECTOR EDITORIAL Q∞ + AUTO-REFILL");
   console.log(
     `Production: ${productionCode} | Mode: ${selection.mode} | Memory: ${memory.length}`,
   );
