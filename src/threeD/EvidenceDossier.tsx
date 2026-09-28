@@ -87,9 +87,9 @@ export function EvidenceDossier({
     scene.cueMs - scene.startMs,
   );
   const nodes: [number, number, number][] = [
-    [-1.48, 0.4, 0],
-    [0, 1.45, 0.05],
-    [1.48, 0.4, 0],
+    [-1.48, 0.4, -0.38],
+    [0, 1.45, 0.58],
+    [1.48, 0.4, -0.18],
   ];
   const vertical = height > width * 1.4;
   const titleSize = vertical ? 62 : 52;
@@ -114,7 +114,7 @@ export function EvidenceDossier({
         shadows
         dpr={1}
         camera={{
-          position: [0, 0.35, vertical ? 9.8 : 6.9],
+          position: [0, 0.55, vertical ? 8.9 : 6.5],
           fov: 38,
           near: 0.1,
           far: 40,
@@ -131,7 +131,7 @@ export function EvidenceDossier({
         <pointLight position={[3, 1, 2]} intensity={22} color="#74cbbb" />
         <group
           position={[0, -0.18 + motion.lift, 0]}
-          rotation={[-0.09, motion.rotation, -0.035]}
+          rotation={[-0.28 + motion.opening * 0.08, motion.rotation, -0.05]}
           scale={0.92 + motion.reveal * 0.08}
         >
           <mesh position={[0, -0.62, -0.15]} castShadow receiveShadow>
@@ -152,7 +152,7 @@ export function EvidenceDossier({
               position={[
                 i * (0.2 + 0.2 * motion.opening),
                 -0.5,
-                -0.04 + (i + 1) * 0.075,
+                -0.22 + (i + 1) * 0.19,
               ]}
               angle={-i * 0.12 * motion.opening}
               lift={motion.opening * (0.4 - Math.abs(i) * 0.07)}

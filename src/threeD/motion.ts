@@ -16,7 +16,10 @@ export function evidenceMotion(
     connections: [0, 0.35, 0.7].map((delay) =>
       ease((seconds - cue - delay) / 0.75),
     ),
-    rotation: -0.18 + Math.min(seconds, 10) * 0.025,
-    lift: Math.sin(Math.min(seconds, 10) * 0.65) * 0.035,
+    rotation:
+      -0.48 +
+      ease(seconds / 2.2) * 0.72 +
+      Math.sin(Math.min(seconds, 10) * 0.8) * 0.035,
+    lift: Math.sin(Math.min(seconds, 10) * 0.72) * 0.07,
   };
 }
