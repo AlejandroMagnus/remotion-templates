@@ -1275,10 +1275,20 @@ function scoreOpportunity(
       : null;
   const draftRenderAllowed =
     opportunity.editorial?.productionGate === "draft-render-ok";
+
+  // V3.17-D.1: mantiene el contrato público V3.17-D.
+  // AUTO-REFILL puede usar diversidad reciente >= 50
+  // solo cuando la novedad editorial real es >= 70.
+  const adaptiveAutoRefillDiversityPass =
+    draftRenderAllowed &&
+    opportunity.id.startsWith("auto-") &&
+    editorialNoveltyScore >= 70 &&
+    recent.score >= 50;
+
   const autonomousApproved =
     (draftRenderAllowed || !reviewIssue) &&
     editorialDecision.approved &&
-    recent.score >= 55;
+    (recent.score >= 55 || adaptiveAutoRefillDiversityPass);
 
   const directedApproved =
     (draftRenderAllowed || !reviewIssue) &&
