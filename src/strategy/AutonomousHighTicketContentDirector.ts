@@ -1496,7 +1496,40 @@ export function selectAutonomousHighTicketContent(
       scores,
     );
   }
-  const selectedScore = priorityScore ?? scores.find((score) => score.approved);
+  const approvedScores = scores.filter((score) => score.approved);
+
+  /*
+   * V3.19-B
+   * Solo los production_code reales numerados del workflow autónomo
+   * rotan entre candidatas AUTO-REFILL aprobadas.
+   *
+   * Esto evita cambiar el comportamiento histórico de:
+   * - tests/fixtures;
+   * - modo directed;
+   * - prioridades Q∞;
+   * - otros códigos internos.
+   */
+  const numberedAutonomousVideo =
+    mode === "autonomous" && /^video-juridico-\d+$/.test(productionCode);
+
+  const autoRefillScores = approvedScores.filter((score) =>
+    score.opportunityId.startsWith("auto-"),
+  );
+
+  const numberMatch = productionCode.match(/(\d+)$/);
+  const videoNumber = numberMatch ? Number(numberMatch[1]) : null;
+
+  const rotatingPool = autoRefillScores.slice(
+    0,
+    Math.min(24, autoRefillScores.length),
+  );
+
+  const rotatedScore =
+    numberedAutonomousVideo && videoNumber !== null && rotatingPool.length > 0
+      ? rotatingPool[(Math.max(1, videoNumber) - 1) % rotatingPool.length]
+      : undefined;
+
+  const selectedScore = priorityScore ?? rotatedScore ?? approvedScores[0];
   if (!selectedScore) {
     throw new EditorialSelectionError(
       "CATALOG_NEEDS_REVIEWED_CONTENT",
