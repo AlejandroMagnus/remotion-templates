@@ -1282,8 +1282,8 @@ function scoreOpportunity(
   const adaptiveAutoRefillDiversityPass =
     draftRenderAllowed &&
     opportunity.id.startsWith("auto-") &&
-    editorialNoveltyScore >= 70 &&
-    recent.score >= 50;
+    editorialNoveltyScore >= 65 &&
+    (recent.score >= 45 || recent.maxSimilarity <= 65);
 
   const autonomousApproved =
     (draftRenderAllowed || !reviewIssue) &&
@@ -1519,9 +1519,22 @@ export function selectAutonomousHighTicketContent(
   const numberMatch = productionCode.match(/(\d+)$/);
   const videoNumber = numberMatch ? Number(numberMatch[1]) : null;
 
-  const rotatingPool = autoRefillScores.slice(
-    0,
-    Math.min(24, autoRefillScores.length),
+  const stableOpportunityOrder = (value: string) => {
+    let hash = 2166136261;
+    for (let index = 0; index < value.length; index += 1) {
+      hash ^= value.charCodeAt(index);
+      hash = Math.imul(hash, 16777619);
+    }
+    return hash >>> 0;
+  };
+
+  // V3.20: usa TODO el universo autónomo aprobado y lo ordena de
+  // forma determinista para distribuir dominios/temas entre números.
+  const rotatingPool = [...autoRefillScores].sort(
+    (a, b) =>
+      stableOpportunityOrder(a.opportunityId) -
+        stableOpportunityOrder(b.opportunityId) ||
+      a.opportunityId.localeCompare(b.opportunityId),
   );
 
   const rotatedScore =

@@ -8,6 +8,7 @@ import {
 } from "../src/strategy/AutonomousHighTicketContentDirector";
 import { mergeEditorialOpportunities } from "../src/strategy/EditorialCatalog";
 import { buildEditorialAutoRefill } from "../src/strategy/EditorialAutoRefill";
+import { buildDynamicLegalEditorialUniverse } from "../src/strategy/DynamicLegalEditorialUniverse";
 import {
   loadEditorialMemoryRows,
   normalizeSupabaseRestUrl,
@@ -35,6 +36,7 @@ function summary(text: string) {
 async function main() {
   const catalog = loadEditorialCatalog();
   const autoRefill = buildEditorialAutoRefill();
+  const dynamicUniverse = buildDynamicLegalEditorialUniverse();
   catalogAudit = {
     version: catalog.catalog.version,
     available: catalog.available.map((item) => item.id),
@@ -43,6 +45,7 @@ async function main() {
       (item) => item.id,
     ),
     autoRefillCandidates: autoRefill.length,
+    dynamicUniverseCandidates: dynamicUniverse.length,
   };
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SECRET_KEY;
@@ -90,10 +93,13 @@ async function main() {
     memory,
     mergeEditorialOpportunities(
       mergeEditorialOpportunities(
-        HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
-        catalog.available,
+        mergeEditorialOpportunities(
+          HIGH_TICKET_OPPORTUNITY_PORTFOLIO,
+          catalog.available,
+        ),
+        autoRefill,
       ),
-      autoRefill,
+      dynamicUniverse,
     ),
   );
   writeJson(decisionPath, {
