@@ -297,6 +297,9 @@ jobs:
       # PIPELINE AUDIOVISUAL VALIDADO
       # ============================================================
 
+      - name: Verificar interpretación vocal y contrato WordBoundary
+        run: python3 -B -m unittest discover -s tests -p 'test_vocal_delivery.py'
+
       - name: Generar narración prosódica y timeline palabra por palabra
         run: |
           python3 scripts/generate-prosodic-narration.py
@@ -649,6 +652,20 @@ jobs:
           retention-days: 7
           if-no-files-found: error
 
+      - name: Conservar audio para revisión de preguntas y naturalidad
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: vocal-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            public/generated/${{ env.PRODUCTION_CODE }}-narration.mp3
+            public/generated/${{ env.PRODUCTION_CODE }}-vocal-listening-review.json
+            public/generated/${{ env.PRODUCTION_CODE }}-voice-segments/
+            public/generated/${{ env.PRODUCTION_CODE }}-timeline.json
+            public/generated/${{ env.PRODUCTION_CODE }}.srt
+          retention-days: 7
+          if-no-files-found: ignore
+
       - name: Conservar ficha y diagnóstico editorial
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
@@ -660,6 +677,9 @@ jobs:
             public/generated/*-strategic-content.json
             public/generated/*-human-value-*.json
             public/generated/*-human-value-*.md
+            public/generated/*-vocal-listening-review.json
+            public/generated/*-vocal-score.json
+            public/generated/*-prosody-plan.json
             public/generated/*-three-d-plan.json
             public/generated/*-resolved-assets.json
           retention-days: 30

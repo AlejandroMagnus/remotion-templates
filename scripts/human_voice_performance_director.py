@@ -22,6 +22,7 @@ import unicodedata
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Optional
+from spanish_vocal_delivery import clean_text, question_direction, split_thoughts
 
 
 # ============================================================
@@ -85,6 +86,7 @@ class VocalUnit:
 
     keywords: list[str]
     gesture: VocalGesture
+    question: Optional[dict] = None
 
 
 @dataclass
@@ -106,12 +108,7 @@ class VocalScore:
 # ============================================================
 
 def normalize_text(value: str) -> str:
-    value = unicodedata.normalize("NFKC", value or "")
-    value = value.replace("…", "...")
-    value = value.replace("—", " — ")
-    value = re.sub(r"\s+", " ", value)
-
-    return value.strip()
+    return clean_text(value or "")
 
 
 def clamp(
@@ -269,6 +266,8 @@ def split_semantic_clauses(
 ) -> list[str]:
 
     sentence = normalize_text(sentence)
+    if "¿" in sentence:
+        return [sentence]
 
     pattern = (
         r"(?<=,)\s+"
@@ -298,7 +297,7 @@ def build_units(
 
     units: list[str] = []
 
-    for sentence in split_sentences(text):
+    for sentence in split_thoughts(text):
         units.extend(
             split_semantic_clauses(sentence)
         )
@@ -896,6 +895,12 @@ def build_gesture(
         + profile["energy"] * 0.25
     )
 
+    question = question_direction(text)
+    if question:
+        profile = {**profile, "rate": question["rate"], "pitch": question["pitch"]}
+        pause_before = 0
+        pause_after = question["pauseAfterMs"]
+
     return VocalGesture(
         pause_before_ms=pause_before,
         pause_after_ms=pause_after,
@@ -1138,6 +1143,7 @@ def build_vocal_score(
                 ),
 
                 gesture=gesture,
+                question=question_direction(text),
             )
         )
 

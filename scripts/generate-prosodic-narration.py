@@ -14,6 +14,11 @@ from pathlib import Path
 from typing import Any, Optional
 
 import edge_tts
+from spanish_vocal_delivery import (
+    VERSION as DELIVERY_VERSION, additional_gap_ms, assert_same_text,
+    question_direction, read_overrides, split_thoughts, text_hash,
+)
+from vocal_segment_cache import cached_speech, file_hash
 
 
 # ============================================================
@@ -82,7 +87,7 @@ VOICE = "es-BO-MarceloNeural"
 LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
 
-VERSION = "V3.19-E.4-CONTINUOUS-HUMAN-SPEECH"
+VERSION = "V3.19-E.5-NATURAL-SPANISH-QUESTIONS"
 
 
 # ============================================================
@@ -747,24 +752,8 @@ class SyntaxUnit:
     sentence_unit_total: int
 
 
-def split_major_sentences(
-    text: str,
-) -> list[str]:
-    clean = clean_spaces(text)
-
-    if not clean:
-        return []
-
-    parts = re.split(
-        r"(?<=[.!?])\s+(?=[¿¡A-ZÁÉÍÓÚÑ0-9])",
-        clean,
-    )
-
-    return [
-        part.strip()
-        for part in parts
-        if part.strip()
-    ]
+def split_major_sentences(text: str) -> list[str]:
+    return split_thoughts(text)
 
 
 def split_syntax_units(
@@ -780,6 +769,10 @@ def split_syntax_units(
 
     if not text:
         return []
+
+    if "¿" in text:
+        # One full question per request, even with commas, colons or conditions.
+        return [SyntaxUnit(text, text[-1], True, sentence_index, 0, 1)]
 
     raw_parts = re.split(
         r"(?<=[,;:])\s+|(?<=[—–])\s+",
@@ -945,32 +938,9 @@ def should_question_opening(
     )
 
 
-def transform_opening(
-    sentence: str,
-    tags: list[str],
-) -> tuple[str, bool]:
-    if not should_question_opening(
-        sentence,
-        tags,
-    ):
-        return (
-            sentence,
-            sentence.startswith("¿"),
-        )
-
-    if sentence.startswith("¿"):
-        return sentence, True
-
-    core = (
-        sentence
-        .rstrip()
-        .rstrip(".!?")
-    )
-
-    return (
-        f"¿{core}?",
-        True,
-    )
+def transform_opening(sentence: str, tags: list[str]) -> tuple[str, bool]:
+    # Interpretation must not turn an approved statement into a question.
+    return sentence, "¿" in sentence and "?" in sentence
 
 
 def classify_role(
@@ -987,18 +957,7 @@ def classify_role(
     ):
         return "opening_question"
 
-    if (
-        text.startswith("¿")
-        or "¿" in text
-        or value.startswith(
-            (
-                "por que ",
-                "como ",
-                "que ocurre ",
-                "que pasa ",
-            )
-        )
-    ):
+    if "¿" in text and "?" in text:
         return "question"
 
     cta_markers = (
@@ -1452,12 +1411,15 @@ class SegmentPlan:
     semantic_break: bool
     word_count: int
     sentence_index: int
+    volume: str = "+0%"
+    question: Optional[dict] = None
 
 
 def build_segment_plan(
     narration: str,
     tags: list[str],
     direction: CreativeDirection,
+    overrides: Optional[dict[int, dict]] = None,
 ) -> list[SegmentPlan]:
     major_sentences = split_major_sentences(
         narration
@@ -1574,6 +1536,22 @@ def build_segment_plan(
             direction.vocal,
         )
 
+        override = (overrides or {}).get(unit.sentence_index + 1, {})
+        question = question_direction(original_sentence, override.get("intent"))
+        volume_value = 0
+        if question:
+            rate_value = question["rate"]
+            pitch_value = question["pitch"]
+            volume_value = question["volume"]
+            post_pause = question["pauseAfterMs"]
+            pre_pause = 0
+        rate_value = clamp_int(override.get("rate", rate_value), -7, 6)
+        pitch_value = clamp_int(override.get("pitch", pitch_value), -3, 3)
+        volume_value = override.get("volume", volume_value)
+        post_pause = override.get("pauseAfterMs", post_pause)
+        if question and "intent" in override:
+            question = {**question, "intentBasis": "explicit-direction"}
+
         result.append(
             SegmentPlan(
                 index=index,
@@ -1589,9 +1567,12 @@ def build_segment_plan(
                 semantic_break=unit.semantic_break,
                 word_count=word_count,
                 sentence_index=unit.sentence_index,
+                volume=f"{volume_value:+d}%",
+                question=question,
             )
         )
 
+    assert_same_text(narration, " ".join(item.spoken_text for item in result))
     return result
 
 
@@ -1605,6 +1586,7 @@ async def synthesize_segment_once(
     rate: str,
     pitch: str,
     output_file: Path,
+    volume: str = "+0%",
 ) -> list[dict]:
     if output_file.exists():
         output_file.unlink()
@@ -1614,6 +1596,7 @@ async def synthesize_segment_once(
         voice=VOICE,
         rate=rate,
         pitch=pitch,
+        volume=volume,
         boundary="WordBoundary",
         connect_timeout=20,
         receive_timeout=90,
@@ -1693,6 +1676,7 @@ async def synthesize_segment(
                 segment.rate,
                 segment.pitch,
                 output_file,
+                volume=segment.volume,
             )
 
         except Exception as error:
@@ -1878,34 +1862,58 @@ async def build_prosodic_audio(
     global_words: list[dict] = []
     effective_segments: list[dict] = []
     AUDIO.parent.mkdir(parents=True, exist_ok=True)
+    groups = continuous_thought_groups(plan)
+    regenerate = {int(item) for item in os.environ.get("VOICE_REGENERATE_THOUGHTS", "").split(",") if item.strip()}
+    if any(number < 1 or number > len(groups) for number in regenerate):
+        raise ValueError("Número de pensamiento a regenerar fuera de rango.")
+    previous_tail = 0
+    previous_pause = 0
 
     with tempfile.TemporaryDirectory(prefix="prosody-e4-") as temp_dir:
         temp = Path(temp_dir)
         wav_parts: list[Path] = []
         cursor_ms = 0
 
-        for group_number, group in enumerate(continuous_thought_groups(plan), 1):
+        for group_number, group in enumerate(groups, 1):
             first, last = group[0], group[-1]
-            # Only an actual thought boundary creates digital silence.
-            pre_pause = first.pre_pause_ms
-            if pre_pause > 0:
-                pre_file = temp / f"{group_number:03}-pre.wav"
-                make_silence_wav(pre_file, pre_pause)
-                wav_parts.append(pre_file)
-                cursor_ms += pre_pause
-
-            speech_start_ms = cursor_ms
             mp3_file = temp / f"{group_number:03}-speech.mp3"
             wav_file = temp / f"{group_number:03}-speech.wav"
             thought_text = clean_spaces(" ".join(s.spoken_text for s in group))
             # A single rate/pitch envelope lets the TTS preserve melodic continuity.
             # The existing interpretation plan remains available in segment metadata.
-            local_words = await synthesize_segment_once_with_retries(
-                thought_text, first.rate, first.pitch, mp3_file,
-                group_number,
+            expected = sum(s.word_count for s in group)
+            def validate_boundaries(words):
+                if not words or sum(boundary_token_count(w["text"]) for w in words) != expected:
+                    raise ValueError("WordBoundary no coincide con las palabras del pensamiento.")
+                previous = -1
+                for word in words:
+                    if word["startMs"] < previous or word["endMs"] < word["startMs"]:
+                        raise ValueError("WordBoundary inválido; no se guarda ni reutiliza.")
+                    previous = word["startMs"]
+            async def synthesize(output):
+                return await synthesize_segment_once_with_retries(
+                    thought_text, first.rate, first.pitch, output, group_number,
+                    volume=first.volume,
+                )
+            local_words, cache_key, cache_hit = await cached_speech(
+                AUDIO.parent / f"{PRODUCTION_CODE}-voice-segments",
+                {"engine": VERSION, "library": edge_tts.__version__, "voice": VOICE,
+                 "text": thought_text, "rate": first.rate, "pitch": first.pitch, "volume": first.volume},
+                mp3_file, synthesize, validate_boundaries, force=group_number in regenerate,
             )
             convert_mp3_to_wav(mp3_file, wav_file)
             speech_duration_ms = probe_duration_ms(wav_file)
+            # Count the TTS's natural tail and lead once. Never trim either.
+            gap_target = max(previous_pause, first.pre_pause_ms) if group_number > 1 else min(first.pre_pause_ms, 80)
+            pre_pause = additional_gap_ms(gap_target, previous_tail, local_words[0]["startMs"])
+            if pre_pause > 0:
+                pre_file = temp / f"{group_number:03}-pre.wav"
+                make_silence_wav(pre_file, pre_pause)
+                wav_parts.append(pre_file)
+                cursor_ms += pre_pause
+            if effective_segments:
+                effective_segments[-1]["effectiveEndMs"] = cursor_ms
+            speech_start_ms = cursor_ms
             wav_parts.append(wav_file)
 
             expected = sum(s.word_count for s in group)
@@ -1947,6 +1955,14 @@ async def build_prosodic_audio(
                 segment_end = segment_words[-1]["endMs"]
                 effective_segments.append({
                     **asdict(segment),
+                    "thoughtNumber": group_number,
+                    "ttsText": thought_text,
+                    "appliedRate": first.rate,
+                    "appliedPitch": first.pitch,
+                    "appliedVolume": first.volume,
+                    "cacheKey": cache_key,
+                    "cacheHit": cache_hit,
+                    "addedGapBeforeMs": pre_pause if segment is first else 0,
                     "speechStartMs": segment_start,
                     "speechEndMs": segment_end,
                     "effectiveEndMs": segment_end,
@@ -1960,12 +1976,8 @@ async def build_prosodic_audio(
             )
             effective_segments[-1]["speechDurationMs"] += max(0, group_span - segment_span)
             cursor_ms += speech_duration_ms
-            post_pause = last.post_pause_ms
-            if post_pause > 0:
-                post_file = temp / f"{group_number:03}-post.wav"
-                make_silence_wav(post_file, post_pause)
-                wav_parts.append(post_file)
-                cursor_ms += post_pause
+            previous_tail = max(0, speech_duration_ms - local_words[-1]["endMs"])
+            previous_pause = last.post_pause_ms
             effective_segments[-1]["effectiveEndMs"] = cursor_ms
 
         concat_wav_files(wav_parts, AUDIO)
@@ -1987,12 +1999,13 @@ async def build_prosodic_audio(
 
 async def synthesize_segment_once_with_retries(
     text: str, rate: str, pitch: str, output_file: Path, group_number: int,
+    volume: str = "+0%",
 ) -> list[dict]:
     last_error = None
     for attempt in range(1, 4):
         try:
             print(f"Pensamiento {group_number} | intento {attempt}/3")
-            return await synthesize_segment_once(text, rate, pitch, output_file)
+            return await synthesize_segment_once(text, rate, pitch, output_file, volume=volume)
         except Exception as error:
             last_error = error
             if output_file.exists():
@@ -2224,6 +2237,9 @@ def build_vocal_qa(
     return {
         "passed":
             passed,
+
+        "scope": "technical-rhythm-only",
+        "listeningStatus": "pending",
 
         "issues":
             issues,
@@ -2664,6 +2680,54 @@ def write_prosody_plan(
 
 
 # ============================================================
+# REVISIÓN AUDITIVA
+# ============================================================
+
+
+def write_listening_review(narration: str, segments: list[dict], duration_ms: int) -> None:
+    report_path = AUDIO.parent / f"{PRODUCTION_CODE}-vocal-listening-review.json"
+    previous = json.loads(report_path.read_text(encoding="utf-8")) if report_path.exists() else {}
+    digest = file_hash(AUDIO)
+    approved = (previous.get("status") == "approved-after-listening" and
+                previous.get("audioHash") == digest and previous.get("narrationHash") == text_hash(narration))
+    thoughts = []
+    for segment in segments:
+        if thoughts and thoughts[-1]["number"] == segment["thoughtNumber"]:
+            thoughts[-1]["endMs"] = segment["speechEndMs"]
+            continue
+        thoughts.append({
+            "number": segment["thoughtNumber"], "text": segment["ttsText"],
+            "startMs": segment["speechStartMs"], "endMs": segment["speechEndMs"],
+            "question": segment["question"],
+            "rate": segment["appliedRate"], "pitch": segment["appliedPitch"], "volume": segment["appliedVolume"],
+            "addedGapBeforeMs": segment["addedGapBeforeMs"],
+            "audio": f"public/generated/{PRODUCTION_CODE}-voice-segments/{segment['cacheKey']}.mp3",
+            "cacheHit": segment["cacheHit"],
+        })
+    report = {
+        "version": DELIVERY_VERSION, "productionCode": PRODUCTION_CODE,
+        "status": "approved-after-listening" if approved else "pending-listening",
+        "audioHash": digest, "narrationHash": text_hash(narration), "durationMs": duration_ms,
+        "reviewer": previous.get("reviewer") if approved else None,
+        "reviewedAt": previous.get("reviewedAt") if approved else None,
+        "criteria": [
+            "Entender las preguntas sin leer los subtítulos.",
+            "Oír claramente las tónicas de qué, cómo, cuándo, dónde, cuál, quién y por qué.",
+            "Interpretación según el sentido, sin subida final uniforme ni sobreactuación.",
+            "Pausas que acompañan el pensamiento sin cortes ni acumulaciones artificiales.",
+        ],
+        "thoughts": thoughts,
+    }
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
+    summary = (f"\n## Revisión vocal — {PRODUCTION_CODE}\n\n"
+               f"Estado: **{report['status']}**. {len(thoughts)} pensamientos.\n\n"
+               "Escuchar la narración y las preguntas en el artefacto vocal-review. "
+               "Las comprobaciones técnicas no certifican pronunciación ni naturalidad.\n")
+    if os.environ.get("GITHUB_STEP_SUMMARY"):
+        with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as output:
+            output.write(summary)
+
+
 # MAIN
 # ============================================================
 
@@ -2725,10 +2789,12 @@ async def main() -> None:
         f"{direction.vocal.target_wpm.preferred}"
     )
 
+    overrides = read_overrides(ROOT / f"content/{PRODUCTION_CODE}.vocal-direction.json", narration)
     plan = build_segment_plan(
         narration,
         tags,
         direction,
+        overrides,
     )
 
     print(
@@ -2790,6 +2856,7 @@ async def main() -> None:
         metrics,
         vocal_qa,
     )
+    write_listening_review(narration, effective_segments, duration_ms)
 
     print(
         "--------------------------------------"
@@ -2826,7 +2893,7 @@ async def main() -> None:
     )
 
     print(
-        "QA vocal: "
+        "QA técnico de ritmo (no aprobación auditiva): "
         + (
             "PASS"
             if vocal_qa["passed"]
