@@ -72,6 +72,7 @@ async function main() {
   if (mode && !["autonomous", "directed"].includes(mode))
     throw new Error("Modo de selección inválido.");
   const intent: HighTicketContentIntent = {
+    allowExistingProductionResume: true,
     productionCode,
     mode:
       mode === "autonomous" || mode === "directed"

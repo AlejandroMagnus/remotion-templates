@@ -128,6 +128,8 @@ export type HighTicketContentIntent = {
   qInfinityReason?: string | null;
   /** Oportunidades vetadas expresamente por Q∞ 01. */
   qInfinityVetoIds?: string[];
+  /** Permite al executor reanudar el mismo productionCode desde memoria estructurada. */
+  allowExistingProductionResume?: boolean;
 };
 
 export type HighTicketOpportunity = {
@@ -1408,11 +1410,33 @@ export function selectAutonomousHighTicketContent(
   }
   memory = comparableEditorialMemory(memory);
   const vetoReason = intent.qInfinityReason?.trim();
-  if (memory.some((item) => item.contentCode === productionCode)) {
+  const existingProduction = memory.find(
+    (item) => item.contentCode === productionCode,
+  );
+
+  if (existingProduction && !intent.allowExistingProductionResume) {
     throw new EditorialSelectionError(
       "PRODUCTION_ALREADY_EXISTS",
       `${productionCode} ya figura en memoria. Use su input existente para volver a renderizarlo.`,
     );
+  }
+
+  const resumeOpportunityId =
+    existingProduction?.editorial?.opportunityId?.trim();
+
+  if (
+    existingProduction &&
+    intent.allowExistingProductionResume &&
+    !resumeOpportunityId
+  ) {
+    throw new EditorialSelectionError(
+      "PRODUCTION_RESUME_METADATA_MISSING",
+      `${productionCode} ya figura en memoria, pero no conserva opportunityId para reconstruirlo automáticamente.`,
+    );
+  }
+
+  if (existingProduction && intent.allowExistingProductionResume) {
+    memory = memory.filter((item) => item.contentCode !== productionCode);
   }
   if (!opportunities.length) {
     throw new EditorialSelectionError(
@@ -1433,9 +1457,20 @@ export function selectAutonomousHighTicketContent(
   const objective = intent.objective?.trim() || DEFAULT_OBJECTIVE;
   const portfolio = editorialCounts(memory, opportunities);
   const vetoIds = new Set(intent.qInfinityVetoIds ?? []);
-  const priorityId = intent.qInfinityPriorityId?.trim();
+  const requestedPriorityId = intent.qInfinityPriorityId?.trim();
+  const priorityId = resumeOpportunityId ?? requestedPriorityId;
   const byId = new Map(opportunities.map((item) => [item.id, item]));
-  if ((priorityId || vetoIds.size) && !intent.qInfinityReason?.trim()) {
+
+  if (resumeOpportunityId && !byId.has(resumeOpportunityId)) {
+    throw new EditorialSelectionError(
+      "PRODUCTION_RESUME_SOURCE_MISSING",
+      `${productionCode} existe en memoria y apunta a ${resumeOpportunityId}, pero esa oportunidad ya no está disponible.`,
+    );
+  }
+  if (
+    (requestedPriorityId || vetoIds.size) &&
+    !intent.qInfinityReason?.trim()
+  ) {
     throw new EditorialSelectionError(
       "PRIORITY_REASON_REQUIRED",
       "Registre el motivo de la prioridad o veto de Q∞ 01.",
@@ -1572,7 +1607,7 @@ export function selectAutonomousHighTicketContent(
       topic: selectedOpportunity.topic,
       hook: selectedOpportunity.hook,
       portfolio,
-      qInfinityPriorityApplied: Boolean(priorityId),
+      qInfinityPriorityApplied: Boolean(requestedPriorityId),
     },
     score: selectedScore,
     alternatives: scores,
