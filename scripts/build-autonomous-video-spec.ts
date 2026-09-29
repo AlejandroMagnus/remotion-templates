@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { buildHumanValuePlan } from "../src/content/HumanValueDirector";
 
 import type {
   SilecKnowledgeInput,
@@ -1442,6 +1444,33 @@ function validateCreativeDecision(
   return profile;
 }
 
+export function buildVideoContent(input: SilecKnowledgeInput, profile: CreativeProfile) {
+  const plan = buildHumanValuePlan(input);
+  const presentationInput = { ...input, cta: plan.closing.cta };
+  const narration = buildNarration(presentationInput, profile.narrativeArchitecture);
+  const scenes = buildScenes(presentationInput, profile).map(scene => {
+    if (scene.id === "capacidad" || scene.id === "capacidades") {
+      return { ...scene, content: {
+        title: "Qué conviene recordar",
+        points: [compact(plan.takeaway, 100)],
+      } };
+    }
+    if (scene.id === "cta" && !plan.closing.cta) {
+      return { ...scene, content: {
+        line1: compact(plan.closing.idea, 115),
+        line2: compact(plan.takeaway, 150),
+      } };
+    }
+    // Short source chains should still display source material, not generic fillers.
+    if ("points" in scene.content &&
+        scene.content.points.join("|") === "Diagnóstico|Estrategia|Decisión") {
+      return { ...scene, content: { ...scene.content, points: [compact(plan.takeaway, 100)] } };
+    }
+    return scene;
+  });
+  return { plan, narration, scenes };
+}
+
 function main(): void {
   const productionCode =
     getProductionCode();
@@ -1493,18 +1522,9 @@ function main(): void {
       productionCode,
     );
 
-  const narration =
-    buildNarration(
-      input,
-      profile
-        .narrativeArchitecture,
-    );
-
-  const scenes =
-    buildScenes(
-      input,
-      profile,
-    );
+  const { plan, narration, scenes } = buildVideoContent(input, profile);
+  writeJson(path.join(process.cwd(), "public", "generated",
+    `${productionCode}-human-value-plan.json`), plan);
 
   const tags =
     buildTags(
@@ -1682,4 +1702,4 @@ function main(): void {
   );
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

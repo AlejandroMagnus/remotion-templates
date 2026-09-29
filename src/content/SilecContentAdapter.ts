@@ -2,8 +2,10 @@ import type {
   QInfinityStrategicContentPacket,
 } from "../strategy/QInfinityStrategicContentPacket";
 import { EditorialMetadataSchema, legalReviewIssue, type EditorialMetadata } from "../strategy/EditorialCatalog";
+import { buildHumanValuePlan, type HumanValueIntent } from "./HumanValueDirector";
 
 export type SilecKnowledgeInput = {
+  humanValue?: HumanValueIntent;
   editorial?: EditorialMetadata;
   productionCode: string;
 
@@ -36,7 +38,9 @@ export function buildSilecStrategicPacket(
       if (issue) throw new Error(`REVISIÓN JURÍDICA: ${issue}`);
     }
   }
+  const humanValue = buildHumanValuePlan(input);
   return {
+    humanValue,
     editorial: input.editorial,
     productionCode: input.productionCode,
 
@@ -57,7 +61,7 @@ export function buildSilecStrategicPacket(
 
     strategicObjective: {
       primaryGoal:
-        "Demostrar capacidad jurídica estratégica mediante contenido audiovisual de alto valor.",
+        `${humanValue.benefit}: ${humanValue.takeaway}`,
 
       targetAudience:
         input.targetAudience,
@@ -94,7 +98,7 @@ export function buildSilecStrategicPacket(
         input.hook,
 
       narrativePromise:
-        "Transformar un problema jurídico aparentemente complejo en una secuencia lógica y estratégica comprensible.",
+        humanValue.takeaway,
 
       tone:
         "jurídico premium, claro, estratégico, seguro y pedagógico",

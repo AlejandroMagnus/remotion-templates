@@ -202,6 +202,10 @@ jobs:
           npx --yes tsx scripts/build-autonomous-video-spec.ts \
             "${PRODUCTION_CODE}"
 
+      - name: Valor humano — Revisar guion antes de generar voz
+        run: |
+          npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" script
+
       - name: Verificar entrada audiovisual
         run: |
           test -s "content/${PRODUCTION_CODE}.silec.json"
@@ -593,6 +597,10 @@ jobs:
           npm run video:validate -- \
             examples/${PRODUCTION_CODE}.video.json
 
+      - name: Valor humano — Revisar pieza y recursos antes del render
+        run: |
+          npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" final
+
       - name: Renderizar V2 sincronizada
         run: |
           npm run video:render -- \
@@ -650,6 +658,8 @@ jobs:
             public/generated/*-autonomous-director.json
             public/generated/*-editorial-memory.json
             public/generated/*-strategic-content.json
+            public/generated/*-human-value-*.json
+            public/generated/*-human-value-*.md
             public/generated/*-three-d-plan.json
             public/generated/*-resolved-assets.json
           retention-days: 30

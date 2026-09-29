@@ -1,6 +1,8 @@
 import type { EditorialMetadata } from "./EditorialCatalog";
+import type { HumanValuePlan } from "../content/HumanValueDirector";
 
 export type QInfinityStrategicContentPacket = {
+  humanValue?: HumanValuePlan;
   editorial?: EditorialMetadata;
   productionCode: string;
   version: string;
