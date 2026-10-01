@@ -24,7 +24,10 @@
     "editorial:catalog": "tsx scripts/editorial-catalog.ts",
     "test:3d": "vitest run tests/native-three-d*.test.ts",
     "video:3d:preview": "node --import tsx scripts/three-d-pilot.ts preview",
-    "video:3d:render": "node --import tsx scripts/three-d-pilot.ts render"
+    "video:3d:render": "node --import tsx scripts/three-d-pilot.ts render",
+    "assets:library": "node --import tsx scripts/visual-library.ts",
+    "test:visual": "vitest run tests/visual-library*.test.ts",
+    "assets:preview": "node --import tsx scripts/visual-library-preview.ts"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.1",

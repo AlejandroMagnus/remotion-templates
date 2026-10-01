@@ -316,16 +316,44 @@ jobs:
         run: |
           npx --yes tsx scripts/build-asset-scene-plan.ts
 
+      - name: Restaurar memoria y búsquedas visuales
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .cache/visual-memory-v2.json
+            .cache/visual-search-v2
+          key: visual-library-v2-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: visual-library-v2-${{ github.ref_name }}-
+
+      - name: Verificar biblioteca visual
+        run: |
+          npm run assets:library -- check
+          npm run test:visual
+
       - name: Planificar escenas 3D sobre la narración sincronizada
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: node --import tsx scripts/build-three-d-plan.ts
 
       - name: Resolve real assets
+        id: visual_assets
         env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
           npx --yes tsx scripts/build-resolved-assets.ts
+
+      - name: Guardar memoria y caché de búsquedas visuales
+        if: always() && (steps.visual_assets.outcome == 'success' || steps.visual_assets.outcome == 'failure')
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            .cache/visual-memory-v2.json
+            .cache/visual-search-v2
+          key: visual-library-v2-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: AUDITORIA MAESTRA DE ORQUESTACION
         run: |
@@ -608,6 +636,20 @@ jobs:
         run: |
           npm run video:render -- \
             examples/${PRODUCTION_CODE}.video.json
+
+      - name: Guardar diagnóstico y memoria visual
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-library-${{ github.run_id }}-${{ github.run_attempt }}
+          if-no-files-found: ignore
+          retention-days: 14
+          path: |
+            public/generated/${{ env.PRODUCTION_CODE }}-resolved-assets.json
+            public/generated/${{ env.PRODUCTION_CODE }}-three-d-plan.json
+            .cache/visual-memory-v2.json
+            content/visual-library/catalog.json
+          include-hidden-files: true
 
       - name: Verificar MP4 universal
         run: |

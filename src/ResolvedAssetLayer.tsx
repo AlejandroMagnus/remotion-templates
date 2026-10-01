@@ -20,7 +20,7 @@ import {
 import {
   getSemanticMotionProfile,
 } from "./motion/semanticMotionDirector";
-import {EvidenceDossier} from "./threeD/EvidenceDossier";
+import {NativeScene as EvidenceDossier} from "./threeD/LibraryModelScene";
 import {type EvidenceScene, type ThreeDPlan} from "./threeD/schema";
 import {assertNativeManifest} from "./threeD/resolver";
 

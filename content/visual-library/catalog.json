@@ -1,0 +1,23 @@
+{
+  "version": "2.0",
+  "assets": [
+    {
+      "id": "ph-book_encyclopedia_set_01",
+      "provider": "polyhaven",
+      "mediaType": "model",
+      "file": "library/068c254fa7e969e35bac06c74f74db19efd13e573e9454121c62f4026517c6a8.glb",
+      "sha256": "068c254fa7e969e35bac06c74f74db19efd13e573e9454121c62f4026517c6a8",
+      "title": "Colección de enciclopedias",
+      "tags": ["doctrina", "libros", "biblioteca", "estudio"],
+      "sourceUrl": "https://polyhaven.com/a/book_encyclopedia_set_01",
+      "creator": "Poly Haven",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://polyhaven.com/license",
+      "review": {
+        "status": "pending",
+        "reviewer": "",
+        "date": ""
+      }
+    }
+  ]
+}

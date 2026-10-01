@@ -1,9 +1,23 @@
 import { z } from "zod";
 
+export const LibraryModelSchema = z
+  .object({
+    id: z.string().min(1),
+    provider: z.string().min(1),
+    src: z.string().regex(/^library\/[a-zA-Z0-9_-]+\.glb$/),
+    sha256: z.string().regex(/^[a-f0-9]{64}$/),
+    sourceUrl: z.string().url(),
+    creator: z.string(),
+    license: z.string(),
+  })
+  .strict();
+export type LibraryModel = z.infer<typeof LibraryModelSchema>;
+
 /** Only reviewed visual executors belong here; this does not validate legal content. */
 export const EvidenceSceneSchema = z
   .object({
-    kind: z.literal("evidence-dossier"),
+    kind: z.enum(["evidence-dossier", "library-model"]),
+    model: LibraryModelSchema.optional(),
     assetSceneId: z.string().min(1).max(180),
     startMs: z.number().int().nonnegative(),
     endMs: z.number().int().positive(),
@@ -17,6 +31,12 @@ export const EvidenceSceneSchema = z
   })
   .strict()
   .superRefine((scene, context) => {
+    if ((scene.kind === "library-model") !== Boolean(scene.model)) {
+      context.addIssue({
+        code: "custom",
+        message: "A library-model scene requires its reviewed GLB reference.",
+      });
+    }
     if (scene.endMs <= scene.startMs || scene.endMs - scene.startMs > 10000) {
       context.addIssue({
         code: "custom",

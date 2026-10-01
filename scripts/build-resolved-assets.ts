@@ -1,985 +1,75 @@
 import fs from "node:fs";
 import path from "node:path";
-import {VideoSpecSchema} from "../src/schema";
-import {assertThreeDPlanMatches, matchThreeDScene} from "../src/threeD/schema";
-import {resolveNativeScene} from "../src/threeD/resolver";
-
+import { VideoSpecSchema } from "../src/schema";
 import {
-  type PexelsResolvedAsset,
-  searchPexelsPhotos,
-  searchPexelsVideo,
-} from "../src/assets/providers/pexelsProvider";
-
+  assertThreeDPlanMatches,
+  matchThreeDScene,
+} from "../src/threeD/schema";
+import { resolveNativeScene } from "../src/threeD/resolver";
 import {
-  rankVisualCandidate,
   semanticQueries,
   type DirectorScene,
 } from "../src/assets/semanticVisualRanker";
+import { VisualMemory } from "../src/assets/visualMemory";
+import { VisualSelector } from "../src/assets/visualSelector";
+import { catalogFile, validateGlb } from "../src/assets/localCatalog";
 
-const ROOT = process.cwd();
-
-const productionCode =
-  process.env.PRODUCTION_CODE ??
-  "video-juridico-001";
-
-/*
- * V3.18-F.2
- * CREATIVE MULTIMODAL EXECUTION DIRECTOR
- *
- * Conserva:
- * - ranking semántico fotográfico
- * - localización
- * - diversidad
- * - memoria histórica
- * - Supabase
- * - fallback local
- * - búsqueda multimodal Pexels
- * - resiliencia de descarga
- *
- * Añade:
- * - obediencia a mediaIntent V3.18-F.1
- * - Creative Director > heurística legacy
- * - graphic intent con fallback explícito
- * - ejecutor 3D nativo para el plan validado del VideoSpec
- *
- * IMPORTANTE:
- * graphic conserva su fallback explícito. Los intents 3D no compatibles
- * conservan su fallback explícito; los planes evidence-dossier se ejecutan
- * como geometría nativa y se auditan como threeD.
- */
-
-function normalizeSupabaseRestUrl(
-  rawUrl: string | undefined,
-): string | null {
-  if (!rawUrl) {
-    return null;
-  }
-
-  const url =
-    rawUrl
-      .trim()
-      .replace(/\/+$/, "");
-
-  if (
-    url.endsWith(
-      "/rest/v1",
-    )
-  ) {
-    return url;
-  }
-
-  return `${url}/rest/v1`;
-}
-
-const SUPABASE_REST_URL =
-  normalizeSupabaseRestUrl(
-    process.env.SUPABASE_URL,
-  );
-
-const SUPABASE_SECRET_KEY =
-  process.env.SUPABASE_SECRET_KEY;
-
-const planPath =
-  path.join(
-    ROOT,
-    `public/generated/${productionCode}-asset-scene-plan.json`,
-  );
-
-const outputDir =
-  path.join(
-    ROOT,
-    "public/generated/assets",
-  );
-
-const manifestPath =
-  path.join(
-    ROOT,
-    `public/generated/${productionCode}-resolved-assets.json`,
-  );
-
-const visualMemoryPath =
-  path.join(
-    ROOT,
-    "data/visual-memory.json",
-  );
-
-type VisualMemoryAsset = {
-  provider: string;
-  providerId: string;
-  sourceUrl: string;
-  creator: string;
-  lastProductionCode: string;
-  lastUsedAt: string;
-  useCount: number;
+type CreativeMediaIntent = "photo" | "video" | "graphic" | "threeD-intent";
+type SceneWithTiming = DirectorScene & {
+  id: string;
+  ruleId: string;
+  startMs: number;
+  endMs: number;
+  durationMs: number;
+  route: string;
+  concept?: string;
+  narrationContext?: string;
+  mediaIntent?: CreativeMediaIntent;
+  mediaMix?: unknown;
+  creativeDirection?: {
+    visualLanguage?: string | null;
+    cameraProfile?: string | null;
+    transitionProfile?: string | null;
+  };
 };
-
-type VisualMemory = {
-  version: string;
-  assets: VisualMemoryAsset[];
-};
-
-type SupabaseMemoryRow = {
-  provider: string;
-  provider_asset_id: string;
-  source_url: string | null;
-  creator: string | null;
-  production_code: string;
-  last_used_at: string;
-  use_count: number;
-};
-
 type DirectorMediaDecision = {
-  preferredMediaType:
-    | "image"
-    | "video";
-
+  preferredMediaType: "image" | "video";
   reason: string;
-
   motionScore: number;
   stillScore: number;
-
-  creativeIntent:
-    | CreativeMediaIntent
-    | null;
-
-  executionFallback:
-    | "none"
-    | "graphic-to-image"
-    | "threeD-to-video"
-    | "legacy";
+  creativeIntent: CreativeMediaIntent | null;
+  executionFallback: "none" | "graphic-to-image" | "threeD-to-video" | "legacy";
 };
-
-type CreativeMediaIntent =
-  | "photo"
-  | "video"
-  | "graphic"
-  | "threeD-intent";
-
-type SceneWithTiming =
-  DirectorScene & {
-    id: string;
-    startMs: number;
-    endMs: number;
-    durationMs: number;
-    route: string;
-    ruleId: string;
-    concept?: string;
-    narrationContext?: string;
-
-    mediaIntent?:
-      CreativeMediaIntent;
-
-    mediaMix?: {
-      photo?: number;
-      video?: number;
-      graphic?: number;
-      threeD?: number;
-    };
-
-    creativeDirection?: {
-      genre?: string | null;
-      narrativeArchitecture?: string | null;
-      rhythm?: string | null;
-      visualLanguage?: string | null;
-      cameraProfile?: string | null;
-      transitionProfile?: string | null;
-      graphicDensity?: string | null;
-    };
-  };
-
-type RankedCandidate = {
-  asset:
-    PexelsResolvedAsset;
-
-  query: string;
-
-  score:
-    ReturnType<
-      typeof rankVisualCandidate
-    >;
-
-  historicalPenalty:
-    number;
-
-  historicalUseCount:
-    number;
-
-  previousProduction:
-    string | null;
-
-  finalScore:
-    number;
-};
-
-const EMPTY_MEMORY:
-  VisualMemory = {
-    version:
-      "V3.18-F.2-CREATIVE-MULTIMODAL",
-    assets: [],
-  };
-
-const usedProviderKeys =
-  new Set<string>();
-
-const usedSourceUrls =
-  new Set<string>();
-
-const creatorUsage =
-  new Map<
-    string,
-    number
-  >();
-
-const photoSearchCache =
-  new Map<
-    string,
-    PexelsResolvedAsset[]
-  >();
-
-const videoSearchCache =
-  new Map<
-    string,
-    PexelsResolvedAsset | null
-  >();
-
-function providerKey(
-  asset: PexelsResolvedAsset,
-): string {
-  return [
-    asset.provider,
-    asset.mediaType,
-    asset.providerId,
-  ].join(":");
-}
-
-function loadLocalMemory():
-  VisualMemory {
-  if (
-    !fs.existsSync(
-      visualMemoryPath,
-    )
-  ) {
+function decideMediaType(scene: SceneWithTiming): DirectorMediaDecision {
+  if (scene.mediaIntent === "video") {
     return {
-      ...EMPTY_MEMORY,
-      assets: [],
+      preferredMediaType: "video",
+
+      reason: "V3.18-F.2 creative-director mediaIntent=video",
+
+      motionScore: 100,
+
+      stillScore: 0,
+
+      creativeIntent: "video",
+
+      executionFallback: "none",
     };
   }
 
-  try {
-    const parsed =
-      JSON.parse(
-        fs.readFileSync(
-          visualMemoryPath,
-          "utf8",
-        ),
-      ) as Partial<VisualMemory>;
-
+  if (scene.mediaIntent === "photo") {
     return {
-      version:
-        parsed.version ??
-        EMPTY_MEMORY.version,
+      preferredMediaType: "image",
 
-      assets:
-        Array.isArray(
-          parsed.assets,
-        )
-          ? parsed.assets
-          : [],
-    };
-  } catch (error) {
-    console.warn(
-      "Local visual memory could not be parsed. Starting empty.",
-      error,
-    );
+      reason: "V3.18-F.2 creative-director mediaIntent=photo",
 
-    return {
-      ...EMPTY_MEMORY,
-      assets: [],
-    };
-  }
-}
+      motionScore: 0,
 
-function saveLocalMemory(
-  memory: VisualMemory,
-) {
-  fs.mkdirSync(
-    path.dirname(
-      visualMemoryPath,
-    ),
-    {
-      recursive: true,
-    },
-  );
+      stillScore: 100,
 
-  fs.writeFileSync(
-    visualMemoryPath,
-    JSON.stringify(
-      memory,
-      null,
-      2,
-    ),
-  );
-}
+      creativeIntent: "photo",
 
-function supabaseConfigured():
-  boolean {
-  return Boolean(
-    SUPABASE_REST_URL &&
-      SUPABASE_SECRET_KEY,
-  );
-}
-
-async function supabaseRequest<T>(
-  pathname: string,
-  init: RequestInit = {},
-): Promise<T> {
-  if (
-    !SUPABASE_REST_URL ||
-    !SUPABASE_SECRET_KEY
-  ) {
-    throw new Error(
-      "Supabase credentials are not configured.",
-    );
-  }
-
-  const cleanPath =
-    pathname.replace(
-      /^\/+/,
-      "",
-    );
-
-  const response =
-    await fetch(
-      `${SUPABASE_REST_URL}/${cleanPath}`,
-      {
-        ...init,
-
-        headers: {
-          apikey:
-            SUPABASE_SECRET_KEY,
-
-          Authorization:
-            `Bearer ${SUPABASE_SECRET_KEY}`,
-
-          "Content-Type":
-            "application/json",
-
-          ...(init.headers ?? {}),
-        },
-      },
-    );
-
-  if (!response.ok) {
-    const body =
-      await response.text();
-
-    throw new Error(
-      `Supabase ${response.status}: ${body}`,
-    );
-  }
-
-  if (
-    response.status === 204
-  ) {
-    return undefined as T;
-  }
-
-  const text =
-    await response.text();
-
-  if (!text) {
-    return undefined as T;
-  }
-
-  return JSON.parse(
-    text,
-  ) as T;
-}
-
-async function loadSupabaseMemory():
-  Promise<VisualMemory | null> {
-  if (
-    !supabaseConfigured()
-  ) {
-    console.warn(
-      "SUPABASE_URL / SUPABASE_SECRET_KEY unavailable. Using local fallback.",
-    );
-
-    return null;
-  }
-
-  try {
-    const rows =
-      await supabaseRequest<
-        SupabaseMemoryRow[]
-      >(
-        "audiovisual_visual_memory" +
-          "?select=provider,provider_asset_id,source_url,creator,production_code,last_used_at,use_count",
-      );
-
-    return {
-      version:
-        "V3.18-F.2-CREATIVE-MULTIMODAL",
-
-      assets:
-        rows.map(
-          (row) => ({
-            provider:
-              row.provider,
-
-            providerId:
-              row.provider_asset_id,
-
-            sourceUrl:
-              row.source_url ??
-              "",
-
-            creator:
-              row.creator ??
-              "",
-
-            lastProductionCode:
-              row.production_code,
-
-            lastUsedAt:
-              row.last_used_at,
-
-            useCount:
-              row.use_count,
-          }),
-        ),
-    };
-  } catch (error) {
-    console.warn(
-      "Supabase memory unavailable. Using local fallback.",
-      error,
-    );
-
-    return null;
-  }
-}
-
-function mergeMemories(
-  primary:
-    VisualMemory | null,
-  fallback:
-    VisualMemory,
-): VisualMemory {
-  if (!primary) {
-    return fallback;
-  }
-
-  const merged =
-    new Map<
-      string,
-      VisualMemoryAsset
-    >();
-
-  for (
-    const item
-    of fallback.assets
-  ) {
-    merged.set(
-      `${item.provider}:${item.providerId}`,
-      item,
-    );
-  }
-
-  for (
-    const item
-    of primary.assets
-  ) {
-    merged.set(
-      `${item.provider}:${item.providerId}`,
-      item,
-    );
-  }
-
-  return {
-    version:
-      "V3.18-F.2-CREATIVE-MULTIMODAL",
-
-    assets:
-      [...merged.values()],
-  };
-}
-
-async function cachedPhotoSearch(
-  query: string,
-): Promise<
-  PexelsResolvedAsset[]
-> {
-  const cached =
-    photoSearchCache.get(
-      query,
-    );
-
-  if (cached) {
-    return cached;
-  }
-
-  const result =
-    await searchPexelsPhotos(
-      query,
-      30,
-    );
-
-  photoSearchCache.set(
-    query,
-    result,
-  );
-
-  return result;
-}
-
-async function cachedVideoSearch(
-  query: string,
-  requiredDurationMs: number,
-): Promise<
-  PexelsResolvedAsset | null
-> {
-  const cacheKey =
-    `${query}::${requiredDurationMs}`;
-
-  if (
-    videoSearchCache.has(
-      cacheKey,
-    )
-  ) {
-    return (
-      videoSearchCache.get(
-        cacheKey,
-      ) ?? null
-    );
-  }
-
-  const result =
-    await searchPexelsVideo(
-      query,
-      requiredDurationMs,
-    );
-
-  videoSearchCache.set(
-    cacheKey,
-    result,
-  );
-
-  return result;
-}
-
-async function download(
-  url: string,
-  target: string,
-) {
-  const maxAttempts = 4;
-
-  let lastError:
-    unknown = null;
-
-  for (
-    let attempt = 1;
-    attempt <= maxAttempts;
-    attempt++
-  ) {
-    try {
-      const response =
-        await fetch(
-          url,
-          {
-            signal:
-              AbortSignal.timeout(
-                60000,
-              ),
-          },
-        );
-
-      if (!response.ok) {
-        throw new Error(
-          `HTTP ${response.status}`,
-        );
-      }
-
-      const buffer =
-        Buffer.from(
-          await response.arrayBuffer(),
-        );
-
-      if (
-        buffer.length === 0
-      ) {
-        throw new Error(
-          "Empty asset response",
-        );
-      }
-
-      fs.writeFileSync(
-        target,
-        buffer,
-      );
-
-      if (
-        attempt > 1
-      ) {
-        console.log(
-          `DOWNLOAD RECOVERED ON ATTEMPT ${attempt}`,
-        );
-      }
-
-      return;
-    } catch (error) {
-      lastError =
-        error;
-
-      console.warn(
-        `DOWNLOAD ATTEMPT ${attempt}/${maxAttempts} FAILED: ${url}`,
-        error,
-      );
-
-      if (
-        attempt <
-        maxAttempts
-      ) {
-        await new Promise(
-          (resolve) =>
-            setTimeout(
-              resolve,
-              attempt * 2500,
-            ),
-        );
-      }
-    }
-  }
-
-  throw new Error(
-    `Download failed after ${maxAttempts} attempts: ${url}. ` +
-      `Last error: ${String(lastError)}`,
-  );
-  }
-function findHistoricalAsset(
-  asset:
-    PexelsResolvedAsset,
-  memory:
-    VisualMemory,
-):
-  | VisualMemoryAsset
-  | undefined {
-  return memory.assets.find(
-    (item) =>
-      (
-        item.provider ===
-          "pexels" &&
-        item.providerId ===
-          String(
-            asset.providerId,
-          )
-      ) ||
-      (
-        Boolean(
-          item.sourceUrl,
-        ) &&
-        item.sourceUrl ===
-          asset.sourceUrl
-      ),
-  );
-}
-
-function historicalPenalty(
-  asset:
-    PexelsResolvedAsset,
-  memory:
-    VisualMemory,
-): {
-  penalty: number;
-  previousUseCount: number;
-  previousProduction:
-    string | null;
-} {
-  const previous =
-    findHistoricalAsset(
-      asset,
-      memory,
-    );
-
-  if (!previous) {
-    return {
-      penalty: 0,
-      previousUseCount: 0,
-      previousProduction:
-        null,
-    };
-  }
-
-  const penalty =
-    Math.min(
-      80,
-      32 +
-        Math.max(
-          0,
-          previous.useCount - 1,
-        ) *
-          12,
-    );
-
-  return {
-    penalty,
-
-    previousUseCount:
-      previous.useCount,
-
-    previousProduction:
-      previous.lastProductionCode,
-  };
-}
-
-function registerLocalHistoricalUse(
-  memory:
-    VisualMemory,
-  asset:
-    PexelsResolvedAsset,
-) {
-  const now =
-    new Date().toISOString();
-
-  const existing =
-    findHistoricalAsset(
-      asset,
-      memory,
-    );
-
-  if (existing) {
-    existing.useCount += 1;
-
-    existing.lastProductionCode =
-      productionCode;
-
-    existing.lastUsedAt =
-      now;
-
-    existing.creator =
-      asset.creator;
-
-    existing.sourceUrl =
-      asset.sourceUrl;
-
-    return;
-  }
-
-  memory.assets.push({
-    provider:
-      "pexels",
-
-    providerId:
-      String(
-        asset.providerId,
-      ),
-
-    sourceUrl:
-      asset.sourceUrl,
-
-    creator:
-      asset.creator,
-
-    lastProductionCode:
-      productionCode,
-
-    lastUsedAt:
-      now,
-
-    useCount:
-      1,
-  });
-}
-
-async function registerSupabaseHistoricalUse(
-  asset:
-    PexelsResolvedAsset,
-) {
-  if (
-    !supabaseConfigured()
-  ) {
-    return;
-  }
-
-  const providerId =
-    String(
-      asset.providerId,
-    );
-
-  const query =
-    "audiovisual_visual_memory" +
-    "?provider=eq.pexels" +
-    `&provider_asset_id=eq.${encodeURIComponent(
-      providerId,
-    )}` +
-    "&select=use_count";
-
-  const existing =
-    await supabaseRequest<
-      Array<{
-        use_count: number;
-      }>
-    >(query);
-
-  const now =
-    new Date().toISOString();
-
-  if (
-    existing.length > 0
-  ) {
-    await supabaseRequest<void>(
-      "audiovisual_visual_memory" +
-        "?provider=eq.pexels" +
-        `&provider_asset_id=eq.${encodeURIComponent(
-          providerId,
-        )}`,
-      {
-        method:
-          "PATCH",
-
-        headers: {
-          Prefer:
-            "return=minimal",
-        },
-
-        body:
-          JSON.stringify({
-            source_url:
-              asset.sourceUrl,
-
-            creator:
-              asset.creator,
-
-            production_code:
-              productionCode,
-
-            last_used_at:
-              now,
-
-            use_count:
-              existing[0]
-                .use_count +
-              1,
-
-            metadata: {
-              mediaType:
-                asset.mediaType,
-            },
-          }),
-      },
-    );
-
-    return;
-  }
-
-  await supabaseRequest<void>(
-    "audiovisual_visual_memory",
-    {
-      method:
-        "POST",
-
-      headers: {
-        Prefer:
-          "return=minimal",
-      },
-
-      body:
-        JSON.stringify({
-          provider:
-            "pexels",
-
-          provider_asset_id:
-            providerId,
-
-          source_url:
-            asset.sourceUrl,
-
-          creator:
-            asset.creator,
-
-          production_code:
-            productionCode,
-
-          first_used_at:
-            now,
-
-          last_used_at:
-            now,
-
-          use_count:
-            1,
-
-          metadata: {
-            mediaType:
-              asset.mediaType,
-          },
-        }),
-    },
-  );
-}
-
-/*
- * ============================================================
- * V3.18-F.2
- * CREATIVE MEDIA DECISION
- * ============================================================
- *
- * El Director Creativo tiene prioridad.
- *
- * La heurística V3.15-D permanece únicamente
- * como compatibilidad para planes antiguos.
- */
-
-function decideMediaType(
-  scene:
-    SceneWithTiming,
-): DirectorMediaDecision {
-  if (
-    scene.mediaIntent ===
-    "video"
-  ) {
-    return {
-      preferredMediaType:
-        "video",
-
-      reason:
-        "V3.18-F.2 creative-director mediaIntent=video",
-
-      motionScore:
-        100,
-
-      stillScore:
-        0,
-
-      creativeIntent:
-        "video",
-
-      executionFallback:
-        "none",
-    };
-  }
-
-  if (
-    scene.mediaIntent ===
-    "photo"
-  ) {
-    return {
-      preferredMediaType:
-        "image",
-
-      reason:
-        "V3.18-F.2 creative-director mediaIntent=photo",
-
-      motionScore:
-        0,
-
-      stillScore:
-        100,
-
-      creativeIntent:
-        "photo",
-
-      executionFallback:
-        "none",
+      executionFallback: "none",
     };
   }
 
@@ -989,72 +79,52 @@ function decideMediaType(
    * Conservamos la orden del Director y
    * usamos imagen como fallback explícito.
    */
-  if (
-    scene.mediaIntent ===
-    "graphic"
-  ) {
+  if (scene.mediaIntent === "graphic") {
     return {
-      preferredMediaType:
-        "image",
+      preferredMediaType: "image",
 
       reason:
         "V3.18-F.2 graphic-intent -> image fallback until graphic executor",
 
-      motionScore:
-        20,
+      motionScore: 20,
 
-      stillScore:
-        100,
+      stillScore: 100,
 
-      creativeIntent:
-        "graphic",
+      creativeIntent: "graphic",
 
-      executionFallback:
-        "graphic-to-image",
+      executionFallback: "graphic-to-image",
     };
   }
 
   /*
-   * Tampoco afirmamos capacidad 3D todavía.
-   * La intención se conserva y se ejecuta
-   * provisionalmente como video, con imagen
-   * como fallback posterior si Pexels no
-   * devuelve un clip válido.
+   * Las escenas 3D compatibles se resuelven antes de llegar aquí.
+   * Si esta intención no tiene una escena nativa planificada,
+   * se conserva el fallback explícito a clip o fotografía.
    */
-  if (
-    scene.mediaIntent ===
-    "threeD-intent"
-  ) {
+  if (scene.mediaIntent === "threeD-intent") {
     return {
-      preferredMediaType:
-        "video",
+      preferredMediaType: "video",
 
       reason:
-        "V3.18-F.2 threeD-intent -> video fallback until 3D executor",
+        "threeD-intent -> video fallback for a scene without a native 3D plan",
 
-      motionScore:
-        100,
+      motionScore: 100,
 
-      stillScore:
-        10,
+      stillScore: 10,
 
-      creativeIntent:
-        "threeD-intent",
+      creativeIntent: "threeD-intent",
 
-      executionFallback:
-        "threeD-to-video",
+      executionFallback: "threeD-to-video",
     };
   }
 
-  const semanticText =
-    [
-      scene.ruleId,
-      scene.concept ?? "",
-      scene.narrationContext ??
-        "",
-    ]
-      .join(" ")
-      .toLowerCase();
+  const semanticText = [
+    scene.ruleId,
+    scene.concept ?? "",
+    scene.narrationContext ?? "",
+  ]
+    .join(" ")
+    .toLowerCase();
 
   const motionSignals = [
     "decision",
@@ -1115,1200 +185,292 @@ function decideMediaType(
     "cierre",
   ];
 
-  const motionScore =
-    motionSignals.filter(
-      (signal) =>
-        semanticText.includes(
-          signal,
-        ),
-    ).length;
+  const motionScore = motionSignals.filter((signal) =>
+    semanticText.includes(signal),
+  ).length;
 
-  const stillScore =
-    stillSignals.filter(
-      (signal) =>
-        semanticText.includes(
-          signal,
-        ),
-    ).length;
+  const stillScore = stillSignals.filter((signal) =>
+    semanticText.includes(signal),
+  ).length;
 
-  if (
-    scene.durationMs >=
-      2500 &&
-    motionScore >
-      stillScore
-  ) {
+  if (scene.durationMs >= 2500 && motionScore > stillScore) {
     return {
-      preferredMediaType:
-        "video",
+      preferredMediaType: "video",
 
-      reason:
-        `legacy semantic-motion advantage: ${motionScore} vs ${stillScore}`,
+      reason: `legacy semantic-motion advantage: ${motionScore} vs ${stillScore}`,
 
       motionScore,
       stillScore,
 
-      creativeIntent:
-        null,
+      creativeIntent: null,
 
-      executionFallback:
-        "legacy",
+      executionFallback: "legacy",
     };
   }
 
   return {
-    preferredMediaType:
-      "image",
+    preferredMediaType: "image",
 
-    reason:
-      `legacy semantic-still/default: ${motionScore} vs ${stillScore}`,
+    reason: `legacy semantic-still/default: ${motionScore} vs ${stillScore}`,
 
     motionScore,
     stillScore,
 
-    creativeIntent:
-      null,
+    creativeIntent: null,
 
-    executionFallback:
-      "legacy",
+    executionFallback: "legacy",
   };
 }
 
-async function findVideoCandidate(
-  scene:
-    SceneWithTiming,
-  queries:
-    string[],
-  memory:
-    VisualMemory,
-): Promise<{
-  asset:
-    PexelsResolvedAsset;
-  query:
-    string;
-  historicalPenalty:
-    number;
-  historicalUseCount:
-    number;
-  previousProduction:
-    string | null;
-} | null> {
-  for (
-    const query
-    of queries
-  ) {
-    try {
-      const candidate =
-        await cachedVideoSearch(
-          query,
-          scene.durationMs,
-        );
-
-      if (!candidate) {
-        continue;
-      }
-
-      if (
-        usedProviderKeys.has(
-          providerKey(
-            candidate,
-          ),
-        ) ||
-        usedSourceUrls.has(
-          candidate.sourceUrl,
-        )
-      ) {
-        continue;
-      }
-
-      const history =
-        historicalPenalty(
-          candidate,
-          memory,
-        );
-
-      if (
-        history.penalty >= 56
-      ) {
-        continue;
-      }
-
-      return {
-        asset:
-          candidate,
-
-        query,
-
-        historicalPenalty:
-          history.penalty,
-
-        historicalUseCount:
-          history.previousUseCount,
-
-        previousProduction:
-          history.previousProduction,
-      };
-    } catch (error) {
-      console.warn(
-        `VIDEO SEARCH FAILED: ${query}`,
-        error,
-      );
-    }
-  }
-
-  return null;
-    }
 async function main() {
-  if (
-    !fs.existsSync(
-      planPath,
-    )
-  ) {
-    throw new Error(
-      `Missing asset scene plan: ${planPath}`,
-    );
-  }
-
-  const localMemory =
-    loadLocalMemory();
-
-  const remoteMemory =
-    await loadSupabaseMemory();
-
-  const visualMemory =
-    mergeMemories(
-      remoteMemory,
-      localMemory,
-    );
-
-  console.log(
-    "\n=== VISUAL MEMORY V3.18-F.2 / CREATIVE MULTIMODAL ===",
-  );
-
-  console.log(
-    `Supabase configured: ${
-      supabaseConfigured()
-        ? "YES"
-        : "NO"
-    }`,
-  );
-
-  console.log(
-    `Historical assets loaded: ${visualMemory.assets.length}`,
-  );
-
-  fs.rmSync(
-    outputDir,
-    {
-      recursive: true,
-      force: true,
-    },
-  );
-
-  fs.mkdirSync(
-    outputDir,
-    {
-      recursive: true,
-    },
-  );
-
-  const source =
-    JSON.parse(
-      fs.readFileSync(
-        planPath,
-        "utf8",
-      ),
-    );
-
-  const scenes =
-    source.scenes ??
-    [];
-
-  const specPath = path.join(ROOT, `examples/${productionCode}.video.json`);
-  const rawSpec = fs.existsSync(specPath) ? JSON.parse(fs.readFileSync(specPath, "utf8")) : null;
-  const nativePlan = rawSpec?.threeD ? VideoSpecSchema.parse(rawSpec).threeD : undefined;
-  if (nativePlan && rawSpec.id !== productionCode) throw new Error("3D VideoSpec production code mismatch.");
-  assertThreeDPlanMatches(nativePlan, scenes);
-
-  const resolved:
-    any[] = [];
-
-  for (
-    let sceneIndex = 0;
-    sceneIndex <
-      scenes.length;
-    sceneIndex++
-  ) {
-    const scene =
-      scenes[
-        sceneIndex
-      ] as SceneWithTiming;
-
-    const native = matchThreeDScene(nativePlan, scene);
-    if (native) {
-      const asset = resolveNativeScene(scene, native, productionCode, sceneIndex);
-      fs.writeFileSync(path.join(ROOT, "public", asset.asset.localSrc), JSON.stringify(native, null, 2));
-      resolved.push(asset);
-      console.log(`NATIVE 3D: ${scene.id} | ${scene.startMs}-${scene.endMs}ms | no stock fallback`);
-      continue;
-    }
-
-    const queries =
-      semanticQueries(
-        scene,
-        sceneIndex,
-      );
-
-    const mediaDecision =
-      decideMediaType(
-        scene,
-      );
-
-    console.log(
-      `\n[DIRECTOR ${
-        sceneIndex + 1
-      }/${scenes.length}] ${
-        scene.ruleId
-      }`,
-    );
-
-    console.log(
-      `CREATIVE INTENT: ${
-        mediaDecision
-          .creativeIntent ??
-        "LEGACY"
-      }`,
-    );
-
-    console.log(
-      `MEDIA DIRECTOR: ${mediaDecision.preferredMediaType.toUpperCase()}`,
-    );
-
-    console.log(
-      `MEDIA REASON: ${mediaDecision.reason}`,
-    );
-
-    console.log(
-      `EXECUTION FALLBACK: ${mediaDecision.executionFallback}`,
-    );
-
-    console.log(
-      `VISUAL LANGUAGE: ${
-        scene.creativeDirection
-          ?.visualLanguage ??
-        "legacy/default"
-      }`,
-    );
-
-    console.log(
-      `Queries: ${queries.length}`,
-    );
-
-    /*
-     * Conservamos siempre un ranking fotográfico.
-     * Incluso cuando el Director pide video,
-     * este ranking constituye el fallback seguro.
-     */
-    const candidateMap =
-      new Map<
-        number,
-        RankedCandidate
-      >();
-
-    for (
-      let queryIndex = 0;
-      queryIndex <
-        queries.length;
-      queryIndex++
-    ) {
-      const query =
-        queries[
-          queryIndex
-        ];
-
-      const candidates =
-        await cachedPhotoSearch(
-          query,
-        );
-
-      candidates.forEach(
-        (
-          asset,
-          searchPosition,
-        ) => {
-          if (
-            usedProviderKeys.has(
-              providerKey(
-                asset,
-              ),
-            ) ||
-            usedSourceUrls.has(
-              asset.sourceUrl,
-            )
-          ) {
-            return;
-          }
-
-          const creatorUseCount =
-            creatorUsage.get(
-              asset.creator,
-            ) ?? 0;
-
-          const score =
-            rankVisualCandidate(
-              scene,
-              asset,
-              query,
-              searchPosition,
-              creatorUseCount,
-            );
-
-          const history =
-            historicalPenalty(
-              asset,
-              visualMemory,
-            );
-
-          const finalScore =
-            score.total -
-            history.penalty;
-
-          const previous =
-            candidateMap.get(
-              asset.providerId,
-            );
-
-          if (
-            !previous ||
-            finalScore >
-              previous.finalScore
-          ) {
-            candidateMap.set(
-              asset.providerId,
-              {
-                asset,
-                query,
-                score,
-
-                historicalPenalty:
-                  history.penalty,
-
-                historicalUseCount:
-                  history.previousUseCount,
-
-                previousProduction:
-                  history.previousProduction,
-
-                finalScore,
-              },
-            );
-          }
-        },
-      );
-    }
-
-    const rankedPhotos =
-      [
-        ...candidateMap.values(),
-      ].sort(
-        (a, b) =>
-          b.finalScore -
-          a.finalScore,
-      );
-
-    const selectedPhoto =
-      rankedPhotos[0] ??
-      null;
-
-    console.log(
-      `Photo candidates: ${rankedPhotos.length}`,
-    );
-
-    let selectedVideo:
-      Awaited<
-        ReturnType<
-          typeof findVideoCandidate
-        >
-      > = null;
-
-    if (
-      mediaDecision
-        .preferredMediaType ===
-      "video"
-    ) {
-      selectedVideo =
-        await findVideoCandidate(
-          scene,
-          queries,
-          visualMemory,
-        );
-    }
-
-    const base = {
-      id:
-        scene.id,
-
-      ruleId:
-        scene.ruleId,
-
-      concept:
-        scene.concept,
-
-      route:
-        scene.route,
-
-      startMs:
-        scene.startMs,
-
-      endMs:
-        scene.endMs,
-
-      durationMs:
-        scene.durationMs,
-
-      narrationContext:
-        scene.narrationContext,
-
-      mediaIntent:
-        scene.mediaIntent ??
-        null,
-
-      mediaMix:
-        scene.mediaMix ??
-        null,
-
-      creativeDirection:
-        scene.creativeDirection ??
-        null,
-    };
-
-    if (
-      !selectedVideo &&
-      !selectedPhoto
-    ) {
-      console.log(
-        "UNRESOLVED",
-      );
-
-      resolved.push({
-        ...base,
-
-        status:
-          "unresolved",
-
-        mediaDecision: {
-          ...mediaDecision,
-
-          resolvedAs:
-            null,
-
-          fallbackToImage:
-            false,
-        },
-      });
-
-      continue;
-    }
-
-    const usingVideo =
-      Boolean(
-        selectedVideo,
-      );
-
-    const asset =
-      selectedVideo
-        ? selectedVideo.asset
-        : selectedPhoto!.asset;
-
-    const selectedQuery =
-      selectedVideo
-        ? selectedVideo.query
-        : selectedPhoto!.query;
-
-    const selectedHistoryPenalty =
-      selectedVideo
-        ? selectedVideo
-            .historicalPenalty
-        : selectedPhoto!
-            .historicalPenalty;
-
-    const selectedHistoryUseCount =
-      selectedVideo
-        ? selectedVideo
-            .historicalUseCount
-        : selectedPhoto!
-            .historicalUseCount;
-
-    const selectedPreviousProduction =
-      selectedVideo
-        ? selectedVideo
-            .previousProduction
-        : selectedPhoto!
-            .previousProduction;
-
-    usedProviderKeys.add(
-      providerKey(
-        asset,
-      ),
-    );
-
-    usedSourceUrls.add(
-      asset.sourceUrl,
-    );
-
-    creatorUsage.set(
-      asset.creator,
-      (
-        creatorUsage.get(
-          asset.creator,
-        ) ?? 0
-      ) + 1,
-    );
-
-    console.log(
-      `RESOLVED AS: ${asset.mediaType.toUpperCase()}`,
-    );
-
-    console.log(
-      `SELECTED: ${asset.providerId}`,
-    );
-
-    console.log(
-      `QUERY: ${selectedQuery}`,
-    );
-
-    if (usingVideo) {
-      console.log(
-        `VIDEO DURATION: ${asset.durationMs ?? 0} ms`,
-      );
-
-      console.log(
-        `HISTORY PENALTY: -${selectedHistoryPenalty}`,
-      );
-    } else {
-      console.log(
-        `BASE SCORE: ${selectedPhoto!.score.total}`,
-      );
-
-      console.log(
-        `HISTORY: -${selectedPhoto!.historicalPenalty}`,
-      );
-
-      console.log(
-        `FINAL: ${selectedPhoto!.finalScore}`,
-      );
-
-      console.log(
-        `ALT: ${asset.altText ?? ""}`,
-      );
-
-      console.log(
-        `SEMANTIC HITS: ${selectedPhoto!.score.semanticHits.join(
-          ", ",
-        )}`,
-      );
-
-      console.log(
-        `LOCALIZATION: ${selectedPhoto!.score.localizationHits.join(
-          ", ",
-        )}`,
-      );
-    }
-
-    if (
-      selectedHistoryPenalty >
-      0
-    ) {
-      console.log(
-        `PREVIOUSLY USED: ${
-          selectedPreviousProduction ??
-          "UNKNOWN"
-        } | USE COUNT ${
-          selectedHistoryUseCount
-        }`,
-      );
-    }
-
-    const extension =
-      asset.mediaType ===
-      "video"
-        ? "mp4"
-        : "jpg";
-
-    const filename =
-      `${String(
-        sceneIndex + 1,
-      ).padStart(
-        2,
-        "0",
-      )}` +
-      `-${scene.ruleId}-${asset.providerId}.${extension}`;
-
-    const target =
-      path.join(
-        outputDir,
-        filename,
-      );
-
-    await download(
-      asset.remoteUrl,
-      target,
-    );
-
-    registerLocalHistoricalUse(
-      visualMemory,
-      asset,
-    );
-
-    const photoDirectorSelection =
-      selectedPhoto
-        ? {
-            candidateCount:
-              rankedPhotos.length,
-
-            baseScore:
-              selectedPhoto
-                .score
-                .total,
-
-            historicalPenalty:
-              selectedPhoto
-                .historicalPenalty,
-
-            finalScore:
-              selectedPhoto
-                .finalScore,
-
-            previousUseCount:
-              selectedPhoto
-                .historicalUseCount,
-
-            previousProduction:
-              selectedPhoto
-                .previousProduction,
-
-            scoreBreakdown:
-              selectedPhoto
-                .score,
-
-            selectedAlt:
-              selectedPhoto
-                .asset
-                .altText ??
-              "",
-
-            topCandidates:
-              rankedPhotos
-                .slice(
-                  0,
-                  5,
-                )
-                .map(
-                  (
-                    candidate,
-                    rank,
-                  ) => ({
-                    rank:
-                      rank + 1,
-
-                    providerId:
-                      candidate
-                        .asset
-                        .providerId,
-
-                    mediaType:
-                      candidate
-                        .asset
-                        .mediaType,
-
-                    baseScore:
-                      candidate
-                        .score
-                        .total,
-
-                    historicalPenalty:
-                      candidate
-                        .historicalPenalty,
-
-                    finalScore:
-                      candidate
-                        .finalScore,
-
-                    alt:
-                      candidate
-                        .asset
-                        .altText ??
-                      "",
-
-                    query:
-                      candidate.query,
-
-                    semanticHits:
-                      candidate
-                        .score
-                        .semanticHits,
-
-                    localizationHits:
-                      candidate
-                        .score
-                        .localizationHits,
-                  }),
-                ),
-          }
-        : null;
-
-    const videoDirectorSelection =
-      selectedVideo
-        ? {
-            providerId:
-              selectedVideo
-                .asset
-                .providerId,
-
-            mediaType:
-              "video",
-
-            query:
-              selectedVideo
-                .query,
-
-            durationMs:
-              selectedVideo
-                .asset
-                .durationMs ??
-              0,
-
-            historicalPenalty:
-              selectedVideo
-                .historicalPenalty,
-
-            previousUseCount:
-              selectedVideo
-                .historicalUseCount,
-
-            previousProduction:
-              selectedVideo
-                .previousProduction,
-          }
-        : null;
-        resolved.push({
-      ...base,
-
-      status:
-        "resolved",
-
-      query:
-        selectedQuery,
-
-      mediaDecision: {
-        preferred:
-          mediaDecision
-            .preferredMediaType,
-
-        creativeIntent:
-          mediaDecision
-            .creativeIntent,
-
-        executionFallback:
-          mediaDecision
-            .executionFallback,
-
-        resolvedAs:
-          asset.mediaType,
-
-        reason:
-          mediaDecision.reason,
-
-        motionScore:
-          mediaDecision.motionScore,
-
-        stillScore:
-          mediaDecision.stillScore,
-
-        fallbackToImage:
-          mediaDecision
-            .preferredMediaType ===
-            "video" &&
-          asset.mediaType ===
-            "image",
-      },
-
-      directorSelection: {
-        version:
-          "V3.18-F.2",
-
-        mode:
-          usingVideo
-            ? "STOCK-VIDEO"
-            : "PHOTO-2.5D",
-
-        creativeIntent:
-          mediaDecision
-            .creativeIntent,
-
-        visualLanguage:
-          scene
-            .creativeDirection
-            ?.visualLanguage ??
-          null,
-
-        cameraProfile:
-          scene
-            .creativeDirection
-            ?.cameraProfile ??
-          null,
-
-        transitionProfile:
-          scene
-            .creativeDirection
-            ?.transitionProfile ??
-          null,
-
-        selectedMediaType:
-          asset.mediaType,
-
-        selectedQuery,
-
-        historicalPenalty:
-          selectedHistoryPenalty,
-
-        previousUseCount:
-          selectedHistoryUseCount,
-
-        previousProduction:
-          selectedPreviousProduction,
-
-        photo:
-          photoDirectorSelection,
-
-        video:
-          videoDirectorSelection,
-      },
-
-      asset: {
-        ...asset,
-
-        localSrc:
-          `generated/assets/${filename}`,
-      },
-    });
-  }
-
-  const resolvedAssets =
-    resolved.filter(
-      (item) =>
-        item.status ===
-        "resolved",
-    );
-
-  const resolvedCount =
-    resolvedAssets.length;
-
-  const uniqueCount =
-    new Set(
-      resolvedAssets.map(
-        (item) =>
-          [
-            item.asset
-              .provider,
-            item.asset
-              .mediaType,
-            item.asset
-              .providerId,
-          ].join(":"),
-      ),
-    ).size;
-
-  const imageCount =
-    resolvedAssets.filter(
-      (item) =>
-        item.asset
-          .mediaType ===
-        "image",
-    ).length;
-
-  const videoCount =
-    resolvedAssets.filter(
-      (item) =>
-        item.asset
-          .mediaType ===
-        "video",
-    ).length;
-
-  const requestedVideoCount =
-    resolvedAssets.filter(
-      (item) =>
-        item.mediaDecision
-          ?.preferred ===
-        "video",
-    ).length;
-
-  const videoFallbackCount =
-    resolvedAssets.filter(
-      (item) =>
-        item.mediaDecision
-          ?.fallbackToImage ===
-        true,
-    ).length;
-
-  const creativePhotoIntentCount =
-    resolved.filter(
-      (item) =>
-        item.mediaIntent ===
-        "photo",
-    ).length;
-
-  const creativeVideoIntentCount =
-    resolved.filter(
-      (item) =>
-        item.mediaIntent ===
-        "video",
-    ).length;
-
-  const creativeGraphicIntentCount =
-    resolved.filter(
-      (item) =>
-        item.mediaIntent ===
-        "graphic",
-    ).length;
-
-  const creativeThreeDIntentCount =
-    resolved.filter(
-      (item) =>
-        item.mediaIntent ===
-        "threeD-intent",
-    ).length;
-
-  const legacyDecisionCount =
-    resolved.filter(
-      (item) =>
-        item.mediaDecision
-          ?.creativeIntent ==
-        null,
-    ).length;
-
-  const manifest = {
-    productionCode,
-
-    version:
-      "V3.18-F.2-CREATIVE-MULTIMODAL-EXECUTION",
-
-    generatedAt:
-      new Date().toISOString(),
-
-    totalScenes:
-      scenes.length,
-
-    resolvedCount,
-
-    uniqueCount,
-
-    duplicateAssets:
-      resolvedCount -
-      uniqueCount,
-
-    creativeExecution: {
-      directorPriority:
-        true,
-
-      legacyFallbackEnabled:
-        true,
-
-      graphicExecutorConnected:
-        false,
-
-      threeDExecutorConnected:
-        true,
-
-      nativeThreeDSceneCount: resolvedAssets.filter((item) => item.asset.mediaType === "threeD").length,
-
-      requestedIntents: {
-        photo:
-          creativePhotoIntentCount,
-
-        video:
-          creativeVideoIntentCount,
-
-        graphic:
-          creativeGraphicIntentCount,
-
-        threeD:
-          creativeThreeDIntentCount,
-
-        legacy:
-          legacyDecisionCount,
-      },
-    },
-
-    mediaSummary: {
-      threeD: resolvedAssets.filter((item) => item.asset.mediaType === "threeD").length,
-      images:
-        imageCount,
-
-      videos:
-        videoCount,
-
-      videoPreferred:
-        requestedVideoCount,
-
-      videoFallbacks:
-        videoFallbackCount,
-    },
-
-    historicalMemory: {
-      backend:
-        remoteMemory
-          ? "SUPABASE+LOCAL"
-          : "LOCAL-FALLBACK",
-
-      loadedAssets:
-        visualMemory
-          .assets
-          .length,
-
-      table:
-        "audiovisual_visual_memory",
-    },
-
-    assets:
-      resolved,
-  };
-
-  fs.writeFileSync(
-    manifestPath,
-    JSON.stringify(
-      manifest,
-      null,
-      2,
+  const code = process.env.PRODUCTION_CODE ?? "video-juridico-001";
+  if (!/^[a-z0-9][a-z0-9-]{2,80}$/.test(code))
+    throw new Error("Invalid production code.");
+  const root = process.cwd(),
+    generated = path.join(root, "public/generated");
+  const source = JSON.parse(
+    fs.readFileSync(
+      path.join(generated, `${code}-asset-scene-plan.json`),
+      "utf8",
     ),
   );
-
-  saveLocalMemory(
-    visualMemory,
+  if (
+    source.productionCode !== code ||
+    !Array.isArray(source.scenes) ||
+    !source.scenes.length
+  )
+    throw new Error(
+      "Asset scene plan is missing or belongs to another production.",
+    );
+  const scenes = source.scenes as SceneWithTiming[];
+  const specFile = path.join(root, `examples/${code}.video.json`);
+  const spec = fs.existsSync(specFile)
+    ? VideoSpecSchema.parse(JSON.parse(fs.readFileSync(specFile, "utf8")))
+    : undefined;
+  if (spec && spec.id !== code)
+    throw new Error("VideoSpec production code mismatch.");
+  assertThreeDPlanMatches(spec?.threeD, scenes);
+  const outputDir = path.join(generated, code, "assets");
+  fs.mkdirSync(outputDir, { recursive: true });
+  const memory = await new VisualMemory(code).load();
+  const selector = new VisualSelector(memory);
+  const resolved: any[] = [];
+  console.log(
+    "VISUAL LIBRARY V2 | Sources:",
+    selector.source.available.join(", ") || "local only",
   );
-
-  if (
-    resolvedCount === 0
-  ) {
-    throw new Error(
-      "No semantic visual assets resolved",
-    );
-  }
-
-  if (
-    resolvedCount !==
-    uniqueCount
-  ) {
-    throw new Error(
-      "Duplicated assets detected",
-    );
-  }
-
-  /*
-   * Persistimos memoria remota solamente
-   * después de completar correctamente
-   * toda la resolución multimodal.
-   */
-  if (
-    supabaseConfigured()
-  ) {
-    console.log(
-      "\nPersisting visual memory to Supabase...",
-    );
-
-    for (
-      const item
-      of resolvedAssets
-    ) {
-      if (item.asset.mediaType === "threeD") continue;
-      await registerSupabaseHistoricalUse(
-        item.asset as
-          PexelsResolvedAsset,
+  for (const [index, scene] of scenes.entries()) {
+    if (
+      !Number.isFinite(scene.startMs) ||
+      !Number.isFinite(scene.endMs) ||
+      scene.endMs <= scene.startMs
+    )
+      throw new Error("Invalid visual scene interval.");
+    scene.durationMs = scene.endMs - scene.startMs;
+    const native = matchThreeDScene(spec?.threeD, scene);
+    if (native) {
+      if (native.model) {
+        const reference = native.model;
+        const entry = selector.catalog.find(
+          (a) =>
+            a.id === reference.id &&
+            a.file === reference.src &&
+            a.sha256 === reference.sha256 &&
+            a.provider === reference.provider &&
+            a.mediaType === "model" &&
+            a.review.status === "approved" &&
+            a.review.reviewer &&
+            a.review.date,
+        );
+        if (!entry)
+          throw new Error(
+            "The 3D model is absent or not reviewed in the library.",
+          );
+        validateGlb(fs.readFileSync(catalogFile(entry)));
+        if (
+          memory.rejection(
+            {
+              provider: reference.provider,
+              providerId: reference.id,
+              mediaType: "model",
+              sourceUrl: reference.sourceUrl,
+              creator: reference.creator,
+              remoteUrl: "",
+              width: 0,
+              height: 0,
+              sha256: reference.sha256,
+            },
+            true,
+          )
+        )
+          throw new Error("Rebuild the 3D plan: the model was recently used.");
+      }
+      const item = resolveNativeScene(scene, native, code, index);
+      item.asset.localSrc = `generated/${code}/assets/native-three-${index}.json`;
+      fs.writeFileSync(
+        path.join(root, "public", item.asset.localSrc),
+        JSON.stringify(native, null, 2),
       );
+      if (native.model)
+        memory.register({
+          provider: native.model.provider,
+          providerId: native.model.id,
+          mediaType: "model",
+          sourceUrl: native.model.sourceUrl,
+          creator: native.model.creator,
+          remoteUrl: "",
+          width: 0,
+          height: 0,
+          sha256: native.model.sha256,
+        });
+      resolved.push(item);
+      console.log(`NATIVE 3D: ${scene.id}`);
+      continue;
     }
-
+    const decision = decideMediaType(scene);
+    const queries = semanticQueries(scene, index);
+    let selected = await selector.select(
+      scene,
+      queries,
+      decision.preferredMediaType,
+      outputDir,
+    );
+    if (!selected && decision.preferredMediaType === "video")
+      selected = await selector.select(scene, queries, "image", outputDir);
+    if (!selected) {
+      resolved.push({
+        ...scene,
+        status: "unresolved",
+        reason: "VISUAL_LIBRARY_NEEDS_FRESH_ASSETS",
+      });
+      continue;
+    }
+    const { asset, filename, ...selection } = selected;
+    const { localPath: _local, remoteUrl: _remote, ...publicAsset } = asset;
+    resolved.push({
+      ...scene,
+      status: "resolved",
+      query: selected.query,
+      mediaDecision: {
+        preferred: decision.preferredMediaType,
+        resolvedAs: asset.mediaType,
+        creativeIntent: decision.creativeIntent,
+        executionFallback: decision.executionFallback,
+        fallbackToImage:
+          decision.preferredMediaType === "video" &&
+          asset.mediaType === "image",
+        reason: decision.reason,
+        motionScore: decision.motionScore,
+        stillScore: decision.stillScore,
+      },
+      directorSelection: {
+        version: "visual-library-2",
+        mode: asset.mediaType === "video" ? "STOCK-VIDEO" : "PHOTO-2.5D",
+        selectedMediaType: asset.mediaType,
+        selectedQuery: selected.query,
+        visualLanguage: scene.creativeDirection?.visualLanguage ?? null,
+        cameraProfile: scene.creativeDirection?.cameraProfile ?? null,
+        transitionProfile: scene.creativeDirection?.transitionProfile ?? null,
+        previousUseCount: selection.previousUseCount,
+        previousProduction: selection.previousProduction,
+        historicalPenalty: 0,
+        [asset.mediaType === "video" ? "video" : "photo"]: {
+          ...selection,
+          scoreBreakdown: selection.score,
+          baseScore: selection.score.total,
+          selectedAlt: asset.altText,
+        },
+      },
+      asset: {
+        ...publicAsset,
+        localSrc: `generated/${code}/assets/${filename}`,
+      },
+    });
     console.log(
-      `Supabase memory updated: ${resolvedCount} assets`,
+      `SELECTED ${scene.id}: ${asset.provider}/${asset.mediaType}/${asset.providerId}`,
     );
   }
-
+  const good = resolved.filter((a) => a.status === "resolved");
+  const count = (kind: string) =>
+    good.filter((a) => a.asset.mediaType === kind).length;
+  const uniqueCount = new Set(
+    good.map(
+      (a) => `${a.asset.provider}:${a.asset.mediaType}:${a.asset.providerId}`,
+    ),
+  ).size;
+  const manifest = {
+    productionCode: code,
+    version: "visual-library-2",
+    generatedAt: new Date().toISOString(),
+    totalScenes: scenes.length,
+    resolvedCount: good.length,
+    uniqueCount,
+    duplicateAssets: good.length - uniqueCount,
+    creativeExecution: {
+      directorPriority: true,
+      legacyFallbackEnabled: true,
+      graphicExecutorConnected: false,
+      threeDExecutorConnected: true,
+      nativeThreeDSceneCount: count("threeD"),
+      requestedIntents: Object.fromEntries(
+        ["photo", "video", "graphic", "threeD-intent"].map((k) => [
+          k === "threeD-intent" ? "threeD" : k,
+          scenes.filter((s) => s.mediaIntent === k).length,
+        ]),
+      ),
+    },
+    mediaSummary: {
+      threeD: count("threeD"),
+      images: count("image"),
+      videos: count("video"),
+      videoPreferred: good.filter((a) => a.mediaDecision.preferred === "video")
+        .length,
+      videoFallbacks: good.filter((a) => a.mediaDecision.fallbackToImage)
+        .length,
+    },
+    historicalMemory: {
+      backend: memory.backend,
+      loadedAssets: memory.assets.length,
+      table: "audiovisual_visual_memory",
+      cooldownProductions: 12,
+    },
+    library: {
+      enabledOnlineSources: selector.source.available,
+      approvedLocalAssets: selector.catalog.filter(
+        (a) => a.review.status === "approved",
+      ).length,
+      events: [
+        ...memory.events,
+        ...selector.source.cache.events,
+        ...selector.events,
+      ],
+      perceptualCheck: "dHash + color, heuristic; review final visuals",
+    },
+    assets: resolved,
+  };
+  const manifestFile = path.join(generated, `${code}-resolved-assets.json`);
+  fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + "\n");
+  if (good.length !== scenes.length || uniqueCount !== good.length)
+    throw new Error(
+      "VISUAL_LIBRARY_NEEDS_FRESH_ASSETS: no hay suficientes recursos distintos y válidos. Revise el manifiesto, las fuentes activas y la biblioteca local.",
+    );
+  await memory.save();
+  manifest.library.events = [
+    ...memory.events,
+    ...selector.source.cache.events,
+    ...selector.events,
+  ];
+  fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + "\n");
+  if (process.env.GITHUB_STEP_SUMMARY)
+    fs.appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `\n### Biblioteca visual V2\nFuentes activas: ${selector.source.available.join(", ") || "biblioteca local"}.\n\nFotos: ${count("image")}; clips: ${count("video")}; 3D: ${count("threeD")}. Memoria: ${memory.backend}.\n\n${manifest.library.events.map((e) => "- " + e).join("\n")}\n`,
+    );
   console.log(
-    "\n=== V3.18-F.2 CREATIVE MULTIMODAL EXECUTION ===",
-  );
-
-  console.log(
-    `Scenes: ${scenes.length}`,
-  );
-
-  console.log(
-    `Resolved: ${resolvedCount}`,
-  );
-
-  console.log(
-    `Unique: ${uniqueCount}`,
-  );
-
-  console.log(
-    `Images 2.5D: ${imageCount}`,
-  );
-
-  console.log(
-    `Stock videos: ${videoCount}`,
-  );
-
-  console.log(
-    `Video preferred: ${requestedVideoCount}`,
-  );
-
-  console.log(
-    `Video -> image fallbacks: ${videoFallbackCount}`,
-  );
-
-  console.log(
-    `Creative PHOTO intents: ${creativePhotoIntentCount}`,
-  );
-
-  console.log(
-    `Creative VIDEO intents: ${creativeVideoIntentCount}`,
-  );
-
-  console.log(
-    `Creative GRAPHIC intents: ${creativeGraphicIntentCount}`,
-  );
-
-  console.log(
-    `Creative 3D intents: ${creativeThreeDIntentCount}`,
-  );
-
-  console.log(
-    `Legacy decisions: ${legacyDecisionCount}`,
-  );
-
-  console.log(
-    `Duplicates: ${
-      resolvedCount -
-      uniqueCount
-    }`,
-  );
-
-  console.log(
-    `Memory backend: ${
-      remoteMemory
-        ? "SUPABASE + LOCAL FALLBACK"
-        : "LOCAL FALLBACK"
-    }`,
-  );
-
-  console.log(
-    "===================================================",
+    `VISUAL LIBRARY V2: ${good.length} escenas; ${count("video")} clips; ${count("threeD")} 3D. ${memory.backend}`,
   );
 }
-
-main().catch(
-  (error) => {
-    console.error(
-      error,
-    );
-
-    process.exit(1);
-  },
-);
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

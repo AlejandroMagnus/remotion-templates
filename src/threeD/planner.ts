@@ -3,6 +3,8 @@ import {
   ThreeDPlanSchema,
   type ThreeDPlan,
   type TimedAssetScene,
+  assetSceneKey,
+  type LibraryModel,
 } from "./schema";
 
 const normalize = (text: string) =>
@@ -20,6 +22,7 @@ export function planNativeThreeD(options: {
   durationMs: number;
   scenes: TimedAssetScene[];
   words: WordTiming[];
+  models?: Record<string, { model: LibraryModel; title: string }>;
 }): { plan: ThreeDPlan; reasons: string[] } {
   const plan: ThreeDPlan = { version: "1.0", scenes: [] };
   if (!options.enabled) return { plan, reasons: ["3d-disabled"] };
@@ -32,16 +35,19 @@ export function planNativeThreeD(options: {
   const budget = Math.floor(options.durationMs * 0.3);
   let usedMs = 0;
   let previousEnd = -5000;
+  const usedModels = new Set<string>();
   for (const scene of [...options.scenes].sort(
     (a, b) => a.startMs - b.startMs,
   )) {
-    if (!compatibleRules.has(scene.ruleId)) continue;
+    let library = options.models?.[assetSceneKey(scene)];
+    if (library && usedModels.has(library.model.sha256)) library = undefined;
+    if (!library && !compatibleRules.has(scene.ruleId)) continue;
     const duration = scene.endMs - scene.startMs;
     const cue = options.words.find(
       (word) =>
         word.startMs >= scene.startMs &&
         word.startMs < scene.endMs - 900 &&
-        proofWords.test(normalize(word.text)),
+        (Boolean(library) || proofWords.test(normalize(word.text))),
     );
     if (
       !cue ||
@@ -57,18 +63,21 @@ export function planNativeThreeD(options: {
       continue;
     }
     plan.scenes.push({
-      kind: "evidence-dossier",
+      kind: library ? "library-model" : "evidence-dossier",
+      ...(library ? { model: library.model } : {}),
       assetSceneId: scene.id,
       startMs: scene.startMs,
       endMs: scene.endMs,
-      title:
-        scene.ruleId === "expediente"
+      title: library
+        ? library.title
+        : scene.ruleId === "expediente"
           ? "Organizar el expediente"
           : "Examinar la prueba",
       labels: ["Documentos", "Cronología", "Hechos"],
       cueMs: cue.startMs,
     });
     usedMs += duration;
+    if (library) usedModels.add(library.model.sha256);
     previousEnd = scene.endMs;
   }
   if (!plan.scenes.length) reasons.push("no-compatible-3d-scene");

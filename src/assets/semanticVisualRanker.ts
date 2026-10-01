@@ -1,4 +1,4 @@
-import type {PexelsResolvedAsset} from "./providers/pexelsProvider";
+import type {VisualAsset as PexelsResolvedAsset} from "./assetTypes";
 
 import {
   getSilecContextTerms,
@@ -700,10 +700,7 @@ export function rankVisualCandidate(
 
   const semanticHaystack =
     normalize(
-      [
-        asset.altText ?? "",
-        query,
-      ].join(" "),
+      asset.altText ?? "",
     );
 
   const semanticHits = [

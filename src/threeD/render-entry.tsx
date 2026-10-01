@@ -1,6 +1,6 @@
 import React from "react";
 import { Composition, registerRoot } from "remotion";
-import { EvidenceDossier } from "./EvidenceDossier";
+import {NativeScene as EvidenceDossier} from "./LibraryModelScene";
 import { EvidenceSceneSchema, type EvidenceScene } from "./schema";
 
 type ClipProps = {

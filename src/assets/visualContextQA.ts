@@ -1,4 +1,4 @@
-import type { PexelsResolvedAsset } from "./providers/pexelsProvider";
+import type {VisualAsset as PexelsResolvedAsset} from "./assetTypes";
 
 /**
  * V3.15-D2 — VISUAL CONTEXT QA DIRECTOR
