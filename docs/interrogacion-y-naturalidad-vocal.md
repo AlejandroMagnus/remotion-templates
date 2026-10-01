@@ -109,3 +109,25 @@ npx vitest run tests/narration-timing.test.ts
 Las pruebas usan audio sintético de laboratorio para comprobar caché, conservación
 de texto y reconstrucción de tiempos. Ese audio no se entrega como muestra de voz
 ni sirve para aprobar pronunciación. La aceptación auditiva requiere voz real.
+
+## Ritmo para escucha y recuerdo — V1
+
+Directriz: la cadencia debe facilitar la comprensión al escuchar y el recuerdo
+de la idea central. La interpretación sigue unidades de sentido completas,
+con énfasis moderado y variaciones profesionales.
+
+La heurística reduce el ritmo de pensamientos largos o con varios conceptos
+jurídicos técnicos y reserva una pausa de asimilación en su frontera. Evita
+aceleraciones automáticas superiores a +2%, reduce ideas densas hasta -5%
+y calma el cierre declarativo. Son ajustes relativos al motor, no una garantía
+de palabras por minuto ni de mejora de memoria. Las correcciones expresas del
+revisor conservan prioridad.
+
+Los silencios que el motor ya produjo se descuentan antes de añadir una pausa.
+No se corta audio dentro de una idea ni se reconstruyen límites de palabras.
+La duración real vuelve a alimentar los mecanismos existentes de subtítulos
+y escenas. Se mantiene la aprobación auditiva pendiente hasta escuchar el audio.
+
+Revisión: entender sin subtítulos, identificar la enseñanza central y comprobar
+que las pausas permiten asimilarla sin romper la continuidad. Los cambios se
+aplican a próximas ejecuciones, no a MP4 ya exportados.

@@ -16,7 +16,7 @@ from typing import Any, Optional
 import edge_tts
 from spanish_vocal_delivery import (
     VERSION as DELIVERY_VERSION, additional_gap_ms, assert_same_text,
-    question_direction, read_overrides, split_thoughts, text_hash,
+    question_direction, read_overrides, split_thoughts, text_hash, listening_cadence, CADENCE_VERSION,
 )
 from vocal_segment_cache import cached_speech, file_hash
 
@@ -1545,6 +1545,10 @@ def build_segment_plan(
             volume_value = question["volume"]
             post_pause = question["pauseAfterMs"]
             pre_pause = 0
+        cadence = listening_cadence(original_sentence, rate_value, post_pause,
+                                    unit.sentence_index == len(major_sentences) - 1)
+        rate_value = cadence["rate"]
+        post_pause = cadence["pauseAfterMs"]
         rate_value = clamp_int(override.get("rate", rate_value), -7, 6)
         pitch_value = clamp_int(override.get("pitch", pitch_value), -3, 3)
         volume_value = override.get("volume", volume_value)
@@ -2711,12 +2715,14 @@ def write_listening_review(narration: str, segments: list[dict], duration_ms: in
         "reviewer": previous.get("reviewer") if approved else None,
         "reviewedAt": previous.get("reviewedAt") if approved else None,
         "criteria": [
+            "Comprender el mensaje al escucharlo sin leer y recordar su idea central.",
             "Entender las preguntas sin leer los subtítulos.",
             "Oír claramente las tónicas de qué, cómo, cuándo, dónde, cuál, quién y por qué.",
             "Interpretación según el sentido, sin subida final uniforme ni sobreactuación.",
             "Pausas que acompañan el pensamiento sin cortes ni acumulaciones artificiales.",
         ],
         "thoughts": thoughts,
+        "cadencePolicy": CADENCE_VERSION,
     }
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     summary = (f"\n## Revisión vocal — {PRODUCTION_CODE}\n\n"

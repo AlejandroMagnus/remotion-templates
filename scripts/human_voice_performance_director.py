@@ -22,7 +22,7 @@ import unicodedata
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Optional
-from spanish_vocal_delivery import clean_text, question_direction, split_thoughts
+from spanish_vocal_delivery import clean_text, question_direction, split_thoughts, listening_cadence
 
 
 # ============================================================
@@ -900,6 +900,10 @@ def build_gesture(
         profile = {**profile, "rate": question["rate"], "pitch": question["pitch"]}
         pause_before = 0
         pause_after = question["pauseAfterMs"]
+
+    cadence = listening_cadence(text, profile["rate"], pause_after, index == total - 1)
+    profile = {**profile, "rate": cadence["rate"]}
+    pause_after = cadence["pauseAfterMs"]
 
     return VocalGesture(
         pause_before_ms=pause_before,

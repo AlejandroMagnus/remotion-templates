@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 VERSION = "spanish-question-delivery-1"
+CADENCE_VERSION = "listening-and-recall-1"
 INTENTS = {
     "curiosidad": (-3, 0, 1, 260),
     "duda": (-4, 1, 0, 300),
@@ -130,3 +131,23 @@ def read_overrides(file: Path, narration: str) -> dict[int, dict]:
 def additional_gap_ms(target: int, previous_tail: int, next_lead: int) -> int:
     """Respect natural pauses already in audio; never trim or shift WordBoundary."""
     return max(0, min(500, target) - max(0, previous_tail) - max(0, next_lead))
+
+
+def listening_cadence(text: str, rate: int, pause: int, closing: bool = False) -> dict:
+    """Editable delivery heuristic; comprehension/recall still require listening.
+
+    Keep a thought intact. Extra silence is applied only at its boundary and
+    is reduced by natural TTS silence through the existing additional_gap_ms.
+    """
+    words = re.findall(r"\b\w+\b", text, re.UNICODE)
+    terms = re.findall(r"\b(?:jurisprudencia|constitucional|convencional|subsidiariedad|prescripci[oó]n|caducidad|legitimaci[oó]n|proporcionalidad|competencia|admisibilidad|ejecutabilidad)\b", text, re.I)
+    dense = len(words) >= 23 or len(set(t.lower() for t in terms)) >= 2
+    rate = max(-7, min(2, rate))
+    if dense:
+        rate = min(rate, -5)
+        pause = max(pause, 360)
+    if closing and "¿" not in text:
+        rate = min(rate, -4)
+        pause = max(pause, 320)
+    return {"version": CADENCE_VERSION, "rate": rate, "pauseAfterMs": min(500, pause),
+            "density": "dense" if dense else "ordinary", "listeningStatus": "pending"}

@@ -42,6 +42,23 @@ class SpanishQuestions(unittest.TestCase):
         with patch.object(tts, "CREATIVE_DECISION", Path("/no-fixture-decision.json")):
             return tts.build_segment_plan(text, [], tts.load_creative_direction(), overrides)
 
+    def test_dense_thought_reaches_tts_plan_with_time_to_assimilate(self):
+        text = "La jurisprudencia constitucional exige analizar la competencia y la legitimación antes de decidir. Después revise el documento."
+        plan = self.plan(text)
+        dense = [p for p in plan if p.sentence_index == 0]
+        self.assertTrue(all(int(p.rate.rstrip("%")) <= -5 for p in dense))
+        self.assertGreaterEqual(dense[-1].post_pause_ms, 360)
+        assert_same_text(text, " ".join(p.spoken_text for p in plan))
+        score = director.build_vocal_score(text, {})
+        self.assertLessEqual(score.units[0].gesture.rate_delta_percent, -5)
+
+    def test_cadence_preserves_explicit_delivery_and_natural_silence(self):
+        text = "La jurisprudencia constitucional revisa la competencia."
+        p = self.plan(text, {1: {"rate": -2, "pauseAfterMs": 300}})[0]
+        self.assertEqual(p.rate, "-2%")
+        self.assertEqual(p.post_pause_ms, 300)
+        self.assertEqual(additional_gap_ms(360, 220, 160), 0)
+
     def test_tildes_signs_case_and_complete_questions_survive(self):
         text = "¿Qué cambió?¿Cómo decidir, si falta un dato: el del Dr. Pérez? ¿Cuándo? ¿Dónde? ¿Cuál? ¿Quién? ¿Por qué?"
         plan = self.plan(text)
