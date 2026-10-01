@@ -154,3 +154,21 @@ Fuentes técnicas consultadas el 1 de octubre de 2026:
 - https://www.remotion.dev/docs/three-canvas
 
 La aprobación de un recurso visual no constituye revisión jurídica del guion.
+
+## Identidad visual boliviana — V1
+
+El selector conecta la evaluación de contexto a cada candidato y conserva sus
+razones en el manifiesto. Da prioridad a búsquedas de Bolivia y, en escenas
+institucionales, busca banderas bolivianas. Conserva el límite de consultas y las
+reglas de calidad, diversidad y repetición. Los recursos neutrales siguen siendo
+válidos cuando no hay un candidato boliviano pertinente.
+
+Las banderas estadounidenses identificadas en la descripción del recurso se
+rechazan salvo que la narración mencione expresamente Estados Unidos. La mención
+genérica de arbitraje o derecho internacional no basta. La palabra española
+«usa» tampoco se interpreta como referencia a ese país.
+
+La búsqueda no prueba lo que muestra un archivo. Este filtro utiliza las
+descripciones de los proveedores; una bandera sin descripción puede escapar.
+La revisión del video final sigue siendo necesaria. El ajuste se aplica a
+próximas ejecuciones y no modifica videos ya exportados.

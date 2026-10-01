@@ -1,4 +1,4 @@
-import type {VisualAsset as PexelsResolvedAsset} from "./assetTypes";
+import type { VisualAsset as PexelsResolvedAsset } from "./assetTypes";
 
 /**
  * V3.15-D2 — VISUAL CONTEXT QA DIRECTOR
@@ -49,11 +49,7 @@ export type VisualContextQAResult = {
   warningSignals: string[];
   rejectionReasons: string[];
 
-  directorDecision:
-    | "approve"
-    | "approve-with-warning"
-    | "penalize"
-    | "reject";
+  directorDecision: "approve" | "approve-with-warning" | "penalize" | "reject";
 };
 
 const normalize = (value: string): string =>
@@ -150,6 +146,12 @@ const INTERNATIONAL_CONTEXT_TERMS = [
  */
 const FOREIGN_FLAG_TERMS = [
   "american flag",
+  "flag of the united states",
+  "flag of usa",
+  "usa flag",
+  "bandera de estados unidos",
+  "bandera estadounidense",
+  "bandera americana",
   "united states flag",
   "us flag",
   "u s flag",
@@ -281,25 +283,16 @@ const ALLOWED_INTERNATIONAL_AESTHETIC_TERMS = [
 /**
  * Devuelve coincidencias únicas.
  */
-function findHits(
-  haystack: string,
-  terms: string[],
-): string[] {
+function findHits(haystack: string, terms: string[]): string[] {
   return [
-    ...new Set(
-      terms.filter((term) =>
-        haystack.includes(normalize(term)),
-      ),
-    ),
+    ...new Set(terms.filter((term) => haystack.includes(normalize(term)))),
   ];
 }
 
 /**
  * Construye el contexto semántico de la escena.
  */
-function sceneContext(
-  scene: VisualContextScene,
-): string {
+function sceneContext(scene: VisualContextScene): string {
   return normalize(
     [
       scene.ruleId ?? "",
@@ -311,21 +304,30 @@ function sceneContext(
   );
 }
 
+export function sceneMentionsUS(scene: VisualContextScene): boolean {
+  const original = [
+    scene.ruleId,
+    scene.concept,
+    scene.narrationContext,
+    scene.visualIntent,
+    scene.generationPrompt,
+  ].join(" ");
+  // Lowercase Spanish "usa" is a verb, not evidence of US jurisdiction.
+  return (
+    /\b(estados unidos|united states|eeuu|ee uu|u s a)\b/.test(
+      normalize(original),
+    ) || /\bUSA\b/.test(original)
+  );
+}
+
 /**
  * Metadata disponible del recurso.
  *
  * No utilizamos la query interna como prueba de que algo aparece
  * realmente en pantalla.
  */
-function assetContext(
-  asset: PexelsResolvedAsset,
-): string {
-  return normalize(
-    [
-      asset.altText ?? "",
-      asset.creator ?? "",
-    ].join(" "),
-  );
+function assetContext(asset: PexelsResolvedAsset): string {
+  return normalize([asset.altText ?? "", asset.creator ?? ""].join(" "));
 }
 
 export function evaluateVisualContext(
@@ -335,42 +337,34 @@ export function evaluateVisualContext(
   const sceneText = sceneContext(scene);
   const assetText = assetContext(asset);
 
-  const internationalHits = findHits(
-    sceneText,
-    INTERNATIONAL_CONTEXT_TERMS,
-  );
+  const internationalHits = findHits(sceneText, INTERNATIONAL_CONTEXT_TERMS);
 
-  const foreignFlagHits = findHits(
-    assetText,
-    FOREIGN_FLAG_TERMS,
-  );
+  const foreignFlagHits = findHits(assetText, FOREIGN_FLAG_TERMS);
 
-  const boliviaHits = findHits(
-    assetText,
-    BOLIVIA_TERMS,
-  );
+  const boliviaHits = findHits(assetText, BOLIVIA_TERMS);
 
-  const latinHits = findHits(
-    assetText,
-    LATIN_CONTEXT_TERMS,
-  );
+  const latinHits = findHits(assetText, LATIN_CONTEXT_TERMS);
 
   const internationalAestheticHits = findHits(
     assetText,
     ALLOWED_INTERNATIONAL_AESTHETIC_TERMS,
   );
 
-  const internationalContext =
-    internationalHits.length > 0;
+  const explicitUSContext = sceneMentionsUS(scene);
+  const usFlagDetected =
+    /\b(american flag|united states flag|flag of the united states|flag of usa|usa flag|us flag|u s flag|stars and stripes|bandera de estados unidos|bandera estadounidense|bandera americana)\b/.test(
+      assetText,
+    );
+  // Generic "international" is insufficient to justify a US flag in a Bolivian piece.
+  const internationalContext = usFlagDetected
+    ? explicitUSContext
+    : internationalHits.length > 0 || explicitUSContext;
 
-  const foreignFlagDetected =
-    foreignFlagHits.length > 0;
+  const foreignFlagDetected = foreignFlagHits.length > 0;
 
-  const boliviaDetected =
-    boliviaHits.length > 0;
+  const boliviaDetected = boliviaHits.length > 0;
 
-  const latinContextDetected =
-    latinHits.length > 0;
+  const latinContextDetected = latinHits.length > 0;
 
   const positiveSignals: string[] = [];
   const warningSignals: string[] = [];
@@ -385,37 +379,26 @@ export function evaluateVisualContext(
   if (boliviaDetected) {
     scoreAdjustment += 12;
 
-    positiveSignals.push(
-      `bolivia-context:${boliviaHits.join(",")}`,
-    );
+    positiveSignals.push(`bolivia-context:${boliviaHits.join(",")}`);
   }
 
   /*
    * PRIORIDAD 2:
    * Latinoamérica recibe preferencia moderada.
    */
-  if (
-    latinContextDetected &&
-    !boliviaDetected
-  ) {
+  if (latinContextDetected && !boliviaDetected) {
     scoreAdjustment += 5;
 
-    positiveSignals.push(
-      `latin-context:${latinHits.join(",")}`,
-    );
+    positiveSignals.push(`latin-context:${latinHits.join(",")}`);
   }
 
   /*
    * PRIORIDAD 3:
    * La estética internacional NO es un defecto.
    */
-  if (
-    internationalAestheticHits.length > 0
-  ) {
+  if (internationalAestheticHits.length > 0) {
     positiveSignals.push(
-      `international-aesthetic-allowed:${internationalAestheticHits.join(
-        ",",
-      )}`,
+      `international-aesthetic-allowed:${internationalAestheticHits.join(",")}`,
     );
   }
 
@@ -427,20 +410,13 @@ export function evaluateVisualContext(
    * No recibe una bonificación automática porque su pertinencia
    * depende de la escena, pero tampoco se penaliza.
    */
-  if (
-    foreignFlagDetected &&
-    internationalContext
-  ) {
+  if (foreignFlagDetected && internationalContext) {
     positiveSignals.push(
-      `foreign-flag-contextually-valid:${foreignFlagHits.join(
-        ",",
-      )}`,
+      `foreign-flag-contextually-valid:${foreignFlagHits.join(",")}`,
     );
 
     positiveSignals.push(
-      `international-context:${internationalHits.join(
-        ",",
-      )}`,
+      `international-context:${internationalHits.join(",")}`,
     );
 
     return {
@@ -448,8 +424,7 @@ export function evaluateVisualContext(
 
       scoreAdjustment,
 
-      classification:
-        "international-valid",
+      classification: "international-valid",
 
       internationalContext,
 
@@ -465,8 +440,7 @@ export function evaluateVisualContext(
 
       rejectionReasons,
 
-      directorDecision:
-        "approve",
+      directorDecision: "approve",
     };
   }
 
@@ -478,16 +452,11 @@ export function evaluateVisualContext(
    * No rechazamos el tribunal, abogado, edificio o estética.
    * Rechazamos específicamente la bandera contradictoria.
    */
-  if (
-    foreignFlagDetected &&
-    !internationalContext
-  ) {
+  if (foreignFlagDetected && !internationalContext) {
     scoreAdjustment -= 100;
 
     rejectionReasons.push(
-      `foreign-flag-without-context:${foreignFlagHits.join(
-        ",",
-      )}`,
+      `foreign-flag-without-context:${foreignFlagHits.join(",")}`,
     );
 
     return {
@@ -495,8 +464,7 @@ export function evaluateVisualContext(
 
       scoreAdjustment,
 
-      classification:
-        "foreign-flag-conflict",
+      classification: "foreign-flag-conflict",
 
       internationalContext,
 
@@ -512,8 +480,7 @@ export function evaluateVisualContext(
 
       rejectionReasons,
 
-      directorDecision:
-        "reject",
+      directorDecision: "reject",
     };
   }
 
@@ -521,13 +488,8 @@ export function evaluateVisualContext(
    * Asset neutral:
    * perfectamente válido.
    */
-  if (
-    !boliviaDetected &&
-    !latinContextDetected
-  ) {
-    positiveSignals.push(
-      "neutral-visual-context",
-    );
+  if (!boliviaDetected && !latinContextDetected) {
+    positiveSignals.push("neutral-visual-context");
   }
 
   /*
@@ -536,22 +498,18 @@ export function evaluateVisualContext(
    */
   if (internationalContext) {
     positiveSignals.push(
-      `international-context:${internationalHits.join(
-        ",",
-      )}`,
+      `international-context:${internationalHits.join(",")}`,
     );
   }
 
-  let classification:
-    VisualContextQAResult["classification"];
+  let classification: VisualContextQAResult["classification"];
 
   if (boliviaDetected) {
     classification = "bolivia";
   } else if (latinContextDetected) {
     classification = "latin-america";
   } else if (internationalContext) {
-    classification =
-      "international-valid";
+    classification = "international-valid";
   } else {
     classification = "neutral";
   }
@@ -578,8 +536,6 @@ export function evaluateVisualContext(
     rejectionReasons,
 
     directorDecision:
-      warningSignals.length > 0
-        ? "approve-with-warning"
-        : "approve",
+      warningSignals.length > 0 ? "approve-with-warning" : "approve",
   };
-               }
+}

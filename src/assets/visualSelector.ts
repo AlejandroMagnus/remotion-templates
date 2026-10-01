@@ -12,6 +12,29 @@ import {
 import { loadCatalog, searchCatalog, type CatalogEntry } from "./localCatalog";
 import { VisualMemory } from "./visualMemory";
 import { inspectMedia } from "./mediaInspection";
+import { evaluateVisualContext, sceneMentionsUS } from "./visualContextQA";
+
+export function bolivianQueries(scene: DirectorScene, queries: string[]) {
+  if (!queries.length) return [];
+  const text = [scene.ruleId, scene.concept, scene.narrationContext]
+    .join(" ")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  // An explicitly foreign comparison retains its requested geography.
+  if (sceneMentionsUS(scene)) return queries;
+  const institutional =
+    /\b(autoridad|constitucion|constitucional|estado|institucion|institucional|bolivia|boliviano|boliviana)\b/.test(
+      text,
+    );
+  return [
+    ...new Set([
+      ...(institutional ? ["Bolivia flag government"] : []),
+      `${queries[0]} Bolivia`,
+      ...queries,
+    ]),
+  ].slice(0, Math.min(5, queries.length));
+}
 
 type Scene = DirectorScene & { durationMs: number };
 export class VisualSelector {
@@ -39,11 +62,20 @@ export class VisualSelector {
         asset: VisualAsset;
         query: string;
         score: ReturnType<typeof rankVisualCandidate>;
+        contextQA: ReturnType<typeof evaluateVisualContext>;
         finalScore: number;
       }
     >();
     const add = (asset: VisualAsset, query: string, index: number) => {
       if (cropHeight(asset) < 960 || this.memory.rejection(asset)) return;
+      // Creator nationality/name and the search query are not evidence of the image.
+      const contextQA = evaluateVisualContext(scene, { ...asset, creator: "" });
+      if (!contextQA.approved) {
+        this.events.push(
+          `${assetKey(asset)}:${contextQA.rejectionReasons.join(";")}`,
+        );
+        return;
+      }
       const score = rankVisualCandidate(
         scene,
         asset,
@@ -51,13 +83,19 @@ export class VisualSelector {
         index,
         this.creators.get(asset.creator) ?? 0,
       );
-      if (score.foreignContextPenalty >= 40 || score.englishTextPenalty >= 35)
+      if (
+        (score.foreignContextPenalty >= 40 &&
+          !contextQA.internationalContext) ||
+        score.englishTextPenalty >= 35
+      )
         return;
       const finalScore =
-        score.total - (this.providers.get(asset.provider) ?? 0) * 3;
+        score.total +
+        contextQA.scoreAdjustment -
+        (this.providers.get(asset.provider) ?? 0) * 3;
       const key = assetKey(asset);
       if (!map.has(key) || map.get(key)!.finalScore < finalScore)
-        map.set(key, { asset, query, score, finalScore });
+        map.set(key, { asset, query, score, contextQA, finalScore });
     };
     searchCatalog(
       this.catalog,
@@ -66,7 +104,7 @@ export class VisualSelector {
       scene.durationMs,
       this.root,
     ).forEach((a, i) => add(a, a.altText ?? "", i));
-    for (const query of queries.slice(0, 5)) {
+    for (const query of bolivianQueries(scene, queries)) {
       const assets = await this.source.search(
         query,
         kind,
