@@ -546,12 +546,12 @@ jobs:
       - name: Verify resolved assets
         run: |
           test -s "public/generated/${PRODUCTION_CODE}-resolved-assets.json"
-          test -d public/generated/assets
-          test "$(find public/generated/assets -type f | wc -l)" -gt 0
+          test -d "public/generated/${PRODUCTION_CODE}/assets"
+          test "$(find "public/generated/${PRODUCTION_CODE}/assets" -type f | wc -l)" -gt 0
 
           echo "REAL ASSETS VERIFIED"
 
-          find public/generated/assets \
+          find "public/generated/${PRODUCTION_CODE}/assets" \
             -maxdepth 1 \
             -type f \
             -print
