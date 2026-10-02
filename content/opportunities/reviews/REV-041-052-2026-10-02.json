@@ -1,0 +1,265 @@
+{
+  "version": "V4.2-LEGAL-REVIEW-041-052",
+  "reviewedAt": "2026-10-02T08:15:00Z",
+  "reviewer": "OpenAI GPT-5.6 Sol — revisión documental asistida bajo protocolo PhD 12",
+  "authority": "PhD 12",
+  "jurisdiction": "Bolivia",
+  "method": "Revisión documental deliberada de normativa y jurisprudencia verificables. No es autoaprobación. Cada ficha se vinculó por contentHash al texto exacto revisado.",
+  "enabled": [
+    {
+      "id": "bo-041-motivacion-administrativa",
+      "topic": "Motivación administrativa: una resolución extensa puede seguir estando inmotivada",
+      "thesis": "La motivación no se satisface acumulando normas o antecedentes: la autoridad debe exteriorizar una cadena comprensible entre hechos relevantes, valoración, norma aplicable y decisión, de modo que el administrado pueda conocer por qué se decidió de esa manera y controlar jurídicamente el acto.",
+      "viewerBenefit": "Beneficio para el espectador: detectar en minutos si una resolución permite reconstruir y cuestionar jurídicamente la razón real de la decisión.",
+      "reviewReference": "REV-041-2026-10-02",
+      "sources": [
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/app/webroot/archivos/constitucion.pdf",
+          "locator": "art. 115.II"
+        },
+        {
+          "reference": "Tribunal Supremo de Justicia, Jurisprudencia 2023 — https://tsj.bo/wp-content/uploads/2024/01/JURISPRUDENCIA-TSJ-2023-Copia.pdf",
+          "locator": "Sentencia 26/2023 de 14 de febrero, apartado Fundamentación y motivación en las resoluciones judiciales"
+        }
+      ],
+      "contentHash": "eb6e5af052e31e462087892d8c5029ece7b0b2cd93e96115373301b9298f3376"
+    },
+    {
+      "id": "bo-042-carga-prueba-civil",
+      "topic": "Carga de la prueba: el error de ofrecer documentos sin saber qué hecho deben probar",
+      "thesis": "La carga probatoria debe construirse hecho por hecho: quien pretende un derecho debe acreditar sus hechos constitutivos y quien lo contradice debe acreditar los hechos impeditivos, modificatorios o extintivos que invoca, sin perjuicio de la iniciativa probatoria judicial prevista por la ley.",
+      "viewerBenefit": "Beneficio para el espectador: convertir una demanda o defensa en un mapa de hechos y pruebas antes de que el vacío probatorio sea irreversible.",
+      "reviewReference": "REV-042-2026-10-02",
+      "sources": [
+        {
+          "reference": "Código Procesal Civil, Ley 439 — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/439",
+          "locator": "arts. 134, 135 y 136"
+        },
+        {
+          "reference": "WIPO Lex, Código Procesal Civil Bolivia — https://www.wipo.int/wipolex/en/legislation/details/14924",
+          "locator": "arts. 134 a 136"
+        }
+      ],
+      "contentHash": "88c62f258b2594f4e0f1b6fda1dc9740f6ad04b402d1e0bffcaa6315bf5be886"
+    },
+    {
+      "id": "bo-043-prescripcion-tributaria-1733",
+      "topic": "Prescripción tributaria en 2026: la Ley 1733 cambió el punto de partida del análisis",
+      "thesis": "Tras la Ley 1733 de 27 de mayo de 2026, el análisis de prescripción debe comenzar identificando la facultad tributaria concreta, el nuevo plazo legal y el momento de inicio del cómputo; aplicar mecánicamente reglas anteriores puede producir una conclusión equivocada.",
+      "viewerBenefit": "Beneficio para el espectador: evitar cálculos tributarios basados en plazos derogados y saber qué datos deben revisarse antes de alegar prescripción.",
+      "reviewReference": "REV-043-2026-10-02",
+      "sources": [
+        {
+          "reference": "Servicio de Impuestos Nacionales, Ley 1733 / Alivio Tributario — https://www.impuestos.gob.bo/wp-content/uploads/2026/06/TEXTO-ALIVIO-TRIBUTARIO-1.pdf",
+          "locator": "Disposición Adicional Primera; modificación de arts. 59 y 60 de la Ley 2492"
+        },
+        {
+          "reference": "Aduana Nacional, Circular 126/2026 — https://www.aduana.gob.bo/node/1408537",
+          "locator": "Ley 1733 de 27 de mayo de 2026"
+        }
+      ],
+      "contentHash": "3fbc01a71e187ae92a05dca392d6400d0129fe200a5d681ba856cb7272b6135c"
+    },
+    {
+      "id": "bo-044-amparo-subsidiariedad",
+      "topic": "Amparo constitucional: cuándo la subsidiariedad bloquea la tutela y cuándo admite excepción",
+      "thesis": "La acción de amparo no funciona como una instancia adicional: en principio exige inexistencia de otro medio idóneo de protección, pero la propia normativa y jurisprudencia admiten excepciones justificadas cuando la tutela ordinaria puede resultar tardía o existe riesgo de daño irreparable.",
+      "viewerBenefit": "Beneficio para el espectador: distinguir un amparo prematuro de una situación en la que la tutela constitucional inmediata puede estar jurídicamente justificada.",
+      "reviewReference": "REV-044-2026-10-02",
+      "sources": [
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/app/webroot/archivos/constitucion.pdf",
+          "locator": "arts. 128 y 129.I"
+        },
+        {
+          "reference": "Tribunal Constitucional Plurinacional, Tomo III 2021 — https://tcpbolivia.bo/wp-content/uploads/2025/03/TomoIIIs12021.pdf",
+          "locator": "SCP 0611/2016-S2 y línea sobre art. 54 del Código Procesal Constitucional"
+        }
+      ],
+      "contentHash": "4aca5a8693f989b95cbffa4c9ffbbeef139f666cfbe951023542eda3528a4307"
+    },
+    {
+      "id": "bo-045-clausula-arbitral",
+      "topic": "Cláusula arbitral: una línea mal diseñada puede trasladar el conflicto al propio arbitraje",
+      "thesis": "La cláusula arbitral debe expresar de forma escrita y suficientemente determinada la voluntad de someter controversias a arbitraje; su autonomía respecto del contrato principal evita que la nulidad o invalidez del contrato destruya automáticamente el acuerdo arbitral.",
+      "viewerBenefit": "Beneficio para el espectador: saber qué revisar antes de aceptar una cláusula arbitral que puede definir dónde y cómo se resolverá un conflicto costoso.",
+      "reviewReference": "REV-045-2026-10-02",
+      "sources": [
+        {
+          "reference": "Ley 708 de Conciliación y Arbitraje — SEPREC — https://www.seprec.gob.bo/wp-content/uploads/2025/10/Ley-708-6-20-Conciliacion-y-Arbitraje.pdf",
+          "locator": "arts. 42, 43, 44 y 45"
+        }
+      ],
+      "contentHash": "e4483bf8e1165ac70a923e07023d870828110ab02520d6c4782c000def03270f"
+    },
+    {
+      "id": "bo-046-saneamiento-agrario",
+      "topic": "Saneamiento agrario: el expediente técnico-jurídico importa tanto como la ocupación física",
+      "thesis": "El saneamiento es un procedimiento técnico-jurídico destinado a regularizar y perfeccionar el derecho de propiedad agraria; por ello, posesión, función social o económico-social, antecedentes y actuaciones administrativas deben analizarse de forma integrada.",
+      "viewerBenefit": "Beneficio para el espectador: saber qué antecedentes, actos de posesión y evidencia de función social o económico-social deben ordenarse antes de discutir un derecho agrario.",
+      "reviewReference": "REV-046-2026-10-02",
+      "sources": [
+        {
+          "reference": "INRA, Ley 1715 — https://www.inra.gob.bo/wp-content/uploads/2023/08/LEY_1715.pdf",
+          "locator": "arts. 1, 2 y 64 a 67"
+        },
+        {
+          "reference": "INRA, Saneamiento de la Propiedad Agraria — https://www.inra.gob.bo/saneamiento-de-la-propiedad-agraria/",
+          "locator": "definición del art. 64 y finalidades de saneamiento de los arts. 65 a 67"
+        }
+      ],
+      "contentHash": "1edc01f6479112d181f5e0fc0deca918627b4dba9cce97712e750c58f6c66ee8"
+    },
+    {
+      "id": "bo-047-due-diligence-minera",
+      "topic": "Antes de invertir en minería: el derecho minero debe verificarse antes que la proyección financiera",
+      "thesis": "Una due diligence minera debe verificar la naturaleza y vigencia del derecho o contrato, el área, las obligaciones de conservación y las causales de extinción antes de valorar producción o rentabilidad; la inversión no sustituye la existencia de un título jurídico habilitante.",
+      "viewerBenefit": "Beneficio para el espectador: disponer de cuatro controles jurídicos mínimos antes de comprometer capital en una operación minera.",
+      "reviewReference": "REV-047-2026-10-02",
+      "sources": [
+        {
+          "reference": "AJAM, Ley 535 de Minería y Metalurgia — https://www.autoridadminera.gob.bo/wp-content/uploads/2023/07/Ley-535-de-mineria-y-metalurgia.pdf",
+          "locator": "arts. 94, 95, 114 y 131; derechos, extinción y contratos mineros"
+        },
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/app/webroot/archivos/constitucion.pdf",
+          "locator": "arts. 369 a 371"
+        }
+      ],
+      "contentHash": "4a806c50c98796f61df85eaa30c18fa6f270449bac09ac0d126a81eb1ca9fa05"
+    },
+    {
+      "id": "bo-048-congruencia-resoluciones",
+      "topic": "Congruencia: una resolución puede responder mucho y aun omitir lo decisivo",
+      "thesis": "La congruencia exige que la decisión responda los puntos discutidos y explique las razones que justifican lo resuelto; una resolución no necesita ser ampulosa, pero sí debe ser clara, suficiente y coherente con las cuestiones sometidas a decisión.",
+      "viewerBenefit": "Beneficio para el espectador: aprender a formular una denuncia de incongruencia concreta en lugar de limitarse a afirmar que la resolución no respondió.",
+      "reviewReference": "REV-048-2026-10-02",
+      "sources": [
+        {
+          "reference": "Tribunal Supremo de Justicia, Resúmenes de Jurisprudencia 2023 — https://www.tsj.bo/wp-content/uploads/2024/01/JURISPRUDENCIA-TSJ-2023.pdf",
+          "locator": "Auto Supremo 332/2023 de 15 de septiembre, congruencia de resoluciones judiciales o administrativas"
+        },
+        {
+          "reference": "Génesis TSJ — https://genesis.tsj.bo/jurisprudencia/90577",
+          "locator": "doctrina aplicable sobre debido proceso, fundamentación y motivación"
+        }
+      ],
+      "contentHash": "2f7f784dfa5c35ffefd7df68335c8b221e47167829cc5c6d8de675a5fe0a6460"
+    },
+    {
+      "id": "bo-049-asistencia-familiar",
+      "topic": "Asistencia familiar: necesidad, capacidad y tutela oportuna no pueden analizarse por separado",
+      "thesis": "La asistencia familiar debe resolverse con enfoque de protección efectiva, valorando necesidades, capacidad económica y circunstancias concretas, y evitando dilaciones incompatibles con la tutela oportuna de niñas, niños y adolescentes.",
+      "viewerBenefit": "Beneficio para el espectador: saber qué información económica y familiar debe organizarse para discutir asistencia familiar con hechos y no con afirmaciones genéricas.",
+      "reviewReference": "REV-049-2026-10-02",
+      "sources": [
+        {
+          "reference": "Ley 603, Código de las Familias y del Proceso Familiar — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/603",
+          "locator": "régimen de asistencia familiar"
+        },
+        {
+          "reference": "TCP, SCP 0334/2023-S2 — https://tcpbolivia.bo/0334-2023-s2/",
+          "locator": "asistencia familiar, tutela oportuna y abstracción de subsidiariedad en casos de niñas y niños"
+        }
+      ],
+      "contentHash": "bee5465d78b9f3f35a20793517847a7babe2b9783e4529cdb177e6bff221bf09"
+    },
+    {
+      "id": "bo-050-cautelares-penales",
+      "topic": "Detención preventiva: gravedad del hecho y riesgo procesal son preguntas diferentes",
+      "thesis": "La restricción cautelar de libertad exige analizar presupuestos y riesgos procesales concretos; la gravedad abstracta de la imputación no sustituye la necesidad de justificar por qué una medida personal resulta necesaria y proporcional en el caso específico.",
+      "viewerBenefit": "Beneficio para el espectador: distinguir argumentos sobre el delito de los datos que realmente pueden justificar o cuestionar una medida cautelar personal.",
+      "reviewReference": "REV-050-2026-10-02",
+      "sources": [
+        {
+          "reference": "Tribunal Constitucional Plurinacional, Tomo III 2021 — https://tcpbolivia.bo/wp-content/uploads/2025/03/TomoIIIs12021.pdf",
+          "locator": "línea jurisprudencial sobre medidas cautelares personales y cesación de detención preventiva"
+        },
+        {
+          "reference": "Código de Procedimiento Penal, Ley 1970 — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1970",
+          "locator": "régimen de medidas cautelares personales"
+        }
+      ],
+      "contentHash": "30531a7006e72a8bba95c8e9db7f6567e509064dda7c1791099373624b0c0ff3"
+    },
+    {
+      "id": "bo-051-cadena-hidrocarburos",
+      "topic": "Hidrocarburos: el riesgo jurídico cambia según la fase de la cadena",
+      "thesis": "Exploración, explotación, refinación, transporte, almacenamiento, comercialización y distribución no deben analizarse como si fueran una sola actividad: la Ley 3058 distingue fases y el mapa jurídico debe construirse desde la actividad concreta y sus obligaciones.",
+      "viewerBenefit": "Beneficio para el espectador: identificar qué preguntas jurídicas cambian cuando un negocio pasa de exploración a transporte, almacenamiento o comercialización.",
+      "reviewReference": "REV-051-2026-10-02",
+      "sources": [
+        {
+          "reference": "Ley 3058 de Hidrocarburos — Gaceta Oficial — https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3058",
+          "locator": "arts. 1 y 31; objeto y clasificación de actividades"
+        },
+        {
+          "reference": "YPFB, marco regulatorio de contratos de O&G — https://www.ypfb.gob.bo/images/upstream/5-PRESENTACION_GAEF.pdf",
+          "locator": "Ley 3058, arts. 1, 31 y 34; fases de la cadena y áreas de exploración/explotación"
+        }
+      ],
+      "contentHash": "ade42d984c51a9eb2e0ffd4e82d5e9132d833eac0f8de7750967dcf5a309a068"
+    },
+    {
+      "id": "bo-052-evidencia-ambiental",
+      "topic": "Incidente ambiental: la defensa jurídica empieza preservando evidencia, no redactando excusas",
+      "thesis": "La gestión jurídica de un incidente ambiental debe comenzar con prevención, identificación del hecho, preservación de evidencia, trazabilidad de decisiones y cumplimiento de obligaciones ambientales; reconstruir esos elementos después del evento aumenta el riesgo regulatorio y probatorio.",
+      "viewerBenefit": "Beneficio para el espectador: saber qué registrar desde el primer momento para que una contingencia ambiental no se convierta en un expediente sin trazabilidad.",
+      "reviewReference": "REV-052-2026-10-02",
+      "sources": [
+        {
+          "reference": "Ministerio de Medio Ambiente y Agua, Ley 1333 — https://snia.mmaya.gob.bo/web/modulos/Biblioteca/items/24112022-121128-937402_209/24112022-121128-937402_209.pdf",
+          "locator": "Ley 1333 de Medio Ambiente, marco general de gestión ambiental"
+        },
+        {
+          "reference": "Sistema Nacional de Información Ambiental — https://snia.mmaya.gob.bo/",
+          "locator": "normativa vigente, licenciamiento, informes de monitoreo y actuaciones de la Autoridad Ambiental Competente Nacional"
+        }
+      ],
+      "contentHash": "31bab226e39c23da1340eaba8db95075ee75bdbfe4db0275b1528dd343f7e100"
+    }
+  ],
+  "pendingAgendaOutside041052": [
+    "fi-01",
+    "fi-02",
+    "fi-03",
+    "fi-04",
+    "fi-05",
+    "fi-06",
+    "fi-07",
+    "fi-08",
+    "fi-09",
+    "fi-10",
+    "fi-11",
+    "fi-12",
+    "fi-13",
+    "fi-14",
+    "fi-15",
+    "fi-16",
+    "fi-17",
+    "fi-18",
+    "dt-01",
+    "dt-02",
+    "dt-03",
+    "dt-04",
+    "dt-05",
+    "dt-06",
+    "dt-07",
+    "dt-08",
+    "dt-09",
+    "dt-10",
+    "dt-11",
+    "dt-12",
+    "ht-01",
+    "ht-02",
+    "ht-03",
+    "ht-04",
+    "ht-05",
+    "ht-06",
+    "ht-07",
+    "ht-08",
+    "ht-09",
+    "ht-10"
+  ],
+  "note": "Las fichas nuevas futuras permanecen bloqueadas hasta nueva revisión documentada. La producción real seguirá sometida a memoria anti-duplicados."
+}
