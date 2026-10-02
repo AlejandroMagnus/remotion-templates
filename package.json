@@ -27,7 +27,8 @@
     "video:3d:render": "node --import tsx scripts/three-d-pilot.ts render",
     "assets:library": "node --import tsx scripts/visual-library.ts",
     "test:visual": "vitest run tests/visual-library*.test.ts",
-    "assets:preview": "node --import tsx scripts/visual-library-preview.ts"
+    "assets:preview": "node --import tsx scripts/visual-library-preview.ts",
+    "editorial:041-readiness": "tsx scripts/editorial-041-readiness.ts"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.1",

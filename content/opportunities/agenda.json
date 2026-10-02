@@ -446,6 +446,250 @@
       "jurisdiction": null,
       "sources": [],
       "status": "pending-phd12"
+    },
+    {
+      "id": "bo-041-motivacion-administrativa",
+      "category": "FI",
+      "dimension": "doctrinal",
+      "domains": ["derecho-administrativo", "debido-proceso"],
+      "question": "¿Cuándo una resolución administrativa está realmente motivada?",
+      "researchTask": "Contrastar hechos acreditados, norma aplicable, razonamiento y decisión; documentar la revisión antes de habilitar.",
+      "proposedThesis": "Una resolución administrativa no satisface el deber de motivación por acumular citas: debe exteriorizar el razonamiento que conecta hechos acreditados, norma aplicable y decisión.",
+      "viewerBenefit": "Detectar cuándo una resolución parece fundamentada pero no permite controlar la razón real de la decisión.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo",
+          "locator": "texto oficial, régimen de actos administrativos",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/2341"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-042-carga-prueba-civil",
+      "category": "DT",
+      "dimension": "procesal",
+      "domains": ["proceso-civil", "derecho-probatorio"],
+      "question": "¿Quién debe probar qué en un proceso civil?",
+      "researchTask": "Mapear hechos jurídicamente relevantes, carga, medio probatorio y consecuencia de la falta de prueba.",
+      "proposedThesis": "La estrategia probatoria comienza antes de ofrecer documentos: exige identificar cada hecho relevante, quién soporta su falta de prueba y qué medio es idóneo para acreditarlo.",
+      "viewerBenefit": "Convertir una demanda o defensa en un mapa de hechos que necesitan prueba antes de llegar a audiencia.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 439 Código Procesal Civil",
+          "locator": "texto oficial, régimen de prueba",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/439"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-043-prescripcion-tributaria",
+      "category": "HT",
+      "dimension": "sustantiva",
+      "domains": ["derecho-tributario", "prescripcion"],
+      "question": "¿Por qué una fecha aislada no resuelve la prescripción tributaria?",
+      "researchTask": "Reconstruir cronología, régimen aplicable, suspensión/interrupción y actos relevantes.",
+      "proposedThesis": "La prescripción tributaria exige reconstruir cronología, régimen aplicable y actos con efecto jurídico sobre el cómputo; la antigüedad de la deuda no basta.",
+      "viewerBenefit": "Saber qué fechas y actuaciones reunir antes de concluir que una obligación tributaria prescribió o sigue exigible.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 2492 Código Tributario Boliviano",
+          "locator": "texto oficial, régimen de prescripción",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/2492"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-044-amparo-subsidiariedad",
+      "category": "FI",
+      "dimension": "procesal",
+      "domains": ["derecho-constitucional", "amparo"],
+      "question": "¿Cuándo el amparo constitucional no puede sustituir a los recursos ordinarios?",
+      "researchTask": "Delimitar lesión, subsidiariedad, idoneidad de vías y excepciones con fuentes verificadas.",
+      "proposedThesis": "El amparo no es una instancia adicional: exige identificar una lesión constitucional y justificar por qué la tutela constitucional es procedente frente a las vías ordinarias disponibles.",
+      "viewerBenefit": "Distinguir una verdadera cuestión constitucional de un desacuerdo que todavía corresponde discutir por vías ordinarias.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 254 Código Procesal Constitucional",
+          "locator": "texto oficial, acción de amparo",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/254"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-045-clausula-arbitral",
+      "category": "HT",
+      "dimension": "forense",
+      "domains": ["arbitraje", "contratos"],
+      "question": "¿Qué debe contener una cláusula arbitral para evitar conflictos sobre el propio arbitraje?",
+      "researchTask": "Revisar alcance, partes, sede, reglas, institución y ejecutabilidad.",
+      "proposedThesis": "Una cláusula arbitral útil reduce incertidumbre sobre alcance, partes, sede, reglas y forma de resolver controversias; la ambigüedad desplaza el conflicto hacia la competencia.",
+      "viewerBenefit": "Reconocer qué revisar antes de copiar una cláusula arbitral estándar en un contrato relevante.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 708 de Conciliación y Arbitraje",
+          "locator": "texto oficial, convenio arbitral",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/708"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-046-saneamiento-agrario",
+      "category": "DT",
+      "dimension": "forense",
+      "domains": ["derecho-agrario", "saneamiento"],
+      "question": "¿Qué debe probarse realmente en una controversia de saneamiento agrario?",
+      "researchTask": "Ordenar antecedentes, posesión, función social/económico-social y actuaciones administrativas.",
+      "proposedThesis": "En saneamiento agrario, posesión, función social o económico-social y antecedentes administrativos deben reconstruirse como una cadena probatoria; la sola afirmación de ocupación no sustituye el expediente.",
+      "viewerBenefit": "Identificar qué documentos y hechos deben ordenarse antes de discutir un derecho agrario.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 1715",
+          "locator": "texto oficial",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1715"
+        },
+        {
+          "reference": "Ley N° 3545",
+          "locator": "texto oficial",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3545"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-047-due-diligence-minera",
+      "category": "HT",
+      "dimension": "forense",
+      "domains": ["derecho-minero", "due-diligence"],
+      "question": "¿Qué debe verificarse jurídicamente antes de invertir en una operación minera?",
+      "researchTask": "Verificar derecho habilitante, vigencia, área, obligaciones, contratos y riesgos regulatorios.",
+      "proposedThesis": "Una inversión minera debe verificar derecho habilitante, vigencia, área, obligaciones y compatibilidad contractual antes de valorar producción o rentabilidad.",
+      "viewerBenefit": "Contar con una lista mínima de verificación jurídica antes de comprometer capital en minería.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 535 de Minería y Metalurgia",
+          "locator": "texto oficial",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/535"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-048-prueba-digital",
+      "category": "DT",
+      "dimension": "forense",
+      "domains": ["prueba-digital", "proceso"],
+      "question": "¿Por qué una captura de pantalla no agota el análisis de la prueba digital?",
+      "researchTask": "Revisar origen, integridad, contexto, atribución y preservación.",
+      "proposedThesis": "El valor de una evidencia digital depende de poder explicar origen, integridad, contexto y atribución; una imagen aislada puede mostrar contenido sin demostrar autoría ni ausencia de alteración.",
+      "viewerBenefit": "Saber qué preservar además de una captura cuando un mensaje o archivo puede convertirse en prueba.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 164",
+          "locator": "texto oficial, tecnologías de información y comunicaciones",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/164"
+        },
+        {
+          "reference": "Ley N° 439 Código Procesal Civil",
+          "locator": "texto oficial, medios de prueba",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/439"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-049-asistencia-familiar",
+      "category": "FI",
+      "dimension": "sustantiva",
+      "domains": ["derecho-familia", "asistencia-familiar"],
+      "question": "¿Cómo se estructura probatoriamente una discusión sobre asistencia familiar?",
+      "researchTask": "Conectar necesidades, capacidad económica, circunstancias y prueba documental.",
+      "proposedThesis": "La asistencia familiar exige conectar necesidades reales, capacidad económica y circunstancias concretas; una cifra aislada no explica por sí misma la proporcionalidad.",
+      "viewerBenefit": "Ordenar la documentación económica y familiar que permite discutir una asistencia con hechos verificables.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar",
+          "locator": "texto oficial, asistencia familiar",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/603"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-050-cautelares-penales",
+      "category": "FI",
+      "dimension": "procesal",
+      "domains": ["proceso-penal", "medidas-cautelares"],
+      "question": "¿Por qué la gravedad del hecho no sustituye la demostración del riesgo procesal?",
+      "researchTask": "Distinguir presupuestos cautelares, riesgos, evidencia y proporcionalidad.",
+      "proposedThesis": "Una medida cautelar personal exige justificar presupuestos y riesgos procesales concretos con información verificable; la gravedad abstracta del hecho no reemplaza ese análisis.",
+      "viewerBenefit": "Separar argumentos sobre el delito de argumentos realmente dirigidos a justificar o cuestionar una cautelar.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 1970 Código de Procedimiento Penal",
+          "locator": "texto oficial, medidas cautelares",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1970"
+        },
+        {
+          "reference": "Ley N° 1173",
+          "locator": "texto oficial, modificaciones procesales penales",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1173"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-051-contrato-hidrocarburos",
+      "category": "HT",
+      "dimension": "sustantiva",
+      "domains": ["hidrocarburos", "contratos"],
+      "question": "¿Qué riesgos jurídicos cambian a lo largo de la cadena de hidrocarburos?",
+      "researchTask": "Distinguir habilitación, transporte, almacenamiento, comercialización, obligaciones y contingencias.",
+      "proposedThesis": "Los riesgos jurídicos en hidrocarburos cambian según la fase de la cadena; analizar producción, transporte o comercialización como si fueran equivalentes oculta obligaciones regulatorias distintas.",
+      "viewerBenefit": "Identificar qué preguntas jurídicas cambian según la etapa concreta del negocio energético.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 3058 de Hidrocarburos",
+          "locator": "texto oficial",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/3058"
+        }
+      ],
+      "status": "pending-phd12"
+    },
+    {
+      "id": "bo-052-responsabilidad-ambiental",
+      "category": "DT",
+      "dimension": "forense",
+      "domains": ["derecho-ambiental", "responsabilidad"],
+      "question": "¿Cómo se conecta prevención, evidencia y responsabilidad en un incidente ambiental?",
+      "researchTask": "Separar deber preventivo, hecho, evidencia, causalidad, autoridad competente y reparación.",
+      "proposedThesis": "La responsabilidad ambiental no empieza cuando se calcula una sanción: comienza con deberes preventivos, trazabilidad de hechos y conservación de evidencia capaz de explicar causa, impacto y respuesta.",
+      "viewerBenefit": "Saber qué debe documentarse desde el primer momento de un incidente con posible impacto ambiental.",
+      "jurisdiction": "Bolivia",
+      "sources": [
+        {
+          "reference": "Ley N° 1333 del Medio Ambiente",
+          "locator": "texto oficial",
+          "url": "https://www.gacetaoficialdebolivia.gob.bo/normas/buscar/1333"
+        }
+      ],
+      "status": "pending-phd12"
     }
-  ]
+  ],
+  "notice041Plus": "Las propuestas bo-041 a bo-052 son agenda pendiente; no son renderizables ni aprobadas. Deben convertirse en ficha completa y pasar revisión jurídica documentada antes de importarse a catalog.json."
 }
