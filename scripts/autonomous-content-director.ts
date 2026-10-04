@@ -73,6 +73,9 @@ async function main() {
     throw new Error("Modo de selección inválido.");
   }
 
+  const SPECIAL_053_ID = "bo-053-manifiesto-complejidad-juridica";
+  const isSpecial053 = productionCode === "video-juridico-053";
+
   const intent: HighTicketContentIntent = {
     productionCode,
     mode:
@@ -83,8 +86,14 @@ async function main() {
           : "autonomous",
     requestedTopic,
     requestedAngle,
-    qInfinityPriorityId: process.env.QINFINITY_PRIORITY_ID?.trim(),
-    qInfinityReason: process.env.QINFINITY_REASON?.trim(),
+    qInfinityPriorityId:
+      process.env.QINFINITY_PRIORITY_ID?.trim() ||
+      (isSpecial053 ? SPECIAL_053_ID : undefined),
+    qInfinityReason:
+      process.env.QINFINITY_REASON?.trim() ||
+      (isSpecial053
+        ? "Pieza insignia 053 aprobada y preseleccionada por diseño editorial."
+        : undefined),
     qInfinityVetoIds: (process.env.QINFINITY_VETO_IDS || "")
       .split(",")
       .map((id) => id.trim())
@@ -130,7 +139,11 @@ async function main() {
   } else {
     selectionKind = "new-content";
     selectionPool = is041Plus
-      ? catalog.available.filter((item) => item.id.startsWith("bo-"))
+      ? catalog.available.filter(
+          (item) =>
+            item.id.startsWith("bo-") &&
+            (isSpecial053 || item.id !== SPECIAL_053_ID),
+        )
       : reviewedUniverse;
 
     if (is041Plus && selectionPool.length === 0) {

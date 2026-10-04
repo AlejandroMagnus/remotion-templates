@@ -1,0 +1,316 @@
+{
+  "version": "V4.4",
+  "reviewedAt": "2026-10-03T23:30:00Z",
+  "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+  "policy": "Reserva pre-redactada y revisada documentalmente. El runtime NO autoaprueba propuestas nuevas; solo selecciona fichas ya revisadas y vigentes.",
+  "special": {
+    "productionCode": "video-juridico-053",
+    "opportunityId": "bo-053-manifiesto-complejidad-juridica"
+  },
+  "reserve": [
+    {
+      "id": "bo-054-notificacion-administrativa-defensa",
+      "topic": "Una notificación administrativa puede decidir el caso antes de discutir el fondo",
+      "thesis": "Reconstruir cuándo, cómo y con qué contenido se comunicó una decisión es parte de la defensa porque de esa secuencia dependen conocimiento efectivo, reacción procesal y control de plazos.",
+      "viewerBenefit": "Enseñar qué datos reunir antes de asumir que un plazo empezó o terminó.",
+      "reviewReference": "REV-BO-054-NOTIFICACION-ADMINISTRATIVA-DEFENSA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        },
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-055-expediente-administrativo-cadena",
+      "topic": "El expediente administrativo debe leerse como una cadena de decisiones y pruebas",
+      "thesis": "Un expediente adquiere sentido cuando se conecta cada hecho, documento, informe, competencia y decisión en secuencia; leer piezas aisladas puede ocultar contradicciones y saltos de razonamiento.",
+      "viewerBenefit": "Dar un método para encontrar el documento que realmente cambia el caso.",
+      "reviewReference": "REV-BO-055-EXPEDIENTE-ADMINISTRATIVO-CADENA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        }
+      ]
+    },
+    {
+      "id": "bo-056-motivacion-administrativa",
+      "topic": "Citar normas no equivale a motivar una decisión",
+      "thesis": "La calidad de una decisión administrativa se controla observando si explica la conexión entre hechos relevantes, antecedentes, regla aplicada y conclusión, no por la cantidad de normas transcritas.",
+      "viewerBenefit": "Distinguir una resolución extensa de una resolución verdaderamente razonada.",
+      "reviewReference": "REV-BO-056-MOTIVACION-ADMINISTRATIVA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        },
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-057-mapa-prueba-civil",
+      "topic": "La prueba civil se diseña antes de redactar la demanda o la respuesta",
+      "thesis": "Una estrategia probatoria útil parte de descomponer la controversia en hechos jurídicamente relevantes, asignar a cada uno un medio de acreditación y anticipar qué ocurre si ese hecho queda sin prueba.",
+      "viewerBenefit": "Convertir una controversia en un mapa de hechos que necesitan respaldo.",
+      "reviewReference": "REV-BO-057-MAPA-PRUEBA-CIVIL-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código Procesal Civil."
+        }
+      ]
+    },
+    {
+      "id": "bo-058-cautelar-civil-riesgo",
+      "topic": "Una medida cautelar no debe confundirse con la sentencia",
+      "thesis": "La estrategia cautelar exige separar la protección provisional del derecho discutido y justificar por qué la demora procesal puede volver inútil la decisión final.",
+      "viewerBenefit": "Distinguir qué debe probarse para proteger provisionalmente un derecho.",
+      "reviewReference": "REV-BO-058-CAUTELAR-CIVIL-RIESGO-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código Procesal Civil."
+        }
+      ]
+    },
+    {
+      "id": "bo-059-ejecucion-civil-estrategia",
+      "topic": "Ganar una sentencia y cobrar son problemas jurídicos distintos",
+      "thesis": "La estrategia de un litigio patrimonial debe considerar desde el inicio cómo se ejecutaría una eventual decisión, porque una victoria declarativa sin ruta de cumplimiento puede tener poco valor económico.",
+      "viewerBenefit": "Mostrar por qué la posibilidad real de cumplimiento cambia la valoración económica de un litigio.",
+      "reviewReference": "REV-BO-059-EJECUCION-CIVIL-ESTRATEGIA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código Procesal Civil."
+        }
+      ]
+    },
+    {
+      "id": "bo-060-asistencia-familiar-prueba",
+      "topic": "En asistencia familiar, una cifra sin contexto no explica capacidad ni necesidad",
+      "thesis": "La discusión sobre asistencia familiar se vuelve más rigurosa cuando necesidades, capacidad económica, cargas y circunstancias concretas se documentan y comparan en lugar de reducirse a afirmaciones generales.",
+      "viewerBenefit": "Ordenar la información económica que conviene reunir antes de discutir un monto.",
+      "reviewReference": "REV-BO-060-ASISTENCIA-FAMILIAR-PRUEBA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código de las Familias y del Proceso Familiar."
+        }
+      ]
+    },
+    {
+      "id": "bo-061-interes-superior-metodo",
+      "topic": "El interés superior no debe convertirse en una frase vacía",
+      "thesis": "Invocar el interés superior exige traducirlo a hechos concretos, consecuencias previsibles y alternativas comparables; la etiqueta no sustituye el análisis.",
+      "viewerBenefit": "Pasar de una invocación abstracta a un análisis concreto centrado en consecuencias.",
+      "reviewReference": "REV-BO-061-INTERES-SUPERIOR-METODO-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código de las Familias y del Proceso Familiar."
+        },
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-062-acuerdo-familiar-ejecutable",
+      "topic": "Un acuerdo familiar útil debe poder cumplirse sin adivinar qué quiso decir cada parte",
+      "thesis": "La claridad sobre obligaciones, tiempos, condiciones y mecanismos de cumplimiento reduce nuevos conflictos y permite evaluar mejor la viabilidad del acuerdo.",
+      "viewerBenefit": "Mostrar qué revisar antes de firmar un acuerdo que afectará la vida cotidiana de una familia.",
+      "reviewReference": "REV-BO-062-ACUERDO-FAMILIAR-EJECUTABLE-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código de las Familias y del Proceso Familiar."
+        }
+      ]
+    },
+    {
+      "id": "bo-063-hidrocarburos-cadena-riesgo",
+      "topic": "En hidrocarburos, el riesgo jurídico cambia con cada fase del negocio",
+      "thesis": "Exploración, explotación, transporte, industrialización y comercialización no deben analizarse como una sola actividad: cada fase modifica competencias, obligaciones, contratos y riesgos regulatorios.",
+      "viewerBenefit": "Formular las preguntas jurídicas correctas según la etapa real del proyecto.",
+      "reviewReference": "REV-BO-063-HIDROCARBUROS-CADENA-RIESGO-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 3058 de Hidrocarburos — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Hidrocarburos."
+        },
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-064-hidrocarburos-contrato-regulacion",
+      "topic": "Un contrato energético no puede leerse separado del régimen regulatorio",
+      "thesis": "En sectores regulados, una cláusula comercial puede ser insuficiente si no se contrasta con habilitaciones, competencias, obligaciones sectoriales y límites imperativos del marco público.",
+      "viewerBenefit": "Mostrar por qué una revisión contractual de alto valor debe incorporar la dimensión regulatoria.",
+      "reviewReference": "REV-BO-064-HIDROCARBUROS-CONTRATO-REGULACION-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 3058 de Hidrocarburos — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Hidrocarburos."
+        }
+      ]
+    },
+    {
+      "id": "bo-065-inversion-energia-due-diligence",
+      "topic": "Antes de invertir en energía, el mapa jurídico debe preceder al modelo financiero",
+      "thesis": "Una inversión energética responsable exige verificar derechos, contratos, habilitaciones, obligaciones regulatorias y contingencias antes de convertir proyecciones operativas en una decisión de capital.",
+      "viewerBenefit": "Dar al inversor una estructura mínima de preguntas antes de comprometer capital.",
+      "reviewReference": "REV-BO-065-INVERSION-ENERGIA-DUE-DILIGENCE-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 3058 de Hidrocarburos — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Hidrocarburos."
+        },
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-066-funcion-publica-trazabilidad",
+      "topic": "En la función pública, una decisión debe dejar una ruta que pueda ser auditada",
+      "thesis": "La evaluación de una actuación pública mejora cuando puede reconstruirse competencia, antecedente, decisión, respaldo documental y responsabilidad de cada intervención.",
+      "viewerBenefit": "Mostrar cómo ordenar una decisión pública para que pueda explicarse y defenderse posteriormente.",
+      "reviewReference": "REV-BO-066-FUNCION-PUBLICA-TRAZABILIDAD-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+        }
+      ]
+    },
+    {
+      "id": "bo-067-contratacion-publica-expediente",
+      "topic": "En contratación pública, el expediente debe explicar por qué se tomó cada decisión",
+      "thesis": "Una contratación pública sólida exige que requerimiento, evaluación, decisión, contrato y ejecución formen una secuencia documental coherente y susceptible de control.",
+      "viewerBenefit": "Detectar vacíos antes de que se conviertan en observaciones o litigios.",
+      "reviewReference": "REV-BO-067-CONTRATACION-PUBLICA-EXPEDIENTE-2026-10-03",
+      "sources": [
+        {
+          "reference": "Decreto Supremo N° 181 — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Normas Básicas del Sistema de Administración de Bienes y Servicios."
+        },
+        {
+          "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+        }
+      ]
+    },
+    {
+      "id": "bo-068-decision-publica-competencia",
+      "topic": "Antes de discutir si una decisión pública es correcta, pregunte quién podía tomarla",
+      "thesis": "El análisis de una actuación pública debe comenzar por competencia y atribución, porque un razonamiento materialmente atractivo no corrige por sí solo un problema de autoridad o procedimiento.",
+      "viewerBenefit": "Enseñar un orden de análisis que evita discutir el fondo antes de controlar la autoridad.",
+      "reviewReference": "REV-BO-068-DECISION-PUBLICA-COMPETENCIA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        },
+        {
+          "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+        }
+      ]
+    },
+    {
+      "id": "bo-069-debido-proceso-mapa",
+      "topic": "El debido proceso no es una frase: es un mapa de garantías concretas",
+      "thesis": "Invocar debido proceso tiene fuerza cuando se identifica la garantía concreta comprometida, el acto que la afecta, el perjuicio producido y la corrección jurídicamente pertinente.",
+      "viewerBenefit": "Convertir una queja genérica en un problema constitucional identificable.",
+      "reviewReference": "REV-BO-069-DEBIDO-PROCESO-MAPA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-070-defensa-constitucional-causalidad",
+      "topic": "Una lesión constitucional debe conectarse con el resultado que se pretende corregir",
+      "thesis": "La estrategia constitucional se fortalece cuando demuestra una cadena entre acto, derecho afectado, perjuicio y remedio, evitando que la argumentación se reduzca a enumerar derechos.",
+      "viewerBenefit": "Estructurar una alegación constitucional que pueda ser entendida y controlada.",
+      "reviewReference": "REV-BO-070-DEFENSA-CONSTITUCIONAL-CAUSALIDAD-2026-10-03",
+      "sources": [
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        }
+      ]
+    },
+    {
+      "id": "bo-071-prevencion-constitucional-empresa",
+      "topic": "El control constitucional también sirve para prevenir decisiones empresariales de alto riesgo",
+      "thesis": "En asuntos empresariales regulados, revisar anticipadamente competencia, procedimiento, defensa y afectación de derechos puede evitar que una decisión comercial quede atrapada después en una controversia pública compleja.",
+      "viewerBenefit": "Mostrar por qué el análisis constitucional puede formar parte de una decisión preventiva.",
+      "reviewReference": "REV-BO-071-PREVENCION-CONSTITUCIONAL-EMPRESA-2026-10-03",
+      "sources": [
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        },
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        }
+      ]
+    },
+    {
+      "id": "bo-072-empresa-regulada-prevencion",
+      "topic": "Una empresa regulada debe diseñar defensa antes de recibir una sanción",
+      "thesis": "La prevención jurídica empresarial mejora cuando identifica obligaciones regulatorias, responsables internos, evidencia de cumplimiento y ruta de respuesta antes de que exista una fiscalización o procedimiento sancionador.",
+      "viewerBenefit": "Convertir obligaciones regulatorias en un sistema práctico de prevención.",
+      "reviewReference": "REV-BO-072-EMPRESA-REGULADA-PREVENCION-2026-10-03",
+      "sources": [
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        },
+        {
+          "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+        }
+      ]
+    },
+    {
+      "id": "bo-073-caso-empresarial-efectos-multiples",
+      "topic": "Un solo hecho empresarial puede producir cuatro problemas jurídicos distintos",
+      "thesis": "En una controversia empresarial compleja, el mismo hecho puede tener simultáneamente efectos contractuales, administrativos, probatorios y constitucionales; tratarlos por separado puede generar estrategias incompatibles.",
+      "viewerBenefit": "Demostrar por qué los asuntos de alto valor necesitan una arquitectura jurídica integral.",
+      "reviewReference": "REV-BO-073-CASO-EMPRESARIAL-EFECTOS-MULTIPLES-2026-10-03",
+      "sources": [
+        {
+          "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+        },
+        {
+          "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+        },
+        {
+          "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+          "locator": "Texto oficial del Código Procesal Civil."
+        }
+      ]
+    }
+  ]
+}

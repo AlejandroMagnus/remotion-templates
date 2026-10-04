@@ -888,6 +888,1563 @@
         "differentiation": 98,
         "timeliness": 97
       }
+    },
+    {
+      "id": "bo-053-manifiesto-complejidad-juridica",
+      "domain": "Análisis Jurídico Estratégico Multidisciplinario",
+      "topic": "El error más caro en Derecho: creer que un problema jurídico pertenece a una sola rama",
+      "centralThesis": "Los problemas jurídicos complejos rara vez llegan ordenados por ramas: resolverlos exige integrar hechos, prueba, normas sustantivas y procesales, jurisprudencia, riesgos, contraargumentos y consecuencias antes de adoptar una decisión estratégica.",
+      "problem": "Una empresa recibe una decisión administrativa que compromete un contrato de alto valor y una lectura aislada puede ocultar cuestiones probatorias, contractuales, patrimoniales, procesales y constitucionales.",
+      "reasoningChain": [
+        "Reconstruir los hechos decisivos y separar afirmaciones de prueba.",
+        "Examinar competencia, procedimiento, motivación, notificación, plazos y recursos.",
+        "Analizar obligaciones civiles y comerciales y sus efectos patrimoniales.",
+        "Medir riesgos empresariales y consecuencias de cada alternativa.",
+        "Controlar garantías constitucionales cuando corresponda.",
+        "Anticipar el argumento contrario antes de convertir el análisis en una decisión."
+      ],
+      "conclusion": "Conocer una norma permite responder una pregunta. Comprender el sistema permite descubrir la pregunta que todavía nadie ha formulado.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis jurídico transversal",
+        "arquitectura probatoria",
+        "estrategia procesal",
+        "anticipación de riesgos",
+        "control constitucional"
+      ],
+      "commercialObjective": "Mostrar cómo una lectura jurídica transversal revela riesgos y alternativas que un análisis aislado puede dejar fuera.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico integral",
+        "segunda opinión de casos complejos",
+        "arquitectura de litigio y defensa",
+        "asesoría empresarial preventiva"
+      ],
+      "hook": "El error más caro en Derecho puede comenzar con una frase aparentemente inocente: este es solo un problema administrativo.",
+      "closingIdea": "Conocer una norma permite responder una pregunta. Comprender el sistema permite descubrir la pregunta que todavía nadie ha formulado.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-053-manifiesto-complejidad-juridica",
+        "category": "FI",
+        "secondaryCategory": "HT",
+        "dimension": "doctrinal",
+        "domains": [
+          "derecho-administrativo",
+          "derecho-procesal",
+          "derecho-probatorio",
+          "derecho-civil",
+          "derecho-comercial",
+          "derecho-constitucional",
+          "estrategia-forense"
+        ],
+        "intellectualContribution": "Los problemas jurídicos complejos rara vez llegan ordenados por ramas: resolverlos exige integrar hechos, prueba, normas sustantivas y procesales, jurisprudencia, riesgos, contraargumentos y consecuencias antes de adoptar una decisión estratégica.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-053-MANIFIESTO-COMPLEJIDAD-JURIDICA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            },
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            }
+          ],
+          "contentHash": "afd3f06c341143bc96364fc131b16f694a0ca5eb4e622344327edbcc423e716d"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 100,
+        "legalBreadth": 100,
+        "commercialPotential": 100,
+        "retention": 100,
+        "seo": 97,
+        "differentiation": 100,
+        "timeliness": 96
+      }
+    },
+    {
+      "id": "bo-054-notificacion-administrativa-defensa",
+      "domain": "Derecho Administrativo",
+      "topic": "Una notificación administrativa puede decidir el caso antes de discutir el fondo",
+      "centralThesis": "Reconstruir cuándo, cómo y con qué contenido se comunicó una decisión es parte de la defensa porque de esa secuencia dependen conocimiento efectivo, reacción procesal y control de plazos.",
+      "problem": "El problema aparece cuando una notificación administrativa puede decidir el caso antes de discutir el fondo se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Antes de debatir el fondo, controle el reloj jurídico.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Enseñar qué datos reunir antes de asumir que un plazo empezó o terminó.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Un caso puede perderse sin que nadie discuta todavía quién tiene razón.",
+      "closingIdea": "Antes de debatir el fondo, controle el reloj jurídico.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-054-notificacion-administrativa-defensa",
+        "category": "FI",
+        "dimension": "procesal",
+        "domains": ["derecho-administrativo", "debido-proceso"],
+        "intellectualContribution": "Reconstruir cuándo, cómo y con qué contenido se comunicó una decisión es parte de la defensa porque de esa secuencia dependen conocimiento efectivo, reacción procesal y control de plazos.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-054-NOTIFICACION-ADMINISTRATIVA-DEFENSA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            },
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "1841c4a4d0ddcafcf052e9c384c67b766daf5073fb5d979624f946091326d12d"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-055-expediente-administrativo-cadena",
+      "domain": "Derecho Administrativo y Prueba",
+      "topic": "El expediente administrativo debe leerse como una cadena de decisiones y pruebas",
+      "centralThesis": "Un expediente adquiere sentido cuando se conecta cada hecho, documento, informe, competencia y decisión en secuencia; leer piezas aisladas puede ocultar contradicciones y saltos de razonamiento.",
+      "problem": "El problema aparece cuando el expediente administrativo debe leerse como una cadena de decisiones y pruebas se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La cantidad de páginas no sustituye la coherencia del razonamiento.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Dar un método para encontrar el documento que realmente cambia el caso.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Doscientas páginas pueden esconder un vacío de una sola línea.",
+      "closingIdea": "La cantidad de páginas no sustituye la coherencia del razonamiento.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-055-expediente-administrativo-cadena",
+        "category": "DT",
+        "dimension": "forense",
+        "domains": ["derecho-administrativo", "derecho-probatorio"],
+        "intellectualContribution": "Un expediente adquiere sentido cuando se conecta cada hecho, documento, informe, competencia y decisión en secuencia; leer piezas aisladas puede ocultar contradicciones y saltos de razonamiento.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-055-EXPEDIENTE-ADMINISTRATIVO-CADENA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            }
+          ],
+          "contentHash": "317a9db8266170894195ab9a58b417b979a7b68d0e64a2d9c01ebe643ee66960"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-056-motivacion-administrativa",
+      "domain": "Derecho Administrativo",
+      "topic": "Citar normas no equivale a motivar una decisión",
+      "centralThesis": "La calidad de una decisión administrativa se controla observando si explica la conexión entre hechos relevantes, antecedentes, regla aplicada y conclusión, no por la cantidad de normas transcritas.",
+      "problem": "El problema aparece cuando citar normas no equivale a motivar una decisión se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Motivar es hacer controlable la razón de la decisión.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Distinguir una resolución extensa de una resolución verdaderamente razonada.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Una resolución de veinte páginas puede no explicar la única razón que importa.",
+      "closingIdea": "Motivar es hacer controlable la razón de la decisión.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-056-motivacion-administrativa",
+        "category": "FI",
+        "dimension": "doctrinal",
+        "domains": ["derecho-administrativo"],
+        "intellectualContribution": "La calidad de una decisión administrativa se controla observando si explica la conexión entre hechos relevantes, antecedentes, regla aplicada y conclusión, no por la cantidad de normas transcritas.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-056-MOTIVACION-ADMINISTRATIVA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            },
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "e37190a04bd28cad6f903b0e2c1c91dcf9c93fa5ce37c54b4365ab168a5f0748"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-057-mapa-prueba-civil",
+      "domain": "Proceso Civil y Prueba",
+      "topic": "La prueba civil se diseña antes de redactar la demanda o la respuesta",
+      "centralThesis": "Una estrategia probatoria útil parte de descomponer la controversia en hechos jurídicamente relevantes, asignar a cada uno un medio de acreditación y anticipar qué ocurre si ese hecho queda sin prueba.",
+      "problem": "El problema aparece cuando la prueba civil se diseña antes de redactar la demanda o la respuesta se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La prueba no es un anexo del argumento: es su infraestructura.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Convertir una controversia en un mapa de hechos que necesitan respaldo.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "El documento más importante de su caso puede ser el que todavía no buscó.",
+      "closingIdea": "La prueba no es un anexo del argumento: es su infraestructura.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-057-mapa-prueba-civil",
+        "category": "DT",
+        "dimension": "procesal",
+        "domains": ["proceso-civil", "derecho-probatorio"],
+        "intellectualContribution": "Una estrategia probatoria útil parte de descomponer la controversia en hechos jurídicamente relevantes, asignar a cada uno un medio de acreditación y anticipar qué ocurre si ese hecho queda sin prueba.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-057-MAPA-PRUEBA-CIVIL-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código Procesal Civil."
+            }
+          ],
+          "contentHash": "f41e7d4e84e626a29372076e7da309f23f18173ab20f5d2cc49a21c7ae20ba0d"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-058-cautelar-civil-riesgo",
+      "domain": "Proceso Civil",
+      "topic": "Una medida cautelar no debe confundirse con la sentencia",
+      "centralThesis": "La estrategia cautelar exige separar la protección provisional del derecho discutido y justificar por qué la demora procesal puede volver inútil la decisión final.",
+      "problem": "El problema aparece cuando una medida cautelar no debe confundirse con la sentencia se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La pregunta cautelar es qué puede perderse mientras llega la sentencia.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Distinguir qué debe probarse para proteger provisionalmente un derecho.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "La urgencia jurídica no se demuestra diciendo que el caso es importante.",
+      "closingIdea": "La pregunta cautelar es qué puede perderse mientras llega la sentencia.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-058-cautelar-civil-riesgo",
+        "category": "FI",
+        "dimension": "procesal",
+        "domains": ["proceso-civil"],
+        "intellectualContribution": "La estrategia cautelar exige separar la protección provisional del derecho discutido y justificar por qué la demora procesal puede volver inútil la decisión final.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-058-CAUTELAR-CIVIL-RIESGO-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código Procesal Civil."
+            }
+          ],
+          "contentHash": "f98b073646e004e5c6b8435fc3ca43258f16fa1e26d9a7cf5d33adfd48a42169"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-059-ejecucion-civil-estrategia",
+      "domain": "Ejecución Civil",
+      "topic": "Ganar una sentencia y cobrar son problemas jurídicos distintos",
+      "centralThesis": "La estrategia de un litigio patrimonial debe considerar desde el inicio cómo se ejecutaría una eventual decisión, porque una victoria declarativa sin ruta de cumplimiento puede tener poco valor económico.",
+      "problem": "El problema aparece cuando ganar una sentencia y cobrar son problemas jurídicos distintos se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "El resultado jurídico importa; el resultado ejecutable importa más.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Mostrar por qué la posibilidad real de cumplimiento cambia la valoración económica de un litigio.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Una sentencia favorable puede valer mucho menos de lo que dice el papel.",
+      "closingIdea": "El resultado jurídico importa; el resultado ejecutable importa más.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-059-ejecucion-civil-estrategia",
+        "category": "HT",
+        "dimension": "forense",
+        "domains": ["proceso-civil", "ejecucion"],
+        "intellectualContribution": "La estrategia de un litigio patrimonial debe considerar desde el inicio cómo se ejecutaría una eventual decisión, porque una victoria declarativa sin ruta de cumplimiento puede tener poco valor económico.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-059-EJECUCION-CIVIL-ESTRATEGIA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código Procesal Civil."
+            }
+          ],
+          "contentHash": "16f7cc6d1164df63be74759254de421d2319d699d7dd56563bbd8dfa79016586"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-060-asistencia-familiar-prueba",
+      "domain": "Derecho de Familia",
+      "topic": "En asistencia familiar, una cifra sin contexto no explica capacidad ni necesidad",
+      "centralThesis": "La discusión sobre asistencia familiar se vuelve más rigurosa cuando necesidades, capacidad económica, cargas y circunstancias concretas se documentan y comparan en lugar de reducirse a afirmaciones generales.",
+      "problem": "El problema aparece cuando en asistencia familiar, una cifra sin contexto no explica capacidad ni necesidad se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La proporcionalidad se argumenta mejor cuando la economía familiar se convierte en hechos comprobables.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Ordenar la información económica que conviene reunir antes de discutir un monto.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "El problema no es solo cuánto se pide: es qué puede demostrarse.",
+      "closingIdea": "La proporcionalidad se argumenta mejor cuando la economía familiar se convierte en hechos comprobables.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-060-asistencia-familiar-prueba",
+        "category": "FI",
+        "dimension": "forense",
+        "domains": ["derecho-familia", "derecho-probatorio"],
+        "intellectualContribution": "La discusión sobre asistencia familiar se vuelve más rigurosa cuando necesidades, capacidad económica, cargas y circunstancias concretas se documentan y comparan en lugar de reducirse a afirmaciones generales.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-060-ASISTENCIA-FAMILIAR-PRUEBA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código de las Familias y del Proceso Familiar."
+            }
+          ],
+          "contentHash": "f5ebffb52b1eb324d03a2626db8d02fa45ae3ad639f7fa9ab07a88a762d6d403"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-061-interes-superior-metodo",
+      "domain": "Derecho de Familia",
+      "topic": "El interés superior no debe convertirse en una frase vacía",
+      "centralThesis": "Invocar el interés superior exige traducirlo a hechos concretos, consecuencias previsibles y alternativas comparables; la etiqueta no sustituye el análisis.",
+      "problem": "El problema aparece cuando el interés superior no debe convertirse en una frase vacía se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Un principio no decide solo: necesita hechos, prueba y razonamiento.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Pasar de una invocación abstracta a un análisis concreto centrado en consecuencias.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Dos personas pueden decir interés superior y defender cosas completamente distintas.",
+      "closingIdea": "Un principio no decide solo: necesita hechos, prueba y razonamiento.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-061-interes-superior-metodo",
+        "category": "FI",
+        "dimension": "doctrinal",
+        "domains": ["derecho-familia"],
+        "intellectualContribution": "Invocar el interés superior exige traducirlo a hechos concretos, consecuencias previsibles y alternativas comparables; la etiqueta no sustituye el análisis.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-061-INTERES-SUPERIOR-METODO-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código de las Familias y del Proceso Familiar."
+            },
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "edcbc2302d3353aee729df0b23c82673ed0b1cd3028d4ddda110e0ca221dd6e0"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-062-acuerdo-familiar-ejecutable",
+      "domain": "Derecho de Familia",
+      "topic": "Un acuerdo familiar útil debe poder cumplirse sin adivinar qué quiso decir cada parte",
+      "centralThesis": "La claridad sobre obligaciones, tiempos, condiciones y mecanismos de cumplimiento reduce nuevos conflictos y permite evaluar mejor la viabilidad del acuerdo.",
+      "problem": "El problema aparece cuando un acuerdo familiar útil debe poder cumplirse sin adivinar qué quiso decir cada parte se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Lo que no se define al acordar suele discutirse al ejecutar.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Mostrar qué revisar antes de firmar un acuerdo que afectará la vida cotidiana de una familia.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Un acuerdo puede terminar una audiencia y empezar un problema nuevo.",
+      "closingIdea": "Lo que no se define al acordar suele discutirse al ejecutar.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-062-acuerdo-familiar-ejecutable",
+        "category": "HT",
+        "dimension": "sustantiva",
+        "domains": ["derecho-familia", "negociacion"],
+        "intellectualContribution": "La claridad sobre obligaciones, tiempos, condiciones y mecanismos de cumplimiento reduce nuevos conflictos y permite evaluar mejor la viabilidad del acuerdo.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-062-ACUERDO-FAMILIAR-EJECUTABLE-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 603 Código de las Familias y del Proceso Familiar — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código de las Familias y del Proceso Familiar."
+            }
+          ],
+          "contentHash": "39cf5125be9eefdcbc979b9d7cb5f945c33f930a131828ef2f7f23569377dde0"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-063-hidrocarburos-cadena-riesgo",
+      "domain": "Hidrocarburos y Regulación",
+      "topic": "En hidrocarburos, el riesgo jurídico cambia con cada fase del negocio",
+      "centralThesis": "Exploración, explotación, transporte, industrialización y comercialización no deben analizarse como una sola actividad: cada fase modifica competencias, obligaciones, contratos y riesgos regulatorios.",
+      "problem": "El problema aparece cuando en hidrocarburos, el riesgo jurídico cambia con cada fase del negocio se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La fase del negocio define buena parte del mapa regulatorio.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Formular las preguntas jurídicas correctas según la etapa real del proyecto.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Dos empresas pueden trabajar con el mismo hidrocarburo y enfrentar riesgos jurídicos completamente distintos.",
+      "closingIdea": "La fase del negocio define buena parte del mapa regulatorio.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-063-hidrocarburos-cadena-riesgo",
+        "category": "DT",
+        "dimension": "sustantiva",
+        "domains": ["hidrocarburos", "derecho-regulatorio"],
+        "intellectualContribution": "Exploración, explotación, transporte, industrialización y comercialización no deben analizarse como una sola actividad: cada fase modifica competencias, obligaciones, contratos y riesgos regulatorios.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-063-HIDROCARBUROS-CADENA-RIESGO-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 3058 de Hidrocarburos — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Hidrocarburos."
+            },
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "8743a75f5ef328e20e5888c7d653914edcc1b787de57cddcc9002758578f521f"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-064-hidrocarburos-contrato-regulacion",
+      "domain": "Hidrocarburos y Contratos",
+      "topic": "Un contrato energético no puede leerse separado del régimen regulatorio",
+      "centralThesis": "En sectores regulados, una cláusula comercial puede ser insuficiente si no se contrasta con habilitaciones, competencias, obligaciones sectoriales y límites imperativos del marco público.",
+      "problem": "El problema aparece cuando un contrato energético no puede leerse separado del régimen regulatorio se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "En sectores regulados, el contrato nunca está solo.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Mostrar por qué una revisión contractual de alto valor debe incorporar la dimensión regulatoria.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "La cláusula perfecta puede ser inútil si ignora la regulación que la rodea.",
+      "closingIdea": "En sectores regulados, el contrato nunca está solo.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-064-hidrocarburos-contrato-regulacion",
+        "category": "HT",
+        "dimension": "forense",
+        "domains": ["hidrocarburos", "contratos", "regulacion"],
+        "intellectualContribution": "En sectores regulados, una cláusula comercial puede ser insuficiente si no se contrasta con habilitaciones, competencias, obligaciones sectoriales y límites imperativos del marco público.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-064-HIDROCARBUROS-CONTRATO-REGULACION-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 3058 de Hidrocarburos — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Hidrocarburos."
+            }
+          ],
+          "contentHash": "e8d51f76fa7787dcc2352b7f945e1ccf5f3d8a4f33e13612f26fdc062612c387"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-065-inversion-energia-due-diligence",
+      "domain": "Inversión Energética",
+      "topic": "Antes de invertir en energía, el mapa jurídico debe preceder al modelo financiero",
+      "centralThesis": "Una inversión energética responsable exige verificar derechos, contratos, habilitaciones, obligaciones regulatorias y contingencias antes de convertir proyecciones operativas en una decisión de capital.",
+      "problem": "El problema aparece cuando antes de invertir en energía, el mapa jurídico debe preceder al modelo financiero se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Antes de valorar cuánto puede ganar un proyecto, verifique qué puede hacer legalmente.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Dar al inversor una estructura mínima de preguntas antes de comprometer capital.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Una hoja de cálculo puede asumir un derecho que jurídicamente todavía no existe.",
+      "closingIdea": "Antes de valorar cuánto puede ganar un proyecto, verifique qué puede hacer legalmente.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-065-inversion-energia-due-diligence",
+        "category": "HT",
+        "dimension": "forense",
+        "domains": ["hidrocarburos", "inversion", "due-diligence"],
+        "intellectualContribution": "Una inversión energética responsable exige verificar derechos, contratos, habilitaciones, obligaciones regulatorias y contingencias antes de convertir proyecciones operativas en una decisión de capital.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-065-INVERSION-ENERGIA-DUE-DILIGENCE-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 3058 de Hidrocarburos — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Hidrocarburos."
+            },
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "9f9f7cafbef1b73aad39dc5a48ae4f6bbcd47e891e178b5a2c142e14be104803"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-066-funcion-publica-trazabilidad",
+      "domain": "Función Pública y Control",
+      "topic": "En la función pública, una decisión debe dejar una ruta que pueda ser auditada",
+      "centralThesis": "La evaluación de una actuación pública mejora cuando puede reconstruirse competencia, antecedente, decisión, respaldo documental y responsabilidad de cada intervención.",
+      "problem": "El problema aparece cuando en la función pública, una decisión debe dejar una ruta que pueda ser auditada se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Lo que hoy parece trámite mañana puede ser evidencia.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Mostrar cómo ordenar una decisión pública para que pueda explicarse y defenderse posteriormente.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Una decisión pública mal documentada puede convertirse años después en un problema personal.",
+      "closingIdea": "Lo que hoy parece trámite mañana puede ser evidencia.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-066-funcion-publica-trazabilidad",
+        "category": "FI",
+        "dimension": "forense",
+        "domains": ["derecho-administrativo", "control-gubernamental"],
+        "intellectualContribution": "La evaluación de una actuación pública mejora cuando puede reconstruirse competencia, antecedente, decisión, respaldo documental y responsabilidad de cada intervención.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-066-FUNCION-PUBLICA-TRAZABILIDAD-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+            }
+          ],
+          "contentHash": "b59b63b6188a96be67d28a161772eaff413bbadd6ea67ccb18960f69a1ccb6a9"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-067-contratacion-publica-expediente",
+      "domain": "Contratación Pública",
+      "topic": "En contratación pública, el expediente debe explicar por qué se tomó cada decisión",
+      "centralThesis": "Una contratación pública sólida exige que requerimiento, evaluación, decisión, contrato y ejecución formen una secuencia documental coherente y susceptible de control.",
+      "problem": "El problema aparece cuando en contratación pública, el expediente debe explicar por qué se tomó cada decisión se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La mejor defensa de una contratación es una decisión bien documentada desde el origen.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Detectar vacíos antes de que se conviertan en observaciones o litigios.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "El problema de un contrato público muchas veces empezó antes de firmarlo.",
+      "closingIdea": "La mejor defensa de una contratación es una decisión bien documentada desde el origen.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-067-contratacion-publica-expediente",
+        "category": "DT",
+        "dimension": "forense",
+        "domains": ["contratacion-publica", "control-gubernamental"],
+        "intellectualContribution": "Una contratación pública sólida exige que requerimiento, evaluación, decisión, contrato y ejecución formen una secuencia documental coherente y susceptible de control.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-067-CONTRATACION-PUBLICA-EXPEDIENTE-2026-10-03",
+          "sources": [
+            {
+              "reference": "Decreto Supremo N° 181 — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Normas Básicas del Sistema de Administración de Bienes y Servicios."
+            },
+            {
+              "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+            }
+          ],
+          "contentHash": "173ad1e0d233293240223f06985d1b7a951c5330b8374c2dd78a8b715c00cf66"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-068-decision-publica-competencia",
+      "domain": "Derecho Público",
+      "topic": "Antes de discutir si una decisión pública es correcta, pregunte quién podía tomarla",
+      "centralThesis": "El análisis de una actuación pública debe comenzar por competencia y atribución, porque un razonamiento materialmente atractivo no corrige por sí solo un problema de autoridad o procedimiento.",
+      "problem": "El problema aparece cuando antes de discutir si una decisión pública es correcta, pregunte quién podía tomarla se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La pregunta quién puede decidir precede a la pregunta qué decidió.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Enseñar un orden de análisis que evita discutir el fondo antes de controlar la autoridad.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Una decisión puede estar bien escrita y haber sido tomada por quien no debía tomarla.",
+      "closingIdea": "La pregunta quién puede decidir precede a la pregunta qué decidió.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-068-decision-publica-competencia",
+        "category": "FI",
+        "dimension": "doctrinal",
+        "domains": ["derecho-administrativo", "control-gubernamental"],
+        "intellectualContribution": "El análisis de una actuación pública debe comenzar por competencia y atribución, porque un razonamiento materialmente atractivo no corrige por sí solo un problema de autoridad o procedimiento.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-068-DECISION-PUBLICA-COMPETENCIA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            },
+            {
+              "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+            }
+          ],
+          "contentHash": "dac9a9da7536462286a3678820553118cbd262b342d2c803f8031d8e889f9d55"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-069-debido-proceso-mapa",
+      "domain": "Derecho Constitucional",
+      "topic": "El debido proceso no es una frase: es un mapa de garantías concretas",
+      "centralThesis": "Invocar debido proceso tiene fuerza cuando se identifica la garantía concreta comprometida, el acto que la afecta, el perjuicio producido y la corrección jurídicamente pertinente.",
+      "problem": "El problema aparece cuando el debido proceso no es una frase: es un mapa de garantías concretas se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La constitucionalización del argumento exige más precisión, no menos.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Convertir una queja genérica en un problema constitucional identificable.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Decir se violó el debido proceso no basta: ¿qué garantía, cómo y con qué consecuencia?",
+      "closingIdea": "La constitucionalización del argumento exige más precisión, no menos.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-069-debido-proceso-mapa",
+        "category": "FI",
+        "dimension": "doctrinal",
+        "domains": ["derecho-constitucional", "derecho-procesal"],
+        "intellectualContribution": "Invocar debido proceso tiene fuerza cuando se identifica la garantía concreta comprometida, el acto que la afecta, el perjuicio producido y la corrección jurídicamente pertinente.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-069-DEBIDO-PROCESO-MAPA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "c97873836ceee31340b17d1b48a66fe966fc6ceae81a8802fb90bd918429af9b"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-070-defensa-constitucional-causalidad",
+      "domain": "Litigación Constitucional",
+      "topic": "Una lesión constitucional debe conectarse con el resultado que se pretende corregir",
+      "centralThesis": "La estrategia constitucional se fortalece cuando demuestra una cadena entre acto, derecho afectado, perjuicio y remedio, evitando que la argumentación se reduzca a enumerar derechos.",
+      "problem": "El problema aparece cuando una lesión constitucional debe conectarse con el resultado que se pretende corregir se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "El argumento constitucional necesita una cadena, no un catálogo.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Estructurar una alegación constitucional que pueda ser entendida y controlada.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "Nombrar diez derechos no vale más que demostrar una sola lesión con precisión.",
+      "closingIdea": "El argumento constitucional necesita una cadena, no un catálogo.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-070-defensa-constitucional-causalidad",
+        "category": "DT",
+        "dimension": "forense",
+        "domains": ["derecho-constitucional", "estrategia-forense"],
+        "intellectualContribution": "La estrategia constitucional se fortalece cuando demuestra una cadena entre acto, derecho afectado, perjuicio y remedio, evitando que la argumentación se reduzca a enumerar derechos.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-070-DEFENSA-CONSTITUCIONAL-CAUSALIDAD-2026-10-03",
+          "sources": [
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            }
+          ],
+          "contentHash": "d7447a6e95e0a44f426aefd352a8f3c9b1438de5fb72884321dd5a5b9710bb1c"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-071-prevencion-constitucional-empresa",
+      "domain": "Constitucional y Empresarial",
+      "topic": "El control constitucional también sirve para prevenir decisiones empresariales de alto riesgo",
+      "centralThesis": "En asuntos empresariales regulados, revisar anticipadamente competencia, procedimiento, defensa y afectación de derechos puede evitar que una decisión comercial quede atrapada después en una controversia pública compleja.",
+      "problem": "El problema aparece cuando el control constitucional también sirve para prevenir decisiones empresariales de alto riesgo se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "La defensa anticipada empieza antes de la lesión.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Mostrar por qué el análisis constitucional puede formar parte de una decisión preventiva.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "La mejor acción constitucional puede ser la que nunca tuvo que interponerse.",
+      "closingIdea": "La defensa anticipada empieza antes de la lesión.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-071-prevencion-constitucional-empresa",
+        "category": "HT",
+        "dimension": "forense",
+        "domains": ["derecho-constitucional", "derecho-empresarial"],
+        "intellectualContribution": "En asuntos empresariales regulados, revisar anticipadamente competencia, procedimiento, defensa y afectación de derechos puede evitar que una decisión comercial quede atrapada después en una controversia pública compleja.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-071-PREVENCION-CONSTITUCIONAL-EMPRESA-2026-10-03",
+          "sources": [
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            },
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            }
+          ],
+          "contentHash": "e82d1499843efa1951f9e7b1ec3eb50bfa1c7126947b1a23d5e5eb0b041c76fe"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-072-empresa-regulada-prevencion",
+      "domain": "Empresa y Regulación",
+      "topic": "Una empresa regulada debe diseñar defensa antes de recibir una sanción",
+      "centralThesis": "La prevención jurídica empresarial mejora cuando identifica obligaciones regulatorias, responsables internos, evidencia de cumplimiento y ruta de respuesta antes de que exista una fiscalización o procedimiento sancionador.",
+      "problem": "El problema aparece cuando una empresa regulada debe diseñar defensa antes de recibir una sanción se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Lo que no se documenta durante la operación es difícil reconstruir bajo presión.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Convertir obligaciones regulatorias en un sistema práctico de prevención.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "La defensa de una empresa puede empezar meses antes de que exista un expediente.",
+      "closingIdea": "Lo que no se documenta durante la operación es difícil reconstruir bajo presión.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-072-empresa-regulada-prevencion",
+        "category": "HT",
+        "dimension": "forense",
+        "domains": ["derecho-empresarial", "derecho-administrativo"],
+        "intellectualContribution": "La prevención jurídica empresarial mejora cuando identifica obligaciones regulatorias, responsables internos, evidencia de cumplimiento y ruta de respuesta antes de que exista una fiscalización o procedimiento sancionador.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-072-EMPRESA-REGULADA-PREVENCION-2026-10-03",
+          "sources": [
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            },
+            {
+              "reference": "Ley N° 1178 de Administración y Control Gubernamentales — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Administración y Control Gubernamentales."
+            }
+          ],
+          "contentHash": "d4c6e19d849a39dfe5dca386ff8dd5d3b5efaca8d66b7b81cd17d28776b8e981"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 97,
+        "legalBreadth": 94,
+        "commercialPotential": 94,
+        "retention": 95,
+        "seo": 92,
+        "differentiation": 96,
+        "timeliness": 91
+      }
+    },
+    {
+      "id": "bo-073-caso-empresarial-efectos-multiples",
+      "domain": "Estrategia Jurídica Empresarial",
+      "topic": "Un solo hecho empresarial puede producir cuatro problemas jurídicos distintos",
+      "centralThesis": "En una controversia empresarial compleja, el mismo hecho puede tener simultáneamente efectos contractuales, administrativos, probatorios y constitucionales; tratarlos por separado puede generar estrategias incompatibles.",
+      "problem": "El problema aparece cuando un solo hecho empresarial puede producir cuatro problemas jurídicos distintos se analiza sin conectar hechos, prueba, norma, riesgo y consecuencia.",
+      "reasoningChain": [
+        "Precisar el problema jurídico concreto.",
+        "Separar hechos de conclusiones.",
+        "Identificar la prueba relevante.",
+        "Contrastar el marco jurídico aplicable.",
+        "Anticipar el argumento contrario y decidir la actuación."
+      ],
+      "conclusion": "Cuando un hecho tiene varios efectos, la estrategia debe ser una sola.",
+      "targetAudience": [
+        "personas con problemas jurídicos relevantes",
+        "empresarios y gerentes",
+        "abogados y equipos legales"
+      ],
+      "capabilityDemonstrated": [
+        "análisis estratégico",
+        "arquitectura probatoria",
+        "anticipación de riesgos"
+      ],
+      "commercialObjective": "Demostrar por qué los asuntos de alto valor necesitan una arquitectura jurídica integral.",
+      "offerPath": [
+        "diagnóstico jurídico estratégico",
+        "segunda opinión",
+        "arquitectura de defensa"
+      ],
+      "hook": "El mismo correo puede ser prueba contractual, antecedente administrativo y pieza de una defensa constitucional.",
+      "closingIdea": "Cuando un hecho tiene varios efectos, la estrategia debe ser una sola.",
+      "cta": "Explore los demás videos del canal y, si su asunto requiere una lectura integral, solicite un análisis profesional del caso concreto.",
+      "strategicValue": 96,
+      "authorityValue": 97,
+      "commercialPotential": 94,
+      "urgencyValue": 88,
+      "reusability": 96,
+      "scalability": 96,
+      "editorial": {
+        "opportunityId": "bo-073-caso-empresarial-efectos-multiples",
+        "category": "HT",
+        "dimension": "forense",
+        "domains": [
+          "derecho-empresarial",
+          "derecho-civil",
+          "derecho-administrativo",
+          "derecho-constitucional"
+        ],
+        "intellectualContribution": "En una controversia empresarial compleja, el mismo hecho puede tener simultáneamente efectos contractuales, administrativos, probatorios y constitucionales; tratarlos por separado puede generar estrategias incompatibles.",
+        "legalReview": {
+          "status": "approved",
+          "authority": "PhD 12",
+          "jurisdiction": "Bolivia",
+          "reviewedBy": "GPT-5.6 Sol — revisión documental asistida y deliberada solicitada por el titular",
+          "reviewedAt": "2026-10-03T23:30:00Z",
+          "reviewReference": "REV-BO-073-CASO-EMPRESARIAL-EFECTOS-MULTIPLES-2026-10-03",
+          "sources": [
+            {
+              "reference": "Constitución Política del Estado — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial CPE 2009; debido proceso y defensa."
+            },
+            {
+              "reference": "Ley N° 2341 de Procedimiento Administrativo — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial de la Ley de Procedimiento Administrativo."
+            },
+            {
+              "reference": "Ley N° 439 Código Procesal Civil — Gaceta Oficial del Estado Plurinacional de Bolivia",
+              "locator": "Texto oficial del Código Procesal Civil."
+            }
+          ],
+          "contentHash": "00561fea2e47d6acd84d27e93eaeb8a593b315d6098efbff7eec54ee2523f701"
+        }
+      },
+      "editorialScores": {
+        "intellectualAuthority": 100,
+        "legalBreadth": 100,
+        "commercialPotential": 100,
+        "retention": 99,
+        "seo": 92,
+        "differentiation": 100,
+        "timeliness": 91
+      }
     }
   ]
 }

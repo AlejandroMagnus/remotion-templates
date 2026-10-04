@@ -49,7 +49,7 @@ on:
       enable_3d:
         description: "Activar 3D nativo en escenas compatibles de expediente y prueba"
         required: false
-        default: false
+        default: true
         type: boolean
 
 permissions:
