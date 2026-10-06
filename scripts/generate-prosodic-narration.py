@@ -87,7 +87,7 @@ VOICE = "es-BO-MarceloNeural"
 LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
 
-VERSION = "V3.19-E.5-NATURAL-SPANISH-QUESTIONS"
+VERSION = "V3.19-E.5-NATURAL-SPANISH-QUESTIONS-V2.7-AUDIO-CLEANUP"
 
 
 # ============================================================
@@ -1396,6 +1396,32 @@ def calculate_pre_pause(
 # ============================================================
 
 
+
+def _generic_methodological_opening(text: str) -> bool:
+    """Detecta la muletilla metodológica cuando aparece como apertura genérica."""
+    normalized = (
+        clean_spaces(text)
+        .lower()
+        .translate(str.maketrans("áéíóúüñ", "aeiouun"))
+    )
+
+    has_fact = bool(re.search(r"\bhech(?:o|os)\b", normalized))
+    has_evidence = bool(
+        re.search(r"\bprueb(?:a|as)\b|\bevidenc", normalized)
+    )
+    has_rule = bool(
+        re.search(r"\bnorm(?:a|as)\b|\bregla(?:s)?\b", normalized)
+    )
+    has_method_verb = bool(
+        re.search(
+            r"\bconect|\bintegr|\banaliz|\brelacion|\bsecuencia|\bcadena",
+            normalized,
+        )
+    )
+
+    return has_fact and has_evidence and has_rule and has_method_verb
+
+
 @dataclass
 class SegmentPlan:
     index: int
@@ -1424,6 +1450,19 @@ def build_segment_plan(
     major_sentences = split_major_sentences(
         narration
     )
+
+    # V2.7 — elimina únicamente la muletilla metodológica de apertura.
+    # La arquitectura hechos/prueba/norma sigue operando internamente.
+    if len(major_sentences) > 1:
+        opening_window = major_sentences[:2]
+        for opening_index, opening_sentence in enumerate(opening_window):
+            if _generic_methodological_opening(opening_sentence):
+                removed_opening = major_sentences.pop(opening_index)
+                print(
+                    "[V2.7] Apertura metodológica repetitiva eliminada: "
+                    f"{removed_opening}"
+                )
+                break
 
     if not major_sentences:
         raise RuntimeError(
@@ -1908,7 +1947,18 @@ async def build_prosodic_audio(
             convert_mp3_to_wav(mp3_file, wav_file)
             speech_duration_ms = probe_duration_ms(wav_file)
             # Count the TTS's natural tail and lead once. Never trim either.
-            gap_target = max(previous_pause, first.pre_pause_ms) if group_number > 1 else min(first.pre_pause_ms, 80)
+            if group_number > 1:
+                # V2.7 — respiración humana mínima entre pensamientos completos.
+                # additional_gap_ms descuenta la cola/entrada natural del TTS,
+                # por lo que este valor representa el hueco acústico objetivo.
+                minimum_thought_gap_ms = 360 if group_number == 2 else 220
+                gap_target = max(
+                    previous_pause,
+                    first.pre_pause_ms,
+                    minimum_thought_gap_ms,
+                )
+            else:
+                gap_target = min(first.pre_pause_ms, 80)
             pre_pause = additional_gap_ms(gap_target, previous_tail, local_words[0]["startMs"])
             if pre_pause > 0:
                 pre_file = temp / f"{group_number:03}-pre.wav"
