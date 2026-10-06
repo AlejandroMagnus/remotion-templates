@@ -30,6 +30,85 @@ export type HumanValueIntent = z.infer<typeof HumanValueIntentSchema>;
 
 const clean = (text: string) => text.replace(/\s+/g, " ").trim();
 
+const normalizeOpening = (text: string) =>
+  clean(text)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+
+function openingVariant(productionCode: string): number {
+  const digest = createHash("sha256").update(productionCode).digest();
+  return digest[0] % 6;
+}
+
+function isMethodologicalOpening(text: string): boolean {
+  const value = normalizeOpening(text);
+  const families = [
+    /\bhech(?:o|os)\b/,
+    /\bprueb(?:a|as)\b|\bevidenc/,
+    /\bnorm(?:a|as)\b|\bregla(?:s)?\b/,
+    /\bjurisprud|\bprecedent/,
+    /\bestrateg|\bdecision/,
+  ];
+  const hits = families.filter((pattern) => pattern.test(value)).length;
+  const connector =
+    /\bconect|\bintegr|\brelacion|\banaliz|\bsecuencia|\bcadena\b/.test(value);
+
+  return (
+    (hits >= 3 && connector) ||
+    /hech(?:o|os).{0,28}prueb(?:a|as).{0,28}norm(?:a|as)/.test(value)
+  );
+}
+
+function buildAdaptiveOpening(input: SilecKnowledgeInput): {
+  sourceOpening: string;
+  opening: string;
+  mode: "source" | "humanized-method-hook";
+  variant: number;
+  fingerprint: string;
+} {
+  const sourceOpening = clean(input.hook);
+  const variant = openingVariant(input.productionCode);
+
+  if (!isMethodologicalOpening(sourceOpening)) {
+    return {
+      sourceOpening,
+      opening: sourceOpening,
+      mode: "source",
+      variant,
+      fingerprint: createHash("sha256")
+        .update(normalizeOpening(sourceOpening))
+        .digest("hex")
+        .slice(0, 16),
+    };
+  }
+
+  const problem = clean(input.problem);
+  const topic = clean(input.topic);
+
+  const alternatives = [
+    `Piense primero en el problema concreto: ${problem}`,
+    `Antes de entrar en la norma, mire lo que realmente está en juego: ${problem}`,
+    `La pregunta útil no empieza con una lista de conceptos. Empieza aquí: ${problem}`,
+    `Lleve este tema a una situación concreta: ${problem}`,
+    `Detrás de este tema hay una consecuencia práctica: ${problem}`,
+    `En ${topic}, lo primero no es recitar una fórmula. Es comprender este problema: ${problem}`,
+  ];
+
+  const opening = alternatives[variant];
+
+  return {
+    sourceOpening,
+    opening,
+    mode: "humanized-method-hook",
+    variant,
+    fingerprint: createHash("sha256")
+      .update(normalizeOpening(opening))
+      .digest("hex")
+      .slice(0, 16),
+  };
+}
+
 /** Plans with existing source text. It neither invents legal claims nor approves them. */
 export function buildHumanValuePlan(input: SilecKnowledgeInput) {
   const intent = HumanValueIntentSchema.parse(input.humanValue ?? {});
@@ -40,6 +119,7 @@ export function buildHumanValuePlan(input: SilecKnowledgeInput) {
     ctaMode === "source" ||
     (ctaMode === "auto" && input.editorial?.category === "HT");
   const cta = useSourceCta ? clean(input.cta) : "";
+  const adaptiveOpening = buildAdaptiveOpening(input);
   const sourceHash = createHash("sha256")
     .update(
       JSON.stringify({
@@ -64,7 +144,11 @@ export function buildHumanValuePlan(input: SilecKnowledgeInput) {
         text,
       })),
     },
-    opening: clean(input.hook),
+    sourceOpening: adaptiveOpening.sourceOpening,
+    opening: adaptiveOpening.opening,
+    openingMode: adaptiveOpening.mode,
+    openingVariant: adaptiveOpening.variant,
+    openingFingerprint: adaptiveOpening.fingerprint,
     takeaway: clean(input.conclusion),
     closing: {
       idea: clean(input.closingIdea),
@@ -186,7 +270,8 @@ export function reviewHumanValue(
     reviewBeforePublication: [
       "Beneficio: ¿el público obtiene algo concreto y pertinente a su necesidad?",
       "Claridad: ¿lenguaje, ejemplo o explicación permiten comprenderlo?",
-      "Promesa: ¿la apertura es honesta y el desarrollo la cumple?",
+      "Promesa: ¿la apertura es honesta, específica y el desarrollo la cumple?",
+      "Apertura: evitar recitar hechos-prueba-norma-jurisprudencia-estrategia como muletilla salvo que esa secuencia sea el objeto pedagógico del video.",
       "Exactitud: revisar hechos, fuentes, vigencia y límites; revisión jurídica especializada cuando corresponda.",
       "Originalidad: contrastar con la memoria editorial y comprobar que aporta una diferencia sustancial.",
       "Experiencia: revisar juntos voz, imágenes, montaje, sonido y subtítulos.",

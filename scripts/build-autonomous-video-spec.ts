@@ -919,7 +919,11 @@ export function buildVideoContent(
   profile: CreativeProfile,
 ) {
   const plan = buildHumanValuePlan(input);
-  const presentationInput = { ...input, cta: plan.closing.cta };
+  const presentationInput = {
+    ...input,
+    hook: plan.opening,
+    cta: plan.closing.cta,
+  };
   const aula = buildAulaSilecAudiovisualPlan(
     presentationInput,
     profile.narrativeArchitecture,
