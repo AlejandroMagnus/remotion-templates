@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildHumanValuePlan } from "../src/content/HumanValueDirector";
+import { buildMarketingPlan } from "../src/content/MarketingDirector";
 import { buildAulaSilecAudiovisualPlan } from "../src/content/AulaSilecNarrativeDirector";
 
 import type { SilecKnowledgeInput } from "../src/content/SilecContentAdapter";
@@ -919,10 +920,11 @@ export function buildVideoContent(
   profile: CreativeProfile,
 ) {
   const plan = buildHumanValuePlan(input);
+  const marketing = buildMarketingPlan(input, plan);
   const presentationInput = {
     ...input,
     hook: plan.opening,
-    cta: plan.closing.cta,
+    cta: marketing.cta,
   };
   const aula = buildAulaSilecAudiovisualPlan(
     presentationInput,
@@ -939,7 +941,7 @@ export function buildVideoContent(
         },
       };
     }
-    if (scene.id === "cta" && !plan.closing.cta) {
+    if (scene.id === "cta" && !marketing.cta) {
       return {
         ...scene,
         content: {
@@ -960,7 +962,7 @@ export function buildVideoContent(
     }
     return scene;
   });
-  return { plan, aula, narration, scenes };
+  return { plan, marketing, aula, narration, scenes };
 }
 
 function main(): void {
@@ -993,7 +995,10 @@ function main(): void {
 
   const profile = validateCreativeDecision(creativeDecision, productionCode);
 
-  const { plan, aula, narration, scenes } = buildVideoContent(input, profile);
+  const { plan, marketing, aula, narration, scenes } = buildVideoContent(
+    input,
+    profile,
+  );
   writeJson(
     path.join(
       process.cwd(),
@@ -1002,6 +1007,15 @@ function main(): void {
       `${productionCode}-human-value-plan.json`,
     ),
     plan,
+  );
+  writeJson(
+    path.join(
+      process.cwd(),
+      "public",
+      "generated",
+      `${productionCode}-human-value-marketing.json`,
+    ),
+    marketing,
   );
   writeJson(
     path.join(
