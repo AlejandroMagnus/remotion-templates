@@ -293,6 +293,56 @@ function buildNarration(
 ): string {
   const reasoning = normalizePoints(input.reasoningChain);
 
+  // ROOT-ANTI-MULETILLA-V1
+  // SILEC estructura el razonamiento internamente, pero su secuencia
+  // metodológica no debe convertirse en una apertura verbal repetitiva.
+  const semantic = (value: string): string =>
+    cleanText(value)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+
+  const methodologyIsTopic = [input.topic, input.centralThesis].some(
+    (value) => {
+      const normalized = semantic(value);
+
+      return (
+        /metodo\s+silec/.test(normalized) ||
+        /matriz\s+(general|silec)/.test(normalized) ||
+        /teoria\s+del\s+caso/.test(normalized) ||
+        /hech(?:o|os).{0,80}prueb(?:a|as).{0,80}norm(?:a|as)/.test(normalized)
+      );
+    },
+  );
+
+  const isMethodologicalFormula = (value: string): boolean => {
+    if (methodologyIsTopic) {
+      return false;
+    }
+
+    const normalized = semantic(value);
+
+    const families = [
+      /\bhech(?:o|os)\b/,
+      /\bprueb(?:a|as)\b|\bevidenc/,
+      /\bnorm(?:a|as)\b|\bregla(?:s)?\b/,
+      /\bjurisprud|\bprecedent/,
+      /\bestrateg|\bdecision/,
+    ];
+
+    const hits = families.filter((pattern) => pattern.test(normalized)).length;
+
+    const connector =
+      /\bconect|\bintegr|\banaliz|\brelacion|\bsecuencia|\bcadena/.test(
+        normalized,
+      );
+
+    const orderedFormula =
+      /hech(?:o|os).{0,80}prueb(?:a|as).{0,80}norm(?:a|as)/.test(normalized);
+
+    return orderedFormula || (hits >= 3 && connector);
+  };
+
   let parts: string[];
 
   switch (architecture) {
@@ -397,14 +447,20 @@ function buildNarration(
       break;
   }
 
-  return parts
+  const narrationParts = parts
     .map(sentence)
     .filter(Boolean)
+    .filter((value) => !isMethodologicalFormula(value))
     .filter(
       (value, index, array) =>
         index === 0 || cleanText(value) !== cleanText(array[index - 1]),
-    )
-    .join(" ");
+    );
+
+  if (narrationParts.length === 0) {
+    throw new Error("Narración vacía tras control anti-muletilla.");
+  }
+
+  return narrationParts.join(" ");
 }
 
 function allocateDurations(
