@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0",
+  "id": "video-005",
+  "templateFamily": "announcement-brief",
+  "meta": {
+    "title": "Acción popular",
+    "description": "Cómo proteger derechos colectivos, medio ambiente, patrimonio público y seguridad colectiva.",
+    "tags": [
+      "derecho",
+      "bolivia",
+      "silec",
+      "juridico",
+      "accion",
+      "popular"
+    ]
+  },
+  "target": {
+    "aspect": "9:16",
+    "fps": 30,
+    "durationMode": "fixed",
+    "fixedDurationSec": 60
+  },
+  "style": {
+    "theme": "editorial-dark",
+    "variant": "default",
+    "safeAreaProfile": "metaSafe",
+    "showSceneLabels": false
+  },
+  "audio": {
+    "mode": "narration",
+    "narrationText": "Acción popular. Cómo proteger derechos colectivos, medio ambiente, patrimonio público y seguridad colectiva. La primera pregunta no es solamente qué norma existe, sino qué resultado jurídico se busca y qué riesgo debe evitarse. El punto de partida es ordenar los hechos: qué ocurrió, cuándo ocurrió, quién intervino y qué documento lo demuestra. Después se identifica la vía correcta, la autoridad competente y la prueba necesaria. También hay que anticipar la reacción contraria: puede negar los hechos, cuestionar documentos, discutir competencia, observar plazos o atacar la forma. Por eso una buena estrategia no improvisa. Define qué se pide, qué se prueba, qué se responde y cómo se ejecutará el resultado. No todo caso exige demandar de inmediato; a veces primero corresponde prevenir, documentar, intimar, negociar o preparar mejor la prueba. Si este problema puede afectar libertad, familia, patrimonio o empresa, no espere a que el plazo o la prueba se pierdan. Busque un diagnóstico jurídico oportuno.",
+    "narrationSrc": "public/generated/video-005-narration.mp3",
+    "narrationVolume": 1,
+    "musicVolume": 0.1,
+    "ducking": true
+  },
+  "assets": {},
+  "scenes": [
+    {
+      "id": "hook",
+      "kind": "hero",
+      "content": {
+        "title": "Acción popular",
+        "subtitle": "Lo importante es saber qué hacer primero"
+      },
+      "timing": {
+        "durationMs": 8000
+      }
+    },
+    {
+      "id": "problema",
+      "kind": "statement",
+      "content": {
+        "title": "El error común",
+        "subtitle": "Actuar sin ordenar hechos, documentos, prueba y plazo"
+      },
+      "timing": {
+        "durationMs": 9000
+      }
+    },
+    {
+      "id": "ruta",
+      "kind": "mechanism",
+      "content": {
+        "title": "Ruta jurídica básica",
+        "before": "Hechos + documentos",
+        "after": "Vía correcta + prueba"
+      },
+      "timing": {
+        "durationMs": 10000
+      }
+    },
+    {
+      "id": "pasos",
+      "kind": "points",
+      "content": {
+        "title": "Cuatro preguntas clave",
+        "points": [
+          "Qué ocurrió",
+          "Qué se puede probar",
+          "Ante quién se actúa",
+          "Qué plazo no debe vencer"
+        ]
+      },
+      "timing": {
+        "durationMs": 12000
+      }
+    },
+    {
+      "id": "defensa",
+      "kind": "statement",
+      "content": {
+        "title": "Anticipa la reacción contraria",
+        "subtitle": "Negación, excepciones, observaciones o impugnación"
+      },
+      "timing": {
+        "durationMs": 10000
+      }
+    },
+    {
+      "id": "cta",
+      "kind": "cta",
+      "content": {
+        "line1": "No improvises tu caso",
+        "line2": "Busca diagnóstico jurídico oportuno"
+      },
+      "timing": {
+        "durationMs": 9000
+      }
+    }
+  ]
+}

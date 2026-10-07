@@ -3,16 +3,22 @@ name: Render Video Juridico V2 Sync
 on:
   workflow_dispatch:
     inputs:
+      video_number:
+        description: "Número del catálogo SILEC: 1, 001, VIDEO-001 o video-001"
+        required: false
+        default: "001"
+        type: string
+
       production_code:
-        description: "Production code"
-        required: true
-        default: "video-juridico-009"
+        description: "Production code avanzado. Déjalo vacío si usarás video_number."
+        required: false
+        default: ""
         type: string
 
       content_mode:
         description: "Content generation mode"
         required: true
-        default: "autonomous"
+        default: "existing"
         type: choice
         options:
           - autonomous
@@ -65,7 +71,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      PRODUCTION_CODE: ${{ inputs.production_code }}
       CONTENT_MODE: ${{ inputs.content_mode }}
       ENABLE_3D: ${{ inputs.enable_3d }}
       REQUESTED_TOPIC: ${{ inputs.requested_topic }}
@@ -77,6 +82,51 @@ jobs:
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v7
+
+      - name: Resolver ID de video SILEC
+        shell: bash
+        run: |
+          RAW_VIDEO="${{ inputs.video_number }}"
+          RAW_PRODUCTION="${{ inputs.production_code }}"
+
+          # Prioridad: si production_code viene lleno, se respeta.
+          # Si está vacío, se usa video_number. Esto evita que el workflow
+          # quede con PRODUCTION_CODE vacío y falle en content/.silec.json.
+          if [ -n "$(echo "$RAW_PRODUCTION" | xargs)" ]; then
+            raw="$(echo "$RAW_PRODUCTION" | tr '[:upper:]' '[:lower:]' | xargs)"
+          else
+            raw="$(echo "$RAW_VIDEO" | tr '[:upper:]' '[:lower:]' | xargs)"
+          fi
+
+          if [ -z "$raw" ]; then
+            raw="001"
+          fi
+
+          if [[ "$raw" =~ ^[0-9]+$ ]]; then
+            number=$((10#$raw))
+            if [ "$number" -lt 1 ] || [ "$number" -gt 100 ]; then
+              echo "ERROR: video_number debe estar entre 1 y 100. Recibido: $raw"
+              exit 1
+            fi
+            code=$(printf "video-%03d" "$number")
+          elif [[ "$raw" =~ ^video-([0-9]{1,3})$ ]]; then
+            number="${BASH_REMATCH[1]}"
+            number=$((10#$number))
+            if [ "$number" -lt 1 ] || [ "$number" -gt 100 ]; then
+              echo "ERROR: video_number debe estar entre 1 y 100. Recibido: $raw"
+              exit 1
+            fi
+            code=$(printf "video-%03d" "$number")
+          else
+            code="$raw"
+          fi
+
+          echo "PRODUCTION_CODE=$code" >> "$GITHUB_ENV"
+          echo "SILEC_PATH=content/${code}.silec.json" >> "$GITHUB_ENV"
+          echo "VIDEOSPEC_PATH=examples/${code}.video.json" >> "$GITHUB_ENV"
+          echo "Código resuelto: $code"
+          echo "SILEC esperado: content/${code}.silec.json"
+          echo "VideoSpec esperado: examples/${code}.video.json"
 
       - name: Configurar Node 24
         uses: actions/setup-node@v7
@@ -104,6 +154,33 @@ jobs:
             echo "Código de producción inválido."
             exit 1
           fi
+
+      - name: Verificar paquete SILEC por número
+        run: |
+          echo "PRODUCTION_CODE=$PRODUCTION_CODE"
+          echo "SILEC_PATH=$SILEC_PATH"
+          echo "VIDEOSPEC_PATH=$VIDEOSPEC_PATH"
+
+          if [ ! -s "$SILEC_PATH" ]; then
+            echo "ERROR: No existe o está vacío: $SILEC_PATH"
+            echo "Archivos content/video-* disponibles:"
+            ls -1 content/video-*.silec.json 2>/dev/null | head -30 || true
+            exit 1
+          fi
+
+          if [ "$CONTENT_MODE" = "existing" ] && [ ! -s "$VIDEOSPEC_PATH" ]; then
+            echo "ERROR: En modo existing no existe o está vacío: $VIDEOSPEC_PATH"
+            echo "Archivos examples/video-* disponibles:"
+            ls -1 examples/video-*.video.json 2>/dev/null | head -30 || true
+            exit 1
+          fi
+
+          python3 -m json.tool "$SILEC_PATH" > /dev/null
+          if [ "$CONTENT_MODE" = "existing" ]; then
+            python3 -m json.tool "$VIDEOSPEC_PATH" > /dev/null
+          fi
+
+          echo "PAQUETE SILEC CONFIRMADO: $PRODUCTION_CODE"
 
       - name: Instalar FFmpeg y edge-tts actual
         run: |
@@ -146,7 +223,7 @@ jobs:
 
       - name: Verificar SILEC input
         run: |
-          test -s "content/${PRODUCTION_CODE}.silec.json"
+          test -s "$SILEC_PATH"
 
           echo ""
           echo "=============================================="
@@ -154,7 +231,7 @@ jobs:
           echo "=============================================="
           echo "Production: ${PRODUCTION_CODE}"
           echo "Mode: ${CONTENT_MODE}"
-          echo "SILEC: content/${PRODUCTION_CODE}.silec.json"
+          echo "SILEC: ${SILEC_PATH}"
           echo "=============================================="
 
       # ============================================================
@@ -224,8 +301,8 @@ jobs:
 
       - name: Verificar entrada audiovisual
         run: |
-          test -s "content/${PRODUCTION_CODE}.silec.json"
-          test -s "examples/${PRODUCTION_CODE}.video.json"
+          test -s "$SILEC_PATH"
+          test -s "$VIDEOSPEC_PATH"
           test -s "public/generated/${PRODUCTION_CODE}-creative-memory.json"
           test -s "public/generated/${PRODUCTION_CODE}-creative-decision.json"
 
@@ -235,8 +312,8 @@ jobs:
           echo "=============================================="
           echo "Production: ${PRODUCTION_CODE}"
           echo "Mode: ${CONTENT_MODE}"
-          echo "SILEC: content/${PRODUCTION_CODE}.silec.json"
-          echo "VideoSpec: examples/${PRODUCTION_CODE}.video.json"
+          echo "SILEC: ${SILEC_PATH}"
+          echo "VideoSpec: ${VIDEOSPEC_PATH}"
           echo "Creative Memory: public/generated/${PRODUCTION_CODE}-creative-memory.json"
           echo "Creative Decision: public/generated/${PRODUCTION_CODE}-creative-decision.json"
           echo "=============================================="

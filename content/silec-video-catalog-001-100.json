@@ -1,0 +1,602 @@
+[
+  {
+    "id": "video-001",
+    "videoNumber": "VIDEO-001",
+    "title": "Acción de libertad",
+    "summary": "Cuándo procede, qué protege y cuáles son los errores que la hacen fracasar."
+  },
+  {
+    "id": "video-002",
+    "videoNumber": "VIDEO-002",
+    "title": "Acción de amparo constitucional",
+    "summary": "Cómo se usa para proteger derechos fundamentales frente a actos ilegales o arbitrarios."
+  },
+  {
+    "id": "video-003",
+    "videoNumber": "VIDEO-003",
+    "title": "Acción de cumplimiento",
+    "summary": "Cuándo exigir que una autoridad cumpla una obligación legal o constitucional."
+  },
+  {
+    "id": "video-004",
+    "videoNumber": "VIDEO-004",
+    "title": "Acción de protección de privacidad",
+    "summary": "Cómo defender datos personales, intimidad y registros indebidos."
+  },
+  {
+    "id": "video-005",
+    "videoNumber": "VIDEO-005",
+    "title": "Acción popular",
+    "summary": "Cómo proteger derechos colectivos, medio ambiente, patrimonio público y seguridad colectiva."
+  },
+  {
+    "id": "video-006",
+    "videoNumber": "VIDEO-006",
+    "title": "Debido proceso constitucional",
+    "summary": "La garantía que atraviesa todo juicio, trámite o procedimiento administrativo."
+  },
+  {
+    "id": "video-007",
+    "videoNumber": "VIDEO-007",
+    "title": "Motivación de resoluciones",
+    "summary": "Por qué una autoridad no puede decidir sin explicar hechos, prueba, norma y conclusión."
+  },
+  {
+    "id": "video-008",
+    "videoNumber": "VIDEO-008",
+    "title": "Tutela judicial efectiva",
+    "summary": "Por qué no basta tener proceso: debe existir una respuesta útil y real."
+  },
+  {
+    "id": "video-009",
+    "videoNumber": "VIDEO-009",
+    "title": "Verdad material vs formalismo",
+    "summary": "Cuándo la forma procesal no puede destruir la justicia del caso."
+  },
+  {
+    "id": "video-010",
+    "videoNumber": "VIDEO-010",
+    "title": "Control constitucional en casos comunes",
+    "summary": "Cómo detectar cuándo un proceso ordinario tiene dimensión constitucional."
+  },
+  {
+    "id": "video-011",
+    "videoNumber": "VIDEO-011",
+    "title": "Proceso civil explicado por etapas",
+    "summary": "Demanda, contestación, prueba, sentencia, recurso y ejecución."
+  },
+  {
+    "id": "video-012",
+    "videoNumber": "VIDEO-012",
+    "title": "La demanda civil bien planteada",
+    "summary": "Qué debe contener para no nacer débil."
+  },
+  {
+    "id": "video-013",
+    "videoNumber": "VIDEO-013",
+    "title": "Contestación a la demanda",
+    "summary": "Cómo defenderse estratégicamente desde el primer escrito."
+  },
+  {
+    "id": "video-014",
+    "videoNumber": "VIDEO-014",
+    "title": "Excepciones procesales",
+    "summary": "Cuándo usarlas para frenar, corregir o destruir una demanda."
+  },
+  {
+    "id": "video-015",
+    "videoNumber": "VIDEO-015",
+    "title": "Prueba documental en proceso civil",
+    "summary": "Qué documentos sirven, cómo se presentan y cómo se atacan."
+  },
+  {
+    "id": "video-016",
+    "videoNumber": "VIDEO-016",
+    "title": "Audiencia preliminar civil",
+    "summary": "Qué se decide y cómo prepararse."
+  },
+  {
+    "id": "video-017",
+    "videoNumber": "VIDEO-017",
+    "title": "Sentencia civil",
+    "summary": "Cómo se estructura y cómo detectar errores impugnables."
+  },
+  {
+    "id": "video-018",
+    "videoNumber": "VIDEO-018",
+    "title": "Apelación civil",
+    "summary": "Cómo construir agravios reales y no simples quejas."
+  },
+  {
+    "id": "video-019",
+    "videoNumber": "VIDEO-019",
+    "title": "Casación civil",
+    "summary": "Cuándo procede y por qué no es una tercera instancia."
+  },
+  {
+    "id": "video-020",
+    "videoNumber": "VIDEO-020",
+    "title": "Ejecución de sentencia civil",
+    "summary": "Cómo convertir una decisión favorable en cumplimiento material."
+  },
+  {
+    "id": "video-021",
+    "videoNumber": "VIDEO-021",
+    "title": "Proceso ejecutivo",
+    "summary": "Qué documento permite demandar y qué se busca lograr."
+  },
+  {
+    "id": "video-022",
+    "videoNumber": "VIDEO-022",
+    "title": "Título ejecutivo",
+    "summary": "Qué hace que un documento tenga fuerza para cobrar judicialmente."
+  },
+  {
+    "id": "video-023",
+    "videoNumber": "VIDEO-023",
+    "title": "Embargo y medidas de aseguramiento",
+    "summary": "Cómo proteger el cobro antes de que el deudor desaparezca bienes."
+  },
+  {
+    "id": "video-024",
+    "videoNumber": "VIDEO-024",
+    "title": "Excepciones en proceso ejecutivo",
+    "summary": "Cómo se defiende el ejecutado."
+  },
+  {
+    "id": "video-025",
+    "videoNumber": "VIDEO-025",
+    "title": "Reconocimiento de deuda",
+    "summary": "Cómo redactarlo para que sirva realmente en juicio."
+  },
+  {
+    "id": "video-026",
+    "videoNumber": "VIDEO-026",
+    "title": "Letras de cambio y pagarés",
+    "summary": "Errores frecuentes que destruyen la fuerza ejecutiva."
+  },
+  {
+    "id": "video-027",
+    "videoNumber": "VIDEO-027",
+    "title": "Cobranza estratégica",
+    "summary": "Cuándo conviene negociar y cuándo demandar."
+  },
+  {
+    "id": "video-028",
+    "videoNumber": "VIDEO-028",
+    "title": "Ejecución coactiva",
+    "summary": "Diferencias básicas con el proceso ejecutivo ordinario."
+  },
+  {
+    "id": "video-029",
+    "videoNumber": "VIDEO-029",
+    "title": "Riesgos de prestar dinero sin respaldo",
+    "summary": "Qué prueba debe existir antes de entregar dinero."
+  },
+  {
+    "id": "video-030",
+    "videoNumber": "VIDEO-030",
+    "title": "Cómo preparar un caso de cobranza",
+    "summary": "Documentos, prueba, cálculo, estrategia y riesgos."
+  },
+  {
+    "id": "video-031",
+    "videoNumber": "VIDEO-031",
+    "title": "Proceso penal explicado por etapas",
+    "summary": "Denuncia, investigación, imputación, cautelares, acusación, juicio y recursos."
+  },
+  {
+    "id": "video-032",
+    "videoNumber": "VIDEO-032",
+    "title": "Denuncia penal",
+    "summary": "Cuándo presentar denuncia y cómo evitar que sea débil."
+  },
+  {
+    "id": "video-033",
+    "videoNumber": "VIDEO-033",
+    "title": "Imputación formal",
+    "summary": "Qué significa y cómo se la analiza desde la defensa."
+  },
+  {
+    "id": "video-034",
+    "videoNumber": "VIDEO-034",
+    "title": "Medidas cautelares personales",
+    "summary": "Detención preventiva, medidas sustitutivas y proporcionalidad."
+  },
+  {
+    "id": "video-035",
+    "videoNumber": "VIDEO-035",
+    "title": "Defensa ante imputación penal",
+    "summary": "Qué hacer primero cuando una persona es imputada."
+  },
+  {
+    "id": "video-036",
+    "videoNumber": "VIDEO-036",
+    "title": "Actividad procesal defectuosa",
+    "summary": "Cómo denunciar defectos que afectan el debido proceso."
+  },
+  {
+    "id": "video-037",
+    "videoNumber": "VIDEO-037",
+    "title": "Prueba penal",
+    "summary": "Qué debe probar la acusación y cómo se controla la prueba."
+  },
+  {
+    "id": "video-038",
+    "videoNumber": "VIDEO-038",
+    "title": "Audiencia cautelar",
+    "summary": "Qué se discute realmente y cómo prepararla."
+  },
+  {
+    "id": "video-039",
+    "videoNumber": "VIDEO-039",
+    "title": "Apelación incidental penal",
+    "summary": "Cómo impugnar una resolución cautelar o incidental."
+  },
+  {
+    "id": "video-040",
+    "videoNumber": "VIDEO-040",
+    "title": "Juicio oral penal",
+    "summary": "Teoría del caso, prueba, contradicción y alegatos."
+  },
+  {
+    "id": "video-041",
+    "videoNumber": "VIDEO-041",
+    "title": "Asistencia familiar",
+    "summary": "Cómo se pide, qué se prueba y cómo se ejecuta."
+  },
+  {
+    "id": "video-042",
+    "videoNumber": "VIDEO-042",
+    "title": "Régimen de visitas",
+    "summary": "Cómo ordenar el vínculo familiar sin afectar el interés superior del menor."
+  },
+  {
+    "id": "video-043",
+    "videoNumber": "VIDEO-043",
+    "title": "Guarda y custodia",
+    "summary": "Qué analiza el juez y qué prueba pesa más."
+  },
+  {
+    "id": "video-044",
+    "videoNumber": "VIDEO-044",
+    "title": "Filiación",
+    "summary": "Cómo se reclama o impugna jurídicamente."
+  },
+  {
+    "id": "video-045",
+    "videoNumber": "VIDEO-045",
+    "title": "Violencia familiar",
+    "summary": "Qué hacer ante una denuncia, medidas de protección y defensa."
+  },
+  {
+    "id": "video-046",
+    "videoNumber": "VIDEO-046",
+    "title": "Interés superior del niño",
+    "summary": "Cómo se aplica en casos reales."
+  },
+  {
+    "id": "video-047",
+    "videoNumber": "VIDEO-047",
+    "title": "Incumplimiento de asistencia familiar",
+    "summary": "Vías, riesgos y ejecución."
+  },
+  {
+    "id": "video-048",
+    "videoNumber": "VIDEO-048",
+    "title": "Divorcio",
+    "summary": "Ruta práctica, documentos, efectos patrimoniales y familiares."
+  },
+  {
+    "id": "video-049",
+    "videoNumber": "VIDEO-049",
+    "title": "Bienes gananciales",
+    "summary": "Cómo se identifican, prueban y dividen."
+  },
+  {
+    "id": "video-050",
+    "videoNumber": "VIDEO-050",
+    "title": "Audiencias familiares",
+    "summary": "Cómo prepararse para hablar, probar y pedir correctamente."
+  },
+  {
+    "id": "video-051",
+    "videoNumber": "VIDEO-051",
+    "title": "Procedimiento administrativo",
+    "summary": "Cómo empieza, cómo se defiende y cómo se impugna."
+  },
+  {
+    "id": "video-052",
+    "videoNumber": "VIDEO-052",
+    "title": "Recurso de revocatoria",
+    "summary": "Cuándo usarlo y cómo construir el agravio."
+  },
+  {
+    "id": "video-053",
+    "videoNumber": "VIDEO-053",
+    "title": "Recurso jerárquico",
+    "summary": "Cómo atacar una resolución administrativa superior."
+  },
+  {
+    "id": "video-054",
+    "videoNumber": "VIDEO-054",
+    "title": "Acto administrativo",
+    "summary": "Cuándo es válido, anulable o impugnable."
+  },
+  {
+    "id": "video-055",
+    "videoNumber": "VIDEO-055",
+    "title": "Notificación administrativa",
+    "summary": "Errores que pueden afectar plazos y defensa."
+  },
+  {
+    "id": "video-056",
+    "videoNumber": "VIDEO-056",
+    "title": "Silencio administrativo",
+    "summary": "Cuándo importa y qué riesgos tiene."
+  },
+  {
+    "id": "video-057",
+    "videoNumber": "VIDEO-057",
+    "title": "Sanciones administrativas",
+    "summary": "Legalidad, proporcionalidad, motivación y defensa."
+  },
+  {
+    "id": "video-058",
+    "videoNumber": "VIDEO-058",
+    "title": "Responsabilidad por la función pública",
+    "summary": "Qué riesgos enfrentan servidores y autoridades."
+  },
+  {
+    "id": "video-059",
+    "videoNumber": "VIDEO-059",
+    "title": "Contrataciones públicas",
+    "summary": "Cómo se impugnan errores en procesos de contratación."
+  },
+  {
+    "id": "video-060",
+    "videoNumber": "VIDEO-060",
+    "title": "Fiscalización administrativa",
+    "summary": "Cómo responder ante requerimientos, informes y observaciones."
+  },
+  {
+    "id": "video-061",
+    "videoNumber": "VIDEO-061",
+    "title": "Contrato bien hecho",
+    "summary": "Qué cláusulas evitan futuros conflictos."
+  },
+  {
+    "id": "video-062",
+    "videoNumber": "VIDEO-062",
+    "title": "Incumplimiento contractual",
+    "summary": "Cómo probarlo y qué pedir."
+  },
+  {
+    "id": "video-063",
+    "videoNumber": "VIDEO-063",
+    "title": "Resolución de contrato",
+    "summary": "Cuándo se puede terminar jurídicamente una relación contractual."
+  },
+  {
+    "id": "video-064",
+    "videoNumber": "VIDEO-064",
+    "title": "Daños y perjuicios",
+    "summary": "Qué se debe probar para reclamar indemnización."
+  },
+  {
+    "id": "video-065",
+    "videoNumber": "VIDEO-065",
+    "title": "Compraventa de inmueble",
+    "summary": "Documentos, riesgos y pasos esenciales."
+  },
+  {
+    "id": "video-066",
+    "videoNumber": "VIDEO-066",
+    "title": "Minuta y escritura pública",
+    "summary": "Diferencias y errores comunes."
+  },
+  {
+    "id": "video-067",
+    "videoNumber": "VIDEO-067",
+    "title": "Derechos reales",
+    "summary": "Cómo proteger propiedad, posesión y registro."
+  },
+  {
+    "id": "video-068",
+    "videoNumber": "VIDEO-068",
+    "title": "Empresa en conflicto",
+    "summary": "Cómo ordenar jurídicamente una crisis empresarial."
+  },
+  {
+    "id": "video-069",
+    "videoNumber": "VIDEO-069",
+    "title": "Sociedades comerciales",
+    "summary": "Errores jurídicos frecuentes entre socios."
+  },
+  {
+    "id": "video-070",
+    "videoNumber": "VIDEO-070",
+    "title": "Poderes notariales",
+    "summary": "Cómo usarlos y qué riesgos producen."
+  },
+  {
+    "id": "video-071",
+    "videoNumber": "VIDEO-071",
+    "title": "Propiedad agraria",
+    "summary": "Qué la diferencia de la propiedad civil común."
+  },
+  {
+    "id": "video-072",
+    "videoNumber": "VIDEO-072",
+    "title": "Saneamiento agrario",
+    "summary": "Ruta general, prueba y riesgos."
+  },
+  {
+    "id": "video-073",
+    "videoNumber": "VIDEO-073",
+    "title": "Función social y función económico-social",
+    "summary": "Por qué son decisivas en tierra rural."
+  },
+  {
+    "id": "video-074",
+    "videoNumber": "VIDEO-074",
+    "title": "Conflictos por posesión rural",
+    "summary": "Cómo se prueban y cómo se defienden."
+  },
+  {
+    "id": "video-075",
+    "videoNumber": "VIDEO-075",
+    "title": "Avasallamiento",
+    "summary": "Qué hacer ante ocupación irregular de tierras."
+  },
+  {
+    "id": "video-076",
+    "videoNumber": "VIDEO-076",
+    "title": "Derecho minero básico",
+    "summary": "Concesiones, contratos, riesgos y autoridad competente."
+  },
+  {
+    "id": "video-077",
+    "videoNumber": "VIDEO-077",
+    "title": "Contratos mineros",
+    "summary": "Cláusulas críticas y riesgos de incumplimiento."
+  },
+  {
+    "id": "video-078",
+    "videoNumber": "VIDEO-078",
+    "title": "Hidrocarburos y energía",
+    "summary": "Por qué son materias jurídicas estratégicas."
+  },
+  {
+    "id": "video-079",
+    "videoNumber": "VIDEO-079",
+    "title": "Regulación económica",
+    "summary": "Cómo el Estado controla actividades económicas sensibles."
+  },
+  {
+    "id": "video-080",
+    "videoNumber": "VIDEO-080",
+    "title": "Conflictos regulatorios",
+    "summary": "Cómo defenderse frente a sanciones o decisiones de entidades reguladoras."
+  },
+  {
+    "id": "video-081",
+    "videoNumber": "VIDEO-081",
+    "title": "Teoría del caso",
+    "summary": "Cómo convertir hechos dispersos en una estrategia jurídica."
+  },
+  {
+    "id": "video-082",
+    "videoNumber": "VIDEO-082",
+    "title": "Carga de la prueba",
+    "summary": "Quién debe probar qué y qué pasa si no lo hace."
+  },
+  {
+    "id": "video-083",
+    "videoNumber": "VIDEO-083",
+    "title": "Valoración probatoria",
+    "summary": "Cómo debe razonar una autoridad sobre la prueba."
+  },
+  {
+    "id": "video-084",
+    "videoNumber": "VIDEO-084",
+    "title": "Prueba documental defectuosa",
+    "summary": "Cuándo un documento no alcanza para ganar."
+  },
+  {
+    "id": "video-085",
+    "videoNumber": "VIDEO-085",
+    "title": "Testigos",
+    "summary": "Cómo prepararlos y cómo atacarlos."
+  },
+  {
+    "id": "video-086",
+    "videoNumber": "VIDEO-086",
+    "title": "Pericia",
+    "summary": "Cuándo pedirla y cómo cuestionarla."
+  },
+  {
+    "id": "video-087",
+    "videoNumber": "VIDEO-087",
+    "title": "Nulidades procesales",
+    "summary": "Cuándo una irregularidad realmente anula el proceso."
+  },
+  {
+    "id": "video-088",
+    "videoNumber": "VIDEO-088",
+    "title": "Congruencia procesal",
+    "summary": "Por qué el juez no puede decidir fuera de lo pedido."
+  },
+  {
+    "id": "video-089",
+    "videoNumber": "VIDEO-089",
+    "title": "Recursos judiciales",
+    "summary": "Diferencia entre reclamar, apelar, recurrir y pedir nulidad."
+  },
+  {
+    "id": "video-090",
+    "videoNumber": "VIDEO-090",
+    "title": "Agravios",
+    "summary": "Cómo explicar el daño jurídico que causa una resolución."
+  },
+  {
+    "id": "video-091",
+    "videoNumber": "VIDEO-091",
+    "title": "Cuándo consultar a un abogado",
+    "summary": "Por qué esperar demasiado puede destruir un caso."
+  },
+  {
+    "id": "video-092",
+    "videoNumber": "VIDEO-092",
+    "title": "Cómo preparar una consulta jurídica",
+    "summary": "Qué documentos llevar y qué hechos ordenar."
+  },
+  {
+    "id": "video-093",
+    "videoNumber": "VIDEO-093",
+    "title": "Errores que cometen los clientes",
+    "summary": "Mentir, ocultar documentos, improvisar y firmar sin asesoría."
+  },
+  {
+    "id": "video-094",
+    "videoNumber": "VIDEO-094",
+    "title": "Diagnóstico jurídico estratégico",
+    "summary": "Por qué antes de demandar hay que entender el caso completo."
+  },
+  {
+    "id": "video-095",
+    "videoNumber": "VIDEO-095",
+    "title": "Segunda opinión jurídica",
+    "summary": "Cuándo conviene revisar una estrategia ya iniciada."
+  },
+  {
+    "id": "video-096",
+    "videoNumber": "VIDEO-096",
+    "title": "Defensa preventiva",
+    "summary": "Cómo evitar un juicio antes de que nazca."
+  },
+  {
+    "id": "video-097",
+    "videoNumber": "VIDEO-097",
+    "title": "Negociación jurídica",
+    "summary": "Cuándo negociar no es debilidad, sino estrategia."
+  },
+  {
+    "id": "video-098",
+    "videoNumber": "VIDEO-098",
+    "title": "Riesgo legal empresarial",
+    "summary": "Cómo una empresa puede perder dinero por falta de prevención jurídica."
+  },
+  {
+    "id": "video-099",
+    "videoNumber": "VIDEO-099",
+    "title": "Qué hace diferente a un servicio jurídico premium",
+    "summary": "No es solo redactar: es diagnosticar, probar, anticipar y decidir."
+  },
+  {
+    "id": "video-100",
+    "videoNumber": "VIDEO-100",
+    "title": "Derecho como estrategia de vida y patrimonio",
+    "summary": "Cómo el conocimiento jurídico protege libertad, familia, empresa y futuro."
+  }
+]
