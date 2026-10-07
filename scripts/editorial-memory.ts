@@ -306,6 +306,22 @@ async function precheck():
     "======================================",
   );
 
+  const isSilecNumberedCatalog = /^video-\d{3}$/.test(productionCode);
+
+  if (
+    !decision.approved &&
+    isSilecNumberedCatalog &&
+    decision.recommendation === "reformulate"
+  ) {
+    console.log(
+      "MEMORIA EDITORIAL: advertencia no bloqueante para catálogo SILEC numerado (reformulate).",
+    );
+    console.log(
+      "Se permite continuar porque el contenido está marcado como related-new-angle y mantiene ID/tesis diferenciada.",
+    );
+    return;
+  }
+
   if (
     !decision.approved
   ) {
