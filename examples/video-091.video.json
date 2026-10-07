@@ -29,7 +29,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Cuándo consultar a un abogado. Por qué esperar demasiado puede destruir un caso. La primera pregunta no es solamente qué norma existe, sino qué resultado jurídico se busca y qué riesgo debe evitarse. El punto de partida es ordenar los hechos: qué ocurrió, cuándo ocurrió, quién intervino y qué documento lo demuestra. Después se identifica la vía correcta, la autoridad competente y la prueba necesaria. También hay que anticipar la reacción contraria: puede negar los hechos, cuestionar documentos, discutir competencia, observar plazos o atacar la forma. Por eso una buena estrategia no improvisa. Define qué se pide, qué se prueba, qué se responde y cómo se ejecutará el resultado. No todo caso exige demandar de inmediato; a veces primero corresponde prevenir, documentar, intimar, negociar o preparar mejor la prueba. Si este problema puede afectar libertad, familia, patrimonio o empresa, no espere a que el plazo o la prueba se pierdan. Busque un diagnóstico jurídico oportuno.",
+    "narrationText": "Cuándo consultar a un abogado: el error no suele estar solo en no saber la norma, sino en no saber qué hacer primero. Todo problema jurídico debe comenzar por una identificación clara del conflicto y del resultado buscado. La vía correcta depende de hechos verificables, competencia de la autoridad, documentos disponibles y oportunidad de la actuación. La prueba debe prepararse antes de discutir el fondo, porque sin prueba el derecho se debilita. Toda actuación debe prever la reacción probable de la contraparte o de la autoridad. La decisión jurídica útil no termina en obtener una resolución, sino en hacerla ejecutable y controlar sus riesgos. Cuándo consultar a un abogado exige método: entender el problema, elegir la vía adecuada, probar lo relevante y actuar antes de que el plazo o el error procesal debiliten el caso. En Derecho, actuar tarde o actuar sin prueba puede costar más que el conflicto inicial.",
     "narrationSrc": "public/generated/video-091-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -38,75 +38,69 @@
   "assets": {},
   "scenes": [
     {
-      "id": "hook",
+      "id": "scene-01",
       "kind": "hero",
       "content": {
         "title": "Cuándo consultar a un abogado",
-        "subtitle": "Lo importante es saber qué hacer primero"
+        "subtitle": "Cuándo consultar a un abogado: el error no suele estar solo en no saber la norma, sino en no saber qué hacer primero."
       },
       "timing": {
         "durationMs": 8000
       }
     },
     {
-      "id": "problema",
+      "id": "scene-02",
       "kind": "statement",
       "content": {
-        "title": "El error común",
-        "subtitle": "Actuar sin ordenar hechos, documentos, prueba y plazo"
+        "title": "Paso 1",
+        "subtitle": "Todo problema jurídico debe comenzar por una identificación clara del conflicto y del resultado buscado."
       },
       "timing": {
         "durationMs": 9000
       }
     },
     {
-      "id": "ruta",
-      "kind": "mechanism",
-      "content": {
-        "title": "Ruta jurídica básica",
-        "before": "Hechos + documentos",
-        "after": "Vía correcta + prueba"
-      },
-      "timing": {
-        "durationMs": 10000
-      }
-    },
-    {
-      "id": "pasos",
-      "kind": "points",
-      "content": {
-        "title": "Cuatro preguntas clave",
-        "points": [
-          "Qué ocurrió",
-          "Qué se puede probar",
-          "Ante quién se actúa",
-          "Qué plazo no debe vencer"
-        ]
-      },
-      "timing": {
-        "durationMs": 12000
-      }
-    },
-    {
-      "id": "defensa",
+      "id": "scene-03",
       "kind": "statement",
       "content": {
-        "title": "Anticipa la reacción contraria",
-        "subtitle": "Negación, excepciones, observaciones o impugnación"
+        "title": "Paso 2",
+        "subtitle": "La vía correcta depende de hechos verificables, competencia de la autoridad, documentos disponibles y oportunidad de la actuación."
       },
       "timing": {
-        "durationMs": 10000
+        "durationMs": 9000
       }
     },
     {
-      "id": "cta",
+      "id": "scene-04",
+      "kind": "statement",
+      "content": {
+        "title": "Paso 3",
+        "subtitle": "La prueba debe prepararse antes de discutir el fondo, porque sin prueba el derecho se debilita."
+      },
+      "timing": {
+        "durationMs": 9000
+      }
+    },
+    {
+      "id": "scene-05",
+      "kind": "statement",
+      "content": {
+        "title": "Paso 4",
+        "subtitle": "Toda actuación debe prever la reacción probable de la contraparte o de la autoridad."
+      },
+      "timing": {
+        "durationMs": 9000
+      }
+    },
+    {
+      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "line1": "No improvises tu caso",
-        "line2": "Busca diagnóstico jurídico oportuno"
+        "title": "Cuándo consultar a un abogado exige método: entender el problema, elegir la vía adecuada, probar lo relevante y actuar antes de que el plazo o el error procesal debiliten el caso.",
+        "subtitle": "En Derecho, actuar tarde o actuar sin prueba puede costar más que el conflicto inicial."
       },
       "timing": {
-        "durationMs": 9000
+        "durationMs": 10000
       }
     }
   ]

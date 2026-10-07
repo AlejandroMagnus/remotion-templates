@@ -295,6 +295,10 @@ jobs:
           print('FINAL_OPENING=' + re.split(r'(?<=[.!?])\\s+', text, maxsplit=1)[0])
           PYVERIFY
 
+      - name: Sincronizar ejemplos SILEC
+        if: ${{ inputs.content_mode == 'existing' }}
+        run: npx --yes tsx scripts/sync-silec-video-examples.ts
+
       - name: Construir plan de valor humano
         run: |
           npx --yes tsx scripts/build-human-value-plan.ts "${PRODUCTION_CODE}"
