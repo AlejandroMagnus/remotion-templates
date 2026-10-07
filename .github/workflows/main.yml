@@ -295,6 +295,11 @@ jobs:
           print('FINAL_OPENING=' + re.split(r'(?<=[.!?])\\s+', text, maxsplit=1)[0])
           PYVERIFY
 
+      - name: Construir plan de valor humano
+        run: |
+          npx --yes tsx scripts/build-human-value-plan.ts "${PRODUCTION_CODE}"
+          test -s "public/generated/${PRODUCTION_CODE}-human-value-plan.json"
+
       - name: Valor humano — Revisar guion antes de generar voz
         run: |
           npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" script
