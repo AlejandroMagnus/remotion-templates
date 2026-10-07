@@ -1,3 +1,9 @@
+import {
+  applyEditorialSingularity,
+  buildEditorialSingularityPlan,
+  retitleScenesForSingularity,
+  type EditorialSingularityPlan,
+} from "../src/content/EditorialSingularityDirector";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -1051,10 +1057,59 @@ function main(): void {
 
   const profile = validateCreativeDecision(creativeDecision, productionCode);
 
-  const { plan, marketing, aula, narration, scenes } = buildVideoContent(
-    input,
-    profile,
-  );
+  // SINGULARITY-RUNTIME-V3_2
+  const singularityRuntimeEnabled =
+    process.env.SINGULARITY_RUNTIME_ENABLED === "1";
+
+  let runtimeInput = input;
+  let runtimeProfile = profile;
+  let singularity: EditorialSingularityPlan | null = null;
+
+  if (singularityRuntimeEnabled) {
+    singularity = buildEditorialSingularityPlan(
+      input,
+      profile.narrativeArchitecture,
+    );
+
+    runtimeInput = applyEditorialSingularity(input, singularity);
+
+    runtimeProfile = {
+      ...profile,
+      narrativeArchitecture: singularity.effectiveArchitecture,
+    };
+  }
+
+  const {
+    plan,
+    marketing,
+    aula,
+    narration,
+    scenes: baselineScenes,
+  } = buildVideoContent(runtimeInput, runtimeProfile);
+
+  const scenes =
+    singularityRuntimeEnabled && singularity
+      ? retitleScenesForSingularity(baselineScenes, singularity)
+      : baselineScenes;
+
+  if (singularityRuntimeEnabled && singularity) {
+    writeJson(
+      path.join(
+        process.cwd(),
+        "public",
+        "generated",
+        `${productionCode}-editorial-singularity.json`,
+      ),
+      {
+        ...singularity,
+        runtimeEnabled: true,
+        humanValueOpening: plan.opening,
+        humanValueTakeaway: plan.takeaway,
+        marketingCta: marketing.cta,
+        finalNarration: narration,
+      },
+    );
+  }
   writeJson(
     path.join(
       process.cwd(),

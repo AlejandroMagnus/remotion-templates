@@ -1,3 +1,7 @@
+import {
+  applyEditorialSingularity,
+  type EditorialSingularityPlan,
+} from "../src/content/EditorialSingularityDirector";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -32,11 +36,26 @@ export function runHumanValueReview(
   const read = <T>(name: string): T =>
     JSON.parse(fs.readFileSync(path.join(root, name), "utf8"));
   const input = read<SilecKnowledgeInput>(`content/${code}.silec.json`);
+
+  // SINGULARITY-REVIEW-V3_2
+  let reviewInput = input;
+  const singularityRelative = `public/generated/${code}-editorial-singularity.json`;
+  const singularityAbsolute = path.join(root, singularityRelative);
+
+  if (fs.existsSync(singularityAbsolute)) {
+    const runtimeSingularity = read<
+      EditorialSingularityPlan & { runtimeEnabled?: boolean }
+    >(singularityRelative);
+
+    if (runtimeSingularity.runtimeEnabled === true) {
+      reviewInput = applyEditorialSingularity(input, runtimeSingularity);
+    }
+  }
   const plan = read<HumanValuePlan>(
     `public/generated/${code}-human-value-plan.json`,
   );
   const video = read<HumanValueVideo>(`examples/${code}.video.json`);
-  const review = reviewHumanValue(input, plan, video);
+  const review = reviewHumanValue(reviewInput, plan, video);
   const resources: Array<Record<string, unknown>> = [];
   const nonempty = (name: string) => {
     const file = path.join(generated, name);

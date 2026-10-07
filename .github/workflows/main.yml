@@ -273,12 +273,40 @@ jobs:
           test -s \
             "public/generated/${PRODUCTION_CODE}-creative-decision.json"
 
-      - name: V3.18-D — Construir VideoSpec creativo autónomo
+      - name: V4.9 — Singularidad runtime preservando Human Value
         if: ${{ inputs.content_mode == 'autonomous' || inputs.content_mode == 'directed' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          SINGULARITY_RUNTIME_ENABLED: "1"
         run: |
-          npx --yes tsx scripts/build-autonomous-video-spec.ts \
-            "${PRODUCTION_CODE}"
+          approved=0
 
+          for attempt in 0 1 2 3 4 5; do
+            echo "=== GENOMA NARRATIVO ${attempt} ==="
+            export SINGULARITY_ATTEMPT="${attempt}"
+
+            npx --yes tsx scripts/build-autonomous-video-spec.ts               "${PRODUCTION_CODE}"
+
+            if npx --yes tsx scripts/narrative-novelty-gate.ts               "${PRODUCTION_CODE}"; then
+              approved=1
+              echo "NOVEDAD_NARRATIVA_APROBADA=${attempt}"
+              break
+            else
+              status=$?
+              if [[ "${status}" -ne 42 ]]; then
+                echo "ERROR: el gate de novedad falló por una causa distinta a similitud."
+                exit "${status}"
+              fi
+              echo "Guion demasiado parecido. Probando otro genoma..."
+            fi
+          done
+
+          if [[ "${approved}" -ne 1 ]]; then
+            echo "NARRATIVE_NOVELTY_EXHAUSTED"
+            echo "No se renderiza otro video repetitivo."
+            exit 1
+          fi
       - name: Gate final — bloquear muletilla antes del TTS
         run: |
           python3 scripts/final-narration-gate.py "${PRODUCTION_CODE}"
