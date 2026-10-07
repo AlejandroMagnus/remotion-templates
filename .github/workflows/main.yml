@@ -202,6 +202,22 @@ jobs:
           npx --yes tsx scripts/build-autonomous-video-spec.ts \
             "${PRODUCTION_CODE}"
 
+      - name: Gate final — bloquear muletilla antes del TTS
+        run: |
+          python3 scripts/final-narration-gate.py "${PRODUCTION_CODE}"
+          python3 - <<'PYVERIFY'
+          import json, os, pathlib, re, unicodedata
+          code = os.environ['PRODUCTION_CODE']
+          p = pathlib.Path(f'examples/{code}.video.json')
+          data = json.loads(p.read_text(encoding='utf-8'))
+          text = data['audio']['narrationText']
+          meta = data.get('meta', {}).get('finalNarrationGate', {})
+          if meta.get('version') != 'FINAL-NARRATION-GATE-V1':
+              raise SystemExit('FINAL_GATE_MISSING')
+          print('FINAL_GATE_CONFIRMED')
+          print('FINAL_OPENING=' + re.split(r'(?<=[.!?])\\s+', text, maxsplit=1)[0])
+          PYVERIFY
+
       - name: Valor humano — Revisar guion antes de generar voz
         run: |
           npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" script
