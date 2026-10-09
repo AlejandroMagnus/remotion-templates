@@ -336,14 +336,91 @@ jobs:
         run: |
           npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" script
 
-      - name: Auditoría de autoría — Gate intelectual antes del TTS
+      - name: Auditoría de autoría — Autocorrección intelectual antes del TTS
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
-          npx --yes tsx scripts/audit-authorship-singularity.ts \
-            "${PRODUCTION_CODE}" \
-            script
+          run_builder() {
+            approved=0
+
+            for attempt in 0 1 2 3 4 5; do
+              echo "=== GENOMA NARRATIVO ${attempt} ==="
+              export SINGULARITY_ATTEMPT="${attempt}"
+
+              npx --yes tsx scripts/build-autonomous-video-spec.ts               "${PRODUCTION_CODE}"
+
+              if npx --yes tsx scripts/narrative-novelty-gate.ts               "${PRODUCTION_CODE}"; then
+                approved=1
+                echo "NOVEDAD_NARRATIVA_APROBADA=${attempt}"
+                break
+              else
+                status=$?
+                if [[ "${status}" -ne 42 ]]; then
+                  echo "ERROR: el gate de novedad falló por una causa distinta a similitud."
+                  exit "${status}"
+                fi
+                echo "Guion demasiado parecido. Probando otro genoma..."
+              fi
+            done
+
+            if [[ "${approved}" -ne 1 ]]; then
+              echo "NARRATIVE_NOVELTY_EXHAUSTED"
+              echo "No se renderiza otro video repetitivo."
+              exit 1
+            fi
+          }
+
+          run_human_plan() {
+            npx --yes tsx scripts/build-human-value-plan.ts "${PRODUCTION_CODE}"
+            test -s "public/generated/${PRODUCTION_CODE}-human-value-plan.json"
+          }
+
+          run_human_review() {
+            npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" script
+          }
+
+          approved=0
+
+          for attempt in 0 1 2 3 4 5; do
+            echo ""
+            echo "============================================================"
+            echo "DIRECTOR DE AUTORÍA — INTENTO ${attempt}"
+            echo "============================================================"
+
+            npx --yes tsx scripts/build-authorial-plan.ts \
+              "${PRODUCTION_CODE}" \
+              "${attempt}"
+
+            export AUTHORIAL_PLAN_PATH="public/generated/${PRODUCTION_CODE}-authorial-plan.json"
+
+            run_builder
+            run_human_plan
+
+            if ! run_human_review; then
+              echo "AUTORIA_INTENTO_${attempt}=RECHAZADO_POR_HUMAN_VALUE"
+              continue
+            fi
+
+            if npx --yes tsx scripts/audit-authorship-singularity.ts \
+              "${PRODUCTION_CODE}" \
+              script; then
+              approved=1
+              echo "AUTORIA_APROBADA_EN_INTENTO=${attempt}"
+              break
+            fi
+
+            echo "AUTORIA_INTENTO_${attempt}=NO_SUPERA_76"
+          done
+
+          if [[ "${approved}" -ne 1 ]]; then
+            echo "AUTHORIAL_EXCELLENCE_NOT_REACHED"
+            echo "Ninguna de las seis concepciones alcanzó el estándar de autoría."
+            exit 1
+          fi
+
+          test -s "public/generated/${PRODUCTION_CODE}-authorial-plan.json"
+          test -s "public/generated/${PRODUCTION_CODE}-authorship-audit.json"
       - name: Verificar entrada audiovisual
         run: |
           test -s "$SILEC_PATH"
@@ -866,6 +943,7 @@ jobs:
             public/generated/*-human-value-*.json
             public/generated/*-human-value-*.md
             public/generated/*-authorship-audit.json
+            public/generated/*-authorial-plan.json
             public/generated/*-authorship-audit.md
             public/generated/*-vocal-listening-review.json
             public/generated/*-vocal-score.json

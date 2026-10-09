@@ -1,4 +1,9 @@
 import {
+  applyAuthorialPresentation,
+  applyAuthorialScenes,
+  type AuthorialPlan,
+} from "../src/content/AuthorialDirector";
+import {
   applyEditorialSingularity,
   buildEditorialSingularityPlan,
   retitleScenesForSingularity,
@@ -983,11 +988,22 @@ export function buildVideoContent(
 ) {
   const plan = buildHumanValuePlan(input);
   const marketing = buildMarketingPlan(input, plan);
-  const presentationInput = {
+  // AUTHORIAL-PRESENTATION-V1
+  const basePresentationInput = {
     ...input,
     hook: plan.opening,
     cta: marketing.cta,
   };
+  const authorialPlanPath = process.env.AUTHORIAL_PLAN_PATH?.trim() || "";
+  const authorialPlan: AuthorialPlan | null =
+    authorialPlanPath && fs.existsSync(authorialPlanPath)
+      ? (JSON.parse(
+          fs.readFileSync(authorialPlanPath, "utf8"),
+        ) as AuthorialPlan)
+      : null;
+  const presentationInput = authorialPlan
+    ? applyAuthorialPresentation(basePresentationInput, authorialPlan)
+    : basePresentationInput;
   const aula = buildAulaSilecAudiovisualPlan(
     presentationInput,
     profile.narrativeArchitecture,
@@ -1024,7 +1040,17 @@ export function buildVideoContent(
     }
     return scene;
   });
-  return { plan, marketing, aula, narration, scenes };
+  const authorialScenes = authorialPlan
+    ? applyAuthorialScenes(scenes, authorialPlan)
+    : scenes;
+
+  return {
+    plan,
+    marketing,
+    aula,
+    narration,
+    scenes: authorialScenes,
+  };
 }
 
 function main(): void {

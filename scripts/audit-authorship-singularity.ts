@@ -248,6 +248,35 @@ async function main() {
   const currentStage = stage();
 
   const piece = buildPiece(root, code);
+  // AUTHORIAL-AUDIT-AWARE-V1
+  const authorialPath = path.join(
+    root,
+    "public/generated",
+    `${code}-authorial-plan.json`,
+  );
+
+  if (fs.existsSync(authorialPath)) {
+    const authorial = readJson<{
+      sourceBound?: boolean;
+      authorialThesis?: string;
+      reasoningChain?: string[];
+    }>(authorialPath);
+
+    if (
+      authorial.sourceBound === true &&
+      typeof authorial.authorialThesis === "string" &&
+      authorial.authorialThesis.trim()
+    ) {
+      piece.thesis = authorial.authorialThesis.trim();
+    }
+
+    if (Array.isArray(authorial.reasoningChain)) {
+      piece.reasoningChain = authorial.reasoningChain
+        .map(String)
+        .map((item) => item.trim())
+        .filter(Boolean);
+    }
+  }
   const memory = await loadMemory(code);
 
   const result = auditAuthorshipSingularity(piece, memory, currentStage);
