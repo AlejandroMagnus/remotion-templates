@@ -336,6 +336,14 @@ jobs:
         run: |
           npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" script
 
+      - name: Auditoría de autoría — Gate intelectual antes del TTS
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/audit-authorship-singularity.ts \
+            "${PRODUCTION_CODE}" \
+            script
       - name: Verificar entrada audiovisual
         run: |
           test -s "$SILEC_PATH"
@@ -762,6 +770,14 @@ jobs:
         run: |
           npx --yes tsx scripts/review-human-value.ts "${PRODUCTION_CODE}" final
 
+      - name: Auditoría de autoría — Gate final antes del render
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          npx --yes tsx scripts/audit-authorship-singularity.ts \
+            "${PRODUCTION_CODE}" \
+            final
       - name: Renderizar V2 sincronizada
         run: |
           npm run video:render -- \
@@ -849,6 +865,8 @@ jobs:
             public/generated/*-strategic-content.json
             public/generated/*-human-value-*.json
             public/generated/*-human-value-*.md
+            public/generated/*-authorship-audit.json
+            public/generated/*-authorship-audit.md
             public/generated/*-vocal-listening-review.json
             public/generated/*-vocal-score.json
             public/generated/*-prosody-plan.json
