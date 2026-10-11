@@ -19,6 +19,7 @@ from spanish_vocal_delivery import (
     question_direction, read_overrides, split_thoughts, text_hash, listening_cadence, CADENCE_VERSION,
 )
 from vocal_segment_cache import cached_speech, file_hash
+from vocal_quality_contract import apply_vocal_score, measure_audio_silence_ms, MEASUREMENT
 
 
 # ============================================================
@@ -87,7 +88,7 @@ VOICE = "es-BO-MarceloNeural"
 LANGUAGE = "es-BO"
 SAMPLE_RATE = 24_000
 
-VERSION = "V3.19-E.5-NATURAL-SPANISH-QUESTIONS-V2.7-AUDIO-CLEANUP"
+VERSION = "V3.19-E.5-E3-CONSOLIDATED-V1"
 
 
 # ============================================================
@@ -2082,6 +2083,7 @@ def build_rhythm_metrics(
     effective_segments: list[dict],
     duration_ms: int,
     direction: CreativeDirection,
+    measured_pause_ms: int,
 ) -> dict:
     spoken_word_count = sum(
         item.word_count
@@ -2098,11 +2100,10 @@ def build_rhythm_metrics(
         for item in effective_segments
     )
 
-    pause_duration_ms = max(
-        0,
-        duration_ms
-        - speech_duration_ms,
-    )
+    # E.5 sebelumnya contabilizaba silencios del TTS como habla.
+    # Se mide el silencio acústico sobre el MP3 completo, SIN tocar audio.
+    pause_duration_ms = max(0, min(duration_ms, measured_pause_ms))
+    speech_duration_ms = max(0, duration_ms - pause_duration_ms)
 
     speech_wpm = (
         spoken_word_count
@@ -2157,6 +2158,8 @@ def build_rhythm_metrics(
 
         "pauseDurationMs":
             pause_duration_ms,
+
+        "pauseMeasurement": MEASUREMENT,
 
         "pauseRatio":
             round(
@@ -2852,6 +2855,13 @@ async def main() -> None:
         direction,
         overrides,
     )
+    score_file = ROOT / f"public/generated/{PRODUCTION_CODE}-vocal-score.json"
+    if score_file.exists():
+        score = json.loads(score_file.read_text(encoding="utf-8"))
+        plan = apply_vocal_score(plan, score, PRODUCTION_CODE, overrides)
+        print("E.3 → E.5: partitura semántica aplicada por pensamiento completo")
+    elif os.environ.get("REQUIRE_VOCAL_SCORE") == "1":
+        raise RuntimeError("Falta la partitura vocal E.3; síntesis bloqueada")
 
     print(
         "Unidades interpretativas: "
@@ -2878,11 +2888,13 @@ async def main() -> None:
         plan
     )
 
+    measured_pause_ms = measure_audio_silence_ms(AUDIO, duration_ms)
     metrics = build_rhythm_metrics(
         plan,
         effective_segments,
         duration_ms,
         direction,
+        measured_pause_ms,
     )
 
     vocal_qa = build_vocal_qa(
@@ -2913,6 +2925,9 @@ async def main() -> None:
         vocal_qa,
     )
     write_listening_review(narration, effective_segments, duration_ms)
+    # No confundir render verde con aprobación de calidad técnica vocal.
+    if os.environ.get("STRICT_VOCAL_QA") == "1" and not vocal_qa["passed"]:
+        raise RuntimeError("VOCAL_QA_BLOCKED: " + ", ".join(vocal_qa["issues"]))
 
     print(
         "--------------------------------------"
