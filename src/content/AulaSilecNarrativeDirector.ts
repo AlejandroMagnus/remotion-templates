@@ -55,6 +55,7 @@ export type AulaSilecAudiovisualPlan = {
     exposesInternalMethodName: false;
     sourceWords: number;
     narrationWords: number;
+    droppedRepeatedPropositions: number;
   };
 };
 
@@ -67,7 +68,60 @@ export function buildAulaSilecAudiovisualPlan(
   input: SilecKnowledgeInput,
   _architecture: NarrativeArchitecture,
 ): AulaSilecAudiovisualPlan {
-  const reasoning = input.reasoningChain.map(clean).filter(Boolean);
+  // SOURCE-BOUND NARRATIVE DEDUP V1: each reviewed proposition is pronounced
+  // at most once, even when AuthorialDirector assigns it to several roles.
+  // No text is paraphrased or added to the reviewed source.
+  type Slot = { role: string; text: string; index?: number };
+  const slots: Slot[] = [
+    { role: "hook", text: input.hook },
+    { role: "problem", text: input.problem },
+    { role: "centralThesis", text: input.centralThesis },
+    ...input.reasoningChain.map((text, index) => ({
+      role: "reasoning", text, index,
+    })),
+    { role: "conclusion", text: input.conclusion },
+    { role: "closingIdea", text: input.closingIdea },
+    { role: "cta", text: input.cta },
+  ].map((slot) => ({ ...slot, text: clean(slot.text) }));
+
+  const propositionKey = (text: string): string =>
+    clean(text)
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim()
+      .replace(/\s+/g, " ");
+  const priority: Record<string, number> = {
+    hook: 100,
+    cta: 90,
+    closingIdea: 80,
+    conclusion: 70,
+    problem: 60,
+    centralThesis: 50,
+    reasoning: 10,
+  };
+  const chosenByKey = new Map<string, number>();
+  slots.forEach((slot, index) => {
+    const key = propositionKey(slot.text);
+    if (!key) return;
+    const previous = chosenByKey.get(key);
+    if (
+      previous === undefined ||
+      priority[slot.role] > priority[slots[previous].role]
+    ) {
+      chosenByKey.set(key, index);
+    }
+  });
+  const chosen = new Set(chosenByKey.values());
+  const include = (role: string): boolean =>
+    slots.some((slot, index) => slot.role === role && chosen.has(index));
+  const reasoning = slots
+    .filter((slot, index) => slot.role === "reasoning" && chosen.has(index))
+    .map((slot) => slot.text);
+  const droppedRepeatedPropositions = slots.filter(
+    (slot, index) => slot.text && !chosen.has(index),
+  ).length;
   const variant = variantFor(input.productionCode);
   const longEnough =
     wordCount(
@@ -123,29 +177,37 @@ export function buildAulaSilecAudiovisualPlan(
   ]);
 
   const parts = [
-    sentence(input.hook),
+    ...(include("hook") ? [sentence(input.hook)] : []),
     sentence(openingBridge),
-    sentence(input.problem),
-    sentence(thesisBridge),
-    sentence(input.centralThesis),
-    ...(longEnough ? [] : [sentence(learningBridge)]),
+    ...(include("problem") ? [sentence(input.problem)] : []),
+    ...(include("centralThesis")
+      ? [sentence(thesisBridge), sentence(input.centralThesis)]
+      : []),
+    ...(reasoning.length && !longEnough ? [sentence(learningBridge)] : []),
     ...stepNarration,
     sentence(valueBridge),
-    sentence(input.conclusion),
+    ...(include("conclusion") ? [sentence(input.conclusion)] : []),
     sentence(professionalValue),
-    sentence(input.closingIdea),
-    sentence(input.cta),
+    ...(include("closingIdea") ? [sentence(input.closingIdea)] : []),
+    ...(include("cta") ? [sentence(input.cta)] : []),
   ].filter(Boolean);
 
+  // Defend against duplicated generated bridges without altering source text.
+  const seenSpoken = new Set<string>();
   const narration = parts
-    .filter((value, index, array) => index === 0 || value !== array[index - 1])
+    .filter((value) => {
+      const key = propositionKey(value);
+      if (!key || seenSpoken.has(key)) return false;
+      seenSpoken.add(key);
+      return true;
+    })
     .join(" ");
 
   const sourceText = [
     input.hook,
     input.problem,
     input.centralThesis,
-    ...reasoning,
+    ...input.reasoningChain,
     input.conclusion,
     input.closingIdea,
     input.cta,
@@ -174,6 +236,7 @@ export function buildAulaSilecAudiovisualPlan(
       exposesInternalMethodName: false,
       sourceWords: wordCount(sourceText),
       narrationWords: wordCount(narration),
+      droppedRepeatedPropositions,
     },
   };
 }
