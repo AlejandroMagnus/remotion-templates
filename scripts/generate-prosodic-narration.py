@@ -1900,6 +1900,133 @@ def boundary_token_count(text: str) -> int:
     return count_spoken_words(text)
 
 
+def validate_real_wordboundaries(words: list[dict], expected: int, text: str) -> None:
+    """Require original WordBoundary timings; never interpolate or invent timestamps."""
+    observed = sum(boundary_token_count(str(w.get("text", ""))) for w in words)
+    if not words or observed != expected:
+        raise ValueError(
+            f"WordBoundary cuenta desigual: esperadas={expected}, recibidas={observed}, "
+            f"texto={text[:190]!r}, boundary={[(w.get('text')) for w in words][:24]!r}"
+        )
+    previous = -1
+    for word in words:
+        start, end = word.get("startMs"), word.get("endMs")
+        if not isinstance(start, (int, float)) or not isinstance(end, (int, float)):
+            raise ValueError("WordBoundary no contiene tiempos verificables")
+        if start < 0 or start < previous or end < start:
+            raise ValueError("WordBoundary no monótono; audio no admisible")
+        previous = start
+
+
+def split_text_at_natural_boundary(text: str) -> tuple[str, str] | None:
+    """Bisect only on existing word boundaries; prefer punctuation near the middle."""
+    tokens = text.split()
+    if len(tokens) < 2:
+        return None
+    candidates = []
+    for index in range(1, len(tokens)):
+        left = " ".join(tokens[:index])
+        right = " ".join(tokens[index:])
+        lc, rc = count_spoken_words(left), count_spoken_words(right)
+        if min(lc, rc) < 1:
+            continue
+        punctuation = bool(re.search(r"[,;:!?¿¡.]$", tokens[index - 1]))
+        candidates.append((abs(lc - rc) - (2 if punctuation else 0), index, left, right))
+    if not candidates:
+        return None
+    _, _, left, right = min(candidates)
+    if count_spoken_words(left) + count_spoken_words(right) != count_spoken_words(text):
+        raise ValueError("No se puede segmentar sin preservar el texto")
+    return left, right
+
+
+def join_fallback_wavs(chunks: list[Path], output: Path) -> list[int]:
+    """Concatenate PCM without inserting/synthesizing word times. Returns frame-based offsets."""
+    frame_offsets: list[int] = []
+    frames = 0
+    with wave.open(str(output), "wb") as combined:
+        combined.setnchannels(1)
+        combined.setsampwidth(2)
+        combined.setframerate(SAMPLE_RATE)
+        for chunk in chunks:
+            frame_offsets.append(round(frames * 1000 / SAMPLE_RATE))
+            with wave.open(str(chunk), "rb") as source:
+                if (source.getnchannels(), source.getsampwidth(), source.getframerate()) != (1, 2, SAMPLE_RATE):
+                    raise ValueError("WAV de respaldo incompatible; se bloquea la sincronización")
+                frame_count = source.getnframes()
+                combined.writeframes(source.readframes(frame_count))
+                frames += frame_count
+    return frame_offsets
+
+
+async def recover_wordboundaries_from_smaller_units(
+    group: list[SegmentPlan], group_number: int, temp: Path, wav_file: Path, regenerate: bool
+) -> tuple[list[dict], str, bool]:
+    """Fallback restricted to one failed thought; use only TTS's real word timestamps."""
+    paths: list[Path] = []
+    events: list[list[dict]] = []
+    cache_keys: list[str] = []
+    hit_flags: list[bool] = []
+    root = AUDIO.parent / f"{PRODUCTION_CODE}-voice-segments"
+
+    async def render_piece(text: str, segment: SegmentPlan, depth: int = 0) -> None:
+        expected = count_spoken_words(text)
+        index = len(paths)
+        filename = f"{group_number:03}-recovery-{len(cache_keys):03}-{depth:02}"
+        part_mp3 = temp / (filename + ".mp3")
+        part_wav = temp / (filename + ".wav")
+
+        async def synthesize(output: Path) -> list[dict]:
+            return await synthesize_segment_once_with_retries(
+                text, segment.rate, segment.pitch, output, group_number, volume=segment.volume
+            )
+
+        def validate(words: list[dict]) -> None:
+            validate_real_wordboundaries(words, expected, text)
+
+        try:
+            words, key, hit = await cached_speech(
+                root,
+                {"engine": VERSION, "library": edge_tts.__version__, "voice": VOICE,
+                 "text": text, "rate": segment.rate, "pitch": segment.pitch,
+                 "volume": segment.volume},
+                part_mp3, synthesize, validate, force=regenerate,
+            )
+        except ValueError as error:
+            halves = split_text_at_natural_boundary(text)
+            if halves is None or depth >= 9:
+                raise RuntimeError(
+                    f"WORDBOUNDARY_UNRECOVERABLE pensamiento={group_number}, "
+                    f"fragmento={text[:150]!r}; {error}"
+                ) from error
+            await render_piece(halves[0], segment, depth + 1)
+            await render_piece(halves[1], segment, depth + 1)
+            return
+
+        convert_mp3_to_wav(part_mp3, part_wav)
+        duration = probe_duration_ms(part_wav)
+        if words[-1]["endMs"] > duration + 100:
+            raise RuntimeError(f"WordBoundary sale del audio de respaldo: pensamiento {group_number}")
+        paths.append(part_wav)
+        events.append(words)
+        cache_keys.append(key)
+        hit_flags.append(hit)
+
+    for segment in group:
+        await render_piece(segment.spoken_text, segment)
+
+    offsets = join_fallback_wavs(paths, wav_file)
+    recovered: list[dict] = []
+    for offset, piece_words in zip(offsets, events):
+        recovered.extend({**word, "startMs": word["startMs"] + offset,
+                          "endMs": word["endMs"] + offset} for word in piece_words)
+    text = clean_spaces(" ".join(s.spoken_text for s in group))
+    validate_real_wordboundaries(recovered, sum(s.word_count for s in group), text)
+    print(f"WORDBOUNDARY_RECOVERED pensamiento={group_number}; "
+          f"fragmentos={len(paths)}; tiempos_reales=SI")
+    return recovered, "recovered:" + ",".join(cache_keys), all(hit_flags)
+
+
 async def build_prosodic_audio(
     plan: list[SegmentPlan],
 ) -> tuple[list[dict], list[dict], int]:
@@ -1927,25 +2054,30 @@ async def build_prosodic_audio(
             # The existing interpretation plan remains available in segment metadata.
             expected = sum(s.word_count for s in group)
             def validate_boundaries(words):
-                if not words or sum(boundary_token_count(w["text"]) for w in words) != expected:
-                    raise ValueError("WordBoundary no coincide con las palabras del pensamiento.")
-                previous = -1
-                for word in words:
-                    if word["startMs"] < previous or word["endMs"] < word["startMs"]:
-                        raise ValueError("WordBoundary inválido; no se guarda ni reutiliza.")
-                    previous = word["startMs"]
+                validate_real_wordboundaries(words, expected, thought_text)
+
             async def synthesize(output):
                 return await synthesize_segment_once_with_retries(
                     thought_text, first.rate, first.pitch, output, group_number,
                     volume=first.volume,
                 )
-            local_words, cache_key, cache_hit = await cached_speech(
-                AUDIO.parent / f"{PRODUCTION_CODE}-voice-segments",
-                {"engine": VERSION, "library": edge_tts.__version__, "voice": VOICE,
-                 "text": thought_text, "rate": first.rate, "pitch": first.pitch, "volume": first.volume},
-                mp3_file, synthesize, validate_boundaries, force=group_number in regenerate,
-            )
-            convert_mp3_to_wav(mp3_file, wav_file)
+
+            recovered = False
+            try:
+                local_words, cache_key, cache_hit = await cached_speech(
+                    AUDIO.parent / f"{PRODUCTION_CODE}-voice-segments",
+                    {"engine": VERSION, "library": edge_tts.__version__, "voice": VOICE,
+                     "text": thought_text, "rate": first.rate, "pitch": first.pitch, "volume": first.volume},
+                    mp3_file, synthesize, validate_boundaries, force=group_number in regenerate,
+                )
+                convert_mp3_to_wav(mp3_file, wav_file)
+            except ValueError as mismatch:
+                # Do not weaken WordBoundary; re-synthesize only this thought in smaller units.
+                print(f"WORDBOUNDARY_RETRY pensamiento={group_number}; motivo={mismatch}")
+                local_words, cache_key, cache_hit = await recover_wordboundaries_from_smaller_units(
+                    group, group_number, temp, wav_file, group_number in regenerate
+                )
+                recovered = True
             speech_duration_ms = probe_duration_ms(wav_file)
             # Count the TTS's natural tail and lead once. Never trim either.
             if group_number > 1:
@@ -1985,6 +2117,8 @@ async def build_prosodic_audio(
                 segment_words: list[dict] = []
                 token_total = 0
                 while token_total < segment.word_count:
+                    if position >= len(local_words):
+                        raise RuntimeError(f"WordBoundary insuficiente al alinear segmento {segment.index}")
                     word = local_words[position]
                     position += 1
                     token_total += boundary_token_count(word["text"])
@@ -2017,6 +2151,7 @@ async def build_prosodic_audio(
                     "appliedVolume": first.volume,
                     "cacheKey": cache_key,
                     "cacheHit": cache_hit,
+                    "boundaryRecovery": recovered,
                     "addedGapBeforeMs": pre_pause if segment is first else 0,
                     "speechStartMs": segment_start,
                     "speechEndMs": segment_end,
