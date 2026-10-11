@@ -1,4 +1,8 @@
 import {
+  reconcileAuthorialHumanValueReview,
+  type AuthorialHumanValuePlan,
+} from "../src/content/AuthorialHumanValueBridge";
+import {
   applyEditorialSingularity,
   type EditorialSingularityPlan,
 } from "../src/content/EditorialSingularityDirector";
@@ -55,7 +59,23 @@ export function runHumanValueReview(
     `public/generated/${code}-human-value-plan.json`,
   );
   const video = read<HumanValueVideo>(`examples/${code}.video.json`);
-  const review = reviewHumanValue(reviewInput, plan, video);
+  let review = reviewHumanValue(reviewInput, plan, video);
+
+  // AUTHORIAL-HUMAN-VALUE-RECONCILIATION-V1
+  // Conserva todos los controles originales, incluida revision legal.
+  // Solo reconcilia el bloqueo textual del guion autoral source-bound.
+  const authorialPlanFile = `public/generated/${code}-authorial-plan.json`;
+
+  if (fs.existsSync(path.join(root, authorialPlanFile))) {
+    const authorialPlan = read<AuthorialHumanValuePlan>(authorialPlanFile);
+
+    review = reconcileAuthorialHumanValueReview(
+      review,
+      plan,
+      video,
+      authorialPlan,
+    );
+  }
   const resources: Array<Record<string, unknown>> = [];
   const nonempty = (name: string) => {
     const file = path.join(generated, name);
