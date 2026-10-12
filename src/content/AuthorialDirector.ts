@@ -231,15 +231,16 @@ export function buildAuthorialPlan(
   );
 
   const originalThesis = clean(input.centralThesis);
+  // La tesis ya ocupa centralThesis durante la presentación y el guion.
+  // No volver a insertarla como un paso del desarrollo.
+  // Mantener el texto jurídico fuente literalmente, sin paráfrasis autónomas.
   const reasoningChain = unique([
-    authorialThesis,
-    ...(originalThesis && originalThesis !== authorialThesis
-      ? [originalThesis]
-      : []),
     discovery,
     counterThesis,
     ...ordered,
-  ]).slice(0, 7);
+    ...(originalThesis ? [originalThesis] : []),
+  ]).filter((item) => item.toLocaleLowerCase("es") !== authorialThesis.toLocaleLowerCase("es"))
+    .slice(0, 7);
 
   const sceneLabels = unique(
     [authorialThesis, discovery, counterThesis, utility, ...ordered]

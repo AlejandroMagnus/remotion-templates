@@ -327,6 +327,13 @@ jobs:
         if: ${{ inputs.content_mode == 'existing' }}
         run: npx --yes tsx scripts/sync-silec-video-examples.ts
 
+      # Validar la ficha misma antes de intentar hasta seis concepciones.
+      # No modifica fuente revisada ni su hash; si contiene frases imposibles de
+      # corregir source-bound, exige revisión jurídica en lugar de generar basura.
+      - name: Preauditoría de ficha jurídica — fuente íntegra
+        run: |
+          python3 scripts/source_editorial_preflight.py "${PRODUCTION_CODE}"
+
       - name: Construir plan de valor humano
         run: |
           npx --yes tsx scripts/build-human-value-plan.ts "${PRODUCTION_CODE}"
