@@ -14,6 +14,16 @@ from pathlib import Path
 from typing import Any, Optional
 
 import edge_tts
+import edge_tts.communicate as edge_communicate
+from edge_tts.constants import TRUSTED_CLIENT_TOKEN
+
+# EDGE_TTS_ENDPOINT_ALTERNATIVO_V1
+# Conexión alternativa verificada; conserva WordBoundary.
+edge_communicate.WSS_URL = (
+    "wss://api.msedgeservices.com/tts/"
+    "cognitiveservices/websocket/v1?"
+    f"Ocp-Apim-Subscription-Key={TRUSTED_CLIENT_TOKEN}"
+)
 from spanish_vocal_delivery import (
     VERSION as DELIVERY_VERSION, additional_gap_ms, assert_same_text,
     question_direction, read_overrides, split_thoughts, text_hash, listening_cadence, CADENCE_VERSION,
