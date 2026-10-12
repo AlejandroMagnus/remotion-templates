@@ -8,6 +8,9 @@ type Input = {
   reasoningChain: string[];
   conclusion: string;
   closingIdea: string;
+  cta?: string;
+  humanValue?: { ctaMode?: "auto" | "source" | "none" };
+  editorial?: { category?: string };
 };
 
 const root = process.cwd();
@@ -30,7 +33,13 @@ for (const name of files) {
   const code = input.productionCode;
   const examplePath = path.join(examplesDir, `${code}.video.json`);
   const existing = fs.existsSync(examplePath) ? readJson<any>(examplePath) : {};
-  const narration = [input.hook, ...input.reasoningChain, input.conclusion, input.closingIdea]
+  const mode = input.humanValue?.ctaMode ?? "auto";
+  const requiredCta =
+    mode === "source" ||
+    (mode === "auto" && input.editorial?.category === "HT")
+      ? input.cta ?? ""
+      : "";
+  const narration = [input.hook, ...input.reasoningChain, input.conclusion, input.closingIdea, requiredCta]
     .map(clean)
     .filter(Boolean)
     .join(" ");
