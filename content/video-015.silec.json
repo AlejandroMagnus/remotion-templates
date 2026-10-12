@@ -9,41 +9,36 @@
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Prueba documental en proceso civil",
-      "constitucionalización práctica"
+      "prueba documental",
+      "derecho probatorio boliviano"
     ],
-    "intellectualContribution": "Explica Prueba documental en proceso civil desde su utilidad operativa concreta: qué documentos sirven, cómo se presentan y cómo se atacan.",
+    "intellectualContribution": "El valor práctico de una prueba documental depende del hecho controvertido que pretende acreditar, de su incorporación procesal oportuna, de su autenticidad frente a las objeciones pertinentes y de una valoración judicial motivada; no de su mera existencia.",
     "newAngle": {
       "comparedWith": [
         "video-014"
       ],
-      "contribution": "Diferencia Prueba documental en proceso civil por su problema específico: confundir prueba documental en proceso civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "Microcaso ficticio de recibo de alquiler que distingue hecho probado, oportunidad de presentación, contradicción y valoración judicial."
     }
   },
-  "topic": "Prueba documental en proceso civil",
-  "centralThesis": "Prueba documental en proceso civil exige dominar qué documentos sirven, cómo se presentan y cómo se atacan; su valor práctico está en transformar qué documentos sirven, cómo se presentan y cómo se atacan en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Prueba documental en proceso civil es confundir prueba documental en proceso civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Prueba documental en proceso civil: alcance y contradicción del recibo de pago",
+  "centralThesis": "El inquilino presenta un recibo original que dice: «Alquiler de agosto, pagado», por tres mil bolivianos, con una firma atribuida a la propietaria.",
+  "problem": "Imagina este caso ficticio: una propietaria reclama tres mil bolivianos por el alquiler de agosto.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Prueba documental en proceso civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir prueba documental en proceso civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre prueba documental en proceso civil, con una ruta de seguimiento y ejecución posible."
+    "Ese papel apunta a un hecho preciso: el pago. No demuestra, por sí solo, que todas las obligaciones entre las partes hayan terminado.",
+    "En Bolivia, la prueba documental se acompaña, por regla, a la demanda o a la contestación. Debes identificar qué hecho sustenta.",
+    "Si el recibo se adjunta a la contestación, la contraparte puede objetarlo dentro de seis días desde su notificación. Si niega la firma, la autenticidad queda controvertida."
   ],
-  "conclusion": "Prueba documental en proceso civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "El juez debe valorar ese recibo junto con las demás pruebas y explicar las razones de su decisión.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "ciudadanos",
+    "emprendedores",
+    "profesionales del Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de prueba documental en proceso civil",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "vinculación del documento con el hecho controvertido",
+    "oportunidad procesal de presentación documental",
+    "anticipación de objeciones de autenticidad",
+    "valoración conjunta y motivada de la prueba"
   ],
   "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
   "offerPath": [
@@ -53,7 +48,7 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Prueba documental en proceso civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Prueba documental en proceso civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "En un juicio civil, tener un documento no es lo mismo que probar el hecho que te importa.",
+  "closingIdea": "Antes de presentar un documento, pregúntate: ¿qué hecho acredita?, ¿cuándo debo aportarlo?, ¿qué objeción podría enfrentar?",
+  "cta": "Material educativo; el tratamiento de casos reales depende de sus documentos y circunstancias."
 }
