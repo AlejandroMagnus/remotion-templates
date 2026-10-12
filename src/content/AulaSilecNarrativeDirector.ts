@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import type { SilecKnowledgeInput } from "./SilecContentAdapter";
 import type { NarrativeArchitecture } from "../strategy/CreativeDiversityDirector";
 
@@ -13,6 +14,19 @@ const key = (value: string) => clean(value).toLocaleLowerCase("es")
   .replace(/[^a-z0-9ñ]+/g, " ").trim();
 const words = (value: string) => key(value).split(/\s+/).filter(Boolean);
 const wordCount = (value: string) => clean(value).split(/\s+/).filter(Boolean).length;
+
+// Diverse but reproducible approaches, without added spoken text or legal claims.
+// Restores the production-code diversity contract required by existing editorial tests.
+const variantFor = (productionCode: string): number =>
+  createHash("sha256").update(productionCode).digest()[0] % 4;
+
+const openingOrders = [
+  ["hook", "problem", "centralThesis"],
+  ["problem", "hook", "centralThesis"],
+  ["centralThesis", "hook", "problem"],
+  ["hook", "centralThesis", "problem"],
+] as const;
+
 
 // Retain source material; only discard text already represented elsewhere.
 // Lexical overlap is not proof of legal equivalence: suppress ONLY nearly
@@ -97,8 +111,16 @@ export function buildAulaSilecAudiovisualPlan(
     chosen.push(slot);
   }
   chosen.sort((a, b) => a.order - b.order);
+  const variation = variantFor(input.productionCode);
+  // Only change the entry's order among already-reviewed hook/problem/thesis.
+  // Keep the legal reasoning and closing sequence intact, never paraphrase claims.
+  const initial = openingOrders[variation]
+    .flatMap((role) => chosen.filter((s) => s.role === role));
+  const remainder = chosen.filter((s) =>
+    !openingOrders[variation].some((role) => role === s.role));
+  const ordered = [...initial, ...remainder];
   const reasoning = chosen.filter((s) => s.role === "reasoning").map((s) => s.text);
-  const narration = chosen.map((s) => sentence(s.text)).join(" ");
+  const narration = ordered.map((s) => sentence(s.text)).join(" ");
   const selected = (role: string) => chosen.find((s) => s.role === role)?.text || "";
   const sourceText = candidate.map((s) => s.text).join(" ");
   return {
@@ -115,7 +137,7 @@ export function buildAulaSilecAudiovisualPlan(
       practicalTakeaway: clean(input.conclusion),
       professionalValue: selected("closingIdea") || selected("conclusion"),
     },
-    variation: 0,
+    variation,
     narration,
     audit: {
       preservesReviewedClaims: true,
