@@ -30,6 +30,7 @@ from spanish_vocal_delivery import (
 )
 from vocal_segment_cache import cached_speech, file_hash
 from vocal_quality_contract import apply_vocal_score, measure_audio_silence_ms, MEASUREMENT
+from vocal_acoustic_repair import trim_verified_silent_tail, slower_prosody_plan
 
 
 # ============================================================
@@ -2088,8 +2089,15 @@ async def build_prosodic_audio(
                     group, group_number, temp, wav_file, group_number in regenerate
                 )
                 recovered = True
+            # AUTOCORRECCION_VOCAL_ACUSTICA_V2: sólo recortar silencio
+            # verificado después de la última marca REAL de WordBoundary.
+            removed_ms = trim_verified_silent_tail(
+                wav_file, local_words[-1]["endMs"], last.post_pause_ms
+            )
+            if removed_ms:
+                print(f"TTS_SILENT_TAIL_TRIM pensamiento={group_number}; eliminado={removed_ms}ms")
             speech_duration_ms = probe_duration_ms(wav_file)
-            # Count the TTS's natural tail and lead once. Never trim either.
+            # Colas/entradas preservadas únicamente hasta la respiración útil.
             if group_number > 1:
                 # V2.7 — respiración humana mínima entre pensamientos completos.
                 # additional_gap_ms descuenta la cola/entrada natural del TTS,
@@ -3063,6 +3071,25 @@ async def main() -> None:
         plan,
         metrics,
     )
+
+    # AUTOCORRECCION_VOCAL_ACUSTICA_V2: el TTS vuelve a producir voz y
+    # marcas WordBoundary nuevas; nunca se estiran timestamps artificialmente.
+    if os.environ.get("STRICT_VOCAL_QA") == "1" and "excessive-speech-speed" in vocal_qa["issues"]:
+        original_plan = plan
+        for reduction in (6, 12):
+            print(f"VOCAL_AUTOCORRECT_ATTEMPT: velocidad=-{reduction} puntos porcentuales")
+            candidate_plan = slower_prosody_plan(original_plan, reduction)
+            words, effective_segments, duration_ms = await build_prosodic_audio(candidate_plan)
+            measured_pause_ms = measure_audio_silence_ms(AUDIO, duration_ms)
+            metrics = build_rhythm_metrics(
+                candidate_plan, effective_segments, duration_ms, direction, measured_pause_ms,
+            )
+            vocal_qa = build_vocal_qa(candidate_plan, metrics)
+            plan = candidate_plan
+            if vocal_qa["passed"]:
+                print("VOCAL_AUTOCORRECT_PASS: QA técnica aprobada")
+                break
+            print("VOCAL_AUTOCORRECT_RETRY: " + ", ".join(vocal_qa["issues"]))
 
     write_timeline(
         words,
