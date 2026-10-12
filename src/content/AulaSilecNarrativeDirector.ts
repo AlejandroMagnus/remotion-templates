@@ -1,36 +1,44 @@
-import { createHash } from "node:crypto";
 import type { SilecKnowledgeInput } from "./SilecContentAdapter";
 import type { NarrativeArchitecture } from "../strategy/CreativeDiversityDirector";
 
-export const AULA_SILEC_AUDIOVISUAL_VERSION = "aula-silec-audiovisual-v2";
+export const AULA_SILEC_AUDIOVISUAL_VERSION = "aula-silec-audiovisual-v3-sourcebound";
 
-const clean = (value: string) => value.replace(/\s+/g, " ").trim();
-
+const clean = (value: string) => (value || "").replace(/\s+/g, " ").trim();
 const sentence = (value: string) => {
   const text = clean(value);
-  if (!text) return "";
-  return /[.!?]$/.test(text) ? text : `${text}.`;
+  return text ? (/[.!?…]$/.test(text) ? text : `${text}.`) : "";
 };
+const key = (value: string) => clean(value).toLocaleLowerCase("es")
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z0-9ñ]+/g, " ").trim();
+const words = (value: string) => key(value).split(/\s+/).filter(Boolean);
+const wordCount = (value: string) => clean(value).split(/\s+/).filter(Boolean).length;
 
-const wordCount = (value: string) =>
-  clean(value).split(/\s+/).filter(Boolean).length;
-
-function variantFor(productionCode: string) {
-  const digest = createHash("sha256").update(productionCode).digest();
-  return digest[0] % 4;
-}
-
-function transitions(size: number) {
-  const labels = [
-    "Primero",
-    "Después",
-    "Ahora observe esto",
-    "El siguiente punto",
-    "Y aquí aparece algo importante",
-    "Finalmente",
-    "Una última comprobación",
-  ];
-  return Array.from({ length: size }, (_, index) => labels[index] ?? "Además");
+// Retain source material; only discard text already represented elsewhere.
+// Lexical overlap is not proof of legal equivalence: suppress ONLY nearly
+// identical propositions, never claims which merely discuss the same subject.
+function redundant(a: string, b: string): boolean {
+  const x = words(a), y = words(b);
+  if (!x.length || !y.length) return false;
+  if (x.join(" ") === y.join(" ")) return true;
+  if (Math.min(x.length, y.length) < 10) return false;
+  // La repetición lexical NO autoriza eliminar negaciones, modalidades,
+  // fechas, cifras ni calificaciones jurídicas distintas.
+  const critical = (items: string[]) => items.filter((w) =>
+    /^(no|si|nunca|salvo|excepto|debe|deben|puede|pueden|podra|podran|debera|deberan|admisible|inadmisible|procedente|improcedente|valido|invalido|nulo|nulidad|prescribe|prescrito|vigente)$/.test(w)
+    || /^[0-9]+$/.test(w)).sort().join("|");
+  if (critical(x) !== critical(y)) return false;
+  const shingles = (tokens: string[]) => new Set(
+    Array.from({ length: Math.max(0, tokens.length - 2) }, (_, i) =>
+      tokens.slice(i, i + 3).join(" ")),
+  );
+  const sx = shingles(x), sy = shingles(y);
+  let intersection = 0;
+  for (const s of sx) if (sy.has(s)) intersection++;
+  const min = Math.min(sx.size, sy.size);
+  // Near containment, not general semantic similarity.
+  return min > 0 && intersection / min >= 0.88 &&
+    Math.min(x.length, y.length) / Math.max(x.length, y.length) >= 0.74;
 }
 
 export type AulaSilecAudiovisualPlan = {
@@ -60,175 +68,54 @@ export type AulaSilecAudiovisualPlan = {
 };
 
 /**
- * Capa pedagógica interna.
- * No modifica la ficha jurídica, su hash de revisión ni inventa fuentes.
- * Aula SILEC es nombre interno: nunca se pronuncia ni se imprime en el video.
+ * Aula SILEC V3 — assembled EXCLUSIVELY from reviewed input strings.
+ * No invented microcase, universal rule, transition, article or legal remedy.
+ * If the reviewed material lacks specific teaching, the downstream editorial
+ * gate MUST reject it: the renderer must not improvise procedural law.
  */
 export function buildAulaSilecAudiovisualPlan(
   input: SilecKnowledgeInput,
   _architecture: NarrativeArchitecture,
 ): AulaSilecAudiovisualPlan {
-  // SOURCE-BOUND NARRATIVE DEDUP V1: each reviewed proposition is pronounced
-  // at most once, even when AuthorialDirector assigns it to several roles.
-  // No text is paraphrased or added to the reviewed source.
-  type Slot = { role: string; text: string; index?: number };
-  const slots: Slot[] = [
-    { role: "hook", text: input.hook },
-    { role: "problem", text: input.problem },
-    { role: "centralThesis", text: input.centralThesis },
-    ...input.reasoningChain.map((text, index) => ({
-      role: "reasoning", text, index,
-    })),
-    { role: "conclusion", text: input.conclusion },
-    { role: "closingIdea", text: input.closingIdea },
-    { role: "cta", text: input.cta },
-  ].map((slot) => ({ ...slot, text: clean(slot.text) }));
+  type Slot = { role: string; text: string; priority: number; order: number };
+  const candidate = [
+    { role: "hook", text: input.hook, priority: 100 },
+    { role: "problem", text: input.problem, priority: 65 },
+    { role: "centralThesis", text: input.centralThesis, priority: 70 },
+    ...input.reasoningChain.map((text) => ({ role: "reasoning", text, priority: 30 })),
+    { role: "conclusion", text: input.conclusion, priority: 90 },
+    { role: "closingIdea", text: input.closingIdea, priority: 95 },
+    { role: "cta", text: input.cta, priority: 98 },
+  ].map((s, index): Slot => ({ ...s, text: clean(s.text), order: index }))
+    .filter((s) => s.text);
 
-  const propositionKey = (text: string): string =>
-    clean(text)
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, " ")
-      .trim()
-      .replace(/\s+/g, " ");
-  const priority: Record<string, number> = {
-    hook: 100,
-    cta: 90,
-    closingIdea: 80,
-    conclusion: 70,
-    problem: 60,
-    centralThesis: 50,
-    reasoning: 10,
-  };
-  const chosenByKey = new Map<string, number>();
-  slots.forEach((slot, index) => {
-    const key = propositionKey(slot.text);
-    if (!key) return;
-    const previous = chosenByKey.get(key);
-    if (
-      previous === undefined ||
-      priority[slot.role] > priority[slots[previous].role]
-    ) {
-      chosenByKey.set(key, index);
-    }
-  });
-  const chosen = new Set(chosenByKey.values());
-  const include = (role: string): boolean =>
-    slots.some((slot, index) => slot.role === role && chosen.has(index));
-  const reasoning = slots
-    .filter((slot, index) => slot.role === "reasoning" && chosen.has(index))
-    .map((slot) => slot.text);
-  const droppedRepeatedPropositions = slots.filter(
-    (slot, index) => slot.text && !chosen.has(index),
-  ).length;
-  const variant = variantFor(input.productionCode);
-  const longEnough =
-    wordCount(
-      [
-        input.hook,
-        input.problem,
-        input.centralThesis,
-        ...reasoning,
-        input.conclusion,
-        input.closingIdea,
-      ].join(" "),
-    ) > 105;
-
-  const openingBridge = [
-    "Ahora llévelo a una situación real.",
-    "Antes de pensar en artículos, piense en la consecuencia.",
-    "Aquí el Derecho deja de ser teoría y se convierte en una decisión concreta.",
-    "Detrás del expediente hay una persona, una familia, una empresa o una decisión que necesita una respuesta.",
-  ][variant];
-
-  const thesisBridge = [
-    "El punto jurídico decisivo es este.",
-    "La pregunta importante aparece aquí.",
-    "Lo que cambia el análisis es esto.",
-    "Ahora mire dónde está la verdadera diferencia.",
-  ][variant];
-
-  const learningBridge = [
-    "Para entenderlo sin perderse en tecnicismos, mire la secuencia.",
-    "La forma más clara de verlo es paso por paso.",
-    "No memorice la conclusión todavía; siga el razonamiento.",
-    "Separe el problema en decisiones pequeñas y comprensibles.",
-  ][variant];
-
-  const valueBridge = [
-    "¿Qué debe llevarse de esto?",
-    "¿Dónde está el valor práctico?",
-    "¿Qué cambia cuando se comprende esta estructura?",
-    "¿Qué ventaja obtiene quien detecta esto a tiempo?",
-  ][variant];
-
-  const professionalValue = [
-    "El valor no está en recitar una norma, sino en detectar el punto que cambia la decisión.",
-    "Comprender antes permite decidir con más criterio y menos improvisación.",
-    "Un análisis útil convierte información jurídica en una decisión comprensible y controlable.",
-    "La diferencia aparece cuando hechos, prueba, norma y consecuencia dejan de verse por separado.",
-  ][variant];
-
-  const labels = transitions(reasoning.length);
-  const stepNarration = reasoning.flatMap((step, index) => [
-    sentence(labels[index]),
-    sentence(step),
-  ]);
-
-  const parts = [
-    ...(include("hook") ? [sentence(input.hook)] : []),
-    sentence(openingBridge),
-    ...(include("problem") ? [sentence(input.problem)] : []),
-    ...(include("centralThesis")
-      ? [sentence(thesisBridge), sentence(input.centralThesis)]
-      : []),
-    ...(reasoning.length && !longEnough ? [sentence(learningBridge)] : []),
-    ...stepNarration,
-    sentence(valueBridge),
-    ...(include("conclusion") ? [sentence(input.conclusion)] : []),
-    sentence(professionalValue),
-    ...(include("closingIdea") ? [sentence(input.closingIdea)] : []),
-    ...(include("cta") ? [sentence(input.cta)] : []),
-  ].filter(Boolean);
-
-  // Defend against duplicated generated bridges without altering source text.
-  const seenSpoken = new Set<string>();
-  const narration = parts
-    .filter((value) => {
-      const key = propositionKey(value);
-      if (!key || seenSpoken.has(key)) return false;
-      seenSpoken.add(key);
-      return true;
-    })
-    .join(" ");
-
-  const sourceText = [
-    input.hook,
-    input.problem,
-    input.centralThesis,
-    ...input.reasoningChain,
-    input.conclusion,
-    input.closingIdea,
-    input.cta,
-  ].join(" ");
-
+  // Select mandatory end material first, then keep distinct evidence/analysis.
+  // The selection does NOT edit any surviving source proposition.
+  const chosen: Slot[] = [];
+  for (const slot of [...candidate].sort((a, b) => b.priority - a.priority || a.order - b.order)) {
+    if (chosen.some((s) => redundant(s.text, slot.text))) continue;
+    chosen.push(slot);
+  }
+  chosen.sort((a, b) => a.order - b.order);
+  const reasoning = chosen.filter((s) => s.role === "reasoning").map((s) => s.text);
+  const narration = chosen.map((s) => sentence(s.text)).join(" ");
+  const selected = (role: string) => chosen.find((s) => s.role === role)?.text || "";
+  const sourceText = candidate.map((s) => s.text).join(" ");
   return {
     version: AULA_SILEC_AUDIOVISUAL_VERSION,
     productionCode: input.productionCode,
     internalLayer: true,
     publicExposure: "none",
-    purpose:
-      "Situación humana → significado → idea decisiva → explicación → aprendizaje → valor práctico.",
+    purpose: "Enseñar mediante proposiciones jurídicas revisadas, sin transiciones ficticias ni repeticiones.",
     structure: {
       humanSituation: clean(input.problem),
       whyItMatters: clean(input.hook),
       decisiveIdea: clean(input.centralThesis),
       learningSteps: reasoning,
       practicalTakeaway: clean(input.conclusion),
-      professionalValue,
+      professionalValue: selected("closingIdea") || selected("conclusion"),
     },
-    variation: variant,
+    variation: 0,
     narration,
     audit: {
       preservesReviewedClaims: true,
@@ -236,7 +123,7 @@ export function buildAulaSilecAudiovisualPlan(
       exposesInternalMethodName: false,
       sourceWords: wordCount(sourceText),
       narrationWords: wordCount(narration),
-      droppedRepeatedPropositions,
+      droppedRepeatedPropositions: candidate.length - chosen.length,
     },
   };
 }

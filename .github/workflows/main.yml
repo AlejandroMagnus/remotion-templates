@@ -397,9 +397,16 @@ jobs:
             run_builder
             # Singularidad dentro de la propia pieza; si repite proposiciones,
             # probar la siguiente concepción sin modificar la ficha jurídica.
-            if ! python3 scripts/vocal_intrascript_gate.py "${PRODUCTION_CODE}"; then
-              echo "AUTORIA_INTENTO_${attempt}=RECHAZADO_POR_REPETICION_INTERNA"
-              continue
+            if python3 scripts/vocal_intrascript_gate.py "${PRODUCTION_CODE}"; then
+              echo "EDITORIAL_INTRASCRIPT_APPROVED=${attempt}"
+            else
+              editorial_status=$?
+              if [[ "${editorial_status}" -eq 42 ]]; then
+                echo "AUTORIA_INTENTO_${attempt}=RECHAZADO_POR_DEFECTO_EDITORIAL"
+                continue
+              fi
+              echo "ERROR: fallo técnico en la auditoría editorial (${editorial_status})."
+              exit "${editorial_status}"
             fi
             run_human_plan
 
@@ -459,6 +466,11 @@ jobs:
       # E.3 NO modifica WordBoundary.
       # E.3 NO modifica la sincronización.
       # ============================================================
+
+      # Auditoría del texto EXACTO que será entregado al sintetizador.
+      - name: Contrato editorial — bloquear guion defectuoso antes de voz
+        run: |
+          python3 scripts/editorial_delivery_contract.py pre "${PRODUCTION_CODE}"
 
       - name: V3.19-E.3 — Construir partitura vocal semántica
         run: |
@@ -527,6 +539,10 @@ jobs:
           STRICT_VOCAL_QA: "1"
         run: |
           python3 scripts/generate-prosodic-narration.py
+
+      - name: Contrato editorial — verificar texto hablado y subtítulos legibles
+        run: |
+          python3 scripts/editorial_delivery_contract.py post "${PRODUCTION_CODE}"
 
       - name: Calcular duración adaptativa
         run: |
@@ -864,6 +880,10 @@ jobs:
           npx --yes tsx scripts/audit-authorship-singularity.ts \
             "${PRODUCTION_CODE}" \
             final
+      - name: Contrato editorial — comprobar identidad antes de render
+        run: |
+          python3 scripts/editorial_delivery_contract.py final "${PRODUCTION_CODE}"
+
       - name: Renderizar V2 sincronizada
         run: |
           npm run video:render -- \
@@ -951,6 +971,8 @@ jobs:
             public/generated/*-strategic-content.json
             public/generated/*-human-value-*.json
             public/generated/*-human-value-*.md
+            public/generated/*-editorial-delivery-contract.json
+            public/generated/*-intrascript-audit.json
             public/generated/*-authorship-audit.json
             public/generated/*-authorial-plan.json
             public/generated/*-authorship-audit.md

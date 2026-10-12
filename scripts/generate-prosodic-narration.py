@@ -2338,6 +2338,11 @@ def build_rhythm_metrics(
 
         "rhythmStatus":
             rhythm_status,
+        "speechWpmStatus": (
+            "above-target" if speech_wpm > target.max
+            else "below-target" if speech_wpm < target.min
+            else "within-target"
+        ),
     }
 
 
@@ -2367,6 +2372,17 @@ def build_vocal_qa(
         issues.append(
             "effective-wpm-above-target"
         )
+
+    # La velocidad del habla (sin silencios) NO equivale a la velocidad
+    # promedio. Un resultado aprobado puede seguir requiriendo escucha.
+    speech_wpm = float(metrics.get("speechWpm", 0))
+    target = metrics.get("targetWpm", {})
+    max_speech = float(target.get("max", 168))
+    warnings: list[str] = []
+    if speech_wpm > max_speech:
+        warnings.append("speech-wpm-above-target-listening-required")
+    if speech_wpm > max_speech * 1.10:
+        issues.append("excessive-speech-speed")
 
     pause_ratio = float(
         metrics["pauseRatio"]
@@ -2435,6 +2451,7 @@ def build_vocal_qa(
 
         "issues":
             issues,
+        "warnings": warnings,
 
         "distinctRates":
             distinct_rates,
