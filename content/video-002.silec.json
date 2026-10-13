@@ -2,7 +2,7 @@
   "productionCode": "video-002",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,26 @@
       "acciones constitucionales",
       "Acción de amparo constitucional"
     ],
-    "intellectualContribution": "Explica Acción de amparo constitucional desde su utilidad operativa concreta: derechos fundamentales no vinculados directamente a libertad.",
+    "intellectualContribution": "La tutela por amparo protege derechos fuera de las acciones especiales, con examen de legitimación, subsidiariedad e inmediatez.",
     "newAngle": {
       "comparedWith": [
-        "video-001"
+        "video-015"
       ],
-      "contribution": "Diferencia Acción de amparo constitucional por su problema específico: acto ilegal u omisión arbitraria, subsidiariedad e inmediatez."
+      "contribution": "Semáforo jurídico: derecho, vía y plazo. Microcaso hipotético: Una funcionaria recibe una decisión administrativa que afecta un derecho y evalúa acudir directamente al amparo. Caso hipotético."
     }
   },
-  "topic": "Acción de amparo constitucional",
-  "centralThesis": "Acción de amparo constitucional exige dominar derechos fundamentales no vinculados directamente a libertad; su valor práctico está en transformar cómo se usa para proteger derechos fundamentales frente a actos ilegales o arbitrarios en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Acción de amparo constitucional es acto ilegal u omisión arbitraria, subsidiariedad e inmediatez. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Amparo constitucional",
+  "centralThesis": "Es una vía para proteger derechos fundamentales frente a actos ilegales u omisiones indebidas de autoridades o particulares.",
+  "problem": "Antes de presentarlo, verifica tres filtros.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Acción de amparo constitucional: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse acto ilegal u omisión arbitraria, subsidiariedad e inmediatez.",
-    "La decisión útil debe terminar en amparo con acto lesivo probado, con una ruta de seguimiento y ejecución posible."
+    "Primero: ¿qué derecho concreto fue restringido, suprimido o amenazado, y por qué este caso no corresponde a otra acción constitucional especial?",
+    "Segundo: ¿existe un recurso ordinario idóneo que todavía debe utilizarse?",
+    "Por regla, el amparo es subsidiario; excepcionalmente puede activarse si esperar vuelve tardía la protección o existe riesgo de daño irreparable, debidamente justificado.",
+    "Tercero: ¿está vigente el plazo?",
+    "La Constitución fija un máximo de seis meses, cuyo cómputo exige examinar el acto y las notificaciones pertinentes.",
+    "Imagina una resolución administrativa lesiva: conserva la decisión, registra su notificación, documenta los recursos y describe el daño real."
   ],
-  "conclusion": "Acción de amparo constitucional se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una demanda sólida no dice solamente «se vulneraron mis derechos».",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +53,49 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Acción de amparo constitucional: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Acción de amparo constitucional, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "El amparo constitucional no es una apelación con otro nombre.",
+  "closingIdea": "Explica qué sucedió, cómo se lesionó el derecho y qué reparación concreta solicita.",
+  "cta": "Antes de un amparo, revisa derecho, vía y plazo.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-002",
+    "sourceFileSha256": "d58b106bc0619ce011a5c55b2a9ea7de817db23b6b2ce7ac42ba0b444eb5f582",
+    "fullGuionSha256": "b3cd4967b5d17edbb5efb7ee522c2a8cf46e70365f3af50cd01df755759426c1",
+    "fullGuionVerbatim": "El amparo constitucional no es una apelación con otro nombre. Es una vía para proteger derechos fundamentales frente a actos ilegales u omisiones indebidas de autoridades o particulares. Antes de presentarlo, verifica tres filtros. Primero: ¿qué derecho concreto fue restringido, suprimido o amenazado, y por qué este caso no corresponde a otra acción constitucional especial? Segundo: ¿existe un recurso ordinario idóneo que todavía debe utilizarse? Por regla, el amparo es subsidiario; excepcionalmente puede activarse si esperar vuelve tardía la protección o existe riesgo de daño irreparable, debidamente justificado. Tercero: ¿está vigente el plazo? La Constitución fija un máximo de seis meses, cuyo cómputo exige examinar el acto y las notificaciones pertinentes. Imagina una resolución administrativa lesiva: conserva la decisión, registra su notificación, documenta los recursos y describe el daño real. Una demanda sólida no dice solamente «se vulneraron mis derechos». Explica qué sucedió, cómo se lesionó el derecho y qué reparación concreta solicita.",
+    "sourceFichaTitle": "Amparo constitucional: tres filtros antes de presentar",
+    "sourceNormas": [
+      "CPE arts. 128–129",
+      "Ley 254 arts. 29–40 y 51–57",
+      "Ley 1104 arts. 2–4"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Semáforo rojo: «No es una apelación».",
+      "Filtro 1: derecho lesionado y acción correcta.",
+      "Filtro 2: recursos disponibles y excepción por urgencia.",
+      "Filtro 3: calendario de seis meses, notificación resaltada.",
+      "Carpeta de pruebas y petición de restitución."
+    ],
+    "sourceRisk": "No asegurar que cualquier perjuicio permite omitir recursos; excepción exige justificación fundada. Matizar cómputo de seis meses por CPE art. 129 y CPCo art. 55.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-002_MATRIZ.json",
+    "priorPhd12GuionSha256": "b3cd4967b5d17edbb5efb7ee522c2a8cf46e70365f3af50cd01df755759426c1",
+    "priorPhd12GuionVerbatim": "El amparo constitucional no es una apelación con otro nombre. Es una vía para proteger derechos fundamentales frente a actos ilegales u omisiones indebidas de autoridades o particulares. Antes de presentarlo, verifica tres filtros. Primero: ¿qué derecho concreto fue restringido, suprimido o amenazado, y por qué este caso no corresponde a otra acción constitucional especial? Segundo: ¿existe un recurso ordinario idóneo que todavía debe utilizarse? Por regla, el amparo es subsidiario; excepcionalmente puede activarse si esperar vuelve tardía la protección o existe riesgo de daño irreparable, debidamente justificado. Tercero: ¿está vigente el plazo? La Constitución fija un máximo de seis meses, cuyo cómputo exige examinar el acto y las notificaciones pertinentes. Imagina una resolución administrativa lesiva: conserva la decisión, registra su notificación, documenta los recursos y describe el daño real. Una demanda sólida no dice solamente «se vulneraron mis derechos». Explica qué sucedió, cómo se lesionó el derecho y qué reparación concreta solicita.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 1428/2012",
+      "SCP 0608/2012"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

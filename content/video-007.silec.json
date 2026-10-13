@@ -2,7 +2,7 @@
   "productionCode": "video-007",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,28 @@
       "acciones constitucionales",
       "Motivación de resoluciones"
     ],
-    "intellectualContribution": "Explica Motivación de resoluciones desde su utilidad operativa concreta: razones de hecho, prueba y derecho.",
+    "intellectualContribution": "La motivación exige respuesta racional verificable a puntos relevantes, hechos, derecho y prueba, sin requerir extensiones retóricas.",
     "newAngle": {
       "comparedWith": [
-        "video-006"
+        "video-015"
       ],
-      "contribution": "Diferencia Motivación de resoluciones por su problema específico: decisiones aparentes, genéricas o contradictorias."
+      "contribution": "Auditoría en cuatro preguntas de una resolución. Microcaso hipotético: Un recurso denuncia prueba decisiva omitida y la autoridad lo rechaza sin abordar el agravio. Caso hipotético."
     }
   },
   "topic": "Motivación de resoluciones",
-  "centralThesis": "Motivación de resoluciones exige dominar razones de hecho, prueba y derecho; su valor práctico está en transformar por qué una autoridad no puede decidir sin explicar hechos, prueba, norma y conclusión en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Motivación de resoluciones es decisiones aparentes, genéricas o contradictorias. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Supón que recurres una sanción porque la autoridad ignoró un documento decisivo.",
+  "problem": "La instancia superior escribe diez páginas, cita normas y finalmente confirma la sanción.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Motivación de resoluciones: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse decisiones aparentes, genéricas o contradictorias.",
-    "La decisión útil debe terminar en exigir justificación controlable, con una ruta de seguimiento y ejecución posible."
+    "Pero nunca explica qué pasó con ese documento ni responde el agravio principal.",
+    "El problema no es la cantidad de texto: es la ausencia de una justificación jurídicamente controlable.",
+    "Para analizar una resolución, haz cuatro preguntas: ¿identificó los hechos relevantes?",
+    "¿Explicó qué pruebas sustentan sus conclusiones?",
+    "¿Conectó esos hechos con la norma aplicable?",
+    "¿Respondió los argumentos decisivos planteados?",
+    "Una motivación verificable permite controlar la decisión y prevenir la arbitrariedad; la congruencia exige correspondencia con lo debatido.",
+    "Eso no significa que cada párrafo de las partes merezca una respuesta separada."
   ],
-  "conclusion": "Motivación de resoluciones se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "En litigación, marca exactamente el agravio omitido y explica por qué importa.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +55,49 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Motivación de resoluciones: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Motivación de resoluciones, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una resolución extensa puede seguir siendo inmotivada.",
+  "closingIdea": "El recurso eficaz no grita «falta fundamentación»: demuestra dónde la razón judicial o administrativa dejó de existir.",
+  "cta": "Audita resoluciones con cuatro preguntas antes de formular tu agravio.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-007",
+    "sourceFileSha256": "00bfb73d6a2fd68b4a69b87beb19c9c123be969de1f11bb8e42e44f6d81580ce",
+    "fullGuionSha256": "f0a6ac8db87aaf4f0ccf1fbb2d736b76766b81447102a9146bc082156424ae99",
+    "fullGuionVerbatim": "Una resolución extensa puede seguir siendo inmotivada. Supón que recurres una sanción porque la autoridad ignoró un documento decisivo. La instancia superior escribe diez páginas, cita normas y finalmente confirma la sanción. Pero nunca explica qué pasó con ese documento ni responde el agravio principal. El problema no es la cantidad de texto: es la ausencia de una justificación jurídicamente controlable. Para analizar una resolución, haz cuatro preguntas: ¿identificó los hechos relevantes? ¿Explicó qué pruebas sustentan sus conclusiones? ¿Conectó esos hechos con la norma aplicable? ¿Respondió los argumentos decisivos planteados? Una motivación verificable permite controlar la decisión y prevenir la arbitrariedad; la congruencia exige correspondencia con lo debatido. Eso no significa que cada párrafo de las partes merezca una respuesta separada. En litigación, marca exactamente el agravio omitido y explica por qué importa. El recurso eficaz no grita «falta fundamentación»: demuestra dónde la razón judicial o administrativa dejó de existir.",
+    "sourceFichaTitle": "Una resolución puede tener diez páginas y no dar razones",
+    "sourceNormas": [
+      "CPE arts. 115.II y 180",
+      "Ley 254 arts. 3.7–8; arts. 28 y 45 SOLO para resoluciones constitucionales"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Resolución de diez páginas que se vacía hasta revelar hueco.",
+      "Documento marcado «prueba decisiva».",
+      "Cuatro tarjetas: hecho / prueba / norma / agravio.",
+      "Agravio sin respuesta señalado con línea roja neutra.",
+      "Cierre en pantalla: «Extensión ≠ motivación»."
+    ],
+    "sourceRisk": "No decir que debe responder palabra por palabra ni revalorar toda prueba; evaluar relevancia y razonabilidad conforme al caso.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-007_MATRIZ.json",
+    "priorPhd12GuionSha256": "d97a35e871b0aca94b61b47b11b56020588a4edd89092871d6c6695784632640",
+    "priorPhd12GuionVerbatim": "Una resolución extensa puede seguir siendo inmotivada. Supón que recurres una sanción porque la autoridad ignoró un documento decisivo. La instancia superior escribe diez páginas, cita normas y finalmente confirma la sanción. Pero nunca explica qué pasó con ese documento ni responde el agravio principal. El problema no es la cantidad de texto: es la ausencia de una justificación jurídicamente controlable. Para analizar una resolución, haz cuatro preguntas: ¿identificó los hechos relevantes? ¿Explicó qué pruebas sustentan sus conclusiones? ¿Conectó esos hechos con la norma aplicable? ¿Respondió los argumentos decisivos planteados? La jurisprudencia constitucional boliviana trata la fundamentación y motivación como garantías contra la arbitrariedad, y la congruencia exige correspondencia con lo debatido. Eso no significa que cada párrafo de las partes merezca una respuesta separada. En litigación, marca exactamente el agravio omitido y explica por qué importa. El recurso eficaz no grita «falta fundamentación»: demuestra dónde la razón judicial o administrativa dejó de existir.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 2221/2012",
+      "SCP 0100/2013",
+      "SCP 0014/2018-S2 (modulación documentada en Gaceta TCP 2019)"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

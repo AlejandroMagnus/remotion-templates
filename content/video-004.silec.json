@@ -2,7 +2,7 @@
   "productionCode": "video-004",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,24 @@
       "acciones constitucionales",
       "Acción de protección de privacidad"
     ],
-    "intellectualContribution": "Explica Acción de protección de privacidad desde su utilidad operativa concreta: datos personales, intimidad y registros.",
+    "intellectualContribution": "La autodeterminación informativa comprende conocer, objetar, rectificar o eliminar datos en los supuestos constitucionales y legales, no borrar cualquier registro legítimo.",
     "newAngle": {
       "comparedWith": [
-        "video-003"
+        "video-015"
       ],
-      "contribution": "Diferencia Acción de protección de privacidad por su problema específico: información falsa, indebida o no autorizada."
+      "contribution": "Rastreo de un dato: origen, error, daño y remedio. Microcaso hipotético: Un registro privado atribuye falsamente a una persona un dato perjudicial y se niega a corregirlo. Caso hipotético."
     }
   },
   "topic": "Acción de protección de privacidad",
-  "centralThesis": "Acción de protección de privacidad exige dominar datos personales, intimidad y registros; su valor práctico está en transformar cómo defender datos personales, intimidad y registros indebidos en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Acción de protección de privacidad es información falsa, indebida o no autorizada. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Imagina que un registro público o privado contiene información personal falsa y esa información afecta tu reputación.",
+  "problem": "En Bolivia, la acción de protección de privacidad permite, en los supuestos previstos por la Constitución y el Código Procesal Constitucional, conocer datos propios, objetarlos y solicitar su rectificación o eliminación.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Acción de protección de privacidad: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse información falsa, indebida o no autorizada.",
-    "La decisión útil debe terminar en corrección, supresión o confidencialidad de datos, con una ruta de seguimiento y ejecución posible."
+    "Su fundamento no es simplemente el malestar por aparecer en internet: es el derecho a controlar información personal cuando se vulnera la intimidad, privacidad, imagen, honra o reputación.",
+    "¿Cómo se prepara un caso?",
+    "Identifica al responsable del archivo, captura el contenido exacto, demuestra el error o la afectación y deja constancia de las gestiones realizadas cuando sean pertinentes.",
+    "La ley permite acudir directamente si existe inminencia de lesión y una finalidad cautelar."
   ],
-  "conclusion": "Acción de protección de privacidad se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Pero cuidado: esta acción no supone borrar automáticamente antecedentes legalmente conservados, ni levantar el secreto profesional de prensa.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +51,48 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Acción de protección de privacidad: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Acción de protección de privacidad, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Que un dato esté en una base no significa que sea correcto ni intocable.",
+  "closingIdea": "La pregunta jurídica es precisa: ¿qué dato, en poder de quién, vulnera qué derecho y qué corrección corresponde?",
+  "cta": "Controlar tus datos empieza por identificar registro, error y responsable.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-004",
+    "sourceFileSha256": "7f445f1297650af0070f49adc083330dca05b00924ad9547586016591449e58b",
+    "fullGuionSha256": "501fa3687a5709f77f5c4c2390dacb83cb4e2af440d44c1a85fa0d9b0f1ac712",
+    "fullGuionVerbatim": "Que un dato esté en una base no significa que sea correcto ni intocable. Imagina que un registro público o privado contiene información personal falsa y esa información afecta tu reputación. En Bolivia, la acción de protección de privacidad permite, en los supuestos previstos por la Constitución y el Código Procesal Constitucional, conocer datos propios, objetarlos y solicitar su rectificación o eliminación. Su fundamento no es simplemente el malestar por aparecer en internet: es el derecho a controlar información personal cuando se vulnera la intimidad, privacidad, imagen, honra o reputación. ¿Cómo se prepara un caso? Identifica al responsable del archivo, captura el contenido exacto, demuestra el error o la afectación y deja constancia de las gestiones realizadas cuando sean pertinentes. La ley permite acudir directamente si existe inminencia de lesión y una finalidad cautelar. Pero cuidado: esta acción no supone borrar automáticamente antecedentes legalmente conservados, ni levantar el secreto profesional de prensa. La pregunta jurídica es precisa: ¿qué dato, en poder de quién, vulnera qué derecho y qué corrección corresponde?",
+    "sourceFichaTitle": "¿Quién controla los datos que otros guardan sobre ti?",
+    "sourceNormas": [
+      "CPE arts. 130–131",
+      "Ley 254 arts. 58–63",
+      "Ley 1104 arts. 2–4"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Base de datos abstracta; fila con signo de interrogación.",
+      "Zoom de un dato: titular, responsable, origen.",
+      "Ruta cuatro verbos: conocer / objetar / rectificar / eliminar.",
+      "Balanza: protección de datos / obligaciones legales de registro.",
+      "Pantalla final con pregunta sobre dato, responsable y remedio."
+    ],
+    "sourceRisk": "No confundir acción constitucional con servicio de eliminación/desindexación irrestricta. Evitar mostrar datos reales identificables.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-004_MATRIZ.json",
+    "priorPhd12GuionSha256": "501fa3687a5709f77f5c4c2390dacb83cb4e2af440d44c1a85fa0d9b0f1ac712",
+    "priorPhd12GuionVerbatim": "Que un dato esté en una base no significa que sea correcto ni intocable. Imagina que un registro público o privado contiene información personal falsa y esa información afecta tu reputación. En Bolivia, la acción de protección de privacidad permite, en los supuestos previstos por la Constitución y el Código Procesal Constitucional, conocer datos propios, objetarlos y solicitar su rectificación o eliminación. Su fundamento no es simplemente el malestar por aparecer en internet: es el derecho a controlar información personal cuando se vulnera la intimidad, privacidad, imagen, honra o reputación. ¿Cómo se prepara un caso? Identifica al responsable del archivo, captura el contenido exacto, demuestra el error o la afectación y deja constancia de las gestiones realizadas cuando sean pertinentes. La ley permite acudir directamente si existe inminencia de lesión y una finalidad cautelar. Pero cuidado: esta acción no supone borrar automáticamente antecedentes legalmente conservados, ni levantar el secreto profesional de prensa. La pregunta jurídica es precisa: ¿qué dato, en poder de quién, vulnera qué derecho y qué corrección corresponde?",
+    "originalV61PrecedentsUnverified": [
+      "SCP 0524/2018-S2"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

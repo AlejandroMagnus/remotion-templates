@@ -2,7 +2,7 @@
   "productionCode": "video-008",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,26 @@
       "acciones constitucionales",
       "Tutela judicial efectiva"
     ],
-    "intellectualContribution": "Explica Tutela judicial efectiva desde su utilidad operativa concreta: respuesta judicial útil y efectiva.",
+    "intellectualContribution": "La tutela efectiva abarca acceso, decisión fundada, remedios legalmente previstos y ejecución real; la estrategia exige detectar dónde se rompe la protección.",
     "newAngle": {
       "comparedWith": [
-        "video-007"
+        "video-015"
       ],
-      "contribution": "Diferencia Tutela judicial efectiva por su problema específico: rechazos formales o procesos inútiles."
+      "contribution": "La sentencia que quedó en papel: justicia como ciclo completo. Microcaso hipotético: Una persona obtiene una decisión firme favorable, pero la parte obligada no la ejecuta. Caso hipotético."
     }
   },
   "topic": "Tutela judicial efectiva",
-  "centralThesis": "Tutela judicial efectiva exige dominar respuesta judicial útil y efectiva; su valor práctico está en transformar por qué no basta tener proceso: debe existir una respuesta útil y real en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Tutela judicial efectiva es rechazos formales o procesos inútiles. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Imagina que una persona gana un proceso, obtiene una resolución firme y, meses después, la obligación sigue sin ejecutarse.",
+  "problem": "El acceso a la justicia no termina necesariamente cuando un juez firma.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Tutela judicial efectiva: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse rechazos formales o procesos inútiles.",
-    "La decisión útil debe terminar en decisión de fondo cuando corresponde, con una ruta de seguimiento y ejecución posible."
+    "La tutela judicial efectiva comprende poder acudir a la autoridad competente, ejercer defensa, obtener una decisión fundada, utilizar los recursos previstos por ley y conseguir que las decisiones firmes se ejecuten.",
+    "La Constitución boliviana garantiza protección oportuna y efectiva; una decisión sin ejecución puede dejar la tutela en el papel.",
+    "¿Qué hacer?",
+    "Separa cuatro momentos: ingreso al proceso, debate con garantías, decisión razonada y cumplimiento.",
+    "Identifica exactamente dónde aparece el obstáculo.",
+    "Si se trata de incumplimiento, revisa primero los mecanismos de ejecución de la jurisdicción que dictó la resolución."
   ],
-  "conclusion": "Tutela judicial efectiva se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La acción de cumplimiento constitucional no es una vía universal para hacer ejecutar sentencias.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +53,47 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Tutela judicial efectiva: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Tutela judicial efectiva, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una sentencia que nunca se cumple puede dejar el derecho solo en papel.",
+  "closingIdea": "La verdadera pregunta es si el sistema produjo protección concreta, no solo un expediente cerrado.",
+  "cta": "La justicia debe ser accesible, razonada y ejecutable.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-008",
+    "sourceFileSha256": "382082593d0ec3e689a4e4fdb2b8bc6405ac361fd8341465226ec8b819e42c4a",
+    "fullGuionSha256": "4048f7a46fc6cab34c871f8669b6cabd0f16c44e735d0005747278d53cfc828e",
+    "fullGuionVerbatim": "Una sentencia que nunca se cumple puede dejar el derecho solo en papel. Imagina que una persona gana un proceso, obtiene una resolución firme y, meses después, la obligación sigue sin ejecutarse. El acceso a la justicia no termina necesariamente cuando un juez firma. La tutela judicial efectiva comprende poder acudir a la autoridad competente, ejercer defensa, obtener una decisión fundada, utilizar los recursos previstos por ley y conseguir que las decisiones firmes se ejecuten. La Constitución boliviana garantiza protección oportuna y efectiva; una decisión sin ejecución puede dejar la tutela en el papel. ¿Qué hacer? Separa cuatro momentos: ingreso al proceso, debate con garantías, decisión razonada y cumplimiento. Identifica exactamente dónde aparece el obstáculo. Si se trata de incumplimiento, revisa primero los mecanismos de ejecución de la jurisdicción que dictó la resolución. La acción de cumplimiento constitucional no es una vía universal para hacer ejecutar sentencias. La verdadera pregunta es si el sistema produjo protección concreta, no solo un expediente cerrado.",
+    "sourceFichaTitle": "Ganar un juicio no siempre significa obtener justicia",
+    "sourceNormas": [
+      "CPE arts. 115.I–II y 180.II",
+      "Ley 254 arts. 16–17 y 40 para ejecución de resoluciones constitucionales; art. 66.3 para exclusión"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Sentencia impresa que no mueve una puerta cerrada.",
+      "Ciclo acceso → proceso → decisión → ejecución.",
+      "Vía de ejecución propia como engranaje principal.",
+      "Cotejo del contenido del fallo con cumplimiento real.",
+      "Pantalla final: «Justicia = decisión + cumplimiento»."
+    ],
+    "sourceRisk": "Evitar reducir tutela a ganar juicio o afirmar que cualquier incumplimiento judicial habilita amparo de manera directa.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-008_MATRIZ.json",
+    "priorPhd12GuionSha256": "5a608f413f4d8ee66062b3f1e7410c840b005063cc0657f7bcd3838223425808",
+    "priorPhd12GuionVerbatim": "Una sentencia que nunca se cumple puede dejar el derecho solo en papel. Imagina que una persona gana un proceso, obtiene una resolución firme y, meses después, la obligación sigue sin ejecutarse. El acceso a la justicia no termina necesariamente cuando un juez firma. La tutela judicial efectiva comprende poder acudir a la autoridad competente, ejercer defensa, obtener una decisión fundada, utilizar los recursos previstos por ley y conseguir que las decisiones firmes se ejecuten. La Constitución boliviana garantiza protección oportuna y efectiva; la jurisprudencia reconoce la ejecución como parte del contenido de esa tutela. ¿Qué hacer? Separa cuatro momentos: ingreso al proceso, debate con garantías, decisión razonada y cumplimiento. Identifica exactamente dónde aparece el obstáculo. Si se trata de incumplimiento, revisa primero los mecanismos de ejecución de la jurisdicción que dictó la resolución. La acción de cumplimiento constitucional no es una vía universal para hacer ejecutar sentencias. La verdadera pregunta es si el sistema produjo protección concreta, no solo un expediente cerrado.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 1478/2012 (doctrina recibida en Gaceta TCP 2019)"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

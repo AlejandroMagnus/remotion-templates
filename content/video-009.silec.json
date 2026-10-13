@@ -2,7 +2,7 @@
   "productionCode": "video-009",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,25 @@
       "acciones constitucionales",
       "Verdad material vs formalismo"
     ],
-    "intellectualContribution": "Explica Verdad material vs formalismo desde su utilidad operativa concreta: realidad del caso frente a formalismo excesivo.",
+    "intellectualContribution": "La verdad material exige procurar decisiones fundadas en hechos probados, sin desconocer contradicción, plazos, igualdad ni reglas imprescindibles de proceso.",
     "newAngle": {
       "comparedWith": [
-        "video-008"
+        "video-015"
       ],
-      "contribution": "Diferencia Verdad material vs formalismo por su problema específico: defecto subsanable usado para cerrar justicia."
+      "contribution": "Dos carpetas: lo ocurrido y lo consignado en el expediente. Microcaso hipotético: Un tribunal se concentra en una deficiencia subsanable que impediría analizar un agravio jurídicamente inteligible. Caso hipotético."
     }
   },
-  "topic": "Verdad material vs formalismo",
-  "centralThesis": "Verdad material vs formalismo exige dominar realidad del caso frente a formalismo excesivo; su valor práctico está en transformar cuándo la forma procesal no puede destruir la justicia del caso en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Verdad material vs formalismo es defecto subsanable usado para cerrar justicia. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Verdad material y formalismo",
+  "centralThesis": "Pero cuidado: eso no significa que las reglas procesales no importen.",
+  "problem": "En Bolivia, el artículo 180 de la Constitución reconoce la verdad material como principio de la jurisdicción ordinaria.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Verdad material vs formalismo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse defecto subsanable usado para cerrar justicia.",
-    "La decisión útil debe terminar en corregir sin sacrificar el derecho material, con una ruta de seguimiento y ejecución posible."
+    "¿Qué exige?",
+    "Que la decisión atienda a los hechos relevantes, probados y debatidos, evitando formalismos desproporcionados que impidan estudiar el fondo del conflicto.",
+    "Imagina un recurso comprensible cuyo agravio central puede identificarse, pero que es descartado por un ritualismo innecesario.",
+    "Un formalismo excesivo puede impedir que el conflicto se resuelva sobre sus hechos relevantes.",
+    "La estrategia consiste en demostrar tres cosas: qué hecho relevante está acreditado, qué requisito formal bloquea injustificadamente su consideración y cómo puede protegerse, al mismo tiempo, el derecho de contradicción de la otra parte."
   ],
-  "conclusion": "Verdad material vs formalismo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La verdad material no autoriza presentar pruebas ilícitas, ignorar plazos esenciales ni sustituir con intuiciones la carga probatoria.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +52,48 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Verdad material vs formalismo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Verdad material vs formalismo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "El proceso existe para hacer justicia; no para esconderla detrás de un sello.",
+  "closingIdea": "Es un criterio para resolver correctamente, no una licencia para desconocer el procedimiento.",
+  "cta": "La mejor objeción al formalismo demuestra por qué era innecesario.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-009",
+    "sourceFileSha256": "457c3552813f2585cb7a275fbc927695a4b3ceb04034fc4d061e9e479331cc63",
+    "fullGuionSha256": "d1e4d6e6e1f74156329f14f7b7d09a029beea8c27c8206a0705e79e5478e356e",
+    "fullGuionVerbatim": "El proceso existe para hacer justicia; no para esconderla detrás de un sello. Pero cuidado: eso no significa que las reglas procesales no importen. En Bolivia, el artículo 180 de la Constitución reconoce la verdad material como principio de la jurisdicción ordinaria. ¿Qué exige? Que la decisión atienda a los hechos relevantes, probados y debatidos, evitando formalismos desproporcionados que impidan estudiar el fondo del conflicto. Imagina un recurso comprensible cuyo agravio central puede identificarse, pero que es descartado por un ritualismo innecesario. Un formalismo excesivo puede impedir que el conflicto se resuelva sobre sus hechos relevantes. La estrategia consiste en demostrar tres cosas: qué hecho relevante está acreditado, qué requisito formal bloquea injustificadamente su consideración y cómo puede protegerse, al mismo tiempo, el derecho de contradicción de la otra parte. La verdad material no autoriza presentar pruebas ilícitas, ignorar plazos esenciales ni sustituir con intuiciones la carga probatoria. Es un criterio para resolver correctamente, no una licencia para desconocer el procedimiento.",
+    "sourceFichaTitle": "¿Puede perderse un derecho por un formalismo excesivo?",
+    "sourceNormas": [
+      "CPE arts. 115 y 180.I",
+      "Ley 254 art. 3.5–8 en justicia constitucional"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Dos carpetas: «realidad acreditada» y «requisito formal».",
+      "Sello bloqueando camino a resolución de fondo.",
+      "Balanza: verdad material e igualdad procesal.",
+      "Tres pruebas: hecho, exceso formal, contradicción salvaguardada.",
+      "Cierre: «Justicia material no es ausencia de reglas»."
+    ],
+    "sourceRisk": "No afirmar que verdad material deroga preclusión, licitud, pertinencia y contradicción. Evitar regla universal fuera del caso.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-009_MATRIZ.json",
+    "priorPhd12GuionSha256": "e32b57fe8a3e1bea7ff5346149685a34b71b40e1ecbcde4e7c11da73e88ee83b",
+    "priorPhd12GuionVerbatim": "El proceso existe para hacer justicia; no para esconderla detrás de un sello. Pero cuidado: eso no significa que las reglas procesales no importen. En Bolivia, el artículo 180 de la Constitución reconoce la verdad material como principio de la jurisdicción ordinaria. ¿Qué exige? Que la decisión atienda a los hechos relevantes, probados y debatidos, evitando formalismos desproporcionados que impidan estudiar el fondo del conflicto. Imagina un recurso comprensible cuyo agravio central puede identificarse, pero que es descartado por un ritualismo innecesario. La jurisprudencia constitucional ha advertido contra ese exceso. La estrategia consiste en demostrar tres cosas: qué hecho relevante está acreditado, qué requisito formal bloquea injustificadamente su consideración y cómo puede protegerse, al mismo tiempo, el derecho de contradicción de la otra parte. La verdad material no autoriza presentar pruebas ilícitas, ignorar plazos esenciales ni sustituir con intuiciones la carga probatoria. Es un criterio para resolver correctamente, no una licencia para desconocer el procedimiento.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 1662/2012",
+      "AS/0326/2022 (Sala Contenciosa y Contenciosa Administrativa, Social y Administrativa Primera, 23-06-2022)"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

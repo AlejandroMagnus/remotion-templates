@@ -2,7 +2,7 @@
   "productionCode": "video-003",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,27 @@
       "acciones constitucionales",
       "Acción de cumplimiento"
     ],
-    "intellectualContribution": "Explica Acción de cumplimiento desde su utilidad operativa concreta: mandato jurídico incumplido por autoridad.",
+    "intellectualContribution": "No basta una obligación genérica: se exige un mandato constitucional o legal concreto, claro y exigible incumplido por servidor público.",
     "newAngle": {
       "comparedWith": [
-        "video-002"
+        "video-015"
       ],
-      "contribution": "Diferencia Acción de cumplimiento por su problema específico: deber claro, exigible y renuencia."
+      "contribution": "La norma omitida bajo lupa: mandato, responsable, reclamo. Microcaso hipotético: Una autoridad pública omite ejecutar un deber específico dispuesto en una ley, pese a reclamo documentado. Caso hipotético."
     }
   },
   "topic": "Acción de cumplimiento",
-  "centralThesis": "Acción de cumplimiento exige dominar mandato jurídico incumplido por autoridad; su valor práctico está en transformar cuándo exigir que una autoridad cumpla una obligación legal o constitucional en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Acción de cumplimiento es deber claro, exigible y renuencia. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Para ciertos incumplimientos existe la acción de cumplimiento.",
+  "problem": "No sirve para pedir, en abstracto, que «se respete la ley».",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Acción de cumplimiento: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse deber claro, exigible y renuencia.",
-    "La decisión útil debe terminar en cumplimiento de obligación legal o constitucional, con una ruta de seguimiento y ejecución posible."
+    "Hay que encontrar un mandato constitucional o legal concreto, claro y exigible; identificar a la autoridad obligada; y demostrar la omisión.",
+    "Imagina que una disposición ordena a una entidad pública realizar una actuación determinada, y el responsable no la ejecuta.",
+    "¿Qué harías primero?",
+    "Exigir el cumplimiento por escrito y conservar constancia de recepción.",
+    "El Código Procesal Constitucional exige ese reclamo previo documentado.",
+    "Después debes individualizar la norma, el deber incumplido y la prueba de la renuencia.",
+    "No confundas esta acción con el amparo: una exige un deber normativo incumplido; la otra protege derechos en los supuestos previstos por la ley."
   ],
-  "conclusion": "Acción de cumplimiento se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Tampoco sirve para ejecutar sentencias judiciales firmes.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +54,49 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Acción de cumplimiento: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Acción de cumplimiento, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una autoridad no puede convertir un deber legal claro en una promesa indefinida.",
+  "closingIdea": "El punto decisivo no es cuánta indignación produce la omisión: es si el deber se puede exigir jurídica y precisamente.",
+  "cta": "Antes de demandar, subraya el verbo obligatorio de la norma.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-003",
+    "sourceFileSha256": "aaf3e16bc43aa1e678b067b94e17c09b2f587b48f45718a44d44f8e4092578dd",
+    "fullGuionSha256": "706ec555fb67b1c62a6deda63da6413c03d45cd045ceb1429e6510361e0e9c12",
+    "fullGuionVerbatim": "Una autoridad no puede convertir un deber legal claro en una promesa indefinida. Para ciertos incumplimientos existe la acción de cumplimiento. No sirve para pedir, en abstracto, que «se respete la ley». Hay que encontrar un mandato constitucional o legal concreto, claro y exigible; identificar a la autoridad obligada; y demostrar la omisión. Imagina que una disposición ordena a una entidad pública realizar una actuación determinada, y el responsable no la ejecuta. ¿Qué harías primero? Exigir el cumplimiento por escrito y conservar constancia de recepción. El Código Procesal Constitucional exige ese reclamo previo documentado. Después debes individualizar la norma, el deber incumplido y la prueba de la renuencia. No confundas esta acción con el amparo: una exige un deber normativo incumplido; la otra protege derechos en los supuestos previstos por la ley. Tampoco sirve para ejecutar sentencias judiciales firmes. El punto decisivo no es cuánta indignación produce la omisión: es si el deber se puede exigir jurídica y precisamente.",
+    "sourceFichaTitle": "La autoridad conoce su obligación… y no la cumple",
+    "sourceNormas": [
+      "CPE art. 134",
+      "Ley 254 arts. 64–67",
+      "Ley 1104 arts. 2–4"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Página de ley con verbo «deberá» resaltado.",
+      "Diagrama: mandato → obligado → omisión.",
+      "Solicitud escrita con sello de recibido.",
+      "Cruce entre acción cumplimiento y amparo.",
+      "Petitorio: ejecución del deber omitido."
+    ],
+    "sourceRisk": "La norma ha de ser vigente y exigible. No usar la acción para obligar al legislativo a aprobar leyes ni para ejecutar sentencias.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-003_MATRIZ.json",
+    "priorPhd12GuionSha256": "7b1d574814efda03901e4b878bd6ef4cbdbcb9b449f8cc930b4784ed7ed4da4a",
+    "priorPhd12GuionVerbatim": "Una autoridad no puede convertir un deber legal claro en una promesa indefinida. Para ciertos incumplimientos existe la acción de cumplimiento. No sirve para pedir, en abstracto, que «se respete la ley». Hay que encontrar un mandato constitucional o legal concreto, claro y exigible; identificar a la autoridad obligada; y demostrar la omisión. Imagina que una disposición ordena a una entidad pública realizar una actuación determinada, y el responsable no la ejecuta. ¿Qué harías primero? Exigir el cumplimiento por escrito y conservar constancia de recepción. El Código Procesal Constitucional exige ese reclamo previo documentado. Después debes individualizar la norma, el deber incumplido y la prueba de la renuencia. La jurisprudencia distingue esta acción del amparo: una cosa es la omisión de un deber normativo específico; otra, la lesión de derechos por falta de motivación o por una decisión administrativa. Tampoco sirve para ejecutar sentencias judiciales firmes. El punto decisivo no es cuánta indignación produce la omisión: es si el deber se puede exigir jurídica y precisamente.",
+    "originalV61PrecedentsUnverified": [
+      "SC 0258/2011-R",
+      "SCP 0548/2013"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

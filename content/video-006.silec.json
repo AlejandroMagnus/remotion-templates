@@ -2,7 +2,7 @@
   "productionCode": "video-006",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,24 @@
       "acciones constitucionales",
       "Debido proceso constitucional"
     ],
-    "intellectualContribution": "Explica Debido proceso constitucional desde su utilidad operativa concreta: garantías mínimas de todo procedimiento.",
+    "intellectualContribution": "Una alegación eficaz individualiza garantía, acto, afectación y remedio; no transforma cualquier error o fallo adverso en violación constitucional.",
     "newAngle": {
       "comparedWith": [
-        "video-005"
+        "video-015"
       ],
-      "contribution": "Diferencia Debido proceso constitucional por su problema específico: defensa, prueba, contradicción y motivación."
+      "contribution": "Autopsia de una sanción: dónde faltó la oportunidad de defensa. Microcaso hipotético: Una autoridad impone sanción sin comunicar cargos ni permitir presentar descargos. Caso hipotético."
     }
   },
   "topic": "Debido proceso constitucional",
-  "centralThesis": "Debido proceso constitucional exige dominar garantías mínimas de todo procedimiento; su valor práctico está en transformar la garantía que atraviesa todo juicio, trámite o procedimiento administrativo en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Debido proceso constitucional es defensa, prueba, contradicción y motivación. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Imagina una sanción administrativa en la que la persona conoce el castigo, pero nunca recibió una comunicación clara de los cargos ni pudo ofrecer descargos.",
+  "problem": "El problema no es solo que la decisión resulte desfavorable: es que faltó una oportunidad real de defenderse.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Debido proceso constitucional: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse defensa, prueba, contradicción y motivación.",
-    "La decisión útil debe terminar en nulidad o corrección de acto defectuoso, con una ruta de seguimiento y ejecución posible."
+    "En Bolivia, el debido proceso exige garantías como conocimiento de la imputación, posibilidad de contradicción, defensa, autoridad competente, valoración razonada y decisión motivada, según la naturaleza del procedimiento.",
+    "¿Cómo se construye el argumento?",
+    "Identifica la actuación exacta, señala la garantía lesionada, exhibe el documento o la omisión y explica cómo afectó la posibilidad de defensa.",
+    "Después solicita el remedio compatible con la vía procesal: subsanación, nulidad cuando corresponda, recurso o tutela constitucional si se cumplen sus requisitos."
   ],
-  "conclusion": "Debido proceso constitucional se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "No conviertas el debido proceso en una frase ritual para todo escrito.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +51,48 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Debido proceso constitucional: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Debido proceso constitucional, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Un proceso puede tener muchos papeles y aun así negar defensa.",
+  "closingIdea": "La Constitución protege un procedimiento justo, no el derecho a ganar siempre.",
+  "cta": "Una objeción fuerte muestra hechos, garantía afectada y perjuicio.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-006",
+    "sourceFileSha256": "c7b92dd3854e068025b362ae6df7c0ee431910f4edf3a1aefd515a036a6c624e",
+    "fullGuionSha256": "faf363a0746f9140c55ffae61b020f05107652cf11a68988eb8be551a46e0f62",
+    "fullGuionVerbatim": "Un proceso puede tener muchos papeles y aun así negar defensa. Imagina una sanción administrativa en la que la persona conoce el castigo, pero nunca recibió una comunicación clara de los cargos ni pudo ofrecer descargos. El problema no es solo que la decisión resulte desfavorable: es que faltó una oportunidad real de defenderse. En Bolivia, el debido proceso exige garantías como conocimiento de la imputación, posibilidad de contradicción, defensa, autoridad competente, valoración razonada y decisión motivada, según la naturaleza del procedimiento. ¿Cómo se construye el argumento? Identifica la actuación exacta, señala la garantía lesionada, exhibe el documento o la omisión y explica cómo afectó la posibilidad de defensa. Después solicita el remedio compatible con la vía procesal: subsanación, nulidad cuando corresponda, recurso o tutela constitucional si se cumplen sus requisitos. No conviertas el debido proceso en una frase ritual para todo escrito. La Constitución protege un procedimiento justo, no el derecho a ganar siempre.",
+    "sourceFichaTitle": "No basta citar el debido proceso: hay que demostrar la lesión",
+    "sourceNormas": [
+      "CPE arts. 115.II, 117.I, 119 y 120",
+      "Ley 254 arts. 33, 51–55 si se considera amparo"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Expediente lleno de papeles y silueta sin voz.",
+      "Secuencia cargos → defensa → prueba → decisión; se interrumpe.",
+      "Lupa sobre fecha y constancia de notificación.",
+      "Mapa de remedios ordinarios y eventual tutela.",
+      "Frase final: «No basta citar: demuestra la lesión»."
+    ],
+    "sourceRisk": "No sostener nulidad automática ante defecto formal. El remedio depende de régimen, trascendencia, oportunidad y prueba.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-006_MATRIZ.json",
+    "priorPhd12GuionSha256": "faf363a0746f9140c55ffae61b020f05107652cf11a68988eb8be551a46e0f62",
+    "priorPhd12GuionVerbatim": "Un proceso puede tener muchos papeles y aun así negar defensa. Imagina una sanción administrativa en la que la persona conoce el castigo, pero nunca recibió una comunicación clara de los cargos ni pudo ofrecer descargos. El problema no es solo que la decisión resulte desfavorable: es que faltó una oportunidad real de defenderse. En Bolivia, el debido proceso exige garantías como conocimiento de la imputación, posibilidad de contradicción, defensa, autoridad competente, valoración razonada y decisión motivada, según la naturaleza del procedimiento. ¿Cómo se construye el argumento? Identifica la actuación exacta, señala la garantía lesionada, exhibe el documento o la omisión y explica cómo afectó la posibilidad de defensa. Después solicita el remedio compatible con la vía procesal: subsanación, nulidad cuando corresponda, recurso o tutela constitucional si se cumplen sus requisitos. No conviertas el debido proceso en una frase ritual para todo escrito. La Constitución protege un procedimiento justo, no el derecho a ganar siempre.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 2221/2012",
+      "SCP 0014/2018-S2 (modulación documentada en Gaceta TCP 2019)"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

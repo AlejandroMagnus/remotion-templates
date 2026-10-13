@@ -2,7 +2,7 @@
   "productionCode": "video-005",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,25 @@
       "acciones constitucionales",
       "Acción popular"
     ],
-    "intellectualContribution": "Explica Acción popular desde su utilidad operativa concreta: derechos colectivos y bienes comunes.",
+    "intellectualContribution": "La acción popular tutela intereses colectivos y difusos mientras persista la amenaza o lesión; no requiere agotamiento administrativo o judicial.",
     "newAngle": {
       "comparedWith": [
-        "video-004"
+        "video-015"
       ],
-      "contribution": "Diferencia Acción popular por su problema específico: afectación ambiental, patrimonial o de seguridad colectiva."
+      "contribution": "Mapa de una comunidad: de la amenaza compartida a la orden judicial. Microcaso hipotético: Un vertido presuntamente peligroso amenaza agua y salubridad de un barrio. Caso hipotético."
     }
   },
   "topic": "Acción popular",
-  "centralThesis": "Acción popular exige dominar derechos colectivos y bienes comunes; su valor práctico está en transformar cómo proteger derechos colectivos, medio ambiente, patrimonio público y seguridad colectiva en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Acción popular es afectación ambiental, patrimonial o de seguridad colectiva. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Piensa en una descarga contaminante que amenaza el agua y la salubridad de un barrio.",
+  "problem": "La cuestión no es solo cuánto perdió cada vecino: es qué derecho o interés colectivo está en peligro y cómo detenerlo.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Acción popular: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse afectación ambiental, patrimonial o de seguridad colectiva.",
-    "La decisión útil debe terminar en protección colectiva y prevención del daño, con una ruta de seguimiento y ejecución posible."
+    "La Constitución boliviana reconoce la acción popular frente a actos u omisiones de autoridades o particulares que lesionen o amenacen bienes como el medio ambiente, el patrimonio y la salud pública.",
+    "Puede interponerla cualquier persona en los términos legales.",
+    "Y aquí está su diferencia clave: no exige agotar antes la vía administrativa o judicial, y puede promoverse mientras subsista la amenaza o vulneración.",
+    "En la práctica, reúne fotografías verificables, informes, ubicación, fechas y el nexo entre la actividad cuestionada y el riesgo colectivo.",
+    "Pide medidas proporcionadas para prevenir, cesar o reparar la lesión."
   ],
-  "conclusion": "Acción popular se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Presenta pruebas lícitas y verificables, sin convertir una sospecha en hecho probado.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +52,48 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Acción popular: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Acción popular, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Hay derechos cuya lesión no se agota en una sola persona.",
+  "closingIdea": "Cuando el daño es de todos, la defensa debe demostrarlo con hechos concretos.",
+  "cta": "Si existe una amenaza colectiva, documentar bien puede proteger a muchas personas.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-005",
+    "sourceFileSha256": "70114797f39fc7b54703a9055b1133183d3e564634854b4026e30e38da0c3b59",
+    "fullGuionSha256": "4b3a5858ac8b18ade704afcd765976b91708efe082bbed2ed0fd56f09dbe506f",
+    "fullGuionVerbatim": "Hay derechos cuya lesión no se agota en una sola persona. Piensa en una descarga contaminante que amenaza el agua y la salubridad de un barrio. La cuestión no es solo cuánto perdió cada vecino: es qué derecho o interés colectivo está en peligro y cómo detenerlo. La Constitución boliviana reconoce la acción popular frente a actos u omisiones de autoridades o particulares que lesionen o amenacen bienes como el medio ambiente, el patrimonio y la salud pública. Puede interponerla cualquier persona en los términos legales. Y aquí está su diferencia clave: no exige agotar antes la vía administrativa o judicial, y puede promoverse mientras subsista la amenaza o vulneración. En la práctica, reúne fotografías verificables, informes, ubicación, fechas y el nexo entre la actividad cuestionada y el riesgo colectivo. Pide medidas proporcionadas para prevenir, cesar o reparar la lesión. Presenta pruebas lícitas y verificables, sin convertir una sospecha en hecho probado. Cuando el daño es de todos, la defensa debe demostrarlo con hechos concretos.",
+    "sourceFichaTitle": "Si se amenaza a toda una comunidad, ¿quién puede defenderla?",
+    "sourceNormas": [
+      "CPE arts. 135–136 y 33",
+      "Ley 254 arts. 68–71",
+      "Ley 1104 arts. 2–4"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Mapa isométrico de barrio y cauce de agua.",
+      "Plano colectivo: agua, salud, ambiente.",
+      "Cartel «No necesitas agotar otra vía» y «Mientras subsista la lesión».",
+      "Prueba multiformato: informe, fotografía, ubicación.",
+      "Orden judicial esquemática: prevenir / cesar / reparar."
+    ],
+    "sourceRisk": "Evitar afirmar contaminación real sin evidencia; caso hipotético. Distinguir intereses colectivos de reclamos individuales homogéneos.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-005_MATRIZ.json",
+    "priorPhd12GuionSha256": "2bfef6ace56bfe49254fdc6aef826ff92ec2ea2ecf0770aeae4909d7b6ab1192",
+    "priorPhd12GuionVerbatim": "Hay derechos cuya lesión no se agota en una sola persona. Piensa en una descarga contaminante que amenaza el agua y la salubridad de un barrio. La cuestión no es solo cuánto perdió cada vecino: es qué derecho o interés colectivo está en peligro y cómo detenerlo. La Constitución boliviana reconoce la acción popular frente a actos u omisiones de autoridades o particulares que lesionen o amenacen bienes como el medio ambiente, el patrimonio y la salud pública. Puede interponerla cualquier persona en los términos legales. Y aquí está su diferencia clave: no exige agotar antes la vía administrativa o judicial, y puede promoverse mientras subsista la amenaza o vulneración. En la práctica, reúne fotografías verificables, informes, ubicación, fechas y el nexo entre la actividad cuestionada y el riesgo colectivo. Pide medidas proporcionadas para prevenir, cesar o reparar la lesión. La jurisprudencia admite diversos medios probatorios lícitos con flexibilidad, pero no convierte una sospecha en hecho probado. Cuando el daño es de todos, la defensa debe demostrarlo con hechos concretos.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 0707/2018-S2"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

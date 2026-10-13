@@ -1,0 +1,58 @@
+{
+  "productionCode": "video-002",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "FI",
+    "dimension": "procesal",
+    "domains": [
+      "acciones constitucionales",
+      "Acción de amparo constitucional"
+    ],
+    "intellectualContribution": "Explica Acción de amparo constitucional desde su utilidad operativa concreta: derechos fundamentales no vinculados directamente a libertad.",
+    "newAngle": {
+      "comparedWith": [
+        "video-001"
+      ],
+      "contribution": "Diferencia Acción de amparo constitucional por su problema específico: acto ilegal u omisión arbitraria, subsidiariedad e inmediatez."
+    }
+  },
+  "topic": "Acción de amparo constitucional",
+  "centralThesis": "Acción de amparo constitucional exige dominar derechos fundamentales no vinculados directamente a libertad; su valor práctico está en transformar cómo se usa para proteger derechos fundamentales frente a actos ilegales o arbitrarios en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Acción de amparo constitucional es acto ilegal u omisión arbitraria, subsidiariedad e inmediatez. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Acción de amparo constitucional: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse acto ilegal u omisión arbitraria, subsidiariedad e inmediatez.",
+    "La decisión útil debe terminar en amparo con acto lesivo probado, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Acción de amparo constitucional se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de acción de amparo constitucional",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Acción de amparo constitucional: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Acción de amparo constitucional, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}

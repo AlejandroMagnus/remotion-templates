@@ -2,7 +2,7 @@
   "productionCode": "video-010",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,23 @@
       "acciones constitucionales",
       "Control constitucional en casos comunes"
     ],
-    "intellectualContribution": "Explica Control constitucional en casos comunes desde su utilidad operativa concreta: dimensión constitucional de casos ordinarios.",
+    "intellectualContribution": "El abogado debe diferenciar interpretación conforme, control de convencionalidad y acción de inconstitucionalidad concreta; no atribuir poder general de anular leyes a cualquier juez.",
     "newAngle": {
       "comparedWith": [
-        "video-009"
+        "video-015"
       ],
-      "contribution": "Diferencia Control constitucional en casos comunes por su problema específico: lesión relevante de garantías dentro de otro proceso."
+      "contribution": "Escalera de control: norma, interpretación, conflicto y mecanismo. Microcaso hipotético: En un proceso civil, una disposición potencialmente relevante admite interpretación que protege mejor la defensa; si la validez legal fuera decisiva, se evalúa vía concreta. Caso hipotético."
     }
   },
-  "topic": "Control constitucional en casos comunes",
-  "centralThesis": "Control constitucional en casos comunes exige dominar dimensión constitucional de casos ordinarios; su valor práctico está en transformar cómo detectar cuándo un proceso ordinario tiene dimensión constitucional en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Control constitucional en casos comunes es lesión relevante de garantías dentro de otro proceso. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Control constitucional en asuntos cotidianos",
+  "centralThesis": "También orienta cómo debe interpretarse una norma en un proceso civil, penal, familiar o administrativo.",
+  "problem": "Imagina que una disposición admite dos lecturas: una restringe injustificadamente la defensa; otra es compatible con las garantías constitucionales.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Control constitucional en casos comunes: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse lesión relevante de garantías dentro de otro proceso.",
-    "La decisión útil debe terminar en control superior cuando la vía ordinaria no repara, con una ruta de seguimiento y ejecución posible."
+    "El primer trabajo jurídico es argumentar por qué debe preferirse la lectura conforme a la Constitución y a los derechos humanos aplicables.",
+    "Si el problema ya no es la interpretación sino la constitucionalidad de una norma de la que depende la decisión del proceso, existe un mecanismo específico: la acción de inconstitucionalidad concreta, promovida por la autoridad judicial o administrativa, de oficio o a instancia de parte, conforme al Código Procesal Constitucional.",
+    "No significa que cualquier abogado pueda pedir a cualquier juez la anulación general de una ley."
   ],
-  "conclusion": "Control constitucional en casos comunes se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "En términos prácticos: identifica norma aplicable, derecho comprometido, interpretación posible y vía procesal.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +50,48 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Control constitucional en casos comunes: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Control constitucional en casos comunes, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "La Constitución no empieza a importar cuando llegas al Tribunal Constitucional.",
+  "closingIdea": "El control constitucional empieza con una buena pregunta: ¿cómo resolver este caso sin sacrificar indebidamente un derecho fundamental?",
+  "cta": "En cualquier materia, empieza por detectar el derecho constitucional en juego.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-010",
+    "sourceFileSha256": "e0cd756ed3b22002b0a9774f5af935f6e5a0f1febfe66928808e79b3df4163bd",
+    "fullGuionSha256": "ee37c9171de23419c1ae0ae795cbb1f62cc01f4d1bf1192ec67cc5f104719c36",
+    "fullGuionVerbatim": "La Constitución no empieza a importar cuando llegas al Tribunal Constitucional. También orienta cómo debe interpretarse una norma en un proceso civil, penal, familiar o administrativo. Imagina que una disposición admite dos lecturas: una restringe injustificadamente la defensa; otra es compatible con las garantías constitucionales. El primer trabajo jurídico es argumentar por qué debe preferirse la lectura conforme a la Constitución y a los derechos humanos aplicables. Si el problema ya no es la interpretación sino la constitucionalidad de una norma de la que depende la decisión del proceso, existe un mecanismo específico: la acción de inconstitucionalidad concreta, promovida por la autoridad judicial o administrativa, de oficio o a instancia de parte, conforme al Código Procesal Constitucional. No significa que cualquier abogado pueda pedir a cualquier juez la anulación general de una ley. En términos prácticos: identifica norma aplicable, derecho comprometido, interpretación posible y vía procesal. El control constitucional empieza con una buena pregunta: ¿cómo resolver este caso sin sacrificar indebidamente un derecho fundamental?",
+    "sourceFichaTitle": "La Constitución también se argumenta en un juicio común",
+    "sourceNormas": [
+      "CPE arts. 13.IV, 115, 196, 256 y 410",
+      "Ley 254 arts. 2–4, 15, 72–84"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Rama que une juzgados ordinarios y Constitución.",
+      "Dos lecturas de la misma norma, resalta interpretación favorable.",
+      "Escalera norma → derechos → interpretación conforme → acción concreta.",
+      "Autoridad decide si promueve acción; TCP resuelve constitucionalidad.",
+      "Cierre: «Argumenta Constitución en el caso real»."
+    ],
+    "sourceRisk": "Control concentrado de normas: no afirmar potestad ordinaria ilimitada de expulsión normativa. Distinguir control convencional interpretativo y proceso normativo.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-010_MATRIZ.json",
+    "priorPhd12GuionSha256": "ee37c9171de23419c1ae0ae795cbb1f62cc01f4d1bf1192ec67cc5f104719c36",
+    "priorPhd12GuionVerbatim": "La Constitución no empieza a importar cuando llegas al Tribunal Constitucional. También orienta cómo debe interpretarse una norma en un proceso civil, penal, familiar o administrativo. Imagina que una disposición admite dos lecturas: una restringe injustificadamente la defensa; otra es compatible con las garantías constitucionales. El primer trabajo jurídico es argumentar por qué debe preferirse la lectura conforme a la Constitución y a los derechos humanos aplicables. Si el problema ya no es la interpretación sino la constitucionalidad de una norma de la que depende la decisión del proceso, existe un mecanismo específico: la acción de inconstitucionalidad concreta, promovida por la autoridad judicial o administrativa, de oficio o a instancia de parte, conforme al Código Procesal Constitucional. No significa que cualquier abogado pueda pedir a cualquier juez la anulación general de una ley. En términos prácticos: identifica norma aplicable, derecho comprometido, interpretación posible y vía procesal. El control constitucional empieza con una buena pregunta: ¿cómo resolver este caso sin sacrificar indebidamente un derecho fundamental?",
+    "originalV61PrecedentsUnverified": [
+      "SCP 0572/2014 (cita indirecta en publicación TCP)",
+      "SCP 0034/2020"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

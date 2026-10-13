@@ -2,7 +2,7 @@
   "productionCode": "video-001",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "FI",
@@ -11,25 +11,28 @@
       "acciones constitucionales",
       "Acción de libertad"
     ],
-    "intellectualContribution": "Explica Acción de libertad desde su utilidad operativa concreta: libertad personal, vida, locomoción y amenaza urgente.",
+    "intellectualContribution": "La acción de libertad es un mecanismo urgente de tutela de la vida, integridad y libertad; la ilegalidad alegada debe concretarse en hechos y remedios específicos.",
     "newAngle": {
       "comparedWith": [
-        "video-001"
+        "video-015"
       ],
-      "contribution": "Diferencia Acción de libertad por su problema específico: detención, persecución, restricción o demora indebida."
+      "contribution": "Expediente contrarreloj: de una aprehensión a una decisión urgente. Microcaso hipotético: Una persona es retenida sin que sus familiares conozcan la autoridad, la causa ni el lugar de custodia. Caso hipotético."
     }
   },
   "topic": "Acción de libertad",
-  "centralThesis": "Acción de libertad exige dominar libertad personal, vida, locomoción y amenaza urgente; su valor práctico está en transformar cuándo procede, qué protege y cuáles son los errores que la hacen fracasar en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Acción de libertad es detención, persecución, restricción o demora indebida. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "En Bolivia existe una garantía urgente: la acción de libertad.",
+  "problem": "Imagina que una persona es retenida y su familia desconoce dónde está, quién la retiene y por qué.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Acción de libertad: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse detención, persecución, restricción o demora indebida.",
-    "La decisión útil debe terminar en acción inmediata ante juez constitucional, con una ruta de seguimiento y ejecución posible."
+    "La primera tarea no es discutir por redes sociales: es reconstruir los hechos.",
+    "¿A qué hora ocurrió?",
+    "¿Dónde está?",
+    "¿Hay mandamiento, flagrancia u otra causa legal?",
+    "La Constitución permite interponer esta acción oralmente o por escrito, personalmente o por cualquiera a nombre de la persona afectada, sin necesidad de poder.",
+    "La audiencia debe realizarse dentro de las veinticuatro horas siguientes.",
+    "Pero atención: no todo defecto de un proceso penal se reclama por esta vía.",
+    "Si denuncias procesamiento indebido, explica por qué la restricción de libertad exige tutela urgente."
   ],
-  "conclusion": "Acción de libertad se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La estrategia es precisar el acto ilegal, identificar a la autoridad responsable, conservar toda prueba disponible y solicitar una tutela concreta.",
   "targetAudience": [
     "personas con conflictos jurídicos",
     "empresas",
@@ -52,7 +55,48 @@
     "diagnóstico jurídico",
     "servicio jurídico premium"
   ],
-  "hook": "Acción de libertad: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Acción de libertad, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una detención no se vuelve legal solo porque la ordene una autoridad.",
+  "closingIdea": "Defender la libertad exige rapidez, pero también exactitud.",
+  "cta": "Guarda esta ruta de urgencia; cada caso exige comprobar hechos y medidas legales.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-001",
+    "sourceFileSha256": "aa5c0589ecad5e872c2c1144199d021c734deb338e817e6d680b7774e01a26fd",
+    "fullGuionSha256": "4f035ef9c76776949219c3d52e1d8e90ae152e9d8f199121d07550b33509d707",
+    "fullGuionVerbatim": "Una detención no se vuelve legal solo porque la ordene una autoridad. En Bolivia existe una garantía urgente: la acción de libertad. Imagina que una persona es retenida y su familia desconoce dónde está, quién la retiene y por qué. La primera tarea no es discutir por redes sociales: es reconstruir los hechos. ¿A qué hora ocurrió? ¿Dónde está? ¿Hay mandamiento, flagrancia u otra causa legal? La Constitución permite interponer esta acción oralmente o por escrito, personalmente o por cualquiera a nombre de la persona afectada, sin necesidad de poder. La audiencia debe realizarse dentro de las veinticuatro horas siguientes. Pero atención: no todo defecto de un proceso penal se reclama por esta vía. Si denuncias procesamiento indebido, explica por qué la restricción de libertad exige tutela urgente. La estrategia es precisar el acto ilegal, identificar a la autoridad responsable, conservar toda prueba disponible y solicitar una tutela concreta. Defender la libertad exige rapidez, pero también exactitud.",
+    "sourceFichaTitle": "¿Te detuvieron ilegalmente? Esta es la garantía que debes conocer",
+    "sourceNormas": [
+      "CPE arts. 125–127",
+      "Ley 254 arts. 29 y 46–50",
+      "Ley 1104 arts. 2–4"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Un reloj detenido junto a una puerta de custodia; texto «¿Dónde está?»",
+      "Línea de tiempo: lugar, hora, autoridad, causa legal.",
+      "CPE art. 125 y calendario de audiencia «24 horas».",
+      "Dos rutas: lesión directa a libertad / irregularidad procesal no vinculada.",
+      "Cierre: identificar + documentar + pedir tutela específica."
+    ],
+    "sourceRisk": "No afirmar que toda detención sin mandamiento sea ilícita: existen supuestos legales como la flagrancia. No prometer excarcelación automática.",
+    "legalReviewStatus": "EDICION_NORMATIVA_APROBACION_EDITORIAL_TITULAR_NO_JURISPRUDENCIAL",
+    "approvedForRender": true,
+    "publicationAllowed": true,
+    "note": "Edición educativa NORMATIVA V6.2 autorizada editorialmente por titular; sin aprobación jurisprudencial de PhD12. Guion adaptado con cambios identificables.",
+    "sourceRevision": "SILEC_V6.1_CONTROL_DEPURADO_2026-10-12",
+    "sourceQaPending": [
+      "Expediente jurisprudencial original V6.1 permanece 0/10 aprobado y no se incorpora como fuente probatoria de esta edición.",
+      "Revisión final humana audiovisual y jurídica del video terminado antes de publicarlo."
+    ],
+    "sourceLegalEvidence": "fuentes_v61/aprobacion/VIDEO-001_MATRIZ.json",
+    "priorPhd12GuionSha256": "eb035d5c5c62fdb0624333603895d9604ac445430aba593bce0cf7e9378e5240",
+    "priorPhd12GuionVerbatim": "Una detención no se vuelve legal solo porque la ordene una autoridad. En Bolivia existe una garantía urgente: la acción de libertad. Imagina que una persona es retenida y su familia desconoce dónde está, quién la retiene y por qué. La primera tarea no es discutir por redes sociales: es reconstruir los hechos. ¿A qué hora ocurrió? ¿Dónde está? ¿Hay mandamiento, flagrancia u otra causa legal? La Constitución permite interponer esta acción oralmente o por escrito, personalmente o por cualquiera a nombre de la persona afectada, sin necesidad de poder. La audiencia debe realizarse dentro de las veinticuatro horas siguientes. Pero atención: no todo defecto de un proceso penal se reclama por esta vía. Si se denuncia procesamiento indebido, importa su vínculo directo con la libertad, conforme a la jurisprudencia aplicable. La estrategia es precisar el acto ilegal, identificar a la autoridad responsable, conservar toda prueba disponible y solicitar una tutela concreta. Defender la libertad exige rapidez, pero también exactitud.",
+    "originalV61PrecedentsUnverified": [
+      "SCP 0454/2018-S2"
+    ],
+    "publicationEdition": "NORMATIVA_V62_TITULAR_2026-10-12",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "CPE + Ley 254 + Ley 1104; lectura de publicaciones institucionales y cotejo limitado; sin certificación de vigencia normativa exhaustiva a octubre 2026",
+    "publicationCaveat": "La aprobación del titular no sustituye certificación de PhD 12. No atribuir fuentes jurisprudenciales originales no contrastadas."
+  }
 }

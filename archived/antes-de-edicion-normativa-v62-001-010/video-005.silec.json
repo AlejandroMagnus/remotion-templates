@@ -1,0 +1,58 @@
+{
+  "productionCode": "video-005",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "FI",
+    "dimension": "procesal",
+    "domains": [
+      "acciones constitucionales",
+      "Acción popular"
+    ],
+    "intellectualContribution": "Explica Acción popular desde su utilidad operativa concreta: derechos colectivos y bienes comunes.",
+    "newAngle": {
+      "comparedWith": [
+        "video-004"
+      ],
+      "contribution": "Diferencia Acción popular por su problema específico: afectación ambiental, patrimonial o de seguridad colectiva."
+    }
+  },
+  "topic": "Acción popular",
+  "centralThesis": "Acción popular exige dominar derechos colectivos y bienes comunes; su valor práctico está en transformar cómo proteger derechos colectivos, medio ambiente, patrimonio público y seguridad colectiva en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Acción popular es afectación ambiental, patrimonial o de seguridad colectiva. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Acción popular: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse afectación ambiental, patrimonial o de seguridad colectiva.",
+    "La decisión útil debe terminar en protección colectiva y prevención del daño, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Acción popular se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de acción popular",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Acción popular: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Acción popular, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}

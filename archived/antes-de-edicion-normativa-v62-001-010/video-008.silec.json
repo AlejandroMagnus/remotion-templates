@@ -1,0 +1,58 @@
+{
+  "productionCode": "video-008",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "FI",
+    "dimension": "procesal",
+    "domains": [
+      "acciones constitucionales",
+      "Tutela judicial efectiva"
+    ],
+    "intellectualContribution": "Explica Tutela judicial efectiva desde su utilidad operativa concreta: respuesta judicial útil y efectiva.",
+    "newAngle": {
+      "comparedWith": [
+        "video-007"
+      ],
+      "contribution": "Diferencia Tutela judicial efectiva por su problema específico: rechazos formales o procesos inútiles."
+    }
+  },
+  "topic": "Tutela judicial efectiva",
+  "centralThesis": "Tutela judicial efectiva exige dominar respuesta judicial útil y efectiva; su valor práctico está en transformar por qué no basta tener proceso: debe existir una respuesta útil y real en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Tutela judicial efectiva es rechazos formales o procesos inútiles. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Tutela judicial efectiva: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse rechazos formales o procesos inútiles.",
+    "La decisión útil debe terminar en decisión de fondo cuando corresponde, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Tutela judicial efectiva se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de tutela judicial efectiva",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Tutela judicial efectiva: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Tutela judicial efectiva, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}

@@ -1,0 +1,58 @@
+{
+  "productionCode": "video-007",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "FI",
+    "dimension": "procesal",
+    "domains": [
+      "acciones constitucionales",
+      "Motivación de resoluciones"
+    ],
+    "intellectualContribution": "Explica Motivación de resoluciones desde su utilidad operativa concreta: razones de hecho, prueba y derecho.",
+    "newAngle": {
+      "comparedWith": [
+        "video-006"
+      ],
+      "contribution": "Diferencia Motivación de resoluciones por su problema específico: decisiones aparentes, genéricas o contradictorias."
+    }
+  },
+  "topic": "Motivación de resoluciones",
+  "centralThesis": "Motivación de resoluciones exige dominar razones de hecho, prueba y derecho; su valor práctico está en transformar por qué una autoridad no puede decidir sin explicar hechos, prueba, norma y conclusión en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Motivación de resoluciones es decisiones aparentes, genéricas o contradictorias. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Motivación de resoluciones: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse decisiones aparentes, genéricas o contradictorias.",
+    "La decisión útil debe terminar en exigir justificación controlable, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Motivación de resoluciones se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de motivación de resoluciones",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Motivación de resoluciones: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Motivación de resoluciones, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}
