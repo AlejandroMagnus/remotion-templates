@@ -2,58 +2,103 @@
   "productionCode": "video-011",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Proceso civil explicado por etapas",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Proceso ordinario civil por etapas"
     ],
-    "intellectualContribution": "Explica Proceso civil explicado por etapas desde su utilidad operativa concreta: demanda, contestación, prueba, sentencia, recurso y ejecución.",
+    "intellectualContribution": "El éxito depende de decisiones oportunas en cada fase.",
     "newAngle": {
       "comparedWith": [
-        "video-010"
+        "video-015"
       ],
-      "contribution": "Diferencia Proceso civil explicado por etapas por su problema específico: confundir proceso civil explicado por etapas con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "recorrido-de-un-expediente: Expediente de incumplimiento contractual. Enfoque propio de proceso ordinario civil por etapas."
     }
   },
-  "topic": "Proceso civil explicado por etapas",
-  "centralThesis": "Proceso civil explicado por etapas exige dominar demanda, contestación, prueba, sentencia, recurso y ejecución; su valor práctico está en transformar demanda, contestación, prueba, sentencia, recurso y ejecución en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Proceso civil explicado por etapas es confundir proceso civil explicado por etapas con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Proceso ordinario civil por etapas",
+  "centralThesis": "El éxito depende de decisiones oportunas en cada fase.",
+  "problem": "¿Qué momento del proceso civil exige la decisión estratégica más importante?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Proceso civil explicado por etapas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir proceso civil explicado por etapas con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre proceso civil explicado por etapas, con una ruta de seguimiento y ejecución posible."
+    "Imaginemos un contrato incumplido: el acreedor reúne mensajes, facturas y una promesa de pago.",
+    "¿Los presenta todos y espera?",
+    "No basta.",
+    "En el proceso civil boliviano, la vía ordinaria exige verificar primero su procedencia y la conciliación previa cuando corresponda.",
+    "Después vienen la demanda, la citación y la respuesta de la otra parte.",
+    "La audiencia preliminar no es una ceremonia: permite depurar el conflicto, explorar soluciones y organizar lo que será probado.",
+    "La sentencia debe decidir sobre lo discutido y explicar el valor de la prueba.",
+    "Si existe un agravio, habrá que estudiar el recurso procedente.",
+    "Y ganar no equivale a cobrar: la ejecución tiene sus propias actuaciones."
   ],
-  "conclusion": "Proceso civil explicado por etapas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La pregunta decisiva cambia en cada etapa.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de proceso civil explicado por etapas",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre proceso ordinario civil por etapas",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Proceso civil explicado por etapas: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Proceso civil explicado por etapas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una demanda no es un juicio ganado; es el comienzo de una secuencia de decisiones.",
+  "closingIdea": "Antes de actuar, identifica qué hecho necesitas probar, qué decisión buscas y qué oportunidad procesal no puedes perder.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-011",
+    "sourceFileSha256": "dde2b7e1911c7d493a09ab290b9d66ea1aa47c0c26ac981e1fe8c1d3a61984a6",
+    "fullGuionSha256": "078383dec61a9c6169c7ae9d113b8429210ca1e3a9775e6fb44cba15948fd036",
+    "fullGuionVerbatim": "Una demanda no es un juicio ganado; es el comienzo de una secuencia de decisiones. Imaginemos un contrato incumplido: el acreedor reúne mensajes, facturas y una promesa de pago. ¿Los presenta todos y espera? No basta. En el proceso civil boliviano, la vía ordinaria exige verificar primero su procedencia y la conciliación previa cuando corresponda. Después vienen la demanda, la citación y la respuesta de la otra parte. La audiencia preliminar no es una ceremonia: permite depurar el conflicto, explorar soluciones y organizar lo que será probado. La sentencia debe decidir sobre lo discutido y explicar el valor de la prueba. Si existe un agravio, habrá que estudiar el recurso procedente. Y ganar no equivale a cobrar: la ejecución tiene sus propias actuaciones. La pregunta decisiva cambia en cada etapa. Antes de actuar, identifica qué hecho necesitas probar, qué decisión buscas y qué oportunidad procesal no puedes perder.",
+    "sourceFichaTitle": "Proceso ordinario civil por etapas",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 362",
+      "Ley N.º 439, Código Procesal Civil art. 363",
+      "Ley N.º 439, Código Procesal Civil art. 365",
+      "Ley N.º 439, Código Procesal Civil art. 366",
+      "Ley N.º 439, Código Procesal Civil art. 213",
+      "Ley N.º 439, Código Procesal Civil art. 261",
+      "Ley N.º 439, Código Procesal Civil art. 397"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-011.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "8687635a42076ddbf59d29ff526ba5af4170ecec4e87effb0c0a2988451627bb"
+  }
 }

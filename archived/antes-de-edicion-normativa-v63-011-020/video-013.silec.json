@@ -1,0 +1,59 @@
+{
+  "productionCode": "video-013",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Contestación a la demanda",
+      "constitucionalización práctica"
+    ],
+    "intellectualContribution": "Explica Contestación a la demanda desde su utilidad operativa concreta: cómo defenderse estratégicamente desde el primer escrito.",
+    "newAngle": {
+      "comparedWith": [
+        "video-012"
+      ],
+      "contribution": "Diferencia Contestación a la demanda por su problema específico: confundir contestación a la demanda con un trámite genérico sin identificar requisitos, autoridad y prueba."
+    }
+  },
+  "topic": "Contestación a la demanda",
+  "centralThesis": "Contestación a la demanda exige dominar cómo defenderse estratégicamente desde el primer escrito; su valor práctico está en transformar cómo defenderse estratégicamente desde el primer escrito en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Contestación a la demanda es confundir contestación a la demanda con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Contestación a la demanda: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse confundir contestación a la demanda con un trámite genérico sin identificar requisitos, autoridad y prueba.",
+    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre contestación a la demanda, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Contestación a la demanda se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de contestación a la demanda",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Contestación a la demanda: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Contestación a la demanda, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}

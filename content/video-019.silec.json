@@ -2,58 +2,98 @@
   "productionCode": "video-019",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Casación civil",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Casación civil"
     ],
-    "intellectualContribution": "Explica Casación civil desde su utilidad operativa concreta: cuándo procede y por qué no es una tercera instancia.",
+    "intellectualContribution": "La casación está limitada por procedencia y causales.",
     "newAngle": {
       "comparedWith": [
-        "video-018"
+        "video-015"
       ],
-      "contribution": "Diferencia Casación civil por su problema específico: confundir casación civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "frontera-del-recurso: Auto de vista aplica norma incorrecta. Enfoque propio de casación civil."
     }
   },
   "topic": "Casación civil",
-  "centralThesis": "Casación civil exige dominar cuándo procede y por qué no es una tercera instancia; su valor práctico está en transformar cuándo procede y por qué no es una tercera instancia en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Casación civil es confundir casación civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La casación está limitada por procedencia y causales.",
+  "problem": "¿Qué diferencia la casación de intentar un segundo juicio de hechos?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Casación civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir casación civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre casación civil, con una ruta de seguimiento y ejecución posible."
+    "Pero la casación civil no es una tercera oportunidad ilimitada para repetir argumentos.",
+    "En Bolivia, su procedencia depende del tipo de resolución y de los casos previstos por ley.",
+    "El recurso puede fundarse en violación, interpretación errónea o aplicación indebida de la ley.",
+    "Los errores en valoración probatoria solo pueden denunciarse bajo las condiciones legales específicas.",
+    "Imagina un auto de vista que aplica una norma a una relación contractual equivocada.",
+    "El desafío no es reproducir veinte páginas de antecedentes, sino explicar qué norma se considera infringida, de qué modo ocurrió el error y por qué tuvo importancia decisiva.",
+    "Las denuncias procesales también tienen condiciones particulares de relevancia y reclamación oportuna."
   ],
-  "conclusion": "Casación civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de escribir un recurso de casación, identifica si la resolución lo admite y cuál es exactamente la causal que puedes sostener.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de casación civil",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre casación civil",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Casación civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Casación civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Un litigante pierde en segunda instancia y piensa: «Ahora contaré toda la historia otra vez».",
+  "closingIdea": "Una impugnación extraordinaria exige precisión extraordinaria.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-019",
+    "sourceFileSha256": "8553e13707eadc9d5a1ae52999a933c0bbbc157a9f8ca414d0a487cb33f73e51",
+    "fullGuionSha256": "0e41eac17c4a912d2b6c45357e9b198d9d4cedbf71ed2f257e468a84b2ece85b",
+    "fullGuionVerbatim": "Un litigante pierde en segunda instancia y piensa: «Ahora contaré toda la historia otra vez». Pero la casación civil no es una tercera oportunidad ilimitada para repetir argumentos. En Bolivia, su procedencia depende del tipo de resolución y de los casos previstos por ley. El recurso puede fundarse en violación, interpretación errónea o aplicación indebida de la ley. Los errores en valoración probatoria solo pueden denunciarse bajo las condiciones legales específicas. Imagina un auto de vista que aplica una norma a una relación contractual equivocada. El desafío no es reproducir veinte páginas de antecedentes, sino explicar qué norma se considera infringida, de qué modo ocurrió el error y por qué tuvo importancia decisiva. Las denuncias procesales también tienen condiciones particulares de relevancia y reclamación oportuna. Antes de escribir un recurso de casación, identifica si la resolución lo admite y cuál es exactamente la causal que puedes sostener. Una impugnación extraordinaria exige precisión extraordinaria.",
+    "sourceFichaTitle": "Casación civil",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 270",
+      "Ley N.º 439, Código Procesal Civil art. 271",
+      "Ley N.º 439, Código Procesal Civil art. 272",
+      "Ley N.º 439, Código Procesal Civil art. 274"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-019.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "6829df6aecd1a11af547458dde3877ed54210ab2d29014611df0f85417281744"
+  }
 }

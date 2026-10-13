@@ -2,58 +2,99 @@
   "productionCode": "video-014",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Excepciones procesales",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Excepciones procesales"
     ],
-    "intellectualContribution": "Explica Excepciones procesales desde su utilidad operativa concreta: cuándo usarlas para frenar, corregir o destruir una demanda.",
+    "intellectualContribution": "Una excepción exige defecto preciso y efecto procesal identificado.",
     "newAngle": {
       "comparedWith": [
-        "video-013"
+        "video-015"
       ],
-      "contribution": "Diferencia Excepciones procesales por su problema específico: confundir excepciones procesales con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "decisiones-en-audiencia: Juicios idénticos simultáneos. Enfoque propio de excepciones procesales."
     }
   },
   "topic": "Excepciones procesales",
-  "centralThesis": "Excepciones procesales exige dominar cuándo usarlas para frenar, corregir o destruir una demanda; su valor práctico está en transformar cuándo usarlas para frenar, corregir o destruir una demanda en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Excepciones procesales es confundir excepciones procesales con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Una excepción exige defecto preciso y efecto procesal identificado.",
+  "problem": "¿Cómo saber si una objeción debe plantearse como excepción y qué efecto busca?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Excepciones procesales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir excepciones procesales con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre excepciones procesales, con una ruta de seguimiento y ejecución posible."
+    "¿Existe ya otro proceso sobre el mismo conflicto?",
+    "Son preguntas distintas, y pueden requerir defensas procesales distintas.",
+    "Imagina una demanda de pago presentada mientras otro juicio idéntico continúa abierto.",
+    "Responder únicamente que el monto es incorrecto puede dejar sin tratar un problema previo de litispendencia.",
+    "El Código Procesal Civil boliviano identifica excepciones como incompetencia, falta de legitimación, litispendencia y demanda defectuosamente propuesta.",
+    "Pero no son palabras que se acumulan en un memorial para impresionar.",
+    "Cada excepción necesita hechos precisos, fundamento y el efecto procesal que corresponde.",
+    "No todas las defensas tienen el mismo régimen ni producen el mismo efecto; hay que verificar su procedencia y oportunidad.",
+    "En el proceso ordinario, las excepciones previas se tratan en el saneamiento de la audiencia preliminar."
   ],
-  "conclusion": "Excepciones procesales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de formular una excepción, contesta tres preguntas: ¿qué defecto concreto existe?, ¿cómo lo acreditas?",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de excepciones procesales",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre excepciones procesales",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Excepciones procesales: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Excepciones procesales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "¿El juez competente conoce tu causa?",
+  "closingIdea": "y ¿qué decisión jurídicamente procedente solicitas?",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-014",
+    "sourceFileSha256": "7a04e1dda9d19dc4d93477508228fbe317a8e9e90fe99b5f2d6f5768c139b1ae",
+    "fullGuionSha256": "1a51ee2d58fea2c3dbbdd2987b84e6b17bb43e01ce5b1f54667618903fe24ab6",
+    "fullGuionVerbatim": "¿El juez competente conoce tu causa? ¿Existe ya otro proceso sobre el mismo conflicto? Son preguntas distintas, y pueden requerir defensas procesales distintas. Imagina una demanda de pago presentada mientras otro juicio idéntico continúa abierto. Responder únicamente que el monto es incorrecto puede dejar sin tratar un problema previo de litispendencia. El Código Procesal Civil boliviano identifica excepciones como incompetencia, falta de legitimación, litispendencia y demanda defectuosamente propuesta. Pero no son palabras que se acumulan en un memorial para impresionar. Cada excepción necesita hechos precisos, fundamento y el efecto procesal que corresponde. No todas las defensas tienen el mismo régimen ni producen el mismo efecto; hay que verificar su procedencia y oportunidad. En el proceso ordinario, las excepciones previas se tratan en el saneamiento de la audiencia preliminar. Antes de formular una excepción, contesta tres preguntas: ¿qué defecto concreto existe?, ¿cómo lo acreditas? y ¿qué decisión jurídicamente procedente solicitas?",
+    "sourceFichaTitle": "Excepciones procesales",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 128",
+      "Ley N.º 439, Código Procesal Civil art. 129",
+      "Ley N.º 439, Código Procesal Civil art. 366"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-014.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "da0b143ea4d48123ff7893df87f36bb97ce848a65b20c6c9caf9ca49fb62de57"
+  }
 }

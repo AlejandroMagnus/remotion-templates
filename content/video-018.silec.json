@@ -2,58 +2,96 @@
   "productionCode": "video-018",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Apelación civil",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Apelación civil"
     ],
-    "intellectualContribution": "Explica Apelación civil desde su utilidad operativa concreta: cómo construir agravios reales y no simples quejas.",
+    "intellectualContribution": "Un agravio identifica error concreto y corrección solicitada.",
     "newAngle": {
       "comparedWith": [
-        "video-017"
+        "video-015"
       ],
-      "contribution": "Diferencia Apelación civil por su problema específico: confundir apelación civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "taller-de-agravios: Sentencia desconoce recibo. Enfoque propio de apelación civil."
     }
   },
   "topic": "Apelación civil",
-  "centralThesis": "Apelación civil exige dominar cómo construir agravios reales y no simples quejas; su valor práctico está en transformar cómo construir agravios reales y no simples quejas en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Apelación civil es confundir apelación civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Un agravio identifica error concreto y corrección solicitada.",
+  "problem": "¿Cómo convertir el desacuerdo con una sentencia en agravios concretos?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Apelación civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir apelación civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre apelación civil, con una ruta de seguimiento y ejecución posible."
+    "Esa frase expresa frustración, no necesariamente un agravio jurídico.",
+    "Imagina que el juez ordena pagar una suma, pero el recurrente sostiene que ignoró un recibo reconocido en el expediente.",
+    "Una apelación útil debe identificar qué decisión se impugna, qué error concreto se atribuye a su fundamentación y qué modificación se solicita.",
+    "En el proceso civil boliviano, la apelación de sentencias y autos definitivos debe presentarse por escrito fundado, conforme al régimen legal aplicable.",
+    "Y el tribunal de segunda instancia examina los puntos que fueron objeto del recurso y de su fundamentación.",
+    "Por eso conviene trabajar cada agravio como una cadena: parte exacta del fallo, hecho o norma relevante, error alegado y consecuencia solicitada."
   ],
-  "conclusion": "Apelación civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "No toda disconformidad abre una nueva oportunidad para comenzar el juicio desde cero.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de apelación civil",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre apelación civil",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Apelación civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Apelación civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "«Voy a apelar porque la sentencia es injusta».",
+  "closingIdea": "Antes de recurrir, lee el fallo con esta pregunta: ¿puedo señalar el punto decisivo y explicar cómo cambiaría el resultado si se corrigiera?",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-018",
+    "sourceFileSha256": "4fa89e9029929d7dfdd42f24cff5ce5ff5b8530c41442f85db85dacd84f6fb8c",
+    "fullGuionSha256": "25488939edf3037ce72600b8173ccd94fa195540013439d66bfb509d7b39528b",
+    "fullGuionVerbatim": "«Voy a apelar porque la sentencia es injusta». Esa frase expresa frustración, no necesariamente un agravio jurídico. Imagina que el juez ordena pagar una suma, pero el recurrente sostiene que ignoró un recibo reconocido en el expediente. Una apelación útil debe identificar qué decisión se impugna, qué error concreto se atribuye a su fundamentación y qué modificación se solicita. En el proceso civil boliviano, la apelación de sentencias y autos definitivos debe presentarse por escrito fundado, conforme al régimen legal aplicable. Y el tribunal de segunda instancia examina los puntos que fueron objeto del recurso y de su fundamentación. Por eso conviene trabajar cada agravio como una cadena: parte exacta del fallo, hecho o norma relevante, error alegado y consecuencia solicitada. No toda disconformidad abre una nueva oportunidad para comenzar el juicio desde cero. Antes de recurrir, lee el fallo con esta pregunta: ¿puedo señalar el punto decisivo y explicar cómo cambiaría el resultado si se corrigiera?",
+    "sourceFichaTitle": "Apelación civil",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 256",
+      "Ley N.º 439, Código Procesal Civil art. 261",
+      "Ley N.º 439, Código Procesal Civil art. 265"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-018.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "4059a1edd065517b0b03b4b632757aa7030af68d4853d68ce3e254eb96d6a43a"
+  }
 }

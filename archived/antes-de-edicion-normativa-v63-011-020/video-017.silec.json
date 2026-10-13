@@ -1,0 +1,59 @@
+{
+  "productionCode": "video-017",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Sentencia civil",
+      "constitucionalización práctica"
+    ],
+    "intellectualContribution": "Explica Sentencia civil desde su utilidad operativa concreta: cómo se estructura y cómo detectar errores impugnables.",
+    "newAngle": {
+      "comparedWith": [
+        "video-016"
+      ],
+      "contribution": "Diferencia Sentencia civil por su problema específico: confundir sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+    }
+  },
+  "topic": "Sentencia civil",
+  "centralThesis": "Sentencia civil exige dominar cómo se estructura y cómo detectar errores impugnables; su valor práctico está en transformar cómo se estructura y cómo detectar errores impugnables en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Sentencia civil es confundir sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Sentencia civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse confundir sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
+    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre sentencia civil, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Sentencia civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de sentencia civil",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Sentencia civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Sentencia civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}

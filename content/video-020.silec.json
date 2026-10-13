@@ -2,58 +2,101 @@
   "productionCode": "video-020",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Ejecución de sentencia civil",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Ejecución de sentencia civil"
     ],
-    "intellectualContribution": "Explica Ejecución de sentencia civil desde su utilidad operativa concreta: cómo convertir una decisión favorable en cumplimiento material.",
+    "intellectualContribution": "La sentencia favorable exige medidas de cumplimiento.",
     "newAngle": {
       "comparedWith": [
-        "video-019"
+        "video-015"
       ],
-      "contribution": "Diferencia Ejecución de sentencia civil por su problema específico: confundir ejecución de sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "despues-de-la-sentencia: Crédito reconocido pero impago. Enfoque propio de ejecución de sentencia civil."
     }
   },
   "topic": "Ejecución de sentencia civil",
-  "centralThesis": "Ejecución de sentencia civil exige dominar cómo convertir una decisión favorable en cumplimiento material; su valor práctico está en transformar cómo convertir una decisión favorable en cumplimiento material en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Ejecución de sentencia civil es confundir ejecución de sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La sentencia favorable exige medidas de cumplimiento.",
+  "problem": "¿Qué falta después de obtener una sentencia favorable?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Ejecución de sentencia civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir ejecución de sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre ejecución de sentencia civil, con una ruta de seguimiento y ejecución posible."
+    "La sentencia te reconoce un crédito.",
+    "Pasa un mes y la contraparte no paga.",
+    "¿El proceso terminó?",
+    "No necesariamente.",
+    "En el Código Procesal Civil boliviano, la ejecución de una sentencia firme se solicita ante la autoridad judicial de primera instancia que conoció la causa, sin alterar el contenido de lo decidido.",
+    "Imaginemos una condena al pago de una suma: el siguiente trabajo es determinar qué obligación concreta debe cumplirse, qué medidas de ejecución permite la ley y qué bienes o información están disponibles.",
+    "La autoridad judicial dirige esta etapa, y las partes controlan el cumplimiento.",
+    "Existen reglas particulares para la ejecución parcial de condenas firmes y para diferentes obligaciones.",
+    "No debe confundirse una sentencia favorable con dinero efectivamente recuperado."
   ],
-  "conclusion": "Ejecución de sentencia civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La estrategia de ejecución comienza leyendo la parte resolutiva, comprobando su firmeza en lo pertinente y definiendo una solicitud ejecutable.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de ejecución de sentencia civil",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre ejecución de sentencia civil",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Ejecución de sentencia civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Ejecución de sentencia civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Ganaste el juicio.",
+  "closingIdea": "Ganar significa obtener una decisión; hacerla efectiva requiere una nueva disciplina procesal.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-020",
+    "sourceFileSha256": "b998798cc0a418c5dba12636ed722296ccdaa301b11491eb0793d1eedc123e75",
+    "fullGuionSha256": "5520bf7ab100f7fb18ed344ae354b7abf67568ecc82f8ec179155a9abf16ba29",
+    "fullGuionVerbatim": "Ganaste el juicio. La sentencia te reconoce un crédito. Pasa un mes y la contraparte no paga. ¿El proceso terminó? No necesariamente. En el Código Procesal Civil boliviano, la ejecución de una sentencia firme se solicita ante la autoridad judicial de primera instancia que conoció la causa, sin alterar el contenido de lo decidido. Imaginemos una condena al pago de una suma: el siguiente trabajo es determinar qué obligación concreta debe cumplirse, qué medidas de ejecución permite la ley y qué bienes o información están disponibles. La autoridad judicial dirige esta etapa, y las partes controlan el cumplimiento. Existen reglas particulares para la ejecución parcial de condenas firmes y para diferentes obligaciones. No debe confundirse una sentencia favorable con dinero efectivamente recuperado. La estrategia de ejecución comienza leyendo la parte resolutiva, comprobando su firmeza en lo pertinente y definiendo una solicitud ejecutable. Ganar significa obtener una decisión; hacerla efectiva requiere una nueva disciplina procesal.",
+    "sourceFichaTitle": "Ejecución de sentencia civil",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 397",
+      "Ley N.º 439, Código Procesal Civil art. 398",
+      "Ley N.º 439, Código Procesal Civil art. 399",
+      "Ley N.º 439, Código Procesal Civil art. 400",
+      "Ley N.º 439, Código Procesal Civil art. 401"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-020.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "39c17903ab520476745f05ae3d5da1eed5af1c14100a2d6fd1ff66a6bf1a1d6e"
+  }
 }

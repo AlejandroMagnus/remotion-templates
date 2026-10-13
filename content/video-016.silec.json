@@ -2,58 +2,95 @@
   "productionCode": "video-016",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Audiencia preliminar civil",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Audiencia preliminar civil"
     ],
-    "intellectualContribution": "Explica Audiencia preliminar civil desde su utilidad operativa concreta: qué se decide y cómo prepararse.",
+    "intellectualContribution": "La preparación delimita controversia y prueba.",
     "newAngle": {
       "comparedWith": [
         "video-015"
       ],
-      "contribution": "Diferencia Audiencia preliminar civil por su problema específico: confundir audiencia preliminar civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "reloj-de-preparacion: Obra parcialmente ejecutada. Enfoque propio de audiencia preliminar civil."
     }
   },
   "topic": "Audiencia preliminar civil",
-  "centralThesis": "Audiencia preliminar civil exige dominar qué se decide y cómo prepararse; su valor práctico está en transformar qué se decide y cómo prepararse en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Audiencia preliminar civil es confundir audiencia preliminar civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La preparación delimita controversia y prueba.",
+  "problem": "¿Qué debe estar resuelto antes de llegar a la audiencia preliminar civil?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Audiencia preliminar civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir audiencia preliminar civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre audiencia preliminar civil, con una ruta de seguimiento y ejecución posible."
+    "Ese desorden cuesta oportunidades.",
+    "En el proceso civil boliviano, la audiencia preliminar permite ratificar posiciones, intentar conciliación, tratar cuestiones de saneamiento y organizar los puntos de debate y la prueba.",
+    "Imaginemos un contrato de construcción: ambas partes reconocen que hubo obra, pero discuten si se completó y si corresponde el saldo.",
+    "Antes de la audiencia conviene separar lo admitido de lo controvertido, clasificar qué documentos respaldan cada versión y prever qué defensa requiere decisión previa.",
+    "También hay que revisar las reglas sobre comparecencia personal y representación.",
+    "Una carpeta gruesa no sustituye una teoría clara del caso."
   ],
-  "conclusion": "Audiencia preliminar civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "El objetivo no es hablar más, sino ayudar a que el proceso avance sobre los hechos jurídicamente relevantes.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de audiencia preliminar civil",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre audiencia preliminar civil",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Audiencia preliminar civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Audiencia preliminar civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Dos partes entran a una audiencia preliminar con carpetas llenas de documentos, pero ninguna sabe cuál es el hecho realmente discutido.",
+  "closingIdea": "Lleva a la audiencia una hoja con tres columnas: hecho controvertido, medio de prueba y consecuencia que buscas.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-016",
+    "sourceFileSha256": "0310f33107aa1ffec570cc151e38c8e353e1d5a42c2c4c1ba906bc92ed5a6a7a",
+    "fullGuionSha256": "a4a215f70af8156911a335ba3c28618a3aef22cedf82a938e9fe604ae1a3da36",
+    "fullGuionVerbatim": "Dos partes entran a una audiencia preliminar con carpetas llenas de documentos, pero ninguna sabe cuál es el hecho realmente discutido. Ese desorden cuesta oportunidades. En el proceso civil boliviano, la audiencia preliminar permite ratificar posiciones, intentar conciliación, tratar cuestiones de saneamiento y organizar los puntos de debate y la prueba. Imaginemos un contrato de construcción: ambas partes reconocen que hubo obra, pero discuten si se completó y si corresponde el saldo. Antes de la audiencia conviene separar lo admitido de lo controvertido, clasificar qué documentos respaldan cada versión y prever qué defensa requiere decisión previa. También hay que revisar las reglas sobre comparecencia personal y representación. Una carpeta gruesa no sustituye una teoría clara del caso. El objetivo no es hablar más, sino ayudar a que el proceso avance sobre los hechos jurídicamente relevantes. Lleva a la audiencia una hoja con tres columnas: hecho controvertido, medio de prueba y consecuencia que buscas.",
+    "sourceFichaTitle": "Audiencia preliminar civil",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 365",
+      "Ley N.º 439, Código Procesal Civil art. 366"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-016.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "f37dca89c7d6ccdf053b2d0590904ce088617eb94046f5340b1662ebbaa90e47"
+  }
 }

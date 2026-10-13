@@ -2,58 +2,97 @@
   "productionCode": "video-012",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "La demanda civil bien planteada",
-      "constitucionalización práctica"
+      "Ley 439",
+      "La demanda civil bien planteada"
     ],
-    "intellectualContribution": "Explica La demanda civil bien planteada desde su utilidad operativa concreta: qué debe contener para no nacer débil.",
+    "intellectualContribution": "La pretensión precisa conecta hechos, prueba y petición.",
     "newAngle": {
       "comparedWith": [
-        "video-011"
+        "video-015"
       ],
-      "contribution": "Diferencia La demanda civil bien planteada por su problema específico: confundir la demanda civil bien planteada con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "cirugia-de-demanda: Préstamo bancarizado controvertido. Enfoque propio de la demanda civil bien planteada."
     }
   },
   "topic": "La demanda civil bien planteada",
-  "centralThesis": "La demanda civil bien planteada exige dominar qué debe contener para no nacer débil; su valor práctico está en transformar qué debe contener para no nacer débil en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en La demanda civil bien planteada es confundir la demanda civil bien planteada con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La pretensión precisa conecta hechos, prueba y petición.",
+  "problem": "¿Qué hecho decisivo debe aparecer en una demanda para que su petición tenga sentido?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en La demanda civil bien planteada: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir la demanda civil bien planteada con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre la demanda civil bien planteada, con una ruta de seguimiento y ejecución posible."
+    "Imagina que una persona reclama la devolución de dinero prestado.",
+    "Adjunta conversaciones, comprobantes y fotografías; sin embargo, mezcla la existencia del préstamo con otros conflictos personales.",
+    "¿Dónde está el problema?",
+    "Una demanda civil necesita una pretensión precisa, hechos ordenados, fundamento jurídico y una petición clara.",
+    "El Código Procesal Civil exige además identificar a las partes y acompañar la documentación relativa a la pretensión o indicar dónde se encuentra.",
+    "No basta adjuntar pruebas: hay que explicar qué demuestra cada una.",
+    "Si el préstamo fue transferido por banco, ese documento puede acreditar un movimiento de dinero; el origen y las condiciones de la obligación pueden requerir otros elementos."
   ],
-  "conclusion": "La demanda civil bien planteada se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La autoridad judicial examinará los requisitos de la demanda, y los defectos pueden tener consecuencias.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de la demanda civil bien planteada",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre la demanda civil bien planteada",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "La demanda civil bien planteada: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En La demanda civil bien planteada, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una demanda puede ocupar treinta páginas y seguir sin decir claramente qué se pide.",
+  "closingIdea": "Antes de presentar el escrito, realiza esta prueba: ¿podría alguien identificar el hecho constitutivo, la obligación reclamada y el pronunciamiento solicitado sin adivinar nada?",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-012",
+    "sourceFileSha256": "67d70c4b3ab09ed069121efa4e40fb76f5e2954971d28851314a0d24bc601701",
+    "fullGuionSha256": "1aac072f1262c2470c2323359578a399f8643c4e8956cfc9cc49f3434c8cfa7a",
+    "fullGuionVerbatim": "Una demanda puede ocupar treinta páginas y seguir sin decir claramente qué se pide. Imagina que una persona reclama la devolución de dinero prestado. Adjunta conversaciones, comprobantes y fotografías; sin embargo, mezcla la existencia del préstamo con otros conflictos personales. ¿Dónde está el problema? Una demanda civil necesita una pretensión precisa, hechos ordenados, fundamento jurídico y una petición clara. El Código Procesal Civil exige además identificar a las partes y acompañar la documentación relativa a la pretensión o indicar dónde se encuentra. No basta adjuntar pruebas: hay que explicar qué demuestra cada una. Si el préstamo fue transferido por banco, ese documento puede acreditar un movimiento de dinero; el origen y las condiciones de la obligación pueden requerir otros elementos. La autoridad judicial examinará los requisitos de la demanda, y los defectos pueden tener consecuencias. Antes de presentar el escrito, realiza esta prueba: ¿podría alguien identificar el hecho constitutivo, la obligación reclamada y el pronunciamiento solicitado sin adivinar nada?",
+    "sourceFichaTitle": "La demanda civil bien planteada",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 110",
+      "Ley N.º 439, Código Procesal Civil art. 111",
+      "Ley N.º 439, Código Procesal Civil art. 113"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-012.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "b1fbca7b71f70cae4d631dfbc397c54c9b6da9b0c15d7800005878314ed89eb7"
+  }
 }

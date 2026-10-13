@@ -2,58 +2,97 @@
   "productionCode": "video-017",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Sentencia civil",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Sentencia civil motivada"
     ],
-    "intellectualContribution": "Explica Sentencia civil desde su utilidad operativa concreta: cómo se estructura y cómo detectar errores impugnables.",
+    "intellectualContribution": "La decisión debe explicar hechos, valoración y fundamento.",
     "newAngle": {
       "comparedWith": [
-        "video-016"
+        "video-015"
       ],
-      "contribution": "Diferencia Sentencia civil por su problema específico: confundir sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "lectura-critica-de-sentencia: Fallo omite acta de recepción. Enfoque propio de sentencia civil motivada."
     }
   },
-  "topic": "Sentencia civil",
-  "centralThesis": "Sentencia civil exige dominar cómo se estructura y cómo detectar errores impugnables; su valor práctico está en transformar cómo se estructura y cómo detectar errores impugnables en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Sentencia civil es confundir sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Sentencia civil motivada",
+  "centralThesis": "La decisión debe explicar hechos, valoración y fundamento.",
+  "problem": "¿Por qué puede ser insuficiente una sentencia que solo anuncia quién ganó?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Sentencia civil: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir sentencia civil con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre sentencia civil, con una ruta de seguimiento y ejecución posible."
+    "Pero no explica por qué rechazó el documento que podía cambiar el resultado.",
+    "¿Basta con anunciar un vencedor?",
+    "En el proceso civil boliviano, una sentencia debe contener motivación: identificar los hechos probados y no probados, valorar la prueba y exponer las normas aplicadas.",
+    "También debe resolver con claridad lo pedido dentro del conflicto.",
+    "Imagina un reclamo contractual donde el demandado exhibe un acta de recepción de obra.",
+    "Si el fallo ignora ese punto decisivo, el problema no es que una parte esté descontenta: es que puede faltar una explicación sobre una cuestión relevante.",
+    "Para analizar una sentencia, separa tres planos.",
+    "Primero, ¿qué hechos tuvo por acreditados?",
+    "Segundo, ¿por qué valoró unas pruebas y no otras?"
   ],
-  "conclusion": "Sentencia civil se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Tercero, ¿la decisión responde realmente a las pretensiones y defensas?",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de sentencia civil",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre sentencia civil motivada",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Sentencia civil: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Sentencia civil, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una sentencia dice: «Se declara probada la demanda».",
+  "closingIdea": "Criticar un fallo exige localizar la omisión o el error, no limitarse a afirmar que fue injusto.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-017",
+    "sourceFileSha256": "b8ddaff8ee39f2d312bcddb437d0fcde62e28cd7f3743ee078559769d5145529",
+    "fullGuionSha256": "315c42671a29814840bfc1e380c320a9344a61d9c7c7a6d8f2efc8fb325c5a53",
+    "fullGuionVerbatim": "Una sentencia dice: «Se declara probada la demanda». Pero no explica por qué rechazó el documento que podía cambiar el resultado. ¿Basta con anunciar un vencedor? En el proceso civil boliviano, una sentencia debe contener motivación: identificar los hechos probados y no probados, valorar la prueba y exponer las normas aplicadas. También debe resolver con claridad lo pedido dentro del conflicto. Imagina un reclamo contractual donde el demandado exhibe un acta de recepción de obra. Si el fallo ignora ese punto decisivo, el problema no es que una parte esté descontenta: es que puede faltar una explicación sobre una cuestión relevante. Para analizar una sentencia, separa tres planos. Primero, ¿qué hechos tuvo por acreditados? Segundo, ¿por qué valoró unas pruebas y no otras? Tercero, ¿la decisión responde realmente a las pretensiones y defensas? Criticar un fallo exige localizar la omisión o el error, no limitarse a afirmar que fue injusto.",
+    "sourceFichaTitle": "Sentencia civil motivada",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 213"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-017.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "2fcdee89ab26e9e7a9de3f8d7bfca89bc584454f07b6daf48d68a00634c6aeea"
+  }
 }

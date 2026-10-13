@@ -2,58 +2,98 @@
   "productionCode": "video-013",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "DT",
     "dimension": "procesal",
     "domains": [
       "proceso civil",
-      "Contestación a la demanda",
-      "constitucionalización práctica"
+      "Ley 439",
+      "Contestación de demanda"
     ],
-    "intellectualContribution": "Explica Contestación a la demanda desde su utilidad operativa concreta: cómo defenderse estratégicamente desde el primer escrito.",
+    "intellectualContribution": "La negativa genérica no sustituye la respuesta específica.",
     "newAngle": {
       "comparedWith": [
-        "video-012"
+        "video-015"
       ],
-      "contribution": "Diferencia Contestación a la demanda por su problema específico: confundir contestación a la demanda con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "simulacion-de-contestacion: Empresa discute factura y entrega. Enfoque propio de contestación de demanda."
     }
   },
-  "topic": "Contestación a la demanda",
-  "centralThesis": "Contestación a la demanda exige dominar cómo defenderse estratégicamente desde el primer escrito; su valor práctico está en transformar cómo defenderse estratégicamente desde el primer escrito en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Contestación a la demanda es confundir contestación a la demanda con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Contestación de demanda",
+  "centralThesis": "La negativa genérica no sustituye la respuesta específica.",
+  "problem": "¿Qué puede perder quien contesta una demanda sin distinguir admisiones, negativas y excepciones?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Contestación a la demanda: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir contestación a la demanda con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre contestación a la demanda, con una ruta de seguimiento y ejecución posible."
+    "Su primera reacción es escribir: «Niego todo».",
+    "Parece una defensa firme, pero puede ser una respuesta peligrosa.",
+    "En el proceso civil boliviano, contestar exige pronunciarse sobre los hechos alegados y sobre los documentos cuya autoría se atribuye a la parte demandada.",
+    "La falta de respuesta específica puede producir consecuencias procesales, según el supuesto legal.",
+    "Imaginemos una factura acompañada de un correo: la empresa acepta la recepción del producto, pero discute su calidad y el monto cobrado.",
+    "Negarlo todo impide distinguir lo que realmente está en controversia.",
+    "La contestación debe separar los hechos admitidos, los negados, la explicación alternativa y la prueba correspondiente.",
+    "También exige valorar, si proceden, excepciones o reconvención en su oportunidad procesal."
   ],
-  "conclusion": "Contestación a la demanda se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una defensa no se fortalece con el volumen del escrito.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con procesos civiles",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de contestación a la demanda",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "razonamiento sobre contestación de demanda",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
   ],
-  "hook": "Contestación a la demanda: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Contestación a la demanda, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "A una empresa le llega una demanda.",
+  "closingIdea": "Se fortalece cuando cada afirmación de la demanda recibe una respuesta jurídicamente pensada y probatoriamente sostenible.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-013",
+    "sourceFileSha256": "6655d08b5a04fbf6d39d0ebd2678bcb94111a2feb47da2a3ef966047e76d9b13",
+    "fullGuionSha256": "aebd6e44516042a7095f1798a53dcf524af0e44df95049d4aa0a6c4db21a34e1",
+    "fullGuionVerbatim": "A una empresa le llega una demanda. Su primera reacción es escribir: «Niego todo». Parece una defensa firme, pero puede ser una respuesta peligrosa. En el proceso civil boliviano, contestar exige pronunciarse sobre los hechos alegados y sobre los documentos cuya autoría se atribuye a la parte demandada. La falta de respuesta específica puede producir consecuencias procesales, según el supuesto legal. Imaginemos una factura acompañada de un correo: la empresa acepta la recepción del producto, pero discute su calidad y el monto cobrado. Negarlo todo impide distinguir lo que realmente está en controversia. La contestación debe separar los hechos admitidos, los negados, la explicación alternativa y la prueba correspondiente. También exige valorar, si proceden, excepciones o reconvención en su oportunidad procesal. Una defensa no se fortalece con el volumen del escrito. Se fortalece cuando cada afirmación de la demanda recibe una respuesta jurídicamente pensada y probatoriamente sostenible.",
+    "sourceFichaTitle": "Contestación de demanda",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 125",
+      "Ley N.º 439, Código Procesal Civil art. 126",
+      "Ley N.º 439, Código Procesal Civil art. 128"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Revisión final de vigencia consolidada Ley 439 pendiente. No usar como dictamen jurídico actualizado.",
+    "legalReviewStatus": "EDICION_NORMATIVA_AUTORIZACION_EDITORIAL_DEL_TITULAR_NO_CERTIFICACION_PHD12",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-013.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ],
+    "publicationEdition": "NORMATIVA_V63_TITULAR_2026-10-13_PREPUBLICACION",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "note": "Autorización editorial solo para generar MP4 y revisión interna. No publicación automática ni aprobación jurídica PhD12.",
+    "normativeScope": "Ley 439 texto base contrastado; no acreditada vigencia consolidada de todas las reformas al 13/10/2026",
+    "publicationCaveat": "No publicar hasta comprobación final de vigencia normativa y revisión humana del MP4 por su titular.",
+    "originalStagingSha256": "70e2df5eac298fe093aa940710133350ed6637e0c8d9075656a00c6cf4e2af9a"
+  }
 }
