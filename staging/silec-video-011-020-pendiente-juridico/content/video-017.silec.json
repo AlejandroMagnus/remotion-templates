@@ -1,0 +1,97 @@
+{
+  "productionCode": "video-017",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Ley 439",
+      "Sentencia civil motivada"
+    ],
+    "intellectualContribution": "La decisión debe explicar hechos, valoración y fundamento.",
+    "newAngle": {
+      "comparedWith": [
+        "video-015"
+      ],
+      "contribution": "lectura-critica-de-sentencia: Fallo omite acta de recepción. Enfoque propio de sentencia civil motivada."
+    },
+    "legalReview": {
+      "status": "pending",
+      "authority": "PhD 12",
+      "sources": []
+    }
+  },
+  "topic": "Sentencia civil motivada",
+  "centralThesis": "La decisión debe explicar hechos, valoración y fundamento.",
+  "problem": "¿Por qué puede ser insuficiente una sentencia que solo anuncia quién ganó?",
+  "reasoningChain": [
+    "Pero no explica por qué rechazó el documento que podía cambiar el resultado.",
+    "¿Basta con anunciar un vencedor?",
+    "En el proceso civil boliviano, una sentencia debe contener motivación: identificar los hechos probados y no probados, valorar la prueba y exponer las normas aplicadas.",
+    "También debe resolver con claridad lo pedido dentro del conflicto.",
+    "Imagina un reclamo contractual donde el demandado exhibe un acta de recepción de obra.",
+    "Si el fallo ignora ese punto decisivo, el problema no es que una parte esté descontenta: es que puede faltar una explicación sobre una cuestión relevante.",
+    "Para analizar una sentencia, separa tres planos.",
+    "Primero, ¿qué hechos tuvo por acreditados?",
+    "Segundo, ¿por qué valoró unas pruebas y no otras?"
+  ],
+  "conclusion": "Tercero, ¿la decisión responde realmente a las pretensiones y defensas?",
+  "targetAudience": [
+    "personas con procesos civiles",
+    "abogados",
+    "empresas",
+    "estudiantes de Derecho"
+  ],
+  "capabilityDemonstrated": [
+    "razonamiento sobre sentencia civil motivada",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
+  ],
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
+  "offerPath": [
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
+  ],
+  "hook": "Una sentencia dice: «Se declara probada la demanda».",
+  "closingIdea": "Criticar un fallo exige localizar la omisión o el error, no limitarse a afirmar que fue injusto.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-017",
+    "sourceFileSha256": "b8ddaff8ee39f2d312bcddb437d0fcde62e28cd7f3743ee078559769d5145529",
+    "fullGuionSha256": "315c42671a29814840bfc1e380c320a9344a61d9c7c7a6d8f2efc8fb325c5a53",
+    "fullGuionVerbatim": "Una sentencia dice: «Se declara probada la demanda». Pero no explica por qué rechazó el documento que podía cambiar el resultado. ¿Basta con anunciar un vencedor? En el proceso civil boliviano, una sentencia debe contener motivación: identificar los hechos probados y no probados, valorar la prueba y exponer las normas aplicadas. También debe resolver con claridad lo pedido dentro del conflicto. Imagina un reclamo contractual donde el demandado exhibe un acta de recepción de obra. Si el fallo ignora ese punto decisivo, el problema no es que una parte esté descontenta: es que puede faltar una explicación sobre una cuestión relevante. Para analizar una sentencia, separa tres planos. Primero, ¿qué hechos tuvo por acreditados? Segundo, ¿por qué valoró unas pruebas y no otras? Tercero, ¿la decisión responde realmente a las pretensiones y defensas? Criticar un fallo exige localizar la omisión o el error, no limitarse a afirmar que fue injusto.",
+    "sourceFichaTitle": "Sentencia civil motivada",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 213"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Vigencia consolidada y reformas de Ley 439 pendientes de verificación por PhD 12.",
+    "legalReviewStatus": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-017.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ]
+  }
+}

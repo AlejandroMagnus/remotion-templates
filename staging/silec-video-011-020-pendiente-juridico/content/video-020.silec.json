@@ -1,0 +1,101 @@
+{
+  "productionCode": "video-020",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Ley 439",
+      "Ejecución de sentencia civil"
+    ],
+    "intellectualContribution": "La sentencia favorable exige medidas de cumplimiento.",
+    "newAngle": {
+      "comparedWith": [
+        "video-015"
+      ],
+      "contribution": "despues-de-la-sentencia: Crédito reconocido pero impago. Enfoque propio de ejecución de sentencia civil."
+    },
+    "legalReview": {
+      "status": "pending",
+      "authority": "PhD 12",
+      "sources": []
+    }
+  },
+  "topic": "Ejecución de sentencia civil",
+  "centralThesis": "La sentencia favorable exige medidas de cumplimiento.",
+  "problem": "¿Qué falta después de obtener una sentencia favorable?",
+  "reasoningChain": [
+    "La sentencia te reconoce un crédito.",
+    "Pasa un mes y la contraparte no paga.",
+    "¿El proceso terminó?",
+    "No necesariamente.",
+    "En el Código Procesal Civil boliviano, la ejecución de una sentencia firme se solicita ante la autoridad judicial de primera instancia que conoció la causa, sin alterar el contenido de lo decidido.",
+    "Imaginemos una condena al pago de una suma: el siguiente trabajo es determinar qué obligación concreta debe cumplirse, qué medidas de ejecución permite la ley y qué bienes o información están disponibles.",
+    "La autoridad judicial dirige esta etapa, y las partes controlan el cumplimiento.",
+    "Existen reglas particulares para la ejecución parcial de condenas firmes y para diferentes obligaciones.",
+    "No debe confundirse una sentencia favorable con dinero efectivamente recuperado."
+  ],
+  "conclusion": "La estrategia de ejecución comienza leyendo la parte resolutiva, comprobando su firmeza en lo pertinente y definiendo una solicitud ejecutable.",
+  "targetAudience": [
+    "personas con procesos civiles",
+    "abogados",
+    "empresas",
+    "estudiantes de Derecho"
+  ],
+  "capabilityDemonstrated": [
+    "razonamiento sobre ejecución de sentencia civil",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
+  ],
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
+  "offerPath": [
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
+  ],
+  "hook": "Ganaste el juicio.",
+  "closingIdea": "Ganar significa obtener una decisión; hacerla efectiva requiere una nueva disciplina procesal.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-020",
+    "sourceFileSha256": "b998798cc0a418c5dba12636ed722296ccdaa301b11491eb0793d1eedc123e75",
+    "fullGuionSha256": "5520bf7ab100f7fb18ed344ae354b7abf67568ecc82f8ec179155a9abf16ba29",
+    "fullGuionVerbatim": "Ganaste el juicio. La sentencia te reconoce un crédito. Pasa un mes y la contraparte no paga. ¿El proceso terminó? No necesariamente. En el Código Procesal Civil boliviano, la ejecución de una sentencia firme se solicita ante la autoridad judicial de primera instancia que conoció la causa, sin alterar el contenido de lo decidido. Imaginemos una condena al pago de una suma: el siguiente trabajo es determinar qué obligación concreta debe cumplirse, qué medidas de ejecución permite la ley y qué bienes o información están disponibles. La autoridad judicial dirige esta etapa, y las partes controlan el cumplimiento. Existen reglas particulares para la ejecución parcial de condenas firmes y para diferentes obligaciones. No debe confundirse una sentencia favorable con dinero efectivamente recuperado. La estrategia de ejecución comienza leyendo la parte resolutiva, comprobando su firmeza en lo pertinente y definiendo una solicitud ejecutable. Ganar significa obtener una decisión; hacerla efectiva requiere una nueva disciplina procesal.",
+    "sourceFichaTitle": "Ejecución de sentencia civil",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 397",
+      "Ley N.º 439, Código Procesal Civil art. 398",
+      "Ley N.º 439, Código Procesal Civil art. 399",
+      "Ley N.º 439, Código Procesal Civil art. 400",
+      "Ley N.º 439, Código Procesal Civil art. 401"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Vigencia consolidada y reformas de Ley 439 pendientes de verificación por PhD 12.",
+    "legalReviewStatus": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-020.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ]
+  }
+}

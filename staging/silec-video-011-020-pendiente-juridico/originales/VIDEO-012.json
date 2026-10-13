@@ -1,0 +1,81 @@
+{
+  "id": "VIDEO-012",
+  "tema": "La demanda civil bien planteada",
+  "tesis": "La pretensión precisa conecta hechos, prueba y petición.",
+  "problema": "¿Qué hecho decisivo debe aparecer en una demanda para que su petición tenga sentido?",
+  "microcaso": "Préstamo bancarizado controvertido",
+  "hook": "Una demanda puede ocupar treinta páginas y seguir sin decir claramente qué se pide.",
+  "guion": "Una demanda puede ocupar treinta páginas y seguir sin decir claramente qué se pide. Imagina que una persona reclama la devolución de dinero prestado. Adjunta conversaciones, comprobantes y fotografías; sin embargo, mezcla la existencia del préstamo con otros conflictos personales. ¿Dónde está el problema? Una demanda civil necesita una pretensión precisa, hechos ordenados, fundamento jurídico y una petición clara. El Código Procesal Civil exige además identificar a las partes y acompañar la documentación relativa a la pretensión o indicar dónde se encuentra. No basta adjuntar pruebas: hay que explicar qué demuestra cada una. Si el préstamo fue transferido por banco, ese documento puede acreditar un movimiento de dinero; el origen y las condiciones de la obligación pueden requerir otros elementos. La autoridad judicial examinará los requisitos de la demanda, y los defectos pueden tener consecuencias. Antes de presentar el escrito, realiza esta prueba: ¿podría alguien identificar el hecho constitutivo, la obligación reclamada y el pronunciamiento solicitado sin adivinar nada?",
+  "cierre": "Antes de presentar el escrito, realiza esta prueba: ¿podría alguien identificar el hecho constitutivo, la obligación reclamada y el pronunciamiento solicitado sin adivinar nada?",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "ruta": "cirugia-de-demanda",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Situación humana concreta"
+    },
+    {
+      "orden": 2,
+      "visual": "Documento o conflicto central"
+    },
+    {
+      "orden": 3,
+      "visual": "Regla procesal con contexto"
+    },
+    {
+      "orden": 4,
+      "visual": "Límite o contraejemplo"
+    },
+    {
+      "orden": 5,
+      "visual": "Ruta de actuación y cierre"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "110",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "111",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "113",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    }
+  ],
+  "legalReview": {
+    "fechaCotejo": "2026-10-13",
+    "estado": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "afirmacionesCotejadas": [
+      "La Ley 439 regula la institución procesal indicada; los artículos citados son referencias identificadas en el texto institucional.",
+      "El guion evita citas jurisprudenciales no verificadas y no promete resultados."
+    ],
+    "advertencias": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "normas": [
+      "Ley N.º 439"
+    ],
+    "articulos": [
+      "110",
+      "111",
+      "113"
+    ],
+    "fuentesConsultadas": [
+      "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "https://www.wipo.int/wipolex/en/legislation/details/14924"
+    ],
+    "limitaciones": "Consulta institucional localizada por búsqueda web; no se descargó PDF completo ni se realizó cotejo línea a línea de todos los artículos o reformas. No se certifica vigencia consolidada.",
+    "jurisprudencia": "No citada ni necesaria para esta pieza divulgativa."
+  }
+}

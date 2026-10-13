@@ -1,0 +1,81 @@
+{
+  "id": "VIDEO-013",
+  "tema": "Contestación de demanda",
+  "tesis": "La negativa genérica no sustituye la respuesta específica.",
+  "problema": "¿Qué puede perder quien contesta una demanda sin distinguir admisiones, negativas y excepciones?",
+  "microcaso": "Empresa discute factura y entrega",
+  "hook": "A una empresa le llega una demanda.",
+  "guion": "A una empresa le llega una demanda. Su primera reacción es escribir: «Niego todo». Parece una defensa firme, pero puede ser una respuesta peligrosa. En el proceso civil boliviano, contestar exige pronunciarse sobre los hechos alegados y sobre los documentos cuya autoría se atribuye a la parte demandada. La falta de respuesta específica puede producir consecuencias procesales, según el supuesto legal. Imaginemos una factura acompañada de un correo: la empresa acepta la recepción del producto, pero discute su calidad y el monto cobrado. Negarlo todo impide distinguir lo que realmente está en controversia. La contestación debe separar los hechos admitidos, los negados, la explicación alternativa y la prueba correspondiente. También exige valorar, si proceden, excepciones o reconvención en su oportunidad procesal. Una defensa no se fortalece con el volumen del escrito. Se fortalece cuando cada afirmación de la demanda recibe una respuesta jurídicamente pensada y probatoriamente sostenible.",
+  "cierre": "Se fortalece cuando cada afirmación de la demanda recibe una respuesta jurídicamente pensada y probatoriamente sostenible.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "ruta": "simulacion-de-contestacion",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Situación humana concreta"
+    },
+    {
+      "orden": 2,
+      "visual": "Documento o conflicto central"
+    },
+    {
+      "orden": 3,
+      "visual": "Regla procesal con contexto"
+    },
+    {
+      "orden": 4,
+      "visual": "Límite o contraejemplo"
+    },
+    {
+      "orden": 5,
+      "visual": "Ruta de actuación y cierre"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "125",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "126",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "128",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    }
+  ],
+  "legalReview": {
+    "fechaCotejo": "2026-10-13",
+    "estado": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "afirmacionesCotejadas": [
+      "La Ley 439 regula la institución procesal indicada; los artículos citados son referencias identificadas en el texto institucional.",
+      "El guion evita citas jurisprudenciales no verificadas y no promete resultados."
+    ],
+    "advertencias": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "normas": [
+      "Ley N.º 439"
+    ],
+    "articulos": [
+      "125",
+      "126",
+      "128"
+    ],
+    "fuentesConsultadas": [
+      "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "https://www.wipo.int/wipolex/en/legislation/details/14924"
+    ],
+    "limitaciones": "Consulta institucional localizada por búsqueda web; no se descargó PDF completo ni se realizó cotejo línea a línea de todos los artículos o reformas. No se certifica vigencia consolidada.",
+    "jurisprudencia": "No citada ni necesaria para esta pieza divulgativa."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "productionCode": "video-018",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Ley 439",
+      "Apelación civil"
+    ],
+    "intellectualContribution": "Un agravio identifica error concreto y corrección solicitada.",
+    "newAngle": {
+      "comparedWith": [
+        "video-015"
+      ],
+      "contribution": "taller-de-agravios: Sentencia desconoce recibo. Enfoque propio de apelación civil."
+    },
+    "legalReview": {
+      "status": "pending",
+      "authority": "PhD 12",
+      "sources": []
+    }
+  },
+  "topic": "Apelación civil",
+  "centralThesis": "Un agravio identifica error concreto y corrección solicitada.",
+  "problem": "¿Cómo convertir el desacuerdo con una sentencia en agravios concretos?",
+  "reasoningChain": [
+    "Esa frase expresa frustración, no necesariamente un agravio jurídico.",
+    "Imagina que el juez ordena pagar una suma, pero el recurrente sostiene que ignoró un recibo reconocido en el expediente.",
+    "Una apelación útil debe identificar qué decisión se impugna, qué error concreto se atribuye a su fundamentación y qué modificación se solicita.",
+    "En el proceso civil boliviano, la apelación de sentencias y autos definitivos debe presentarse por escrito fundado, conforme al régimen legal aplicable.",
+    "Y el tribunal de segunda instancia examina los puntos que fueron objeto del recurso y de su fundamentación.",
+    "Por eso conviene trabajar cada agravio como una cadena: parte exacta del fallo, hecho o norma relevante, error alegado y consecuencia solicitada."
+  ],
+  "conclusion": "No toda disconformidad abre una nueva oportunidad para comenzar el juicio desde cero.",
+  "targetAudience": [
+    "personas con procesos civiles",
+    "abogados",
+    "empresas",
+    "estudiantes de Derecho"
+  ],
+  "capabilityDemonstrated": [
+    "razonamiento sobre apelación civil",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
+  ],
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
+  "offerPath": [
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
+  ],
+  "hook": "«Voy a apelar porque la sentencia es injusta».",
+  "closingIdea": "Antes de recurrir, lee el fallo con esta pregunta: ¿puedo señalar el punto decisivo y explicar cómo cambiaría el resultado si se corrigiera?",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-018",
+    "sourceFileSha256": "4fa89e9029929d7dfdd42f24cff5ce5ff5b8530c41442f85db85dacd84f6fb8c",
+    "fullGuionSha256": "25488939edf3037ce72600b8173ccd94fa195540013439d66bfb509d7b39528b",
+    "fullGuionVerbatim": "«Voy a apelar porque la sentencia es injusta». Esa frase expresa frustración, no necesariamente un agravio jurídico. Imagina que el juez ordena pagar una suma, pero el recurrente sostiene que ignoró un recibo reconocido en el expediente. Una apelación útil debe identificar qué decisión se impugna, qué error concreto se atribuye a su fundamentación y qué modificación se solicita. En el proceso civil boliviano, la apelación de sentencias y autos definitivos debe presentarse por escrito fundado, conforme al régimen legal aplicable. Y el tribunal de segunda instancia examina los puntos que fueron objeto del recurso y de su fundamentación. Por eso conviene trabajar cada agravio como una cadena: parte exacta del fallo, hecho o norma relevante, error alegado y consecuencia solicitada. No toda disconformidad abre una nueva oportunidad para comenzar el juicio desde cero. Antes de recurrir, lee el fallo con esta pregunta: ¿puedo señalar el punto decisivo y explicar cómo cambiaría el resultado si se corrigiera?",
+    "sourceFichaTitle": "Apelación civil",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 256",
+      "Ley N.º 439, Código Procesal Civil art. 261",
+      "Ley N.º 439, Código Procesal Civil art. 265"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Vigencia consolidada y reformas de Ley 439 pendientes de verificación por PhD 12.",
+    "legalReviewStatus": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-018.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ]
+  }
+}

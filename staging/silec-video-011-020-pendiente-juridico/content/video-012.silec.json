@@ -1,0 +1,97 @@
+{
+  "productionCode": "video-012",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Ley 439",
+      "La demanda civil bien planteada"
+    ],
+    "intellectualContribution": "La pretensión precisa conecta hechos, prueba y petición.",
+    "newAngle": {
+      "comparedWith": [
+        "video-015"
+      ],
+      "contribution": "cirugia-de-demanda: Préstamo bancarizado controvertido. Enfoque propio de la demanda civil bien planteada."
+    },
+    "legalReview": {
+      "status": "pending",
+      "authority": "PhD 12",
+      "sources": []
+    }
+  },
+  "topic": "La demanda civil bien planteada",
+  "centralThesis": "La pretensión precisa conecta hechos, prueba y petición.",
+  "problem": "¿Qué hecho decisivo debe aparecer en una demanda para que su petición tenga sentido?",
+  "reasoningChain": [
+    "Imagina que una persona reclama la devolución de dinero prestado.",
+    "Adjunta conversaciones, comprobantes y fotografías; sin embargo, mezcla la existencia del préstamo con otros conflictos personales.",
+    "¿Dónde está el problema?",
+    "Una demanda civil necesita una pretensión precisa, hechos ordenados, fundamento jurídico y una petición clara.",
+    "El Código Procesal Civil exige además identificar a las partes y acompañar la documentación relativa a la pretensión o indicar dónde se encuentra.",
+    "No basta adjuntar pruebas: hay que explicar qué demuestra cada una.",
+    "Si el préstamo fue transferido por banco, ese documento puede acreditar un movimiento de dinero; el origen y las condiciones de la obligación pueden requerir otros elementos."
+  ],
+  "conclusion": "La autoridad judicial examinará los requisitos de la demanda, y los defectos pueden tener consecuencias.",
+  "targetAudience": [
+    "personas con procesos civiles",
+    "abogados",
+    "empresas",
+    "estudiantes de Derecho"
+  ],
+  "capabilityDemonstrated": [
+    "razonamiento sobre la demanda civil bien planteada",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
+  ],
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
+  "offerPath": [
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
+  ],
+  "hook": "Una demanda puede ocupar treinta páginas y seguir sin decir claramente qué se pide.",
+  "closingIdea": "Antes de presentar el escrito, realiza esta prueba: ¿podría alguien identificar el hecho constitutivo, la obligación reclamada y el pronunciamiento solicitado sin adivinar nada?",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-012",
+    "sourceFileSha256": "67d70c4b3ab09ed069121efa4e40fb76f5e2954971d28851314a0d24bc601701",
+    "fullGuionSha256": "1aac072f1262c2470c2323359578a399f8643c4e8956cfc9cc49f3434c8cfa7a",
+    "fullGuionVerbatim": "Una demanda puede ocupar treinta páginas y seguir sin decir claramente qué se pide. Imagina que una persona reclama la devolución de dinero prestado. Adjunta conversaciones, comprobantes y fotografías; sin embargo, mezcla la existencia del préstamo con otros conflictos personales. ¿Dónde está el problema? Una demanda civil necesita una pretensión precisa, hechos ordenados, fundamento jurídico y una petición clara. El Código Procesal Civil exige además identificar a las partes y acompañar la documentación relativa a la pretensión o indicar dónde se encuentra. No basta adjuntar pruebas: hay que explicar qué demuestra cada una. Si el préstamo fue transferido por banco, ese documento puede acreditar un movimiento de dinero; el origen y las condiciones de la obligación pueden requerir otros elementos. La autoridad judicial examinará los requisitos de la demanda, y los defectos pueden tener consecuencias. Antes de presentar el escrito, realiza esta prueba: ¿podría alguien identificar el hecho constitutivo, la obligación reclamada y el pronunciamiento solicitado sin adivinar nada?",
+    "sourceFichaTitle": "La demanda civil bien planteada",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 110",
+      "Ley N.º 439, Código Procesal Civil art. 111",
+      "Ley N.º 439, Código Procesal Civil art. 113"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Vigencia consolidada y reformas de Ley 439 pendientes de verificación por PhD 12.",
+    "legalReviewStatus": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-012.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ]
+  }
+}

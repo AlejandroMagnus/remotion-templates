@@ -1,0 +1,101 @@
+[
+  {
+    "video": "011",
+    "topic": "Proceso ordinario civil por etapas",
+    "guion_words": 148,
+    "guion_sha256": "078383dec61a9c6169c7ae9d113b8429210ca1e3a9775e6fb44cba15948fd036",
+    "source_file_sha256": "dde2b7e1911c7d493a09ab290b9d66ea1aa47c0c26ac981e1fe8c1d3a61984a6",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "012",
+    "topic": "La demanda civil bien planteada",
+    "guion_words": 159,
+    "guion_sha256": "1aac072f1262c2470c2323359578a399f8643c4e8956cfc9cc49f3434c8cfa7a",
+    "source_file_sha256": "67d70c4b3ab09ed069121efa4e40fb76f5e2954971d28851314a0d24bc601701",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "013",
+    "topic": "Contestación de demanda",
+    "guion_words": 147,
+    "guion_sha256": "aebd6e44516042a7095f1798a53dcf524af0e44df95049d4aa0a6c4db21a34e1",
+    "source_file_sha256": "6655d08b5a04fbf6d39d0ebd2678bcb94111a2feb47da2a3ef966047e76d9b13",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "014",
+    "topic": "Excepciones procesales",
+    "guion_words": 149,
+    "guion_sha256": "1a51ee2d58fea2c3dbbdd2987b84e6b17bb43e01ce5b1f54667618903fe24ab6",
+    "source_file_sha256": "7a04e1dda9d19dc4d93477508228fbe317a8e9e90fe99b5f2d6f5768c139b1ae",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "016",
+    "topic": "Audiencia preliminar civil",
+    "guion_words": 153,
+    "guion_sha256": "a4a215f70af8156911a335ba3c28618a3aef22cedf82a938e9fe604ae1a3da36",
+    "source_file_sha256": "0310f33107aa1ffec570cc151e38c8e353e1d5a42c2c4c1ba906bc92ed5a6a7a",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "017",
+    "topic": "Sentencia civil motivada",
+    "guion_words": 150,
+    "guion_sha256": "315c42671a29814840bfc1e380c320a9344a61d9c7c7a6d8f2efc8fb325c5a53",
+    "source_file_sha256": "b8ddaff8ee39f2d312bcddb437d0fcde62e28cd7f3743ee078559769d5145529",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "018",
+    "topic": "Apelación civil",
+    "guion_words": 157,
+    "guion_sha256": "25488939edf3037ce72600b8173ccd94fa195540013439d66bfb509d7b39528b",
+    "source_file_sha256": "4fa89e9029929d7dfdd42f24cff5ce5ff5b8530c41442f85db85dacd84f6fb8c",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "019",
+    "topic": "Casación civil",
+    "guion_words": 153,
+    "guion_sha256": "0e41eac17c4a912d2b6c45357e9b198d9d4cedbf71ed2f257e468a84b2ece85b",
+    "source_file_sha256": "8553e13707eadc9d5a1ae52999a933c0bbbc157a9f8ca414d0a487cb33f73e51",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  },
+  {
+    "video": "020",
+    "topic": "Ejecución de sentencia civil",
+    "guion_words": 154,
+    "guion_sha256": "5520bf7ab100f7fb18ed344ae354b7abf67568ecc82f8ec179155a9abf16ba29",
+    "source_file_sha256": "b998798cc0a418c5dba12636ed722296ccdaa301b11491eb0793d1eedc123e75",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "legalReview": "pending",
+    "active_content_changed": false
+  }
+]

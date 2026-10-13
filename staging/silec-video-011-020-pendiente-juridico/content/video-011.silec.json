@@ -1,0 +1,103 @@
+{
+  "productionCode": "video-011",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Ley 439",
+      "Proceso ordinario civil por etapas"
+    ],
+    "intellectualContribution": "El éxito depende de decisiones oportunas en cada fase.",
+    "newAngle": {
+      "comparedWith": [
+        "video-015"
+      ],
+      "contribution": "recorrido-de-un-expediente: Expediente de incumplimiento contractual. Enfoque propio de proceso ordinario civil por etapas."
+    },
+    "legalReview": {
+      "status": "pending",
+      "authority": "PhD 12",
+      "sources": []
+    }
+  },
+  "topic": "Proceso ordinario civil por etapas",
+  "centralThesis": "El éxito depende de decisiones oportunas en cada fase.",
+  "problem": "¿Qué momento del proceso civil exige la decisión estratégica más importante?",
+  "reasoningChain": [
+    "Imaginemos un contrato incumplido: el acreedor reúne mensajes, facturas y una promesa de pago.",
+    "¿Los presenta todos y espera?",
+    "No basta.",
+    "En el proceso civil boliviano, la vía ordinaria exige verificar primero su procedencia y la conciliación previa cuando corresponda.",
+    "Después vienen la demanda, la citación y la respuesta de la otra parte.",
+    "La audiencia preliminar no es una ceremonia: permite depurar el conflicto, explorar soluciones y organizar lo que será probado.",
+    "La sentencia debe decidir sobre lo discutido y explicar el valor de la prueba.",
+    "Si existe un agravio, habrá que estudiar el recurso procedente.",
+    "Y ganar no equivale a cobrar: la ejecución tiene sus propias actuaciones."
+  ],
+  "conclusion": "La pregunta decisiva cambia en cada etapa.",
+  "targetAudience": [
+    "personas con procesos civiles",
+    "abogados",
+    "empresas",
+    "estudiantes de Derecho"
+  ],
+  "capabilityDemonstrated": [
+    "razonamiento sobre proceso ordinario civil por etapas",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
+  ],
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
+  "offerPath": [
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
+  ],
+  "hook": "Una demanda no es un juicio ganado; es el comienzo de una secuencia de decisiones.",
+  "closingIdea": "Antes de actuar, identifica qué hecho necesitas probar, qué decisión buscas y qué oportunidad procesal no puedes perder.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-011",
+    "sourceFileSha256": "dde2b7e1911c7d493a09ab290b9d66ea1aa47c0c26ac981e1fe8c1d3a61984a6",
+    "fullGuionSha256": "078383dec61a9c6169c7ae9d113b8429210ca1e3a9775e6fb44cba15948fd036",
+    "fullGuionVerbatim": "Una demanda no es un juicio ganado; es el comienzo de una secuencia de decisiones. Imaginemos un contrato incumplido: el acreedor reúne mensajes, facturas y una promesa de pago. ¿Los presenta todos y espera? No basta. En el proceso civil boliviano, la vía ordinaria exige verificar primero su procedencia y la conciliación previa cuando corresponda. Después vienen la demanda, la citación y la respuesta de la otra parte. La audiencia preliminar no es una ceremonia: permite depurar el conflicto, explorar soluciones y organizar lo que será probado. La sentencia debe decidir sobre lo discutido y explicar el valor de la prueba. Si existe un agravio, habrá que estudiar el recurso procedente. Y ganar no equivale a cobrar: la ejecución tiene sus propias actuaciones. La pregunta decisiva cambia en cada etapa. Antes de actuar, identifica qué hecho necesitas probar, qué decisión buscas y qué oportunidad procesal no puedes perder.",
+    "sourceFichaTitle": "Proceso ordinario civil por etapas",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 362",
+      "Ley N.º 439, Código Procesal Civil art. 363",
+      "Ley N.º 439, Código Procesal Civil art. 365",
+      "Ley N.º 439, Código Procesal Civil art. 366",
+      "Ley N.º 439, Código Procesal Civil art. 213",
+      "Ley N.º 439, Código Procesal Civil art. 261",
+      "Ley N.º 439, Código Procesal Civil art. 397"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Vigencia consolidada y reformas de Ley 439 pendientes de verificación por PhD 12.",
+    "legalReviewStatus": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-011.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ]
+  }
+}

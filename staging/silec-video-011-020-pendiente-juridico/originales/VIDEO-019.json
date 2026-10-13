@@ -1,0 +1,88 @@
+{
+  "id": "VIDEO-019",
+  "tema": "Casación civil",
+  "tesis": "La casación está limitada por procedencia y causales.",
+  "problema": "¿Qué diferencia la casación de intentar un segundo juicio de hechos?",
+  "microcaso": "Auto de vista aplica norma incorrecta",
+  "hook": "Un litigante pierde en segunda instancia y piensa: «Ahora contaré toda la historia otra vez».",
+  "guion": "Un litigante pierde en segunda instancia y piensa: «Ahora contaré toda la historia otra vez». Pero la casación civil no es una tercera oportunidad ilimitada para repetir argumentos. En Bolivia, su procedencia depende del tipo de resolución y de los casos previstos por ley. El recurso puede fundarse en violación, interpretación errónea o aplicación indebida de la ley. Los errores en valoración probatoria solo pueden denunciarse bajo las condiciones legales específicas. Imagina un auto de vista que aplica una norma a una relación contractual equivocada. El desafío no es reproducir veinte páginas de antecedentes, sino explicar qué norma se considera infringida, de qué modo ocurrió el error y por qué tuvo importancia decisiva. Las denuncias procesales también tienen condiciones particulares de relevancia y reclamación oportuna. Antes de escribir un recurso de casación, identifica si la resolución lo admite y cuál es exactamente la causal que puedes sostener. Una impugnación extraordinaria exige precisión extraordinaria.",
+  "cierre": "Una impugnación extraordinaria exige precisión extraordinaria.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "ruta": "frontera-del-recurso",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Situación humana concreta"
+    },
+    {
+      "orden": 2,
+      "visual": "Documento o conflicto central"
+    },
+    {
+      "orden": 3,
+      "visual": "Regla procesal con contexto"
+    },
+    {
+      "orden": 4,
+      "visual": "Límite o contraejemplo"
+    },
+    {
+      "orden": 5,
+      "visual": "Ruta de actuación y cierre"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "270",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "271",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "272",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "274",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    }
+  ],
+  "legalReview": {
+    "fechaCotejo": "2026-10-13",
+    "estado": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "afirmacionesCotejadas": [
+      "La Ley 439 regula la institución procesal indicada; los artículos citados son referencias identificadas en el texto institucional.",
+      "El guion evita citas jurisprudenciales no verificadas y no promete resultados."
+    ],
+    "advertencias": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "normas": [
+      "Ley N.º 439"
+    ],
+    "articulos": [
+      "270",
+      "271",
+      "272",
+      "274"
+    ],
+    "fuentesConsultadas": [
+      "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "https://www.wipo.int/wipolex/en/legislation/details/14924"
+    ],
+    "limitaciones": "Consulta institucional localizada por búsqueda web; no se descargó PDF completo ni se realizó cotejo línea a línea de todos los artículos o reformas. No se certifica vigencia consolidada.",
+    "jurisprudencia": "No citada ni necesaria para esta pieza divulgativa."
+  }
+}

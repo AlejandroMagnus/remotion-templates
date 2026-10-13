@@ -1,0 +1,109 @@
+{
+  "id": "VIDEO-011",
+  "tema": "Proceso ordinario civil por etapas",
+  "tesis": "El éxito depende de decisiones oportunas en cada fase.",
+  "problema": "¿Qué momento del proceso civil exige la decisión estratégica más importante?",
+  "microcaso": "Expediente de incumplimiento contractual",
+  "hook": "Una demanda no es un juicio ganado; es el comienzo de una secuencia de decisiones.",
+  "guion": "Una demanda no es un juicio ganado; es el comienzo de una secuencia de decisiones. Imaginemos un contrato incumplido: el acreedor reúne mensajes, facturas y una promesa de pago. ¿Los presenta todos y espera? No basta. En el proceso civil boliviano, la vía ordinaria exige verificar primero su procedencia y la conciliación previa cuando corresponda. Después vienen la demanda, la citación y la respuesta de la otra parte. La audiencia preliminar no es una ceremonia: permite depurar el conflicto, explorar soluciones y organizar lo que será probado. La sentencia debe decidir sobre lo discutido y explicar el valor de la prueba. Si existe un agravio, habrá que estudiar el recurso procedente. Y ganar no equivale a cobrar: la ejecución tiene sus propias actuaciones. La pregunta decisiva cambia en cada etapa. Antes de actuar, identifica qué hecho necesitas probar, qué decisión buscas y qué oportunidad procesal no puedes perder.",
+  "cierre": "Antes de actuar, identifica qué hecho necesitas probar, qué decisión buscas y qué oportunidad procesal no puedes perder.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "ruta": "recorrido-de-un-expediente",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Situación humana concreta"
+    },
+    {
+      "orden": 2,
+      "visual": "Documento o conflicto central"
+    },
+    {
+      "orden": 3,
+      "visual": "Regla procesal con contexto"
+    },
+    {
+      "orden": 4,
+      "visual": "Límite o contraejemplo"
+    },
+    {
+      "orden": 5,
+      "visual": "Ruta de actuación y cierre"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "362",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "363",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "365",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "366",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "213",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "261",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    },
+    {
+      "norma": "Ley N.º 439, Código Procesal Civil",
+      "articulo": "397",
+      "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "alcance": "Referencia legal principal; cotejo completo de reformas pendiente"
+    }
+  ],
+  "legalReview": {
+    "fechaCotejo": "2026-10-13",
+    "estado": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "afirmacionesCotejadas": [
+      "La Ley 439 regula la institución procesal indicada; los artículos citados son referencias identificadas en el texto institucional.",
+      "El guion evita citas jurisprudenciales no verificadas y no promete resultados."
+    ],
+    "advertencias": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "normas": [
+      "Ley N.º 439"
+    ],
+    "articulos": [
+      "362",
+      "363",
+      "365",
+      "366",
+      "213",
+      "261",
+      "397"
+    ],
+    "fuentesConsultadas": [
+      "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "https://www.wipo.int/wipolex/en/legislation/details/14924"
+    ],
+    "limitaciones": "Consulta institucional localizada por búsqueda web; no se descargó PDF completo ni se realizó cotejo línea a línea de todos los artículos o reformas. No se certifica vigencia consolidada.",
+    "jurisprudencia": "No citada ni necesaria para esta pieza divulgativa."
+  }
+}

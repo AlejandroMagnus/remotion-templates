@@ -1,0 +1,98 @@
+{
+  "productionCode": "video-013",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso civil",
+      "Ley 439",
+      "Contestación de demanda"
+    ],
+    "intellectualContribution": "La negativa genérica no sustituye la respuesta específica.",
+    "newAngle": {
+      "comparedWith": [
+        "video-015"
+      ],
+      "contribution": "simulacion-de-contestacion: Empresa discute factura y entrega. Enfoque propio de contestación de demanda."
+    },
+    "legalReview": {
+      "status": "pending",
+      "authority": "PhD 12",
+      "sources": []
+    }
+  },
+  "topic": "Contestación de demanda",
+  "centralThesis": "La negativa genérica no sustituye la respuesta específica.",
+  "problem": "¿Qué puede perder quien contesta una demanda sin distinguir admisiones, negativas y excepciones?",
+  "reasoningChain": [
+    "Su primera reacción es escribir: «Niego todo».",
+    "Parece una defensa firme, pero puede ser una respuesta peligrosa.",
+    "En el proceso civil boliviano, contestar exige pronunciarse sobre los hechos alegados y sobre los documentos cuya autoría se atribuye a la parte demandada.",
+    "La falta de respuesta específica puede producir consecuencias procesales, según el supuesto legal.",
+    "Imaginemos una factura acompañada de un correo: la empresa acepta la recepción del producto, pero discute su calidad y el monto cobrado.",
+    "Negarlo todo impide distinguir lo que realmente está en controversia.",
+    "La contestación debe separar los hechos admitidos, los negados, la explicación alternativa y la prueba correspondiente.",
+    "También exige valorar, si proceden, excepciones o reconvención en su oportunidad procesal."
+  ],
+  "conclusion": "Una defensa no se fortalece con el volumen del escrito.",
+  "targetAudience": [
+    "personas con procesos civiles",
+    "abogados",
+    "empresas",
+    "estudiantes de Derecho"
+  ],
+  "capabilityDemonstrated": [
+    "razonamiento sobre contestación de demanda",
+    "selección del hecho decisivo",
+    "ordenamiento probatorio",
+    "identificación de riesgos procesales"
+  ],
+  "commercialObjective": "Comunicar conocimiento jurídico útil y criterio profesional sin prometer resultados.",
+  "offerPath": [
+    "educación jurídica",
+    "comprensión de riesgos",
+    "evaluación individual profesional"
+  ],
+  "hook": "A una empresa le llega una demanda.",
+  "closingIdea": "Se fortalece cuando cada afirmación de la demanda recibe una respuesta jurídicamente pensada y probatoriamente sostenible.",
+  "cta": "Para un caso concreto, consulta la norma y el expediente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-013",
+    "sourceFileSha256": "6655d08b5a04fbf6d39d0ebd2678bcb94111a2feb47da2a3ef966047e76d9b13",
+    "fullGuionSha256": "aebd6e44516042a7095f1798a53dcf524af0e44df95049d4aa0a6c4db21a34e1",
+    "fullGuionVerbatim": "A una empresa le llega una demanda. Su primera reacción es escribir: «Niego todo». Parece una defensa firme, pero puede ser una respuesta peligrosa. En el proceso civil boliviano, contestar exige pronunciarse sobre los hechos alegados y sobre los documentos cuya autoría se atribuye a la parte demandada. La falta de respuesta específica puede producir consecuencias procesales, según el supuesto legal. Imaginemos una factura acompañada de un correo: la empresa acepta la recepción del producto, pero discute su calidad y el monto cobrado. Negarlo todo impide distinguir lo que realmente está en controversia. La contestación debe separar los hechos admitidos, los negados, la explicación alternativa y la prueba correspondiente. También exige valorar, si proceden, excepciones o reconvención en su oportunidad procesal. Una defensa no se fortalece con el volumen del escrito. Se fortalece cuando cada afirmación de la demanda recibe una respuesta jurídicamente pensada y probatoriamente sostenible.",
+    "sourceFichaTitle": "Contestación de demanda",
+    "sourceNormas": [
+      "Ley N.º 439, Código Procesal Civil art. 125",
+      "Ley N.º 439, Código Procesal Civil art. 126",
+      "Ley N.º 439, Código Procesal Civil art. 128"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Situación humana concreta",
+      "Documento o conflicto central",
+      "Regla procesal con contexto",
+      "Límite o contraejemplo",
+      "Ruta de actuación y cierre"
+    ],
+    "sourceRisk": "Vigencia consolidada y reformas de Ley 439 pendientes de verificación por PhD 12.",
+    "legalReviewStatus": "REVISIÓN JURÍDICA CONDICIONADA — NO PUBLICAR SIN CONTROL DE VIGENCIA",
+    "approvedForRender": false,
+    "publicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_011_020_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Texto cotejado con referencias institucionales de Ley 439; no se verificó integralmente normativa modificatoria hasta 13/10/2026. Revisión de vigencia consolidada pendiente antes de publicación.",
+      "Verificar versión consolidada, excepciones y régimen especial antes de aprobación editorial definitiva."
+    ],
+    "sourceLegalEvidence": "staging/silec-video-011-020-pendiente-juridico/originales/VIDEO-013.json",
+    "additionalNotes": [
+      "Adaptación técnica para staging; no equivale a liberación jurídica.",
+      "Ninguna ruta de producción activa fue modificada."
+    ]
+  }
+}
