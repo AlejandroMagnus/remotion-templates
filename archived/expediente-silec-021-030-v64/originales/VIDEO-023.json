@@ -1,0 +1,85 @@
+{
+  "id": "VIDEO-023",
+  "tema": "Embargo y medidas de aseguramiento",
+  "tesis": "Identificar finalidad, proporcionalidad y límites.",
+  "problema": "¿Puede un embargo proteger un crédito sin justificar cualquier afectación patrimonial?",
+  "microcaso": "Un acreedor pide asegurar bienes de un deudor.",
+  "hook": "Imagina que una persona debe una suma importante y comienza a vender sus bienes.",
+  "guion": "Imagina que una persona debe una suma importante y comienza a vender sus bienes. El acreedor pregunta si puede pedir un embargo. La intuición dice: «Hay que actuar antes de que desaparezca todo». Pero una medida patrimonial no es un castigo anticipado. Su fundamento, oportunidad y alcance dependen de la vía procesal y de los requisitos legales. En ciertos procesos ejecutivos, el embargo puede acompañar la sentencia inicial; en otros supuestos debe analizarse como medida cautelar. No basta señalar una deuda y escoger cualquier patrimonio. Hay que identificar bienes, relación con la obligación, posibles derechos de terceros y límites legales. También importa si la medida es necesaria o excesiva respecto de lo reclamado. Embargar no equivale a cobrar: puede asegurar bienes mientras siguen pendientes controversias o actuaciones de ejecución. La mejor estrategia protege el crédito sin convertir una medida judicial en abuso. Una defensa sólida pregunta tanto por el derecho del acreedor como por la legitimidad de la afectación.",
+  "cierre": "Una defensa sólida pregunta tanto por el derecho del acreedor como por la legitimidad de la afectación.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "equilibrio-de-medidas",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Bien registrable y riesgo de transferencia"
+    },
+    {
+      "orden": 2,
+      "visual": "Dos vías visuales: cautelar versus ejecución"
+    },
+    {
+      "orden": 3,
+      "visual": "Balanza proporcionalidad y derechos de terceros"
+    },
+    {
+      "orden": 4,
+      "visual": "Cadena embargo no igual pago"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "310",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "380",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "408",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "411",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "412",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      310,
+      380,
+      408,
+      411,
+      412
+    ]
+  }
+}

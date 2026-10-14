@@ -1,0 +1,78 @@
+{
+  "id": "VIDEO-026",
+  "tema": "Letras de cambio y pagarés",
+  "tesis": "Aspectos formales, circulación y controversia a verificar.",
+  "problema": "¿Qué debe comprobarse antes de aceptar un pagaré como garantía?",
+  "microcaso": "Un negocio recibe un documento cambiario con datos incompletos.",
+  "hook": "Una tienda entrega mercadería y recibe un pagaré con espacios vacíos.",
+  "guion": "Una tienda entrega mercadería y recibe un pagaré con espacios vacíos. Al mes siguiente, el cliente deja de responder. El comerciante afirma: «Tengo un papel firmado; puedo cobrar sin problemas». Cuidado. Una letra de cambio y un pagaré son títulos valores, pero no funcionan de la misma manera. La letra contiene una orden de pago en las condiciones legales; el pagaré expresa una promesa de pagar. Cada instrumento exige menciones y formalidades determinadas por el Código de Comercio. En el pagaré importan, entre otros elementos, la obligación de pagar una suma, la identificación del beneficiario, las fechas y la firma, sin perder de vista las salvedades que contempla la ley. Para el pagaré, el artículo 598 regula el protesto por falta de pago y su fuerza ejecutiva; también deben comprobarse las salvedades legales y el régimen aplicable. Un espacio en blanco exige verificar si la ley prevé una salvedad o si compromete la eficacia del título. El pagaré en blanco no equivale a un pagaré correctamente emitido. Antes de aceptar un título valor, revisa sus requisitos y guarda el respaldo del negocio. Cobrar comienza mucho antes del incumplimiento: comienza cuando recibes el documento correcto.",
+  "cierre": "Cobrar comienza mucho antes del incumplimiento: comienza cuando recibes el documento correcto.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "inspeccion-de-titulo",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Tienda y entrega de mercadería"
+    },
+    {
+      "orden": 2,
+      "visual": "Pagaré incompleto en primer plano"
+    },
+    {
+      "orden": 3,
+      "visual": "Comparación letra: orden / pagaré: promesa"
+    },
+    {
+      "orden": 4,
+      "visual": "Checklist formal antes de aceptar título"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "DL 14379",
+      "articulo": "592",
+      "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "DL 14379",
+      "articulo": "595",
+      "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "DL 14379",
+      "articulo": "598",
+      "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "DL 14379",
+      "articulo": "599",
+      "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf"
+    ],
+    "normasArticulos": [
+      592,
+      595,
+      598,
+      599
+    ]
+  }
+}

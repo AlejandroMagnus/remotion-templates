@@ -2,7 +2,7 @@
   "productionCode": "video-024",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,112 @@
       "cobranza y ejecución",
       "Excepciones en proceso ejecutivo"
     ],
-    "intellectualContribution": "Explica Excepciones en proceso ejecutivo desde su utilidad operativa concreta: cómo se defiende el ejecutado.",
+    "intellectualContribution": "Distinguir defensas y efectos según la normativa revisada.",
     "newAngle": {
       "comparedWith": [
         "video-023"
       ],
-      "contribution": "Diferencia Excepciones en proceso ejecutivo por su problema específico: confundir excepciones en proceso ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "tablero-defensa-ejecutiva: Se inicia ejecución y aparecen posibles causas de oposición."
     }
   },
   "topic": "Excepciones en proceso ejecutivo",
-  "centralThesis": "Excepciones en proceso ejecutivo exige dominar cómo se defiende el ejecutado; su valor práctico está en transformar cómo se defiende el ejecutado en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Excepciones en proceso ejecutivo es confundir excepciones en proceso ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Distinguir defensas y efectos según la normativa revisada.",
+  "problem": "¿Cómo se defiende un deudor dentro de un proceso ejecutivo?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Excepciones en proceso ejecutivo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir excepciones en proceso ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre excepciones en proceso ejecutivo, con una ruta de seguimiento y ejecución posible."
+    "Guardas comprobantes de dos pagos que el acreedor no descontó.",
+    "¿Tu defensa consiste en negar todo?",
+    "Esa reacción puede perjudicarte.",
+    "El proceso ejecutivo tiene excepciones legalmente previstas y exige actuar en su oportunidad, con argumentos claros y respaldo probatorio.",
+    "Entre las posibles defensas figura el pago documentado, pero no cualquier desacuerdo permite discutir ilimitadamente el origen del negocio.",
+    "También pueden existir objeciones sobre fuerza ejecutiva, prescripción u otras materias admitidas por la ley, según el título y el caso.",
+    "La tarea comienza comparando el documento presentado con los recibos, las fechas y el monto exigido.",
+    "Después se identifica la excepción realmente pertinente y la prueba que la sostiene.",
+    "Una defensa sin documentos puede ser tan débil como una demanda sin título."
   ],
-  "conclusion": "Excepciones en proceso ejecutivo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Tampoco debe suponerse que formular una excepción paraliza definitivamente la ejecución.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de excepciones en proceso ejecutivo",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de excepciones en proceso ejecutivo",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Excepciones en proceso ejecutivo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Excepciones en proceso ejecutivo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Te notifican una demanda ejecutiva por setenta mil bolivianos.",
+  "closingIdea": "Antes de responder, reconstruye la historia del dinero: pagar, probar y defenderse son tres actos distintos.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-024",
+    "sourceFileSha256": "101dd9152c63c889cceddbb8c955dfed575d72e61881f24ba8c58e9f629331c2",
+    "fullGuionSha256": "ccd2f85d595bafdfecab05c5eb517bde6bd7b9b46155ccfa5ae5bdd9117c83ea",
+    "fullGuionVerbatim": "Te notifican una demanda ejecutiva por setenta mil bolivianos. Guardas comprobantes de dos pagos que el acreedor no descontó. ¿Tu defensa consiste en negar todo? Esa reacción puede perjudicarte. El proceso ejecutivo tiene excepciones legalmente previstas y exige actuar en su oportunidad, con argumentos claros y respaldo probatorio. Entre las posibles defensas figura el pago documentado, pero no cualquier desacuerdo permite discutir ilimitadamente el origen del negocio. También pueden existir objeciones sobre fuerza ejecutiva, prescripción u otras materias admitidas por la ley, según el título y el caso. La tarea comienza comparando el documento presentado con los recibos, las fechas y el monto exigido. Después se identifica la excepción realmente pertinente y la prueba que la sostiene. Una defensa sin documentos puede ser tan débil como una demanda sin título. Tampoco debe suponerse que formular una excepción paraliza definitivamente la ejecución. Antes de responder, reconstruye la historia del dinero: pagar, probar y defenderse son tres actos distintos.",
+    "sourceFichaTitle": "Excepciones en proceso ejecutivo",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "381",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "382",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "383",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "385",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "386",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Notificación ejecutiva sobre una mesa",
+      "Recibos y saldo reclamado resaltado",
+      "Mapa corto de excepciones legales",
+      "Cronología de pagos y defensa"
+    ],
+    "sourceRisk": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-024.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

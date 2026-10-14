@@ -2,7 +2,7 @@
   "productionCode": "video-028",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,106 @@
       "cobranza y ejecución",
       "Ejecución coactiva"
     ],
-    "intellectualContribution": "Explica Ejecución coactiva desde su utilidad operativa concreta: diferencias básicas con el proceso ejecutivo ordinario.",
+    "intellectualContribution": "Distinguir presupuestos y título habilitante.",
     "newAngle": {
       "comparedWith": [
         "video-027"
       ],
-      "contribution": "Diferencia Ejecución coactiva por su problema específico: confundir ejecución coactiva con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "comparativa-de-vias: Dos acreedores intentan utilizar procesos distintos para obligaciones diferentes."
     }
   },
   "topic": "Ejecución coactiva",
-  "centralThesis": "Ejecución coactiva exige dominar diferencias básicas con el proceso ejecutivo ordinario; su valor práctico está en transformar diferencias básicas con el proceso ejecutivo ordinario en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Ejecución coactiva es confundir ejecución coactiva con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Distinguir presupuestos y título habilitante.",
+  "problem": "¿Qué distingue la ejecución coactiva de otras vías de cobro?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Ejecución coactiva: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir ejecución coactiva con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre ejecución coactiva, con una ruta de seguimiento y ejecución posible."
+    "Uno tiene un documento privado; otro, una garantía hipotecaria inscrita con estipulaciones especiales.",
+    "¿Pueden utilizar exactamente el mismo proceso?",
+    "No necesariamente.",
+    "La legislación boliviana distingue el proceso ejecutivo de la ejecución coactiva de sumas de dinero.",
+    "La segunda vía exige títulos expresamente previstos por la ley y una obligación líquida y exigible.",
+    "Entre los supuestos normativos pueden encontrarse determinados créditos prendarios o hipotecarios inscritos con renuncia al trámite ejecutivo, además de otros títulos señalados en el Código Procesal Civil.",
+    "La autoridad judicial debe examinar esa fuerza coactiva; no basta escribir «hipoteca» en un contrato.",
+    "También existen excepciones específicas para la parte coactivada y reglas particulares para la ejecución.",
+    "La elección de la vía depende del documento, no de la impaciencia del acreedor."
   ],
-  "conclusion": "Ejecución coactiva se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de iniciar, revisa inscripción, cláusulas, exigibilidad y monto.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de ejecución coactiva",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de ejecución coactiva",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Ejecución coactiva: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Ejecución coactiva, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Dos acreedores quieren recuperar cincuenta mil bolivianos.",
+  "closingIdea": "Una vía procesal más intensa exige un título jurídicamente apto, no una afirmación más enérgica.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-028",
+    "sourceFileSha256": "dde45a328a2ddac37a7bc5157b4c5ca5639a71bbd25e98f586585a619773cc5a",
+    "fullGuionSha256": "c77e491a488d2830ae39d8b5e2e927257588b4cad6f95d7c723bc03f1519506d",
+    "fullGuionVerbatim": "Dos acreedores quieren recuperar cincuenta mil bolivianos. Uno tiene un documento privado; otro, una garantía hipotecaria inscrita con estipulaciones especiales. ¿Pueden utilizar exactamente el mismo proceso? No necesariamente. La legislación boliviana distingue el proceso ejecutivo de la ejecución coactiva de sumas de dinero. La segunda vía exige títulos expresamente previstos por la ley y una obligación líquida y exigible. Entre los supuestos normativos pueden encontrarse determinados créditos prendarios o hipotecarios inscritos con renuncia al trámite ejecutivo, además de otros títulos señalados en el Código Procesal Civil. La autoridad judicial debe examinar esa fuerza coactiva; no basta escribir «hipoteca» en un contrato. También existen excepciones específicas para la parte coactivada y reglas particulares para la ejecución. La elección de la vía depende del documento, no de la impaciencia del acreedor. Antes de iniciar, revisa inscripción, cláusulas, exigibilidad y monto. Una vía procesal más intensa exige un título jurídicamente apto, no una afirmación más enérgica.",
+    "sourceFichaTitle": "Ejecución coactiva",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "404",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "408",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "409",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "410",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Dos carpetas idénticas con títulos diferentes",
+      "Comparación proceso ejecutivo / coactiva",
+      "Zoom sobre inscripción y cláusula",
+      "Control judicial de requisitos"
+    ],
+    "sourceRisk": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-028.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

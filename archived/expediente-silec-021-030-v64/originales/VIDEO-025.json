@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-025",
+  "tema": "Reconocimiento de deuda",
+  "tesis": "Prevención contractual y probatoria.",
+  "problema": "¿Qué riesgo aparece cuando alguien firma un reconocimiento de deuda ambiguo?",
+  "microcaso": "Una persona firma un documento sin precisar origen, monto o vencimiento.",
+  "hook": "Una firma puede resolver una controversia o crear otra.",
+  "guion": "Una firma puede resolver una controversia o crear otra. Pedro recibe un documento que dice: «Reconozco deber ochenta mil bolivianos». Lo firma apresuradamente para terminar una discusión. Meses después descubre que allí no se precisa con claridad el origen de la obligación ni se reflejan pagos anteriores. ¿Basta el papel para exigir cualquier cantidad? La respuesta requiere examinar el contenido, las circunstancias de suscripción, la forma del reconocimiento y los medios de prueba. En Bolivia, ciertos documentos privados pueden adquirir eficacia ejecutiva conforme a requisitos específicos. Pero reconocer una suma no elimina automáticamente todas las defensas posibles ni transforma cualquier texto ambiguo en un título perfecto. Antes de firmar, identifica a las partes, el motivo de la deuda, el monto real, la moneda, el vencimiento, los pagos previos y las condiciones de cumplimiento. Si ya firmaste, conserva conversaciones, transferencias y recibos; podrían ser relevantes para interpretar o controvertir la obligación. En derecho patrimonial, la precisión no es un lujo de redacción: puede definir años de conflicto.",
+  "cierre": "En derecho patrimonial, la precisión no es un lujo de redacción: puede definir años de conflicto.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "lectura-de-documento",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Firma sobre documento incompleto"
+    },
+    {
+      "orden": 2,
+      "visual": "Elementos monto/origen/vencimiento/pagos"
+    },
+    {
+      "orden": 3,
+      "visual": "Recibos reales contrastados con documento"
+    },
+    {
+      "orden": 4,
+      "visual": "Documento final legible y ordenado"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "378",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "379",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "380",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      378,
+      379,
+      380
+    ]
+  }
+}

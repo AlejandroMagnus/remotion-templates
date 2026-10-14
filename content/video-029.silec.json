@@ -2,7 +2,7 @@
   "productionCode": "video-029",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,98 @@
       "cobranza y ejecución",
       "Riesgos de prestar dinero sin respaldo"
     ],
-    "intellectualContribution": "Explica Riesgos de prestar dinero sin respaldo desde su utilidad operativa concreta: qué prueba debe existir antes de entregar dinero.",
+    "intellectualContribution": "Prevención y riesgos probatorios sin prometer recuperación.",
     "newAngle": {
       "comparedWith": [
         "video-028"
       ],
-      "contribution": "Diferencia Riesgos de prestar dinero sin respaldo por su problema específico: confundir riesgos de prestar dinero sin respaldo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "rastreo-de-operacion: Dinero transferido entre familiares termina en disputa sobre su finalidad."
     }
   },
   "topic": "Riesgos de prestar dinero sin respaldo",
-  "centralThesis": "Riesgos de prestar dinero sin respaldo exige dominar qué prueba debe existir antes de entregar dinero; su valor práctico está en transformar qué prueba debe existir antes de entregar dinero en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Riesgos de prestar dinero sin respaldo es confundir riesgos de prestar dinero sin respaldo con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Prevención y riesgos probatorios sin prometer recuperación.",
+  "problem": "¿Cómo demostrar un préstamo cuando nunca se documentó correctamente?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Riesgos de prestar dinero sin respaldo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir riesgos de prestar dinero sin respaldo con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre riesgos de prestar dinero sin respaldo, con una ruta de seguimiento y ejecución posible."
+    "Cuando el dinero no vuelve, aparece la pregunta incómoda: «¿Fue un préstamo, una ayuda o el pago de otra obligación?».",
+    "El comprobante demuestra un movimiento de dinero, pero puede no explicar por sí solo su causa.",
+    "Ese es el riesgo de prestar sin documentar.",
+    "Una conversación sobre devolución, un mensaje con el plazo acordado, depósitos parciales o testigos pueden adquirir importancia probatoria según el caso y las reglas aplicables.",
+    "Sin embargo, tampoco basta reunir capturas sin contexto y asumir que todas tendrán idéntico valor.",
+    "Lo recomendable, antes de entregar dinero, es precisar monto, partes, carácter del préstamo, fecha y forma de devolución.",
+    "Si el conflicto ya existe, conserva los mensajes originales y construye una cronología verificable: acuerdo, desembolso, vencimiento, requerimientos y pagos."
   ],
-  "conclusion": "Riesgos de prestar dinero sin respaldo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "A veces habrá una vía procesal útil; otras, el debate será más complejo.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de riesgos de prestar dinero sin respaldo",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de riesgos de prestar dinero sin respaldo",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Riesgos de prestar dinero sin respaldo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Riesgos de prestar dinero sin respaldo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una transferencia bancaria muestra veinte mil bolivianos enviados a un familiar.",
+  "closingIdea": "La confianza personal no debería impedir una documentación respetuosa y clara de las obligaciones patrimoniales.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-029",
+    "sourceFileSha256": "33e22b7a5c11584d4c684788b05fa6b88900f882943189b896cfe631ace258ae",
+    "fullGuionSha256": "e7bbcbcf30bced7587a8fb0b457c4174ca24d3c3b48ba60f8d6d84c479badcf3",
+    "fullGuionVerbatim": "Una transferencia bancaria muestra veinte mil bolivianos enviados a un familiar. Cuando el dinero no vuelve, aparece la pregunta incómoda: «¿Fue un préstamo, una ayuda o el pago de otra obligación?». El comprobante demuestra un movimiento de dinero, pero puede no explicar por sí solo su causa. Ese es el riesgo de prestar sin documentar. Una conversación sobre devolución, un mensaje con el plazo acordado, depósitos parciales o testigos pueden adquirir importancia probatoria según el caso y las reglas aplicables. Sin embargo, tampoco basta reunir capturas sin contexto y asumir que todas tendrán idéntico valor. Lo recomendable, antes de entregar dinero, es precisar monto, partes, carácter del préstamo, fecha y forma de devolución. Si el conflicto ya existe, conserva los mensajes originales y construye una cronología verificable: acuerdo, desembolso, vencimiento, requerimientos y pagos. A veces habrá una vía procesal útil; otras, el debate será más complejo. La confianza personal no debería impedir una documentación respetuosa y clara de las obligaciones patrimoniales.",
+    "sourceFichaTitle": "Riesgos de prestar dinero sin respaldo",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "110",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "378",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "379",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Transferencia digital con motivo sin especificar",
+      "Tres hipótesis préstamo/ayuda/otro pago",
+      "Cronología: acuerdo, entrega, vencimiento",
+      "Documento de préstamo claro, prevención"
+    ],
+    "sourceRisk": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-029.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

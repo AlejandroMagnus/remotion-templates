@@ -2,7 +2,7 @@
   "productionCode": "video-025",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,99 @@
       "cobranza y ejecución",
       "Reconocimiento de deuda"
     ],
-    "intellectualContribution": "Explica Reconocimiento de deuda desde su utilidad operativa concreta: cómo redactarlo para que sirva realmente en juicio.",
+    "intellectualContribution": "Prevención contractual y probatoria.",
     "newAngle": {
       "comparedWith": [
         "video-024"
       ],
-      "contribution": "Diferencia Reconocimiento de deuda por su problema específico: confundir reconocimiento de deuda con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "lectura-de-documento: Una persona firma un documento sin precisar origen, monto o vencimiento."
     }
   },
   "topic": "Reconocimiento de deuda",
-  "centralThesis": "Reconocimiento de deuda exige dominar cómo redactarlo para que sirva realmente en juicio; su valor práctico está en transformar cómo redactarlo para que sirva realmente en juicio en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Reconocimiento de deuda es confundir reconocimiento de deuda con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Prevención contractual y probatoria.",
+  "problem": "¿Qué riesgo aparece cuando alguien firma un reconocimiento de deuda ambiguo?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Reconocimiento de deuda: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir reconocimiento de deuda con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre reconocimiento de deuda, con una ruta de seguimiento y ejecución posible."
+    "Pedro recibe un documento que dice: «Reconozco deber ochenta mil bolivianos».",
+    "Lo firma apresuradamente para terminar una discusión.",
+    "Meses después descubre que allí no se precisa con claridad el origen de la obligación ni se reflejan pagos anteriores.",
+    "¿Basta el papel para exigir cualquier cantidad?",
+    "La respuesta requiere examinar el contenido, las circunstancias de suscripción, la forma del reconocimiento y los medios de prueba.",
+    "En Bolivia, ciertos documentos privados pueden adquirir eficacia ejecutiva conforme a requisitos específicos.",
+    "Pero reconocer una suma no elimina automáticamente todas las defensas posibles ni transforma cualquier texto ambiguo en un título perfecto.",
+    "Antes de firmar, identifica a las partes, el motivo de la deuda, el monto real, la moneda, el vencimiento, los pagos previos y las condiciones de cumplimiento."
   ],
-  "conclusion": "Reconocimiento de deuda se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Si ya firmaste, conserva conversaciones, transferencias y recibos; podrían ser relevantes para interpretar o controvertir la obligación.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de reconocimiento de deuda",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de reconocimiento de deuda",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Reconocimiento de deuda: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Reconocimiento de deuda, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una firma puede resolver una controversia o crear otra.",
+  "closingIdea": "En derecho patrimonial, la precisión no es un lujo de redacción: puede definir años de conflicto.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-025",
+    "sourceFileSha256": "9fe0d222d05f14e26a46e09b279a9d39f65ba3074645a0f0773cd8047289ea88",
+    "fullGuionSha256": "2d3ed4f1644afc9515dc08b82427b85b97e21e2ee2127a7ed3d3e59b1919d8da",
+    "fullGuionVerbatim": "Una firma puede resolver una controversia o crear otra. Pedro recibe un documento que dice: «Reconozco deber ochenta mil bolivianos». Lo firma apresuradamente para terminar una discusión. Meses después descubre que allí no se precisa con claridad el origen de la obligación ni se reflejan pagos anteriores. ¿Basta el papel para exigir cualquier cantidad? La respuesta requiere examinar el contenido, las circunstancias de suscripción, la forma del reconocimiento y los medios de prueba. En Bolivia, ciertos documentos privados pueden adquirir eficacia ejecutiva conforme a requisitos específicos. Pero reconocer una suma no elimina automáticamente todas las defensas posibles ni transforma cualquier texto ambiguo en un título perfecto. Antes de firmar, identifica a las partes, el motivo de la deuda, el monto real, la moneda, el vencimiento, los pagos previos y las condiciones de cumplimiento. Si ya firmaste, conserva conversaciones, transferencias y recibos; podrían ser relevantes para interpretar o controvertir la obligación. En derecho patrimonial, la precisión no es un lujo de redacción: puede definir años de conflicto.",
+    "sourceFichaTitle": "Reconocimiento de deuda",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "378",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "379",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "380",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Firma sobre documento incompleto",
+      "Elementos monto/origen/vencimiento/pagos",
+      "Recibos reales contrastados con documento",
+      "Documento final legible y ordenado"
+    ],
+    "sourceRisk": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-025.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

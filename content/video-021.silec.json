@@ -2,7 +2,7 @@
   "productionCode": "video-021",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,106 @@
       "cobranza y ejecución",
       "Proceso ejecutivo"
     ],
-    "intellectualContribution": "Explica Proceso ejecutivo desde su utilidad operativa concreta: qué documento permite demandar y qué se busca lograr.",
+    "intellectualContribution": "Distinguir título y presupuestos de la vía.",
     "newAngle": {
       "comparedWith": [
         "video-020"
       ],
-      "contribution": "Diferencia Proceso ejecutivo por su problema específico: confundir proceso ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "evaluacion-del-documento: Un acreedor presenta un documento de deuda y quiere cobrar inmediatamente."
     }
   },
   "topic": "Proceso ejecutivo",
-  "centralThesis": "Proceso ejecutivo exige dominar qué documento permite demandar y qué se busca lograr; su valor práctico está en transformar qué documento permite demandar y qué se busca lograr en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Proceso ejecutivo es confundir proceso ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Distinguir título y presupuestos de la vía.",
+  "problem": "¿Cuándo un cobro puede tramitarse por una vía ejecutiva?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Proceso ejecutivo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir proceso ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre proceso ejecutivo, con una ruta de seguimiento y ejecución posible."
+    "Han pasado meses.",
+    "Su administrador pregunta: «¿Podemos cobrar mediante un proceso ejecutivo?».",
+    "La respuesta no depende únicamente de cuánto le deben.",
+    "En Bolivia, esa vía exige un título reconocido por la ley del que resulte una obligación de pagar una suma líquida y exigible.",
+    "Primero se examina el documento: su naturaleza, el vencimiento y quién debe pagar.",
+    "Después se comprueba la competencia del juzgado y el respaldo de la cantidad reclamada.",
+    "Si concurren los presupuestos legales, el proceso puede comenzar con una sentencia inicial, pero la persona demandada conserva vías de oposición.",
+    "Un pago previo o un defecto del título pueden cambiar el resultado.",
+    "Y aun con una sentencia, hacer efectivo el cobro requiere actuaciones posteriores."
   ],
-  "conclusion": "Proceso ejecutivo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de reclamar judicialmente, ordena contrato, desembolsos, vencimientos y pagos recibidos.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de proceso ejecutivo",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de proceso ejecutivo",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Proceso ejecutivo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Proceso ejecutivo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una empresa prestó ciento veinte mil bolivianos y conserva un contrato firmado.",
+  "closingIdea": "Un buen cobro no empieza con una amenaza: empieza identificando si el documento permite la vía que pretendes usar.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-021",
+    "sourceFileSha256": "6b1936bc56f0b4542eab3680e35e9d3d9288bec10ddd0359d84578452294c93d",
+    "fullGuionSha256": "3ce8b0cd6ca9f912e55d0c21bd541b13b6e2b0ae81261e1e4e3fefd2d0c24425",
+    "fullGuionVerbatim": "Una empresa prestó ciento veinte mil bolivianos y conserva un contrato firmado. Han pasado meses. Su administrador pregunta: «¿Podemos cobrar mediante un proceso ejecutivo?». La respuesta no depende únicamente de cuánto le deben. En Bolivia, esa vía exige un título reconocido por la ley del que resulte una obligación de pagar una suma líquida y exigible. Primero se examina el documento: su naturaleza, el vencimiento y quién debe pagar. Después se comprueba la competencia del juzgado y el respaldo de la cantidad reclamada. Si concurren los presupuestos legales, el proceso puede comenzar con una sentencia inicial, pero la persona demandada conserva vías de oposición. Un pago previo o un defecto del título pueden cambiar el resultado. Y aun con una sentencia, hacer efectivo el cobro requiere actuaciones posteriores. Antes de reclamar judicialmente, ordena contrato, desembolsos, vencimientos y pagos recibidos. Un buen cobro no empieza con una amenaza: empieza identificando si el documento permite la vía que pretendes usar.",
+    "sourceFichaTitle": "Proceso ejecutivo",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "375",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "378",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "379",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "380",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Mesa de administración con contrato y calendario vencido",
+      "Primer plano documento / deuda líquida / exigible, sin afirmar cualidades no comprobadas",
+      "Diagrama de título → examen judicial → defensa → ejecución",
+      "Cierre con carpeta probatoria ordenada"
+    ],
+    "sourceRisk": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-021.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

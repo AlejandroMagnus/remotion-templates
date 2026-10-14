@@ -1,0 +1,78 @@
+{
+  "id": "VIDEO-021",
+  "tema": "Proceso ejecutivo",
+  "tesis": "Distinguir título y presupuestos de la vía.",
+  "problema": "¿Cuándo un cobro puede tramitarse por una vía ejecutiva?",
+  "microcaso": "Un acreedor presenta un documento de deuda y quiere cobrar inmediatamente.",
+  "hook": "Una empresa prestó ciento veinte mil bolivianos y conserva un contrato firmado.",
+  "guion": "Una empresa prestó ciento veinte mil bolivianos y conserva un contrato firmado. Han pasado meses. Su administrador pregunta: «¿Podemos cobrar mediante un proceso ejecutivo?». La respuesta no depende únicamente de cuánto le deben. En Bolivia, esa vía exige un título reconocido por la ley del que resulte una obligación de pagar una suma líquida y exigible. Primero se examina el documento: su naturaleza, el vencimiento y quién debe pagar. Después se comprueba la competencia del juzgado y el respaldo de la cantidad reclamada. Si concurren los presupuestos legales, el proceso puede comenzar con una sentencia inicial, pero la persona demandada conserva vías de oposición. Un pago previo o un defecto del título pueden cambiar el resultado. Y aun con una sentencia, hacer efectivo el cobro requiere actuaciones posteriores. Antes de reclamar judicialmente, ordena contrato, desembolsos, vencimientos y pagos recibidos. Un buen cobro no empieza con una amenaza: empieza identificando si el documento permite la vía que pretendes usar.",
+  "cierre": "Un buen cobro no empieza con una amenaza: empieza identificando si el documento permite la vía que pretendes usar.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "evaluacion-del-documento",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Mesa de administración con contrato y calendario vencido"
+    },
+    {
+      "orden": 2,
+      "visual": "Primer plano documento / deuda líquida / exigible, sin afirmar cualidades no comprobadas"
+    },
+    {
+      "orden": 3,
+      "visual": "Diagrama de título → examen judicial → defensa → ejecución"
+    },
+    {
+      "orden": 4,
+      "visual": "Cierre con carpeta probatoria ordenada"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "375",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "378",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "379",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "380",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      375,
+      378,
+      379,
+      380
+    ]
+  }
+}

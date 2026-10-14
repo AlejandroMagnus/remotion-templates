@@ -1,0 +1,5 @@
+VIDEO-021 A VIDEO-030: edición educativa para RENDER INTERNO Y REVISION.
+PhD 12: ready_for_render=false y publicationAllowed=false en las diez fuentes originales.
+Autorización editorial del titular: solo ensayos audiovisuales; NO APROBACIÓN JURÍDICA.
+NO PUBLICAR ni distribuir automáticamente: verificar vigencia legal y revisar MP4.
+Los archivos VIDEO-001 al VIDEO-020, motores y workflow NO se modifican.

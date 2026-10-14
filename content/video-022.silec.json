@@ -2,7 +2,7 @@
   "productionCode": "video-022",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,100 @@
       "cobranza y ejecución",
       "Título ejecutivo"
     ],
-    "intellectualContribution": "Explica Título ejecutivo desde su utilidad operativa concreta: qué hace que un documento tenga fuerza para cobrar judicialmente.",
+    "intellectualContribution": "Checklist jurídico de aptitud y observaciones.",
     "newAngle": {
       "comparedWith": [
         "video-021"
       ],
-      "contribution": "Diferencia Título ejecutivo por su problema específico: confundir título ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "comparacion-de-titulos: Dos documentos reconocen obligaciones, pero difieren en exigibilidad."
     }
   },
   "topic": "Título ejecutivo",
-  "centralThesis": "Título ejecutivo exige dominar qué hace que un documento tenga fuerza para cobrar judicialmente; su valor práctico está en transformar qué hace que un documento tenga fuerza para cobrar judicialmente en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Título ejecutivo es confundir título ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Checklist jurídico de aptitud y observaciones.",
+  "problem": "¿Qué tiene que expresar un documento para sustentar una ejecución?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Título ejecutivo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir título ejecutivo con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre título ejecutivo, con una ruta de seguimiento y ejecución posible."
+    "La primera trae una nota que dice: «Te devolveré el dinero cuando pueda».",
+    "La segunda presenta un instrumento en el que figuran una suma determinada, quién debe pagar y un vencimiento.",
+    "¿Valen lo mismo para cobrar judicialmente?",
+    "No necesariamente.",
+    "Un título ejecutivo no es simplemente una prueba de que hubo una conversación o una promesa.",
+    "La ley reconoce ciertas clases de documentos y exige que de ellos surja una obligación de pagar una cantidad líquida y exigible.",
+    "Importa la forma del instrumento, pero también lo que realmente establece.",
+    "Un defecto puede impedir la vía ejecutiva sin borrar, por sí solo, toda discusión sobre la deuda.",
+    "Por eso conviene hacer tres preguntas: ¿la ley reconoce esta clase de título?, ¿la obligación está determinada?, ¿ya es exigible?"
   ],
-  "conclusion": "Título ejecutivo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Si una respuesta falla, habrá que examinar otra vía procesal.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de título ejecutivo",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de título ejecutivo",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Título ejecutivo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Título ejecutivo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Dos personas llegan al estudio con papeles distintos.",
+  "closingIdea": "El valor de un documento no se mide por lo convincente que parece, sino por los efectos que jurídicamente puede producir.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-022",
+    "sourceFileSha256": "a26f85b8acac49b3afac178008b0281413a91170d40cfd0c37db93f3a2d65e17",
+    "fullGuionSha256": "e61f93d70464c16c08de1b52b18ab8275ee0e6d11a35f9e2132b1f6f50cade98",
+    "fullGuionVerbatim": "Dos personas llegan al estudio con papeles distintos. La primera trae una nota que dice: «Te devolveré el dinero cuando pueda». La segunda presenta un instrumento en el que figuran una suma determinada, quién debe pagar y un vencimiento. ¿Valen lo mismo para cobrar judicialmente? No necesariamente. Un título ejecutivo no es simplemente una prueba de que hubo una conversación o una promesa. La ley reconoce ciertas clases de documentos y exige que de ellos surja una obligación de pagar una cantidad líquida y exigible. Importa la forma del instrumento, pero también lo que realmente establece. Un defecto puede impedir la vía ejecutiva sin borrar, por sí solo, toda discusión sobre la deuda. Por eso conviene hacer tres preguntas: ¿la ley reconoce esta clase de título?, ¿la obligación está determinada?, ¿ya es exigible? Si una respuesta falla, habrá que examinar otra vía procesal. El valor de un documento no se mide por lo convincente que parece, sino por los efectos que jurídicamente puede producir.",
+    "sourceFichaTitle": "Título ejecutivo",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "378",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "379",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "380",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Dos documentos contrastados en mesa",
+      "Animación tres preguntas progresivas",
+      "Sello visual NO TODO DOCUMENTO ES TÍTULO, sin absolutos jurídicos",
+      "Alternativas procesales esquemáticas"
+    ],
+    "sourceRisk": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-022.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

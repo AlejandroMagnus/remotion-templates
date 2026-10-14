@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-027",
+  "tema": "Cobranza estratégica",
+  "tesis": "Cadena de evidencia y estrategia de cobranza lícita.",
+  "problema": "¿Por qué cobrar bien comienza antes del incumplimiento?",
+  "microcaso": "Una empresa acumula facturas sin orden documental.",
+  "hook": "Una empresa vende diariamente a crédito.",
+  "guion": "Una empresa vende diariamente a crédito. Tiene facturas, mensajes, entregas firmadas y un registro de pagos disperso. Al llegar la mora, todos preguntan por el juicio. Sin embargo, el primer error ocurrió meses antes: nadie construyó un expediente del crédito. La cobranza estratégica comienza con trazabilidad. ¿Quién contrató? ¿Qué se entregó? ¿Cuánto se pagó? ¿Qué saldo quedó? ¿Qué documento acredita el vencimiento? Esas respuestas permiten separar una deuda discutida de una obligación susceptible de una vía procesal específica. No todo comprobante comercial tiene, por sí mismo, fuerza ejecutiva. También hay que valorar negociación, conciliación cuando corresponda, costo de litigio y posibilidades reales de recuperar dinero. Presionar sin pruebas puede empeorar el conflicto. En cambio, un registro claro de contratos, entregas, comunicaciones y pagos reduce incertidumbre y permite responder a objeciones. Una cartera saludable no se mide solo por ventas realizadas. Se mide por la capacidad de demostrar cada crédito sin reconstruir toda la historia cuando ya existe el incumplimiento.",
+  "cierre": "Se mide por la capacidad de demostrar cada crédito sin reconstruir toda la historia cuando ya existe el incumplimiento.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "linea-de-tiempo-comercial",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Empresa y tablero de cuentas por cobrar"
+    },
+    {
+      "orden": 2,
+      "visual": "Documentos dispersos → expediente cronológico"
+    },
+    {
+      "orden": 3,
+      "visual": "Bifurcación negociación / vía legal"
+    },
+    {
+      "orden": 4,
+      "visual": "Tablero con evidencia y riesgo"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "110",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "378",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "379",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      110,
+      378,
+      379
+    ]
+  }
+}

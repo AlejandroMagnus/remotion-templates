@@ -2,7 +2,7 @@
   "productionCode": "video-030",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,112 @@
       "cobranza y ejecución",
       "Cómo preparar un caso de cobranza"
     ],
-    "intellectualContribution": "Explica Cómo preparar un caso de cobranza desde su utilidad operativa concreta: documentos, prueba, cálculo, estrategia y riesgos.",
+    "intellectualContribution": "Organizar historia, documentos y objeciones.",
     "newAngle": {
       "comparedWith": [
         "video-029"
       ],
-      "contribution": "Diferencia Cómo preparar un caso de cobranza por su problema específico: confundir cómo preparar un caso de cobranza con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "diagnostico-de-cobranza: Una empresa llega con conversaciones y comprobantes dispersos."
     }
   },
   "topic": "Cómo preparar un caso de cobranza",
-  "centralThesis": "Cómo preparar un caso de cobranza exige dominar documentos, prueba, cálculo, estrategia y riesgos; su valor práctico está en transformar documentos, prueba, cálculo, estrategia y riesgos en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Cómo preparar un caso de cobranza es confundir cómo preparar un caso de cobranza con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Organizar historia, documentos y objeciones.",
+  "problem": "¿Qué documentos necesita un abogado para evaluar un caso de cobranza?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Cómo preparar un caso de cobranza: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir cómo preparar un caso de cobranza con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre cómo preparar un caso de cobranza, con una ruta de seguimiento y ejecución posible."
+    "Pide iniciar una demanda esa misma mañana.",
+    "El abogado plantea otra pregunta: «¿Qué historia pueden demostrar estos documentos?».",
+    "Un caso de cobranza empieza ordenando hechos, no eligiendo un formulario.",
+    "Primero identifica al acreedor, al deudor y la obligación concreta.",
+    "Después reconstruye la operación: contrato, entrega o desembolso, vencimiento, pagos, comunicaciones y saldo.",
+    "Revisa si el monto reclamado coincide con sus respaldos y si existen objeciones previsibles.",
+    "Solo entonces compara las vías disponibles: la ejecutiva requiere presupuestos propios; la coactiva, títulos específicos; y otros conflictos pueden exigir procesos diferentes.",
+    "También evalúa costos, riesgos, bienes potencialmente ejecutables y eventuales negociaciones.",
+    "Un mensaje aislado no sustituye el análisis de todo el expediente."
   ],
-  "conclusion": "Cómo preparar un caso de cobranza se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La demanda bien preparada no es la que se presenta antes; es la que permite comprender, probar y sostener la pretensión.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de cómo preparar un caso de cobranza",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de cómo preparar un caso de cobranza",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Cómo preparar un caso de cobranza: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Cómo preparar un caso de cobranza, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una empresa llega al abogado con cuarenta capturas de pantalla, dos contratos y una hoja de cálculo.",
+  "closingIdea": "Antes de reclamar, prepara el caso que resistirá las preguntas de la contraparte.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-030",
+    "sourceFileSha256": "dd0a1f31aa3e25264205a7d2144ba053ea8876c11c6b6a95d90cbd1fd5d44693",
+    "fullGuionSha256": "109ba39ab4bd4757b58fd67ed2b129433b106ea734b3e2684a3bc9c4fb929eea",
+    "fullGuionVerbatim": "Una empresa llega al abogado con cuarenta capturas de pantalla, dos contratos y una hoja de cálculo. Pide iniciar una demanda esa misma mañana. El abogado plantea otra pregunta: «¿Qué historia pueden demostrar estos documentos?». Un caso de cobranza empieza ordenando hechos, no eligiendo un formulario. Primero identifica al acreedor, al deudor y la obligación concreta. Después reconstruye la operación: contrato, entrega o desembolso, vencimiento, pagos, comunicaciones y saldo. Revisa si el monto reclamado coincide con sus respaldos y si existen objeciones previsibles. Solo entonces compara las vías disponibles: la ejecutiva requiere presupuestos propios; la coactiva, títulos específicos; y otros conflictos pueden exigir procesos diferentes. También evalúa costos, riesgos, bienes potencialmente ejecutables y eventuales negociaciones. Un mensaje aislado no sustituye el análisis de todo el expediente. La demanda bien preparada no es la que se presenta antes; es la que permite comprender, probar y sostener la pretensión. Antes de reclamar, prepara el caso que resistirá las preguntas de la contraparte.",
+    "sourceFichaTitle": "Cómo preparar un caso de cobranza",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "110",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "378",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "379",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "380",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "404",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Mesa con cuarenta capturas dispersas",
+      "Reconstrucción de línea temporal",
+      "Árbol de vías procesales condicionado",
+      "Expediente depurado listo para estudio"
+    ],
+    "sourceRisk": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-030.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

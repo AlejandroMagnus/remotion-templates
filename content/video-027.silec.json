@@ -2,7 +2,7 @@
   "productionCode": "video-027",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,105 @@
       "cobranza y ejecución",
       "Cobranza estratégica"
     ],
-    "intellectualContribution": "Explica Cobranza estratégica desde su utilidad operativa concreta: cuándo conviene negociar y cuándo demandar.",
+    "intellectualContribution": "Cadena de evidencia y estrategia de cobranza lícita.",
     "newAngle": {
       "comparedWith": [
         "video-026"
       ],
-      "contribution": "Diferencia Cobranza estratégica por su problema específico: confundir cobranza estratégica con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "linea-de-tiempo-comercial: Una empresa acumula facturas sin orden documental."
     }
   },
   "topic": "Cobranza estratégica",
-  "centralThesis": "Cobranza estratégica exige dominar cuándo conviene negociar y cuándo demandar; su valor práctico está en transformar cuándo conviene negociar y cuándo demandar en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Cobranza estratégica es confundir cobranza estratégica con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Cadena de evidencia y estrategia de cobranza lícita.",
+  "problem": "¿Por qué cobrar bien comienza antes del incumplimiento?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Cobranza estratégica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir cobranza estratégica con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre cobranza estratégica, con una ruta de seguimiento y ejecución posible."
+    "Tiene facturas, mensajes, entregas firmadas y un registro de pagos disperso.",
+    "Al llegar la mora, todos preguntan por el juicio.",
+    "Sin embargo, el primer error ocurrió meses antes: nadie construyó un expediente del crédito.",
+    "La cobranza estratégica comienza con trazabilidad.",
+    "¿Quién contrató?",
+    "¿Qué se entregó?",
+    "¿Cuánto se pagó?",
+    "¿Qué saldo quedó?",
+    "¿Qué documento acredita el vencimiento?",
+    "Esas respuestas permiten separar una deuda discutida de una obligación susceptible de una vía procesal específica.",
+    "No todo comprobante comercial tiene, por sí mismo, fuerza ejecutiva.",
+    "También hay que valorar negociación, conciliación cuando corresponda, costo de litigio y posibilidades reales de recuperar dinero.",
+    "Presionar sin pruebas puede empeorar el conflicto.",
+    "En cambio, un registro claro de contratos, entregas, comunicaciones y pagos reduce incertidumbre y permite responder a objeciones."
   ],
-  "conclusion": "Cobranza estratégica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una cartera saludable no se mide solo por ventas realizadas.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de cobranza estratégica",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de cobranza estratégica",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Cobranza estratégica: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Cobranza estratégica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una empresa vende diariamente a crédito.",
+  "closingIdea": "Se mide por la capacidad de demostrar cada crédito sin reconstruir toda la historia cuando ya existe el incumplimiento.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-027",
+    "sourceFileSha256": "ff45e7126ea36e7b7c184dfa48ccf7c0d9734a5efa20ca4f585e0b6a805cd837",
+    "fullGuionSha256": "7e506f1aabdc27964942fca8be43fa026d74409a1b572008294cfa57af922357",
+    "fullGuionVerbatim": "Una empresa vende diariamente a crédito. Tiene facturas, mensajes, entregas firmadas y un registro de pagos disperso. Al llegar la mora, todos preguntan por el juicio. Sin embargo, el primer error ocurrió meses antes: nadie construyó un expediente del crédito. La cobranza estratégica comienza con trazabilidad. ¿Quién contrató? ¿Qué se entregó? ¿Cuánto se pagó? ¿Qué saldo quedó? ¿Qué documento acredita el vencimiento? Esas respuestas permiten separar una deuda discutida de una obligación susceptible de una vía procesal específica. No todo comprobante comercial tiene, por sí mismo, fuerza ejecutiva. También hay que valorar negociación, conciliación cuando corresponda, costo de litigio y posibilidades reales de recuperar dinero. Presionar sin pruebas puede empeorar el conflicto. En cambio, un registro claro de contratos, entregas, comunicaciones y pagos reduce incertidumbre y permite responder a objeciones. Una cartera saludable no se mide solo por ventas realizadas. Se mide por la capacidad de demostrar cada crédito sin reconstruir toda la historia cuando ya existe el incumplimiento.",
+    "sourceFichaTitle": "Cobranza estratégica",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "110",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "378",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "379",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Empresa y tablero de cuentas por cobrar",
+      "Documentos dispersos → expediente cronológico",
+      "Bifurcación negociación / vía legal",
+      "Tablero con evidencia y riesgo"
+    ],
+    "sourceRisk": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-027.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

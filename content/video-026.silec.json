@@ -2,7 +2,7 @@
   "productionCode": "video-026",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,107 @@
       "cobranza y ejecución",
       "Letras de cambio y pagarés"
     ],
-    "intellectualContribution": "Explica Letras de cambio y pagarés desde su utilidad operativa concreta: errores frecuentes que destruyen la fuerza ejecutiva.",
+    "intellectualContribution": "Aspectos formales, circulación y controversia a verificar.",
     "newAngle": {
       "comparedWith": [
         "video-025"
       ],
-      "contribution": "Diferencia Letras de cambio y pagarés por su problema específico: confundir letras de cambio y pagarés con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "inspeccion-de-titulo: Un negocio recibe un documento cambiario con datos incompletos."
     }
   },
   "topic": "Letras de cambio y pagarés",
-  "centralThesis": "Letras de cambio y pagarés exige dominar errores frecuentes que destruyen la fuerza ejecutiva; su valor práctico está en transformar errores frecuentes que destruyen la fuerza ejecutiva en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Letras de cambio y pagarés es confundir letras de cambio y pagarés con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Aspectos formales, circulación y controversia a verificar.",
+  "problem": "¿Qué debe comprobarse antes de aceptar un pagaré como garantía?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Letras de cambio y pagarés: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir letras de cambio y pagarés con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre letras de cambio y pagarés, con una ruta de seguimiento y ejecución posible."
+    "Al mes siguiente, el cliente deja de responder.",
+    "El comerciante afirma: «Tengo un papel firmado; puedo cobrar sin problemas».",
+    "Cuidado.",
+    "Una letra de cambio y un pagaré son títulos valores, pero no funcionan de la misma manera.",
+    "La letra contiene una orden de pago en las condiciones legales; el pagaré expresa una promesa de pagar.",
+    "Cada instrumento exige menciones y formalidades determinadas por el Código de Comercio.",
+    "En el pagaré importan, entre otros elementos, la obligación de pagar una suma, la identificación del beneficiario, las fechas y la firma, sin perder de vista las salvedades que contempla la ley.",
+    "Para el pagaré, el artículo 598 regula el protesto por falta de pago y su fuerza ejecutiva; también deben comprobarse las salvedades legales y el régimen aplicable.",
+    "Un espacio en blanco exige verificar si la ley prevé una salvedad o si compromete la eficacia del título.",
+    "El pagaré en blanco no equivale a un pagaré correctamente emitido."
   ],
-  "conclusion": "Letras de cambio y pagarés se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de aceptar un título valor, revisa sus requisitos y guarda el respaldo del negocio.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de letras de cambio y pagarés",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de letras de cambio y pagarés",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Letras de cambio y pagarés: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Letras de cambio y pagarés, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una tienda entrega mercadería y recibe un pagaré con espacios vacíos.",
+  "closingIdea": "Cobrar comienza mucho antes del incumplimiento: comienza cuando recibes el documento correcto.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-026",
+    "sourceFileSha256": "71c20f9b43cefcff96e1a20ec3be887203a9079816f4785e5f18087ebddfd775",
+    "fullGuionSha256": "4df837f3775f6005160f15416762ef8cb3b1dec6b1c77454c0dd511ca4d31a5e",
+    "fullGuionVerbatim": "Una tienda entrega mercadería y recibe un pagaré con espacios vacíos. Al mes siguiente, el cliente deja de responder. El comerciante afirma: «Tengo un papel firmado; puedo cobrar sin problemas». Cuidado. Una letra de cambio y un pagaré son títulos valores, pero no funcionan de la misma manera. La letra contiene una orden de pago en las condiciones legales; el pagaré expresa una promesa de pagar. Cada instrumento exige menciones y formalidades determinadas por el Código de Comercio. En el pagaré importan, entre otros elementos, la obligación de pagar una suma, la identificación del beneficiario, las fechas y la firma, sin perder de vista las salvedades que contempla la ley. Para el pagaré, el artículo 598 regula el protesto por falta de pago y su fuerza ejecutiva; también deben comprobarse las salvedades legales y el régimen aplicable. Un espacio en blanco exige verificar si la ley prevé una salvedad o si compromete la eficacia del título. El pagaré en blanco no equivale a un pagaré correctamente emitido. Antes de aceptar un título valor, revisa sus requisitos y guarda el respaldo del negocio. Cobrar comienza mucho antes del incumplimiento: comienza cuando recibes el documento correcto.",
+    "sourceFichaTitle": "Letras de cambio y pagarés",
+    "sourceNormas": [
+      {
+        "norma": "DL 14379",
+        "articulo": "592",
+        "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "DL 14379",
+        "articulo": "595",
+        "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "DL 14379",
+        "articulo": "598",
+        "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "DL 14379",
+        "articulo": "599",
+        "url": "https://www.asfi.gob.bo/sites/default/files/2025-08/C%C3%B3digo%20de%20Comercio.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Tienda y entrega de mercadería",
+      "Pagaré incompleto en primer plano",
+      "Comparación letra: orden / pagaré: promesa",
+      "Checklist formal antes de aceptar título"
+    ],
+    "sourceRisk": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-026.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

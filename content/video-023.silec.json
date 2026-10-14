@@ -2,7 +2,7 @@
   "productionCode": "video-023",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
     "category": "HT",
@@ -11,48 +11,112 @@
       "cobranza y ejecución",
       "Embargo y medidas de aseguramiento"
     ],
-    "intellectualContribution": "Explica Embargo y medidas de aseguramiento desde su utilidad operativa concreta: cómo proteger el cobro antes de que el deudor desaparezca bienes.",
+    "intellectualContribution": "Identificar finalidad, proporcionalidad y límites.",
     "newAngle": {
       "comparedWith": [
         "video-022"
       ],
-      "contribution": "Diferencia Embargo y medidas de aseguramiento por su problema específico: confundir embargo y medidas de aseguramiento con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "equilibrio-de-medidas: Un acreedor pide asegurar bienes de un deudor."
     }
   },
   "topic": "Embargo y medidas de aseguramiento",
-  "centralThesis": "Embargo y medidas de aseguramiento exige dominar cómo proteger el cobro antes de que el deudor desaparezca bienes; su valor práctico está en transformar cómo proteger el cobro antes de que el deudor desaparezca bienes en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Embargo y medidas de aseguramiento es confundir embargo y medidas de aseguramiento con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Identificar finalidad, proporcionalidad y límites.",
+  "problem": "¿Puede un embargo proteger un crédito sin justificar cualquier afectación patrimonial?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Embargo y medidas de aseguramiento: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir embargo y medidas de aseguramiento con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre embargo y medidas de aseguramiento, con una ruta de seguimiento y ejecución posible."
+    "El acreedor pregunta si puede pedir un embargo.",
+    "La intuición dice: «Hay que actuar antes de que desaparezca todo».",
+    "Pero una medida patrimonial no es un castigo anticipado.",
+    "Su fundamento, oportunidad y alcance dependen de la vía procesal y de los requisitos legales.",
+    "En ciertos procesos ejecutivos, el embargo puede acompañar la sentencia inicial; en otros supuestos debe analizarse como medida cautelar.",
+    "No basta señalar una deuda y escoger cualquier patrimonio.",
+    "Hay que identificar bienes, relación con la obligación, posibles derechos de terceros y límites legales.",
+    "También importa si la medida es necesaria o excesiva respecto de lo reclamado.",
+    "Embargar no equivale a cobrar: puede asegurar bienes mientras siguen pendientes controversias o actuaciones de ejecución."
   ],
-  "conclusion": "Embargo y medidas de aseguramiento se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La mejor estrategia protege el crédito sin convertir una medida judicial en abuso.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
+    "personas con conflictos de cobranza",
     "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "empresas",
+    "estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de embargo y medidas de aseguramiento",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis documental de embargo y medidas de aseguramiento",
+    "identificación de requisitos jurídicos relevantes",
+    "anticipación de riesgos y objeciones"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica sin promesas de resultado; valoración caso por caso.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis de obligaciones",
+    "evaluación documental individual"
   ],
-  "hook": "Embargo y medidas de aseguramiento: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Embargo y medidas de aseguramiento, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Imagina que una persona debe una suma importante y comienza a vender sus bienes.",
+  "closingIdea": "Una defensa sólida pregunta tanto por el derecho del acreedor como por la legitimidad de la afectación.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-023",
+    "sourceFileSha256": "32ccbf19df1a8ffdb14be06bbdee573e40cd9bb321d97af79071b22bdee5eb12",
+    "fullGuionSha256": "3a5c205670ceaa9d0c809599cb04e77a26bf43c0997baf83beafdc7cd7017306",
+    "fullGuionVerbatim": "Imagina que una persona debe una suma importante y comienza a vender sus bienes. El acreedor pregunta si puede pedir un embargo. La intuición dice: «Hay que actuar antes de que desaparezca todo». Pero una medida patrimonial no es un castigo anticipado. Su fundamento, oportunidad y alcance dependen de la vía procesal y de los requisitos legales. En ciertos procesos ejecutivos, el embargo puede acompañar la sentencia inicial; en otros supuestos debe analizarse como medida cautelar. No basta señalar una deuda y escoger cualquier patrimonio. Hay que identificar bienes, relación con la obligación, posibles derechos de terceros y límites legales. También importa si la medida es necesaria o excesiva respecto de lo reclamado. Embargar no equivale a cobrar: puede asegurar bienes mientras siguen pendientes controversias o actuaciones de ejecución. La mejor estrategia protege el crédito sin convertir una medida judicial en abuso. Una defensa sólida pregunta tanto por el derecho del acreedor como por la legitimidad de la afectación.",
+    "sourceFichaTitle": "Embargo y medidas de aseguramiento",
+    "sourceNormas": [
+      {
+        "norma": "Ley 439",
+        "articulo": "310",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "referencia por verificar"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "380",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "408",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "411",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      },
+      {
+        "norma": "Ley 439",
+        "articulo": "412",
+        "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+        "verificacionDeclaradaPhD12": "directa institucional"
+      }
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      "Bien registrable y riesgo de transferencia",
+      "Dos vías visuales: cautelar versus ejecución",
+      "Balanza proporcionalidad y derechos de terceros",
+      "Cadena embargo no igual pago"
+    ],
+    "sourceRisk": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar; MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "legalReviewStatus": "REVISION_PENDIENTE_PHD12_RENDER_INTERNO_AUTORIZADO_POR_EL_TITULAR",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": false,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA_2026-10-13",
+    "sourceQaPending": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-021-030-v64/originales/VIDEO-023.json",
+    "publicationEdition": "EDICION_EDUCATIVA_V64_SOLO_REVISION_INTERNA",
+    "reviewerType": "TITULAR_EDITORIAL_DE_LA_SERIE",
+    "normativeScope": "Textos base parcialmente contrastados por PhD12; vigencia consolidada y referencias señaladas pendientes",
+    "publicationCaveat": "NO PUBLICAR: falta verificación jurídica y revisión final del MP4",
+    "note": "La habilitación técnica de render no certifica aprobación jurídica ni permite publicación automática."
+  }
 }

@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-029",
+  "tema": "Riesgos de prestar dinero sin respaldo",
+  "tesis": "Prevención y riesgos probatorios sin prometer recuperación.",
+  "problema": "¿Cómo demostrar un préstamo cuando nunca se documentó correctamente?",
+  "microcaso": "Dinero transferido entre familiares termina en disputa sobre su finalidad.",
+  "hook": "Una transferencia bancaria muestra veinte mil bolivianos enviados a un familiar.",
+  "guion": "Una transferencia bancaria muestra veinte mil bolivianos enviados a un familiar. Cuando el dinero no vuelve, aparece la pregunta incómoda: «¿Fue un préstamo, una ayuda o el pago de otra obligación?». El comprobante demuestra un movimiento de dinero, pero puede no explicar por sí solo su causa. Ese es el riesgo de prestar sin documentar. Una conversación sobre devolución, un mensaje con el plazo acordado, depósitos parciales o testigos pueden adquirir importancia probatoria según el caso y las reglas aplicables. Sin embargo, tampoco basta reunir capturas sin contexto y asumir que todas tendrán idéntico valor. Lo recomendable, antes de entregar dinero, es precisar monto, partes, carácter del préstamo, fecha y forma de devolución. Si el conflicto ya existe, conserva los mensajes originales y construye una cronología verificable: acuerdo, desembolso, vencimiento, requerimientos y pagos. A veces habrá una vía procesal útil; otras, el debate será más complejo. La confianza personal no debería impedir una documentación respetuosa y clara de las obligaciones patrimoniales.",
+  "cierre": "La confianza personal no debería impedir una documentación respetuosa y clara de las obligaciones patrimoniales.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "rastreo-de-operacion",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Transferencia digital con motivo sin especificar"
+    },
+    {
+      "orden": 2,
+      "visual": "Tres hipótesis préstamo/ayuda/otro pago"
+    },
+    {
+      "orden": 3,
+      "visual": "Cronología: acuerdo, entrega, vencimiento"
+    },
+    {
+      "orden": 4,
+      "visual": "Documento de préstamo claro, prevención"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "110",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "378",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "379",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO NORMATIVO INCOMPLETO: verificar artículos específicos antes de publicar",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      110,
+      378,
+      379
+    ]
+  }
+}

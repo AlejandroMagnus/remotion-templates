@@ -1,0 +1,85 @@
+{
+  "id": "VIDEO-024",
+  "tema": "Excepciones en proceso ejecutivo",
+  "tesis": "Distinguir defensas y efectos según la normativa revisada.",
+  "problema": "¿Cómo se defiende un deudor dentro de un proceso ejecutivo?",
+  "microcaso": "Se inicia ejecución y aparecen posibles causas de oposición.",
+  "hook": "Te notifican una demanda ejecutiva por setenta mil bolivianos.",
+  "guion": "Te notifican una demanda ejecutiva por setenta mil bolivianos. Guardas comprobantes de dos pagos que el acreedor no descontó. ¿Tu defensa consiste en negar todo? Esa reacción puede perjudicarte. El proceso ejecutivo tiene excepciones legalmente previstas y exige actuar en su oportunidad, con argumentos claros y respaldo probatorio. Entre las posibles defensas figura el pago documentado, pero no cualquier desacuerdo permite discutir ilimitadamente el origen del negocio. También pueden existir objeciones sobre fuerza ejecutiva, prescripción u otras materias admitidas por la ley, según el título y el caso. La tarea comienza comparando el documento presentado con los recibos, las fechas y el monto exigido. Después se identifica la excepción realmente pertinente y la prueba que la sostiene. Una defensa sin documentos puede ser tan débil como una demanda sin título. Tampoco debe suponerse que formular una excepción paraliza definitivamente la ejecución. Antes de responder, reconstruye la historia del dinero: pagar, probar y defenderse son tres actos distintos.",
+  "cierre": "Antes de responder, reconstruye la historia del dinero: pagar, probar y defenderse son tres actos distintos.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "tablero-defensa-ejecutiva",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Notificación ejecutiva sobre una mesa"
+    },
+    {
+      "orden": 2,
+      "visual": "Recibos y saldo reclamado resaltado"
+    },
+    {
+      "orden": 3,
+      "visual": "Mapa corto de excepciones legales"
+    },
+    {
+      "orden": 4,
+      "visual": "Cronología de pagos y defensa"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "381",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "382",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "383",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "385",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "386",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "referencia por verificar"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      381,
+      382,
+      383,
+      385,
+      386
+    ]
+  }
+}

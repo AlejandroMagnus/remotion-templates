@@ -1,0 +1,78 @@
+{
+  "id": "VIDEO-028",
+  "tema": "Ejecución coactiva",
+  "tesis": "Distinguir presupuestos y título habilitante.",
+  "problema": "¿Qué distingue la ejecución coactiva de otras vías de cobro?",
+  "microcaso": "Dos acreedores intentan utilizar procesos distintos para obligaciones diferentes.",
+  "hook": "Dos acreedores quieren recuperar cincuenta mil bolivianos.",
+  "guion": "Dos acreedores quieren recuperar cincuenta mil bolivianos. Uno tiene un documento privado; otro, una garantía hipotecaria inscrita con estipulaciones especiales. ¿Pueden utilizar exactamente el mismo proceso? No necesariamente. La legislación boliviana distingue el proceso ejecutivo de la ejecución coactiva de sumas de dinero. La segunda vía exige títulos expresamente previstos por la ley y una obligación líquida y exigible. Entre los supuestos normativos pueden encontrarse determinados créditos prendarios o hipotecarios inscritos con renuncia al trámite ejecutivo, además de otros títulos señalados en el Código Procesal Civil. La autoridad judicial debe examinar esa fuerza coactiva; no basta escribir «hipoteca» en un contrato. También existen excepciones específicas para la parte coactivada y reglas particulares para la ejecución. La elección de la vía depende del documento, no de la impaciencia del acreedor. Antes de iniciar, revisa inscripción, cláusulas, exigibilidad y monto. Una vía procesal más intensa exige un título jurídicamente apto, no una afirmación más enérgica.",
+  "cierre": "Una vía procesal más intensa exige un título jurídicamente apto, no una afirmación más enérgica.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "comparativa-de-vias",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Dos carpetas idénticas con títulos diferentes"
+    },
+    {
+      "orden": 2,
+      "visual": "Comparación proceso ejecutivo / coactiva"
+    },
+    {
+      "orden": 3,
+      "visual": "Zoom sobre inscripción y cláusula"
+    },
+    {
+      "orden": 4,
+      "visual": "Control judicial de requisitos"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "404",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "408",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "409",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "410",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      404,
+      408,
+      409,
+      410
+    ]
+  }
+}

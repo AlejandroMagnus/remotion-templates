@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-022",
+  "tema": "Título ejecutivo",
+  "tesis": "Checklist jurídico de aptitud y observaciones.",
+  "problema": "¿Qué tiene que expresar un documento para sustentar una ejecución?",
+  "microcaso": "Dos documentos reconocen obligaciones, pero difieren en exigibilidad.",
+  "hook": "Dos personas llegan al estudio con papeles distintos.",
+  "guion": "Dos personas llegan al estudio con papeles distintos. La primera trae una nota que dice: «Te devolveré el dinero cuando pueda». La segunda presenta un instrumento en el que figuran una suma determinada, quién debe pagar y un vencimiento. ¿Valen lo mismo para cobrar judicialmente? No necesariamente. Un título ejecutivo no es simplemente una prueba de que hubo una conversación o una promesa. La ley reconoce ciertas clases de documentos y exige que de ellos surja una obligación de pagar una cantidad líquida y exigible. Importa la forma del instrumento, pero también lo que realmente establece. Un defecto puede impedir la vía ejecutiva sin borrar, por sí solo, toda discusión sobre la deuda. Por eso conviene hacer tres preguntas: ¿la ley reconoce esta clase de título?, ¿la obligación está determinada?, ¿ya es exigible? Si una respuesta falla, habrá que examinar otra vía procesal. El valor de un documento no se mide por lo convincente que parece, sino por los efectos que jurídicamente puede producir.",
+  "cierre": "El valor de un documento no se mide por lo convincente que parece, sino por los efectos que jurídicamente puede producir.",
+  "cta": "Consulta la documentación y el régimen aplicable antes de decidir.",
+  "ruta": "comparacion-de-titulos",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Dos documentos contrastados en mesa"
+    },
+    {
+      "orden": 2,
+      "visual": "Animación tres preguntas progresivas"
+    },
+    {
+      "orden": 3,
+      "visual": "Sello visual NO TODO DOCUMENTO ES TÍTULO, sin absolutos jurídicos"
+    },
+    {
+      "orden": 4,
+      "visual": "Alternativas procesales esquemáticas"
+    }
+  ],
+  "fuentesLegales": [
+    {
+      "norma": "Ley 439",
+      "articulo": "378",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "379",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    },
+    {
+      "norma": "Ley 439",
+      "articulo": "380",
+      "url": "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf",
+      "verificacion": "directa institucional"
+    }
+  ],
+  "legalReview": {
+    "fecha": "2026-10-13",
+    "estado": "COTEJO PRINCIPAL PARCIAL CON FUENTE INSTITUCIONAL; revisión final de vigencia pendiente",
+    "riesgoVigencia": "MEDIO: vigencia consolidada y eventuales reformas no verificadas exhaustivamente",
+    "ready_for_render": false,
+    "publicationAllowed": false,
+    "observaciones": [
+      "Narrativa individual conservada y ajustada donde fue necesario.",
+      "No se promete cobro ni embargo automático.",
+      "Requiere comprobación final de vigencia normativa y cotejo específico de artículos no verificados."
+    ],
+    "jurisprudencia": "No citada: no indispensable para el guion educativo normativo; ninguna referencia jurisprudencial fue inventada.",
+    "fuentesPrimarias": [
+      "https://www.aj.gob.bo/wp-content/uploads/2025/08/Ley-439.pdf"
+    ],
+    "normasArticulos": [
+      378,
+      379,
+      380
+    ]
+  }
+}

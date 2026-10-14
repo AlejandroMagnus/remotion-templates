@@ -1,0 +1,124 @@
+{
+  "packageId": "BLOQUE_VIDEO_021_030_EDICION_NORMATIVA_V64",
+  "created": "2026-10-13",
+  "source": "SILEC_VIDEO_021_030_FINAL_PARA_FABRICA.zip",
+  "scope": "Solo render de revisión interna. PublicationAllowed=false y aprobación jurídica final pendiente.",
+  "protected": "VIDEO-001..020, scripts, src, .github/workflows y motores",
+  "videos": [
+    {
+      "video": "021",
+      "target": "content/video-021.silec.json",
+      "sha256": "051f5aee6b312d221f553e5a9cbc155193e0ce4084078a28c16bd12c47d4db73",
+      "originalSourceSha256": "6b1936bc56f0b4542eab3680e35e9d3d9288bec10ddd0359d84578452294c93d",
+      "fullGuionSha256": "3ce8b0cd6ca9f912e55d0c21bd541b13b6e2b0ae81261e1e4e3fefd2d0c24425",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 158
+    },
+    {
+      "video": "022",
+      "target": "content/video-022.silec.json",
+      "sha256": "27cd25dd715a953f701dfcb7a364a3823711d3e21078c9bdcf1feab9502329fb",
+      "originalSourceSha256": "a26f85b8acac49b3afac178008b0281413a91170d40cfd0c37db93f3a2d65e17",
+      "fullGuionSha256": "e61f93d70464c16c08de1b52b18ab8275ee0e6d11a35f9e2132b1f6f50cade98",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 164
+    },
+    {
+      "video": "023",
+      "target": "content/video-023.silec.json",
+      "sha256": "3ca5ee105715226eb2c7538564c71f7d9818c32a9c1e4ac1e2f010240da81c7d",
+      "originalSourceSha256": "32ccbf19df1a8ffdb14be06bbdee573e40cd9bb321d97af79071b22bdee5eb12",
+      "fullGuionSha256": "3a5c205670ceaa9d0c809599cb04e77a26bf43c0997baf83beafdc7cd7017306",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 159
+    },
+    {
+      "video": "024",
+      "target": "content/video-024.silec.json",
+      "sha256": "eda9a6db61f9cea6cc11d904bd66e1bc6a88e031dc48a3e5fed06fffd9649ace",
+      "originalSourceSha256": "101dd9152c63c889cceddbb8c955dfed575d72e61881f24ba8c58e9f629331c2",
+      "fullGuionSha256": "ccd2f85d595bafdfecab05c5eb517bde6bd7b9b46155ccfa5ae5bdd9117c83ea",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 157
+    },
+    {
+      "video": "025",
+      "target": "content/video-025.silec.json",
+      "sha256": "1dff8e2cb906800e6a907d9036ba0830edfa81ccd42fad6d425642d5779136d5",
+      "originalSourceSha256": "9fe0d222d05f14e26a46e09b279a9d39f65ba3074645a0f0773cd8047289ea88",
+      "fullGuionSha256": "2d3ed4f1644afc9515dc08b82427b85b97e21e2ee2127a7ed3d3e59b1919d8da",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 166
+    },
+    {
+      "video": "026",
+      "target": "content/video-026.silec.json",
+      "sha256": "e552682ecd64b044f514ff107d6f2fd7d85a887c565022ae2fc3dca159c5db62",
+      "originalSourceSha256": "71c20f9b43cefcff96e1a20ec3be887203a9079816f4785e5f18087ebddfd775",
+      "fullGuionSha256": "4df837f3775f6005160f15416762ef8cb3b1dec6b1c77454c0dd511ca4d31a5e",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 194
+    },
+    {
+      "video": "027",
+      "target": "content/video-027.silec.json",
+      "sha256": "8397d549cf76c80656f0ad7bab7428def1fea11c8dcca8b177300af741fee797",
+      "originalSourceSha256": "ff45e7126ea36e7b7c184dfa48ccf7c0d9734a5efa20ca4f585e0b6a805cd837",
+      "fullGuionSha256": "7e506f1aabdc27964942fca8be43fa026d74409a1b572008294cfa57af922357",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 159
+    },
+    {
+      "video": "028",
+      "target": "content/video-028.silec.json",
+      "sha256": "b1e8904732e895ab21ebc17be6293f76bc135baf0b3eb2946fc929231dcdd187",
+      "originalSourceSha256": "dde45a328a2ddac37a7bc5157b4c5ca5639a71bbd25e98f586585a619773cc5a",
+      "fullGuionSha256": "c77e491a488d2830ae39d8b5e2e927257588b4cad6f95d7c723bc03f1519506d",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 153
+    },
+    {
+      "video": "029",
+      "target": "content/video-029.silec.json",
+      "sha256": "b26f8020f8088469494e490bcf28db356a3ca477782f396c6479e4aa8260ecaa",
+      "originalSourceSha256": "33e22b7a5c11584d4c684788b05fa6b88900f882943189b896cfe631ace258ae",
+      "fullGuionSha256": "e7bbcbcf30bced7587a8fb0b457c4174ca24d3c3b48ba60f8d6d84c479badcf3",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 161
+    },
+    {
+      "video": "030",
+      "target": "content/video-030.silec.json",
+      "sha256": "7dc533e41e83f17b4d91d77001e76b3185ebf3c6c63fb6a76c20d2dc95091cad",
+      "originalSourceSha256": "dd0a1f31aa3e25264205a7d2144ba053ea8876c11c6b6a95d90cbd1fd5d44693",
+      "fullGuionSha256": "109ba39ab4bd4757b58fd67ed2b129433b106ea734b3e2684a3bc9c4fb929eea",
+      "originalReadyForRender": false,
+      "publicationAllowed": false,
+      "words": 160
+    }
+  ],
+  "sourceFiles": {
+    "FUENTES_Y_CONTROL.md": "a177cb0662f6e3cb7e82ce7c68ce2e4134a0c1b529c6c4ff9213f39fa0dad5b2",
+    "LEER_PRIMERO.md": "a15cfefd3d6e88f33edc13ab28791dd985539549eb7a1a138c009df6d10e3338",
+    "MATRIZ_QA_021_030.csv": "7b3b1958b1df0a0636aee37b9549f7cbabcb302aa4d70972edbec3b2bd7a4a3d",
+    "VIDEO-021.json": "6b1936bc56f0b4542eab3680e35e9d3d9288bec10ddd0359d84578452294c93d",
+    "VIDEO-022.json": "a26f85b8acac49b3afac178008b0281413a91170d40cfd0c37db93f3a2d65e17",
+    "VIDEO-023.json": "32ccbf19df1a8ffdb14be06bbdee573e40cd9bb321d97af79071b22bdee5eb12",
+    "VIDEO-024.json": "101dd9152c63c889cceddbb8c955dfed575d72e61881f24ba8c58e9f629331c2",
+    "VIDEO-025.json": "9fe0d222d05f14e26a46e09b279a9d39f65ba3074645a0f0773cd8047289ea88",
+    "VIDEO-026.json": "71c20f9b43cefcff96e1a20ec3be887203a9079816f4785e5f18087ebddfd775",
+    "VIDEO-027.json": "ff45e7126ea36e7b7c184dfa48ccf7c0d9734a5efa20ca4f585e0b6a805cd837",
+    "VIDEO-028.json": "dde45a328a2ddac37a7bc5157b4c5ca5639a71bbd25e98f586585a619773cc5a",
+    "VIDEO-029.json": "33e22b7a5c11584d4c684788b05fa6b88900f882943189b896cfe631ace258ae",
+    "VIDEO-030.json": "dd0a1f31aa3e25264205a7d2144ba053ea8876c11c6b6a95d90cbd1fd5d44693"
+  }
+}
