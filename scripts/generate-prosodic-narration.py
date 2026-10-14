@@ -2209,21 +2209,57 @@ async def synthesize_segment_once_with_retries(
     text: str, rate: str, pitch: str, output_file: Path, group_number: int,
     volume: str = "+0%",
 ) -> list[dict]:
+    # TTS_429_BACKOFF_V1: protegemos el servicio y conservamos WordBoundary.
+    # No se cambia texto, velocidad, voz, caché ni tiempo de palabra.
+    import time
     last_error = None
-    for attempt in range(1, 4):
+    delays_429 = (25, 45, 90, 120)  # 5 intentos 429, máximo 4m40s de espera
+    attempt = 0
+    max_attempts = 5
+    while attempt < max_attempts:
+        attempt += 1
+        # Intervalo preventivo entre el inicio de dos peticiones a Edge.
+        last_start = getattr(synthesize_segment_once_with_retries, "_tts_last_start", None)
+        if last_start is not None:
+            remaining = 4.0 - (time.monotonic() - last_start)
+            if remaining > 0:
+                await asyncio.sleep(remaining)
+        synthesize_segment_once_with_retries._tts_last_start = time.monotonic()
         try:
-            print(f"Pensamiento {group_number} | intento {attempt}/3")
-            return await synthesize_segment_once(text, rate, pitch, output_file, volume=volume)
+            print(f"Pensamiento {group_number} | intento {attempt}/{max_attempts}")
+            return await synthesize_segment_once(
+                text, rate, pitch, output_file, volume=volume
+            )
         except Exception as error:
             last_error = error
             if output_file.exists():
                 output_file.unlink()
-            if attempt < 3:
-                await asyncio.sleep(3 * attempt)
-    raise RuntimeError(
-        f"TTS falló después de 3 intentos para pensamiento "
-        f"{group_number}: {last_error}"
-    )
+            status = getattr(error, "status", None)
+            if status is None:
+                status = getattr(error, "status_code", None)
+            is_429 = str(status) == "429" or bool(
+                re.search(r"(?<!\d)429(?!\d)", str(error))
+            )
+            if is_429:
+                if attempt >= max_attempts:
+                    raise RuntimeError(
+                        f"TTS_429_PERSISTENTE: pensamiento {group_number}; "
+                        "servicio limitó peticiones incluso tras las esperas. "
+                        "Detener lote y reintentar más tarde."
+                    ) from None
+                wait = delays_429[attempt - 1]
+                print(f"TTS_429_BACKOFF: pensamiento={group_number}; "
+                      f"espera={wait}s; intento={attempt + 1}/{max_attempts}")
+                await asyncio.sleep(wait)
+                continue
+            # Se mantiene el comportamiento anterior para fallos NO 429.
+            if attempt >= 3:
+                raise RuntimeError(
+                    f"TTS falló después de 3 intentos para pensamiento "
+                    f"{group_number}: {type(last_error).__name__}"
+                ) from last_error
+            await asyncio.sleep(3 * attempt)
+    raise RuntimeError(f"TTS no disponible para pensamiento {group_number}")
 
 
 # ============================================================
