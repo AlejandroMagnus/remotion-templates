@@ -2267,6 +2267,42 @@ async def synthesize_segment_once_with_retries(
 # ============================================================
 
 
+# AUTOCORRECCION_MARGINAL_VOCAL_V1 — dirección vocal progresiva, QA intacta.
+def _marginal_wpm_retry_allowed(metrics, vocal_qa):
+    """Solo una infracción aislada y pequeña con habla y pausas saludables."""
+    if vocal_qa.get("issues") != ["effective-wpm-below-target"]:
+        return False
+    target = metrics.get("targetWpm", {})
+    minimum, maximum = float(target.get("min", 0)), float(target.get("max", 0))
+    effective = float(metrics.get("effectiveWpm", 0))
+    speech = float(metrics.get("speechWpm", 0))
+    pause = float(metrics.get("pauseRatio", -1))
+    return (
+        minimum > 0 and minimum < maximum
+        and 0 < (minimum - effective) / minimum <= 0.02
+        and minimum <= speech <= maximum
+        and 0.04 <= pause <= 0.20
+    )
+
+
+def _increase_prosody_rate_marginal(plan, increase_points):
+    """Nueva síntesis TTS: nunca estirar audio ni marcas temporales."""
+    from dataclasses import replace
+    import re
+    if increase_points not in (3, 5):
+        raise ValueError("Ajuste vocal no permitido")
+    adjusted = []
+    for part in plan:
+        rate = getattr(part, "rate", None)
+        if not isinstance(rate, str) or not re.fullmatch(r"[+-][0-9]{1,2}%", rate):
+            raise ValueError("Tasa prosódica incompatible: " + repr(rate))
+        new_rate = int(rate[:-1]) + increase_points
+        if not -15 <= new_rate <= 15:
+            raise ValueError("Nueva tasa prosódica fuera del rango seguro")
+        adjusted.append(replace(part, rate=f"{new_rate:+d}%"))
+    return adjusted
+
+
 def build_rhythm_metrics(
     plan: list[SegmentPlan],
     effective_segments: list[dict],
@@ -3126,6 +3162,32 @@ async def main() -> None:
                 print("VOCAL_AUTOCORRECT_PASS: QA técnica aprobada")
                 break
             print("VOCAL_AUTOCORRECT_RETRY: " + ", ".join(vocal_qa["issues"]))
+
+    # AUTOCORRECCION_MARGINAL_VOCAL_V1: no se modifican umbrales de VOCAL_QA.
+    # Tolerancia de selección de reintento (2%) NO equivale a aprobación.
+    # Solo una síntesis nueva, con WordBoundary real, podrá aprobar.
+    if (
+        os.environ.get("STRICT_VOCAL_QA") == "1"
+        and _marginal_wpm_retry_allowed(metrics, vocal_qa)
+    ):
+        original_for_marginal = plan
+        for acceleration in (3, 5):
+            print(f"VOCAL_MARGINAL_RETRY: rate=+{acceleration} puntos, nueva síntesis TTS")
+            trial_plan = _increase_prosody_rate_marginal(original_for_marginal, acceleration)
+            words, effective_segments, duration_ms = await build_prosodic_audio(trial_plan)
+            measured_pause_ms = measure_audio_silence_ms(AUDIO, duration_ms)
+            metrics = build_rhythm_metrics(
+                trial_plan, effective_segments, duration_ms, direction, measured_pause_ms,
+            )
+            vocal_qa = build_vocal_qa(trial_plan, metrics)
+            plan = trial_plan
+            print("VOCAL_MARGINAL_RESULT: " + str(metrics["effectiveWpm"]) + " WPM; "
+                  + ("QA_PASS" if vocal_qa["passed"] else ", ".join(vocal_qa["issues"])))
+            if vocal_qa["passed"]:
+                break
+            # No acelerar de nuevo si apareció un problema distinto.
+            if not _marginal_wpm_retry_allowed(metrics, vocal_qa):
+                break
 
     write_timeline(
         words,
