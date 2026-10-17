@@ -2,58 +2,117 @@
   "productionCode": "video-040",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Juicio oral penal",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Juicio oral penal"
     ],
-    "intellectualContribution": "Explica Juicio oral penal desde su utilidad operativa concreta: teoría del caso, prueba, contradicción y alegatos.",
+    "intellectualContribution": "Una contradicción testimonial debe evaluarse por su relevancia, contexto y contraste con otras pruebas.",
     "newAngle": {
       "comparedWith": [
         "video-039"
       ],
-      "contribution": "Diferencia Juicio oral penal por su problema específico: confundir juicio oral penal con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "secuencia-de-testimonio: Dos testigos discrepan sobre la hora de llegada, pero coinciden en el hecho central."
     }
   },
   "topic": "Juicio oral penal",
-  "centralThesis": "Juicio oral penal exige dominar teoría del caso, prueba, contradicción y alegatos; su valor práctico está en transformar teoría del caso, prueba, contradicción y alegatos en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Juicio oral penal es confundir juicio oral penal con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Una contradicción testimonial debe evaluarse por su relevancia, contexto y contraste con otras pruebas.",
+  "problem": "¿Qué revela la contradicción de un testigo durante el juicio oral?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Juicio oral penal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir juicio oral penal con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre juicio oral penal, con una ruta de seguimiento y ejecución posible."
+    "Uno dice que la persona llegó a las nueve; otro recuerda que fue a las nueve y media.",
+    "¿Esa diferencia destruye todo el testimonio?",
+    "Depende.",
+    "La contradicción debe examinarse respecto del hecho jurídicamente relevante y del contexto en que cada testigo percibió los acontecimientos.",
+    "No es lo mismo una diferencia secundaria de horario que una incompatibilidad sobre quién realizó la conducta atribuida.",
+    "El interrogatorio debe buscar precisión, no fabricar confusiones.",
+    "Preguntar dónde estaba el testigo, qué podía ver y cuánto tiempo observó puede revelar límites genuinos de percepción.",
+    "Las respuestas deben contrastarse con otras pruebas incorporadas lícitamente al juicio.",
+    "La credibilidad no se determina contando contradicciones, sino razonando su importancia y su relación con el conjunto probatorio."
   ],
-  "conclusion": "Juicio oral penal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Tampoco una aparente inconsistencia autoriza por sí sola una condena o una absolución.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de juicio oral penal",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Juicio oral penal: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Juicio oral penal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "En juicio oral, dos testigos discrepan.",
+  "closingIdea": "En un juicio oral, la estrategia consiste en mostrar con claridad qué puede afirmarse, qué permanece incierto y por qué esa diferencia importa para la decisión.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-040",
+    "sourceFileSha256": "e9a5905067efce5c72e869143d05027be8572cb0b2682aba28123403c809bf28",
+    "fullGuionSha256": "b2937c53c1e0684497deb3106670287ea72f5c8341a204a2a5d5eada7bd0f27f",
+    "fullGuionVerbatim": "En juicio oral, dos testigos discrepan. Uno dice que la persona llegó a las nueve; otro recuerda que fue a las nueve y media. ¿Esa diferencia destruye todo el testimonio? Depende. La contradicción debe examinarse respecto del hecho jurídicamente relevante y del contexto en que cada testigo percibió los acontecimientos. No es lo mismo una diferencia secundaria de horario que una incompatibilidad sobre quién realizó la conducta atribuida. El interrogatorio debe buscar precisión, no fabricar confusiones. Preguntar dónde estaba el testigo, qué podía ver y cuánto tiempo observó puede revelar límites genuinos de percepción. Las respuestas deben contrastarse con otras pruebas incorporadas lícitamente al juicio. La credibilidad no se determina contando contradicciones, sino razonando su importancia y su relación con el conjunto probatorio. Tampoco una aparente inconsistencia autoriza por sí sola una condena o una absolución. En un juicio oral, la estrategia consiste en mostrar con claridad qué puede afirmarse, qué permanece incierto y por qué esa diferencia importa para la decisión.",
+    "sourceFichaTitle": "Juicio oral penal",
+    "sourceNormas": [
+      "CPP arts. 329 y siguientes (juicio oral)",
+      "CPP art. 173 (valoración de prueba)",
+      "CPE arts. 115–121"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Sala de juicio con dos testigos; horarios divergentes",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Reloj «09:00» y «09:30», con etiqueta «¿detalle central?»",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Plano de línea de visión del testigo y lugar del hecho",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Cruce visual de testimonio con otros elementos de prueba",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Cierre: diferencia → relevancia → valoración conjunta",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-040.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

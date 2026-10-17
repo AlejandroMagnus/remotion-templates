@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-035",
+  "tema": "Defensa ante imputación penal",
+  "tesis": "Una defensa eficaz comienza preservando derechos, entendiendo hechos y asegurando evidencia lícita.",
+  "problema": "¿Qué debe hacer primero la defensa ante una imputación penal?",
+  "microcaso": "Una persona imputada quiere declarar inmediatamente sin conocer el expediente.",
+  "hook": "El teléfono suena: «Me imputaron y me citaron para mañana».",
+  "guion": "El teléfono suena: «Me imputaron y me citaron para mañana». La reacción habitual es improvisar una explicación para convencer a todos. Ese impulso puede ser un error estratégico. La primera tarea es conocer exactamente qué hecho se atribuye, qué resolución fue notificada y qué actuación está programada. Después, contactar a una defensa técnica y revisar el acceso a las actuaciones conforme al estado del procedimiento. Una persona investigada conserva el derecho a guardar silencio en las condiciones constitucionales y legales; ese derecho no debe confundirse con una admisión de culpabilidad. Paralelamente hay que preservar documentos, mensajes completos, registros de ubicación obtenidos lícitamente y nombres de posibles testigos. Nada de borrar información ni contactar personas para alterar sus versiones. Si existe una audiencia cautelar, las alegaciones sobre riesgos requieren preparación separada. Una defensa seria tampoco promete una absolución inmediata. Su primera fortaleza es ordenar hechos, prueba, garantías y plazos para actuar con información. Cuando la presión es máxima, el método evita decisiones irreversibles.",
+  "cierre": "Cuando la presión es máxima, el método evita decisiones irreversibles.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "primeras-24-horas",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Llamada de urgencia y calendario de audiencia sin fecha ficticia",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Cuatro carpetas: hecho / resolución / evidencia / próxima actuación",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Derecho de defensa y no autoincriminación como textos breves",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Preservar: teléfono, mensajes, documentos sin alteración",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Abogado traza ruta y riesgos por separado",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPE arts. 115–121 (defensa y garantías)",
+    "CPP: derechos del imputado y reglas de citación y actos de investigación"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 162,
+    "scriptSHA256": "cd6a5e9facd9b70b8b9ed46b740d1187d534a4532b801e347e2e99c9d9bb1b70",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

@@ -2,58 +2,117 @@
   "productionCode": "video-036",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Actividad procesal defectuosa",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Actividad procesal defectuosa"
     ],
-    "intellectualContribution": "Explica Actividad procesal defectuosa desde su utilidad operativa concreta: cómo denunciar defectos que afectan el debido proceso.",
+    "intellectualContribution": "Un defecto procesal exige un análisis de derecho afectado, perjuicio y remedio, no una nulidad automática.",
     "newAngle": {
       "comparedWith": [
         "video-035"
       ],
-      "contribution": "Diferencia Actividad procesal defectuosa por su problema específico: confundir actividad procesal defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "anatomia-de-una-notificacion: La notificación se entrega irregularmente y la persona pierde la oportunidad de intervenir."
     }
   },
   "topic": "Actividad procesal defectuosa",
-  "centralThesis": "Actividad procesal defectuosa exige dominar cómo denunciar defectos que afectan el debido proceso; su valor práctico está en transformar cómo denunciar defectos que afectan el debido proceso en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Actividad procesal defectuosa es confundir actividad procesal defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Un defecto procesal exige un análisis de derecho afectado, perjuicio y remedio, no una nulidad automática.",
+  "problem": "¿Cuándo un defecto del procedimiento tiene una consecuencia procesal?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Actividad procesal defectuosa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir actividad procesal defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre actividad procesal defectuosa, con una ruta de seguimiento y ejecución posible."
+    "Días después, la persona descubre que se realizó una actuación sin que pudiera ejercer su defensa.",
+    "¿Todo error de notificación anula automáticamente el proceso?",
+    "No.",
+    "En materia penal, la actividad procesal defectuosa exige examinar la irregularidad concreta, la garantía comprometida y el perjuicio que pudo causar.",
+    "Hay que reconstruir cuatro datos: cómo debía notificarse, qué ocurrió realmente, cuándo se conoció el acto y qué posibilidad de defensa se perdió.",
+    "También importa si el defecto puede sanearse, si es convalidable y cuándo se notificó el acto.",
+    "El artículo 167, reformado por la Ley 1173, establece una regla de diez días para plantear la actividad procesal defectuosa, con particularidades para incidentes sobrevinientes y defectos no convalidables.",
+    "La nulidad exige presupuestos jurídicos: no toda irregularidad ocasiona invalidez, y los defectos absolutos merecen un examen diferenciado.",
+    "La defensa debe identificar el acto, documentar la irregularidad y elegir oportunamente la vía procesal pertinente."
   ],
-  "conclusion": "Actividad procesal defectuosa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Si un abogado se limita a escribir «vulneración del debido proceso» sin explicar el perjuicio, deja sin responder la pregunta decisiva.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de actividad procesal defectuosa",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Actividad procesal defectuosa: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Actividad procesal defectuosa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una resolución llega a un domicilio equivocado.",
+  "closingIdea": "La estrategia comienza demostrando de qué manera el defecto afectó una garantía y qué reparación se solicita.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-036",
+    "sourceFileSha256": "122a441a3eb802c59ea0c66c0e85a75ca5ad9c1d5002320e1f5928a5e9574c59",
+    "fullGuionSha256": "60f90f4c09021674dbbf0401c7ea4baec56e6003d9c37f0169e0541b97e8b825",
+    "fullGuionVerbatim": "Una resolución llega a un domicilio equivocado. Días después, la persona descubre que se realizó una actuación sin que pudiera ejercer su defensa. ¿Todo error de notificación anula automáticamente el proceso? No. En materia penal, la actividad procesal defectuosa exige examinar la irregularidad concreta, la garantía comprometida y el perjuicio que pudo causar. Hay que reconstruir cuatro datos: cómo debía notificarse, qué ocurrió realmente, cuándo se conoció el acto y qué posibilidad de defensa se perdió. También importa si el defecto puede sanearse, si es convalidable y cuándo se notificó el acto. El artículo 167, reformado por la Ley 1173, establece una regla de diez días para plantear la actividad procesal defectuosa, con particularidades para incidentes sobrevinientes y defectos no convalidables. La nulidad exige presupuestos jurídicos: no toda irregularidad ocasiona invalidez, y los defectos absolutos merecen un examen diferenciado. La defensa debe identificar el acto, documentar la irregularidad y elegir oportunamente la vía procesal pertinente. Si un abogado se limita a escribir «vulneración del debido proceso» sin explicar el perjuicio, deja sin responder la pregunta decisiva. La estrategia comienza demostrando de qué manera el defecto afectó una garantía y qué reparación se solicita.",
+    "sourceFichaTitle": "Actividad procesal defectuosa",
+    "sourceNormas": [
+      "CPP art. 167 (modificado por Ley 1173, art. 10); arts. 168–170",
+      "CPP art. 314 (trámite de incidentes; Ley 1173)",
+      "CPE arts. 115 y 119"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Sobre notificación enviado a dirección errónea; comparecencia perdida",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Cuatro hitos: modo / hecho / conocimiento / perjuicio",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Diagrama: irregularidad → afectación → remedio (condicional)",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Balanza: saneamiento / convalidación / nulidad según caso",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Cierre: escrito con petición concreta, sin dramatizar nulidades",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Verificar incidencia de plazo de diez días, preclusión y defectos absolutos según supuestos."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-036.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

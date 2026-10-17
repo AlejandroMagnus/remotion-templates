@@ -2,58 +2,115 @@
   "productionCode": "video-033",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Imputación formal",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Imputación formal"
     ],
-    "intellectualContribution": "Explica Imputación formal desde su utilidad operativa concreta: qué significa y cómo se la analiza desde la defensa.",
+    "intellectualContribution": "La imputación exige una atribución fáctica individualizada que pueda ser comprendida y contradicha.",
     "newAngle": {
       "comparedWith": [
         "video-032"
       ],
-      "contribution": "Diferencia Imputación formal por su problema específico: confundir imputación formal con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "desmontar-un-equivo-co: Una persona recibe una imputación que enumera diligencias pero no le explica con claridad el hecho atribuido."
     }
   },
   "topic": "Imputación formal",
-  "centralThesis": "Imputación formal exige dominar qué significa y cómo se la analiza desde la defensa; su valor práctico está en transformar qué significa y cómo se la analiza desde la defensa en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Imputación formal es confundir imputación formal con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La imputación exige una atribución fáctica individualizada que pueda ser comprendida y contradicha.",
+  "problem": "¿Qué significa realmente estar imputado?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Imputación formal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir imputación formal con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre imputación formal, con una ruta de seguimiento y ejecución posible."
+    "Pero la imputación no es una sentencia.",
+    "Es una decisión fiscal fundamentada que debe identificar qué hecho se atribuye provisionalmente, a quién y sobre qué elementos se sostiene.",
+    "Imagina dos documentos.",
+    "El primero enumera entrevistas, informes y actas durante diez páginas; el segundo explica con claridad el momento, lugar, conducta y participación concretamente atribuidos.",
+    "El volumen no reemplaza la precisión.",
+    "Para la defensa, el examen empieza por comparar el relato fiscal con los actos de investigación: ¿son coherentes?, ¿hay una atribución individualizada?, ¿qué datos faltan o contradicen la hipótesis?",
+    "La calificación jurídica tampoco queda inmunizada contra revisión.",
+    "Y una eventual solicitud de medidas cautelares exige presupuestos y debate propios: no nace automáticamente de la imputación."
   ],
-  "conclusion": "Imputación formal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La estrategia no consiste en negar todo sin leer; consiste en entender el hecho, identificar la prueba y ejercer la defensa con método.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de imputación formal",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Imputación formal: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Imputación formal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "A Carlos le entregan una imputación formal y entra en pánico: piensa que ya lo condenaron.",
+  "closingIdea": "Imputar es atribuir provisionalmente; condenar exige otro estándar y otra decisión.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-033",
+    "sourceFileSha256": "510237309982d5deda3b3c9ec6eb9be52324df7d9550307ad35f2ec81eba54f3",
+    "fullGuionSha256": "11d46030b5b8f2c9013f7e02b13016f939c77a67cb791fd91e98997a6e54d464",
+    "fullGuionVerbatim": "A Carlos le entregan una imputación formal y entra en pánico: piensa que ya lo condenaron. Pero la imputación no es una sentencia. Es una decisión fiscal fundamentada que debe identificar qué hecho se atribuye provisionalmente, a quién y sobre qué elementos se sostiene. Imagina dos documentos. El primero enumera entrevistas, informes y actas durante diez páginas; el segundo explica con claridad el momento, lugar, conducta y participación concretamente atribuidos. El volumen no reemplaza la precisión. Para la defensa, el examen empieza por comparar el relato fiscal con los actos de investigación: ¿son coherentes?, ¿hay una atribución individualizada?, ¿qué datos faltan o contradicen la hipótesis? La calificación jurídica tampoco queda inmunizada contra revisión. Y una eventual solicitud de medidas cautelares exige presupuestos y debate propios: no nace automáticamente de la imputación. La estrategia no consiste en negar todo sin leer; consiste en entender el hecho, identificar la prueba y ejercer la defensa con método. Imputar es atribuir provisionalmente; condenar exige otro estándar y otra decisión.",
+    "sourceFichaTitle": "Imputación formal",
+    "sourceNormas": [
+      "CPP art. 302 (imputación formal; Ley 1173)",
+      "CPE arts. 115–121"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Notificación a Carlos con sello «IMPUTACIÓN»",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Comparación: legajo voluminoso vs relato delimitado tiempo-modo-lugar",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Atribución individual con líneas de hechos y respaldo",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Dos carriles: imputación / cautelares como debates distintos",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Cierre visual: provisional no equivale a culpabilidad",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-033.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

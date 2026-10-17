@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-037",
+  "tema": "Prueba penal",
+  "tesis": "La fuerza de la prueba depende de procedencia, integridad, contexto y contradicción, no de su apariencia.",
+  "problema": "¿Por qué una prueba aparentemente fuerte puede resultar insuficiente?",
+  "microcaso": "Un video de pocos segundos parece incriminar a alguien, pero empieza después del hecho decisivo.",
+  "hook": "Circula un video de seis segundos.",
+  "guion": "Circula un video de seis segundos. Parece mostrar a una persona agrediendo a otra. En redes ya existe un veredicto, pero en un proceso penal esa imagen plantea preguntas. ¿Quién la grabó? ¿Está completa? ¿Qué ocurrió antes y después? ¿Cómo se obtuvo y preservó el archivo? Un fragmento puede ser relevante sin ser suficiente por sí solo. La investigación debe examinar su autenticidad, integridad y relación con la hipótesis del caso, además de las condiciones legales para su incorporación. La defensa tiene derecho a controvertir los elementos que se utilicen en su contra; la acusación debe sostener sus afirmaciones con prueba apta. Si aparecen testigos, conversaciones y pericias, no se trata de contar cuántas piezas existen, sino de verificar qué demuestra cada una y qué contradicciones persisten. Una imagen impacta; una prueba exige examen. Antes de convertir un archivo en la verdad completa de un caso, reconstruye su origen, su contexto y el alcance real de lo que permite concluir.",
+  "cierre": "Antes de convertir un archivo en la verdad completa de un caso, reconstruye su origen, su contexto y el alcance real de lo que permite concluir.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "prueba-bajo-lupa",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Video recortado en teléfono; barra de reproducción parcial",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Cuatro preguntas: autor / integridad / contexto / obtención",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Comparativa: video aislado versus otras evidencias",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Perito y testigo como fuentes diferentes, sin fingir dictámenes",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Cierre: lupa sobre «qué prueba realmente»",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPP arts. 171–173 (libertad, exclusión y valoración probatoria)",
+    "CPE arts. 115–121"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 160,
+    "scriptSHA256": "45eabfb1a7ad5939fa1116167ac06f0c7206e6278a014550ab6274beedc15914",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

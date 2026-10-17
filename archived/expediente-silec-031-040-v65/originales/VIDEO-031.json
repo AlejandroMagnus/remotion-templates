@@ -1,0 +1,72 @@
+{
+  "id": "VIDEO-031",
+  "tema": "Proceso penal explicado por etapas",
+  "tesis": "Cada etapa penal cambia qué debe probarse, quién decide y qué defensa es pertinente.",
+  "problema": "¿Qué cambia para una persona desde la denuncia hasta el juicio penal?",
+  "microcaso": "Una familia recibe avisos de denuncia, imputación y audiencia, y cree que todos significan condena.",
+  "hook": "A las ocho de la mañana llaman a una familia: existe una denuncia penal.",
+  "guion": "A las ocho de la mañana llaman a una familia: existe una denuncia penal. Días después oyen hablar de imputación, cautelares y juicio. Creen que todo significa lo mismo. No es así. La denuncia comunica hechos que deben investigarse; no determina culpabilidad. Durante la investigación se buscan elementos tanto de cargo como de descargo. Si el fiscal formula una imputación, atribuye provisionalmente hechos a una persona; no dicta sentencia. Cuando se discuten medidas cautelares, la autoridad judicial examina sus presupuestos y riesgos procesales, no anticipa la pena. Más adelante pueden presentarse actos conclusivos distintos: el caso no necesariamente llegará a juicio. Si llega, la acusación debe sostenerse con prueba sometida a contradicción y la decisión corresponde a la autoridad judicial. Observa el mapa: en cada estación cambian los documentos, los derechos y las decisiones posibles. Para defender un caso, pregunta siempre en qué etapa estamos, qué acto se notificó y cuál es la siguiente actuación realmente exigible.",
+  "cierre": "Para defender un caso, pregunta siempre en qué etapa estamos, qué acto se notificó y cuál es la siguiente actuación realmente exigible.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "ruta-de-proceso-penal",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Llamada a la familia; notificaciones sucesivas con fechas distintas",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Mapa animado: denuncia / investigación / imputación / decisiones conclusivas / juicio",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Documentos con sellos visuales provisionales: imputación ≠ condena",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Prueba de cargo y descargo comparadas; juez de fondo sin adelantarse",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Cierre: mapa de etapa → documento → derecho → actuación",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPE arts. 115–121",
+    "Ley 1970 (CPP): actos iniciales, etapa preparatoria, conclusiones y juicio",
+    "Ley 1173: reformas procesales"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 157,
+    "scriptSHA256": "ff0556f704b0ae73126710859376c14542dc8dfa0b7cf615dff6796f168c851d",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "VIDEO-036",
+  "tema": "Actividad procesal defectuosa",
+  "tesis": "Un defecto procesal exige un análisis de derecho afectado, perjuicio y remedio, no una nulidad automática.",
+  "problema": "¿Cuándo un defecto del procedimiento tiene una consecuencia procesal?",
+  "microcaso": "La notificación se entrega irregularmente y la persona pierde la oportunidad de intervenir.",
+  "hook": "Una resolución llega a un domicilio equivocado.",
+  "guion": "Una resolución llega a un domicilio equivocado. Días después, la persona descubre que se realizó una actuación sin que pudiera ejercer su defensa. ¿Todo error de notificación anula automáticamente el proceso? No. En materia penal, la actividad procesal defectuosa exige examinar la irregularidad concreta, la garantía comprometida y el perjuicio que pudo causar. Hay que reconstruir cuatro datos: cómo debía notificarse, qué ocurrió realmente, cuándo se conoció el acto y qué posibilidad de defensa se perdió. También importa si el defecto puede sanearse, si es convalidable y cuándo se notificó el acto. El artículo 167, reformado por la Ley 1173, establece una regla de diez días para plantear la actividad procesal defectuosa, con particularidades para incidentes sobrevinientes y defectos no convalidables. La nulidad exige presupuestos jurídicos: no toda irregularidad ocasiona invalidez, y los defectos absolutos merecen un examen diferenciado. La defensa debe identificar el acto, documentar la irregularidad y elegir oportunamente la vía procesal pertinente. Si un abogado se limita a escribir «vulneración del debido proceso» sin explicar el perjuicio, deja sin responder la pregunta decisiva. La estrategia comienza demostrando de qué manera el defecto afectó una garantía y qué reparación se solicita.",
+  "cierre": "La estrategia comienza demostrando de qué manera el defecto afectó una garantía y qué reparación se solicita.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "anatomia-de-una-notificacion",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Sobre notificación enviado a dirección errónea; comparecencia perdida",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Cuatro hitos: modo / hecho / conocimiento / perjuicio",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Diagrama: irregularidad → afectación → remedio (condicional)",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Balanza: saneamiento / convalidación / nulidad según caso",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Cierre: escrito con petición concreta, sin dramatizar nulidades",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPP art. 167 (modificado por Ley 1173, art. 10); arts. 168–170",
+    "CPP art. 314 (trámite de incidentes; Ley 1173)",
+    "CPE arts. 115 y 119"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Verificar incidencia de plazo de diez días, preclusión y defectos absolutos según supuestos.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 193,
+    "scriptSHA256": "60f90f4c09021674dbbf0401c7ea4baec56e6003d9c37f0169e0541b97e8b825",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

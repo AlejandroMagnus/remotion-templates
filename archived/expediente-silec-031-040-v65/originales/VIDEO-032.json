@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-032",
+  "tema": "Denuncia penal",
+  "tesis": "Una denuncia útil distingue hechos verificables, elementos de corroboración y sospechas.",
+  "problema": "¿Cuándo una denuncia relata hechos verificables y no solo sospechas?",
+  "microcaso": "Dos vecinos creen haber sufrido el mismo fraude; uno relata solo adjetivos y otro aporta secuencia verificable.",
+  "hook": "Dos personas llegan a denunciar el mismo supuesto fraude.",
+  "guion": "Dos personas llegan a denunciar el mismo supuesto fraude. La primera dice: «Me estafaron; son delincuentes». La segunda cuenta cuándo entregó el dinero, qué le prometieron, cómo se comunicaron y dónde están los comprobantes. ¿Cuál relato permite investigar mejor? El segundo, porque ofrece hechos comprobables. Una denuncia penal no es una sentencia ni un espacio para sustituir la prueba con calificativos. Su utilidad comienza por ordenar personas, fechas, lugares, conductas y consecuencias. Después separa tres columnas: lo que viste personalmente, lo que otra persona te informó y lo que todavía sospechas. Conserva mensajes completos, transferencias y documentos en sus soportes originales; evita alterar archivos o reconstruir conversaciones. Si hay testigos, identifica qué percibieron, no qué conclusión deseas que repitan. La calificación jurídica inicial puede cambiar con la investigación y no corresponde inventar certezas. Antes de denunciar, prepara una cronología y una lista de fuentes verificables. La precisión protege tanto el esclarecimiento del hecho como los derechos de las personas involucradas.",
+  "cierre": "La precisión protege tanto el esclarecimiento del hecho como los derechos de las personas involucradas.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "laboratorio-de-denuncia",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Dos formularios: solo acusaciones frente a relato con fechas y documentos",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Cronología visual: oferta → transferencia → mensajes → reclamación",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Tres columnas: visto / informado / sospechado",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Cadena de preservación digital sin exhibir datos personales",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Expediente con carpetas ordenadas y cierre didáctico",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPP arts. 284–285 (denuncia; art. 285 modificado por Ley 1173)",
+    "CPE arts. 115–117"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 160,
+    "scriptSHA256": "b86f103252e09461a594434e5527cf2f6c359a9f6587bc0a611cef7bf7e71938",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

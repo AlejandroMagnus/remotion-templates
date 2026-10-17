@@ -2,58 +2,118 @@
   "productionCode": "video-034",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Medidas cautelares personales",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Medidas cautelares personales"
     ],
-    "intellectualContribution": "Explica Medidas cautelares personales desde su utilidad operativa concreta: detención preventiva, medidas sustitutivas y proporcionalidad.",
+    "intellectualContribution": "Las medidas cautelares personales deben justificarse con presupuestos y riesgos concretos, bajo proporcionalidad.",
     "newAngle": {
       "comparedWith": [
         "video-033"
       ],
-      "contribution": "Diferencia Medidas cautelares personales por su problema específico: confundir medidas cautelares personales con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "audiencia-de-riesgos: Fiscalía pide detención preventiva basándose solo en la gravedad del delito imputado."
     }
   },
   "topic": "Medidas cautelares personales",
-  "centralThesis": "Medidas cautelares personales exige dominar detención preventiva, medidas sustitutivas y proporcionalidad; su valor práctico está en transformar detención preventiva, medidas sustitutivas y proporcionalidad en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Medidas cautelares personales es confundir medidas cautelares personales con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Las medidas cautelares personales deben justificarse con presupuestos y riesgos concretos, bajo proporcionalidad.",
+  "problem": "¿Por qué una medida cautelar no debe confundirse con una pena?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Medidas cautelares personales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir medidas cautelares personales con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre medidas cautelares personales, con una ruta de seguimiento y ejecución posible."
+    "Su argumento más fuerte es: «El delito es grave».",
+    "¿Basta esa frase?",
+    "No.",
+    "Las medidas cautelares personales tienen una finalidad procesal: proteger la comparecencia y evitar riesgos legalmente relevantes, no castigar antes del juicio.",
+    "Una decisión fundada exige examinar elementos de participación probable y los riesgos de fuga u obstaculización alegados, según los requisitos aplicables.",
+    "Además, la discusión debe considerar qué medida resulta idónea y proporcional al caso concreto.",
+    "No es lo mismo afirmar que alguien podría fugarse que explicar con datos verificables por qué existe ese peligro.",
+    "Tampoco toda persona imputada debe quedar privada de libertad.",
+    "La Ley 1443 contempla medidas menos gravosas, pero establece excepciones específicas para determinados delitos contra mujeres, niñas, niños y adolescentes; no existe una regla idéntica para todos los casos.",
+    "Para evaluar una solicitud, separa tres preguntas: ¿qué hecho se atribuye?, ¿qué riesgo concreto se demuestra?, ¿por qué esta medida y no otra?"
   ],
-  "conclusion": "Medidas cautelares personales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La gravedad del conflicto exige más fundamentación, no menos.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de medidas cautelares personales",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Medidas cautelares personales: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Medidas cautelares personales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "En una investigación penal, la Fiscalía solicita detención preventiva.",
+  "closingIdea": "Una cautelar no debe convertirse en una condena encubierta.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-034",
+    "sourceFileSha256": "9d2e039ca8010046c783f12fb67424f4b4fb7177e1b0d5775a8fdc9e9c31ceb1",
+    "fullGuionSha256": "878f810ad2173afb5a4b844defb91d92bb843ef32a608162c6377f2755c5939f",
+    "fullGuionVerbatim": "En una investigación penal, la Fiscalía solicita detención preventiva. Su argumento más fuerte es: «El delito es grave». ¿Basta esa frase? No. Las medidas cautelares personales tienen una finalidad procesal: proteger la comparecencia y evitar riesgos legalmente relevantes, no castigar antes del juicio. Una decisión fundada exige examinar elementos de participación probable y los riesgos de fuga u obstaculización alegados, según los requisitos aplicables. Además, la discusión debe considerar qué medida resulta idónea y proporcional al caso concreto. No es lo mismo afirmar que alguien podría fugarse que explicar con datos verificables por qué existe ese peligro. Tampoco toda persona imputada debe quedar privada de libertad. La Ley 1443 contempla medidas menos gravosas, pero establece excepciones específicas para determinados delitos contra mujeres, niñas, niños y adolescentes; no existe una regla idéntica para todos los casos. Para evaluar una solicitud, separa tres preguntas: ¿qué hecho se atribuye?, ¿qué riesgo concreto se demuestra?, ¿por qué esta medida y no otra? La gravedad del conflicto exige más fundamentación, no menos. Una cautelar no debe convertirse en una condena encubierta.",
+    "sourceFichaTitle": "Medidas cautelares personales",
+    "sourceNormas": [
+      "CPP arts. 221, 231 bis, 233–235 (cautelares)",
+      "Ley 1443 art. 2.IV–V (reformas arts. 231 bis y 233)",
+      "CPE arts. 115–117"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Solicitud de detención con motivo genérico «gravedad»",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Balanza procesal: imputación probable y riesgos demostrables",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Indicadores de riesgo, etiquetados como hechos a probar",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Escalera de medidas posibles sin presunción de aplicabilidad",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Tres preguntas superpuestas y conclusión",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Especial atención a excepciones y supuestos de Ley 1443, arts. 231 bis y 233."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-034.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

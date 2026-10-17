@@ -1,0 +1,72 @@
+{
+  "id": "VIDEO-034",
+  "tema": "Medidas cautelares personales",
+  "tesis": "Las medidas cautelares personales deben justificarse con presupuestos y riesgos concretos, bajo proporcionalidad.",
+  "problema": "¿Por qué una medida cautelar no debe confundirse con una pena?",
+  "microcaso": "Fiscalía pide detención preventiva basándose solo en la gravedad del delito imputado.",
+  "hook": "En una investigación penal, la Fiscalía solicita detención preventiva.",
+  "guion": "En una investigación penal, la Fiscalía solicita detención preventiva. Su argumento más fuerte es: «El delito es grave». ¿Basta esa frase? No. Las medidas cautelares personales tienen una finalidad procesal: proteger la comparecencia y evitar riesgos legalmente relevantes, no castigar antes del juicio. Una decisión fundada exige examinar elementos de participación probable y los riesgos de fuga u obstaculización alegados, según los requisitos aplicables. Además, la discusión debe considerar qué medida resulta idónea y proporcional al caso concreto. No es lo mismo afirmar que alguien podría fugarse que explicar con datos verificables por qué existe ese peligro. Tampoco toda persona imputada debe quedar privada de libertad. La Ley 1443 contempla medidas menos gravosas, pero establece excepciones específicas para determinados delitos contra mujeres, niñas, niños y adolescentes; no existe una regla idéntica para todos los casos. Para evaluar una solicitud, separa tres preguntas: ¿qué hecho se atribuye?, ¿qué riesgo concreto se demuestra?, ¿por qué esta medida y no otra? La gravedad del conflicto exige más fundamentación, no menos. Una cautelar no debe convertirse en una condena encubierta.",
+  "cierre": "Una cautelar no debe convertirse en una condena encubierta.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "audiencia-de-riesgos",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Solicitud de detención con motivo genérico «gravedad»",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Balanza procesal: imputación probable y riesgos demostrables",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Indicadores de riesgo, etiquetados como hechos a probar",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Escalera de medidas posibles sin presunción de aplicabilidad",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Tres preguntas superpuestas y conclusión",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPP arts. 221, 231 bis, 233–235 (cautelares)",
+    "Ley 1443 art. 2.IV–V (reformas arts. 231 bis y 233)",
+    "CPE arts. 115–117"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Especial atención a excepciones y supuestos de Ley 1443, arts. 231 bis y 233.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 176,
+    "scriptSHA256": "878f810ad2173afb5a4b844defb91d92bb843ef32a608162c6377f2755c5939f",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

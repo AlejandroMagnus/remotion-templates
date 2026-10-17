@@ -2,58 +2,116 @@
   "productionCode": "video-035",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Defensa ante imputación penal",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Defensa ante imputación penal"
     ],
-    "intellectualContribution": "Explica Defensa ante imputación penal desde su utilidad operativa concreta: qué hacer primero cuando una persona es imputada.",
+    "intellectualContribution": "Una defensa eficaz comienza preservando derechos, entendiendo hechos y asegurando evidencia lícita.",
     "newAngle": {
       "comparedWith": [
         "video-034"
       ],
-      "contribution": "Diferencia Defensa ante imputación penal por su problema específico: confundir defensa ante imputación penal con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "primeras-24-horas: Una persona imputada quiere declarar inmediatamente sin conocer el expediente."
     }
   },
   "topic": "Defensa ante imputación penal",
-  "centralThesis": "Defensa ante imputación penal exige dominar qué hacer primero cuando una persona es imputada; su valor práctico está en transformar qué hacer primero cuando una persona es imputada en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Defensa ante imputación penal es confundir defensa ante imputación penal con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Una defensa eficaz comienza preservando derechos, entendiendo hechos y asegurando evidencia lícita.",
+  "problem": "¿Qué debe hacer primero la defensa ante una imputación penal?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Defensa ante imputación penal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir defensa ante imputación penal con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre defensa ante imputación penal, con una ruta de seguimiento y ejecución posible."
+    "La reacción habitual es improvisar una explicación para convencer a todos.",
+    "Ese impulso puede ser un error estratégico.",
+    "La primera tarea es conocer exactamente qué hecho se atribuye, qué resolución fue notificada y qué actuación está programada.",
+    "Después, contactar a una defensa técnica y revisar el acceso a las actuaciones conforme al estado del procedimiento.",
+    "Una persona investigada conserva el derecho a guardar silencio en las condiciones constitucionales y legales; ese derecho no debe confundirse con una admisión de culpabilidad.",
+    "Paralelamente hay que preservar documentos, mensajes completos, registros de ubicación obtenidos lícitamente y nombres de posibles testigos.",
+    "Nada de borrar información ni contactar personas para alterar sus versiones.",
+    "Si existe una audiencia cautelar, las alegaciones sobre riesgos requieren preparación separada.",
+    "Una defensa seria tampoco promete una absolución inmediata."
   ],
-  "conclusion": "Defensa ante imputación penal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Su primera fortaleza es ordenar hechos, prueba, garantías y plazos para actuar con información.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de defensa ante imputación penal",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Defensa ante imputación penal: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Defensa ante imputación penal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "El teléfono suena: «Me imputaron y me citaron para mañana».",
+  "closingIdea": "Cuando la presión es máxima, el método evita decisiones irreversibles.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-035",
+    "sourceFileSha256": "653230275f6d2bbe7771d45bcf83d563edf46b35f4d28b5709275a2a140414ff",
+    "fullGuionSha256": "cd6a5e9facd9b70b8b9ed46b740d1187d534a4532b801e347e2e99c9d9bb1b70",
+    "fullGuionVerbatim": "El teléfono suena: «Me imputaron y me citaron para mañana». La reacción habitual es improvisar una explicación para convencer a todos. Ese impulso puede ser un error estratégico. La primera tarea es conocer exactamente qué hecho se atribuye, qué resolución fue notificada y qué actuación está programada. Después, contactar a una defensa técnica y revisar el acceso a las actuaciones conforme al estado del procedimiento. Una persona investigada conserva el derecho a guardar silencio en las condiciones constitucionales y legales; ese derecho no debe confundirse con una admisión de culpabilidad. Paralelamente hay que preservar documentos, mensajes completos, registros de ubicación obtenidos lícitamente y nombres de posibles testigos. Nada de borrar información ni contactar personas para alterar sus versiones. Si existe una audiencia cautelar, las alegaciones sobre riesgos requieren preparación separada. Una defensa seria tampoco promete una absolución inmediata. Su primera fortaleza es ordenar hechos, prueba, garantías y plazos para actuar con información. Cuando la presión es máxima, el método evita decisiones irreversibles.",
+    "sourceFichaTitle": "Defensa ante imputación penal",
+    "sourceNormas": [
+      "CPE arts. 115–121 (defensa y garantías)",
+      "CPP: derechos del imputado y reglas de citación y actos de investigación"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Llamada de urgencia y calendario de audiencia sin fecha ficticia",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Cuatro carpetas: hecho / resolución / evidencia / próxima actuación",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Derecho de defensa y no autoincriminación como textos breves",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Preservar: teléfono, mensajes, documentos sin alteración",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Abogado traza ruta y riesgos por separado",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-035.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

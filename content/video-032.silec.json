@@ -2,58 +2,117 @@
   "productionCode": "video-032",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Denuncia penal",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Denuncia penal"
     ],
-    "intellectualContribution": "Explica Denuncia penal desde su utilidad operativa concreta: cuándo presentar denuncia y cómo evitar que sea débil.",
+    "intellectualContribution": "Una denuncia útil distingue hechos verificables, elementos de corroboración y sospechas.",
     "newAngle": {
       "comparedWith": [
         "video-031"
       ],
-      "contribution": "Diferencia Denuncia penal por su problema específico: confundir denuncia penal con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "laboratorio-de-denuncia: Dos vecinos creen haber sufrido el mismo fraude; uno relata solo adjetivos y otro aporta secuencia verificable."
     }
   },
   "topic": "Denuncia penal",
-  "centralThesis": "Denuncia penal exige dominar cuándo presentar denuncia y cómo evitar que sea débil; su valor práctico está en transformar cuándo presentar denuncia y cómo evitar que sea débil en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Denuncia penal es confundir denuncia penal con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Una denuncia útil distingue hechos verificables, elementos de corroboración y sospechas.",
+  "problem": "¿Cuándo una denuncia relata hechos verificables y no solo sospechas?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Denuncia penal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir denuncia penal con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre denuncia penal, con una ruta de seguimiento y ejecución posible."
+    "La primera dice: «Me estafaron; son delincuentes».",
+    "La segunda cuenta cuándo entregó el dinero, qué le prometieron, cómo se comunicaron y dónde están los comprobantes.",
+    "¿Cuál relato permite investigar mejor?",
+    "El segundo, porque ofrece hechos comprobables.",
+    "Una denuncia penal no es una sentencia ni un espacio para sustituir la prueba con calificativos.",
+    "Su utilidad comienza por ordenar personas, fechas, lugares, conductas y consecuencias.",
+    "Después separa tres columnas: lo que viste personalmente, lo que otra persona te informó y lo que todavía sospechas.",
+    "Conserva mensajes completos, transferencias y documentos en sus soportes originales; evita alterar archivos o reconstruir conversaciones.",
+    "Si hay testigos, identifica qué percibieron, no qué conclusión deseas que repitan.",
+    "La calificación jurídica inicial puede cambiar con la investigación y no corresponde inventar certezas."
   ],
-  "conclusion": "Denuncia penal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de denunciar, prepara una cronología y una lista de fuentes verificables.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de denuncia penal",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Denuncia penal: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Denuncia penal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Dos personas llegan a denunciar el mismo supuesto fraude.",
+  "closingIdea": "La precisión protege tanto el esclarecimiento del hecho como los derechos de las personas involucradas.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-032",
+    "sourceFileSha256": "22f177c00595a8f104d769d5cea1191f9d21a1dc4ccd737ee8f789756e1715d4",
+    "fullGuionSha256": "b86f103252e09461a594434e5527cf2f6c359a9f6587bc0a611cef7bf7e71938",
+    "fullGuionVerbatim": "Dos personas llegan a denunciar el mismo supuesto fraude. La primera dice: «Me estafaron; son delincuentes». La segunda cuenta cuándo entregó el dinero, qué le prometieron, cómo se comunicaron y dónde están los comprobantes. ¿Cuál relato permite investigar mejor? El segundo, porque ofrece hechos comprobables. Una denuncia penal no es una sentencia ni un espacio para sustituir la prueba con calificativos. Su utilidad comienza por ordenar personas, fechas, lugares, conductas y consecuencias. Después separa tres columnas: lo que viste personalmente, lo que otra persona te informó y lo que todavía sospechas. Conserva mensajes completos, transferencias y documentos en sus soportes originales; evita alterar archivos o reconstruir conversaciones. Si hay testigos, identifica qué percibieron, no qué conclusión deseas que repitan. La calificación jurídica inicial puede cambiar con la investigación y no corresponde inventar certezas. Antes de denunciar, prepara una cronología y una lista de fuentes verificables. La precisión protege tanto el esclarecimiento del hecho como los derechos de las personas involucradas.",
+    "sourceFichaTitle": "Denuncia penal",
+    "sourceNormas": [
+      "CPP arts. 284–285 (denuncia; art. 285 modificado por Ley 1173)",
+      "CPE arts. 115–117"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Dos formularios: solo acusaciones frente a relato con fechas y documentos",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Cronología visual: oferta → transferencia → mensajes → reclamación",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Tres columnas: visto / informado / sospechado",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Cadena de preservación digital sin exhibir datos personales",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Expediente con carpetas ordenadas y cierre didáctico",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-032.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

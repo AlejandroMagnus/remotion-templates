@@ -2,58 +2,118 @@
   "productionCode": "video-039",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Apelación incidental penal",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Apelación incidental penal"
     ],
-    "intellectualContribution": "Explica Apelación incidental penal desde su utilidad operativa concreta: cómo impugnar una resolución cautelar o incidental.",
+    "intellectualContribution": "Recurrir exige identificar la resolución, el error y su consecuencia jurídica con una petición viable.",
     "newAngle": {
       "comparedWith": [
         "video-038"
       ],
-      "contribution": "Diferencia Apelación incidental penal por su problema específico: confundir apelación incidental penal con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "mapa-del-recurso: Un defensor apela una medida cautelar diciendo únicamente que la decisión es injusta."
     }
   },
   "topic": "Apelación incidental penal",
-  "centralThesis": "Apelación incidental penal exige dominar cómo impugnar una resolución cautelar o incidental; su valor práctico está en transformar cómo impugnar una resolución cautelar o incidental en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Apelación incidental penal es confundir apelación incidental penal con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Recurrir exige identificar la resolución, el error y su consecuencia jurídica con una petición viable.",
+  "problem": "¿Qué convierte una apelación incidental en un recurso fundamentado?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Apelación incidental penal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir apelación incidental penal con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre apelación incidental penal, con una ruta de seguimiento y ejecución posible."
+    "La defensa presenta una apelación de dos páginas que repite: «La decisión es injusta».",
+    "¿Dónde está el agravio?",
+    "Un recurso no mejora porque acumule adjetivos.",
+    "Debe identificar qué resolvió el juez, qué fundamento concreto se cuestiona, qué regla o garantía sería aplicable y qué corrección se solicita.",
+    "Imagina una resolución que afirma la existencia de riesgo de fuga, pero omite examinar un documento que la defensa considera decisivo.",
+    "El debate recursivo no se resuelve con indignación: exige mostrar qué decía ese documento, por qué era pertinente y cómo la omisión podría influir en la decisión.",
+    "También es imprescindible distinguir las vías: la apelación de medidas cautelares tiene regulación especial en el artículo 251 del Código de Procedimiento Penal, con término de setenta y dos horas y efecto no suspensivo.",
+    "Otras apelaciones incidentales se rigen por los artículos 403 y siguientes, con requisitos y oportunidades propios.",
+    "La forma de interponer el recurso debe comprobarse según cómo se dictó y notificó la resolución.",
+    "Un buen agravio conecta fundamento, dato y consecuencia."
   ],
-  "conclusion": "Apelación incidental penal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Antes de recurrir, subraya la motivación exacta de la resolución y escribe al lado qué error impugnas.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de apelación incidental penal",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Apelación incidental penal: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Apelación incidental penal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Una resolución cautelar impone una medida restrictiva.",
+  "closingIdea": "Ahí comienza una apelación que realmente permite revisar una decisión.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-039",
+    "sourceFileSha256": "9c2bf20529382c3d86515bd05b92179a8609d8de0cacb000fa8192ffe35b0801",
+    "fullGuionSha256": "43b54c582ad93fc45fafb0caad9c7007f1c3a061bd9cd43997a4f29d2b033031",
+    "fullGuionVerbatim": "Una resolución cautelar impone una medida restrictiva. La defensa presenta una apelación de dos páginas que repite: «La decisión es injusta». ¿Dónde está el agravio? Un recurso no mejora porque acumule adjetivos. Debe identificar qué resolvió el juez, qué fundamento concreto se cuestiona, qué regla o garantía sería aplicable y qué corrección se solicita. Imagina una resolución que afirma la existencia de riesgo de fuga, pero omite examinar un documento que la defensa considera decisivo. El debate recursivo no se resuelve con indignación: exige mostrar qué decía ese documento, por qué era pertinente y cómo la omisión podría influir en la decisión. También es imprescindible distinguir las vías: la apelación de medidas cautelares tiene regulación especial en el artículo 251 del Código de Procedimiento Penal, con término de setenta y dos horas y efecto no suspensivo. Otras apelaciones incidentales se rigen por los artículos 403 y siguientes, con requisitos y oportunidades propios. La forma de interponer el recurso debe comprobarse según cómo se dictó y notificó la resolución. Un buen agravio conecta fundamento, dato y consecuencia. Antes de recurrir, subraya la motivación exacta de la resolución y escribe al lado qué error impugnas. Ahí comienza una apelación que realmente permite revisar una decisión.",
+    "sourceFichaTitle": "Apelación incidental penal",
+    "sourceNormas": [
+      "CPP art. 251 (apelación cautelar; Ley 1173 art. 11)",
+      "CPP arts. 403–406 y 404 (apelación incidental general; reformas aplicables)",
+      "Ley 1443 art. 2.VII (art. 396 reglas generales)"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Resolución judicial con párrafos marcados",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Recurso genérico «injusta» desvaneciéndose",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Documento omitido frente a fundamento de riesgo",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Diagrama: resolución → agravio → respaldo → petición",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Reloj de plazos con signo «verificar vía específica»",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Confirmar aplicación concreta del art. 404 y forma de interposición oral/escrita según acto de notificación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-039.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

@@ -1,0 +1,71 @@
+{
+  "id": "VIDEO-038",
+  "tema": "Audiencia cautelar",
+  "tesis": "La audiencia cautelar exige confrontar hechos y riesgos concretos con medidas proporcionadas, sin debatir la culpabilidad definitiva.",
+  "problema": "¿Qué se discute realmente en una audiencia cautelar?",
+  "microcaso": "En audiencia, Fiscalía señala riesgo de fuga; defensa presenta arraigos documentados.",
+  "hook": "En la audiencia, el fiscal afirma: «Existe riesgo de fuga».",
+  "guion": "En la audiencia, el fiscal afirma: «Existe riesgo de fuga». La defensa responde: «Mi cliente tiene trabajo». ¿Quién tiene razón? Ninguna frase, por sí sola, resuelve la discusión. Una audiencia cautelar exige vincular cada riesgo alegado con hechos verificables, documentos y contradicción efectiva. Por ejemplo, un contrato de trabajo puede ser relevante, pero su valor depende del conjunto del expediente y de lo que realmente pretende demostrar. La defensa debe responder al fundamento específico de la solicitud, no pronunciar un discurso general sobre inocencia. La parte solicitante debe fundamentar los riesgos; la carga de acreditarlos corresponde a la acusación conforme al artículo 231 bis. La necesidad de una medida menos gravosa debe examinarse con las excepciones expresas introducidas por la Ley 1443. El juez debe motivar la decisión según los presupuestos aplicables. Observa la estructura del debate: riesgo alegado, dato que lo respalda, objeción concreta y medida propuesta. Ese orden permite discutir proporcionalidad sin convertir la audiencia en un juicio anticipado. En cautelares, la precisión argumentativa vale más que el volumen de palabras.",
+  "cierre": "En cautelares, la precisión argumentativa vale más que el volumen de palabras.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "debate-en-dos-columnas",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Sala de audiencias; fiscal expone un riesgo identificado",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Panel dual: hecho alegado / documento / contradicción",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Contrato laboral con datos ficticios y advertencia de valoración contextual",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Escala de medidas con condición de proporcionalidad",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Matriz simple: riesgo → evidencia → respuesta → decisión",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPP arts. 231 bis y 233 (Ley 1443 art. 2.IV–V); arts. 234–235",
+    "CPE arts. 115–117"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Especial atención a excepciones y supuestos de Ley 1443, arts. 231 bis y 233.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 173,
+    "scriptSHA256": "7e6a06721a83f05e0e13119e36e7a7db5a9912aa63a7caaee41f89eb0f567aa8",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

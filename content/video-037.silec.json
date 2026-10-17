@@ -2,58 +2,117 @@
   "productionCode": "video-037",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Prueba penal",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Prueba penal"
     ],
-    "intellectualContribution": "Explica Prueba penal desde su utilidad operativa concreta: qué debe probar la acusación y cómo se controla la prueba.",
+    "intellectualContribution": "La fuerza de la prueba depende de procedencia, integridad, contexto y contradicción, no de su apariencia.",
     "newAngle": {
       "comparedWith": [
         "video-036"
       ],
-      "contribution": "Diferencia Prueba penal por su problema específico: confundir prueba penal con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "prueba-bajo-lupa: Un video de pocos segundos parece incriminar a alguien, pero empieza después del hecho decisivo."
     }
   },
   "topic": "Prueba penal",
-  "centralThesis": "Prueba penal exige dominar qué debe probar la acusación y cómo se controla la prueba; su valor práctico está en transformar qué debe probar la acusación y cómo se controla la prueba en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Prueba penal es confundir prueba penal con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La fuerza de la prueba depende de procedencia, integridad, contexto y contradicción, no de su apariencia.",
+  "problem": "¿Por qué una prueba aparentemente fuerte puede resultar insuficiente?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Prueba penal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir prueba penal con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre prueba penal, con una ruta de seguimiento y ejecución posible."
+    "Parece mostrar a una persona agrediendo a otra.",
+    "En redes ya existe un veredicto, pero en un proceso penal esa imagen plantea preguntas.",
+    "¿Quién la grabó?",
+    "¿Está completa?",
+    "¿Qué ocurrió antes y después?",
+    "¿Cómo se obtuvo y preservó el archivo?",
+    "Un fragmento puede ser relevante sin ser suficiente por sí solo.",
+    "La investigación debe examinar su autenticidad, integridad y relación con la hipótesis del caso, además de las condiciones legales para su incorporación.",
+    "La defensa tiene derecho a controvertir los elementos que se utilicen en su contra; la acusación debe sostener sus afirmaciones con prueba apta.",
+    "Si aparecen testigos, conversaciones y pericias, no se trata de contar cuántas piezas existen, sino de verificar qué demuestra cada una y qué contradicciones persisten."
   ],
-  "conclusion": "Prueba penal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una imagen impacta; una prueba exige examen.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de prueba penal",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Prueba penal: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Prueba penal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "Circula un video de seis segundos.",
+  "closingIdea": "Antes de convertir un archivo en la verdad completa de un caso, reconstruye su origen, su contexto y el alcance real de lo que permite concluir.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-037",
+    "sourceFileSha256": "4eed402e832ceff8daf447a12b95c45889d75e45383bb81d7967401a55b504aa",
+    "fullGuionSha256": "45eabfb1a7ad5939fa1116167ac06f0c7206e6278a014550ab6274beedc15914",
+    "fullGuionVerbatim": "Circula un video de seis segundos. Parece mostrar a una persona agrediendo a otra. En redes ya existe un veredicto, pero en un proceso penal esa imagen plantea preguntas. ¿Quién la grabó? ¿Está completa? ¿Qué ocurrió antes y después? ¿Cómo se obtuvo y preservó el archivo? Un fragmento puede ser relevante sin ser suficiente por sí solo. La investigación debe examinar su autenticidad, integridad y relación con la hipótesis del caso, además de las condiciones legales para su incorporación. La defensa tiene derecho a controvertir los elementos que se utilicen en su contra; la acusación debe sostener sus afirmaciones con prueba apta. Si aparecen testigos, conversaciones y pericias, no se trata de contar cuántas piezas existen, sino de verificar qué demuestra cada una y qué contradicciones persisten. Una imagen impacta; una prueba exige examen. Antes de convertir un archivo en la verdad completa de un caso, reconstruye su origen, su contexto y el alcance real de lo que permite concluir.",
+    "sourceFichaTitle": "Prueba penal",
+    "sourceNormas": [
+      "CPP arts. 171–173 (libertad, exclusión y valoración probatoria)",
+      "CPE arts. 115–121"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Video recortado en teléfono; barra de reproducción parcial",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Cuatro preguntas: autor / integridad / contexto / obtención",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Comparativa: video aislado versus otras evidencias",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Perito y testigo como fuentes diferentes, sin fingir dictámenes",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Cierre: lupa sobre «qué prueba realmente»",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-037.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

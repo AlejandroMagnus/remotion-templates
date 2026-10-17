@@ -1,0 +1,5 @@
+VIDEO-031..040: edición para RENDERS INTERNOS DE REVISION.
+PhD 12/PAJI: ready_for_render=true SOLO técnico; publicationAllowed=false en los diez.
+NO PUBLICAR NI DISTRIBUIR sin cotejo normativo vigente, revisión humana y autorización específica.
+El workflow existente no se cambia ni se afirma que bloquee por sí solo toda publicación.
+El instalador preserva 001-030, motores, workflow y editorial.

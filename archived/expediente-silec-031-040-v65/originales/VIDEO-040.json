@@ -1,0 +1,72 @@
+{
+  "id": "VIDEO-040",
+  "tema": "Juicio oral penal",
+  "tesis": "Una contradicción testimonial debe evaluarse por su relevancia, contexto y contraste con otras pruebas.",
+  "problema": "¿Qué revela la contradicción de un testigo durante el juicio oral?",
+  "microcaso": "Dos testigos discrepan sobre la hora de llegada, pero coinciden en el hecho central.",
+  "hook": "En juicio oral, dos testigos discrepan.",
+  "guion": "En juicio oral, dos testigos discrepan. Uno dice que la persona llegó a las nueve; otro recuerda que fue a las nueve y media. ¿Esa diferencia destruye todo el testimonio? Depende. La contradicción debe examinarse respecto del hecho jurídicamente relevante y del contexto en que cada testigo percibió los acontecimientos. No es lo mismo una diferencia secundaria de horario que una incompatibilidad sobre quién realizó la conducta atribuida. El interrogatorio debe buscar precisión, no fabricar confusiones. Preguntar dónde estaba el testigo, qué podía ver y cuánto tiempo observó puede revelar límites genuinos de percepción. Las respuestas deben contrastarse con otras pruebas incorporadas lícitamente al juicio. La credibilidad no se determina contando contradicciones, sino razonando su importancia y su relación con el conjunto probatorio. Tampoco una aparente inconsistencia autoriza por sí sola una condena o una absolución. En un juicio oral, la estrategia consiste en mostrar con claridad qué puede afirmarse, qué permanece incierto y por qué esa diferencia importa para la decisión.",
+  "cierre": "En un juicio oral, la estrategia consiste en mostrar con claridad qué puede afirmarse, qué permanece incierto y por qué esa diferencia importa para la decisión.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "ruta": "secuencia-de-testimonio",
+  "escenas": [
+    {
+      "orden": 1,
+      "visual": "Sala de juicio con dos testigos; horarios divergentes",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 2,
+      "visual": "Reloj «09:00» y «09:30», con etiqueta «¿detalle central?»",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 3,
+      "visual": "Plano de línea de visión del testigo y lugar del hecho",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 4,
+      "visual": "Cruce visual de testimonio con otros elementos de prueba",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    },
+    {
+      "orden": 5,
+      "visual": "Cierre: diferencia → relevancia → valoración conjunta",
+      "textoEnPantalla": "",
+      "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+    }
+  ],
+  "referenciasNormativas": [
+    "CPP arts. 329 y siguientes (juicio oral)",
+    "CPP art. 173 (valoración de prueba)",
+    "CPE arts. 115–121"
+  ],
+  "legalReview": {
+    "nivel": "II — reforzado, materia penal",
+    "estado": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "fuentesPrimariasCotejadas": [
+      "Ley 1173, PDF institucional del Ministerio de Justicia (arts. 10–12, cotejo parcial)",
+      "Ley 1443, PDF Gaceta Oficial alojado por Ministerio de Gobierno (arts. 2.IV–V, cotejo directo)",
+      "Portal institucional Fiscalía General, ficha de CPP (localización, no cotejo consolidado)"
+    ],
+    "jurisprudencia": "No se incorpora ni atribuye jurisprudencia individual: no es imprescindible para estos guiones introductorios.",
+    "doctrina": "Sin citas doctrinales individuales: guion educativo normativo.",
+    "normaVigenteVerificada": false,
+    "razonNoAprobacion": "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación.",
+    "riesgo": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso."
+  },
+  "qa": {
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "words": 162,
+    "scriptSHA256": "b2937c53c1e0684497deb3106670287ea72f5c8341a204a2a5d5eada7bd0f27f",
+    "narracionCerrada": true,
+    "arquitecturaVisualDiferenciada": true,
+    "revisionJuridicaIndividual": "CONDICIONADA"
+  }
+}

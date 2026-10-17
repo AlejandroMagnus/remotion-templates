@@ -2,58 +2,117 @@
   "productionCode": "video-038",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Audiencia cautelar",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Audiencia cautelar"
     ],
-    "intellectualContribution": "Explica Audiencia cautelar desde su utilidad operativa concreta: qué se discute realmente y cómo prepararla.",
+    "intellectualContribution": "La audiencia cautelar exige confrontar hechos y riesgos concretos con medidas proporcionadas, sin debatir la culpabilidad definitiva.",
     "newAngle": {
       "comparedWith": [
         "video-037"
       ],
-      "contribution": "Diferencia Audiencia cautelar por su problema específico: confundir audiencia cautelar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "debate-en-dos-columnas: En audiencia, Fiscalía señala riesgo de fuga; defensa presenta arraigos documentados."
     }
   },
   "topic": "Audiencia cautelar",
-  "centralThesis": "Audiencia cautelar exige dominar qué se discute realmente y cómo prepararla; su valor práctico está en transformar qué se discute realmente y cómo prepararla en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Audiencia cautelar es confundir audiencia cautelar con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "La audiencia cautelar exige confrontar hechos y riesgos concretos con medidas proporcionadas, sin debatir la culpabilidad definitiva.",
+  "problem": "¿Qué se discute realmente en una audiencia cautelar?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Audiencia cautelar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir audiencia cautelar con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre audiencia cautelar, con una ruta de seguimiento y ejecución posible."
+    "La defensa responde: «Mi cliente tiene trabajo».",
+    "¿Quién tiene razón?",
+    "Ninguna frase, por sí sola, resuelve la discusión.",
+    "Una audiencia cautelar exige vincular cada riesgo alegado con hechos verificables, documentos y contradicción efectiva.",
+    "Por ejemplo, un contrato de trabajo puede ser relevante, pero su valor depende del conjunto del expediente y de lo que realmente pretende demostrar.",
+    "La defensa debe responder al fundamento específico de la solicitud, no pronunciar un discurso general sobre inocencia.",
+    "La parte solicitante debe fundamentar los riesgos; la carga de acreditarlos corresponde a la acusación conforme al artículo 231 bis.",
+    "La necesidad de una medida menos gravosa debe examinarse con las excepciones expresas introducidas por la Ley 1443.",
+    "El juez debe motivar la decisión según los presupuestos aplicables.",
+    "Observa la estructura del debate: riesgo alegado, dato que lo respalda, objeción concreta y medida propuesta."
   ],
-  "conclusion": "Audiencia cautelar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Ese orden permite discutir proporcionalidad sin convertir la audiencia en un juicio anticipado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de audiencia cautelar",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Audiencia cautelar: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Audiencia cautelar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "En la audiencia, el fiscal afirma: «Existe riesgo de fuga».",
+  "closingIdea": "En cautelares, la precisión argumentativa vale más que el volumen de palabras.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-038",
+    "sourceFileSha256": "e280812728f20c39c71eed7e9a71dab129b01a2ae3c3af8297c3f021efc2282b",
+    "fullGuionSha256": "7e6a06721a83f05e0e13119e36e7a7db5a9912aa63a7caaee41f89eb0f567aa8",
+    "fullGuionVerbatim": "En la audiencia, el fiscal afirma: «Existe riesgo de fuga». La defensa responde: «Mi cliente tiene trabajo». ¿Quién tiene razón? Ninguna frase, por sí sola, resuelve la discusión. Una audiencia cautelar exige vincular cada riesgo alegado con hechos verificables, documentos y contradicción efectiva. Por ejemplo, un contrato de trabajo puede ser relevante, pero su valor depende del conjunto del expediente y de lo que realmente pretende demostrar. La defensa debe responder al fundamento específico de la solicitud, no pronunciar un discurso general sobre inocencia. La parte solicitante debe fundamentar los riesgos; la carga de acreditarlos corresponde a la acusación conforme al artículo 231 bis. La necesidad de una medida menos gravosa debe examinarse con las excepciones expresas introducidas por la Ley 1443. El juez debe motivar la decisión según los presupuestos aplicables. Observa la estructura del debate: riesgo alegado, dato que lo respalda, objeción concreta y medida propuesta. Ese orden permite discutir proporcionalidad sin convertir la audiencia en un juicio anticipado. En cautelares, la precisión argumentativa vale más que el volumen de palabras.",
+    "sourceFichaTitle": "Audiencia cautelar",
+    "sourceNormas": [
+      "CPP arts. 231 bis y 233 (Ley 1443 art. 2.IV–V); arts. 234–235",
+      "CPE arts. 115–117"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Sala de audiencias; fiscal expone un riesgo identificado",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Panel dual: hecho alegado / documento / contradicción",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Contrato laboral con datos ficticios y advertencia de valoración contextual",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Escala de medidas con condición de proporcionalidad",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Matriz simple: riesgo → evidencia → respuesta → decisión",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación. Especial atención a excepciones y supuestos de Ley 1443, arts. 231 bis y 233."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-038.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }

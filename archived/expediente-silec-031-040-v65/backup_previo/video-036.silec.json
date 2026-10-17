@@ -1,0 +1,59 @@
+{
+  "productionCode": "video-036",
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "auto"
+  },
+  "editorial": {
+    "category": "DT",
+    "dimension": "procesal",
+    "domains": [
+      "proceso penal",
+      "Actividad procesal defectuosa",
+      "constitucionalización práctica"
+    ],
+    "intellectualContribution": "Explica Actividad procesal defectuosa desde su utilidad operativa concreta: cómo denunciar defectos que afectan el debido proceso.",
+    "newAngle": {
+      "comparedWith": [
+        "video-035"
+      ],
+      "contribution": "Diferencia Actividad procesal defectuosa por su problema específico: confundir actividad procesal defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba."
+    }
+  },
+  "topic": "Actividad procesal defectuosa",
+  "centralThesis": "Actividad procesal defectuosa exige dominar cómo denunciar defectos que afectan el debido proceso; su valor práctico está en transformar cómo denunciar defectos que afectan el debido proceso en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
+  "problem": "El riesgo frecuente en Actividad procesal defectuosa es confundir actividad procesal defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "reasoningChain": [
+    "Primero identifique el resultado buscado en Actividad procesal defectuosa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
+    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
+    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
+    "Anticipe la objeción principal: en este tema suele discutirse confundir actividad procesal defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba.",
+    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre actividad procesal defectuosa, con una ruta de seguimiento y ejecución posible."
+  ],
+  "conclusion": "Actividad procesal defectuosa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "targetAudience": [
+    "personas con conflictos jurídicos",
+    "empresas",
+    "abogados",
+    "estudiantes de Derecho",
+    "clientes que buscan prevención jurídica"
+  ],
+  "capabilityDemonstrated": [
+    "diagnóstico de actividad procesal defectuosa",
+    "selección de vía jurídica",
+    "ordenamiento de hechos",
+    "control probatorio",
+    "anticipación de riesgos"
+  ],
+  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "offerPath": [
+    "contenido educativo",
+    "identificación del problema",
+    "consulta estratégica",
+    "diagnóstico jurídico",
+    "servicio jurídico premium"
+  ],
+  "hook": "Actividad procesal defectuosa: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
+  "closingIdea": "En Actividad procesal defectuosa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+}

@@ -2,58 +2,117 @@
   "productionCode": "video-031",
   "humanValue": {
     "benefit": "aclarar",
-    "ctaMode": "auto"
+    "ctaMode": "source"
   },
   "editorial": {
-    "category": "DT",
-    "dimension": "procesal",
+    "category": "HT",
+    "dimension": "forense",
     "domains": [
-      "proceso penal",
-      "Proceso penal explicado por etapas",
-      "constitucionalización práctica"
+      "derecho procesal penal",
+      "Proceso penal explicado por etapas"
     ],
-    "intellectualContribution": "Explica Proceso penal explicado por etapas desde su utilidad operativa concreta: denuncia, investigación, imputación, cautelares, acusación, juicio y recursos.",
+    "intellectualContribution": "Cada etapa penal cambia qué debe probarse, quién decide y qué defensa es pertinente.",
     "newAngle": {
       "comparedWith": [
         "video-030"
       ],
-      "contribution": "Diferencia Proceso penal explicado por etapas por su problema específico: confundir proceso penal explicado por etapas con un trámite genérico sin identificar requisitos, autoridad y prueba."
+      "contribution": "ruta-de-proceso-penal: Una familia recibe avisos de denuncia, imputación y audiencia, y cree que todos significan condena."
     }
   },
   "topic": "Proceso penal explicado por etapas",
-  "centralThesis": "Proceso penal explicado por etapas exige dominar denuncia, investigación, imputación, cautelares, acusación, juicio y recursos; su valor práctico está en transformar denuncia, investigación, imputación, cautelares, acusación, juicio y recursos en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Proceso penal explicado por etapas es confundir proceso penal explicado por etapas con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "centralThesis": "Cada etapa penal cambia qué debe probarse, quién decide y qué defensa es pertinente.",
+  "problem": "¿Qué cambia para una persona desde la denuncia hasta el juicio penal?",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Proceso penal explicado por etapas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir proceso penal explicado por etapas con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre proceso penal explicado por etapas, con una ruta de seguimiento y ejecución posible."
+    "Días después oyen hablar de imputación, cautelares y juicio.",
+    "Creen que todo significa lo mismo.",
+    "No es así.",
+    "La denuncia comunica hechos que deben investigarse; no determina culpabilidad.",
+    "Durante la investigación se buscan elementos tanto de cargo como de descargo.",
+    "Si el fiscal formula una imputación, atribuye provisionalmente hechos a una persona; no dicta sentencia.",
+    "Cuando se discuten medidas cautelares, la autoridad judicial examina sus presupuestos y riesgos procesales, no anticipa la pena.",
+    "Más adelante pueden presentarse actos conclusivos distintos: el caso no necesariamente llegará a juicio.",
+    "Si llega, la acusación debe sostenerse con prueba sometida a contradicción y la decisión corresponde a la autoridad judicial."
   ],
-  "conclusion": "Proceso penal explicado por etapas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Observa el mapa: en cada estación cambian los documentos, los derechos y las decisiones posibles.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
+    "abogados litigantes",
     "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en garantías procesales",
+    "profesionales jurídicos"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de proceso penal explicado por etapas",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de garantías procesales",
+    "identificación de hechos, documentos y riesgos",
+    "enseñanza práctica del procedimiento penal"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Formación jurídica práctica, sin garantías de resultados ni asesoría individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "análisis jurídico individual cuando corresponda"
   ],
-  "hook": "Proceso penal explicado por etapas: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Proceso penal explicado por etapas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "hook": "A las ocho de la mañana llaman a una familia: existe una denuncia penal.",
+  "closingIdea": "Para defender un caso, pregunta siempre en qué etapa estamos, qué acto se notificó y cuál es la siguiente actuación realmente exigible.",
+  "cta": "Identifica la etapa y consulta el texto vigente antes de actuar.",
+  "silecImport": {
+    "packageSchema": "silec-editorial-package/v1",
+    "sourceId": "VIDEO-031",
+    "sourceFileSha256": "846996c961d44a12a6bf310c4ed44524ea12593f682d4008b79127092a6adc12",
+    "fullGuionSha256": "ff0556f704b0ae73126710859376c14542dc8dfa0b7cf615dff6796f168c851d",
+    "fullGuionVerbatim": "A las ocho de la mañana llaman a una familia: existe una denuncia penal. Días después oyen hablar de imputación, cautelares y juicio. Creen que todo significa lo mismo. No es así. La denuncia comunica hechos que deben investigarse; no determina culpabilidad. Durante la investigación se buscan elementos tanto de cargo como de descargo. Si el fiscal formula una imputación, atribuye provisionalmente hechos a una persona; no dicta sentencia. Cuando se discuten medidas cautelares, la autoridad judicial examina sus presupuestos y riesgos procesales, no anticipa la pena. Más adelante pueden presentarse actos conclusivos distintos: el caso no necesariamente llegará a juicio. Si llega, la acusación debe sostenerse con prueba sometida a contradicción y la decisión corresponde a la autoridad judicial. Observa el mapa: en cada estación cambian los documentos, los derechos y las decisiones posibles. Para defender un caso, pregunta siempre en qué etapa estamos, qué acto se notificó y cuál es la siguiente actuación realmente exigible.",
+    "sourceFichaTitle": "Proceso penal explicado por etapas",
+    "sourceNormas": [
+      "CPE arts. 115–121",
+      "Ley 1970 (CPP): actos iniciales, etapa preparatoria, conclusiones y juicio",
+      "Ley 1173: reformas procesales"
+    ],
+    "sourcePrecedentes": [],
+    "sourceEscenas": [
+      {
+        "orden": 1,
+        "visual": "Llamada a la familia; notificaciones sucesivas con fechas distintas",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 2,
+        "visual": "Mapa animado: denuncia / investigación / imputación / decisiones conclusivas / juicio",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 3,
+        "visual": "Documentos con sellos visuales provisionales: imputación ≠ condena",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 4,
+        "visual": "Prueba de cargo y descargo comparadas; juez de fondo sin adelantarse",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      },
+      {
+        "orden": 5,
+        "visual": "Cierre: mapa de etapa → documento → derecho → actuación",
+        "textoEnPantalla": "",
+        "restriccion": "Ilustración hipotética; no simular actuaciones ni documentos reales."
+      }
+    ],
+    "sourceRisk": "Posibles reformas posteriores no comprobadas y particularidades de leyes especiales; no extrapolar a asesoramiento de caso.",
+    "legalReviewStatus": "VERIFICACIÓN PARCIAL — NO APROBADO PARA PUBLICACIÓN",
+    "approvedForRender": true,
+    "publicationAllowed": false,
+    "originalPhD12ReadyForRender": true,
+    "originalPhD12PublicationAllowed": false,
+    "sourceRevision": "SILEC_VIDEO_031_040_FINAL_PARA_FABRICA_2026-10-17",
+    "sourceQaPending": [
+      "Comprobar exhaustivamente texto consolidado del CPP al 17/10/2026, modificaciones posteriores y normativa especial aplicable; validación editorial humana previa a publicación."
+    ],
+    "sourceLegalEvidence": "archived/expediente-silec-031-040-v65/originales/VIDEO-031.json",
+    "publicationEdition": "EDICION_RENDERS_INTERNOS_V65_NO_PUBLICAR",
+    "reviewerType": "PhD12-PAJI-SILEC (revisión parcial, no aprobación para publicación)",
+    "normativeScope": "Cotejos parciales Ley 1173 y 1443; vigencia CPP consolidado no certificada",
+    "publicationCaveat": "NO PUBLICAR: falta verificación normativa consolidada y revisión humana final del MP4.",
+    "note": "Apto únicamente para render técnico de revisión. NO implica aval jurídico de publicación."
+  }
 }
