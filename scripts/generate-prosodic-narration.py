@@ -2267,9 +2267,9 @@ async def synthesize_segment_once_with_retries(
 # ============================================================
 
 
-# AUTOCORRECCION_MARGINAL_VOCAL_V1 — dirección vocal progresiva, QA intacta.
-def _marginal_wpm_retry_allowed(metrics, vocal_qa):
-    """Solo una infracción aislada y pequeña con habla y pausas saludables."""
+# RECUPERACION_WPM_ADAPTATIVA_V2: recuperación acotada; NO modifica VOCAL_QA.
+def _adaptive_wpm_recovery_allowed(metrics, vocal_qa):
+    """Único fallo WPM; velocidad hablada, silencios y margen seguros."""
     if vocal_qa.get("issues") != ["effective-wpm-below-target"]:
         return False
     target = metrics.get("targetWpm", {})
@@ -2277,20 +2277,43 @@ def _marginal_wpm_retry_allowed(metrics, vocal_qa):
     effective = float(metrics.get("effectiveWpm", 0))
     speech = float(metrics.get("speechWpm", 0))
     pause = float(metrics.get("pauseRatio", -1))
-    return (
-        minimum > 0 and minimum < maximum
-        and 0 < (minimum - effective) / minimum <= 0.02
-        and minimum <= speech <= maximum
-        and 0.04 <= pause <= 0.20
-    )
+    if not (0 < effective < minimum < maximum and minimum <= speech <= maximum):
+        return False
+    if not 0.04 <= pause <= 0.20:
+        return False
+    deficit_fraction = (minimum - effective) / minimum
+    # Recuperaciones mayores deben ser evaluadas separadamente, no forzadas.
+    if not 0 < deficit_fraction <= 0.08:
+        return False
+    # Conservar margen entre el habla real y la velocidad máxima objetivo.
+    return (maximum / speech - 1.0) > (minimum / effective - 1.0)
 
 
-def _increase_prosody_rate_marginal(plan, increase_points):
-    """Nueva síntesis TTS: nunca estirar audio ni marcas temporales."""
+def _adaptive_wpm_rate_steps(metrics):
+    """Calcular +pp conservadores a partir del déficit real, sin tasas fijas para todos."""
+    import math
+    target = metrics.get("targetWpm", {})
+    minimum = float(target["min"])
+    maximum = float(target["max"])
+    effective = float(metrics["effectiveWpm"])
+    speech = float(metrics["speechWpm"])
+    # Pequeño margen para variabilidad TTS. Medir nuevamente tras sintetizar.
+    required = math.ceil(100.0 * (minimum / effective - 1.0)) + 1
+    speech_headroom = math.floor(100.0 * (maximum / speech - 1.0)) - 1
+    limit = min(10, speech_headroom)
+    first = max(3, required)
+    if first > limit:
+        return []
+    second = first + 2
+    return [first] + ([second] if second <= limit else [])
+
+
+def _increase_prosody_rate_adaptive(plan, increase_points):
+    """Solicitar una NUEVA voz con nuevas marcas WordBoundary. Jamás estirar audio."""
     from dataclasses import replace
     import re
-    if increase_points not in (3, 5):
-        raise ValueError("Ajuste vocal no permitido")
+    if not isinstance(increase_points, int) or not 3 <= increase_points <= 10:
+        raise ValueError("Ajuste vocal fuera de límites")
     adjusted = []
     for part in plan:
         rate = getattr(part, "rate", None)
@@ -2301,7 +2324,6 @@ def _increase_prosody_rate_marginal(plan, increase_points):
             raise ValueError("Nueva tasa prosódica fuera del rango seguro")
         adjusted.append(replace(part, rate=f"{new_rate:+d}%"))
     return adjusted
-
 
 def build_rhythm_metrics(
     plan: list[SegmentPlan],
@@ -3163,30 +3185,29 @@ async def main() -> None:
                 break
             print("VOCAL_AUTOCORRECT_RETRY: " + ", ".join(vocal_qa["issues"]))
 
-    # AUTOCORRECCION_MARGINAL_VOCAL_V1: no se modifican umbrales de VOCAL_QA.
-    # Tolerancia de selección de reintento (2%) NO equivale a aprobación.
-    # Solo una síntesis nueva, con WordBoundary real, podrá aprobar.
+    # RECUPERACION_WPM_ADAPTATIVA_V2: nunca cambia umbrales ni aprueba sin QA.
     if (
         os.environ.get("STRICT_VOCAL_QA") == "1"
-        and _marginal_wpm_retry_allowed(metrics, vocal_qa)
+        and _adaptive_wpm_recovery_allowed(metrics, vocal_qa)
     ):
-        original_for_marginal = plan
-        for acceleration in (3, 5):
-            print(f"VOCAL_MARGINAL_RETRY: rate=+{acceleration} puntos, nueva síntesis TTS")
-            trial_plan = _increase_prosody_rate_marginal(original_for_marginal, acceleration)
-            words, effective_segments, duration_ms = await build_prosodic_audio(trial_plan)
+        original_for_adaptive = plan
+        for acceleration in _adaptive_wpm_rate_steps(metrics):
+            print(f"VOCAL_ADAPTIVE_RETRY: rate=+{acceleration} pp, nueva síntesis TTS")
+            candidate_plan = _increase_prosody_rate_adaptive(
+                original_for_adaptive, acceleration,
+            )
+            words, effective_segments, duration_ms = await build_prosodic_audio(candidate_plan)
             measured_pause_ms = measure_audio_silence_ms(AUDIO, duration_ms)
             metrics = build_rhythm_metrics(
-                trial_plan, effective_segments, duration_ms, direction, measured_pause_ms,
+                candidate_plan, effective_segments, duration_ms, direction, measured_pause_ms,
             )
-            vocal_qa = build_vocal_qa(trial_plan, metrics)
-            plan = trial_plan
-            print("VOCAL_MARGINAL_RESULT: " + str(metrics["effectiveWpm"]) + " WPM; "
+            vocal_qa = build_vocal_qa(candidate_plan, metrics)
+            plan = candidate_plan
+            print("VOCAL_ADAPTIVE_RESULT: " + str(metrics["effectiveWpm"]) + " WPM; "
                   + ("QA_PASS" if vocal_qa["passed"] else ", ".join(vocal_qa["issues"])))
             if vocal_qa["passed"]:
                 break
-            # No acelerar de nuevo si apareció un problema distinto.
-            if not _marginal_wpm_retry_allowed(metrics, vocal_qa):
+            if not _adaptive_wpm_recovery_allowed(metrics, vocal_qa):
                 break
 
     write_timeline(
