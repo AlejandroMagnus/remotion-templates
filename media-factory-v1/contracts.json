@@ -1,0 +1,48 @@
+{
+  "status": "prototype-internal-no-publication",
+  "durationMs": 27100,
+  "units": [
+    {
+      "id": "CV-001",
+      "startMs": 49,
+      "endMs": 3073,
+      "text": "Dos personas llegan a denunciar el mismo supuesto fraude."
+    },
+    {
+      "id": "CV-002",
+      "startMs": 3441,
+      "endMs": 7107,
+      "text": "¿Cuándo una denuncia relata hechos verificables y no solo sospechas?"
+    },
+    {
+      "id": "CV-003",
+      "startMs": 7473,
+      "endMs": 10449,
+      "text": "La primera dice: «Me estafaron; son delincuentes»."
+    },
+    {
+      "id": "CV-004",
+      "startMs": 10815,
+      "endMs": 15543,
+      "text": "Una denuncia útil distingue hechos verificables, elementos de corroboración y sospechas."
+    },
+    {
+      "id": "CV-005",
+      "startMs": 15909,
+      "endMs": 21655,
+      "text": "La segunda cuenta cuándo entregó el dinero, qué le prometieron, cómo se comunicaron y dónde están los comprobantes."
+    },
+    {
+      "id": "CV-006",
+      "startMs": 22023,
+      "endMs": 23987,
+      "text": "¿Cuál relato permite investigar mejor?"
+    },
+    {
+      "id": "CV-007",
+      "startMs": 24353,
+      "endMs": 27024,
+      "text": "El segundo, porque ofrece hechos comprobables."
+    }
+  ]
+}
