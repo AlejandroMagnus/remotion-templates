@@ -4,14 +4,18 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Filiación",
-    "description": "Cómo se reclama o impugna jurídicamente.",
+    "description": "¿Qué ocurre cuando se discute jurídicamente la filiación?",
     "tags": [
       "derecho",
       "bolivia",
       "silec",
       "juridico",
       "filiacion"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -27,7 +31,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Filiación: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Filiación: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir filiación con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre filiación, con una ruta de seguimiento y ejecución posible. Filiación se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Filiación, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "Una mujer encuentra un registro familiar que no coincide con la historia que le contaron. Otra persona sostiene una versión distinta. En medio está la identidad jurídica de un niño. Es tentador reducir la controversia a una sola prueba biológica, pero la filiación es un problema jurídico que también involucra procedimientos, legitimación, efectos personales y protección de derechos. El primer paso es precisar cuál dato se cuestiona y qué decisión se solicita. Después, identificar el instrumento registral, las circunstancias de su emisión y los medios probatorios pertinentes, sin dar por supuesto que una prueba resuelve automáticamente todos los efectos. También debemos preguntarnos qué medidas evitan exponer innecesariamente a la persona menor de edad y cómo se garantiza la participación y defensa de quienes intervienen. Una decisión responsable explica con claridad qué ha sido demostrado, qué sigue discutido y cómo se protege a las personas afectadas. En Derecho de Familia, incluso la verdad debe buscarse con método y garantías. Antes de discutir filiación, precisa el acto cuestionado y protege la identidad de la persona involucrada.",
     "narrationSrc": "public/generated/video-044-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,7 +44,7 @@
       "kind": "hero",
       "content": {
         "title": "Filiación",
-        "subtitle": "Filiación: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "Una mujer encuentra un registro familiar que no coincide con la historia que le contaron. Otra persona sostiene una versión distinta."
       },
       "timing": {
         "durationMs": 8000
@@ -51,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Filiación: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "En medio está la identidad jurídica de un niño."
       },
       "timing": {
         "durationMs": 9000
@@ -62,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Es tentador reducir la controversia a una sola prueba biológica, pero la filiación es un problema jurídico que también involucra procedimientos, legitimación, efectos personales y protección de derechos."
       },
       "timing": {
         "durationMs": 9000
@@ -73,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "El primer paso es precisar cuál dato se cuestiona y qué decisión se solicita."
       },
       "timing": {
         "durationMs": 9000
@@ -84,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir filiación con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Después, identificar el instrumento registral, las circunstancias de su emisión y los medios probatorios pertinentes, sin dar por supuesto que una prueba resuelve automáticamente todos los efectos."
       },
       "timing": {
         "durationMs": 9000
@@ -94,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Filiación se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Filiación, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una decisión responsable explica con claridad qué ha sido demostrado, qué sigue discutido y cómo se protege a las personas afectadas.",
+        "subtitle": "En Derecho de Familia, incluso la verdad debe buscarse con método y garantías."
       },
       "timing": {
         "durationMs": 10000

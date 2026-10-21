@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Bienes gananciales",
-    "description": "Cómo se identifican, prueban y dividen.",
+    "description": "¿Cómo distinguir los bienes discutidos al concluir una relación?",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "bienes",
       "gananciales"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Bienes gananciales: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Bienes gananciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir bienes gananciales con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre bienes gananciales, con una ruta de seguimiento y ejecución posible. Bienes gananciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Bienes gananciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "Durante una separación aparecen tres preguntas: ¿de quién es esta vivienda?, ¿cómo se adquirió el negocio?, ¿quién debe responder por la deuda? Hace falta reconstruir la historia jurídica y económica de cada activo u obligación. La fecha de adquisición importa; también el origen de fondos, el título, los posibles aportes anteriores y los actos que modificaron la situación patrimonial. No conviene mezclar automáticamente todos los bienes en una misma categoría. Tampoco toda deuda mencionada por una parte queda acreditada por una conversación. El inventario debe distinguir documentos disponibles, hechos discutidos y pruebas faltantes. Una defensa patrimonial sólida empieza con un expediente que cualquiera pueda auditar. Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso. Construye la cronología de cada bien y conserva los documentos sobre su origen.",
     "narrationSrc": "public/generated/video-049-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,7 +45,7 @@
       "kind": "hero",
       "content": {
         "title": "Bienes gananciales",
-        "subtitle": "Bienes gananciales: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "Durante una separación aparecen tres preguntas: ¿de quién es esta vivienda?, ¿cómo se adquirió el negocio?, ¿quién debe responder por la deuda?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Bienes gananciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Hace falta reconstruir la historia jurídica y económica de cada activo u obligación."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La fecha de adquisición importa; también el origen de fondos, el título, los posibles aportes anteriores y los actos que modificaron la situación patrimonial."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "No conviene mezclar automáticamente todos los bienes en una misma categoría."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir bienes gananciales con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Tampoco toda deuda mencionada por una parte queda acreditada por una conversación."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Bienes gananciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Bienes gananciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una defensa patrimonial sólida empieza con un expediente que cualquiera pueda auditar.",
+        "subtitle": "Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso."
       },
       "timing": {
         "durationMs": 10000

@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Audiencias familiares",
-    "description": "Cómo prepararse para hablar, probar y pedir correctamente.",
+    "description": "¿Cómo prepararse para una audiencia familiar sin convertirla en pelea?",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "audiencias",
       "familiares"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Audiencias familiares: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Audiencias familiares: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir audiencias familiares con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre audiencias familiares, con una ruta de seguimiento y ejecución posible. Audiencias familiares se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Audiencias familiares, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "En una audiencia familiar una persona lleva veinte papeles y comienza a relatar diez años de discusiones. El problema no es sentir demasiado. Es no haber traducido el conflicto en una exposición jurídicamente útil. Antes de ingresar debemos identificar la decisión solicitada, los hechos realmente controvertidos y los documentos que sostienen cada afirmación. También conviene anticipar la objeción más fuerte de la otra parte y preparar una respuesta fundada, no una descalificación personal. Si intervienen niñas, niños o personas en situación vulnerable, el lenguaje y la protección de datos requieren especial cuidado. La audiencia no es un escenario para exhibir intimidades que no aportan al objeto del proceso. Un alegato eficaz orienta a la autoridad: qué ocurrió, cómo puede comprobarse, qué norma corresponde y cuál es la decisión que se pide. La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse. Prepara tu audiencia con una petición clara, hechos controvertidos y pruebas pertinentes.",
     "narrationSrc": "public/generated/video-050-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,7 +45,7 @@
       "kind": "hero",
       "content": {
         "title": "Audiencias familiares",
-        "subtitle": "Audiencias familiares: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "En una audiencia familiar una persona lleva veinte papeles y comienza a relatar diez años de discusiones."
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Audiencias familiares: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "El problema no es sentir demasiado. Es no haber traducido el conflicto en una exposición jurídicamente útil."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Antes de ingresar debemos identificar la decisión solicitada, los hechos realmente controvertidos y los documentos que sostienen cada afirmación."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "También conviene anticipar la objeción más fuerte de la otra parte y preparar una respuesta fundada, no una descalificación personal."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir audiencias familiares con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Si intervienen niñas, niños o personas en situación vulnerable, el lenguaje y la protección de datos requieren especial cuidado."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Audiencias familiares se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Audiencias familiares, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Un alegato eficaz orienta a la autoridad: qué ocurrió, cómo puede comprobarse, qué norma corresponde y cuál es la decisión que se pide.",
+        "subtitle": "La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse."
       },
       "timing": {
         "durationMs": 10000

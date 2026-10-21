@@ -1,59 +1,141 @@
 {
+  "id": "VIDEO-042",
   "productionCode": "video-042",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Régimen de visitas",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Régimen de visitas desde su utilidad operativa concreta: cómo ordenar el vínculo familiar sin afectar el interés superior del menor.",
-    "newAngle": {
-      "comparedWith": [
-        "video-041"
-      ],
-      "contribution": "Diferencia Régimen de visitas por su problema específico: confundir régimen de visitas con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Régimen de visitas",
+  "tituloAudiovisualPropuesto": "Régimen de visitas: que el conflicto adulto no organice la infancia",
+  "tesis": "Una agenda de contacto debe proteger vínculos y rutinas, no administrar castigos",
+  "preguntaCatalogo": "¿Cómo ordenar un régimen de visitas cuando hay conflicto entre los adultos?",
+  "microcaso": "Una niña espera una visita que se cancela repetidamente por desacuerdo entre adultos.",
+  "guionPropuesto": "Es sábado por la mañana. Una niña está lista para encontrarse con su padre, pero recibe el mensaje de que otra vez no habrá visita. Los adultos discuten por teléfono y el calendario queda vacío. El problema jurídico no se reduce a escoger quién incumplió primero. Se trata de examinar cómo se protege el vínculo familiar compatible con los derechos y la seguridad de la niña. Para hacerlo, conviene separar tres planos. Uno: el acuerdo o decisión que regula el contacto. Dos: lo que realmente ocurrió, con fechas, mensajes y circunstancias comprobables. Tres: el impacto de esas interrupciones y las alternativas que puedan proteger estabilidad y bienestar. No todo conflicto se resuelve ampliando días o imponiendo un horario más rígido. A veces la pregunta correcta es si las transiciones son posibles, si existen riesgos que deben atenderse o si el cumplimiento exige medidas concretas. Un régimen de visitas no debería transformarse en instrumento de revancha. Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él.",
+  "palabrasAproximadas": 172,
+  "arquitecturaNarrativa": "calendario-interrumpido",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Calendario familiar con visitas marcadas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Un niño espera sin mostrar rostros reales",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Línea de hechos: acuerdo, cancelación, evidencia",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Mapa de riesgos y estabilidad con dos rutas hipotéticas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Agenda reconstruida orientada a bienestar",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Constitución Política del Estado",
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Ley 548 — Código Niña, Niño y Adolescente"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "651af3a5fd774f8f2e74998d154ce1a14fd80f138972e10edcee85b33169673d",
+    "hashOriginalSHA256Calculado": "651af3a5fd774f8f2e74998d154ce1a14fd80f138972e10edcee85b33169673d",
+    "hashFinalSHA256": "651af3a5fd774f8f2e74998d154ce1a14fd80f138972e10edcee85b33169673d",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "Es sábado por la mañana. Una niña está lista para encontrarse con su padre, pero recibe el mensaje de que otra vez no habrá visita. Los adultos discuten por teléfono y el calendario queda vacío. El problema jurídico no se reduce a escoger quién incumplió primero. Se trata de examinar cómo se protege el vínculo familiar compatible con los derechos y la seguridad de la niña. Para hacerlo, conviene separar tres planos. Uno: el acuerdo o decisión que regula el contacto. Dos: lo que realmente ocurrió, con fechas, mensajes y circunstancias comprobables. Tres: el impacto de esas interrupciones y las alternativas que puedan proteger estabilidad y bienestar. No todo conflicto se resuelve ampliando días o imponiendo un horario más rígido. A veces la pregunta correcta es si las transiciones son posibles, si existen riesgos que deben atenderse o si el cumplimiento exige medidas concretas. Un régimen de visitas no debería transformarse en instrumento de revancha. Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él.",
+  "guionAprobadoCorregido": "Es sábado por la mañana. Una niña está lista para encontrarse con su padre, pero recibe el mensaje de que otra vez no habrá visita. Los adultos discuten por teléfono y el calendario queda vacío. El problema jurídico no se reduce a escoger quién incumplió primero. Se trata de examinar cómo se protege el vínculo familiar compatible con los derechos y la seguridad de la niña. Para hacerlo, conviene separar tres planos. Uno: el acuerdo o decisión que regula el contacto. Dos: lo que realmente ocurrió, con fechas, mensajes y circunstancias comprobables. Tres: el impacto de esas interrupciones y las alternativas que puedan proteger estabilidad y bienestar. No todo conflicto se resuelve ampliando días o imponiendo un horario más rígido. A veces la pregunta correcta es si las transiciones son posibles, si existen riesgos que deben atenderse o si el cumplimiento exige medidas concretas. Un régimen de visitas no debería transformarse en instrumento de revancha. Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él.",
+  "palabrasFinal": 172,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 348",
+      "url": "https://www.segip.gob.bo/wp-content/uploads/2025/09/LEY-N%C2%B0-348-LEY-DE-9-DE-MARZO-DE-2013-LEY-INTEGRAL-PARA-GARANTIZAR-A-LAS-MUJERES-UNA-VIDA-LIBRE-DE-VIOLENCIA.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "La comunicación y visitas deben valorarse con interés superior y seguridad; no presumir contacto irrestricto ante riesgo acreditable.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "Es sábado por la mañana. Una niña está lista para encontrarse con su padre, pero recibe el mensaje de que otra vez no habrá visita.",
+  "problem": "¿Cómo ordenar un régimen de visitas cuando hay conflicto entre los adultos?",
+  "centralThesis": "Una agenda de contacto debe proteger vínculos y rutinas, no administrar castigos.",
+  "reasoningChain": [
+    "Los adultos discuten por teléfono y el calendario queda vacío.",
+    "El problema jurídico no se reduce a escoger quién incumplió primero.",
+    "Se trata de examinar cómo se protege el vínculo familiar compatible con los derechos y la seguridad de la niña.",
+    "Primero se identifica el acuerdo o la decisión vigente que regula el contacto y sus condiciones concretas.",
+    "Luego se contrastan los incumplimientos alegados con fechas, mensajes y otras pruebas pertinentes."
+  ],
+  "conclusion": "Un régimen de visitas no debería transformarse en instrumento de revancha.",
+  "closingIdea": "Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él.",
+  "cta": "Si se discute el contacto familiar, registra fechas y hechos; el bienestar infantil exige soluciones verificables.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Régimen de visitas",
-  "centralThesis": "Régimen de visitas exige dominar cómo ordenar el vínculo familiar sin afectar el interés superior del menor; su valor práctico está en transformar cómo ordenar el vínculo familiar sin afectar el interés superior del menor en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Régimen de visitas es confundir régimen de visitas con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Régimen de visitas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir régimen de visitas con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre régimen de visitas, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Régimen de visitas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de régimen de visitas",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de régimen de visitas",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Régimen de visitas: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Régimen de visitas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "8d33247bffdd5d7ec56746d02ec8c233ced9eb1a9215810381b326943c5e6757",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

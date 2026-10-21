@@ -4,14 +4,18 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Divorcio",
-    "description": "Ruta práctica, documentos, efectos patrimoniales y familiares.",
+    "description": "¿Qué decisiones suelen quedar pendientes después del divorcio?",
     "tags": [
       "derecho",
       "bolivia",
       "silec",
       "juridico",
       "divorcio"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -27,7 +31,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Divorcio: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Divorcio: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir divorcio con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre divorcio, con una ruta de seguimiento y ejecución posible. Divorcio se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Divorcio, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "La pareja firma un acuerdo: ya no quiere continuar unida. El divorcio puede resolver el vínculo, pero eso no significa que todas las consecuencias familiares y patrimoniales desaparezcan por arte de magia. Hay que construir un mapa de cuestiones distintas: la situación personal, las obligaciones respecto de hijas e hijos, los bienes, las deudas y los compromisos que requieren una decisión o ejecución propia. En cada asunto cambian los hechos relevantes y el tipo de prueba. Una factura puede servir para un inventario patrimonial, pero no demuestra cómo se organiza el cuidado diario. Un acuerdo puede facilitar soluciones, siempre que sea válido y preserve derechos que no pueden negociarse como simples objetos. El objetivo no es prolongar el conflicto. Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles. Tras una separación, distingue el vínculo de las obligaciones familiares y patrimoniales pendientes.",
     "narrationSrc": "public/generated/video-048-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,7 +44,7 @@
       "kind": "hero",
       "content": {
         "title": "Divorcio",
-        "subtitle": "Divorcio: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "La pareja firma un acuerdo: ya no quiere continuar unida."
       },
       "timing": {
         "durationMs": 8000
@@ -51,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Divorcio: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "El divorcio puede resolver el vínculo, pero eso no significa que todas las consecuencias familiares y patrimoniales desaparezcan por arte de magia."
       },
       "timing": {
         "durationMs": 9000
@@ -62,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Hay que construir un mapa de cuestiones distintas: la situación personal, las obligaciones respecto de hijas e hijos, los bienes, las deudas y los compromisos que requieren una decisión o ejecución propia."
       },
       "timing": {
         "durationMs": 9000
@@ -73,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "En cada asunto cambian los hechos relevantes y el tipo de prueba."
       },
       "timing": {
         "durationMs": 9000
@@ -84,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir divorcio con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Una factura puede servir para un inventario patrimonial, pero no demuestra cómo se organiza el cuidado diario."
       },
       "timing": {
         "durationMs": 9000
@@ -94,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Divorcio se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Divorcio, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El objetivo no es prolongar el conflicto.",
+        "subtitle": "Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles."
       },
       "timing": {
         "durationMs": 10000

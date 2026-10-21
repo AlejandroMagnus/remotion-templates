@@ -1,59 +1,135 @@
 {
+  "id": "VIDEO-048",
   "productionCode": "video-048",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Divorcio",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Divorcio desde su utilidad operativa concreta: ruta práctica, documentos, efectos patrimoniales y familiares.",
-    "newAngle": {
-      "comparedWith": [
-        "video-047"
-      ],
-      "contribution": "Diferencia Divorcio por su problema específico: confundir divorcio con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Divorcio",
+  "tituloAudiovisualPropuesto": "Divorcio: una decisión no cierra todos los conflictos",
+  "tesis": "La desvinculación de pareja no sustituye decisiones sobre hijos y patrimonio",
+  "preguntaCatalogo": "¿Qué decisiones suelen quedar pendientes después del divorcio?",
+  "microcaso": "Una pareja coincide en divorciarse, pero no en vivienda, cuidados ni deudas.",
+  "guionPropuesto": "La pareja firma un acuerdo: ya no quiere continuar unida. Sin embargo, al salir de la reunión descubre que todavía discrepa sobre la vivienda, las cuentas bancarias y el cuidado cotidiano de su hija. El divorcio puede resolver el vínculo, pero eso no significa que todas las consecuencias familiares y patrimoniales desaparezcan por arte de magia. Hay que construir un mapa de cuestiones distintas: la situación personal, las obligaciones respecto de hijas e hijos, los bienes, las deudas y los compromisos que requieren una decisión o ejecución propia. En cada asunto cambian los hechos relevantes y el tipo de prueba. Una factura puede servir para un inventario patrimonial, pero no demuestra cómo se organiza el cuidado diario. Un acuerdo puede facilitar soluciones, siempre que sea válido y preserve derechos que no pueden negociarse como simples objetos. La estrategia responsable separa lo que ya está decidido de lo que sigue abierto. El objetivo no es prolongar el conflicto. Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles.",
+  "palabrasAproximadas": 168,
+  "arquitecturaNarrativa": "cierre-de-una-historia-familiar",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Dos personas cierran un expediente común",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Mapa de cinco decisiones posteriores",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Documentos patrimoniales y rutinas de cuidado separados",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Acuerdo válido frente a cuestiones abiertas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Cronograma de cierre de asuntos pendientes",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Constitución Política del Estado"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "f3fb6481e9b036831e40adea05c55b1abeab21ee90dc593a451fea749d889188",
+    "hashOriginalSHA256Calculado": "f3fb6481e9b036831e40adea05c55b1abeab21ee90dc593a451fea749d889188",
+    "hashFinalSHA256": "f3fb6481e9b036831e40adea05c55b1abeab21ee90dc593a451fea749d889188",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "La pareja firma un acuerdo: ya no quiere continuar unida. Sin embargo, al salir de la reunión descubre que todavía discrepa sobre la vivienda, las cuentas bancarias y el cuidado cotidiano de su hija. El divorcio puede resolver el vínculo, pero eso no significa que todas las consecuencias familiares y patrimoniales desaparezcan por arte de magia. Hay que construir un mapa de cuestiones distintas: la situación personal, las obligaciones respecto de hijas e hijos, los bienes, las deudas y los compromisos que requieren una decisión o ejecución propia. En cada asunto cambian los hechos relevantes y el tipo de prueba. Una factura puede servir para un inventario patrimonial, pero no demuestra cómo se organiza el cuidado diario. Un acuerdo puede facilitar soluciones, siempre que sea válido y preserve derechos que no pueden negociarse como simples objetos. La estrategia responsable separa lo que ya está decidido de lo que sigue abierto. El objetivo no es prolongar el conflicto. Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles.",
+  "guionAprobadoCorregido": "La pareja firma un acuerdo: ya no quiere continuar unida. Sin embargo, al salir de la reunión descubre que todavía discrepa sobre la vivienda, las cuentas bancarias y el cuidado cotidiano de su hija. El divorcio puede resolver el vínculo, pero eso no significa que todas las consecuencias familiares y patrimoniales desaparezcan por arte de magia. Hay que construir un mapa de cuestiones distintas: la situación personal, las obligaciones respecto de hijas e hijos, los bienes, las deudas y los compromisos que requieren una decisión o ejecución propia. En cada asunto cambian los hechos relevantes y el tipo de prueba. Una factura puede servir para un inventario patrimonial, pero no demuestra cómo se organiza el cuidado diario. Un acuerdo puede facilitar soluciones, siempre que sea válido y preserve derechos que no pueden negociarse como simples objetos. La estrategia responsable separa lo que ya está decidido de lo que sigue abierto. El objetivo no es prolongar el conflicto. Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles.",
+  "palabrasFinal": 168,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "Distinguir disolución del vínculo de efectos sobre hijos, asistencia y bienes; no atribuir decisiones automáticas.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "La pareja firma un acuerdo: ya no quiere continuar unida.",
+  "problem": "¿Qué decisiones suelen quedar pendientes después del divorcio?",
+  "centralThesis": "La desvinculación de pareja no sustituye decisiones sobre hijos y patrimonio.",
+  "reasoningChain": [
+    "El divorcio puede resolver el vínculo, pero eso no significa que todas las consecuencias familiares y patrimoniales desaparezcan por arte de magia.",
+    "Hay que construir un mapa de cuestiones distintas: la situación personal, las obligaciones respecto de hijas e hijos, los bienes, las deudas y los compromisos que requieren una decisión o ejecución propia.",
+    "En cada asunto cambian los hechos relevantes y el tipo de prueba.",
+    "Una factura puede servir para un inventario patrimonial, pero no demuestra cómo se organiza el cuidado diario.",
+    "Un acuerdo puede facilitar soluciones, siempre que sea válido y preserve derechos que no pueden negociarse como simples objetos."
+  ],
+  "conclusion": "El objetivo no es prolongar el conflicto.",
+  "closingIdea": "Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles.",
+  "cta": "Tras una separación, distingue el vínculo de las obligaciones familiares y patrimoniales pendientes.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Divorcio",
-  "centralThesis": "Divorcio exige dominar ruta práctica, documentos, efectos patrimoniales y familiares; su valor práctico está en transformar ruta práctica, documentos, efectos patrimoniales y familiares en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Divorcio es confundir divorcio con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Divorcio: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir divorcio con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre divorcio, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Divorcio se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de divorcio",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de divorcio",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: Es evitar que una ruptura aparentemente concluida deje problemas jurídicos invisibles. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Divorcio: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Divorcio, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "a8cc7d9f24b8272fcdc2b20799825eb3eaef484f3f6d2e0b5f0444e94abd647a",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

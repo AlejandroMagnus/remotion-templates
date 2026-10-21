@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Asistencia familiar",
-    "description": "Cómo se pide, qué se prueba y cómo se ejecuta.",
+    "description": "¿Cómo distinguir una necesidad real de una cifra elegida al azar en asistencia familiar?",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "asistencia",
       "familiar"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Asistencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Asistencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre asistencia familiar, con una ruta de seguimiento y ejecución posible. Asistencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Asistencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "En la mesa hay dos hojas. En una, los gastos mensuales de una niña. En la otra, ingresos que cambian cada semana. Ambas personas dicen que su cálculo es el justo. La solicitud de asistencia debe explicar las necesidades de la persona beneficiaria con elementos concretos. Las posibilidades económicas del obligado requieren examen de sus ingresos y circunstancias, no conjeturas basadas en apariencias. Los comprobantes de gasto y de pago cumplen funciones distintas; deben relacionarse con períodos y conceptos identificables. La fijación debe considerar el marco de la Ley 603 y las particularidades del caso; un presupuesto aislado no decide el monto. Una modificación posterior exige identificar circunstancias sobrevenidas y la vía procesal aplicable. En una controversia familiar, la persuasión no consiste en pedir el número más alto o más bajo. Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades. Antes de solicitar una suma, ordena gastos, ingresos y comprobantes: una cifra necesita respaldo.",
     "narrationSrc": "public/generated/video-041-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,7 +45,7 @@
       "kind": "hero",
       "content": {
         "title": "Asistencia familiar",
-        "subtitle": "Asistencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "En la mesa hay dos hojas. En una, los gastos mensuales de una niña. En la otra, ingresos que cambian cada semana. Ambas personas dicen que su cálculo es el justo."
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Asistencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "La solicitud de asistencia debe explicar las necesidades de la persona beneficiaria con elementos concretos."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Las posibilidades económicas del obligado requieren examen de sus ingresos y circunstancias, no conjeturas basadas en apariencias."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Los comprobantes de gasto y de pago cumplen funciones distintas; deben relacionarse con períodos y conceptos identificables."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "La fijación debe considerar el marco de la Ley 603 y las particularidades del caso; un presupuesto aislado no decide el monto."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Asistencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Asistencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "En una controversia familiar, la persuasión no consiste en pedir el número más alto o más bajo.",
+        "subtitle": "Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades."
       },
       "timing": {
         "durationMs": 10000

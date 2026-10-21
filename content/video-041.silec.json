@@ -1,59 +1,135 @@
 {
+  "id": "VIDEO-041",
   "productionCode": "video-041",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Asistencia familiar",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Asistencia familiar desde su utilidad operativa concreta: cómo se pide, qué se prueba y cómo se ejecuta.",
-    "newAngle": {
-      "comparedWith": [
-        "video-040"
-      ],
-      "contribution": "Diferencia Asistencia familiar por su problema específico: confundir asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Asistencia familiar",
+  "tituloAudiovisualPropuesto": "Asistencia familiar: la cifra necesita pruebas",
+  "tesis": "Un número escrito en una demanda no sustituye un presupuesto familiar",
+  "preguntaCatalogo": "¿Cómo distinguir una necesidad real de una cifra elegida al azar en asistencia familiar?",
+  "microcaso": "Una madre solicita asistencia; el padre exhibe ingresos variables y ambos discrepan sobre gastos escolares.",
+  "guionPropuesto": "En la mesa hay dos hojas. En una, los gastos mensuales de una niña. En la otra, ingresos que cambian cada semana. Ambas personas dicen que su cálculo es el justo. ¿Cómo se razona jurídicamente una asistencia familiar? Primero separamos necesidades reales de estimaciones sin respaldo. Alimentación, salud, educación y cuidado son circunstancias que deben describirse con datos, no solo con una cifra redonda. Después examinamos las posibilidades económicas, sin presumir que una fotografía de redes sociales demuestra la capacidad de pago. El punto central es relacionar obligaciones familiares, situación concreta y medios de prueba, conforme al marco aplicable. Un presupuesto puede mostrar gastos; un comprobante bancario, un pago; una constancia laboral, determinado ingreso. Ninguna pieza responde necesariamente a todo. También importa distinguir la decisión inicial de una modificación posterior, cuando cambian las circunstancias. En una controversia familiar, la persuasión no consiste en pedir el número más alto o más bajo. Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades.",
+  "palabrasAproximadas": 166,
+  "arquitecturaNarrativa": "presupuesto-familiar-en-disputa",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Dos hojas de presupuesto familiar sobre mesa, sin datos identificables",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Elementos de gasto necesarios frente a estimaciones no verificadas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Ingresos variables representados por una curva sin cantidades inventadas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Pruebas diferentes con función probatoria específica",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Balanza de necesidades y posibilidades con conclusión",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Constitución Política del Estado",
+    "Ley 603 — Código de las Familias y del Proceso Familiar"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "370cd3c729592e31495f40b00d3be5c9178b30073cb0e7717708a1b3188e5e70",
+    "hashOriginalSHA256Calculado": "370cd3c729592e31495f40b00d3be5c9178b30073cb0e7717708a1b3188e5e70",
+    "hashFinalSHA256": "32f6432407eb2281014b1ed5d7f0edcc26d5f8dbd87426ee1c0d2aed45f802a8",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "En la mesa hay dos hojas. En una, los gastos mensuales de una niña. En la otra, ingresos que cambian cada semana. Ambas personas dicen que su cálculo es el justo. ¿Cómo se razona jurídicamente una asistencia familiar? Primero examinamos necesidades, posibilidades económicas y las reglas legales de fijación; no basta sumar recibos. Alimentación, salud, educación y cuidado son circunstancias que deben describirse con datos, no solo con una cifra redonda. Después examinamos las posibilidades económicas, sin presumir que una fotografía de redes sociales demuestra la capacidad de pago. El punto central es relacionar obligaciones familiares, situación concreta y medios de prueba, conforme al marco aplicable. Un presupuesto puede mostrar gastos; un comprobante bancario, un pago; una constancia laboral, determinado ingreso. Ninguna pieza responde necesariamente a todo. También importa distinguir la decisión inicial de una modificación posterior, cuando cambian las circunstancias. En una controversia familiar, la persuasión no consiste en pedir el número más alto o más bajo. Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades.",
+  "guionAprobadoCorregido": "En la mesa hay dos hojas. En una, los gastos mensuales de una niña. En la otra, ingresos que cambian cada semana. Ambas personas dicen que su cálculo es el justo. ¿Cómo se razona jurídicamente una asistencia familiar? Primero examinamos necesidades, posibilidades económicas y las reglas legales de fijación; no basta sumar recibos. Alimentación, salud, educación y cuidado son circunstancias que deben describirse con datos, no solo con una cifra redonda. Después examinamos las posibilidades económicas, sin presumir que una fotografía de redes sociales demuestra la capacidad de pago. El punto central es relacionar obligaciones familiares, situación concreta y medios de prueba, conforme al marco aplicable. Un presupuesto puede mostrar gastos; un comprobante bancario, un pago; una constancia laboral, determinado ingreso. Ninguna pieza responde necesariamente a todo. También importa distinguir la decisión inicial de una modificación posterior, cuando cambian las circunstancias. En una controversia familiar, la persuasión no consiste en pedir el número más alto o más bajo. Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades.",
+  "palabrasFinal": 173,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "No presentar la cuantía como mera negociación: Ley 603 arts. 109 y 116 contempla necesidades, posibilidades y reglas legales específicas, incluido mínimo legal en supuestos regulados.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "En la mesa hay dos hojas. En una, los gastos mensuales de una niña. En la otra, ingresos que cambian cada semana. Ambas personas dicen que su cálculo es el justo.",
+  "problem": "¿Cómo distinguir una necesidad real de una cifra elegida al azar en asistencia familiar?",
+  "centralThesis": "Un número escrito en una demanda no sustituye un presupuesto familiar.",
+  "reasoningChain": [
+    "La solicitud de asistencia debe explicar las necesidades de la persona beneficiaria con elementos concretos.",
+    "Las posibilidades económicas del obligado requieren examen de sus ingresos y circunstancias, no conjeturas basadas en apariencias.",
+    "Los comprobantes de gasto y de pago cumplen funciones distintas; deben relacionarse con períodos y conceptos identificables.",
+    "La fijación debe considerar el marco de la Ley 603 y las particularidades del caso; un presupuesto aislado no decide el monto.",
+    "Una modificación posterior exige identificar circunstancias sobrevenidas y la vía procesal aplicable."
+  ],
+  "conclusion": "En una controversia familiar, la persuasión no consiste en pedir el número más alto o más bajo.",
+  "closingIdea": "Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades.",
+  "cta": "Antes de solicitar una suma, ordena gastos, ingresos y comprobantes: una cifra necesita respaldo.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Asistencia familiar",
-  "centralThesis": "Asistencia familiar exige dominar cómo se pide, qué se prueba y cómo se ejecuta; su valor práctico está en transformar cómo se pide, qué se prueba y cómo se ejecuta en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Asistencia familiar es confundir asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Asistencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre asistencia familiar, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Asistencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de asistencia familiar",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de asistencia familiar",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: Consiste en ofrecer a la autoridad una explicación comprobable sobre las necesidades y las posibilidades. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Asistencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Asistencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "7b11ef32e9641181a365f638d388d6bb0b0b5f0c7cd5ebdd13495e275d8b019b",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

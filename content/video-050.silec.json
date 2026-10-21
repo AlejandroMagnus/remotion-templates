@@ -1,59 +1,140 @@
 {
+  "id": "VIDEO-050",
   "productionCode": "video-050",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Audiencias familiares",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Audiencias familiares desde su utilidad operativa concreta: cómo prepararse para hablar, probar y pedir correctamente.",
-    "newAngle": {
-      "comparedWith": [
-        "video-049"
-      ],
-      "contribution": "Diferencia Audiencias familiares por su problema específico: confundir audiencias familiares con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Audiencias familiares",
+  "tituloAudiovisualPropuesto": "Audiencias familiares: el orden protege la argumentación",
+  "tesis": "Preparar una audiencia es decidir qué hechos importan y cómo acreditarlos",
+  "preguntaCatalogo": "¿Cómo prepararse para una audiencia familiar sin convertirla en pelea?",
+  "microcaso": "Las partes llegan con documentos y reclamos emocionales; el tiempo de exposición es limitado.",
+  "guionPropuesto": "En una audiencia familiar una persona lleva veinte papeles y comienza a relatar diez años de discusiones. La autoridad pregunta algo más preciso: «¿Qué hecho respalda su petición?». El problema no es sentir demasiado. Es no haber traducido el conflicto en una exposición jurídicamente útil. Antes de ingresar debemos identificar la decisión solicitada, los hechos realmente controvertidos y los documentos que sostienen cada afirmación. También conviene anticipar la objeción más fuerte de la otra parte y preparar una respuesta fundada, no una descalificación personal. Si intervienen niñas, niños o personas en situación vulnerable, el lenguaje y la protección de datos requieren especial cuidado. La audiencia no es un escenario para exhibir intimidades que no aportan al objeto del proceso. Un alegato eficaz orienta a la autoridad: qué ocurrió, cómo puede comprobarse, qué norma corresponde y cuál es la decisión que se pide. La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse.",
+  "palabrasAproximadas": 158,
+  "arquitecturaNarrativa": "ensayo-de-audiencia",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Mesa desordenada con veinte documentos",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Tres columnas: pedido, hecho, prueba",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Secuencia de alegato con tiempos",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Protección de identidad de personas menores",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Audiencia final con argumento ordenado",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Ley 548 — Código Niña, Niño y Adolescente"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "bcbf0be9ed69d4388ab047bb91994c36ca6fde03e7b8e10ef16f6285426de698",
+    "hashOriginalSHA256Calculado": "bcbf0be9ed69d4388ab047bb91994c36ca6fde03e7b8e10ef16f6285426de698",
+    "hashFinalSHA256": "bcbf0be9ed69d4388ab047bb91994c36ca6fde03e7b8e10ef16f6285426de698",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "En una audiencia familiar una persona lleva veinte papeles y comienza a relatar diez años de discusiones. La autoridad pregunta algo más preciso: «¿Qué hecho respalda su petición?». El problema no es sentir demasiado. Es no haber traducido el conflicto en una exposición jurídicamente útil. Antes de ingresar debemos identificar la decisión solicitada, los hechos realmente controvertidos y los documentos que sostienen cada afirmación. También conviene anticipar la objeción más fuerte de la otra parte y preparar una respuesta fundada, no una descalificación personal. Si intervienen niñas, niños o personas en situación vulnerable, el lenguaje y la protección de datos requieren especial cuidado. La audiencia no es un escenario para exhibir intimidades que no aportan al objeto del proceso. Un alegato eficaz orienta a la autoridad: qué ocurrió, cómo puede comprobarse, qué norma corresponde y cuál es la decisión que se pide. La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse.",
+  "guionAprobadoCorregido": "En una audiencia familiar una persona lleva veinte papeles y comienza a relatar diez años de discusiones. La autoridad pregunta algo más preciso: «¿Qué hecho respalda su petición?». El problema no es sentir demasiado. Es no haber traducido el conflicto en una exposición jurídicamente útil. Antes de ingresar debemos identificar la decisión solicitada, los hechos realmente controvertidos y los documentos que sostienen cada afirmación. También conviene anticipar la objeción más fuerte de la otra parte y preparar una respuesta fundada, no una descalificación personal. Si intervienen niñas, niños o personas en situación vulnerable, el lenguaje y la protección de datos requieren especial cuidado. La audiencia no es un escenario para exhibir intimidades que no aportan al objeto del proceso. Un alegato eficaz orienta a la autoridad: qué ocurrió, cómo puede comprobarse, qué norma corresponde y cuál es la decisión que se pide. La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse.",
+  "palabrasFinal": 158,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 348",
+      "url": "https://www.segip.gob.bo/wp-content/uploads/2025/09/LEY-N%C2%B0-348-LEY-DE-9-DE-MARZO-DE-2013-LEY-INTEGRAL-PARA-GARANTIZAR-A-LAS-MUJERES-UNA-VIDA-LIBRE-DE-VIOLENCIA.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "No universalizar plazos ni secuencia de audiencias sin identificar procedimiento específico en Ley 603.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "En una audiencia familiar una persona lleva veinte papeles y comienza a relatar diez años de discusiones.",
+  "problem": "¿Cómo prepararse para una audiencia familiar sin convertirla en pelea?",
+  "centralThesis": "Preparar una audiencia es decidir qué hechos importan y cómo acreditarlos.",
+  "reasoningChain": [
+    "El problema no es sentir demasiado. Es no haber traducido el conflicto en una exposición jurídicamente útil.",
+    "Antes de ingresar debemos identificar la decisión solicitada, los hechos realmente controvertidos y los documentos que sostienen cada afirmación.",
+    "También conviene anticipar la objeción más fuerte de la otra parte y preparar una respuesta fundada, no una descalificación personal.",
+    "Si intervienen niñas, niños o personas en situación vulnerable, el lenguaje y la protección de datos requieren especial cuidado.",
+    "La audiencia no es un escenario para exhibir intimidades que no aportan al objeto del proceso."
+  ],
+  "conclusion": "Un alegato eficaz orienta a la autoridad: qué ocurrió, cómo puede comprobarse, qué norma corresponde y cuál es la decisión que se pide.",
+  "closingIdea": "La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse.",
+  "cta": "Prepara tu audiencia con una petición clara, hechos controvertidos y pruebas pertinentes.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Audiencias familiares",
-  "centralThesis": "Audiencias familiares exige dominar cómo prepararse para hablar, probar y pedir correctamente; su valor práctico está en transformar cómo prepararse para hablar, probar y pedir correctamente en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Audiencias familiares es confundir audiencias familiares con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Audiencias familiares: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir audiencias familiares con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre audiencias familiares, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Audiencias familiares se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de audiencias familiares",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de audiencias familiares",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: La serenidad no reemplaza el Derecho, pero facilita que el razonamiento jurídico pueda escucharse y examinarse. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Audiencias familiares: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Audiencias familiares, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "d4e64747c3ea18421de56c85b8edb51a390ebeab85d7c5adbdd88031088b0d6a",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

@@ -1,59 +1,135 @@
 {
+  "id": "VIDEO-047",
   "productionCode": "video-047",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Incumplimiento de asistencia familiar",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Incumplimiento de asistencia familiar desde su utilidad operativa concreta: vías, riesgos y ejecución.",
-    "newAngle": {
-      "comparedWith": [
-        "video-046"
-      ],
-      "contribution": "Diferencia Incumplimiento de asistencia familiar por su problema específico: confundir incumplimiento de asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Incumplimiento de asistencia familiar",
+  "tituloAudiovisualPropuesto": "Incumplimiento de asistencia familiar: el expediente debe poder sumar",
+  "tesis": "Los pagos parciales se prueban y liquidan; la indignación no sustituye al cálculo",
+  "preguntaCatalogo": "¿Cómo documentar un incumplimiento de asistencia familiar?",
+  "microcaso": "Una persona presenta pagos parciales, transferencias y meses sin constancia.",
+  "guionPropuesto": "En una carpeta aparecen tres recibos, cinco transferencias y varios mensajes: «Te pagué todo». La otra parte responde: «Llevas meses sin cumplir». Antes de discutir sanciones, hay un problema probatorio elemental: reconstruir exactamente qué se debía, qué se pagó y qué quedó pendiente. El trabajo comienza con una línea de tiempo ordenada por períodos, montos y soportes. Debemos distinguir la obligación establecida de acuerdos verbales cuya eficacia sea controvertida. Cada pago necesita vincularse al período correspondiente, evitando contar dos veces una transferencia o ignorar un abono demostrado. Si existen gastos extraordinarios, modificaciones de la obligación u otras incidencias, deben examinarse según su fundamento jurídico específico. El camino procesal y las consecuencias del incumplimiento requieren verificación de la normativa vigente y de la resolución aplicable; no surgen de cualquier afirmación unilateral. Un buen expediente permite que otra persona reproduzca el cálculo. Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible.",
+  "palabrasAproximadas": 161,
+  "arquitecturaNarrativa": "cuaderno-de-pagos",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Carpeta con transferencias y recibos ficticios",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Línea temporal con meses y abonos",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Tabla: exigible, pagado, saldo por verificar",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Cruce de dos comprobantes sin doble conteo",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Liquidación auditada y conclusión",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Constitución Política del Estado"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "c25d688c2704cdbab0c208f9190b935f1d465fcf3510dc3319086d462bf7f7a5",
+    "hashOriginalSHA256Calculado": "c25d688c2704cdbab0c208f9190b935f1d465fcf3510dc3319086d462bf7f7a5",
+    "hashFinalSHA256": "c25d688c2704cdbab0c208f9190b935f1d465fcf3510dc3319086d462bf7f7a5",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "En una carpeta aparecen tres recibos, cinco transferencias y varios mensajes: «Te pagué todo». La otra parte responde: «Llevas meses sin cumplir». Antes de discutir sanciones, hay un problema probatorio elemental: reconstruir exactamente qué se debía, qué se pagó y qué quedó pendiente. El trabajo comienza con una línea de tiempo ordenada por períodos, montos y soportes. Debemos distinguir la obligación establecida de acuerdos verbales cuya eficacia sea controvertida. Cada pago necesita vincularse al período correspondiente, evitando contar dos veces una transferencia o ignorar un abono demostrado. Si existen gastos extraordinarios, modificaciones de la obligación u otras incidencias, deben examinarse según su fundamento jurídico específico. El camino procesal y las consecuencias del incumplimiento requieren verificación de la normativa vigente y de la resolución aplicable; no surgen de cualquier afirmación unilateral. Un buen expediente permite que otra persona reproduzca el cálculo. Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible.",
+  "guionAprobadoCorregido": "En una carpeta aparecen tres recibos, cinco transferencias y varios mensajes: «Te pagué todo». La otra parte responde: «Llevas meses sin cumplir». Antes de discutir sanciones, hay un problema probatorio elemental: reconstruir exactamente qué se debía, qué se pagó y qué quedó pendiente. El trabajo comienza con una línea de tiempo ordenada por períodos, montos y soportes. Debemos distinguir la obligación establecida de acuerdos verbales cuya eficacia sea controvertida. Cada pago necesita vincularse al período correspondiente, evitando contar dos veces una transferencia o ignorar un abono demostrado. Si existen gastos extraordinarios, modificaciones de la obligación u otras incidencias, deben examinarse según su fundamento jurídico específico. El camino procesal y las consecuencias del incumplimiento requieren verificación de la normativa vigente y de la resolución aplicable; no surgen de cualquier afirmación unilateral. Un buen expediente permite que otra persona reproduzca el cálculo. Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible.",
+  "palabrasFinal": 161,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "Distinguir liquidación, acreditación de pagos y ejecución; no afirmar automáticamente delito o apremio sin presupuestos.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "En una carpeta aparecen tres recibos, cinco transferencias y varios mensajes: «Te pagué todo».",
+  "problem": "¿Cómo documentar un incumplimiento de asistencia familiar?",
+  "centralThesis": "Los pagos parciales se prueban y liquidan; la indignación no sustituye al cálculo.",
+  "reasoningChain": [
+    "Antes de discutir sanciones, hay un problema probatorio elemental: reconstruir exactamente qué se debía, qué se pagó y qué quedó pendiente.",
+    "El trabajo comienza con una línea de tiempo ordenada por períodos, montos y soportes.",
+    "Debemos distinguir la obligación establecida de acuerdos verbales cuya eficacia sea controvertida.",
+    "Cada pago necesita vincularse al período correspondiente, evitando contar dos veces una transferencia o ignorar un abono demostrado.",
+    "Si existen gastos extraordinarios, modificaciones de la obligación u otras incidencias, deben examinarse según su fundamento jurídico específico."
+  ],
+  "conclusion": "Un buen expediente permite que otra persona reproduzca el cálculo.",
+  "closingIdea": "Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible.",
+  "cta": "Ordena períodos, obligaciones y pagos acreditados antes de discutir un saldo.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Incumplimiento de asistencia familiar",
-  "centralThesis": "Incumplimiento de asistencia familiar exige dominar vías, riesgos y ejecución; su valor práctico está en transformar vías, riesgos y ejecución en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Incumplimiento de asistencia familiar es confundir incumplimiento de asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Incumplimiento de asistencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir incumplimiento de asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre incumplimiento de asistencia familiar, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Incumplimiento de asistencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de incumplimiento de asistencia familiar",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de incumplimiento de asistencia familiar",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Incumplimiento de asistencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Incumplimiento de asistencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "b3a448f2963f2fb783962d1611c064a8f2f0cec5ace5705172abc882af7d97a3",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

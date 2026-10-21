@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Interés superior del niño",
-    "description": "Cómo se aplica en casos reales.",
+    "description": "¿Qué significa el interés superior del niño en una decisión concreta?",
     "tags": [
       "derecho",
       "bolivia",
@@ -14,7 +14,11 @@
       "superior",
       "del",
       "nino"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -30,7 +34,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Interés superior del niño: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Interés superior del niño: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir interés superior del niño con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre interés superior del niño, con una ruta de seguimiento y ejecución posible. Interés superior del niño se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Interés superior del niño, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "Dos personas llegan con propuestas opuestas. Una quiere cambiar de ciudad. La otra insiste en mantener la escuela y el entorno del niño. Las dos pronuncian la misma frase: «interés superior». El interés superior exige valorar efectos reales de cada alternativa, no solo repetir el nombre del principio. Un análisis serio comienza definiendo las opciones reales y sus consecuencias previsibles. ¿Qué pasará con la educación, la salud, los vínculos familiares, la seguridad y la estabilidad cotidiana? Si dos opciones tienen costos, hay que explicarlos; si falta prueba, hay que reconocerlo. La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado. Para invocar el interés superior, explica qué consecuencia concreta tendría cada alternativa.",
     "narrationSrc": "public/generated/video-046-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -43,7 +47,7 @@
       "kind": "hero",
       "content": {
         "title": "Interés superior del niño",
-        "subtitle": "Interés superior del niño: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "Dos personas llegan con propuestas opuestas. Una quiere cambiar de ciudad. La otra insiste en mantener la escuela y el entorno del niño."
       },
       "timing": {
         "durationMs": 8000
@@ -54,7 +58,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Interés superior del niño: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Las dos pronuncian la misma frase: «interés superior»."
       },
       "timing": {
         "durationMs": 9000
@@ -65,7 +69,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El interés superior exige valorar efectos reales de cada alternativa, no solo repetir el nombre del principio."
       },
       "timing": {
         "durationMs": 9000
@@ -76,7 +80,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Un análisis serio comienza definiendo las opciones reales y sus consecuencias previsibles."
       },
       "timing": {
         "durationMs": 9000
@@ -87,7 +91,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir interés superior del niño con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "¿Qué pasará con la educación, la salud, los vínculos familiares, la seguridad y la estabilidad cotidiana?"
       },
       "timing": {
         "durationMs": 9000
@@ -97,8 +101,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Interés superior del niño se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Interés superior del niño, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Si dos opciones tienen costos, hay que explicarlos; si falta prueba, hay que reconocerlo.",
+        "subtitle": "La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado."
       },
       "timing": {
         "durationMs": 10000

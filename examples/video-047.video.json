@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Incumplimiento de asistencia familiar",
-    "description": "Vías, riesgos y ejecución.",
+    "description": "¿Cómo documentar un incumplimiento de asistencia familiar?",
     "tags": [
       "derecho",
       "bolivia",
@@ -13,7 +13,11 @@
       "incumplimiento",
       "asistencia",
       "familiar"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Incumplimiento de asistencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Incumplimiento de asistencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir incumplimiento de asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre incumplimiento de asistencia familiar, con una ruta de seguimiento y ejecución posible. Incumplimiento de asistencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Incumplimiento de asistencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "En una carpeta aparecen tres recibos, cinco transferencias y varios mensajes: «Te pagué todo». Antes de discutir sanciones, hay un problema probatorio elemental: reconstruir exactamente qué se debía, qué se pagó y qué quedó pendiente. El trabajo comienza con una línea de tiempo ordenada por períodos, montos y soportes. Debemos distinguir la obligación establecida de acuerdos verbales cuya eficacia sea controvertida. Cada pago necesita vincularse al período correspondiente, evitando contar dos veces una transferencia o ignorar un abono demostrado. Si existen gastos extraordinarios, modificaciones de la obligación u otras incidencias, deben examinarse según su fundamento jurídico específico. Un buen expediente permite que otra persona reproduzca el cálculo. Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible. Ordena períodos, obligaciones y pagos acreditados antes de discutir un saldo.",
     "narrationSrc": "public/generated/video-047-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -42,7 +46,7 @@
       "kind": "hero",
       "content": {
         "title": "Incumplimiento de asistencia familiar",
-        "subtitle": "Incumplimiento de asistencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "En una carpeta aparecen tres recibos, cinco transferencias y varios mensajes: «Te pagué todo»."
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Incumplimiento de asistencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Antes de discutir sanciones, hay un problema probatorio elemental: reconstruir exactamente qué se debía, qué se pagó y qué quedó pendiente."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El trabajo comienza con una línea de tiempo ordenada por períodos, montos y soportes."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Debemos distinguir la obligación establecida de acuerdos verbales cuya eficacia sea controvertida."
       },
       "timing": {
         "durationMs": 9000
@@ -86,7 +90,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir incumplimiento de asistencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Cada pago necesita vincularse al período correspondiente, evitando contar dos veces una transferencia o ignorar un abono demostrado."
       },
       "timing": {
         "durationMs": 9000
@@ -96,8 +100,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Incumplimiento de asistencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Incumplimiento de asistencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Un buen expediente permite que otra persona reproduzca el cálculo.",
+        "subtitle": "Cuando la liquidación es transparente, la discusión deja de girar alrededor del enojo y se centra en la obligación realmente exigible."
       },
       "timing": {
         "durationMs": 10000

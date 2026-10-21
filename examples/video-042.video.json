@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Régimen de visitas",
-    "description": "Cómo ordenar el vínculo familiar sin afectar el interés superior del menor.",
+    "description": "¿Cómo ordenar un régimen de visitas cuando hay conflicto entre los adultos?",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "regimen",
       "visitas"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Régimen de visitas: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Régimen de visitas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir régimen de visitas con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre régimen de visitas, con una ruta de seguimiento y ejecución posible. Régimen de visitas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Régimen de visitas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "Es sábado por la mañana. Una niña está lista para encontrarse con su padre, pero recibe el mensaje de que otra vez no habrá visita. Los adultos discuten por teléfono y el calendario queda vacío. El problema jurídico no se reduce a escoger quién incumplió primero. Se trata de examinar cómo se protege el vínculo familiar compatible con los derechos y la seguridad de la niña. Primero se identifica el acuerdo o la decisión vigente que regula el contacto y sus condiciones concretas. Luego se contrastan los incumplimientos alegados con fechas, mensajes y otras pruebas pertinentes. Un régimen de visitas no debería transformarse en instrumento de revancha. Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él. Si se discute el contacto familiar, registra fechas y hechos; el bienestar infantil exige soluciones verificables.",
     "narrationSrc": "public/generated/video-042-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,7 +45,7 @@
       "kind": "hero",
       "content": {
         "title": "Régimen de visitas",
-        "subtitle": "Régimen de visitas: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "Es sábado por la mañana. Una niña está lista para encontrarse con su padre, pero recibe el mensaje de que otra vez no habrá visita."
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Régimen de visitas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Los adultos discuten por teléfono y el calendario queda vacío."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El problema jurídico no se reduce a escoger quién incumplió primero."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Se trata de examinar cómo se protege el vínculo familiar compatible con los derechos y la seguridad de la niña."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir régimen de visitas con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Primero se identifica el acuerdo o la decisión vigente que regula el contacto y sus condiciones concretas."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Régimen de visitas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Régimen de visitas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Un régimen de visitas no debería transformarse en instrumento de revancha.",
+        "subtitle": "Su calidad jurídica se mide por la protección efectiva de la persona cuya rutina depende de él."
       },
       "timing": {
         "durationMs": 10000

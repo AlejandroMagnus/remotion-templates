@@ -1,59 +1,142 @@
 {
+  "id": "VIDEO-045",
   "productionCode": "video-045",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Violencia familiar",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Violencia familiar desde su utilidad operativa concreta: qué hacer ante una denuncia, medidas de protección y defensa.",
-    "newAngle": {
-      "comparedWith": [
-        "video-044"
-      ],
-      "contribution": "Diferencia Violencia familiar por su problema específico: confundir violencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Violencia familiar",
+  "tituloAudiovisualPropuesto": "Violencia familiar: protección inmediata y proceso con garantías",
+  "tesis": "La urgencia de proteger no elimina la necesidad de investigar con rigor",
+  "preguntaCatalogo": "¿Cómo proteger a una víctima sin confundir medidas urgentes y decisión final?",
+  "microcaso": "Una denuncia describe amenazas recientes; hay personas menores de edad y hechos controvertidos.",
+  "guionPropuesto": "A las nueve de la noche una mujer informa que teme regresar a su casa. Hay mensajes amenazantes, una discusión reciente y dos niños presentes. En una situación así, la primera pregunta no es quién tendrá razón en el juicio: es qué riesgo debe atenderse de inmediato. La protección y la investigación cumplen funciones diferentes, aunque ambas exigen actuaciones responsables. Una medida urgente busca reducir exposición al peligro; la determinación final de responsabilidad requiere el procedimiento y la prueba correspondientes. Los mensajes, los informes, los testimonios y los registros de atención deben preservarse lícitamente, respetando la intimidad y evitando difundir información sensible. Tampoco corresponde trivializar la denuncia ni tratar una alegación controvertida como condena automática. El marco boliviano exige examinar rutas de protección adecuadas y garantías para todas las personas involucradas. En una respuesta jurídica de calidad, la celeridad no se confunde con improvisación. Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas.",
+  "palabrasAproximadas": 162,
+  "arquitecturaNarrativa": "protocolo-de-urgencia",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Escena nocturna simbólica sin violencia explícita",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Mapa de decisión: seguridad inmediata y registro de hechos",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Protección urgente versus decisión final",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Evidencia digital bajo custodia y privacidad",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Ruta de garantías y atención institucional",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Constitución Política del Estado",
+    "Ley 348 — Integral para Garantizar a las Mujeres una Vida Libre de Violencia",
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Ley 548 — Código Niña, Niño y Adolescente"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "70d696f2ab7d79ae5e740fea2bdf2bb4cce9a85fe2a857eba77fa2c7c2a97934",
+    "hashOriginalSHA256Calculado": "70d696f2ab7d79ae5e740fea2bdf2bb4cce9a85fe2a857eba77fa2c7c2a97934",
+    "hashFinalSHA256": "70d696f2ab7d79ae5e740fea2bdf2bb4cce9a85fe2a857eba77fa2c7c2a97934",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "A las nueve de la noche una mujer informa que teme regresar a su casa. Hay mensajes amenazantes, una discusión reciente y dos niños presentes. En una situación así, la primera pregunta no es quién tendrá razón en el juicio: es qué riesgo debe atenderse de inmediato. La protección y la investigación cumplen funciones diferentes, aunque ambas exigen actuaciones responsables. Una medida urgente busca reducir exposición al peligro; la determinación final de responsabilidad requiere el procedimiento y la prueba correspondientes. Los mensajes, los informes, los testimonios y los registros de atención deben preservarse lícitamente, respetando la intimidad y evitando difundir información sensible. Tampoco corresponde trivializar la denuncia ni tratar una alegación controvertida como condena automática. El marco boliviano exige examinar rutas de protección adecuadas y garantías para todas las personas involucradas. En una respuesta jurídica de calidad, la celeridad no se confunde con improvisación. Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas.",
+  "guionAprobadoCorregido": "A las nueve de la noche una mujer informa que teme regresar a su casa. Hay mensajes amenazantes, una discusión reciente y dos niños presentes. En una situación así, la primera pregunta no es quién tendrá razón en el juicio: es qué riesgo debe atenderse de inmediato. La protección y la investigación cumplen funciones diferentes, aunque ambas exigen actuaciones responsables. Una medida urgente busca reducir exposición al peligro; la determinación final de responsabilidad requiere el procedimiento y la prueba correspondientes. Los mensajes, los informes, los testimonios y los registros de atención deben preservarse lícitamente, respetando la intimidad y evitando difundir información sensible. Tampoco corresponde trivializar la denuncia ni tratar una alegación controvertida como condena automática. El marco boliviano exige examinar rutas de protección adecuadas y garantías para todas las personas involucradas. En una respuesta jurídica de calidad, la celeridad no se confunde con improvisación. Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas.",
+  "palabrasFinal": 162,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 348",
+      "url": "https://www.segip.gob.bo/wp-content/uploads/2025/09/LEY-N%C2%B0-348-LEY-DE-9-DE-MARZO-DE-2013-LEY-INTEGRAL-PARA-GARANTIZAR-A-LAS-MUJERES-UNA-VIDA-LIBRE-DE-VIOLENCIA.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "Distinguir medidas urgentes de protección de sentencia condenatoria; no equiparar protección a culpabilidad.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "A las nueve de la noche una mujer informa que teme regresar a su casa.",
+  "problem": "¿Cómo proteger a una víctima sin confundir medidas urgentes y decisión final?",
+  "centralThesis": "La urgencia de proteger no elimina la necesidad de investigar con rigor.",
+  "reasoningChain": [
+    "En una situación así, la primera pregunta no es quién tendrá razón en el juicio: es qué riesgo debe atenderse de inmediato.",
+    "La protección y la investigación cumplen funciones diferentes, aunque ambas exigen actuaciones responsables.",
+    "Una medida urgente busca reducir exposición al peligro; la determinación final de responsabilidad requiere el procedimiento y la prueba correspondientes.",
+    "Los mensajes, los informes, los testimonios y los registros de atención deben preservarse lícitamente, respetando la intimidad y evitando difundir información sensible.",
+    "Tampoco corresponde trivializar la denuncia ni tratar una alegación controvertida como condena automática."
+  ],
+  "conclusion": "En una respuesta jurídica de calidad, la celeridad no se confunde con improvisación.",
+  "closingIdea": "Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas.",
+  "cta": "Ante un riesgo inmediato, prioriza protección y preservación lícita de evidencia, sin anticipar culpabilidades.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Violencia familiar",
-  "centralThesis": "Violencia familiar exige dominar qué hacer ante una denuncia, medidas de protección y defensa; su valor práctico está en transformar qué hacer ante una denuncia, medidas de protección y defensa en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Violencia familiar es confundir violencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Violencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir violencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre violencia familiar, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Violencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de violencia familiar",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de violencia familiar",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Violencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Violencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "bf46fb7ee97117b0b8a738ade7716f0af1b4bc27d2ef386e76482f2b17ce4a60",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

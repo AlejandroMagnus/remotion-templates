@@ -1,59 +1,136 @@
 {
+  "id": "VIDEO-044",
   "productionCode": "video-044",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Filiación",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Filiación desde su utilidad operativa concreta: cómo se reclama o impugna jurídicamente.",
-    "newAngle": {
-      "comparedWith": [
-        "video-043"
-      ],
-      "contribution": "Diferencia Filiación por su problema específico: confundir filiación con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Filiación",
+  "tituloAudiovisualPropuesto": "Filiación: más que un registro, una identidad",
+  "tesis": "Una controversia de filiación exige proteger identidad y debido proceso",
+  "preguntaCatalogo": "¿Qué ocurre cuando se discute jurídicamente la filiación?",
+  "microcaso": "Una persona cuestiona un dato de filiación asentado en el registro; un niño necesita seguridad jurídica.",
+  "guionPropuesto": "Una mujer encuentra un registro familiar que no coincide con la historia que le contaron. Otra persona sostiene una versión distinta. En medio está la identidad jurídica de un niño. Es tentador reducir la controversia a una sola prueba biológica, pero la filiación es un problema jurídico que también involucra procedimientos, legitimación, efectos personales y protección de derechos. El primer paso es precisar cuál dato se cuestiona y qué decisión se solicita. Después, identificar el instrumento registral, las circunstancias de su emisión y los medios probatorios pertinentes, sin dar por supuesto que una prueba resuelve automáticamente todos los efectos. También debemos preguntarnos qué medidas evitan exponer innecesariamente a la persona menor de edad y cómo se garantiza la participación y defensa de quienes intervienen. Identidad y estabilidad no son argumentos para ocultar hechos ni excusas para ignorar derechos procesales. Una decisión responsable explica con claridad qué ha sido demostrado, qué sigue discutido y cómo se protege a las personas afectadas. En Derecho de Familia, incluso la verdad debe buscarse con método y garantías.",
+  "palabrasAproximadas": 173,
+  "arquitecturaNarrativa": "historia-de-identidad",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Registro civil ilustrativo con datos ficticios",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Línea de tiempo familiar sin identidades",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Pregunta jurídica: pretensión y efectos",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Tres tipos de evidencia, sin simular pericias auténticas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Identidad y garantías convergen",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Constitución Política del Estado",
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Ley 548 — Código Niña, Niño y Adolescente"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "2d42b0d11fc972d0d1913e57b1e66f2731f8900affc51bfb32b1317e5f479547",
+    "hashOriginalSHA256Calculado": "2d42b0d11fc972d0d1913e57b1e66f2731f8900affc51bfb32b1317e5f479547",
+    "hashFinalSHA256": "2d42b0d11fc972d0d1913e57b1e66f2731f8900affc51bfb32b1317e5f479547",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "Una mujer encuentra un registro familiar que no coincide con la historia que le contaron. Otra persona sostiene una versión distinta. En medio está la identidad jurídica de un niño. Es tentador reducir la controversia a una sola prueba biológica, pero la filiación es un problema jurídico que también involucra procedimientos, legitimación, efectos personales y protección de derechos. El primer paso es precisar cuál dato se cuestiona y qué decisión se solicita. Después, identificar el instrumento registral, las circunstancias de su emisión y los medios probatorios pertinentes, sin dar por supuesto que una prueba resuelve automáticamente todos los efectos. También debemos preguntarnos qué medidas evitan exponer innecesariamente a la persona menor de edad y cómo se garantiza la participación y defensa de quienes intervienen. Identidad y estabilidad no son argumentos para ocultar hechos ni excusas para ignorar derechos procesales. Una decisión responsable explica con claridad qué ha sido demostrado, qué sigue discutido y cómo se protege a las personas afectadas. En Derecho de Familia, incluso la verdad debe buscarse con método y garantías.",
+  "guionAprobadoCorregido": "Una mujer encuentra un registro familiar que no coincide con la historia que le contaron. Otra persona sostiene una versión distinta. En medio está la identidad jurídica de un niño. Es tentador reducir la controversia a una sola prueba biológica, pero la filiación es un problema jurídico que también involucra procedimientos, legitimación, efectos personales y protección de derechos. El primer paso es precisar cuál dato se cuestiona y qué decisión se solicita. Después, identificar el instrumento registral, las circunstancias de su emisión y los medios probatorios pertinentes, sin dar por supuesto que una prueba resuelve automáticamente todos los efectos. También debemos preguntarnos qué medidas evitan exponer innecesariamente a la persona menor de edad y cómo se garantiza la participación y defensa de quienes intervienen. Identidad y estabilidad no son argumentos para ocultar hechos ni excusas para ignorar derechos procesales. Una decisión responsable explica con claridad qué ha sido demostrado, qué sigue discutido y cómo se protege a las personas afectadas. En Derecho de Familia, incluso la verdad debe buscarse con método y garantías.",
+  "palabrasFinal": 173,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "No reducir filiación a prueba genética aislada; integrar identidad, procedimiento, contradicción y prueba pertinente.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "Una mujer encuentra un registro familiar que no coincide con la historia que le contaron. Otra persona sostiene una versión distinta.",
+  "problem": "¿Qué ocurre cuando se discute jurídicamente la filiación?",
+  "centralThesis": "Una controversia de filiación exige proteger identidad y debido proceso.",
+  "reasoningChain": [
+    "En medio está la identidad jurídica de un niño.",
+    "Es tentador reducir la controversia a una sola prueba biológica, pero la filiación es un problema jurídico que también involucra procedimientos, legitimación, efectos personales y protección de derechos.",
+    "El primer paso es precisar cuál dato se cuestiona y qué decisión se solicita.",
+    "Después, identificar el instrumento registral, las circunstancias de su emisión y los medios probatorios pertinentes, sin dar por supuesto que una prueba resuelve automáticamente todos los efectos.",
+    "También debemos preguntarnos qué medidas evitan exponer innecesariamente a la persona menor de edad y cómo se garantiza la participación y defensa de quienes intervienen."
+  ],
+  "conclusion": "Una decisión responsable explica con claridad qué ha sido demostrado, qué sigue discutido y cómo se protege a las personas afectadas.",
+  "closingIdea": "En Derecho de Familia, incluso la verdad debe buscarse con método y garantías.",
+  "cta": "Antes de discutir filiación, precisa el acto cuestionado y protege la identidad de la persona involucrada.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Filiación",
-  "centralThesis": "Filiación exige dominar cómo se reclama o impugna jurídicamente; su valor práctico está en transformar cómo se reclama o impugna jurídicamente en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Filiación es confundir filiación con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Filiación: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir filiación con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre filiación, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Filiación se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de filiación",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de filiación",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: En Derecho de Familia, incluso la verdad debe buscarse con método y garantías. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Filiación: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Filiación, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "63931f98e0b0b85fa0dac1dbbb1603a21d6fbcb62aa420d9aeee7e0e8d15b31b",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

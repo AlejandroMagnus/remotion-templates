@@ -1,59 +1,135 @@
 {
+  "id": "VIDEO-049",
   "productionCode": "video-049",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Bienes gananciales",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Bienes gananciales desde su utilidad operativa concreta: cómo se identifican, prueban y dividen.",
-    "newAngle": {
-      "comparedWith": [
-        "video-048"
-      ],
-      "contribution": "Diferencia Bienes gananciales por su problema específico: confundir bienes gananciales con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Bienes gananciales",
+  "tituloAudiovisualPropuesto": "Bienes gananciales: el inventario antes que el reproche",
+  "tesis": "Una discusión patrimonial necesita cronología, procedencia y trazabilidad",
+  "preguntaCatalogo": "¿Cómo distinguir los bienes discutidos al concluir una relación?",
+  "microcaso": "Se discute una vivienda, un negocio y una deuda adquirida en épocas diferentes.",
+  "guionPropuesto": "Durante una separación aparecen tres preguntas: ¿de quién es esta vivienda?, ¿cómo se adquirió el negocio?, ¿quién debe responder por la deuda? Las respuestas no se obtienen señalando quién trabajó más ni quién se siente perjudicado. Hace falta reconstruir la historia jurídica y económica de cada activo u obligación. La fecha de adquisición importa; también el origen de fondos, el título, los posibles aportes anteriores y los actos que modificaron la situación patrimonial. No conviene mezclar automáticamente todos los bienes en una misma categoría. Tampoco toda deuda mencionada por una parte queda acreditada por una conversación. El inventario debe distinguir documentos disponibles, hechos discutidos y pruebas faltantes. Después se analiza el régimen familiar aplicable y los efectos legales de cada circunstancia, sin prometer porcentajes antes de verificar los hechos. Una defensa patrimonial sólida empieza con un expediente que cualquiera pueda auditar. Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso.",
+  "palabrasAproximadas": 157,
+  "arquitecturaNarrativa": "inventario-en-conflicto",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Mesa con inventario de bienes simbólicos",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Cronología de adquisición y aportes",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Títulos y transferencias con etiquetas neutrales",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Separación de bienes y deudas a probar",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Inventario final con cuestiones pendientes",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Ley 603 — Código de las Familias y del Proceso Familiar",
+    "Constitución Política del Estado"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "ed058dc8665c060665529b02bac1af4a80968f6d1cbbfc7d11aafd219c34b9c6",
+    "hashOriginalSHA256Calculado": "ed058dc8665c060665529b02bac1af4a80968f6d1cbbfc7d11aafd219c34b9c6",
+    "hashFinalSHA256": "ed058dc8665c060665529b02bac1af4a80968f6d1cbbfc7d11aafd219c34b9c6",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "Durante una separación aparecen tres preguntas: ¿de quién es esta vivienda?, ¿cómo se adquirió el negocio?, ¿quién debe responder por la deuda? Las respuestas no se obtienen señalando quién trabajó más ni quién se siente perjudicado. Hace falta reconstruir la historia jurídica y económica de cada activo u obligación. La fecha de adquisición importa; también el origen de fondos, el título, los posibles aportes anteriores y los actos que modificaron la situación patrimonial. No conviene mezclar automáticamente todos los bienes en una misma categoría. Tampoco toda deuda mencionada por una parte queda acreditada por una conversación. El inventario debe distinguir documentos disponibles, hechos discutidos y pruebas faltantes. Después se analiza el régimen familiar aplicable y los efectos legales de cada circunstancia, sin prometer porcentajes antes de verificar los hechos. Una defensa patrimonial sólida empieza con un expediente que cualquiera pueda auditar. Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso.",
+  "guionAprobadoCorregido": "Durante una separación aparecen tres preguntas: ¿de quién es esta vivienda?, ¿cómo se adquirió el negocio?, ¿quién debe responder por la deuda? Las respuestas no se obtienen señalando quién trabajó más ni quién se siente perjudicado. Hace falta reconstruir la historia jurídica y económica de cada activo u obligación. La fecha de adquisición importa; también el origen de fondos, el título, los posibles aportes anteriores y los actos que modificaron la situación patrimonial. No conviene mezclar automáticamente todos los bienes en una misma categoría. Tampoco toda deuda mencionada por una parte queda acreditada por una conversación. El inventario debe distinguir documentos disponibles, hechos discutidos y pruebas faltantes. Después se analiza el régimen familiar aplicable y los efectos legales de cada circunstancia, sin prometer porcentajes antes de verificar los hechos. Una defensa patrimonial sólida empieza con un expediente que cualquiera pueda auditar. Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso.",
+  "palabrasFinal": 157,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "No presumir que todo bien es ganancial; examinar fechas, títulos, origen, cargas y excepciones legales.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "Durante una separación aparecen tres preguntas: ¿de quién es esta vivienda?, ¿cómo se adquirió el negocio?, ¿quién debe responder por la deuda?",
+  "problem": "¿Cómo distinguir los bienes discutidos al concluir una relación?",
+  "centralThesis": "Una discusión patrimonial necesita cronología, procedencia y trazabilidad.",
+  "reasoningChain": [
+    "Hace falta reconstruir la historia jurídica y económica de cada activo u obligación.",
+    "La fecha de adquisición importa; también el origen de fondos, el título, los posibles aportes anteriores y los actos que modificaron la situación patrimonial.",
+    "No conviene mezclar automáticamente todos los bienes en una misma categoría.",
+    "Tampoco toda deuda mencionada por una parte queda acreditada por una conversación.",
+    "El inventario debe distinguir documentos disponibles, hechos discutidos y pruebas faltantes."
+  ],
+  "conclusion": "Una defensa patrimonial sólida empieza con un expediente que cualquiera pueda auditar.",
+  "closingIdea": "Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso.",
+  "cta": "Construye la cronología de cada bien y conserva los documentos sobre su origen.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Bienes gananciales",
-  "centralThesis": "Bienes gananciales exige dominar cómo se identifican, prueban y dividen; su valor práctico está en transformar cómo se identifican, prueban y dividen en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Bienes gananciales es confundir bienes gananciales con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Bienes gananciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir bienes gananciales con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre bienes gananciales, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Bienes gananciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de bienes gananciales",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de bienes gananciales",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: Porque repartir sin clasificar es arriesgarse a convertir una discusión emocional en un error jurídico costoso. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Bienes gananciales: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Bienes gananciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "1374e150d86c284a76940f45dcff8aa08db6636860c4edf202b249ee13cc6275",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

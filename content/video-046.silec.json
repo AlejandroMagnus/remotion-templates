@@ -1,59 +1,140 @@
 {
+  "id": "VIDEO-046",
   "productionCode": "video-046",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "familia y protección reforzada",
-      "Interés superior del niño",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Interés superior del niño desde su utilidad operativa concreta: cómo se aplica en casos reales.",
-    "newAngle": {
-      "comparedWith": [
-        "video-045"
-      ],
-      "contribution": "Diferencia Interés superior del niño por su problema específico: confundir interés superior del niño con un trámite genérico sin identificar requisitos, autoridad y prueba."
+  "temaCatalogo": "Interés superior del niño",
+  "tituloAudiovisualPropuesto": "Interés superior del niño: una decisión motivada, no un eslogan",
+  "tesis": "El interés superior exige identificar consecuencias concretas y escuchar con garantías",
+  "preguntaCatalogo": "¿Qué significa el interés superior del niño en una decisión concreta?",
+  "microcaso": "Ambos progenitores invocan el interés superior para defender planes incompatibles.",
+  "guionPropuesto": "Dos personas llegan con propuestas opuestas. Una quiere cambiar de ciudad. La otra insiste en mantener la escuela y el entorno del niño. Las dos pronuncian la misma frase: «interés superior». Pero repetir ese principio no demuestra qué decisión lo realiza. Un análisis serio comienza definiendo las opciones reales y sus consecuencias previsibles. ¿Qué pasará con la educación, la salud, los vínculos familiares, la seguridad y la estabilidad cotidiana? ¿Qué información se ha demostrado y qué permanece como hipótesis? La perspectiva de la persona menor de edad importa, pero no puede obtenerse mediante presiones ni convertirla en responsable de elegir entre sus progenitores. El principio exige considerar su situación particular, no aplicar una fórmula universal. Por eso, una motivación judicial convincente debe mostrar el recorrido entre hechos, riesgos, derechos y decisión. Si dos opciones tienen costos, hay que explicarlos; si falta prueba, hay que reconocerlo. La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado.",
+  "palabrasAproximadas": 168,
+  "arquitecturaNarrativa": "dos-propuestas-un-nino",
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "visual": "Dos rutas futuras en diagrama",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 2,
+      "visual": "Tarjetas educación, seguridad, vínculos, salud",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 3,
+      "visual": "Hechos comprobados separados de conjeturas",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 4,
+      "visual": "Escucha respetuosa como símbolo, sin interrogatorio",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
+    },
+    {
+      "orden": 5,
+      "visual": "Motivación de decisión representada como ruta de razones",
+      "estatus": "IDEA_FICTICIA_NO_PRUEBA_REAL"
     }
+  ],
+  "fuentesPrimariasACotejar": [
+    "Constitución Política del Estado",
+    "Ley 548 — Código Niña, Niño y Adolescente",
+    "Ley 603 — Código de las Familias y del Proceso Familiar"
+  ],
+  "qa": {
+    "estado": "PREAUDITORIA_TECNICA_LOCAL_EJECUTADA_RENDER_GITHUB_PENDIENTE",
+    "ready_for_render": true,
+    "publicationAllowed": false,
+    "cotejoNormativoCompleto": false,
+    "jurisprudenciaVerificada": false,
+    "alcanceReadyForRender": "Preparación técnica local; no certifica ejecución completa GitHub ni aprobación jurídica."
+  },
+  "integridad": {
+    "hashTextoSHA256": "95c33676453ca71bc313997aef133c838d11ee2783103236f5f59aad7634d1a1",
+    "hashOriginalSHA256Calculado": "95c33676453ca71bc313997aef133c838d11ee2783103236f5f59aad7634d1a1",
+    "hashFinalSHA256": "95c33676453ca71bc313997aef133c838d11ee2783103236f5f59aad7634d1a1",
+    "originalCoincideHashDeclarado": true
+  },
+  "advertencias": [
+    "No verificar citas jurisprudenciales no proporcionadas.",
+    "Revisar vigencia, cambios legales, competencias y plazos.",
+    "Casos e imágenes hipotéticos sin identificación de personas reales."
+  ],
+  "guionFinal": "Dos personas llegan con propuestas opuestas. Una quiere cambiar de ciudad. La otra insiste en mantener la escuela y el entorno del niño. Las dos pronuncian la misma frase: «interés superior». Pero repetir ese principio no demuestra qué decisión lo realiza. Un análisis serio comienza definiendo las opciones reales y sus consecuencias previsibles. ¿Qué pasará con la educación, la salud, los vínculos familiares, la seguridad y la estabilidad cotidiana? ¿Qué información se ha demostrado y qué permanece como hipótesis? La perspectiva de la persona menor de edad importa, pero no puede obtenerse mediante presiones ni convertirla en responsable de elegir entre sus progenitores. El principio exige considerar su situación particular, no aplicar una fórmula universal. Por eso, una motivación judicial convincente debe mostrar el recorrido entre hechos, riesgos, derechos y decisión. Si dos opciones tienen costos, hay que explicarlos; si falta prueba, hay que reconocerlo. La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado.",
+  "guionAprobadoCorregido": "Dos personas llegan con propuestas opuestas. Una quiere cambiar de ciudad. La otra insiste en mantener la escuela y el entorno del niño. Las dos pronuncian la misma frase: «interés superior». Pero repetir ese principio no demuestra qué decisión lo realiza. Un análisis serio comienza definiendo las opciones reales y sus consecuencias previsibles. ¿Qué pasará con la educación, la salud, los vínculos familiares, la seguridad y la estabilidad cotidiana? ¿Qué información se ha demostrado y qué permanece como hipótesis? La perspectiva de la persona menor de edad importa, pero no puede obtenerse mediante presiones ni convertirla en responsable de elegir entre sus progenitores. El principio exige considerar su situación particular, no aplicar una fórmula universal. Por eso, una motivación judicial convincente debe mostrar el recorrido entre hechos, riesgos, derechos y decisión. Si dos opciones tienen costos, hay que explicarlos; si falta prueba, hay que reconocerlo. La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado.",
+  "palabrasFinal": 168,
+  "fuentesDeControl": [
+    {
+      "norma": "CPE",
+      "url": "https://www.wipo.int/wipolex/en/legislation/details/5430",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 603",
+      "url": "https://migracion.gob.bo/sites/default/files/2021-06/N%C2%B0%20603%20-%20NUEVO%20C%C3%93DIGO%20DE%20LAS%20FAMILIAS%20Y%20DEL%20PROCESO%20FAMILIAR%20-%2019-11-2014.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 548",
+      "url": "https://www.justicia.gob.bo/cms/files/LEY%20N%C2%BA%20548%20Gaceta%20oficial_jt7iakwe.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    },
+    {
+      "norma": "Ley 348",
+      "url": "https://www.segip.gob.bo/wp-content/uploads/2025/09/LEY-N%C2%B0-348-LEY-DE-9-DE-MARZO-DE-2013-LEY-INTEGRAL-PARA-GARANTIZAR-A-LAS-MUJERES-UNA-VIDA-LIBRE-DE-VIOLENCIA.pdf",
+      "alcance": "texto base consultado; reformas posteriores y consolidación integral pendientes"
+    }
+  ],
+  "auditoriaPAJI": {
+    "observacion": "Escucha adecuada y contextualizada; evitar convertir opinión infantil en decisión vinculante automática.",
+    "estado": "REVISADO_CON_RESERVAS_VERIFICACION_LEGISLATIVA_COMPLETA_PENDIENTE",
+    "normativaCotejada": "CPE art. 60; Ley 603 arts. 109 y 116 (texto base) cuando pertinentes; textos base Ley 548 y Ley 348 según materia",
+    "jurisprudenciaCotejada": "SIN_PRECEDENTES_INDIVIDUALES_VERIFICADOS; no se insertan sentencias inventadas",
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false,
+    "razonBloqueo": "Sin cotejo oficial exhaustivo de modificaciones vigentes a 2026 ni jurisprudencia decisiva verificada"
+  },
+  "hook": "Dos personas llegan con propuestas opuestas. Una quiere cambiar de ciudad. La otra insiste en mantener la escuela y el entorno del niño.",
+  "problem": "¿Qué significa el interés superior del niño en una decisión concreta?",
+  "centralThesis": "El interés superior exige identificar consecuencias concretas y escuchar con garantías.",
+  "reasoningChain": [
+    "Las dos pronuncian la misma frase: «interés superior».",
+    "El interés superior exige valorar efectos reales de cada alternativa, no solo repetir el nombre del principio.",
+    "Un análisis serio comienza definiendo las opciones reales y sus consecuencias previsibles.",
+    "¿Qué pasará con la educación, la salud, los vínculos familiares, la seguridad y la estabilidad cotidiana?"
+  ],
+  "conclusion": "Si dos opciones tienen costos, hay que explicarlos; si falta prueba, hay que reconocerlo.",
+  "closingIdea": "La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado.",
+  "cta": "Para invocar el interés superior, explica qué consecuencia concreta tendría cada alternativa.",
+  "integracionGitHub": {
+    "tipo": "adaptacion_al_contrato_real_del_repositorio",
+    "preauditoria_real": "source_editorial_preflight.py + vocal_intrascript_gate.py + editorial_delivery_contract.py; ver auditoria/",
+    "publicacion": "NO_AUTORIZADA",
+    "nota": "Campos originales preservados; guionFinal histórico no es el texto que el renderer consume. La narración efectiva se deriva de hook/reasoningChain/conclusion/closingIdea/cta y puede ser reorganizada por autoría."
   },
   "topic": "Interés superior del niño",
-  "centralThesis": "Interés superior del niño exige dominar cómo se aplica en casos reales; su valor práctico está en transformar cómo se aplica en casos reales en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Interés superior del niño es confundir interés superior del niño con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
-  "reasoningChain": [
-    "Primero identifique el resultado buscado en Interés superior del niño: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir interés superior del niño con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre interés superior del niño, con una ruta de seguimiento y ejecución posible."
-  ],
-  "conclusion": "Interés superior del niño se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "personas interesadas en Derecho de Familia boliviano",
+    "abogados y estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de interés superior del niño",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "análisis de interés superior del niño",
+    "distinción entre hechos, pruebas y consecuencias jurídicas"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Beneficio para el espectador: La excelencia jurídica aparece cuando el interés superior deja de ser una consigna y se convierte en un razonamiento que puede ser examinado. Formación jurídica general; sin promesas de resultados ni asesoramiento individual.",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "educación jurídica",
+    "consulta profesional individual cuando corresponda"
   ],
-  "hook": "Interés superior del niño: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Interés superior del niño, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "technicalProvenance": {
+    "inputFileSha256": "5fcfe924d90fce6e5333b13a591d6d223087a1c3fac38ec6f1bb3cacbe935d1a",
+    "repositorySnapshotCommit": "d0c71940696a01046265f8bf63ede44e75008e22",
+    "remoteHeadVerified": false,
+    "legalApprovalGranted": false
+  },
+  "publicationAllowed": false
 }

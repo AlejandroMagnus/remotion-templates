@@ -4,7 +4,7 @@
   "templateFamily": "announcement-brief",
   "meta": {
     "title": "Violencia familiar",
-    "description": "Qué hacer ante una denuncia, medidas de protección y defensa.",
+    "description": "¿Cómo proteger a una víctima sin confundir medidas urgentes y decisión final?",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "violencia",
       "familiar"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Violencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Violencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir violencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre violencia familiar, con una ruta de seguimiento y ejecución posible. Violencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Violencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "A las nueve de la noche una mujer informa que teme regresar a su casa. En una situación así, la primera pregunta no es quién tendrá razón en el juicio: es qué riesgo debe atenderse de inmediato. La protección y la investigación cumplen funciones diferentes, aunque ambas exigen actuaciones responsables. Una medida urgente busca reducir exposición al peligro; la determinación final de responsabilidad requiere el procedimiento y la prueba correspondientes. Los mensajes, los informes, los testimonios y los registros de atención deben preservarse lícitamente, respetando la intimidad y evitando difundir información sensible. Tampoco corresponde trivializar la denuncia ni tratar una alegación controvertida como condena automática. En una respuesta jurídica de calidad, la celeridad no se confunde con improvisación. Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas. Ante un riesgo inmediato, prioriza protección y preservación lícita de evidencia, sin anticipar culpabilidades.",
     "narrationSrc": "public/generated/video-045-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,7 +45,7 @@
       "kind": "hero",
       "content": {
         "title": "Violencia familiar",
-        "subtitle": "Violencia familiar: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "subtitle": "A las nueve de la noche una mujer informa que teme regresar a su casa."
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Violencia familiar: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "En una situación así, la primera pregunta no es quién tendrá razón en el juicio: es qué riesgo debe atenderse de inmediato."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La protección y la investigación cumplen funciones diferentes, aunque ambas exigen actuaciones responsables."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Una medida urgente busca reducir exposición al peligro; la determinación final de responsabilidad requiere el procedimiento y la prueba correspondientes."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir violencia familiar con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Los mensajes, los informes, los testimonios y los registros de atención deben preservarse lícitamente, respetando la intimidad y evitando difundir información sensible."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Violencia familiar se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Violencia familiar, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "En una respuesta jurídica de calidad, la celeridad no se confunde con improvisación.",
+        "subtitle": "Se actúa para proteger, se registra para esclarecer y se argumenta para que las decisiones puedan ser controladas."
       },
       "timing": {
         "durationMs": 10000
