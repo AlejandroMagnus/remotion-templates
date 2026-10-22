@@ -1,58 +1,189 @@
 {
   "productionCode": "video-055",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Notificación administrativa"
-    ],
-    "intellectualContribution": "Explica Notificación administrativa desde su utilidad operativa concreta: errores que pueden afectar plazos y defensa.",
-    "newAngle": {
-      "comparedWith": [
-        "video-054"
-      ],
-      "contribution": "Diferencia Notificación administrativa por su problema específico: confundir notificación administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Notificación administrativa",
-  "centralThesis": "Notificación administrativa exige dominar errores que pueden afectar plazos y defensa; su valor práctico está en transformar errores que pueden afectar plazos y defensa en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Notificación administrativa es confundir notificación administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Documento no equivale a hecho probado",
+  "hook": "¿Un contrato adjunto demuestra por sí solo todo lo que afirmas en un juicio?",
+  "problem": "Una parte confunde la existencia de un documento con la acreditación de todas sus afirmaciones.",
+  "centralThesis": "La prueba documental debe vincularse con proposiciones concretas y valorarse en el contexto del proceso.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Notificación administrativa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir notificación administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre notificación administrativa, con una ruta de seguimiento y ejecución posible."
+    "Imagina que Pedro acompaña un recibo para sostener que cumplió íntegramente una obligación. El papel acredita un pago descrito, pero quizá no demuestra que no exista saldo.",
+    "El artículo 111 del Código Procesal Civil regula la prueba con la demanda; la exigencia práctica es identificar qué hecho pretende sustentar cada elemento aportado.",
+    "En una tabla sencilla, Pedro separa tres preguntas: qué dice el recibo, qué hecho acredita razonablemente y qué aspecto permanece discutido.",
+    "Si la contraparte presenta otro comprobante o cuestiona el alcance del recibo, la controversia requiere examen conjunto. La autoridad judicial valorará las pruebas según las reglas aplicables."
   ],
-  "conclusion": "Notificación administrativa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una buena estrategia probatoria reconoce tanto la utilidad como los límites de cada documento.",
+  "closingIdea": "La diferencia entre afirmar y demostrar puede decidir el enfoque de todo el litigio.",
+  "cta": "Organiza tus documentos por hechos a probar antes de preparar una demanda o defensa.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Litigantes",
+    "Estudiantes de Derecho"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de notificación administrativa",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis probatorio",
+    "Delimitación de hechos"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Organización de expedientes civiles",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Notificación administrativa: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Notificación administrativa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 439, Código Procesal Civil",
+        "articuloOFundamento": "arts. 110 y 111",
+        "url": "https://tsj.bo/wp-content/uploads/2019/11/ley-439-nuevo-codigo-procesal-civil.pdf",
+        "alcanceCotejo": "Texto alojado por el Tribunal Supremo de Justicia; cotejo de requisitos de demanda y prueba acompañada."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory.",
+      "Confirmar modificaciones posteriores y reglas procesales específicas para la pretensión concreta."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Un contrato adjunto demuestra por sí solo todo lo que afirmas en un juicio?",
+      "visual": "Título interrogativo y dos columnas contrastadas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que Pedro acompaña un recibo para sostener que cumplió íntegramente una obligación. El papel acredita un pago descrito, pero quizá no demuestra que no exista saldo.",
+      "visual": "Dos alternativas visibles y rotuladas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 111 del Código Procesal Civil regula la prueba con la demanda; la exigencia práctica es identificar qué hecho pretende sustentar cada elemento aportado.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "En una tabla sencilla, Pedro separa tres preguntas: qué dice el recibo, qué hecho acredita razonablemente y qué aspecto permanece discutido.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Si la contraparte presenta otro comprobante o cuestiona el alcance del recibo, la controversia requiere examen conjunto. La autoridad judicial valorará las pruebas según las reglas aplicables.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Una buena estrategia probatoria reconoce tanto la utilidad como los límites de cada documento.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "La diferencia entre afirmar y demostrar puede decidir el enfoque de todo el litigio.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Organiza tus documentos por hechos a probar antes de preparar una demanda o defensa.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

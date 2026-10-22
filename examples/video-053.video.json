@@ -3,8 +3,8 @@
   "id": "video-053",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Recurso jerárquico",
-    "description": "Cómo atacar una resolución administrativa superior.",
+    "title": "Una resolución administrativa debe responder a lo pedido",
+    "description": "Una autoridad desestima un reclamo sin analizar uno de sus puntos principales.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "recurso",
       "jerarquico"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Recurso jerárquico: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Recurso jerárquico: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir recurso jerárquico con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre recurso jerárquico, con una ruta de seguimiento y ejecución posible. Recurso jerárquico se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Recurso jerárquico, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-053-narration.mp3",
+    "narrationText": "¿Qué sucede cuando una resolución responde una pregunta distinta de la que formulaste? Imagina que Marta reclama dos aspectos de una decisión: un cobro y la falta de información. La autoridad analiza únicamente el cobro y guarda silencio sobre la documentación solicitada. El artículo 28 de la Ley 2341 exige pronunciamiento expreso sobre las peticiones formuladas y coherencia del acto con los hechos acreditados en el expediente. Para comprobar la omisión, Marta prepara dos columnas: a la izquierda cada petición presentada; a la derecha el párrafo de la resolución que supuestamente la responde. Si una petición relevante queda sin respuesta, el análisis jurídico debe valorar el defecto, su incidencia y la vía de impugnación correspondiente. No toda irregularidad produce automáticamente nulidad. Una resolución puede ser extensa y, sin embargo, dejar sin resolver una pretensión relevante. La calidad de la motivación se comprueba relacionando cada respuesta con su pregunta original. Conserva tu petición y la resolución completa para evaluar si existe incongruencia impugnable.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Recurso jerárquico",
-        "subtitle": "Recurso jerárquico: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Una resolución administrativa debe responder a lo pedido",
+        "subtitle": "¿Qué sucede cuando una resolución responde una pregunta distinta de la que formulaste?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Recurso jerárquico: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que Marta reclama dos aspectos de una decisión: un cobro y la falta de información. La autoridad analiza únicamente el cobro y guarda silencio sobre la documentación solicitada."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 28 de la Ley 2341 exige pronunciamiento expreso sobre las peticiones formuladas y coherencia del acto con los hechos acreditados en el expediente."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Para comprobar la omisión, Marta prepara dos columnas: a la izquierda cada petición presentada; a la derecha el párrafo de la resolución que supuestamente la responde."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir recurso jerárquico con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Si una petición relevante queda sin respuesta, el análisis jurídico debe valorar el defecto, su incidencia y la vía de impugnación correspondiente. No toda irregularidad produce automáticamente nulidad."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Recurso jerárquico se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Recurso jerárquico, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una resolución puede ser extensa y, sin embargo, dejar sin resolver una pretensión relevante.",
+        "subtitle": "La calidad de la motivación se comprueba relacionando cada respuesta con su pregunta original."
       },
       "timing": {
         "durationMs": 10000

@@ -3,8 +3,8 @@
   "id": "video-060",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Fiscalización administrativa",
-    "description": "Cómo responder ante requerimientos, informes y observaciones.",
+    "title": "Debido proceso: una garantía que se puede comprobar",
+    "description": "Una persona recibe una decisión adversa y desconoce qué argumento o documento fue considerado.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "fiscalizacion",
       "administrativa"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Fiscalización administrativa: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Fiscalización administrativa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir fiscalización administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre fiscalización administrativa, con una ruta de seguimiento y ejecución posible. Fiscalización administrativa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Fiscalización administrativa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-060-narration.mp3",
+    "narrationText": "¿Cómo reconocer una afectación al derecho de defensa sin limitarse a decir «fue injusto»? Imagina que una autoridad decide contra Elena utilizando un documento que ella afirma no haber podido conocer. Su primera tarea es obtener la decisión y revisar el expediente. El artículo 115 de la Constitución garantiza el debido proceso y el derecho a la defensa. La Ley 2341, en su artículo 16, reconoce derechos de participación, prueba y respuesta motivada en el ámbito administrativo. Elena ordena la secuencia: cuándo se incorporó el documento, cuándo pudo conocerlo, qué oportunidad de contradicción tuvo y qué parte de la decisión dependió de él. Con esa información se puede evaluar si existió una afectación relevante y cuál es la vía procedimental adecuada. No toda disconformidad con una decisión demuestra por sí misma vulneración constitucional. Una objeción sólida identifica el acto, la garantía y la consecuencia, en lugar de repetir una etiqueta. El debido proceso se defiende con hechos verificables y argumentos jurídicos específicos. Si cuestionas una decisión, conserva notificaciones y actuaciones antes de elegir la vía de impugnación.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Fiscalización administrativa",
-        "subtitle": "Fiscalización administrativa: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Debido proceso: una garantía que se puede comprobar",
+        "subtitle": "¿Cómo reconocer una afectación al derecho de defensa sin limitarse a decir «fue injusto»?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Fiscalización administrativa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que una autoridad decide contra Elena utilizando un documento que ella afirma no haber podido conocer. Su primera tarea es obtener la decisión y revisar el expediente."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 115 de la Constitución garantiza el debido proceso y el derecho a la defensa. La Ley 2341, en su artículo 16, reconoce derechos de participación, prueba y respuesta motivada en el ámbito administrativo."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Elena ordena la secuencia: cuándo se incorporó el documento, cuándo pudo conocerlo, qué oportunidad de contradicción tuvo y qué parte de la decisión dependió de él."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir fiscalización administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Con esa información se puede evaluar si existió una afectación relevante y cuál es la vía procedimental adecuada. No toda disconformidad con una decisión demuestra por sí misma vulneración constitucional."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Fiscalización administrativa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Fiscalización administrativa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una objeción sólida identifica el acto, la garantía y la consecuencia, en lugar de repetir una etiqueta.",
+        "subtitle": "El debido proceso se defiende con hechos verificables y argumentos jurídicos específicos."
       },
       "timing": {
         "durationMs": 10000

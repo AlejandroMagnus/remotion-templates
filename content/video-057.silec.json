@@ -1,58 +1,189 @@
 {
   "productionCode": "video-057",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Sanciones administrativas"
-    ],
-    "intellectualContribution": "Explica Sanciones administrativas desde su utilidad operativa concreta: legalidad, proporcionalidad, motivación y defensa.",
-    "newAngle": {
-      "comparedWith": [
-        "video-056"
-      ],
-      "contribution": "Diferencia Sanciones administrativas por su problema específico: confundir sanciones administrativas con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Sanciones administrativas",
-  "centralThesis": "Sanciones administrativas exige dominar legalidad, proporcionalidad, motivación y defensa; su valor práctico está en transformar legalidad, proporcionalidad, motivación y defensa en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Sanciones administrativas es confundir sanciones administrativas con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Información bancaria clara: lo que debes exigir antes de contratar",
+  "hook": "¿Te ofrecieron un producto financiero, pero nadie explicó claramente sus condiciones?",
+  "problem": "Un cliente recibe publicidad atractiva y desconoce comisiones o condiciones relevantes.",
+  "centralThesis": "El consumidor financiero tiene derecho a información comprensible y oportuna para evaluar un producto.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Sanciones administrativas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir sanciones administrativas con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre sanciones administrativas, con una ruta de seguimiento y ejecución posible."
+    "Imagina que Daniel compara dos opciones de crédito. La primera destaca la cuota; la segunda presenta condiciones, costos y documentación de manera detallada.",
+    "El artículo 74 de la Ley 393 reconoce el derecho a información fidedigna, amplia, íntegra, clara, comprensible, oportuna y accesible sobre productos y servicios financieros.",
+    "Daniel no decide únicamente por el anuncio. Solicita información contractual y compara las condiciones que realmente afectarán su obligación.",
+    "Si identifica una diferencia entre lo informado y lo contratado, conserva publicidad, comunicaciones y documentos. Esa comparación puede servir para formular una consulta o reclamo por los canales correspondientes."
   ],
-  "conclusion": "Sanciones administrativas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una decisión financiera responsable empieza por entender las condiciones antes de asumir obligaciones.",
+  "closingIdea": "Comparar documentos es más útil que confiar exclusivamente en una promesa comercial.",
+  "cta": "Antes de firmar, solicita las condiciones completas y aclara por escrito cualquier duda relevante.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Consumidores financieros",
+    "Pequeñas empresas"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de sanciones administrativas",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Lectura contractual",
+    "Prevención de conflictos"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Revisión preventiva de documentación financiera",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Sanciones administrativas: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Sanciones administrativas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 393 de Servicios Financieros",
+        "articuloOFundamento": "arts. 73 y 74",
+        "url": "https://www.bcb.gob.bo/webdocs/normativa/2013%20-%20LEY%200393%20-%20Servicios%20Financieros.pdf",
+        "alcanceCotejo": "Texto alojado por el Banco Central; cotejo de defensoría y derechos del consumidor financiero; reglamentación específica no cotejada."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory.",
+      "Verificar reglamentación ASFI vigente y condiciones particulares antes de publicar rutas operativas de reclamo."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Te ofrecieron un producto financiero, pero nadie explicó claramente sus condiciones?",
+      "visual": "Título interrogativo y dos columnas contrastadas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que Daniel compara dos opciones de crédito. La primera destaca la cuota; la segunda presenta condiciones, costos y documentación de manera detallada.",
+      "visual": "Dos alternativas visibles y rotuladas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 74 de la Ley 393 reconoce el derecho a información fidedigna, amplia, íntegra, clara, comprensible, oportuna y accesible sobre productos y servicios financieros.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Daniel no decide únicamente por el anuncio. Solicita información contractual y compara las condiciones que realmente afectarán su obligación.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Si identifica una diferencia entre lo informado y lo contratado, conserva publicidad, comunicaciones y documentos. Esa comparación puede servir para formular una consulta o reclamo por los canales correspondientes.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Una decisión financiera responsable empieza por entender las condiciones antes de asumir obligaciones.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Comparar documentos es más útil que confiar exclusivamente en una promesa comercial.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Antes de firmar, solicita las condiciones completas y aclara por escrito cualquier duda relevante.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

@@ -3,8 +3,8 @@
   "id": "video-051",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Procedimiento administrativo",
-    "description": "Cómo empieza, cómo se defiende y cómo se impugna.",
+    "title": "Cómo presentar una petición administrativa que pueda responderse",
+    "description": "Una persona entrega un escrito ambiguo y la institución no identifica qué se solicita.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "procedimiento",
       "administrativo"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Procedimiento administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Procedimiento administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir procedimiento administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre procedimiento administrativo, con una ruta de seguimiento y ejecución posible. Procedimiento administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Procedimiento administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-051-narration.mp3",
+    "narrationText": "¿Presentaste una solicitud a una institución pública y recibiste una respuesta que no resolvió nada? Imagina que Ana necesita corregir un dato en un registro público. En lugar de escribir «solucionen mi problema», identifica el dato, explica el error y señala el documento que lo acredita. La Constitución reconoce el derecho de petición. La Ley 2341, en su artículo 16, reconoce derechos como formular solicitudes y obtener respuesta fundada y motivada en el procedimiento administrativo aplicable. Ana prepara tres piezas: identificación del registro, respaldo documental y una petición expresa de rectificación. Guarda copia sellada o constancia verificable de ingreso. Si la entidad contesta sobre un asunto distinto, compara la respuesta con cada punto solicitado. El artículo 28 de la Ley 2341 exige que el acto se pronuncie expresamente sobre las peticiones planteadas. Una solicitud precisa facilita comprobar si la administración respondió realmente lo pedido. El derecho de petición se fortalece cuando los hechos, el respaldo y la solicitud pueden cotejarse. Si tu respuesta administrativa omite lo solicitado, conserva el expediente y pide revisión jurídica de la vía aplicable.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Procedimiento administrativo",
-        "subtitle": "Procedimiento administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Cómo presentar una petición administrativa que pueda responderse",
+        "subtitle": "¿Presentaste una solicitud a una institución pública y recibiste una respuesta que no resolvió nada?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Procedimiento administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que Ana necesita corregir un dato en un registro público. En lugar de escribir «solucionen mi problema», identifica el dato, explica el error y señala el documento que lo acredita."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La Constitución reconoce el derecho de petición. La Ley 2341, en su artículo 16, reconoce derechos como formular solicitudes y obtener respuesta fundada y motivada en el procedimiento administrativo aplicable."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Ana prepara tres piezas: identificación del registro, respaldo documental y una petición expresa de rectificación. Guarda copia sellada o constancia verificable de ingreso."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir procedimiento administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Si la entidad contesta sobre un asunto distinto, compara la respuesta con cada punto solicitado. El artículo 28 de la Ley 2341 exige que el acto se pronuncie expresamente sobre las peticiones planteadas."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Procedimiento administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Procedimiento administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una solicitud precisa facilita comprobar si la administración respondió realmente lo pedido.",
+        "subtitle": "El derecho de petición se fortalece cuando los hechos, el respaldo y la solicitud pueden cotejarse."
       },
       "timing": {
         "durationMs": 10000

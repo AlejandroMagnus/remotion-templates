@@ -3,8 +3,8 @@
   "id": "video-056",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Silencio administrativo",
-    "description": "Cuándo importa y qué riesgos tiene.",
+    "title": "Reclamo bancario: dos instancias que no debes confundir",
+    "description": "Un usuario confunde la atención de reclamos del banco con la instancia de protección del consumidor financiero.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "silencio",
       "administrativo"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Silencio administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Silencio administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir silencio administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre silencio administrativo, con una ruta de seguimiento y ejecución posible. Silencio administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Silencio administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-056-narration.mp3",
+    "narrationText": "¿El banco rechazó tu reclamo y piensas que ya no existe ninguna otra vía? Imagina que una entidad financiera registra un cobro que Julia no reconoce. Ella conserva su extracto y solicita una explicación por el canal de reclamos del banco. El artículo 74 de la Ley 393 reconoce derechos a información clara, trato diligente y acceso a canales eficientes de reclamo. El artículo 73 contempla la Defensoría del Consumidor Financiero en ASFI como segunda instancia, una vez agotada la gestión de reclamación ante la entidad financiera. Julia reúne su reclamo, el comprobante de presentación y la respuesta recibida. Antes de acudir a ASFI verifica los requisitos y plazos de la reglamentación vigente, que pueden variar según el trámite. Un reclamo bien documentado permite distinguir lo solicitado al banco de lo que se pide revisar después. Primera y segunda instancia de reclamo cumplen funciones diferentes. Conserva tus respaldos y consulta el procedimiento vigente antes de escalar tu reclamo financiero.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Silencio administrativo",
-        "subtitle": "Silencio administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Reclamo bancario: dos instancias que no debes confundir",
+        "subtitle": "¿El banco rechazó tu reclamo y piensas que ya no existe ninguna otra vía?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Silencio administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que una entidad financiera registra un cobro que Julia no reconoce. Ella conserva su extracto y solicita una explicación por el canal de reclamos del banco."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 74 de la Ley 393 reconoce derechos a información clara, trato diligente y acceso a canales eficientes de reclamo."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "El artículo 73 contempla la Defensoría del Consumidor Financiero en ASFI como segunda instancia, una vez agotada la gestión de reclamación ante la entidad financiera."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir silencio administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Julia reúne su reclamo, el comprobante de presentación y la respuesta recibida. Antes de acudir a ASFI verifica los requisitos y plazos de la reglamentación vigente, que pueden variar según el trámite."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Silencio administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Silencio administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Un reclamo bien documentado permite distinguir lo solicitado al banco de lo que se pide revisar después.",
+        "subtitle": "Primera y segunda instancia de reclamo cumplen funciones diferentes."
       },
       "timing": {
         "durationMs": 10000

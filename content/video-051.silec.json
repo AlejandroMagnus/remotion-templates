@@ -1,58 +1,188 @@
 {
   "productionCode": "video-051",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Procedimiento administrativo"
-    ],
-    "intellectualContribution": "Explica Procedimiento administrativo desde su utilidad operativa concreta: cómo empieza, cómo se defiende y cómo se impugna.",
-    "newAngle": {
-      "comparedWith": [
-        "video-050"
-      ],
-      "contribution": "Diferencia Procedimiento administrativo por su problema específico: confundir procedimiento administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Procedimiento administrativo",
-  "centralThesis": "Procedimiento administrativo exige dominar cómo empieza, cómo se defiende y cómo se impugna; su valor práctico está en transformar cómo empieza, cómo se defiende y cómo se impugna en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Procedimiento administrativo es confundir procedimiento administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Cómo presentar una petición administrativa que pueda responderse",
+  "hook": "¿Presentaste una solicitud a una institución pública y recibiste una respuesta que no resolvió nada?",
+  "problem": "Una persona entrega un escrito ambiguo y la institución no identifica qué se solicita.",
+  "centralThesis": "Una petición eficaz identifica hechos, destinatario, solicitud concreta y constancia de recepción.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Procedimiento administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir procedimiento administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre procedimiento administrativo, con una ruta de seguimiento y ejecución posible."
+    "Imagina que Ana necesita corregir un dato en un registro público. En lugar de escribir «solucionen mi problema», identifica el dato, explica el error y señala el documento que lo acredita.",
+    "La Constitución reconoce el derecho de petición. La Ley 2341, en su artículo 16, reconoce derechos como formular solicitudes y obtener respuesta fundada y motivada en el procedimiento administrativo aplicable.",
+    "Ana prepara tres piezas: identificación del registro, respaldo documental y una petición expresa de rectificación. Guarda copia sellada o constancia verificable de ingreso.",
+    "Si la entidad contesta sobre un asunto distinto, compara la respuesta con cada punto solicitado. El artículo 28 de la Ley 2341 exige que el acto se pronuncie expresamente sobre las peticiones planteadas."
   ],
-  "conclusion": "Procedimiento administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una solicitud precisa facilita comprobar si la administración respondió realmente lo pedido.",
+  "closingIdea": "El derecho de petición se fortalece cuando los hechos, el respaldo y la solicitud pueden cotejarse.",
+  "cta": "Si tu respuesta administrativa omite lo solicitado, conserva el expediente y pide revisión jurídica de la vía aplicable.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Profesionales independientes"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de procedimiento administrativo",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Redacción de peticiones",
+    "Control de congruencia"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consultas sobre peticiones y trámites administrativos",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Procedimiento administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Procedimiento administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 2341 de Procedimiento Administrativo",
+        "articuloOFundamento": "arts. 16, 17 y 28",
+        "url": "https://aj.gob.bo/uploads/docs/Ley%202341.pdf",
+        "alcanceCotejo": "Texto publicado por entidad pública; cotejo de derechos del administrado, deber de resolver y objeto del acto administrativo."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Presentaste una solicitud a una institución pública y recibiste una respuesta que no resolvió nada?",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que Ana necesita corregir un dato en un registro público. En lugar de escribir «solucionen mi problema», identifica el dato, explica el error y señala el documento que lo acredita.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "La Constitución reconoce el derecho de petición. La Ley 2341, en su artículo 16, reconoce derechos como formular solicitudes y obtener respuesta fundada y motivada en el procedimiento administrativo aplicable.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Ana prepara tres piezas: identificación del registro, respaldo documental y una petición expresa de rectificación. Guarda copia sellada o constancia verificable de ingreso.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Si la entidad contesta sobre un asunto distinto, compara la respuesta con cada punto solicitado. El artículo 28 de la Ley 2341 exige que el acto se pronuncie expresamente sobre las peticiones planteadas.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Una solicitud precisa facilita comprobar si la administración respondió realmente lo pedido.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "El derecho de petición se fortalece cuando los hechos, el respaldo y la solicitud pueden cotejarse.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Si tu respuesta administrativa omite lo solicitado, conserva el expediente y pide revisión jurídica de la vía aplicable.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

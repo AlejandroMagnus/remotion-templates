@@ -3,8 +3,8 @@
   "id": "video-059",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Contrataciones públicas",
-    "description": "Cómo se impugnan errores en procesos de contratación.",
+    "title": "Presunción de inocencia: investigación no es condena",
+    "description": "Una denuncia se difunde como si fuera una sentencia firme.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "contrataciones",
       "publicas"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Contrataciones públicas: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Contrataciones públicas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir contrataciones públicas con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre contrataciones públicas, con una ruta de seguimiento y ejecución posible. Contrataciones públicas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Contrataciones públicas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-059-narration.mp3",
+    "narrationText": "¿Que una persona sea investigada significa que ya es culpable? Imagina que circula en redes una denuncia contra Roberto. Algunas publicaciones lo llaman culpable, aunque la investigación apenas comienza. El artículo 116 de la Constitución garantiza la presunción de inocencia. El artículo 117 exige que una condena penal provenga de autoridad competente y del debido proceso. Hay tres categorías distintas: denuncia, investigación y sentencia condenatoria. Ninguna puede presentarse como sinónimo automático de la otra. Una persona investigada puede ejercer defensa; la víctima también tiene derechos de protección y acceso a la justicia. Explicar la presunción de inocencia no significa desacreditar una denuncia ni impedir su investigación. La información responsable distingue una imputación de una responsabilidad penal declarada. El respeto a las garantías protege la legitimidad del proceso para todas las partes. Antes de difundir una acusación, verifica el estado procesal y evita afirmar culpabilidad sin sentencia.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Contrataciones públicas",
-        "subtitle": "Contrataciones públicas: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Presunción de inocencia: investigación no es condena",
+        "subtitle": "¿Que una persona sea investigada significa que ya es culpable?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Contrataciones públicas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que circula en redes una denuncia contra Roberto. Algunas publicaciones lo llaman culpable, aunque la investigación apenas comienza."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 116 de la Constitución garantiza la presunción de inocencia. El artículo 117 exige que una condena penal provenga de autoridad competente y del debido proceso."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Hay tres categorías distintas: denuncia, investigación y sentencia condenatoria. Ninguna puede presentarse como sinónimo automático de la otra."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir contrataciones públicas con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Una persona investigada puede ejercer defensa; la víctima también tiene derechos de protección y acceso a la justicia. Explicar la presunción de inocencia no significa desacreditar una denuncia ni impedir su investigación."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Contrataciones públicas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Contrataciones públicas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La información responsable distingue una imputación de una responsabilidad penal declarada.",
+        "subtitle": "El respeto a las garantías protege la legitimidad del proceso para todas las partes."
       },
       "timing": {
         "durationMs": 10000

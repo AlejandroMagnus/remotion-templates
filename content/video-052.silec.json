@@ -1,58 +1,188 @@
 {
   "productionCode": "video-052",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Recurso de revocatoria"
-    ],
-    "intellectualContribution": "Explica Recurso de revocatoria desde su utilidad operativa concreta: cuándo usarlo y cómo construir el agravio.",
-    "newAngle": {
-      "comparedWith": [
-        "video-051"
-      ],
-      "contribution": "Diferencia Recurso de revocatoria por su problema específico: confundir recurso de revocatoria con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Recurso de revocatoria",
-  "centralThesis": "Recurso de revocatoria exige dominar cuándo usarlo y cómo construir el agravio; su valor práctico está en transformar cuándo usarlo y cómo construir el agravio en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Recurso de revocatoria es confundir recurso de revocatoria con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Silencio administrativo: por qué no significa automáticamente aprobación",
+  "hook": "¿La institución no respondió tu trámite y alguien te dijo que ya está aprobado?",
+  "problem": "Un solicitante interpreta la falta de respuesta como autorización automática.",
+  "centralThesis": "El efecto del silencio depende de la ley aplicable y de las reglas especiales del procedimiento.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Recurso de revocatoria: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir recurso de revocatoria con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre recurso de revocatoria, con una ruta de seguimiento y ejecución posible."
+    "Imagina que Luis solicita una decisión administrativa y pasan varias semanas sin noticia. Antes de actuar como si tuviera autorización, revisa qué procedimiento inició y cuándo quedó presentado.",
+    "El artículo 17 de la Ley 2341 establece el deber de dictar resolución expresa. Contiene una regla general de plazo y contempla el silencio negativo, sin desplazar plazos o regímenes especiales.",
+    "La comparación es decisiva: silencio negativo no equivale a una respuesta favorable; puede abrir la posibilidad de impugnar conforme a la vía y a los requisitos aplicables.",
+    "Luis reúne el cargo de presentación, las notificaciones y la normativa sectorial. Con esos datos determina el cómputo y la actuación que corresponde, sin suponer que el tiempo por sí solo le concedió lo solicitado."
   ],
-  "conclusion": "Recurso de revocatoria se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La ausencia de respuesta exige identificar el régimen jurídico antes de decidir el siguiente paso.",
+  "closingIdea": "No confundas demora administrativa con reconocimiento automático de un derecho.",
+  "cta": "Revisa la norma especial y el expediente antes de presentar un recurso por silencio.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Empresas"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de recurso de revocatoria",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Identificación de plazos",
+    "Diferenciación de efectos"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Asesoramiento en recursos administrativos",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Recurso de revocatoria: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Recurso de revocatoria, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 2341 de Procedimiento Administrativo",
+        "articuloOFundamento": "arts. 16, 17 y 28",
+        "url": "https://aj.gob.bo/uploads/docs/Ley%202341.pdf",
+        "alcanceCotejo": "Texto publicado por entidad pública; cotejo de derechos del administrado, deber de resolver y objeto del acto administrativo."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿La institución no respondió tu trámite y alguien te dijo que ya está aprobado?",
+      "visual": "Título interrogativo y dos columnas contrastadas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que Luis solicita una decisión administrativa y pasan varias semanas sin noticia. Antes de actuar como si tuviera autorización, revisa qué procedimiento inició y cuándo quedó presentado.",
+      "visual": "Dos alternativas visibles y rotuladas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 17 de la Ley 2341 establece el deber de dictar resolución expresa. Contiene una regla general de plazo y contempla el silencio negativo, sin desplazar plazos o regímenes especiales.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "La comparación es decisiva: silencio negativo no equivale a una respuesta favorable; puede abrir la posibilidad de impugnar conforme a la vía y a los requisitos aplicables.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Luis reúne el cargo de presentación, las notificaciones y la normativa sectorial. Con esos datos determina el cómputo y la actuación que corresponde, sin suponer que el tiempo por sí solo le concedió lo solicitado.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La ausencia de respuesta exige identificar el régimen jurídico antes de decidir el siguiente paso.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "No confundas demora administrativa con reconocimiento automático de un derecho.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Revisa la norma especial y el expediente antes de presentar un recurso por silencio.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

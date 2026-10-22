@@ -3,8 +3,8 @@
   "id": "video-055",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Notificación administrativa",
-    "description": "Errores que pueden afectar plazos y defensa.",
+    "title": "Documento no equivale a hecho probado",
+    "description": "Una parte confunde la existencia de un documento con la acreditación de todas sus afirmaciones.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "notificacion",
       "administrativa"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Notificación administrativa: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Notificación administrativa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir notificación administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre notificación administrativa, con una ruta de seguimiento y ejecución posible. Notificación administrativa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Notificación administrativa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-055-narration.mp3",
+    "narrationText": "¿Un contrato adjunto demuestra por sí solo todo lo que afirmas en un juicio? Imagina que Pedro acompaña un recibo para sostener que cumplió íntegramente una obligación. El papel acredita un pago descrito, pero quizá no demuestra que no exista saldo. El artículo 111 del Código Procesal Civil regula la prueba con la demanda; la exigencia práctica es identificar qué hecho pretende sustentar cada elemento aportado. En una tabla sencilla, Pedro separa tres preguntas: qué dice el recibo, qué hecho acredita razonablemente y qué aspecto permanece discutido. Si la contraparte presenta otro comprobante o cuestiona el alcance del recibo, la controversia requiere examen conjunto. La autoridad judicial valorará las pruebas según las reglas aplicables. Una buena estrategia probatoria reconoce tanto la utilidad como los límites de cada documento. La diferencia entre afirmar y demostrar puede decidir el enfoque de todo el litigio. Organiza tus documentos por hechos a probar antes de preparar una demanda o defensa.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Notificación administrativa",
-        "subtitle": "Notificación administrativa: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Documento no equivale a hecho probado",
+        "subtitle": "¿Un contrato adjunto demuestra por sí solo todo lo que afirmas en un juicio?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Notificación administrativa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que Pedro acompaña un recibo para sostener que cumplió íntegramente una obligación. El papel acredita un pago descrito, pero quizá no demuestra que no exista saldo."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 111 del Código Procesal Civil regula la prueba con la demanda; la exigencia práctica es identificar qué hecho pretende sustentar cada elemento aportado."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "En una tabla sencilla, Pedro separa tres preguntas: qué dice el recibo, qué hecho acredita razonablemente y qué aspecto permanece discutido."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir notificación administrativa con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Si la contraparte presenta otro comprobante o cuestiona el alcance del recibo, la controversia requiere examen conjunto. La autoridad judicial valorará las pruebas según las reglas aplicables."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Notificación administrativa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Notificación administrativa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una buena estrategia probatoria reconoce tanto la utilidad como los límites de cada documento.",
+        "subtitle": "La diferencia entre afirmar y demostrar puede decidir el enfoque de todo el litigio."
       },
       "timing": {
         "durationMs": 10000

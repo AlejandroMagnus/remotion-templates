@@ -3,8 +3,8 @@
   "id": "video-057",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Sanciones administrativas",
-    "description": "Legalidad, proporcionalidad, motivación y defensa.",
+    "title": "Información bancaria clara: lo que debes exigir antes de contratar",
+    "description": "Un cliente recibe publicidad atractiva y desconoce comisiones o condiciones relevantes.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "sanciones",
       "administrativas"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Sanciones administrativas: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Sanciones administrativas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir sanciones administrativas con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre sanciones administrativas, con una ruta de seguimiento y ejecución posible. Sanciones administrativas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Sanciones administrativas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-057-narration.mp3",
+    "narrationText": "¿Te ofrecieron un producto financiero, pero nadie explicó claramente sus condiciones? Imagina que Daniel compara dos opciones de crédito. La primera destaca la cuota; la segunda presenta condiciones, costos y documentación de manera detallada. El artículo 74 de la Ley 393 reconoce el derecho a información fidedigna, amplia, íntegra, clara, comprensible, oportuna y accesible sobre productos y servicios financieros. Daniel no decide únicamente por el anuncio. Solicita información contractual y compara las condiciones que realmente afectarán su obligación. Si identifica una diferencia entre lo informado y lo contratado, conserva publicidad, comunicaciones y documentos. Esa comparación puede servir para formular una consulta o reclamo por los canales correspondientes. Una decisión financiera responsable empieza por entender las condiciones antes de asumir obligaciones. Comparar documentos es más útil que confiar exclusivamente en una promesa comercial. Antes de firmar, solicita las condiciones completas y aclara por escrito cualquier duda relevante.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Sanciones administrativas",
-        "subtitle": "Sanciones administrativas: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Información bancaria clara: lo que debes exigir antes de contratar",
+        "subtitle": "¿Te ofrecieron un producto financiero, pero nadie explicó claramente sus condiciones?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Sanciones administrativas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que Daniel compara dos opciones de crédito. La primera destaca la cuota; la segunda presenta condiciones, costos y documentación de manera detallada."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 74 de la Ley 393 reconoce el derecho a información fidedigna, amplia, íntegra, clara, comprensible, oportuna y accesible sobre productos y servicios financieros."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Daniel no decide únicamente por el anuncio. Solicita información contractual y compara las condiciones que realmente afectarán su obligación."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir sanciones administrativas con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Si identifica una diferencia entre lo informado y lo contratado, conserva publicidad, comunicaciones y documentos. Esa comparación puede servir para formular una consulta o reclamo por los canales correspondientes."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Sanciones administrativas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Sanciones administrativas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una decisión financiera responsable empieza por entender las condiciones antes de asumir obligaciones.",
+        "subtitle": "Comparar documentos es más útil que confiar exclusivamente en una promesa comercial."
       },
       "timing": {
         "durationMs": 10000

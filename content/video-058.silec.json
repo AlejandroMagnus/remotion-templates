@@ -1,58 +1,189 @@
 {
   "productionCode": "video-058",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Responsabilidad por la función pública"
-    ],
-    "intellectualContribution": "Explica Responsabilidad por la función pública desde su utilidad operativa concreta: qué riesgos enfrentan servidores y autoridades.",
-    "newAngle": {
-      "comparedWith": [
-        "video-057"
-      ],
-      "contribution": "Diferencia Responsabilidad por la función pública por su problema específico: confundir responsabilidad por la función pública con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Responsabilidad por la función pública",
-  "centralThesis": "Responsabilidad por la función pública exige dominar qué riesgos enfrentan servidores y autoridades; su valor práctico está en transformar qué riesgos enfrentan servidores y autoridades en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Responsabilidad por la función pública es confundir responsabilidad por la función pública con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Precio anunciado y precio final: cómo documentar la diferencia",
+  "hook": "¿El precio que te cobraron es distinto del que viste anunciado?",
+  "problem": "Una compradora descubre cargos adicionales que no aparecían claramente en la oferta.",
+  "centralThesis": "La Ley 453 protege el acceso a información completa y contempla deberes del proveedor respecto del precio total.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Responsabilidad por la función pública: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir responsabilidad por la función pública con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre responsabilidad por la función pública, con una ruta de seguimiento y ejecución posible."
+    "Imagina que Camila ve un servicio anunciado por una cifra, pero al pagar aparecen comisiones no explicadas. Antes de reclamar, guarda una captura fechada de la oferta.",
+    "El artículo 13 de la Ley 453 reconoce el derecho a recibir información fidedigna, veraz, completa, adecuada, gratuita y oportuna.",
+    "El artículo 14 contempla, entre otros deberes, consignar el precio total en moneda nacional, incluidos tributos, comisiones y cargas correspondientes.",
+    "Camila compara la publicidad con el comprobante final y solicita una explicación documentada al proveedor. La vía de reclamo depende del servicio y de la autoridad competente."
   ],
-  "conclusion": "Responsabilidad por la función pública se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La diferencia entre oferta y cobro debe demostrarse con documentos comparables.",
+  "closingIdea": "Una captura y una factura pueden convertir una queja imprecisa en un reclamo verificable.",
+  "cta": "Guarda la oferta y el comprobante de pago si necesitas cuestionar un cobro no explicado.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Consumidores",
+    "Comerciantes"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de responsabilidad por la función pública",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Control de información comercial",
+    "Documentación de reclamos"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Asesoramiento preventivo en consumo",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Responsabilidad por la función pública: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Responsabilidad por la función pública, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 453 de derechos de usuarias, usuarios, consumidoras y consumidores",
+        "articuloOFundamento": "arts. 13 y 14",
+        "url": "https://www.wipo.int/wipolex/es/legislation/details/14916",
+        "alcanceCotejo": "Texto disponible en WIPO Lex; cotejo del derecho a la información y deberes del proveedor; normativa sectorial no cotejada."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory.",
+      "Verificar normativa especial y autoridad competente para el producto o servicio concreto."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿El precio que te cobraron es distinto del que viste anunciado?",
+      "visual": "Título interrogativo y dos columnas contrastadas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que Camila ve un servicio anunciado por una cifra, pero al pagar aparecen comisiones no explicadas. Antes de reclamar, guarda una captura fechada de la oferta.",
+      "visual": "Dos alternativas visibles y rotuladas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 13 de la Ley 453 reconoce el derecho a recibir información fidedigna, veraz, completa, adecuada, gratuita y oportuna.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "El artículo 14 contempla, entre otros deberes, consignar el precio total en moneda nacional, incluidos tributos, comisiones y cargas correspondientes.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Camila compara la publicidad con el comprobante final y solicita una explicación documentada al proveedor. La vía de reclamo depende del servicio y de la autoridad competente.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La diferencia entre oferta y cobro debe demostrarse con documentos comparables.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Una captura y una factura pueden convertir una queja imprecisa en un reclamo verificable.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Guarda la oferta y el comprobante de pago si necesitas cuestionar un cobro no explicado.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

@@ -1,58 +1,188 @@
 {
   "productionCode": "video-053",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Recurso jerárquico"
-    ],
-    "intellectualContribution": "Explica Recurso jerárquico desde su utilidad operativa concreta: cómo atacar una resolución administrativa superior.",
-    "newAngle": {
-      "comparedWith": [
-        "video-052"
-      ],
-      "contribution": "Diferencia Recurso jerárquico por su problema específico: confundir recurso jerárquico con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Recurso jerárquico",
-  "centralThesis": "Recurso jerárquico exige dominar cómo atacar una resolución administrativa superior; su valor práctico está en transformar cómo atacar una resolución administrativa superior en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Recurso jerárquico es confundir recurso jerárquico con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Una resolución administrativa debe responder a lo pedido",
+  "hook": "¿Qué sucede cuando una resolución responde una pregunta distinta de la que formulaste?",
+  "problem": "Una autoridad desestima un reclamo sin analizar uno de sus puntos principales.",
+  "centralThesis": "La congruencia administrativa exige contrastar peticiones y pronunciamientos, no solo leer la parte resolutiva.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Recurso jerárquico: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir recurso jerárquico con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre recurso jerárquico, con una ruta de seguimiento y ejecución posible."
+    "Imagina que Marta reclama dos aspectos de una decisión: un cobro y la falta de información. La autoridad analiza únicamente el cobro y guarda silencio sobre la documentación solicitada.",
+    "El artículo 28 de la Ley 2341 exige pronunciamiento expreso sobre las peticiones formuladas y coherencia del acto con los hechos acreditados en el expediente.",
+    "Para comprobar la omisión, Marta prepara dos columnas: a la izquierda cada petición presentada; a la derecha el párrafo de la resolución que supuestamente la responde.",
+    "Si una petición relevante queda sin respuesta, el análisis jurídico debe valorar el defecto, su incidencia y la vía de impugnación correspondiente. No toda irregularidad produce automáticamente nulidad."
   ],
-  "conclusion": "Recurso jerárquico se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una resolución puede ser extensa y, sin embargo, dejar sin resolver una pretensión relevante.",
+  "closingIdea": "La calidad de la motivación se comprueba relacionando cada respuesta con su pregunta original.",
+  "cta": "Conserva tu petición y la resolución completa para evaluar si existe incongruencia impugnable.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Administrados",
+    "Abogados"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de recurso jerárquico",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Control de motivación",
+    "Matriz de congruencia"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Revisión de resoluciones administrativas",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Recurso jerárquico: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Recurso jerárquico, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 2341 de Procedimiento Administrativo",
+        "articuloOFundamento": "arts. 16, 17 y 28",
+        "url": "https://aj.gob.bo/uploads/docs/Ley%202341.pdf",
+        "alcanceCotejo": "Texto publicado por entidad pública; cotejo de derechos del administrado, deber de resolver y objeto del acto administrativo."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Qué sucede cuando una resolución responde una pregunta distinta de la que formulaste?",
+      "visual": "Título interrogativo y dos columnas contrastadas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que Marta reclama dos aspectos de una decisión: un cobro y la falta de información. La autoridad analiza únicamente el cobro y guarda silencio sobre la documentación solicitada.",
+      "visual": "Dos alternativas visibles y rotuladas",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 28 de la Ley 2341 exige pronunciamiento expreso sobre las peticiones formuladas y coherencia del acto con los hechos acreditados en el expediente.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Para comprobar la omisión, Marta prepara dos columnas: a la izquierda cada petición presentada; a la derecha el párrafo de la resolución que supuestamente la responde.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Si una petición relevante queda sin respuesta, el análisis jurídico debe valorar el defecto, su incidencia y la vía de impugnación correspondiente. No toda irregularidad produce automáticamente nulidad.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Una resolución puede ser extensa y, sin embargo, dejar sin resolver una pretensión relevante.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "La calidad de la motivación se comprueba relacionando cada respuesta con su pregunta original.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Conserva tu petición y la resolución completa para evaluar si existe incongruencia impugnable.",
+      "visual": "Dos columnas comparativas; resaltar el elemento tratado en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

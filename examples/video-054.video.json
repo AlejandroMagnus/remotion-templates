@@ -3,8 +3,8 @@
   "id": "video-054",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Acto administrativo",
-    "description": "Cuándo es válido, anulable o impugnable.",
+    "title": "La demanda civil: cómo evitar una petición imposible de entender",
+    "description": "Una persona presenta una demanda con documentos, pero sin una pretensión claramente delimitada.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "acto",
       "administrativo"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Acto administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Acto administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir acto administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre acto administrativo, con una ruta de seguimiento y ejecución posible. Acto administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Acto administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-054-narration.mp3",
+    "narrationText": "¿Tu demanda cuenta muchos hechos, pero no permite saber exactamente qué estás pidiendo? Imagina que Rosa afirma que le deben dinero. Relata conversaciones, fechas y molestias, pero termina solicitando únicamente «que se haga justicia». El artículo 110 de la Ley 439 exige, entre otros elementos, una relación precisa de hechos, invocación del derecho y una petición clara y positiva. Rosa reorganiza su planteamiento: identifica la obligación que alega, describe el incumplimiento y expresa qué pronunciamiento judicial solicita. La cuantía se consigna cuando es posible estimarla. El artículo 111 regula la prueba con la demanda. Por eso conviene relacionar cada documento ofrecido con el hecho específico que pretende demostrar, sin confundir alegación con acreditación. Una demanda comprensible permite discutir una pretensión definida y las pruebas que la sustentan. Ordenar el relato no sustituye la prueba, pero evita que los hechos se pierdan entre afirmaciones irrelevantes. Antes de presentar una demanda civil, revisa su petición y la prueba que respalda cada hecho.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Acto administrativo",
-        "subtitle": "Acto administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "La demanda civil: cómo evitar una petición imposible de entender",
+        "subtitle": "¿Tu demanda cuenta muchos hechos, pero no permite saber exactamente qué estás pidiendo?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Acto administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que Rosa afirma que le deben dinero. Relata conversaciones, fechas y molestias, pero termina solicitando únicamente «que se haga justicia»."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 110 de la Ley 439 exige, entre otros elementos, una relación precisa de hechos, invocación del derecho y una petición clara y positiva."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Rosa reorganiza su planteamiento: identifica la obligación que alega, describe el incumplimiento y expresa qué pronunciamiento judicial solicita. La cuantía se consigna cuando es posible estimarla."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir acto administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "El artículo 111 regula la prueba con la demanda. Por eso conviene relacionar cada documento ofrecido con el hecho específico que pretende demostrar, sin confundir alegación con acreditación."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Acto administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Acto administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una demanda comprensible permite discutir una pretensión definida y las pruebas que la sustentan.",
+        "subtitle": "Ordenar el relato no sustituye la prueba, pero evita que los hechos se pierdan entre afirmaciones irrelevantes."
       },
       "timing": {
         "durationMs": 10000

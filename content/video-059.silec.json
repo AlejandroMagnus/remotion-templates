@@ -1,58 +1,188 @@
 {
   "productionCode": "video-059",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Contrataciones públicas"
-    ],
-    "intellectualContribution": "Explica Contrataciones públicas desde su utilidad operativa concreta: cómo se impugnan errores en procesos de contratación.",
-    "newAngle": {
-      "comparedWith": [
-        "video-058"
-      ],
-      "contribution": "Diferencia Contrataciones públicas por su problema específico: confundir contrataciones públicas con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Contrataciones públicas",
-  "centralThesis": "Contrataciones públicas exige dominar cómo se impugnan errores en procesos de contratación; su valor práctico está en transformar cómo se impugnan errores en procesos de contratación en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Contrataciones públicas es confundir contrataciones públicas con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Presunción de inocencia: investigación no es condena",
+  "hook": "¿Que una persona sea investigada significa que ya es culpable?",
+  "problem": "Una denuncia se difunde como si fuera una sentencia firme.",
+  "centralThesis": "La Constitución reconoce la presunción de inocencia y exige un proceso legal antes de una condena.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Contrataciones públicas: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir contrataciones públicas con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre contrataciones públicas, con una ruta de seguimiento y ejecución posible."
+    "Imagina que circula en redes una denuncia contra Roberto. Algunas publicaciones lo llaman culpable, aunque la investigación apenas comienza.",
+    "El artículo 116 de la Constitución garantiza la presunción de inocencia. El artículo 117 exige que una condena penal provenga de autoridad competente y del debido proceso.",
+    "Hay tres categorías distintas: denuncia, investigación y sentencia condenatoria. Ninguna puede presentarse como sinónimo automático de la otra.",
+    "Una persona investigada puede ejercer defensa; la víctima también tiene derechos de protección y acceso a la justicia. Explicar la presunción de inocencia no significa desacreditar una denuncia ni impedir su investigación."
   ],
-  "conclusion": "Contrataciones públicas se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La información responsable distingue una imputación de una responsabilidad penal declarada.",
+  "closingIdea": "El respeto a las garantías protege la legitimidad del proceso para todas las partes.",
+  "cta": "Antes de difundir una acusación, verifica el estado procesal y evita afirmar culpabilidad sin sentencia.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Comunicadores"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de contrataciones públicas",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Lectura de estados procesales",
+    "Prevención de desinformación"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Análisis jurídico de comunicaciones sobre procesos",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Contrataciones públicas: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Contrataciones públicas, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "arts. 24, 115 y 116",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Texto institucional consultado; cotejo de derechos de petición, debido proceso y presunción de inocencia."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Que una persona sea investigada significa que ya es culpable?",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que circula en redes una denuncia contra Roberto. Algunas publicaciones lo llaman culpable, aunque la investigación apenas comienza.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 116 de la Constitución garantiza la presunción de inocencia. El artículo 117 exige que una condena penal provenga de autoridad competente y del debido proceso.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Hay tres categorías distintas: denuncia, investigación y sentencia condenatoria. Ninguna puede presentarse como sinónimo automático de la otra.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Una persona investigada puede ejercer defensa; la víctima también tiene derechos de protección y acceso a la justicia. Explicar la presunción de inocencia no significa desacreditar una denuncia ni impedir su investigación.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La información responsable distingue una imputación de una responsabilidad penal declarada.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "El respeto a las garantías protege la legitimidad del proceso para todas las partes.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Antes de difundir una acusación, verifica el estado procesal y evita afirmar culpabilidad sin sentencia.",
+      "visual": "Tres bloques diferenciados: denuncia / investigación / sentencia; resaltar la categoría pertinente",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }

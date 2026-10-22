@@ -3,8 +3,8 @@
   "id": "video-052",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Recurso de revocatoria",
-    "description": "Cuándo usarlo y cómo construir el agravio.",
+    "title": "Silencio administrativo: por qué no significa automáticamente aprobación",
+    "description": "Un solicitante interpreta la falta de respuesta como autorización automática.",
     "tags": [
       "derecho",
       "bolivia",
@@ -12,7 +12,11 @@
       "juridico",
       "recurso",
       "revocatoria"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,8 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Recurso de revocatoria: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Recurso de revocatoria: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir recurso de revocatoria con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre recurso de revocatoria, con una ruta de seguimiento y ejecución posible. Recurso de revocatoria se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Recurso de revocatoria, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-    "narrationSrc": "public/generated/video-052-narration.mp3",
+    "narrationText": "¿La institución no respondió tu trámite y alguien te dijo que ya está aprobado? Imagina que Luis solicita una decisión administrativa y pasan varias semanas sin noticia. Antes de actuar como si tuviera autorización, revisa qué procedimiento inició y cuándo quedó presentado. El artículo 17 de la Ley 2341 establece el deber de dictar resolución expresa. Contiene una regla general de plazo y contempla el silencio negativo, sin desplazar plazos o regímenes especiales. La comparación es decisiva: silencio negativo no equivale a una respuesta favorable; puede abrir la posibilidad de impugnar conforme a la vía y a los requisitos aplicables. Luis reúne el cargo de presentación, las notificaciones y la normativa sectorial. Con esos datos determina el cómputo y la actuación que corresponde, sin suponer que el tiempo por sí solo le concedió lo solicitado. La ausencia de respuesta exige identificar el régimen jurídico antes de decidir el siguiente paso. No confundas demora administrativa con reconocimiento automático de un derecho. Revisa la norma especial y el expediente antes de presentar un recurso por silencio.",
     "narrationVolume": 1,
     "musicVolume": 0.1,
     "ducking": true
@@ -40,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Recurso de revocatoria",
-        "subtitle": "Recurso de revocatoria: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Silencio administrativo: por qué no significa automáticamente aprobación",
+        "subtitle": "¿La institución no respondió tu trámite y alguien te dijo que ya está aprobado?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Recurso de revocatoria: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina que Luis solicita una decisión administrativa y pasan varias semanas sin noticia. Antes de actuar como si tuviera autorización, revisa qué procedimiento inició y cuándo quedó presentado."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 17 de la Ley 2341 establece el deber de dictar resolución expresa. Contiene una regla general de plazo y contempla el silencio negativo, sin desplazar plazos o regímenes especiales."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "La comparación es decisiva: silencio negativo no equivale a una respuesta favorable; puede abrir la posibilidad de impugnar conforme a la vía y a los requisitos aplicables."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +88,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir recurso de revocatoria con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Luis reúne el cargo de presentación, las notificaciones y la normativa sectorial. Con esos datos determina el cómputo y la actuación que corresponde, sin suponer que el tiempo por sí solo le concedió lo solicitado."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +98,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Recurso de revocatoria se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Recurso de revocatoria, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La ausencia de respuesta exige identificar el régimen jurídico antes de decidir el siguiente paso.",
+        "subtitle": "No confundas demora administrativa con reconocimiento automático de un derecho."
       },
       "timing": {
         "durationMs": 10000

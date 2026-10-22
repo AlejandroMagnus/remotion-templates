@@ -1,58 +1,189 @@
 {
   "productionCode": "video-056",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "procesal",
-    "domains": [
-      "derecho administrativo",
-      "Silencio administrativo"
-    ],
-    "intellectualContribution": "Explica Silencio administrativo desde su utilidad operativa concreta: cuándo importa y qué riesgos tiene.",
-    "newAngle": {
-      "comparedWith": [
-        "video-055"
-      ],
-      "contribution": "Diferencia Silencio administrativo por su problema específico: confundir silencio administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Silencio administrativo",
-  "centralThesis": "Silencio administrativo exige dominar cuándo importa y qué riesgos tiene; su valor práctico está en transformar cuándo importa y qué riesgos tiene en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Silencio administrativo es confundir silencio administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Reclamo bancario: dos instancias que no debes confundir",
+  "hook": "¿El banco rechazó tu reclamo y piensas que ya no existe ninguna otra vía?",
+  "problem": "Un usuario confunde la atención de reclamos del banco con la instancia de protección del consumidor financiero.",
+  "centralThesis": "La Ley 393 reconoce canales de reclamo y contempla la Defensoría del Consumidor Financiero en ASFI como segunda instancia.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Silencio administrativo: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir silencio administrativo con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre silencio administrativo, con una ruta de seguimiento y ejecución posible."
+    "Imagina que una entidad financiera registra un cobro que Julia no reconoce. Ella conserva su extracto y solicita una explicación por el canal de reclamos del banco.",
+    "El artículo 74 de la Ley 393 reconoce derechos a información clara, trato diligente y acceso a canales eficientes de reclamo.",
+    "El artículo 73 contempla la Defensoría del Consumidor Financiero en ASFI como segunda instancia, una vez agotada la gestión de reclamación ante la entidad financiera.",
+    "Julia reúne su reclamo, el comprobante de presentación y la respuesta recibida. Antes de acudir a ASFI verifica los requisitos y plazos de la reglamentación vigente, que pueden variar según el trámite."
   ],
-  "conclusion": "Silencio administrativo se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Un reclamo bien documentado permite distinguir lo solicitado al banco de lo que se pide revisar después.",
+  "closingIdea": "Primera y segunda instancia de reclamo cumplen funciones diferentes.",
+  "cta": "Conserva tus respaldos y consulta el procedimiento vigente antes de escalar tu reclamo financiero.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Usuarios bancarios",
+    "Emprendedores"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de silencio administrativo",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Ruta de reclamación",
+    "Orden documental"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Orientación en reclamos financieros",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información jurídica general",
+    "Revisión individual de antecedentes y documentos",
+    "Consulta profesional sin promesa de resultado"
   ],
-  "hook": "Silencio administrativo: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Silencio administrativo, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN DOCUMENTAL PARCIAL — PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 393 de Servicios Financieros",
+        "articuloOFundamento": "arts. 73 y 74",
+        "url": "https://www.bcb.gob.bo/webdocs/normativa/2013%20-%20LEY%200393%20-%20Servicios%20Financieros.pdf",
+        "alcanceCotejo": "Texto alojado por el Banco Central; cotejo de defensoría y derechos del consumidor financiero; reglamentación específica no cotejada."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Se distinguió ejemplo hipotético de hecho real.",
+      "Se limitaron las afirmaciones a los artículos cotejados.",
+      "Se evitó atribuir jurisprudencia no consultada.",
+      "Se verificó coherencia narrativa y no repetición literal de tesis y problema."
+    ],
+    "pendientes": [
+      "No se comprobó exhaustivamente toda reforma normativa o reglamentación sectorial vigente al 22-10-2026.",
+      "No se cotejó jurisprudencia específica: el guion no atribuye reglas a sentencias concretas.",
+      "No se ejecutaron validadores ni renderizado del repositorio Q∞ Media Factory.",
+      "Verificar reglamentación ASFI vigente y condiciones particulares antes de publicar rutas operativas de reclamo."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿El banco rechazó tu reclamo y piensas que ya no existe ninguna otra vía?",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imagina que una entidad financiera registra un cobro que Julia no reconoce. Ella conserva su extracto y solicita una explicación por el canal de reclamos del banco.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 74 de la Ley 393 reconoce derechos a información clara, trato diligente y acceso a canales eficientes de reclamo.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "El artículo 73 contempla la Defensoría del Consumidor Financiero en ASFI como segunda instancia, una vez agotada la gestión de reclamación ante la entidad financiera.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Julia reúne su reclamo, el comprobante de presentación y la respuesta recibida. Antes de acudir a ASFI verifica los requisitos y plazos de la reglamentación vigente, que pueden variar según el trámite.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Un reclamo bien documentado permite distinguir lo solicitado al banco de lo que se pide revisar después.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Primera y segunda instancia de reclamo cumplen funciones diferentes.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Conserva tus respaldos y consulta el procedimiento vigente antes de escalar tu reclamo financiero.",
+      "visual": "Secuencia cronológica numerada; resaltar únicamente la etapa descrita en esta frase",
+      "elementosObligatorios": [
+        "Rótulo de etapa o concepto",
+        "Representación legible y coherente con la frase",
+        "Aviso «Ejemplo hipotético» cuando aparezca una persona o documento ilustrativo"
+      ],
+      "restricciones": [
+        "No mostrar datos personales reales",
+        "No presentar documentos ficticios como auténticos",
+        "No representar decisiones judiciales no mencionadas",
+        "No incluir texto jurídico no cotejado"
+      ]
+    }
+  ]
 }
