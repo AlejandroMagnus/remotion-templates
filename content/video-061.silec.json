@@ -1,58 +1,181 @@
 {
   "productionCode": "video-061",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Contrato bien hecho"
-    ],
-    "intellectualContribution": "Explica Contrato bien hecho desde su utilidad operativa concreta: qué cláusulas evitan futuros conflictos.",
-    "newAngle": {
-      "comparedWith": [
-        "video-060"
-      ],
-      "contribution": "Diferencia Contrato bien hecho por su problema específico: confundir contrato bien hecho con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Contrato bien hecho",
-  "centralThesis": "Contrato bien hecho exige dominar qué cláusulas evitan futuros conflictos; su valor práctico está en transformar qué cláusulas evitan futuros conflictos en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Contrato bien hecho es confundir contrato bien hecho con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "El expediente no es una pila de papeles: cómo reconstruir una decisión",
+  "hook": "¿Una autoridad afirma que revisó todo el expediente, pero no explica qué documento fue determinante?",
+  "problem": "La persona recibe una decisión con referencias generales a muchos folios.",
+  "centralThesis": "Una decisión controlable conecta cada hecho relevante con la prueba concreta y la consecuencia jurídica.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Contrato bien hecho: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir contrato bien hecho con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre contrato bien hecho, con una ruta de seguimiento y ejecución posible."
+    "Imaginemos un expediente ficticio con una solicitud, dos informes contradictorios y una resolución. La autoridad menciona los tres documentos, pero no explica por qué prefirió uno de los informes.",
+    "El artículo 115 de la Constitución protege el debido proceso. Ese marco permite exigir que la persona comprenda la razón de una decisión que afecta sus derechos, sin presumir que toda discrepancia constituye nulidad.",
+    "Una revisión útil construye una tabla: afirmación de la autoridad, folio citado, contenido real del documento y explicación omitida. Así se distingue una prueba ignorada de una prueba simplemente valorada de otra manera.",
+    "En el ejemplo, la objeción no consiste en pedir que se crea automáticamente al solicitante. Consiste en identificar el punto decisivo que exige una respuesta verificable y una vía de revisión procedente."
   ],
-  "conclusion": "Contrato bien hecho se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Una crítica eficaz muestra la desconexión precisa entre expediente y decisión.",
+  "closingIdea": "La claridad jurídica comienza cuando cada conclusión puede rastrearse hasta sus fundamentos.",
+  "cta": "Si una resolución afecta tus derechos, conserva sus anexos y solicita un análisis de las omisiones concretas.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de contrato bien hecho",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Contrato bien hecho: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Contrato bien hecho, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "art. 115.I-II",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Derecho al debido proceso y tutela efectiva; no se verificó jurisprudencia específica. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Una autoridad afirma que revisó todo el expediente, pero no explica qué documento fue determinante?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imaginemos un expediente ficticio con una solicitud, dos informes contradictorios y una resolución. La autoridad menciona los tres documentos, pero no explica por qué prefirió uno de los informes.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 115 de la Constitución protege el debido proceso. Ese marco permite exigir que la persona comprenda la razón de una decisión que afecta sus derechos, sin presumir que toda discrepancia constituye nulidad.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Una revisión útil construye una tabla: afirmación de la autoridad, folio citado, contenido real del documento y explicación omitida. Así se distingue una prueba ignorada de una prueba simplemente valorada de otra manera.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "En el ejemplo, la objeción no consiste en pedir que se crea automáticamente al solicitante. Consiste en identificar el punto decisivo que exige una respuesta verificable y una vía de revisión procedente.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Una crítica eficaz muestra la desconexión precisa entre expediente y decisión.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "La claridad jurídica comienza cuando cada conclusión puede rastrearse hasta sus fundamentos.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Si una resolución afecta tus derechos, conserva sus anexos y solicita un análisis de las omisiones concretas.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

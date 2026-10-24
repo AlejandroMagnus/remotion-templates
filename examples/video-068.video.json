@@ -12,7 +12,11 @@
       "juridico",
       "empresa",
       "conflicto"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Empresa en conflicto: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Empresa en conflicto: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir empresa en conflicto con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre empresa en conflicto, con una ruta de seguimiento y ejecución posible. Empresa en conflicto se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Empresa en conflicto, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Una captura de pantalla demuestra por sí sola quién escribió un mensaje? En un caso hipotético, alguien recibe una captura donde parece que un proveedor aceptó devolver dinero. La imagen no muestra fecha completa, número verificado ni mensajes anteriores. La Constitución protege el debido proceso y el derecho de defensa en los artículos 115 y 119. Por ello, una parte debe poder conocer y controvertir la evidencia utilizada en su contra. Para conservar el material, evita editar el archivo original, registra su procedencia y guarda el intercambio completo cuando sea lícito hacerlo. Identifica dispositivo, fecha, participantes y eventuales respaldos independientes. En el ejemplo, el mensaje podría ser auténtico y aun así no probar la obligación alegada. El contexto contractual y las reglas de admisión y valoración probatoria siguen siendo decisivos. La tecnología aporta registros; el razonamiento jurídico determina qué hechos respaldan. Conservar el contexto vale más que exhibir una imagen impactante. Si un mensaje es prueba relevante, solicita revisión de su integridad y de la vía procesal.",
     "narrationSrc": "public/generated/video-068-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Empresa en conflicto",
-        "subtitle": "Empresa en conflicto: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Prueba digital: una captura no cuenta toda la historia",
+        "subtitle": "¿Una captura de pantalla demuestra por sí sola quién escribió un mensaje?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Empresa en conflicto: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "En un caso hipotético, alguien recibe una captura donde parece que un proveedor aceptó devolver dinero. La imagen no muestra fecha completa, número verificado ni mensajes anteriores."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La Constitución protege el debido proceso y el derecho de defensa en los artículos 115 y 119. Por ello, una parte debe poder conocer y controvertir la evidencia utilizada en su contra."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Para conservar el material, evita editar el archivo original, registra su procedencia y guarda el intercambio completo cuando sea lícito hacerlo. Identifica dispositivo, fecha, participantes y eventuales respaldos independientes."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir empresa en conflicto con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En el ejemplo, el mensaje podría ser auténtico y aun así no probar la obligación alegada. El contexto contractual y las reglas de admisión y valoración probatoria siguen siendo decisivos."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Empresa en conflicto se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Empresa en conflicto, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La tecnología aporta registros; el razonamiento jurídico determina qué hechos respaldan.",
+        "subtitle": "Conservar el contexto vale más que exhibir una imagen impactante."
       },
       "timing": {
         "durationMs": 10000

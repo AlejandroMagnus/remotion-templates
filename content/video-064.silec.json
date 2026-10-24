@@ -1,58 +1,181 @@
 {
   "productionCode": "video-064",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Daños y perjuicios"
-    ],
-    "intellectualContribution": "Explica Daños y perjuicios desde su utilidad operativa concreta: qué se debe probar para reclamar indemnización.",
-    "newAngle": {
-      "comparedWith": [
-        "video-063"
-      ],
-      "contribution": "Diferencia Daños y perjuicios por su problema específico: confundir daños y perjuicios con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Daños y perjuicios",
-  "centralThesis": "Daños y perjuicios exige dominar qué se debe probar para reclamar indemnización; su valor práctico está en transformar qué se debe probar para reclamar indemnización en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Daños y perjuicios es confundir daños y perjuicios con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "La contradicción probatoria puede ser más importante que la cantidad de pruebas",
+  "hook": "¿Dos informes opuestos obligan a elegir el que tiene más páginas?",
+  "problem": "Una parte acumula documentos sin explicar por qué unos contradicen a otros.",
+  "centralThesis": "La fuerza de una prueba depende de su pertinencia, fiabilidad y relación con el hecho discutido.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Daños y perjuicios: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir daños y perjuicios con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre daños y perjuicios, con una ruta de seguimiento y ejecución posible."
+    "Imaginemos dos informes hipotéticos sobre una entrega: uno afirma que ocurrió el martes; otro, que fue el jueves. Ninguno resuelve la discrepancia solo por su extensión.",
+    "El artículo 180.I de la Constitución reconoce la verdad material como principio de la jurisdicción ordinaria. Eso no autoriza a prescindir de reglas procesales ni a declarar probado cualquier relato convincente.",
+    "La revisión identifica quién elaboró cada informe, qué observó directamente, cuáles fueron sus fuentes y si existen registros independientes. Una fecha en un sistema puede requerir verificar su origen y trazabilidad.",
+    "En el ejemplo, una guía de remisión y el registro de recepción pueden aclarar la contradicción. Si faltan, conviene reconocer la incertidumbre y plantear la actividad probatoria legalmente admisible."
   ],
-  "conclusion": "Daños y perjuicios se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "La prueba no se mide por volumen, sino por capacidad de sostener hechos verificables.",
+  "closingIdea": "Un buen argumento explica también qué todavía no está demostrado.",
+  "cta": "Si tus documentos se contradicen, organiza una matriz de hechos y fuentes antes de presentar una demanda.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de daños y perjuicios",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Daños y perjuicios: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Daños y perjuicios, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "art. 180.I, 115.II",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Principios de verdad material y debido proceso; estándares específicos pendientes. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Dos informes opuestos obligan a elegir el que tiene más páginas?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imaginemos dos informes hipotéticos sobre una entrega: uno afirma que ocurrió el martes; otro, que fue el jueves. Ninguno resuelve la discrepancia solo por su extensión.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 180.I de la Constitución reconoce la verdad material como principio de la jurisdicción ordinaria. Eso no autoriza a prescindir de reglas procesales ni a declarar probado cualquier relato convincente.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "La revisión identifica quién elaboró cada informe, qué observó directamente, cuáles fueron sus fuentes y si existen registros independientes. Una fecha en un sistema puede requerir verificar su origen y trazabilidad.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "En el ejemplo, una guía de remisión y el registro de recepción pueden aclarar la contradicción. Si faltan, conviene reconocer la incertidumbre y plantear la actividad probatoria legalmente admisible.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La prueba no se mide por volumen, sino por capacidad de sostener hechos verificables.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Un buen argumento explica también qué todavía no está demostrado.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Si tus documentos se contradicen, organiza una matriz de hechos y fuentes antes de presentar una demanda.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

@@ -1,58 +1,181 @@
 {
   "productionCode": "video-070",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Poderes notariales"
-    ],
-    "intellectualContribution": "Explica Poderes notariales desde su utilidad operativa concreta: cómo usarlos y qué riesgos producen.",
-    "newAngle": {
-      "comparedWith": [
-        "video-069"
-      ],
-      "contribution": "Diferencia Poderes notariales por su problema específico: confundir poderes notariales con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Poderes notariales",
-  "centralThesis": "Poderes notariales exige dominar cómo usarlos y qué riesgos producen; su valor práctico está en transformar cómo usarlos y qué riesgos producen en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Poderes notariales es confundir poderes notariales con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Contrato de alto valor: el riesgo que no aparece en el precio",
+  "hook": "¿Una propuesta más barata es necesariamente el contrato más conveniente para una empresa?",
+  "problem": "La gerencia compara montos, pero ignora incumplimiento, garantías y salida contractual.",
+  "centralThesis": "El costo jurídico de un contrato también depende de riesgos asignados y remedios disponibles.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Poderes notariales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir poderes notariales con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre poderes notariales, con una ruta de seguimiento y ejecución posible."
+    "Imaginemos dos ofertas ficticias para instalar equipos. Una cuesta menos, pero no precisa aceptación técnica ni solución de fallas. La otra incluye entregables, pruebas y una garantía delimitada.",
+    "El marco constitucional protege la propiedad y la tutela de derechos, pero la eficacia de cada cláusula depende del régimen contractual aplicable. No corresponde afirmar que toda penalidad pactada será exigible automáticamente.",
+    "Una comparación profesional ordena precio, alcance, hitos de pago, evidencia de cumplimiento, garantías, límites de responsabilidad y mecanismos de controversia. Cada riesgo debe tener responsable y documento de respaldo.",
+    "En el ejemplo, el menor precio inicial podría implicar gastos posteriores difíciles de reclamar. Antes de firmar, conviene verificar facultades de representación y que anexos técnicos coincidan con el contrato."
   ],
-  "conclusion": "Poderes notariales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "El mejor contrato no siempre es el de menor precio: es el que permite gestionar obligaciones y riesgos.",
+  "closingIdea": "Negociar bien es definir qué ocurrirá cuando algo no salga según lo previsto.",
+  "cta": "Para una operación relevante, solicita una revisión de cláusulas, anexos y escenarios de incumplimiento.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Empresas y responsables institucionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de poderes notariales",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Poderes notariales: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Poderes notariales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "art. 56.I, 115.I",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Marco general de propiedad y tutela; Código Civil y normativa especial pendientes. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Una propuesta más barata es necesariamente el contrato más conveniente para una empresa?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imaginemos dos ofertas ficticias para instalar equipos. Una cuesta menos, pero no precisa aceptación técnica ni solución de fallas. La otra incluye entregables, pruebas y una garantía delimitada.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El marco constitucional protege la propiedad y la tutela de derechos, pero la eficacia de cada cláusula depende del régimen contractual aplicable. No corresponde afirmar que toda penalidad pactada será exigible automáticamente.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Una comparación profesional ordena precio, alcance, hitos de pago, evidencia de cumplimiento, garantías, límites de responsabilidad y mecanismos de controversia. Cada riesgo debe tener responsable y documento de respaldo.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "En el ejemplo, el menor precio inicial podría implicar gastos posteriores difíciles de reclamar. Antes de firmar, conviene verificar facultades de representación y que anexos técnicos coincidan con el contrato.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "El mejor contrato no siempre es el de menor precio: es el que permite gestionar obligaciones y riesgos.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Negociar bien es definir qué ocurrirá cuando algo no salga según lo previsto.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Para una operación relevante, solicita una revisión de cláusulas, anexos y escenarios de incumplimiento.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

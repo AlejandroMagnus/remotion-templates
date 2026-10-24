@@ -1,58 +1,181 @@
 {
   "productionCode": "video-069",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Sociedades comerciales"
-    ],
-    "intellectualContribution": "Explica Sociedades comerciales desde su utilidad operativa concreta: errores jurídicos frecuentes entre socios.",
-    "newAngle": {
-      "comparedWith": [
-        "video-068"
-      ],
-      "contribution": "Diferencia Sociedades comerciales por su problema específico: confundir sociedades comerciales con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Sociedades comerciales",
-  "centralThesis": "Sociedades comerciales exige dominar errores jurídicos frecuentes entre socios; su valor práctico está en transformar errores jurídicos frecuentes entre socios en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Sociedades comerciales es confundir sociedades comerciales con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Responsabilidad pública: un resultado malo no prueba por sí solo culpa",
+  "hook": "¿Una obra pública retrasada demuestra automáticamente responsabilidad personal de cualquier funcionario?",
+  "problem": "Una institución atribuye un perjuicio sin individualizar funciones ni decisiones.",
+  "centralThesis": "La atribución de responsabilidad requiere conectar conducta, deber aplicable y consecuencias acreditadas.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Sociedades comerciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir sociedades comerciales con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre sociedades comerciales, con una ruta de seguimiento y ejecución posible."
+    "Imaginemos un proyecto municipal ficticio que terminó fuera de plazo. Participaron planificación, contratación, supervisión y recepción. Culpar a una sola persona por el retraso total exige examinar su función real.",
+    "La Ley 1178 regula sistemas de administración y control gubernamentales. Sus disposiciones deben aplicarse junto con el régimen específico de responsabilidad y las actuaciones documentadas, no como una presunción universal de culpabilidad.",
+    "El análisis identifica qué decisión correspondía a cada servidor, qué documentos firmó, qué información tenía y cuáles factores externos afectaron el resultado. Una cronología separa retraso institucional de conducta individual.",
+    "En el ejemplo, las órdenes de cambio, informes de supervisión y actas de recepción pueden modificar la conclusión. La responsabilidad debe evaluarse en la vía y con las garantías que correspondan."
   ],
-  "conclusion": "Sociedades comerciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Un control serio individualiza hechos y deberes antes de atribuir consecuencias.",
+  "closingIdea": "La rendición de cuentas necesita evidencia, no culpables predeterminados.",
+  "cta": "Si enfrentas una observación de control, solicita revisar funciones, expediente y régimen aplicable.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Empresas y responsables institucionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de sociedades comerciales",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Sociedades comerciales: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Sociedades comerciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Ley N.º 1178 de Administración y Control Gubernamentales",
+        "articuloOFundamento": "art. 1, 2 y marco general",
+        "url": "https://www.economiayfinanzas.gob.bo/sites/default/files/2021-09/Ley_Nro_1178%20de20%20de%20julio%20de%201990.pdf",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Objeto y sistemas de administración y control; responsabilidad individual y reformas pendientes. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Una obra pública retrasada demuestra automáticamente responsabilidad personal de cualquier funcionario?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imaginemos un proyecto municipal ficticio que terminó fuera de plazo. Participaron planificación, contratación, supervisión y recepción. Culpar a una sola persona por el retraso total exige examinar su función real.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "La Ley 1178 regula sistemas de administración y control gubernamentales. Sus disposiciones deben aplicarse junto con el régimen específico de responsabilidad y las actuaciones documentadas, no como una presunción universal de culpabilidad.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "El análisis identifica qué decisión correspondía a cada servidor, qué documentos firmó, qué información tenía y cuáles factores externos afectaron el resultado. Una cronología separa retraso institucional de conducta individual.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "En el ejemplo, las órdenes de cambio, informes de supervisión y actas de recepción pueden modificar la conclusión. La responsabilidad debe evaluarse en la vía y con las garantías que correspondan.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Un control serio individualiza hechos y deberes antes de atribuir consecuencias.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "La rendición de cuentas necesita evidencia, no culpables predeterminados.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Si enfrentas una observación de control, solicita revisar funciones, expediente y régimen aplicable.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

@@ -12,7 +12,11 @@
       "juridico",
       "compraventa",
       "inmueble"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Compraventa de inmueble: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Compraventa de inmueble: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir compraventa de inmueble con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre compraventa de inmueble, con una ruta de seguimiento y ejecución posible. Compraventa de inmueble se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Compraventa de inmueble, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Un error formal permite borrar automáticamente todas las actuaciones de un expediente? Imagina una audiencia ficticia en la que un acta contiene un error tipográfico, pero ambas partes participaron y conocieron la decisión. Pedir la nulidad total sin más razones puede resultar desproporcionado. La Constitución garantiza el debido proceso y la defensa en sus artículos 115 y 119. Esas garantías protegen oportunidades reales de actuación, no convierten cualquier irregularidad en una sanción automática. El examen debe distinguir defecto, derecho comprometido, perjuicio concreto y remedio jurídicamente disponible. También debe comprobar si la norma procesal especial prevé subsanación o convalidación. En cambio, si una parte no pudo conocer una actuación decisiva ni contradecirla, la afectación puede ser sustancial. El remedio dependerá del procedimiento, los antecedentes y la autoridad competente. La petición de nulidad debe demostrar qué garantía se afectó y por qué importa. Corregir el defecto adecuado suele ser más útil que pedir borrar todo sin fundamento. Si detectaste una irregularidad, revisa el acto y su perjuicio antes de solicitar nulidad.",
     "narrationSrc": "public/generated/video-065-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Compraventa de inmueble",
-        "subtitle": "Compraventa de inmueble: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Una nulidad no es un botón de reinicio del proceso",
+        "subtitle": "¿Un error formal permite borrar automáticamente todas las actuaciones de un expediente?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Compraventa de inmueble: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imagina una audiencia ficticia en la que un acta contiene un error tipográfico, pero ambas partes participaron y conocieron la decisión. Pedir la nulidad total sin más razones puede resultar desproporcionado."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La Constitución garantiza el debido proceso y la defensa en sus artículos 115 y 119. Esas garantías protegen oportunidades reales de actuación, no convierten cualquier irregularidad en una sanción automática."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "El examen debe distinguir defecto, derecho comprometido, perjuicio concreto y remedio jurídicamente disponible. También debe comprobar si la norma procesal especial prevé subsanación o convalidación."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir compraventa de inmueble con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En cambio, si una parte no pudo conocer una actuación decisiva ni contradecirla, la afectación puede ser sustancial. El remedio dependerá del procedimiento, los antecedentes y la autoridad competente."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Compraventa de inmueble se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Compraventa de inmueble, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La petición de nulidad debe demostrar qué garantía se afectó y por qué importa.",
+        "subtitle": "Corregir el defecto adecuado suele ser más útil que pedir borrar todo sin fundamento."
       },
       "timing": {
         "durationMs": 10000

@@ -12,7 +12,11 @@
       "juridico",
       "sociedades",
       "comerciales"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Sociedades comerciales: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Sociedades comerciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir sociedades comerciales con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre sociedades comerciales, con una ruta de seguimiento y ejecución posible. Sociedades comerciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Sociedades comerciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Una obra pública retrasada demuestra automáticamente responsabilidad personal de cualquier funcionario? Imaginemos un proyecto municipal ficticio que terminó fuera de plazo. Participaron planificación, contratación, supervisión y recepción. Culpar a una sola persona por el retraso total exige examinar su función real. La Ley 1178 regula sistemas de administración y control gubernamentales. Sus disposiciones deben aplicarse junto con el régimen específico de responsabilidad y las actuaciones documentadas, no como una presunción universal de culpabilidad. El análisis identifica qué decisión correspondía a cada servidor, qué documentos firmó, qué información tenía y cuáles factores externos afectaron el resultado. Una cronología separa retraso institucional de conducta individual. En el ejemplo, las órdenes de cambio, informes de supervisión y actas de recepción pueden modificar la conclusión. La responsabilidad debe evaluarse en la vía y con las garantías que correspondan. Un control serio individualiza hechos y deberes antes de atribuir consecuencias. La rendición de cuentas necesita evidencia, no culpables predeterminados. Si enfrentas una observación de control, solicita revisar funciones, expediente y régimen aplicable.",
     "narrationSrc": "public/generated/video-069-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Sociedades comerciales",
-        "subtitle": "Sociedades comerciales: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Responsabilidad pública: un resultado malo no prueba por sí solo culpa",
+        "subtitle": "¿Una obra pública retrasada demuestra automáticamente responsabilidad personal de cualquier funcionario?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Sociedades comerciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imaginemos un proyecto municipal ficticio que terminó fuera de plazo. Participaron planificación, contratación, supervisión y recepción. Culpar a una sola persona por el retraso total exige examinar su función real."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La Ley 1178 regula sistemas de administración y control gubernamentales. Sus disposiciones deben aplicarse junto con el régimen específico de responsabilidad y las actuaciones documentadas, no como una presunción universal de culpabilidad."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "El análisis identifica qué decisión correspondía a cada servidor, qué documentos firmó, qué información tenía y cuáles factores externos afectaron el resultado. Una cronología separa retraso institucional de conducta individual."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir sociedades comerciales con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En el ejemplo, las órdenes de cambio, informes de supervisión y actas de recepción pueden modificar la conclusión. La responsabilidad debe evaluarse en la vía y con las garantías que correspondan."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Sociedades comerciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Sociedades comerciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Un control serio individualiza hechos y deberes antes de atribuir consecuencias.",
+        "subtitle": "La rendición de cuentas necesita evidencia, no culpables predeterminados."
       },
       "timing": {
         "durationMs": 10000

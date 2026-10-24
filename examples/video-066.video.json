@@ -13,7 +13,11 @@
       "minuta",
       "escritura",
       "publica"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Minuta y escritura pública: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Minuta y escritura pública: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir minuta y escritura pública con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre minuta y escritura pública, con una ruta de seguimiento y ejecución posible. Minuta y escritura pública se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Minuta y escritura pública, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Qué ocurre si tu petición está bien redactada, pero la presentas ante una autoridad sin competencia? Pensemos en una controversia ficticia sobre una sanción administrativa. La persona prepara una demanda civil sin verificar si corresponde primero una impugnación en sede administrativa. El artículo 122 de la Constitución declara nulos los actos de quienes usurpan funciones o ejercen potestades que no emanan de la ley. Eso obliga a distinguir jurisdicción, competencia y vía procesal. Antes de presentar un escrito, identifica la naturaleza del acto, la autoridad emisora, la norma que atribuye competencia y los recursos previstos. También revisa plazos y eventuales exigencias de agotamiento. En el ejemplo, la ruta correcta puede cambiar por completo si el acto proviene de una autoridad reguladora especializada. No basta con que la pretensión parezca razonable. Elegir correctamente la vía es parte de la defensa del derecho. La primera estrategia no es redactar: es identificar quién puede resolver. Antes de iniciar un proceso, pide verificar competencia, vía y plazo aplicables.",
     "narrationSrc": "public/generated/video-066-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Minuta y escritura pública",
-        "subtitle": "Minuta y escritura pública: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Competencia: la primera pregunta antes de presentar una demanda",
+        "subtitle": "¿Qué ocurre si tu petición está bien redactada, pero la presentas ante una autoridad sin competencia?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Minuta y escritura pública: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Pensemos en una controversia ficticia sobre una sanción administrativa. La persona prepara una demanda civil sin verificar si corresponde primero una impugnación en sede administrativa."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 122 de la Constitución declara nulos los actos de quienes usurpan funciones o ejercen potestades que no emanan de la ley. Eso obliga a distinguir jurisdicción, competencia y vía procesal."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Antes de presentar un escrito, identifica la naturaleza del acto, la autoridad emisora, la norma que atribuye competencia y los recursos previstos. También revisa plazos y eventuales exigencias de agotamiento."
       },
       "timing": {
         "durationMs": 9000
@@ -86,7 +90,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir minuta y escritura pública con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En el ejemplo, la ruta correcta puede cambiar por completo si el acto proviene de una autoridad reguladora especializada. No basta con que la pretensión parezca razonable."
       },
       "timing": {
         "durationMs": 9000
@@ -96,8 +100,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Minuta y escritura pública se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Minuta y escritura pública, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Elegir correctamente la vía es parte de la defensa del derecho.",
+        "subtitle": "La primera estrategia no es redactar: es identificar quién puede resolver."
       },
       "timing": {
         "durationMs": 10000

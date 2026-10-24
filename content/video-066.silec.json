@@ -1,58 +1,181 @@
 {
   "productionCode": "video-066",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Minuta y escritura pública"
-    ],
-    "intellectualContribution": "Explica Minuta y escritura pública desde su utilidad operativa concreta: diferencias y errores comunes.",
-    "newAngle": {
-      "comparedWith": [
-        "video-065"
-      ],
-      "contribution": "Diferencia Minuta y escritura pública por su problema específico: confundir minuta y escritura pública con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Minuta y escritura pública",
-  "centralThesis": "Minuta y escritura pública exige dominar diferencias y errores comunes; su valor práctico está en transformar diferencias y errores comunes en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Minuta y escritura pública es confundir minuta y escritura pública con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Competencia: la primera pregunta antes de presentar una demanda",
+  "hook": "¿Qué ocurre si tu petición está bien redactada, pero la presentas ante una autoridad sin competencia?",
+  "problem": "Un ciudadano elige una oficina por cercanía y no por atribución legal.",
+  "centralThesis": "La competencia no se presume por conveniencia: debe tener fundamento jurídico previo.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Minuta y escritura pública: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir minuta y escritura pública con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre minuta y escritura pública, con una ruta de seguimiento y ejecución posible."
+    "Pensemos en una controversia ficticia sobre una sanción administrativa. La persona prepara una demanda civil sin verificar si corresponde primero una impugnación en sede administrativa.",
+    "El artículo 122 de la Constitución declara nulos los actos de quienes usurpan funciones o ejercen potestades que no emanan de la ley. Eso obliga a distinguir jurisdicción, competencia y vía procesal.",
+    "Antes de presentar un escrito, identifica la naturaleza del acto, la autoridad emisora, la norma que atribuye competencia y los recursos previstos. También revisa plazos y eventuales exigencias de agotamiento.",
+    "En el ejemplo, la ruta correcta puede cambiar por completo si el acto proviene de una autoridad reguladora especializada. No basta con que la pretensión parezca razonable."
   ],
-  "conclusion": "Minuta y escritura pública se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Elegir correctamente la vía es parte de la defensa del derecho.",
+  "closingIdea": "La primera estrategia no es redactar: es identificar quién puede resolver.",
+  "cta": "Antes de iniciar un proceso, pide verificar competencia, vía y plazo aplicables.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de minuta y escritura pública",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Minuta y escritura pública: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Minuta y escritura pública, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "art. 120.I, 122",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Juez competente y nulidad por usurpación; vías específicas pendientes. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Qué ocurre si tu petición está bien redactada, pero la presentas ante una autoridad sin competencia?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Pensemos en una controversia ficticia sobre una sanción administrativa. La persona prepara una demanda civil sin verificar si corresponde primero una impugnación en sede administrativa.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 122 de la Constitución declara nulos los actos de quienes usurpan funciones o ejercen potestades que no emanan de la ley. Eso obliga a distinguir jurisdicción, competencia y vía procesal.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Antes de presentar un escrito, identifica la naturaleza del acto, la autoridad emisora, la norma que atribuye competencia y los recursos previstos. También revisa plazos y eventuales exigencias de agotamiento.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "En el ejemplo, la ruta correcta puede cambiar por completo si el acto proviene de una autoridad reguladora especializada. No basta con que la pretensión parezca razonable.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Elegir correctamente la vía es parte de la defensa del derecho.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "La primera estrategia no es redactar: es identificar quién puede resolver.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Antes de iniciar un proceso, pide verificar competencia, vía y plazo aplicables.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

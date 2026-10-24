@@ -12,7 +12,11 @@
       "juridico",
       "resolucion",
       "contrato"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Resolución de contrato: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Resolución de contrato: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir resolución de contrato con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre resolución de contrato, con una ruta de seguimiento y ejecución posible. Resolución de contrato se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Resolución de contrato, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Firmar un contrato significa haber aceptado cualquier interpretación que luego proponga la otra parte? En un ejemplo ficticio, dos empresas firman un contrato de mantenimiento. Una entiende que incluye repuestos; la otra sostiene que solo cubre mano de obra. La discusión no se resuelve contando firmas. La Constitución reconoce la propiedad privada y la tutela de derechos, pero la interpretación contractual concreta requiere examinar el Código Civil y la documentación aplicable, cuya versión específica debe cotejarse antes de litigar. El análisis profesional compara definiciones, anexos, correos incorporados lícitamente y conducta de ejecución. También separa obligaciones expresas de expectativas comerciales que nunca ingresaron al acuerdo. En el ejemplo, una propuesta útil sería redactar una cláusula que detalle qué piezas están incluidas, quién autoriza gastos extraordinarios y cómo se documenta la conformidad del servicio. La prevención contractual consiste en eliminar ambigüedades comprobables antes del conflicto. Una frase clara hoy puede evitar interpretaciones costosas mañana. Antes de firmar una obligación importante, solicita una revisión conjunta de cláusulas y anexos.",
     "narrationSrc": "public/generated/video-063-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Resolución de contrato",
-        "subtitle": "Resolución de contrato: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Una cláusula no sustituye la prueba del consentimiento",
+        "subtitle": "¿Firmar un contrato significa haber aceptado cualquier interpretación que luego proponga la otra parte?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Resolución de contrato: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "En un ejemplo ficticio, dos empresas firman un contrato de mantenimiento. Una entiende que incluye repuestos; la otra sostiene que solo cubre mano de obra. La discusión no se resuelve contando firmas."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "La Constitución reconoce la propiedad privada y la tutela de derechos, pero la interpretación contractual concreta requiere examinar el Código Civil y la documentación aplicable, cuya versión específica debe cotejarse antes de litigar."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "El análisis profesional compara definiciones, anexos, correos incorporados lícitamente y conducta de ejecución. También separa obligaciones expresas de expectativas comerciales que nunca ingresaron al acuerdo."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir resolución de contrato con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En el ejemplo, una propuesta útil sería redactar una cláusula que detalle qué piezas están incluidas, quién autoriza gastos extraordinarios y cómo se documenta la conformidad del servicio."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Resolución de contrato se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Resolución de contrato, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La prevención contractual consiste en eliminar ambigüedades comprobables antes del conflicto.",
+        "subtitle": "Una frase clara hoy puede evitar interpretaciones costosas mañana."
       },
       "timing": {
         "durationMs": 10000

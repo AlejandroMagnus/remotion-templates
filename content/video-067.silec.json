@@ -1,58 +1,181 @@
 {
   "productionCode": "video-067",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Derechos reales"
-    ],
-    "intellectualContribution": "Explica Derechos reales desde su utilidad operativa concreta: cómo proteger propiedad, posesión y registro.",
-    "newAngle": {
-      "comparedWith": [
-        "video-066"
-      ],
-      "contribution": "Diferencia Derechos reales por su problema específico: confundir derechos reales con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Derechos reales",
-  "centralThesis": "Derechos reales exige dominar cómo proteger propiedad, posesión y registro; su valor práctico está en transformar cómo proteger propiedad, posesión y registro en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Derechos reales es confundir derechos reales con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Derecho a guardar silencio: qué protege y qué no resuelve",
+  "hook": "¿Una persona investigada debe explicar inmediatamente todos los hechos para demostrar inocencia?",
+  "problem": "El investigado cree que guardar silencio equivale a reconocer la denuncia.",
+  "centralThesis": "La defensa puede ejercerse sin convertir el silencio en una confesión.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Derechos reales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir derechos reales con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre derechos reales, con una ruta de seguimiento y ejecución posible."
+    "Imaginemos una citación penal ficticia. La persona llega preocupada y piensa que responder apresuradamente es su única forma de evitar sospechas.",
+    "El artículo 121.I de la Constitución dispone que nadie puede ser obligado a declarar contra sí mismo y que guardar silencio no se considerará indicio de culpabilidad. Esa protección debe explicarse sin sugerir obstrucción de la investigación.",
+    "Una actuación prudente consiste en conocer el hecho atribuido, identificar la calidad procesal de la citación, consultar con defensa técnica y decidir informadamente cómo ejercer los derechos reconocidos.",
+    "En el ejemplo, guardar silencio no destruye las pruebas existentes ni impide diligencias lícitas. La investigación debe sustentarse en elementos obtenidos conforme a la ley, no en castigos por callar."
   ],
-  "conclusion": "Derechos reales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "El silencio es una garantía, no una prueba automática de inocencia ni de culpabilidad.",
+  "closingIdea": "Defenderse también significa conocer los límites de la obligación de declarar.",
+  "cta": "Si recibiste una citación penal, revisa su contenido con defensa técnica antes de comparecer.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de derechos reales",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Derechos reales: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Derechos reales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "art. 121.I, 119.II",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Derecho a no autoincriminarse y defensa; procedimiento concreto pendiente. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Una persona investigada debe explicar inmediatamente todos los hechos para demostrar inocencia?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Imaginemos una citación penal ficticia. La persona llega preocupada y piensa que responder apresuradamente es su única forma de evitar sospechas.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 121.I de la Constitución dispone que nadie puede ser obligado a declarar contra sí mismo y que guardar silencio no se considerará indicio de culpabilidad. Esa protección debe explicarse sin sugerir obstrucción de la investigación.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Una actuación prudente consiste en conocer el hecho atribuido, identificar la calidad procesal de la citación, consultar con defensa técnica y decidir informadamente cómo ejercer los derechos reconocidos.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "En el ejemplo, guardar silencio no destruye las pruebas existentes ni impide diligencias lícitas. La investigación debe sustentarse en elementos obtenidos conforme a la ley, no en castigos por callar.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "El silencio es una garantía, no una prueba automática de inocencia ni de culpabilidad.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Defenderse también significa conocer los límites de la obligación de declarar.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Si recibiste una citación penal, revisa su contenido con defensa técnica antes de comparecer.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

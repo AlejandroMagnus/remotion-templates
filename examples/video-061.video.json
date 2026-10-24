@@ -13,7 +13,11 @@
       "contrato",
       "bien",
       "hecho"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Contrato bien hecho: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Contrato bien hecho: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir contrato bien hecho con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre contrato bien hecho, con una ruta de seguimiento y ejecución posible. Contrato bien hecho se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Contrato bien hecho, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Una autoridad afirma que revisó todo el expediente, pero no explica qué documento fue determinante? Imaginemos un expediente ficticio con una solicitud, dos informes contradictorios y una resolución. La autoridad menciona los tres documentos, pero no explica por qué prefirió uno de los informes. El artículo 115 de la Constitución protege el debido proceso. Ese marco permite exigir que la persona comprenda la razón de una decisión que afecta sus derechos, sin presumir que toda discrepancia constituye nulidad. Una revisión útil construye una tabla: afirmación de la autoridad, folio citado, contenido real del documento y explicación omitida. Así se distingue una prueba ignorada de una prueba simplemente valorada de otra manera. En el ejemplo, la objeción no consiste en pedir que se crea automáticamente al solicitante. Consiste en identificar el punto decisivo que exige una respuesta verificable y una vía de revisión procedente. Una crítica eficaz muestra la desconexión precisa entre expediente y decisión. La claridad jurídica comienza cuando cada conclusión puede rastrearse hasta sus fundamentos. Si una resolución afecta tus derechos, conserva sus anexos y solicita un análisis de las omisiones concretas.",
     "narrationSrc": "public/generated/video-061-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Contrato bien hecho",
-        "subtitle": "Contrato bien hecho: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "El expediente no es una pila de papeles: cómo reconstruir una decisión",
+        "subtitle": "¿Una autoridad afirma que revisó todo el expediente, pero no explica qué documento fue determinante?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Contrato bien hecho: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imaginemos un expediente ficticio con una solicitud, dos informes contradictorios y una resolución. La autoridad menciona los tres documentos, pero no explica por qué prefirió uno de los informes."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 115 de la Constitución protege el debido proceso. Ese marco permite exigir que la persona comprenda la razón de una decisión que afecta sus derechos, sin presumir que toda discrepancia constituye nulidad."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Una revisión útil construye una tabla: afirmación de la autoridad, folio citado, contenido real del documento y explicación omitida. Así se distingue una prueba ignorada de una prueba simplemente valorada de otra manera."
       },
       "timing": {
         "durationMs": 9000
@@ -86,7 +90,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir contrato bien hecho con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En el ejemplo, la objeción no consiste en pedir que se crea automáticamente al solicitante. Consiste en identificar el punto decisivo que exige una respuesta verificable y una vía de revisión procedente."
       },
       "timing": {
         "durationMs": 9000
@@ -96,8 +100,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Contrato bien hecho se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Contrato bien hecho, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una crítica eficaz muestra la desconexión precisa entre expediente y decisión.",
+        "subtitle": "La claridad jurídica comienza cuando cada conclusión puede rastrearse hasta sus fundamentos."
       },
       "timing": {
         "durationMs": 10000

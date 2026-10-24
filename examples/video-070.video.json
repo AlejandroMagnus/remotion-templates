@@ -12,7 +12,11 @@
       "juridico",
       "poderes",
       "notariales"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Poderes notariales: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Poderes notariales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir poderes notariales con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre poderes notariales, con una ruta de seguimiento y ejecución posible. Poderes notariales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Poderes notariales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Una propuesta más barata es necesariamente el contrato más conveniente para una empresa? Imaginemos dos ofertas ficticias para instalar equipos. Una cuesta menos, pero no precisa aceptación técnica ni solución de fallas. La otra incluye entregables, pruebas y una garantía delimitada. El marco constitucional protege la propiedad y la tutela de derechos, pero la eficacia de cada cláusula depende del régimen contractual aplicable. No corresponde afirmar que toda penalidad pactada será exigible automáticamente. Una comparación profesional ordena precio, alcance, hitos de pago, evidencia de cumplimiento, garantías, límites de responsabilidad y mecanismos de controversia. Cada riesgo debe tener responsable y documento de respaldo. En el ejemplo, el menor precio inicial podría implicar gastos posteriores difíciles de reclamar. Antes de firmar, conviene verificar facultades de representación y que anexos técnicos coincidan con el contrato. El mejor contrato no siempre es el de menor precio: es el que permite gestionar obligaciones y riesgos. Negociar bien es definir qué ocurrirá cuando algo no salga según lo previsto. Para una operación relevante, solicita una revisión de cláusulas, anexos y escenarios de incumplimiento.",
     "narrationSrc": "public/generated/video-070-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Poderes notariales",
-        "subtitle": "Poderes notariales: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Contrato de alto valor: el riesgo que no aparece en el precio",
+        "subtitle": "¿Una propuesta más barata es necesariamente el contrato más conveniente para una empresa?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Poderes notariales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Imaginemos dos ofertas ficticias para instalar equipos. Una cuesta menos, pero no precisa aceptación técnica ni solución de fallas. La otra incluye entregables, pruebas y una garantía delimitada."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El marco constitucional protege la propiedad y la tutela de derechos, pero la eficacia de cada cláusula depende del régimen contractual aplicable. No corresponde afirmar que toda penalidad pactada será exigible automáticamente."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Una comparación profesional ordena precio, alcance, hitos de pago, evidencia de cumplimiento, garantías, límites de responsabilidad y mecanismos de controversia. Cada riesgo debe tener responsable y documento de respaldo."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir poderes notariales con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "En el ejemplo, el menor precio inicial podría implicar gastos posteriores difíciles de reclamar. Antes de firmar, conviene verificar facultades de representación y que anexos técnicos coincidan con el contrato."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Poderes notariales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Poderes notariales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El mejor contrato no siempre es el de menor precio: es el que permite gestionar obligaciones y riesgos.",
+        "subtitle": "Negociar bien es definir qué ocurrirá cuando algo no salga según lo previsto."
       },
       "timing": {
         "durationMs": 10000

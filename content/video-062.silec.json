@@ -1,58 +1,181 @@
 {
   "productionCode": "video-062",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "contratos, empresa y patrimonio",
-      "Incumplimiento contractual"
-    ],
-    "intellectualContribution": "Explica Incumplimiento contractual desde su utilidad operativa concreta: cómo probarlo y qué pedir.",
-    "newAngle": {
-      "comparedWith": [
-        "video-061"
-      ],
-      "contribution": "Diferencia Incumplimiento contractual por su problema específico: confundir incumplimiento contractual con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Incumplimiento contractual",
-  "centralThesis": "Incumplimiento contractual exige dominar cómo probarlo y qué pedir; su valor práctico está en transformar cómo probarlo y qué pedir en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Incumplimiento contractual es confundir incumplimiento contractual con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Tres fechas que pueden cambiar una defensa: acto, notificación y reacción",
+  "hook": "¿Te entregaron una resolución y alguien ya está contando un plazo sin mirar cómo se notificó?",
+  "problem": "Una persona confunde la fecha de emisión con la fecha en que conoció formalmente la decisión.",
+  "centralThesis": "El control de plazos exige separar el acto, la notificación y la regla aplicable al recurso.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Incumplimiento contractual: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir incumplimiento contractual con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre incumplimiento contractual, con una ruta de seguimiento y ejecución posible."
+    "Pensemos en una resolución hipotética firmada un lunes y notificada varios días después. La fecha impresa en el documento no demuestra, por sí sola, cuándo comenzó un plazo impugnatorio.",
+    "El artículo 115 de la Constitución garantiza defensa y debido proceso. La duración y el inicio de cada plazo dependen, además, de la ley especial y del régimen de notificaciones correspondiente.",
+    "La ruta práctica es reunir la resolución íntegra, el cargo o constancia de notificación, el calendario aplicable y la disposición que regula el recurso. Después se calcula el término sin asumir días hábiles o corridos.",
+    "Si la notificación es discutida, hay que documentar el defecto y examinar sus efectos jurídicos concretos. No toda irregularidad produce automáticamente la ampliación del plazo ni la nulidad."
   ],
-  "conclusion": "Incumplimiento contractual se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Un cómputo confiable empieza por los documentos, no por una fecha recordada.",
+  "closingIdea": "La estrategia procesal se puede perder antes de discutir el fondo.",
+  "cta": "Ante una notificación reciente, pide revisar el cargo y el régimen del recurso antes de dejar pasar tiempo.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de incumplimiento contractual",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Análisis jurídico aplicado",
+    "Evaluación documental y estrategia preventiva"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin garantía de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y hechos",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Incumplimiento contractual: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Incumplimiento contractual, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "aclarar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "REVISIÓN PARCIAL — FUENTE MATRIZ CONSULTADA; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Constitución Política del Estado",
+        "articuloOFundamento": "art. 115.II, 119.II",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Consulta de texto institucional y contraste del principio general: Garantías generales de defensa; plazos específicos quedan sujetos a normativa sectorial. No se certifica consolidación integral de reformas a 24-10-2026."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Diferenciación de hook, problema, tesis, desarrollo y conclusión",
+      "Ejemplo explícitamente hipotético y sin datos personales",
+      "Alcance de afirmaciones limitado a principios generales cotejados",
+      "Escenas alineadas con cada fragmento narrado"
+    ],
+    "pendientes": [
+      "Cotejo consolidado de reformas y normativa sectorial específica vigente al 24-10-2026",
+      "Revisión jurisprudencial específica cuando el caso real lo requiera",
+      "Verificación de legislación ordinaria de detalle cuando se aplique profesionalmente",
+      "Validación técnica real del repositorio remotion-templates y sus preauditorías"
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Te entregaron una resolución y alguien ya está contando un plazo sin mirar cómo se notificó?",
+      "visual": "Pantalla con pregunta concreta y situación cotidiana ilustrativa",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Pensemos en una resolución hipotética firmada un lunes y notificada varios días después. La fecha impresa en el documento no demuestra, por sí sola, cuándo comenzó un plazo impugnatorio.",
+      "visual": "Secuencia de ejemplo hipotético con personas y documentos ficticios",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "El artículo 115 de la Constitución garantiza defensa y debido proceso. La duración y el inicio de cada plazo dependen, además, de la ley especial y del régimen de notificaciones correspondiente.",
+      "visual": "Referencia normativa en tarjeta legible y comparación con el ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "La ruta práctica es reunir la resolución íntegra, el cargo o constancia de notificación, el calendario aplicable y la disposición que regula el recurso. Después se calcula el término sin asumir días hábiles o corridos.",
+      "visual": "Tabla visual de verificación con columnas diferenciadas",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Si la notificación es discutida, hay que documentar el defecto y examinar sus efectos jurídicos concretos. No toda irregularidad produce automáticamente la ampliación del plazo ni la nulidad.",
+      "visual": "Diagrama de opciones y comprobaciones, sin promesa de resultado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Un cómputo confiable empieza por los documentos, no por una fecha recordada.",
+      "visual": "Conclusión con síntesis visual del problema",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "La estrategia procesal se puede perder antes de discutir el fondo.",
+      "visual": "Idea final en tarjeta tipográfica sobria",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "Ante una notificación reciente, pide revisar el cargo y el régimen del recurso antes de dejar pasar tiempo.",
+      "visual": "Llamado a revisión documental, sin contacto inventado",
+      "elementosObligatorios": [
+        "Correspondencia literal con la idea narrada",
+        "Etiqueta «Ejemplo hipotético» en escenas ilustrativas",
+        "Documentos ficticios claramente identificados"
+      ],
+      "restricciones": [
+        "No exhibir datos personales reales",
+        "No simular documentos auténticos",
+        "No añadir afirmaciones jurídicas no auditadas"
+      ]
+    }
+  ]
 }

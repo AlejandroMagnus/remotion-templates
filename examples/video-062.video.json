@@ -12,7 +12,11 @@
       "juridico",
       "incumplimiento",
       "contractual"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Incumplimiento contractual: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Incumplimiento contractual: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir incumplimiento contractual con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre incumplimiento contractual, con una ruta de seguimiento y ejecución posible. Incumplimiento contractual se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Incumplimiento contractual, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Te entregaron una resolución y alguien ya está contando un plazo sin mirar cómo se notificó? Pensemos en una resolución hipotética firmada un lunes y notificada varios días después. La fecha impresa en el documento no demuestra, por sí sola, cuándo comenzó un plazo impugnatorio. El artículo 115 de la Constitución garantiza defensa y debido proceso. La duración y el inicio de cada plazo dependen, además, de la ley especial y del régimen de notificaciones correspondiente. La ruta práctica es reunir la resolución íntegra, el cargo o constancia de notificación, el calendario aplicable y la disposición que regula el recurso. Después se calcula el término sin asumir días hábiles o corridos. Si la notificación es discutida, hay que documentar el defecto y examinar sus efectos jurídicos concretos. No toda irregularidad produce automáticamente la ampliación del plazo ni la nulidad. Un cómputo confiable empieza por los documentos, no por una fecha recordada. La estrategia procesal se puede perder antes de discutir el fondo. Ante una notificación reciente, pide revisar el cargo y el régimen del recurso antes de dejar pasar tiempo.",
     "narrationSrc": "public/generated/video-062-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Incumplimiento contractual",
-        "subtitle": "Incumplimiento contractual: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Tres fechas que pueden cambiar una defensa: acto, notificación y reacción",
+        "subtitle": "¿Te entregaron una resolución y alguien ya está contando un plazo sin mirar cómo se notificó?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Incumplimiento contractual: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Pensemos en una resolución hipotética firmada un lunes y notificada varios días después. La fecha impresa en el documento no demuestra, por sí sola, cuándo comenzó un plazo impugnatorio."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "El artículo 115 de la Constitución garantiza defensa y debido proceso. La duración y el inicio de cada plazo dependen, además, de la ley especial y del régimen de notificaciones correspondiente."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "La ruta práctica es reunir la resolución íntegra, el cargo o constancia de notificación, el calendario aplicable y la disposición que regula el recurso. Después se calcula el término sin asumir días hábiles o corridos."
       },
       "timing": {
         "durationMs": 9000
@@ -85,7 +89,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir incumplimiento contractual con un trámite genérico sin identificar requisitos, autoridad y prueba."
+        "subtitle": "Si la notificación es discutida, hay que documentar el defecto y examinar sus efectos jurídicos concretos. No toda irregularidad produce automáticamente la ampliación del plazo ni la nulidad."
       },
       "timing": {
         "durationMs": 9000
@@ -95,8 +99,8 @@
       "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Incumplimiento contractual se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Incumplimiento contractual, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Un cómputo confiable empieza por los documentos, no por una fecha recordada.",
+        "subtitle": "La estrategia procesal se puede perder antes de discutir el fondo."
       },
       "timing": {
         "durationMs": 10000
