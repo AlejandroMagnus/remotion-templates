@@ -12,7 +12,11 @@
       "juridico",
       "propiedad",
       "agraria"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Propiedad agraria: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Propiedad agraria: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir propiedad agraria con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre propiedad agraria, con una ruta de seguimiento y ejecución posible. Propiedad agraria se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Propiedad agraria, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Un relato convincente alcanza para reclamar una deuda? Ejemplo expresamente hipotético: Una vendedora ficticia entregó mercadería y conserva mensajes, pero no identifica el precio aceptado. Separa entrega, acuerdo de precio y vencimiento: son tres cuestiones diferentes que requieren respaldo. Ordena mensajes completos, recibos y movimientos bancarios; distingue una oferta de una aceptación efectiva. En ese ejemplo, probar la entrega no demuestra automáticamente cuánto se debe. La primera pregunta del litigante es qué extremo sigue sin prueba. Antes de demandar, construye una tabla de hechos y respaldos.",
     "narrationSrc": "public/generated/video-071-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Propiedad agraria",
-        "subtitle": "Propiedad agraria: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "La pregunta que cambia una estrategia: ¿qué necesita demostrarse?",
+        "subtitle": "¿Un relato convincente alcanza para reclamar una deuda?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Propiedad agraria: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una vendedora ficticia entregó mercadería y conserva mensajes, pero no identifica el precio aceptado."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Separa entrega, acuerdo de precio y vencimiento: son tres cuestiones diferentes que requieren respaldo."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Ordena mensajes completos, recibos y movimientos bancarios; distingue una oferta de una aceptación efectiva."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir propiedad agraria con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Propiedad agraria se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Propiedad agraria, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "En ese ejemplo, probar la entrega no demuestra automáticamente cuánto se debe.",
+        "subtitle": "La primera pregunta del litigante es qué extremo sigue sin prueba."
       },
       "timing": {
         "durationMs": 10000

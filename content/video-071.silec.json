@@ -1,59 +1,198 @@
 {
   "productionCode": "video-071",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "DT",
-    "dimension": "sustantiva",
-    "domains": [
-      "agrario, minero, hidrocarburos y regulación",
-      "Propiedad agraria",
-      "constitucionalización práctica"
-    ],
-    "intellectualContribution": "Explica Propiedad agraria desde su utilidad operativa concreta: qué la diferencia de la propiedad civil común.",
-    "newAngle": {
-      "comparedWith": [
-        "video-070"
-      ],
-      "contribution": "Diferencia Propiedad agraria por su problema específico: confundir propiedad agraria con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Propiedad agraria",
-  "centralThesis": "Propiedad agraria exige dominar qué la diferencia de la propiedad civil común; su valor práctico está en transformar qué la diferencia de la propiedad civil común en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Propiedad agraria es confundir propiedad agraria con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "La pregunta que cambia una estrategia: ¿qué necesita demostrarse?",
+  "hook": "¿Un relato convincente alcanza para reclamar una deuda?",
+  "problem": "Una persona cree que su relato basta para ganar.",
+  "centralThesis": "La estrategia de cobro depende de demostrar obligación, exigibilidad y falta de pago, no de contar una historia persuasiva.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Propiedad agraria: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir propiedad agraria con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre propiedad agraria, con una ruta de seguimiento y ejecución posible."
+    "Ejemplo expresamente hipotético: Una vendedora ficticia entregó mercadería y conserva mensajes, pero no identifica el precio aceptado.",
+    "Separa entrega, acuerdo de precio y vencimiento: son tres cuestiones diferentes que requieren respaldo.",
+    "Ordena mensajes completos, recibos y movimientos bancarios; distingue una oferta de una aceptación efectiva."
   ],
-  "conclusion": "Propiedad agraria se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "En ese ejemplo, probar la entrega no demuestra automáticamente cuánto se debe.",
+  "closingIdea": "La primera pregunta del litigante es qué extremo sigue sin prueba.",
+  "cta": "Antes de demandar, construye una tabla de hechos y respaldos.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de propiedad agraria",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Razonamiento jurídico estratégico",
+    "Análisis preventivo y probatorio"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin promesa de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y circunstancias",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Propiedad agraria: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Propiedad agraria, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "orientar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "CIERRE DE FUENTE V3: BORRADOR AUDIOVISUAL INTERNO CONDICIONADO; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "Código Civil",
+        "articuloOFundamento": "450, 452 (consentimiento y requisitos)",
+        "url": "https://www.lexivox.org/norms/BO-COD-DL12760B.html",
+        "alcanceCotejo": "Cotejo textual puntual de la fuente accesible el 31-10-2026; no certifica consolidación de reformas posteriores ni aplicación a un expediente particular."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Tesis propia de la materia y del ejemplo",
+      "Dos pasos de análisis diferenciados",
+      "Conclusión aplicada al supuesto hipotético",
+      "Control local de coincidencias intraficha e intervideo ejecutado; resultados en auditoría",
+      "No se altera ninguna autorización técnica",
+      "Cierre jurídico por ID: Ejemplo de compraventa: el contrato requiere acuerdo; exigibilidad y pago deben examinarse según título y régimen aplicable."
+    ],
+    "pendientes": [
+      "Revisión humana PAJI y contraste con jurisprudencia únicamente si se pretende citarla",
+      "Validar seis modalidades de autoría, controles del repositorio y render en entorno real",
+      "Contrastar catálogo completo VIDEO-001–070 y novedad remota antes de publicar",
+      "Revalidar vigencia, reformas y normativa especial antes de publicación; cotejo textual no equivale a certificación integral.",
+      "Aprobación humana jurídica, audiovisual, derechos de terceros, originalidad y render real: PENDIENTES."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Un relato convincente alcanza para reclamar una deuda?",
+      "visual": "Apertura: pregunta específica",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Una persona cree que su relato basta para ganar.",
+      "visual": "Problema humano",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "Ejemplo expresamente hipotético: Una vendedora ficticia entregó mercadería y conserva mensajes, pero no identifica el precio aceptado.",
+      "visual": "Escena ficticia etiquetada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Separa entrega, acuerdo de precio y vencimiento: son tres cuestiones diferentes que requieren respaldo.",
+      "visual": "Primer criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Ordena mensajes completos, recibos y movimientos bancarios; distingue una oferta de una aceptación efectiva.",
+      "visual": "Segundo criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La estrategia de cobro depende de demostrar obligación, exigibilidad y falta de pago, no de contar una historia persuasiva.",
+      "visual": "Tesis diferenciada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "En ese ejemplo, probar la entrega no demuestra automáticamente cuánto se debe.",
+      "visual": "Aplicación al ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "La primera pregunta del litigante es qué extremo sigue sin prueba.",
+      "visual": "Idea de cierre",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 9,
+      "fragmentoNarrado": "Antes de demandar, construye una tabla de hechos y respaldos.",
+      "visual": "Invitación prudente",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    }
+  ]
 }
