@@ -3,7 +3,7 @@
   "id": "video-080",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Conflictos regulatorios",
+    "title": "Confundir urgencia con estrategia puede empeorar el conflicto",
     "description": "Cómo defenderse frente a sanciones o decisiones de entidades reguladoras.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "conflictos",
       "regulatorios"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Conflictos regulatorios: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Conflictos regulatorios: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir conflictos regulatorios con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre conflictos regulatorios, con una ruta de seguimiento y ejecución posible. Conflictos regulatorios se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Conflictos regulatorios, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Responder hoy por impulso puede perjudicarte mañana? Ejemplo expresamente hipotético: Una comerciante ficticia recibe una intimación y publica una acusación antes de leer el documento. Determina qué se le exige realmente y conserva la notificación íntegra, incluida su fecha. Evalúa canales formales y posibles restricciones antes de responder públicamente o asumir hechos. El ejemplo muestra que una reacción reputacional puede abrir un conflicto adicional. Actuar rápido no es lo mismo que actuar sin diagnóstico. Distingue medidas de preservación de decisiones irreversibles.",
     "narrationSrc": "public/generated/video-080-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Conflictos regulatorios",
-        "subtitle": "Conflictos regulatorios: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Confundir urgencia con estrategia puede empeorar el conflicto",
+        "subtitle": "¿Responder hoy por impulso puede perjudicarte mañana?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Conflictos regulatorios: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una comerciante ficticia recibe una intimación y publica una acusación antes de leer el documento."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Determina qué se le exige realmente y conserva la notificación íntegra, incluida su fecha."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Evalúa canales formales y posibles restricciones antes de responder públicamente o asumir hechos."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir conflictos regulatorios con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Conflictos regulatorios se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Conflictos regulatorios, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El ejemplo muestra que una reacción reputacional puede abrir un conflicto adicional.",
+        "subtitle": "Actuar rápido no es lo mismo que actuar sin diagnóstico."
       },
       "timing": {
         "durationMs": 10000

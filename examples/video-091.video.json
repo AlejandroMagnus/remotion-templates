@@ -3,7 +3,7 @@
   "id": "video-091",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Cuándo consultar a un abogado",
+    "title": "Defensa técnica: responder al argumento real y no a uno inventado",
     "description": "Por qué esperar demasiado puede destruir un caso.",
     "tags": [
       "derecho",
@@ -13,7 +13,11 @@
       "cuando",
       "consultar",
       "abogado"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Cuándo consultar a un abogado: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Cuándo consultar a un abogado: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir cuándo consultar a un abogado con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre cuándo consultar a un abogado, con una ruta de seguimiento y ejecución posible. Cuándo consultar a un abogado se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Cuándo consultar a un abogado, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Estás respondiendo al cargo formulado o a uno imaginado? Ejemplo expresamente hipotético: Un acusado ficticio se defiende de un supuesto robo, aunque la denuncia describe un daño distinto. Lee el hecho atribuido sin sustituirlo por etiquetas populares ni inferencias del entorno. Contrasta tiempo, conducta y elementos de respaldo; prepara respuestas a esos extremos concretos. Refutar una imputación que nadie formuló deja intacta la controversia verdadera. La precisión protege el derecho de defensa. Resume el señalamiento contrario antes de elaborar tu réplica.",
     "narrationSrc": "public/generated/video-091-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Cuándo consultar a un abogado",
-        "subtitle": "Cuándo consultar a un abogado: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Defensa técnica: responder al argumento real y no a uno inventado",
+        "subtitle": "¿Estás respondiendo al cargo formulado o a uno imaginado?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Cuándo consultar a un abogado: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Un acusado ficticio se defiende de un supuesto robo, aunque la denuncia describe un daño distinto."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Lee el hecho atribuido sin sustituirlo por etiquetas populares ni inferencias del entorno."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Contrasta tiempo, conducta y elementos de respaldo; prepara respuestas a esos extremos concretos."
       },
       "timing": {
         "durationMs": 9000
@@ -83,21 +87,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir cuándo consultar a un abogado con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Cuándo consultar a un abogado se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Cuándo consultar a un abogado, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Refutar una imputación que nadie formuló deja intacta la controversia verdadera.",
+        "subtitle": "La precisión protege el derecho de defensa."
       },
       "timing": {
         "durationMs": 10000

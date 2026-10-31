@@ -1,58 +1,198 @@
 {
   "productionCode": "video-094",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "prevención y servicios jurídicos premium",
-      "Diagnóstico jurídico estratégico"
-    ],
-    "intellectualContribution": "Explica Diagnóstico jurídico estratégico desde su utilidad operativa concreta: por qué antes de demandar hay que entender el caso completo.",
-    "newAngle": {
-      "comparedWith": [
-        "video-093"
-      ],
-      "contribution": "Diferencia Diagnóstico jurídico estratégico por su problema específico: confundir diagnóstico jurídico estratégico con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Diagnóstico jurídico estratégico",
-  "centralThesis": "Diagnóstico jurídico estratégico exige dominar por qué antes de demandar hay que entender el caso completo; su valor práctico está en transformar por qué antes de demandar hay que entender el caso completo en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Diagnóstico jurídico estratégico es confundir diagnóstico jurídico estratégico con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Impugnación: antes de discutir el fondo, identifica la decisión",
+  "hook": "¿Cómo impugnar si ni siquiera identificas el acto que te perjudica?",
+  "problem": "La persona no sabe qué acto pretende cuestionar.",
+  "centralThesis": "Una impugnación coherente distingue resolución, autoridad, notificación, agravio y remedio legal disponible.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Diagnóstico jurídico estratégico: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir diagnóstico jurídico estratégico con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre diagnóstico jurídico estratégico, con una ruta de seguimiento y ejecución posible."
+    "Ejemplo expresamente hipotético: Una empresa ficticia protesta por una multa, pero adjunta una carta informativa distinta de la resolución sancionadora.",
+    "Localiza el acto decisorio y su parte dispositiva; separa antecedentes de la decisión que produce efectos.",
+    "Verifica la vía y las condiciones aplicables en el régimen específico antes de formular agravios."
   ],
-  "conclusion": "Diagnóstico jurídico estratégico se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "Discutir la carta equivocada puede dejar sin respuesta la sanción real.",
+  "closingIdea": "El primer paso de impugnar es saber qué se impugna.",
+  "cta": "Identifica número, fecha y efecto del acto en tu carpeta.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Personas y empresas afectadas"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de diagnóstico jurídico estratégico",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Razonamiento jurídico estratégico",
+    "Análisis preventivo y probatorio"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin promesa de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y circunstancias",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Diagnóstico jurídico estratégico: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Diagnóstico jurídico estratégico, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "orientar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "CIERRE DE FUENTE V3: BORRADOR AUDIOVISUAL INTERNO CONDICIONADO; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "CPE",
+        "articuloOFundamento": "180.II (impugnación judicial); 115 (tutela)",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Cotejo textual puntual de la fuente accesible el 31-10-2026; no certifica consolidación de reformas posteriores ni aplicación a un expediente particular."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Tesis propia de la materia y del ejemplo",
+      "Dos pasos de análisis diferenciados",
+      "Conclusión aplicada al supuesto hipotético",
+      "Control local de coincidencias intraficha e intervideo ejecutado; resultados en auditoría",
+      "No se altera ninguna autorización técnica",
+      "Cierre jurídico por ID: No se dan plazos ni se selecciona recurso por desconocerse vía y acto."
+    ],
+    "pendientes": [
+      "Revisión humana PAJI y contraste con jurisprudencia únicamente si se pretende citarla",
+      "Validar seis modalidades de autoría, controles del repositorio y render en entorno real",
+      "Contrastar catálogo completo VIDEO-001–070 y novedad remota antes de publicar",
+      "Revalidar vigencia, reformas y normativa especial antes de publicación; cotejo textual no equivale a certificación integral.",
+      "Aprobación humana jurídica, audiovisual, derechos de terceros, originalidad y render real: PENDIENTES."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Cómo impugnar si ni siquiera identificas el acto que te perjudica?",
+      "visual": "Apertura: pregunta específica",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "La persona no sabe qué acto pretende cuestionar.",
+      "visual": "Problema humano",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "Ejemplo expresamente hipotético: Una empresa ficticia protesta por una multa, pero adjunta una carta informativa distinta de la resolución sancionadora.",
+      "visual": "Escena ficticia etiquetada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Localiza el acto decisorio y su parte dispositiva; separa antecedentes de la decisión que produce efectos.",
+      "visual": "Primer criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Verifica la vía y las condiciones aplicables en el régimen específico antes de formular agravios.",
+      "visual": "Segundo criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "Una impugnación coherente distingue resolución, autoridad, notificación, agravio y remedio legal disponible.",
+      "visual": "Tesis diferenciada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "Discutir la carta equivocada puede dejar sin respuesta la sanción real.",
+      "visual": "Aplicación al ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "El primer paso de impugnar es saber qué se impugna.",
+      "visual": "Idea de cierre",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 9,
+      "fragmentoNarrado": "Identifica número, fecha y efecto del acto en tu carpeta.",
+      "visual": "Invitación prudente",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    }
+  ]
 }

@@ -1,58 +1,205 @@
 {
   "productionCode": "video-099",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "prevención y servicios jurídicos premium",
-      "Qué hace diferente a un servicio jurídico premium"
-    ],
-    "intellectualContribution": "Explica Qué hace diferente a un servicio jurídico premium desde su utilidad operativa concreta: no es solo redactar: es diagnosticar, probar, anticipar y decidir.",
-    "newAngle": {
-      "comparedWith": [
-        "video-098"
-      ],
-      "contribution": "Diferencia Qué hace diferente a un servicio jurídico premium por su problema específico: confundir qué hace diferente a un servicio jurídico premium con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Qué hace diferente a un servicio jurídico premium",
-  "centralThesis": "Qué hace diferente a un servicio jurídico premium exige dominar no es solo redactar: es diagnosticar, probar, anticipar y decidir; su valor práctico está en transformar no es solo redactar: es diagnosticar, probar, anticipar y decidir en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Qué hace diferente a un servicio jurídico premium es confundir qué hace diferente a un servicio jurídico premium con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Violencia y medidas de protección: no improvisar contacto",
+  "hook": "¿Es prudente contactar a alguien sin leer una medida de protección?",
+  "problem": "Alguien interpreta una medida sin leer su alcance.",
+  "centralThesis": "La conducta segura depende del texto y vigencia de la medida, no de interpretaciones informales.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Qué hace diferente a un servicio jurídico premium: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir qué hace diferente a un servicio jurídico premium con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre qué hace diferente a un servicio jurídico premium, con una ruta de seguimiento y ejecución posible."
+    "Ejemplo expresamente hipotético: En un caso ficticio, una persona cree que una prohibición de acercamiento permite enviar mensajes por terceros.",
+    "Lee destinatarios, conductas restringidas, ámbito y autoridad emisora, sin suponer excepciones.",
+    "Ante duda, solicita aclaración por la vía competente y evita contacto que pueda incumplir la orden."
   ],
-  "conclusion": "Qué hace diferente a un servicio jurídico premium se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "En el ejemplo, la intermediación no debe utilizarse como atajo para eludir restricciones.",
+  "closingIdea": "La protección exige respeto estricto a las decisiones vigentes.",
+  "cta": "Antes de actuar, revisa íntegramente la medida con asistencia especializada.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Personas y empresas afectadas"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de qué hace diferente a un servicio jurídico premium",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Razonamiento jurídico estratégico",
+    "Análisis preventivo y probatorio"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin promesa de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y circunstancias",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Qué hace diferente a un servicio jurídico premium: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Qué hace diferente a un servicio jurídico premium, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "orientar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "CIERRE DE FUENTE V3: BORRADOR AUDIOVISUAL INTERNO CONDICIONADO; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "CPE",
+        "articuloOFundamento": "15 (integridad y protección)",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Cotejo textual puntual de la fuente accesible el 31-10-2026; no certifica consolidación de reformas posteriores ni aplicación a un expediente particular."
+      },
+      {
+        "normaOResolucion": "Ley 348",
+        "articuloOFundamento": "61.1 (protección en contexto de violencia)",
+        "url": "https://www.lexivox.org/norms/BO-L-N348.html",
+        "alcanceCotejo": "Cotejo textual puntual de la fuente accesible el 31-10-2026; no certifica consolidación de reformas posteriores ni aplicación a un expediente particular."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Tesis propia de la materia y del ejemplo",
+      "Dos pasos de análisis diferenciados",
+      "Conclusión aplicada al supuesto hipotético",
+      "Control local de coincidencias intraficha e intervideo ejecutado; resultados en auditoría",
+      "No se altera ninguna autorización técnica",
+      "Cierre jurídico por ID: Sin acceso a orden individual; jamás sugerir contacto directo o indirecto. Ley 348 cotejada en alcance general."
+    ],
+    "pendientes": [
+      "BLOQUEO SECTORIAL: falta cotejo exhaustivo del régimen especial aplicable a este tema; no convertir esta ficha en consejo individual ni publicar sin revisión.",
+      "Revisión humana PAJI y contraste con jurisprudencia únicamente si se pretende citarla",
+      "Validar seis modalidades de autoría, controles del repositorio y render en entorno real",
+      "Contrastar catálogo completo VIDEO-001–070 y novedad remota antes de publicar",
+      "Revalidar vigencia, reformas y normativa especial antes de publicación; cotejo textual no equivale a certificación integral.",
+      "Aprobación humana jurídica, audiovisual, derechos de terceros, originalidad y render real: PENDIENTES."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Es prudente contactar a alguien sin leer una medida de protección?",
+      "visual": "Apertura: pregunta específica",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Alguien interpreta una medida sin leer su alcance.",
+      "visual": "Problema humano",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "Ejemplo expresamente hipotético: En un caso ficticio, una persona cree que una prohibición de acercamiento permite enviar mensajes por terceros.",
+      "visual": "Escena ficticia etiquetada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Lee destinatarios, conductas restringidas, ámbito y autoridad emisora, sin suponer excepciones.",
+      "visual": "Primer criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Ante duda, solicita aclaración por la vía competente y evita contacto que pueda incumplir la orden.",
+      "visual": "Segundo criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La conducta segura depende del texto y vigencia de la medida, no de interpretaciones informales.",
+      "visual": "Tesis diferenciada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "En el ejemplo, la intermediación no debe utilizarse como atajo para eludir restricciones.",
+      "visual": "Aplicación al ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "La protección exige respeto estricto a las decisiones vigentes.",
+      "visual": "Idea de cierre",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 9,
+      "fragmentoNarrado": "Antes de actuar, revisa íntegramente la medida con asistencia especializada.",
+      "visual": "Invitación prudente",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    }
+  ]
 }

@@ -3,7 +3,7 @@
   "id": "video-082",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Carga de la prueba",
+    "title": "La coherencia de una versión se mide con una línea de tiempo",
     "description": "Quién debe probar qué y qué pasa si no lo hace.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "carga",
       "prueba"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Carga de la prueba: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Carga de la prueba: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir carga de la prueba con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre carga de la prueba, con una ruta de seguimiento y ejecución posible. Carga de la prueba se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Carga de la prueba, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Qué ocurre cuando tu cronología se contradice sola? Ejemplo expresamente hipotético: Una demandante ficticia afirma haber reclamado antes de recibir un producto, según fechas de sus mensajes. Ubica en una línea temporal contrato, entrega, reclamo y respuesta, conservando los originales. Investiga si existe error de fecha, huso horario o confusión de operaciones antes de concluir falsedad. La aparente contradicción puede aclararse, pero no debe ocultarse en el escrito. La coherencia se comprueba evento por evento. Construye la cronología antes de cerrar tu versión.",
     "narrationSrc": "public/generated/video-082-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Carga de la prueba",
-        "subtitle": "Carga de la prueba: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "La coherencia de una versión se mide con una línea de tiempo",
+        "subtitle": "¿Qué ocurre cuando tu cronología se contradice sola?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Carga de la prueba: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una demandante ficticia afirma haber reclamado antes de recibir un producto, según fechas de sus mensajes."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Ubica en una línea temporal contrato, entrega, reclamo y respuesta, conservando los originales."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Investiga si existe error de fecha, huso horario o confusión de operaciones antes de concluir falsedad."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir carga de la prueba con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Carga de la prueba se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Carga de la prueba, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La aparente contradicción puede aclararse, pero no debe ocultarse en el escrito.",
+        "subtitle": "La coherencia se comprueba evento por evento."
       },
       "timing": {
         "durationMs": 10000

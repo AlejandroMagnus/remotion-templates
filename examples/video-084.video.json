@@ -3,7 +3,7 @@
   "id": "video-084",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Prueba documental defectuosa",
+    "title": "El documento útil es el que responde una pregunta concreta",
     "description": "Cuándo un documento no alcanza para ganar.",
     "tags": [
       "derecho",
@@ -13,7 +13,11 @@
       "prueba",
       "documental",
       "defectuosa"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Prueba documental defectuosa: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Prueba documental defectuosa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir prueba documental defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre prueba documental defectuosa, con una ruta de seguimiento y ejecución posible. Prueba documental defectuosa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Prueba documental defectuosa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Qué documento merece realmente entrar en tu carpeta del caso? Ejemplo expresamente hipotético: Una persona ficticia guarda capturas aisladas, pero perdió la conversación completa sobre un servicio. Distingue la captura parcial del registro íntegro y conserva datos de fecha, emisor y continuidad. Relaciona cada archivo con precio, encargo, cumplimiento o reclamo, según lo discutido. En el ejemplo, diez capturas repetidas no compensan la ausencia del acuerdo principal. Archivar con criterio es preparar una explicación verificable. Nombra tus archivos por fecha, origen y hecho relevante.",
     "narrationSrc": "public/generated/video-084-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Prueba documental defectuosa",
-        "subtitle": "Prueba documental defectuosa: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "El documento útil es el que responde una pregunta concreta",
+        "subtitle": "¿Qué documento merece realmente entrar en tu carpeta del caso?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Prueba documental defectuosa: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una persona ficticia guarda capturas aisladas, pero perdió la conversación completa sobre un servicio."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Distingue la captura parcial del registro íntegro y conserva datos de fecha, emisor y continuidad."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Relaciona cada archivo con precio, encargo, cumplimiento o reclamo, según lo discutido."
       },
       "timing": {
         "durationMs": 9000
@@ -83,21 +87,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir prueba documental defectuosa con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Prueba documental defectuosa se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Prueba documental defectuosa, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "En el ejemplo, diez capturas repetidas no compensan la ausencia del acuerdo principal.",
+        "subtitle": "Archivar con criterio es preparar una explicación verificable."
       },
       "timing": {
         "durationMs": 10000

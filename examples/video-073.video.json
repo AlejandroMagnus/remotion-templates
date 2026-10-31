@@ -3,7 +3,7 @@
   "id": "video-073",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Función social y función económico-social",
+    "title": "Cuando el derecho existe, pero el remedio está mal elegido",
     "description": "Por qué son decisivas en tierra rural.",
     "tags": [
       "derecho",
@@ -14,7 +14,11 @@
       "social",
       "funcion",
       "economico"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -30,7 +34,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Función social y función económico-social: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Función social y función económico-social: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir función social y función económico-social con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre función social y función económico-social, con una ruta de seguimiento y ejecución posible. Función social y función económico-social se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Función social y función económico-social, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Y si tienes razón, pero estás pidiendo algo que esa autoridad no puede ordenar? Ejemplo expresamente hipotético: Una persona ficticia reclama una devolución de dinero mediante una solicitud administrativa que solo pide información. Define si pretende obtener datos, impugnar una decisión o reclamar una obligación patrimonial. Examina quién emitió el acto y qué potestad tiene la autoridad receptora antes de redactar el petitorio. Una respuesta informativa no equivale necesariamente a una orden de reintegro. La precisión del remedio evita esfuerzos procesales mal dirigidos. Escribe en una línea qué decisión concreta necesitas.",
     "narrationSrc": "public/generated/video-073-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -42,8 +46,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Función social y función económico-social",
-        "subtitle": "Función social y función económico-social: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Cuando el derecho existe, pero el remedio está mal elegido",
+        "subtitle": "¿Y si tienes razón, pero estás pidiendo algo que esa autoridad no puede ordenar?"
       },
       "timing": {
         "durationMs": 8000
@@ -54,7 +58,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Función social y función económico-social: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una persona ficticia reclama una devolución de dinero mediante una solicitud administrativa que solo pide información."
       },
       "timing": {
         "durationMs": 9000
@@ -65,7 +69,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Define si pretende obtener datos, impugnar una decisión o reclamar una obligación patrimonial."
       },
       "timing": {
         "durationMs": 9000
@@ -76,7 +80,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Examina quién emitió el acto y qué potestad tiene la autoridad receptora antes de redactar el petitorio."
       },
       "timing": {
         "durationMs": 9000
@@ -84,21 +88,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir función social y función económico-social con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Función social y función económico-social se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Función social y función económico-social, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una respuesta informativa no equivale necesariamente a una orden de reintegro.",
+        "subtitle": "La precisión del remedio evita esfuerzos procesales mal dirigidos."
       },
       "timing": {
         "durationMs": 10000

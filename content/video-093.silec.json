@@ -1,58 +1,198 @@
 {
   "productionCode": "video-093",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "prevención y servicios jurídicos premium",
-      "Errores que cometen los clientes"
-    ],
-    "intellectualContribution": "Explica Errores que cometen los clientes desde su utilidad operativa concreta: mentir, ocultar documentos, improvisar y firmar sin asesoría.",
-    "newAngle": {
-      "comparedWith": [
-        "video-092"
-      ],
-      "contribution": "Diferencia Errores que cometen los clientes por su problema específico: confundir errores que cometen los clientes con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Errores que cometen los clientes",
-  "centralThesis": "Errores que cometen los clientes exige dominar mentir, ocultar documentos, improvisar y firmar sin asesoría; su valor práctico está en transformar mentir, ocultar documentos, improvisar y firmar sin asesoría en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Errores que cometen los clientes es confundir errores que cometen los clientes con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Derecho a la privacidad en expedientes digitales",
+  "hook": "¿Es necesario publicar todos los datos de un expediente digital?",
+  "problem": "Se comparten datos personales sin necesidad.",
+  "centralThesis": "La difusión de actuaciones debe considerar finalidad, necesidad y protección de datos personales y comunicaciones privadas.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Errores que cometen los clientes: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir errores que cometen los clientes con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre errores que cometen los clientes, con una ruta de seguimiento y ejecución posible."
+    "Ejemplo expresamente hipotético: Un abogado ficticio comparte una captura que exhibe domicilios y teléfonos ajenos al debate.",
+    "Define qué información resulta imprescindible para explicar el punto jurídico.",
+    "Oculta identificadores no pertinentes y verifica restricciones de acceso, reserva y deberes profesionales."
   ],
-  "conclusion": "Errores que cometen los clientes se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "En el ejemplo, mostrar el fundamento no requiere exponer a terceros.",
+  "closingIdea": "La transparencia no autoriza divulgar indiscriminadamente.",
+  "cta": "Antes de compartir, revisa cada dato identificable.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Abogacía y profesionales"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de errores que cometen los clientes",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Razonamiento jurídico estratégico",
+    "Análisis preventivo y probatorio"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin promesa de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y circunstancias",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Errores que cometen los clientes: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Errores que cometen los clientes, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "orientar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "CIERRE DE FUENTE V3: BORRADOR AUDIOVISUAL INTERNO CONDICIONADO; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "CPE",
+        "articuloOFundamento": "25.I–III (secreto de comunicaciones y documentos privados)",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Cotejo textual puntual de la fuente accesible el 31-10-2026; no certifica consolidación de reformas posteriores ni aplicación a un expediente particular."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Tesis propia de la materia y del ejemplo",
+      "Dos pasos de análisis diferenciados",
+      "Conclusión aplicada al supuesto hipotético",
+      "Control local de coincidencias intraficha e intervideo ejecutado; resultados en auditoría",
+      "No se altera ninguna autorización técnica",
+      "Cierre jurídico por ID: Art. 25 CPE protege especialmente comunicaciones/documentos privados; otras categorías de datos requieren régimen específico."
+    ],
+    "pendientes": [
+      "Revisión humana PAJI y contraste con jurisprudencia únicamente si se pretende citarla",
+      "Validar seis modalidades de autoría, controles del repositorio y render en entorno real",
+      "Contrastar catálogo completo VIDEO-001–070 y novedad remota antes de publicar",
+      "Revalidar vigencia, reformas y normativa especial antes de publicación; cotejo textual no equivale a certificación integral.",
+      "Aprobación humana jurídica, audiovisual, derechos de terceros, originalidad y render real: PENDIENTES."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Es necesario publicar todos los datos de un expediente digital?",
+      "visual": "Apertura: pregunta específica",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Se comparten datos personales sin necesidad.",
+      "visual": "Problema humano",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "Ejemplo expresamente hipotético: Un abogado ficticio comparte una captura que exhibe domicilios y teléfonos ajenos al debate.",
+      "visual": "Escena ficticia etiquetada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Define qué información resulta imprescindible para explicar el punto jurídico.",
+      "visual": "Primer criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Oculta identificadores no pertinentes y verifica restricciones de acceso, reserva y deberes profesionales.",
+      "visual": "Segundo criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La difusión de actuaciones debe considerar finalidad, necesidad y protección de datos personales y comunicaciones privadas.",
+      "visual": "Tesis diferenciada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "En el ejemplo, mostrar el fundamento no requiere exponer a terceros.",
+      "visual": "Aplicación al ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "La transparencia no autoriza divulgar indiscriminadamente.",
+      "visual": "Idea de cierre",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 9,
+      "fragmentoNarrado": "Antes de compartir, revisa cada dato identificable.",
+      "visual": "Invitación prudente",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    }
+  ]
 }

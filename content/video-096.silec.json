@@ -1,58 +1,199 @@
 {
   "productionCode": "video-096",
-  "humanValue": {
-    "benefit": "aclarar",
-    "ctaMode": "auto"
-  },
-  "editorial": {
-    "category": "HT",
-    "dimension": "forense",
-    "domains": [
-      "prevención y servicios jurídicos premium",
-      "Defensa preventiva"
-    ],
-    "intellectualContribution": "Explica Defensa preventiva desde su utilidad operativa concreta: cómo evitar un juicio antes de que nazca.",
-    "newAngle": {
-      "comparedWith": [
-        "video-095"
-      ],
-      "contribution": "Diferencia Defensa preventiva por su problema específico: confundir defensa preventiva con un trámite genérico sin identificar requisitos, autoridad y prueba."
-    }
-  },
-  "topic": "Defensa preventiva",
-  "centralThesis": "Defensa preventiva exige dominar cómo evitar un juicio antes de que nazca; su valor práctico está en transformar cómo evitar un juicio antes de que nazca en una decisión profesional con requisitos, prueba, autoridad competente y consecuencia verificable.",
-  "problem": "El riesgo frecuente en Defensa preventiva es confundir defensa preventiva con un trámite genérico sin identificar requisitos, autoridad y prueba. Cuando se actúa sin distinguir documentos, carga probatoria, plazos y reacción adversaria, el caso pierde fuerza aunque la pretensión parezca atendible.",
+  "topic": "Despido y documentos: qué conservar antes de discutir",
+  "hook": "¿Qué documentos pueden importar cuando termina una relación laboral?",
+  "problem": "Una trabajadora pierde evidencia de su relación laboral.",
+  "centralThesis": "La evaluación de un despido requiere reconstruir vínculo, condiciones de trabajo y forma de terminación con evidencia.",
   "reasoningChain": [
-    "Primero identifique el resultado buscado en Defensa preventiva: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar.",
-    "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada.",
-    "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general.",
-    "Anticipe la objeción principal: en este tema suele discutirse confundir defensa preventiva con un trámite genérico sin identificar requisitos, autoridad y prueba.",
-    "La decisión útil debe terminar en una actuación jurídicamente ordenada sobre defensa preventiva, con una ruta de seguimiento y ejecución posible."
+    "Ejemplo expresamente hipotético: Una trabajadora ficticia pierde acceso al correo empresarial el día en que le comunican verbalmente su salida.",
+    "Resguarda lícitamente contratos, boletas, comunicaciones propias y constancias de pago que ya tenga.",
+    "Registra fechas y testigos sin extraer secretos empresariales ni vulnerar datos de terceros."
   ],
-  "conclusion": "Defensa preventiva se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
+  "conclusion": "El ejemplo muestra por qué una cronología respaldada puede aclarar hechos que luego se discutan.",
+  "closingIdea": "La documentación útil debe obtenerse de manera legítima.",
+  "cta": "Ordena antecedentes laborales antes de decidir una reclamación.",
   "targetAudience": [
-    "personas con conflictos jurídicos",
-    "empresas",
-    "abogados",
-    "estudiantes de Derecho",
-    "clientes que buscan prevención jurídica"
+    "Ciudadanía",
+    "Personas y empresas afectadas"
   ],
   "capabilityDemonstrated": [
-    "diagnóstico de defensa preventiva",
-    "selección de vía jurídica",
-    "ordenamiento de hechos",
-    "control probatorio",
-    "anticipación de riesgos"
+    "Razonamiento jurídico estratégico",
+    "Análisis preventivo y probatorio"
   ],
-  "commercialObjective": "Demostrar autoridad jurídica, claridad pedagógica y capacidad estratégica para orientar conflictos reales sin prometer resultados.",
+  "commercialObjective": "Consulta profesional especializada, sin promesa de resultado",
   "offerPath": [
-    "contenido educativo",
-    "identificación del problema",
-    "consulta estratégica",
-    "diagnóstico jurídico",
-    "servicio jurídico premium"
+    "Información general",
+    "Revisión de documentos y circunstancias",
+    "Evaluación jurídica individual"
   ],
-  "hook": "Defensa preventiva: antes de actuar, hay una pregunta que puede cambiar todo el caso.",
-  "closingIdea": "En Defensa preventiva, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
-  "cta": "Si este tema puede afectar libertad, familia, patrimonio, empresa o reputación, conviene pedir una orientación estratégica antes de firmar, responder o demandar."
+  "humanValue": {
+    "benefit": "orientar",
+    "ctaMode": "source"
+  },
+  "auditoriaPAJI": {
+    "estado": "CIERRE DE FUENTE V3: BORRADOR AUDIOVISUAL INTERNO CONDICIONADO; PUBLICACIÓN NO AUTORIZADA",
+    "fuentesVerificadas": [
+      {
+        "normaOResolucion": "CPE",
+        "articuloOFundamento": "46 y 48 (trabajo y protección)",
+        "url": "https://www.senapi.gob.bo/normativas/constitucion-politica-del-estado/constitucion-politica-del-estado-plurinacional-de-bolivia",
+        "alcanceCotejo": "Cotejo textual puntual de la fuente accesible el 31-10-2026; no certifica consolidación de reformas posteriores ni aplicación a un expediente particular."
+      }
+    ],
+    "observacionesCorregidas": [
+      "Tesis propia de la materia y del ejemplo",
+      "Dos pasos de análisis diferenciados",
+      "Conclusión aplicada al supuesto hipotético",
+      "Control local de coincidencias intraficha e intervideo ejecutado; resultados en auditoría",
+      "No se altera ninguna autorización técnica",
+      "Cierre jurídico por ID: No se califican indemnizaciones, reincorporación ni plazos: legislación laboral especial pendiente."
+    ],
+    "pendientes": [
+      "BLOQUEO SECTORIAL: falta cotejo exhaustivo del régimen especial aplicable a este tema; no convertir esta ficha en consejo individual ni publicar sin revisión.",
+      "Revisión humana PAJI y contraste con jurisprudencia únicamente si se pretende citarla",
+      "Validar seis modalidades de autoría, controles del repositorio y render en entorno real",
+      "Contrastar catálogo completo VIDEO-001–070 y novedad remota antes de publicar",
+      "Revalidar vigencia, reformas y normativa especial antes de publicación; cotejo textual no equivale a certificación integral.",
+      "Aprobación humana jurídica, audiovisual, derechos de terceros, originalidad y render real: PENDIENTES."
+    ],
+    "listoParaRenderInterno": true,
+    "autorizacionPublicacion": false
+  },
+  "escenasPropuestas": [
+    {
+      "orden": 1,
+      "fragmentoNarrado": "¿Qué documentos pueden importar cuando termina una relación laboral?",
+      "visual": "Apertura: pregunta específica",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 2,
+      "fragmentoNarrado": "Una trabajadora pierde evidencia de su relación laboral.",
+      "visual": "Problema humano",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 3,
+      "fragmentoNarrado": "Ejemplo expresamente hipotético: Una trabajadora ficticia pierde acceso al correo empresarial el día en que le comunican verbalmente su salida.",
+      "visual": "Escena ficticia etiquetada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 4,
+      "fragmentoNarrado": "Resguarda lícitamente contratos, boletas, comunicaciones propias y constancias de pago que ya tenga.",
+      "visual": "Primer criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 5,
+      "fragmentoNarrado": "Registra fechas y testigos sin extraer secretos empresariales ni vulnerar datos de terceros.",
+      "visual": "Segundo criterio de análisis",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 6,
+      "fragmentoNarrado": "La evaluación de un despido requiere reconstruir vínculo, condiciones de trabajo y forma de terminación con evidencia.",
+      "visual": "Tesis diferenciada",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 7,
+      "fragmentoNarrado": "El ejemplo muestra por qué una cronología respaldada puede aclarar hechos que luego se discutan.",
+      "visual": "Aplicación al ejemplo",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 8,
+      "fragmentoNarrado": "La documentación útil debe obtenerse de manera legítima.",
+      "visual": "Idea de cierre",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    },
+    {
+      "orden": 9,
+      "fragmentoNarrado": "Ordena antecedentes laborales antes de decidir una reclamación.",
+      "visual": "Invitación prudente",
+      "elementosObligatorios": [
+        "Correspondencia literal con la narración",
+        "Etiqueta «Ejemplo hipotético» cuando corresponda",
+        "Documentos y personajes ficticios"
+      ],
+      "restricciones": [
+        "No divulgar datos reales",
+        "No presentar simulaciones como documentos auténticos",
+        "No agregar afirmaciones jurídicas sin revisión"
+      ]
+    }
+  ]
 }

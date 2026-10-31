@@ -3,7 +3,7 @@
   "id": "video-095",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Segunda opinión jurídica",
+    "title": "Un niño no debe convertirse en mensajero del litigio",
     "description": "Cuándo conviene revisar una estrategia ya iniciada.",
     "tags": [
       "derecho",
@@ -13,7 +13,11 @@
       "segunda",
       "opinion",
       "juridica"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Segunda opinión jurídica: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Segunda opinión jurídica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir segunda opinión jurídica con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre segunda opinión jurídica, con una ruta de seguimiento y ejecución posible. Segunda opinión jurídica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Segunda opinión jurídica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Puede un niño convertirse en mensajero del conflicto de sus padres? Ejemplo expresamente hipotético: En una familia ficticia, una niña recibe encargos para repetir reproches de un progenitor al otro. Distingue comunicación parental necesaria de mensajes que la exponen a tensión o le exigen tomar partido. Propón canales adultos y, si existe conflicto intenso, intervención profesional acorde a la situación. La niña no debe cargar con la negociación de las visitas ni con acusaciones cruzadas. Proteger el vínculo empieza por retirar al menor del enfrentamiento. Habla directamente con el adulto responsable por una vía segura.",
     "narrationSrc": "public/generated/video-095-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Segunda opinión jurídica",
-        "subtitle": "Segunda opinión jurídica: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Un niño no debe convertirse en mensajero del litigio",
+        "subtitle": "¿Puede un niño convertirse en mensajero del conflicto de sus padres?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Segunda opinión jurídica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: En una familia ficticia, una niña recibe encargos para repetir reproches de un progenitor al otro."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Distingue comunicación parental necesaria de mensajes que la exponen a tensión o le exigen tomar partido."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Propón canales adultos y, si existe conflicto intenso, intervención profesional acorde a la situación."
       },
       "timing": {
         "durationMs": 9000
@@ -83,21 +87,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir segunda opinión jurídica con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Segunda opinión jurídica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Segunda opinión jurídica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La niña no debe cargar con la negociación de las visitas ni con acusaciones cruzadas.",
+        "subtitle": "Proteger el vínculo empieza por retirar al menor del enfrentamiento."
       },
       "timing": {
         "durationMs": 10000

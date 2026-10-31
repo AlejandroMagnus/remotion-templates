@@ -3,7 +3,7 @@
   "id": "video-087",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Nulidades procesales",
+    "title": "Derecho de petición: pedir con precisión facilita una respuesta controlable",
     "description": "Cuándo una irregularidad realmente anula el proceso.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "nulidades",
       "procesales"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Nulidades procesales: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Nulidades procesales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir nulidades procesales con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre nulidades procesales, con una ruta de seguimiento y ejecución posible. Nulidades procesales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Nulidades procesales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Qué respuesta esperas si tu petición no dice qué solicitas? Ejemplo expresamente hipotético: Una vecina ficticia escribe una queja extensa sobre una obra, pero no solicita información ni actuación concreta. Separa antecedentes de pedidos: documentos, explicación o decisión, según su objetivo. Identifica al peticionario y conserva constancia de presentación; examina la respuesta frente a cada solicitud. El derecho de petición no convierte toda solicitud en una orden favorable a quien la formula. La precisión permite distinguir respuesta de satisfacción. Redacta tus solicitudes en apartados verificables.",
     "narrationSrc": "public/generated/video-087-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Nulidades procesales",
-        "subtitle": "Nulidades procesales: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Derecho de petición: pedir con precisión facilita una respuesta controlable",
+        "subtitle": "¿Qué respuesta esperas si tu petición no dice qué solicitas?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Nulidades procesales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una vecina ficticia escribe una queja extensa sobre una obra, pero no solicita información ni actuación concreta."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Separa antecedentes de pedidos: documentos, explicación o decisión, según su objetivo."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Identifica al peticionario y conserva constancia de presentación; examina la respuesta frente a cada solicitud."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir nulidades procesales con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Nulidades procesales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Nulidades procesales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El derecho de petición no convierte toda solicitud en una orden favorable a quien la formula.",
+        "subtitle": "La precisión permite distinguir respuesta de satisfacción."
       },
       "timing": {
         "durationMs": 10000

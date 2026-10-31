@@ -3,7 +3,7 @@
   "id": "video-089",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Recursos judiciales",
+    "title": "Verdad material: investigar no equivale a creer cualquier versión",
     "description": "Diferencia entre reclamar, apelar, recurrir y pedir nulidad.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "recursos",
       "judiciales"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Recursos judiciales: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Recursos judiciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir recursos judiciales con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre recursos judiciales, con una ruta de seguimiento y ejecución posible. Recursos judiciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Recursos judiciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Invocar verdad material elimina la necesidad de probar? Ejemplo expresamente hipotético: Un solicitante ficticio afirma que una transferencia existió, pero no identifica cuenta ni fecha. Delimita la operación alegada y solicita o aporta rastros verificables conforme a las reglas aplicables. Contrasta registros disponibles y explicaciones alternativas antes de concluir que el pago ocurrió. La invocación de un principio no acredita una transacción inexistente en los respaldos. Investigar es comprobar, no escoger la narración más emotiva. Formula hipótesis contrastables en lugar de afirmaciones vacías.",
     "narrationSrc": "public/generated/video-089-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Recursos judiciales",
-        "subtitle": "Recursos judiciales: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Verdad material: investigar no equivale a creer cualquier versión",
+        "subtitle": "¿Invocar verdad material elimina la necesidad de probar?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Recursos judiciales: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Un solicitante ficticio afirma que una transferencia existió, pero no identifica cuenta ni fecha."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Delimita la operación alegada y solicita o aporta rastros verificables conforme a las reglas aplicables."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Contrasta registros disponibles y explicaciones alternativas antes de concluir que el pago ocurrió."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir recursos judiciales con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Recursos judiciales se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Recursos judiciales, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La invocación de un principio no acredita una transacción inexistente en los respaldos.",
+        "subtitle": "Investigar es comprobar, no escoger la narración más emotiva."
       },
       "timing": {
         "durationMs": 10000

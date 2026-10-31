@@ -3,7 +3,7 @@
   "id": "video-099",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Qué hace diferente a un servicio jurídico premium",
+    "title": "Violencia y medidas de protección: no improvisar contacto",
     "description": "No es solo redactar: es diagnosticar, probar, anticipar y decidir.",
     "tags": [
       "derecho",
@@ -14,7 +14,11 @@
       "hace",
       "diferente",
       "servicio"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -30,7 +34,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Qué hace diferente a un servicio jurídico premium: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Qué hace diferente a un servicio jurídico premium: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir qué hace diferente a un servicio jurídico premium con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre qué hace diferente a un servicio jurídico premium, con una ruta de seguimiento y ejecución posible. Qué hace diferente a un servicio jurídico premium se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Qué hace diferente a un servicio jurídico premium, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Es prudente contactar a alguien sin leer una medida de protección? Ejemplo expresamente hipotético: En un caso ficticio, una persona cree que una prohibición de acercamiento permite enviar mensajes por terceros. Lee destinatarios, conductas restringidas, ámbito y autoridad emisora, sin suponer excepciones. Ante duda, solicita aclaración por la vía competente y evita contacto que pueda incumplir la orden. En el ejemplo, la intermediación no debe utilizarse como atajo para eludir restricciones. La protección exige respeto estricto a las decisiones vigentes. Antes de actuar, revisa íntegramente la medida con asistencia especializada.",
     "narrationSrc": "public/generated/video-099-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -42,8 +46,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Qué hace diferente a un servicio jurídico premium",
-        "subtitle": "Qué hace diferente a un servicio jurídico premium: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Violencia y medidas de protección: no improvisar contacto",
+        "subtitle": "¿Es prudente contactar a alguien sin leer una medida de protección?"
       },
       "timing": {
         "durationMs": 8000
@@ -54,7 +58,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Qué hace diferente a un servicio jurídico premium: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: En un caso ficticio, una persona cree que una prohibición de acercamiento permite enviar mensajes por terceros."
       },
       "timing": {
         "durationMs": 9000
@@ -65,7 +69,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Lee destinatarios, conductas restringidas, ámbito y autoridad emisora, sin suponer excepciones."
       },
       "timing": {
         "durationMs": 9000
@@ -76,7 +80,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Ante duda, solicita aclaración por la vía competente y evita contacto que pueda incumplir la orden."
       },
       "timing": {
         "durationMs": 9000
@@ -84,21 +88,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir qué hace diferente a un servicio jurídico premium con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Qué hace diferente a un servicio jurídico premium se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Qué hace diferente a un servicio jurídico premium, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "En el ejemplo, la intermediación no debe utilizarse como atajo para eludir restricciones.",
+        "subtitle": "La protección exige respeto estricto a las decisiones vigentes."
       },
       "timing": {
         "durationMs": 10000

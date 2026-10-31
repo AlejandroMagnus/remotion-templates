@@ -3,7 +3,7 @@
   "id": "video-098",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Riesgo legal empresarial",
+    "title": "Cobros inesperados: cómo organizar un reclamo documentado",
     "description": "Cómo una empresa puede perder dinero por falta de prevención jurídica.",
     "tags": [
       "derecho",
@@ -13,7 +13,11 @@
       "riesgo",
       "legal",
       "empresarial"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Riesgo legal empresarial: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Riesgo legal empresarial: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir riesgo legal empresarial con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre riesgo legal empresarial, con una ruta de seguimiento y ejecución posible. Riesgo legal empresarial se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Riesgo legal empresarial, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Cómo reclamar un cobro que no sabes reconstruir? Ejemplo expresamente hipotético: Un usuario ficticio encuentra un cargo bancario que no reconoce y solo conserva una captura del saldo. Obtén el detalle de la operación por canales seguros y verifica si corresponde a una autorización previa. Presenta el reclamo con identificadores de transacción y conserva constancias, evitando compartir claves o datos sensibles. La diferencia entre error, duplicidad y operación no autorizada determina qué debe investigarse. La trazabilidad es más útil que una acusación genérica. Reúne el movimiento completo y el número de reclamo.",
     "narrationSrc": "public/generated/video-098-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Riesgo legal empresarial",
-        "subtitle": "Riesgo legal empresarial: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Cobros inesperados: cómo organizar un reclamo documentado",
+        "subtitle": "¿Cómo reclamar un cobro que no sabes reconstruir?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Riesgo legal empresarial: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Un usuario ficticio encuentra un cargo bancario que no reconoce y solo conserva una captura del saldo."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Obtén el detalle de la operación por canales seguros y verifica si corresponde a una autorización previa."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Presenta el reclamo con identificadores de transacción y conserva constancias, evitando compartir claves o datos sensibles."
       },
       "timing": {
         "durationMs": 9000
@@ -83,21 +87,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir riesgo legal empresarial con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Riesgo legal empresarial se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Riesgo legal empresarial, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La diferencia entre error, duplicidad y operación no autorizada determina qué debe investigarse.",
+        "subtitle": "La trazabilidad es más útil que una acusación genérica."
       },
       "timing": {
         "durationMs": 10000

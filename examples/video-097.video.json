@@ -3,7 +3,7 @@
   "id": "video-097",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Negociación jurídica",
+    "title": "Riesgo contractual: el problema puede estar en lo que falta",
     "description": "Cuándo negociar no es debilidad, sino estrategia.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "negociacion",
       "juridica"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Negociación jurídica: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Negociación jurídica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir negociación jurídica con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre negociación jurídica, con una ruta de seguimiento y ejecución posible. Negociación jurídica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Negociación jurídica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿El mayor riesgo de un contrato puede estar en lo que nadie escribió? Ejemplo expresamente hipotético: Dos empresas ficticias contratan software sin definir cómo comprobar que funciona. Establece entregables y pruebas de aceptación observables, con responsables identificados. Acordar tratamiento de fallas, cambios y pagos reduce disputas sobre lo que se consideraba terminado. Sin criterios de aceptación, una entrega técnica puede generar interpretaciones incompatibles. El buen contrato hace comprobable la prestación. Antes de firmar, describe cómo reconocerás el cumplimiento.",
     "narrationSrc": "public/generated/video-097-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Negociación jurídica",
-        "subtitle": "Negociación jurídica: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Riesgo contractual: el problema puede estar en lo que falta",
+        "subtitle": "¿El mayor riesgo de un contrato puede estar en lo que nadie escribió?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Negociación jurídica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Dos empresas ficticias contratan software sin definir cómo comprobar que funciona."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Establece entregables y pruebas de aceptación observables, con responsables identificados."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Acordar tratamiento de fallas, cambios y pagos reduce disputas sobre lo que se consideraba terminado."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir negociación jurídica con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Negociación jurídica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Negociación jurídica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Sin criterios de aceptación, una entrega técnica puede generar interpretaciones incompatibles.",
+        "subtitle": "El buen contrato hace comprobable la prestación."
       },
       "timing": {
         "durationMs": 10000

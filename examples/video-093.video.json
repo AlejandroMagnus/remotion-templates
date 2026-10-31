@@ -3,7 +3,7 @@
   "id": "video-093",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Errores que cometen los clientes",
+    "title": "Derecho a la privacidad en expedientes digitales",
     "description": "Mentir, ocultar documentos, improvisar y firmar sin asesoría.",
     "tags": [
       "derecho",
@@ -14,7 +14,11 @@
       "que",
       "cometen",
       "los"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -30,7 +34,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Errores que cometen los clientes: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Errores que cometen los clientes: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir errores que cometen los clientes con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre errores que cometen los clientes, con una ruta de seguimiento y ejecución posible. Errores que cometen los clientes se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Errores que cometen los clientes, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Es necesario publicar todos los datos de un expediente digital? Ejemplo expresamente hipotético: Un abogado ficticio comparte una captura que exhibe domicilios y teléfonos ajenos al debate. Define qué información resulta imprescindible para explicar el punto jurídico. Oculta identificadores no pertinentes y verifica restricciones de acceso, reserva y deberes profesionales. En el ejemplo, mostrar el fundamento no requiere exponer a terceros. La transparencia no autoriza divulgar indiscriminadamente. Antes de compartir, revisa cada dato identificable.",
     "narrationSrc": "public/generated/video-093-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -42,8 +46,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Errores que cometen los clientes",
-        "subtitle": "Errores que cometen los clientes: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Derecho a la privacidad en expedientes digitales",
+        "subtitle": "¿Es necesario publicar todos los datos de un expediente digital?"
       },
       "timing": {
         "durationMs": 8000
@@ -54,7 +58,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Errores que cometen los clientes: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Un abogado ficticio comparte una captura que exhibe domicilios y teléfonos ajenos al debate."
       },
       "timing": {
         "durationMs": 9000
@@ -65,7 +69,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Define qué información resulta imprescindible para explicar el punto jurídico."
       },
       "timing": {
         "durationMs": 9000
@@ -76,7 +80,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Oculta identificadores no pertinentes y verifica restricciones de acceso, reserva y deberes profesionales."
       },
       "timing": {
         "durationMs": 9000
@@ -84,21 +88,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir errores que cometen los clientes con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Errores que cometen los clientes se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Errores que cometen los clientes, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "En el ejemplo, mostrar el fundamento no requiere exponer a terceros.",
+        "subtitle": "La transparencia no autoriza divulgar indiscriminadamente."
       },
       "timing": {
         "durationMs": 10000

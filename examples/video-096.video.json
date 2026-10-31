@@ -3,7 +3,7 @@
   "id": "video-096",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Defensa preventiva",
+    "title": "Despido y documentos: qué conservar antes de discutir",
     "description": "Cómo evitar un juicio antes de que nazca.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "defensa",
       "preventiva"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Defensa preventiva: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Defensa preventiva: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir defensa preventiva con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre defensa preventiva, con una ruta de seguimiento y ejecución posible. Defensa preventiva se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Defensa preventiva, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Qué documentos pueden importar cuando termina una relación laboral? Ejemplo expresamente hipotético: Una trabajadora ficticia pierde acceso al correo empresarial el día en que le comunican verbalmente su salida. Resguarda lícitamente contratos, boletas, comunicaciones propias y constancias de pago que ya tenga. Registra fechas y testigos sin extraer secretos empresariales ni vulnerar datos de terceros. El ejemplo muestra por qué una cronología respaldada puede aclarar hechos que luego se discutan. La documentación útil debe obtenerse de manera legítima. Ordena antecedentes laborales antes de decidir una reclamación.",
     "narrationSrc": "public/generated/video-096-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Defensa preventiva",
-        "subtitle": "Defensa preventiva: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Despido y documentos: qué conservar antes de discutir",
+        "subtitle": "¿Qué documentos pueden importar cuando termina una relación laboral?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Defensa preventiva: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una trabajadora ficticia pierde acceso al correo empresarial el día en que le comunican verbalmente su salida."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Resguarda lícitamente contratos, boletas, comunicaciones propias y constancias de pago que ya tenga."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Registra fechas y testigos sin extraer secretos empresariales ni vulnerar datos de terceros."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir defensa preventiva con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Defensa preventiva se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Defensa preventiva, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El ejemplo muestra por qué una cronología respaldada puede aclarar hechos que luego se discutan.",
+        "subtitle": "La documentación útil debe obtenerse de manera legítima."
       },
       "timing": {
         "durationMs": 10000

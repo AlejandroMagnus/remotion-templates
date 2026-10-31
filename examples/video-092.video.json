@@ -3,7 +3,7 @@
   "id": "video-092",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Cómo preparar una consulta jurídica",
+    "title": "Presunción de inocencia y reputación digital",
     "description": "Qué documentos llevar y qué hechos ordenar.",
     "tags": [
       "derecho",
@@ -14,7 +14,11 @@
       "preparar",
       "una",
       "consulta"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -30,7 +34,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Cómo preparar una consulta jurídica: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Cómo preparar una consulta jurídica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir cómo preparar una consulta jurídica con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre cómo preparar una consulta jurídica, con una ruta de seguimiento y ejecución posible. Cómo preparar una consulta jurídica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Cómo preparar una consulta jurídica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Una denuncia difundida en redes convierte a alguien en culpable? Ejemplo expresamente hipotético: Una página ficticia publica el nombre y fotografía de una persona con el título «delincuente» tras conocer una denuncia. Distingue denuncia, investigación, acusación y sentencia; son situaciones jurídicas distintas. Evalúa exactitud de la información, privacidad y efectos de la publicación sin impedir información legítima. El titular categórico excede lo que acredita la mera presentación de una denuncia. La reputación merece cuidado sin silenciar el interés público. Al comunicar un caso, describe su etapa procesal con precisión.",
     "narrationSrc": "public/generated/video-092-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -42,8 +46,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Cómo preparar una consulta jurídica",
-        "subtitle": "Cómo preparar una consulta jurídica: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Presunción de inocencia y reputación digital",
+        "subtitle": "¿Una denuncia difundida en redes convierte a alguien en culpable?"
       },
       "timing": {
         "durationMs": 8000
@@ -54,7 +58,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Cómo preparar una consulta jurídica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una página ficticia publica el nombre y fotografía de una persona con el título «delincuente» tras conocer una denuncia."
       },
       "timing": {
         "durationMs": 9000
@@ -65,7 +69,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Distingue denuncia, investigación, acusación y sentencia; son situaciones jurídicas distintas."
       },
       "timing": {
         "durationMs": 9000
@@ -76,7 +80,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Evalúa exactitud de la información, privacidad y efectos de la publicación sin impedir información legítima."
       },
       "timing": {
         "durationMs": 9000
@@ -84,21 +88,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir cómo preparar una consulta jurídica con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Cómo preparar una consulta jurídica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Cómo preparar una consulta jurídica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El titular categórico excede lo que acredita la mera presentación de una denuncia.",
+        "subtitle": "La reputación merece cuidado sin silenciar el interés público."
       },
       "timing": {
         "durationMs": 10000

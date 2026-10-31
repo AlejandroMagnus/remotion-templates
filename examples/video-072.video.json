@@ -3,7 +3,7 @@
   "id": "video-072",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Saneamiento agrario",
+    "title": "Un buen argumento también debe sobrevivir a su mejor objeción",
     "description": "Ruta general, prueba y riesgos.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "saneamiento",
       "agrario"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Saneamiento agrario: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Saneamiento agrario: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir saneamiento agrario con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre saneamiento agrario, con una ruta de seguimiento y ejecución posible. Saneamiento agrario se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Saneamiento agrario, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Tu argumento resistiría la objeción más fuerte de la otra parte? Ejemplo expresamente hipotético: Un proveedor ficticio afirma haber cumplido, pero el comprador exhibe fotografías de defectos. Comprueba fecha, origen y correspondencia de las imágenes con la entrega discutida. Contrasta el acta de recepción y las comunicaciones posteriores: pueden revelar aceptación, reserva o reparación pendiente. El caso no se resuelve ignorando las fotografías, sino determinando qué acreditan realmente. Anticipar la contradicción protege la credibilidad del razonamiento. Ensaya la mejor pregunta que te haría la contraparte.",
     "narrationSrc": "public/generated/video-072-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Saneamiento agrario",
-        "subtitle": "Saneamiento agrario: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Un buen argumento también debe sobrevivir a su mejor objeción",
+        "subtitle": "¿Tu argumento resistiría la objeción más fuerte de la otra parte?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Saneamiento agrario: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Un proveedor ficticio afirma haber cumplido, pero el comprador exhibe fotografías de defectos."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Comprueba fecha, origen y correspondencia de las imágenes con la entrega discutida."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Contrasta el acta de recepción y las comunicaciones posteriores: pueden revelar aceptación, reserva o reparación pendiente."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir saneamiento agrario con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Saneamiento agrario se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Saneamiento agrario, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El caso no se resuelve ignorando las fotografías, sino determinando qué acreditan realmente.",
+        "subtitle": "Anticipar la contradicción protege la credibilidad del razonamiento."
       },
       "timing": {
         "durationMs": 10000

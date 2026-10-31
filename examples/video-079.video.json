@@ -3,7 +3,7 @@
   "id": "video-079",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Regulación económica",
+    "title": "La pregunta decisiva en una audiencia no siempre es la más larga",
     "description": "Cómo el Estado controla actividades económicas sensibles.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "regulacion",
       "economica"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Regulación económica: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Regulación económica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir regulación económica con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre regulación económica, con una ruta de seguimiento y ejecución posible. Regulación económica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Regulación económica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Qué pregunta podría revelar la contradicción decisiva en una audiencia? Ejemplo expresamente hipotético: Un testigo ficticio afirma haber visto una entrega a las nueve, pero su registro de ingreso indica otra hora. Fija primero qué observó personalmente y desde dónde, evitando introducir conclusiones en la pregunta. Después confronta la hora declarada con el registro, respetando las reglas procesales aplicables. Una secuencia breve puede delimitar la fiabilidad temporal sin descalificar toda la declaración. Preguntar mejor es aislar una incertidumbre verificable. Prepara cada pregunta con un objetivo probatorio definido.",
     "narrationSrc": "public/generated/video-079-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Regulación económica",
-        "subtitle": "Regulación económica: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "La pregunta decisiva en una audiencia no siempre es la más larga",
+        "subtitle": "¿Qué pregunta podría revelar la contradicción decisiva en una audiencia?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Regulación económica: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Un testigo ficticio afirma haber visto una entrega a las nueve, pero su registro de ingreso indica otra hora."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Fija primero qué observó personalmente y desde dónde, evitando introducir conclusiones en la pregunta."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Después confronta la hora declarada con el registro, respetando las reglas procesales aplicables."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir regulación económica con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Regulación económica se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Regulación económica, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Una secuencia breve puede delimitar la fiabilidad temporal sin descalificar toda la declaración.",
+        "subtitle": "Preguntar mejor es aislar una incertidumbre verificable."
       },
       "timing": {
         "durationMs": 10000

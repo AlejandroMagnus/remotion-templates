@@ -3,7 +3,7 @@
   "id": "video-085",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Testigos",
+    "title": "Asistencia familiar: necesidades y posibilidades no son lo mismo",
     "description": "Cómo prepararlos y cómo atacarlos.",
     "tags": [
       "derecho",
@@ -11,7 +11,11 @@
       "silec",
       "juridico",
       "testigos"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -27,7 +31,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Testigos: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Testigos: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir testigos con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre testigos, con una ruta de seguimiento y ejecución posible. Testigos se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Testigos, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Basta con discutir una cifra para fijar asistencia familiar? Ejemplo expresamente hipotético: Dos progenitores ficticios discrepan sobre una suma mensual sin presentar gastos escolares ni ingresos. Desglosa alimentación, salud, educación, vivienda y otras necesidades pertinentes con sus respaldos. Contrasta ingresos acreditables y capacidades económicas; la autoridad debe valorar el conjunto y las reglas legales aplicables. La cifra aislada no muestra por qué sería suficiente ni proporcional. La discusión debe centrarse en bienestar y capacidad, no en castigar al otro progenitor. Organiza gastos e ingresos verificables antes de la audiencia.",
     "narrationSrc": "public/generated/video-085-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -39,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Testigos",
-        "subtitle": "Testigos: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Asistencia familiar: necesidades y posibilidades no son lo mismo",
+        "subtitle": "¿Basta con discutir una cifra para fijar asistencia familiar?"
       },
       "timing": {
         "durationMs": 8000
@@ -51,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Testigos: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Dos progenitores ficticios discrepan sobre una suma mensual sin presentar gastos escolares ni ingresos."
       },
       "timing": {
         "durationMs": 9000
@@ -62,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Desglosa alimentación, salud, educación, vivienda y otras necesidades pertinentes con sus respaldos."
       },
       "timing": {
         "durationMs": 9000
@@ -73,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Contrasta ingresos acreditables y capacidades económicas; la autoridad debe valorar el conjunto y las reglas legales aplicables."
       },
       "timing": {
         "durationMs": 9000
@@ -81,21 +85,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir testigos con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Testigos se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Testigos, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "La cifra aislada no muestra por qué sería suficiente ni proporcional.",
+        "subtitle": "La discusión debe centrarse en bienestar y capacidad, no en castigar al otro progenitor."
       },
       "timing": {
         "durationMs": 10000

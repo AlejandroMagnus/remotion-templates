@@ -3,7 +3,7 @@
   "id": "video-086",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Pericia",
+    "title": "Visitas familiares: el centro de la decisión son los hijos",
     "description": "Cuándo pedirla y cómo cuestionarla.",
     "tags": [
       "derecho",
@@ -11,7 +11,11 @@
       "silec",
       "juridico",
       "pericia"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -27,7 +31,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Pericia: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Pericia: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir pericia con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre pericia, con una ruta de seguimiento y ejecución posible. Pericia se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Pericia, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Las visitas se deciden para satisfacer a los adultos? Ejemplo expresamente hipotético: En un caso ficticio, un niño manifiesta temor y un progenitor exige contacto inmediato sin evaluación. Escucha las necesidades del menor mediante vías adecuadas y examina antecedentes y medidas vigentes. Considera apoyos especializados y condiciones de supervisión cuando correspondan, sin presumir automáticamente una causa del rechazo. El ejemplo exige protección y evaluación individual antes de fijar un régimen seguro. El vínculo no se fortalece ignorando el bienestar infantil. Prioriza una propuesta de contacto viable y respetuosa.",
     "narrationSrc": "public/generated/video-086-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -39,8 +43,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Pericia",
-        "subtitle": "Pericia: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Visitas familiares: el centro de la decisión son los hijos",
+        "subtitle": "¿Las visitas se deciden para satisfacer a los adultos?"
       },
       "timing": {
         "durationMs": 8000
@@ -51,7 +55,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Pericia: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: En un caso ficticio, un niño manifiesta temor y un progenitor exige contacto inmediato sin evaluación."
       },
       "timing": {
         "durationMs": 9000
@@ -62,7 +66,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Escucha las necesidades del menor mediante vías adecuadas y examina antecedentes y medidas vigentes."
       },
       "timing": {
         "durationMs": 9000
@@ -73,7 +77,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Considera apoyos especializados y condiciones de supervisión cuando correspondan, sin presumir automáticamente una causa del rechazo."
       },
       "timing": {
         "durationMs": 9000
@@ -81,21 +85,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir pericia con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Pericia se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Pericia, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "El ejemplo exige protección y evaluación individual antes de fijar un régimen seguro.",
+        "subtitle": "El vínculo no se fortalece ignorando el bienestar infantil."
       },
       "timing": {
         "durationMs": 10000

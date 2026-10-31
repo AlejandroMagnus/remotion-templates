@@ -3,7 +3,7 @@
   "id": "video-088",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Congruencia procesal",
+    "title": "Igualdad de armas: conocer y discutir la prueba",
     "description": "Por qué el juez no puede decidir fuera de lo pedido.",
     "tags": [
       "derecho",
@@ -12,7 +12,11 @@
       "juridico",
       "congruencia",
       "procesal"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -28,7 +32,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Congruencia procesal: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Congruencia procesal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir congruencia procesal con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre congruencia procesal, con una ruta de seguimiento y ejecución posible. Congruencia procesal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Congruencia procesal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Cómo discutir una prueba que nunca pudiste conocer? Ejemplo expresamente hipotético: Una parte ficticia descubre en audiencia un informe que contiene datos que no había podido revisar. Determina cuándo fue incorporado y qué oportunidad procesal existió para examinarlo. Solicita la medida pertinente según la vía y explica el perjuicio concreto para su contradicción. No toda sorpresa produce automáticamente nulidad, pero la afectación debe ser examinada. La defensa requiere acceso real al argumento y su respaldo. Registra qué documento desconocías y qué respuesta necesitabas preparar.",
     "narrationSrc": "public/generated/video-088-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -40,8 +44,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Congruencia procesal",
-        "subtitle": "Congruencia procesal: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Igualdad de armas: conocer y discutir la prueba",
+        "subtitle": "¿Cómo discutir una prueba que nunca pudiste conocer?"
       },
       "timing": {
         "durationMs": 8000
@@ -52,7 +56,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Congruencia procesal: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una parte ficticia descubre en audiencia un informe que contiene datos que no había podido revisar."
       },
       "timing": {
         "durationMs": 9000
@@ -63,7 +67,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Determina cuándo fue incorporado y qué oportunidad procesal existió para examinarlo."
       },
       "timing": {
         "durationMs": 9000
@@ -74,7 +78,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Solicita la medida pertinente según la vía y explica el perjuicio concreto para su contradicción."
       },
       "timing": {
         "durationMs": 9000
@@ -82,21 +86,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir congruencia procesal con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Congruencia procesal se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Congruencia procesal, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "No toda sorpresa produce automáticamente nulidad, pero la afectación debe ser examinada.",
+        "subtitle": "La defensa requiere acceso real al argumento y su respaldo."
       },
       "timing": {
         "durationMs": 10000

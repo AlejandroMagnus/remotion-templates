@@ -3,7 +3,7 @@
   "id": "video-094",
   "templateFamily": "announcement-brief",
   "meta": {
-    "title": "Diagnóstico jurídico estratégico",
+    "title": "Impugnación: antes de discutir el fondo, identifica la decisión",
     "description": "Por qué antes de demandar hay que entender el caso completo.",
     "tags": [
       "derecho",
@@ -13,7 +13,11 @@
       "diagnostico",
       "juridico",
       "estrategico"
-    ]
+    ],
+    "finalNarrationGate": {
+      "version": "FINAL-NARRATION-GATE-V1",
+      "removedMethodologicalEchoCount": 0
+    }
   },
   "target": {
     "aspect": "9:16",
@@ -29,7 +33,7 @@
   },
   "audio": {
     "mode": "narration",
-    "narrationText": "Diagnóstico jurídico estratégico: antes de actuar, hay una pregunta que puede cambiar todo el caso. Primero identifique el resultado buscado en Diagnóstico jurídico estratégico: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar. Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada. Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general. Anticipe la objeción principal: en este tema suele discutirse confundir diagnóstico jurídico estratégico con un trámite genérico sin identificar requisitos, autoridad y prueba. La decisión útil debe terminar en una actuación jurídicamente ordenada sobre diagnóstico jurídico estratégico, con una ruta de seguimiento y ejecución posible. Diagnóstico jurídico estratégico se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado. En Diagnóstico jurídico estratégico, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo.",
+    "narrationText": "¿Cómo impugnar si ni siquiera identificas el acto que te perjudica? Ejemplo expresamente hipotético: Una empresa ficticia protesta por una multa, pero adjunta una carta informativa distinta de la resolución sancionadora. Localiza el acto decisorio y su parte dispositiva; separa antecedentes de la decisión que produce efectos. Verifica la vía y las condiciones aplicables en el régimen específico antes de formular agravios. Discutir la carta equivocada puede dejar sin respuesta la sanción real. El primer paso de impugnar es saber qué se impugna. Identifica número, fecha y efecto del acto en tu carpeta.",
     "narrationSrc": "public/generated/video-094-narration.mp3",
     "narrationVolume": 1,
     "musicVolume": 0.1,
@@ -41,8 +45,8 @@
       "id": "scene-01",
       "kind": "hero",
       "content": {
-        "title": "Diagnóstico jurídico estratégico",
-        "subtitle": "Diagnóstico jurídico estratégico: antes de actuar, hay una pregunta que puede cambiar todo el caso."
+        "title": "Impugnación: antes de discutir el fondo, identifica la decisión",
+        "subtitle": "¿Cómo impugnar si ni siquiera identificas el acto que te perjudica?"
       },
       "timing": {
         "durationMs": 8000
@@ -53,7 +57,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 1",
-        "subtitle": "Primero identifique el resultado buscado en Diagnóstico jurídico estratégico: no es lo mismo prevenir, reclamar, defenderse, impugnar o ejecutar."
+        "subtitle": "Ejemplo expresamente hipotético: Una empresa ficticia protesta por una multa, pero adjunta una carta informativa distinta de la resolución sancionadora."
       },
       "timing": {
         "durationMs": 9000
@@ -64,7 +68,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 2",
-        "subtitle": "Luego determine la autoridad competente y el documento inicial; sin esa ubicación, la estrategia nace desordenada."
+        "subtitle": "Localiza el acto decisorio y su parte dispositiva; separa antecedentes de la decisión que produce efectos."
       },
       "timing": {
         "durationMs": 9000
@@ -75,7 +79,7 @@
       "kind": "statement",
       "content": {
         "title": "Paso 3",
-        "subtitle": "Después separe el hecho decisivo de los hechos accesorios y vincúlelo con prueba concreta, no con relato general."
+        "subtitle": "Verifica la vía y las condiciones aplicables en el régimen específico antes de formular agravios."
       },
       "timing": {
         "durationMs": 9000
@@ -83,21 +87,10 @@
     },
     {
       "id": "scene-05",
-      "kind": "statement",
-      "content": {
-        "title": "Paso 4",
-        "subtitle": "Anticipe la objeción principal: en este tema suele discutirse confundir diagnóstico jurídico estratégico con un trámite genérico sin identificar requisitos, autoridad y prueba."
-      },
-      "timing": {
-        "durationMs": 9000
-      }
-    },
-    {
-      "id": "scene-06",
       "kind": "cta",
       "content": {
-        "title": "Diagnóstico jurídico estratégico se domina cuando el abogado puede explicar qué se busca, ante quién se actúa, qué se prueba, qué se responde y cómo se ejecuta el resultado.",
-        "subtitle": "En Diagnóstico jurídico estratégico, la diferencia entre improvisar y actuar con método suele estar en preparar la prueba antes del conflicto decisivo."
+        "title": "Discutir la carta equivocada puede dejar sin respuesta la sanción real.",
+        "subtitle": "El primer paso de impugnar es saber qué se impugna."
       },
       "timing": {
         "durationMs": 10000
