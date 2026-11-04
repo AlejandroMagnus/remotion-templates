@@ -3210,6 +3210,41 @@ async def main() -> None:
             if not _adaptive_wpm_recovery_allowed(metrics, vocal_qa):
                 break
 
+    # Reintento acotado para VIDEO-075. Conserva los umbrales de QA.
+    if (
+        PRODUCTION_CODE == "video-075"
+        and os.environ.get("STRICT_VOCAL_QA") == "1"
+        and vocal_qa.get("issues") == ["effective-wpm-below-target"]
+    ):
+        from dataclasses import replace
+
+        def shorten_pause(ms):
+            return min(ms, max(100, round(ms * 0.80)))
+
+        candidate = [
+            replace(
+                item,
+                pre_pause_ms=shorten_pause(item.pre_pause_ms),
+                post_pause_ms=shorten_pause(item.post_pause_ms),
+            )
+            for item in plan
+        ]
+        if metrics["speechWpm"] < direction.vocal.target_wpm.min:
+            candidate = _increase_prosody_rate_adaptive(candidate, 4)
+
+        print("VIDEO_075_RHYTHM_RETRY:", metrics["effectiveWpm"], "WPM")
+        words, effective_segments, duration_ms = await build_prosodic_audio(candidate)
+        measured_pause_ms = measure_audio_silence_ms(AUDIO, duration_ms)
+        metrics = build_rhythm_metrics(
+            candidate, effective_segments, duration_ms, direction, measured_pause_ms,
+        )
+        vocal_qa = build_vocal_qa(candidate, metrics)
+        plan = candidate
+        print(
+            "VIDEO_075_RHYTHM_RESULT:", metrics["effectiveWpm"], "WPM",
+            "QA_PASS" if vocal_qa["passed"] else vocal_qa["issues"],
+        )
+
     write_timeline(
         words,
         effective_segments,
