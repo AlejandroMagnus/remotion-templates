@@ -3229,8 +3229,18 @@ async def main() -> None:
             )
             for item in plan
         ]
-        if metrics["speechWpm"] < direction.vocal.target_wpm.min:
-            candidate = _increase_prosody_rate_adaptive(candidate, 4)
+        # El ritmo efectivo incluye pausas: ajustar la síntesis del 075.
+        rates = [int(item.rate.removesuffix("%")) for item in candidate]
+        boosted = [max(rate, min(15, rate + 13)) for rate in rates]
+        candidate = [
+            replace(item, rate=f"{rate:+d}%")
+            for item, rate in zip(candidate, boosted)
+        ]
+        print(
+            "VIDEO_075_TTS_RATE:", min(boosted), max(boosted),
+            "| habla WPM:", metrics["speechWpm"],
+            "| pausas:", metrics.get("pauseRatio"),
+        )
 
         print("VIDEO_075_RHYTHM_RETRY:", metrics["effectiveWpm"], "WPM")
         words, effective_segments, duration_ms = await build_prosodic_audio(candidate)
